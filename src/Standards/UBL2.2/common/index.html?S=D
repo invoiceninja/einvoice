@@ -1,0 +1,95 @@
+<HTML>
+        <HEAD>
+                <TITLE>Index of /ubl/os-UBL-2.2/xsd/common/</TITLE>
+        </HEAD>
+        <BODY BGCOLOR="#ffffff" text="#000000">
+        <H1>Index of /ubl/os-UBL-2.2/xsd/common/</H1>
+        <TABLE BORDER="0">
+                <TR BGCOLOR="#DDDDDD">
+			<TH><A HREF="/ubl/os-UBL-2.2/xsd/common/?N=A">Name</A></TH>
+			<TH><A HREF="/ubl/os-UBL-2.2/xsd/common/?D=A">Last Modified</A></TH>
+			<TH><A HREF="/ubl/os-UBL-2.2/xsd/common/?S=A">Size</A></TH>
+		</TR>
+		<TR>
+			<TD STYLE="padding-right: 1em;"><A HREF="/ubl/os-UBL-2.2/xsd/">Parent Directory</A></TD>
+			<TD></TD><TD></TD>
+		</TR>
+	<TR>
+		<TD STYLE="padding-right: 1em;"><A HREF="UBL-CommonAggregateComponents-2.2.xsd">UBL-CommonAggregateComponents-2.2.xsd</A></TD>
+		<TD STYLE="padding-left: 1em;">09-Jul-2018 16:00</TD>
+		<TD STYLE="padding-left: 1em;" ALIGN="right">2585k</TD>
+	</TR>
+	<TR>
+		<TD STYLE="padding-right: 1em;"><A HREF="UBL-CommonBasicComponents-2.2.xsd">UBL-CommonBasicComponents-2.2.xsd</A></TD>
+		<TD STYLE="padding-left: 1em;">09-Jul-2018 16:00</TD>
+		<TD STYLE="padding-left: 1em;" ALIGN="right">242k</TD>
+	</TR>
+	<TR>
+		<TD STYLE="padding-right: 1em;"><A HREF="CCTS_CCT_SchemaModule-2.2.xsd">CCTS_CCT_SchemaModule-2.2.xsd</A></TD>
+		<TD STYLE="padding-left: 1em;">09-Jul-2018 16:00</TD>
+		<TD STYLE="padding-left: 1em;" ALIGN="right">44k</TD>
+	</TR>
+	<TR>
+		<TD STYLE="padding-right: 1em;"><A HREF="UBL-UnqualifiedDataTypes-2.2.xsd">UBL-UnqualifiedDataTypes-2.2.xsd</A></TD>
+		<TD STYLE="padding-left: 1em;">09-Jul-2018 16:00</TD>
+		<TD STYLE="padding-left: 1em;" ALIGN="right">27k</TD>
+	</TR>
+	<TR>
+		<TD STYLE="padding-right: 1em;"><A HREF="UBL-XAdES01903v132-201601-2.2.xsd">UBL-XAdES01903v132-201601-2.2.xsd</A></TD>
+		<TD STYLE="padding-left: 1em;">09-Jul-2018 16:00</TD>
+		<TD STYLE="padding-left: 1em;" ALIGN="right">23k</TD>
+	</TR>
+	<TR>
+		<TD STYLE="padding-right: 1em;"><A HREF="UBL-xmldsig-core-schema-2.2.xsd">UBL-xmldsig-core-schema-2.2.xsd</A></TD>
+		<TD STYLE="padding-left: 1em;">09-Jul-2018 16:00</TD>
+		<TD STYLE="padding-left: 1em;" ALIGN="right">11k</TD>
+	</TR>
+	<TR>
+		<TD STYLE="padding-right: 1em;"><A HREF="UBL-CommonExtensionComponents-2.2.xsd">UBL-CommonExtensionComponents-2.2.xsd</A></TD>
+		<TD STYLE="padding-left: 1em;">09-Jul-2018 16:00</TD>
+		<TD STYLE="padding-left: 1em;" ALIGN="right">9k</TD>
+	</TR>
+	<TR>
+		<TD STYLE="padding-right: 1em;"><A HREF="UBL-SignatureAggregateComponents-2.2.xsd">UBL-SignatureAggregateComponents-2.2.xsd</A></TD>
+		<TD STYLE="padding-left: 1em;">09-Jul-2018 16:00</TD>
+		<TD STYLE="padding-left: 1em;" ALIGN="right">7k</TD>
+	</TR>
+	<TR>
+		<TD STYLE="padding-right: 1em;"><A HREF="UBL-QualifiedDataTypes-2.2.xsd">UBL-QualifiedDataTypes-2.2.xsd</A></TD>
+		<TD STYLE="padding-left: 1em;">09-Jul-2018 16:00</TD>
+		<TD STYLE="padding-left: 1em;" ALIGN="right">7k</TD>
+	</TR>
+	<TR>
+		<TD STYLE="padding-right: 1em;"><A HREF="UBL-CommonSignatureComponents-2.2.xsd">UBL-CommonSignatureComponents-2.2.xsd</A></TD>
+		<TD STYLE="padding-left: 1em;">09-Jul-2018 16:00</TD>
+		<TD STYLE="padding-left: 1em;" ALIGN="right">5k</TD>
+	</TR>
+	<TR>
+		<TD STYLE="padding-right: 1em;"><A HREF="UBL-xmldsig11-schema-2.2.xsd">UBL-xmldsig11-schema-2.2.xsd</A></TD>
+		<TD STYLE="padding-left: 1em;">09-Jul-2018 16:00</TD>
+		<TD STYLE="padding-left: 1em;" ALIGN="right">5k</TD>
+	</TR>
+	<TR>
+		<TD STYLE="padding-right: 1em;"><A HREF="UBL-ExtensionContentDataType-2.2.xsd">UBL-ExtensionContentDataType-2.2.xsd</A></TD>
+		<TD STYLE="padding-left: 1em;">09-Jul-2018 16:00</TD>
+		<TD STYLE="padding-left: 1em;" ALIGN="right">5k</TD>
+	</TR>
+	<TR>
+		<TD STYLE="padding-right: 1em;"><A HREF="UBL-SignatureBasicComponents-2.2.xsd">UBL-SignatureBasicComponents-2.2.xsd</A></TD>
+		<TD STYLE="padding-left: 1em;">09-Jul-2018 16:00</TD>
+		<TD STYLE="padding-left: 1em;" ALIGN="right">4k</TD>
+	</TR>
+	<TR>
+		<TD STYLE="padding-right: 1em;"><A HREF="UBL-XAdES01903v141-201601-2.2.xsd">UBL-XAdES01903v141-201601-2.2.xsd</A></TD>
+		<TD STYLE="padding-left: 1em;">09-Jul-2018 16:00</TD>
+		<TD STYLE="padding-left: 1em;" ALIGN="right">3k</TD>
+	</TR>
+	<TR>
+		<TD STYLE="padding-right: 1em;"><A HREF="UBL-xmldsig1-schema-2.2.xsd">UBL-xmldsig1-schema-2.2.xsd</A></TD>
+		<TD STYLE="padding-left: 1em;">09-Jul-2018 16:00</TD>
+		<TD STYLE="padding-left: 1em;" ALIGN="right">1k</TD>
+	</TR>
+        </TABLE>
+        </BODY>
+</HTML>
+     

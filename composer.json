@@ -1,0 +1,25 @@
+{
+    "name": "invoiceninja/einvoice",
+    "description": "schema for einvoicing standards",
+    "type": "library",
+    "license": "Elastic",
+    "autoload": {
+        "psr-4": {
+            "Invoiceninja\\Einvoice\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "David Bomba",
+            "email": "turbo124@gmail.com"
+        }
+    ],
+    "require": {
+        "sabre/xml": "^4.0",
+        "illuminate/collections": "^10.48"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5",
+        "symfony/console": "^6.4"
+    }
+}

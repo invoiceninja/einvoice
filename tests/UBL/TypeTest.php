@@ -2,8 +2,12 @@
 
 namespace Invoiceninja\Einvoice\Tests\UBL;
 
-use Invoiceninja\Einvoice\Writer\Types\CacType;
 use PHPUnit\Framework\TestCase;
+use Invoiceninja\Einvoice\Writer\Types\CacType;
+use Invoiceninja\Einvoice\Writer\Types\CbcType;
+use Invoiceninja\Einvoice\Writer\Types\CccType;
+use Invoiceninja\Einvoice\Writer\Types\ExtType;
+use Invoiceninja\Einvoice\Writer\Types\UdtType;
 
 class TypeTest extends TestCase
 {
@@ -21,6 +25,28 @@ class TypeTest extends TestCase
 
         $this->assertGreaterThan(1, count($cac->elements));
 
-        // echo print_r($cac->elements).PHP_EOL;
+    }
+
+    public function testCbcInitialization()
+    {
+        $cac = new CbcType();
+
+        $this->assertIsArray($cac->elements);
+
+        $this->assertGreaterThan(1, count($cac->elements));
+
+    }
+
+    public function testClassInitialization()
+    {
+        $udt = new UdtType();
+        $this->assertInstanceOf(UdtType::class, $udt);
+
+        $ext = new ExtType();
+        $this->assertInstanceOf(ExtType::class, $ext);
+
+        $cct = new CccType();
+        $this->assertInstanceOf(CccType::class, $cct);
+        
     }
 }

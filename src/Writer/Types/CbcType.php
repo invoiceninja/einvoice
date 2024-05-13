@@ -45,6 +45,9 @@ class CbcType
 
         foreach($this->type_map as $key => $value) {
 
+// $time_start = microtime(true);
+// echo "{$key} => ". microtime(true)  - $time_start.PHP_EOL;
+
             $complexBaseType = $this->getUdtType($value);
 
             $data[] = array_merge($this->stub_validation, ['base_type' => $complexBaseType]);
@@ -83,16 +86,9 @@ class CbcType
 
         $elements = $this->document->getElementsByTagName("element");
 
-
-$time_start = microtime(true);
-
-
         foreach($elements as $element) {
             $this->type_map[$element->getAttribute("name")] = $element->getAttribute("type");
         }
-
-
-echo "CBC TYPE => ". microtime(true)  - $time_start;
 
         return $this;
 

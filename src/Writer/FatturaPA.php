@@ -22,7 +22,8 @@ class FatturaPA
     private array $type_map = [];
     private array $data = [];
     public object $final;
-
+    private string $path = "src/Standards/FatturaPA/Schema_del_file_xml_FatturaPA_v1.2.2.xsd";
+    
     public function __construct()
     {
 
@@ -31,15 +32,14 @@ class FatturaPA
     public function init()
     {
 
-
         $this->document = new \DomDocument();
-        $this->document->load("src/FatturaPA/Schema_del_file_xml_FatturaPA_v1.2.2.xsd");
+        
+        $this->document->load($this->path);
 
-
-        $this->mapTypes()
-        ->getParentTypes();
+        $this->mapTypes()->getParentTypes();
 
         $this->final = new \stdClass();
+
         $this->final = (object)$this->data;
 
         $elementsString = json_encode($this->final, JSON_PRETTY_PRINT);

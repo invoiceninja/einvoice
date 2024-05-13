@@ -28,7 +28,7 @@ class UdtType
 
     private \DOMDocument $document;
     
-    public function __construct(private string $name = '')
+    public function __construct()
     {
         $this->document = new \DOMDocument();
         $this->document->load($this->path);

@@ -132,7 +132,7 @@ class Fact1 extends BaseStandard
 
     private function childTypes(): self
     {
-
+        
         /*
         
 $child_types = collect($this->data)->flatMap(function ($elements) {

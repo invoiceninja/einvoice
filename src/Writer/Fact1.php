@@ -132,6 +132,99 @@ class Fact1 extends BaseStandard
 
     private function childTypes(): self
     {
+
+        /*
+        
+$child_types = collect($this->data)->flatMap(function ($elements) {
+
+    return collect($elements['elements'])->map(function ($element) {
+
+        if(stripos($element['base_type'], 'Type') !== false && !in_array($element['base_type'], $this->type_tracker)) {
+
+            $this->type_tracker[] = $element['base_type'];
+            return $element['base_type'];
+
+        }
+        return false;
+
+    })
+    ->filter(function ($e) {
+        return $e;
+    })
+    ->flatten();
+
+})
+        ->unique()
+        ->map(function ($t) {
+
+            return collect($this->cacType->elements)->first(function ($node) use ($t) {
+                return $node['type'] == $t;
+            });
+
+        });
+
+$nested_level_one = $child_types->filter(function ($level_one) {
+    return isset($level_one['elements']);
+})
+->flatMap(function ($level_one) {
+
+    return collect($level_one['elements'])->map(function ($element) {
+
+        if(stripos($element['base_type'], 'Type') !== false && !in_array($element['base_type'], $this->type_tracker)) {
+
+            $this->type_tracker[] = $element['base_type'];
+            return $element['base_type'];
+
+        }
+        return false;
+
+    })
+    ->filter(function ($e) {
+        return $e;
+    })
+    ->flatten();
+
+})
+->unique()
+->map(function ($t) {
+
+    return collect($this->cacType->elements)->first(function ($node) use ($t) {
+        return $node['type'] == $t;
+    });
+
+});
+
+$nested_level_two = $child_types->filter(function ($nested_level_one) {
+    return isset($nested_level_one['elements']);
+})
+->flatMap(function ($level_one) {
+
+    return collect($level_one['elements'])->map(function ($element) {
+
+        if(stripos($element['base_type'], 'Type') !== false && !in_array($element['base_type'], $this->type_tracker)) {
+
+            $this->type_tracker[] = $element['base_type'];
+            return $element['base_type'];
+
+        }
+        return false;
+
+    })
+    ->filter(function ($e) {
+        return $e;
+    })
+    ->flatten();
+
+})
+->unique()
+->map(function ($t) {
+
+    return collect($this->cacType->elements)->first(function ($node) use ($t) {
+        return $node['type'] == $t;
+    });
+
+});
+*/
         $types = collect();
 
         foreach($this->data as $key => $elements) {
@@ -148,14 +241,13 @@ class Fact1 extends BaseStandard
 
             }
         }
-
+        
+        /** harvest only the unique types to populate*/
         $child_types = $types->unique()->map(function ($t) {
 
-            foreach($this->cacType->elements as $node) {
-                if($node['type'] == $t) {
-                    return $node;
-                }
-            }
+            return collect($this->cacType->elements)->first(function ($node) use($t){
+                return $node['type'] == $t;
+            });
 
         })->toArray();
 

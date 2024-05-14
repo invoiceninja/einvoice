@@ -1,28 +1,24 @@
 <?php
+/**
+ * Invoice Ninja (https://invoiceninja.com).
+ *
+ * @link https://github.com/invoiceninja/invoiceninja source repository
+ *
+ * @copyright Copyright (c) 2024. Invoice Ninja LLC (https://invoiceninja.com)
+ *
+ * @license https://www.elastic.co/licensing/elastic-license
+ */
 
 namespace Invoiceninja\Einvoice\Writer;
 
 use DOMElement;
-use Illuminate\Support\Collection;
 
-class FatturaPA
+class FatturaPA extends BaseStandard
 {
-    private array $stub_validation = [
-             "name" => null,
-             "base_type" => null,
-             "resource" => [],
-             "max_length" => null,
-             "min_length" => null,
-             "pattern" => null,
-             "min_occurs" => null,
-             "max_occurs" => null,
-     ];
 
-    protected \DomDocument $document;
-    private array $type_map = [];
-    private array $data = [];
-    public object $final;
-    private string $path = "src/Standards/FatturaPA/Schema_del_file_xml_FatturaPA_v1.2.2.xsd";
+    public string $path = "src/Standards/FatturaPA/Schema_del_file_xml_FatturaPA_v1.2.2.xsd";
+
+    public string $standard = "FatturaPA";
     
     public function __construct()
     {
@@ -36,19 +32,20 @@ class FatturaPA
         
         $this->document->load($this->path);
 
-        $this->mapTypes()->getParentTypes();
-
-        $this->final = new \stdClass();
-
-        $this->final = (object)$this->data;
-
-        $elementsString = json_encode($this->final, JSON_PRETTY_PRINT);
-        $fp = fopen("./stubs/FatturaPAOBJ.json", 'w');
-        fwrite($fp, $elementsString);
-        fclose($fp);
+        $this->mapTypes()
+        ->getParentTypes()
+        ->write();
 
     }
-
+    
+    /**
+     * getParentTypes
+     *
+     * Iterate through all complex types of the schema definition
+     * and build type and element maps
+     * 
+     * @return self
+     */
     private function getParentTypes(): self
     {
 
@@ -56,6 +53,7 @@ class FatturaPA
         $complexTypes = $this->document->getElementsByTagName('complexType');
 
         foreach($complexTypes as $type) {
+
             $set = [];
 
             if($type instanceof \DOMElement) {
@@ -68,7 +66,6 @@ class FatturaPA
                 $choice_array = $this->extractChoice($sequence->item(0));
 
                 $choice_keys = [];
-
 
                 foreach($choice_array as $key => $arr) {
                     $choice_keys[] = array_keys($arr);
@@ -88,7 +85,15 @@ class FatturaPA
         return $this;
     }
 
-
+    
+    /**
+     * processSequences
+     *
+     * Harvests a list of child elements of the "Type:
+     * 
+     * @param  \DOMNodeList $list
+     * @return array
+     */
     private function processSequences(\DOMNodeList $list): array
     {
         $data = [];
@@ -117,15 +122,12 @@ class FatturaPA
 
                     if(count($child_array) > 0) {
 
-                        $annotation = $this->extractAnnotation($childNode);
-                        $child_array['help'] = $annotation;
-                        $child_array['resource'] = $this->extractResource($child_array['type'] ?? false);
+                        $child_array['help'] = $this->extractAnnotation($childNode);
+                        $child_array['resource'] = $this->extractResource($child_array['type'] ?? $child_array['base_type']);
 
-                        if(isset($child_array['type'])) {
-                            $child_array = array_merge($child_array, $this->extractRestriction($child_array['type']));
+                        $child_array = array_merge($child_array, $this->extractRestriction($child_array['type'] ?? $child_array['base_type']));
                             unset($child_array['type']);
-                        }
-
+                    
                         if(!isset($child_array['base_type']) && isset($child_array['name'])) {
                             $child_array['base_type'] = $this->type_map[$child_array['name']];
                         }
@@ -142,7 +144,16 @@ class FatturaPA
         return $data;
 
     }
-
+    
+    /**
+     * processChoiceSequence
+     *
+     * Some types require a choice between 
+     * sets of fields, the choice array
+     * holds the "choice keys" of each set
+     * @param  DomNodeList $list
+     * @return array
+     */
     private function processChoiceSequence(\DomNodeList $list): array
     {
 
@@ -181,15 +192,27 @@ class FatturaPA
         foreach($childNode->attributes as $key => $attr) {
             if(in_array($attr->nodeName, ['name','type','minOccurs','maxOccurs'])) {
 
-                $key = $attr->nodeName == 'type' ? 'base_type' : $attr->nodeName;
-
-                $key = $attr->nodeName == 'minOccurs' ? 'min_occurs' : $attr->nodeName;
-
-                $key = $attr->nodeName == 'maxOccurs' ? 'max_occurs' : $attr->nodeName;
-
-                $child_array[$key] = $attr->nodeValue;
+                if($attr->nodeName == 'type')
+                    $key = 'base_type';
+                elseif($attr->nodeName == 'minOccurs')
+                    $key = 'min_occurs';
+                elseif($attr->nodeName == 'maxOccurs')
+                    $key = 'max_occurs';
+                else 
+                    $key = $attr->nodeName;
+            
+                $child_array[$key] = is_numeric($attr->nodeValue) ? (int)$attr->nodeValue : $attr->nodeValue;
             }
         }
+
+        if(!isset($child_array['min_occurs']))
+            $child_array['min_occurs'] = 1;
+            
+        if(!isset($child_array['max_occurs'])) {
+            $child_array['max_occurs'] = 1;
+        }
+
+        $child_array['max_occurs'] = $child_array['max_occurs'] == 'unbounded' ? -1 : $child_array['max_occurs'];
 
         return $child_array;
 
@@ -241,8 +264,16 @@ class FatturaPA
         return $this;
     }
 
-
-    public function extractResource(?string $type)
+    
+    /**
+     * extractResource
+     *
+     * Extracts the dropdown selection key/value pairs
+     * 
+     * @param  ?string $type
+     * @return array
+     */
+    public function extractResource(?string $type): array
     {
         if(!$type) {
             return [];
@@ -259,63 +290,6 @@ class FatturaPA
 
         $node = $result->item(0);
 
-
-        // switch($type){
-        //     case "String10Type":
-        //         $resource['min_length'] = 1;
-        //         $resource['max_length'] = 10;
-        //     break;
-        //     case "String15Type":
-        //         $resource['min_length'] = 1;
-        //         $resource['max_length'] = 15;
-        //     break;
-        //     case "String20Type":
-        //         $resource['min_length'] = 1;
-        //         $resource['max_length'] = 20;
-        //     break;
-        //     case "String35Type":
-        //         $resource['min_length'] = 1;
-        //         $resource['max_length'] = 35;
-        //     break;
-        //     case "String60Type":
-        //         $resource['min_length'] = 1;
-        //         $resource['max_length'] = 60;
-        //     break;
-        //     case "String80Type":
-        //         $resource['min_length'] = 1;
-        //         $resource['max_length'] = 80;
-        //     break;
-        //     case "String100Type":
-        //         $resource['min_length'] = 1;
-        //         $resource['max_length'] = 100;
-        //     break;
-        //     case "String35LatinExtType":
-        //         $resource['min_length'] = 1;
-        //         $resource['max_length'] = 35;
-        //     break;
-        //     case "String60LatinType":
-        //         $resource['min_length'] = 1;
-        //         $resource['max_length'] = 60;
-        //     break;
-        //     case "String80LatinType":
-        //         $resource['min_length'] = 1;
-        //         $resource['max_length'] = 80;
-        //     break;
-        //     case "String100LatinType":
-        //         $resource['min_length'] = 1;
-        //         $resource['max_length'] = 100;
-        //     break;
-        //     case "String200LatinType":
-        //         $resource['min_length'] = 1;
-        //         $resource['max_length'] = 200;
-        //     break;
-        //     case "String1000LatinType":
-        //         $resource['min_length'] = 10;
-        //         $resource['max_length'] = 1000;
-        //     break;
-
-        // }
-
         foreach($node->childNodes as $childNode) {
 
             if($childNode instanceof \DomElement && $childNode->localName == 'enumeration') {
@@ -329,13 +303,19 @@ class FatturaPA
 
         }
 
-
         return $resource;
     }
-
-    private function extractRestriction(string $type)
+    
+    /**
+     * extractRestriction
+     *
+     * Returns the required validation array
+     * 
+     * @param  string $type
+     * @return array
+     */
+    private function extractRestriction(string $type): array
     {
-
         $resource = [];
 
         $xpath = new \DOMXPath($this->document);
@@ -347,26 +327,30 @@ class FatturaPA
 
         $node = $result->item(0);
 
-
-        if($node->hasAttribute('base')) {
-            $resource['base_type'] = str_replace("xs:", "", $node->getAttribute('base'));
-        } else {
-            $resource['base_type'] = $this->type_map[$type] ?? str_replace("xs:", "", $type);
-        }
-
-        foreach($node->childNodes as $childNode) {
-
-            if($childNode instanceof \DomElement) {
-
-                if(!in_array($childNode->localName, ['enumeration'])) {
-
-                    $resource[$this->camelToSnake($childNode->localName)] = $childNode->getAttribute("value");
-
-                }
+        if($node instanceof DOMElement)
+        {
+     
+            if($node->hasAttribute('base')) {
+                $resource['base_type'] = str_replace("xs:", "", $node->getAttribute('base'));
+            } else {
+                $resource['base_type'] = $this->type_map[$type] ?? str_replace("xs:", "", $type);
             }
 
+            foreach($node->childNodes as $childNode) {
+
+                if($childNode instanceof \DomElement) {
+
+                    if(!in_array($childNode->localName, ['enumeration']) && in_array($childNode->localName, array_keys($this->stub_validation))) {
+
+                        $resource[$this->camelToSnake($childNode->localName)] = $childNode->getAttribute("value");
+
+                    }
+                }
+
+            }
         }
 
+        //Extracts the regex pattern
         if(isset($resource['pattern'])) {
             $resource = $this->extractPattern($resource);
         }
@@ -375,8 +359,14 @@ class FatturaPA
 
     }
 
-
-    private function extractPattern($resource)
+    
+    /**
+     * extractPattern
+     *
+     * @param  array $resource
+     * @return array
+     */
+    private function extractPattern($resource): array
     {
         $parts = [];
 
@@ -412,23 +402,5 @@ class FatturaPA
         return $resource;
 
     }
-
-    private function camelToSnake(string $camelCase): string
-    {
-        $result = '';
-
-        for ($i = 0; $i < strlen($camelCase); $i++) {
-            $char = $camelCase[$i];
-
-            if (ctype_upper($char)) {
-                $result .= '_' . strtolower($char);
-            } else {
-                $result .= $char;
-            }
-        }
-
-        return ltrim($result, '_');
-    }
-
 
 }

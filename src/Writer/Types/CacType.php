@@ -107,6 +107,64 @@ class CacType
 
     }
 
+    public function typesForType(string $type)
+    {
+        //get the child types of a type
+
+        $children = collect([]);
+
+        $xpath = "//xsd:complexType [@name='{$type}']//{$this->prefix}:sequence";
+
+        $sequence = $this->getXPath($xpath);
+
+        for($x = 0; $x < $sequence->count(); $x++) {
+
+            foreach($sequence->item($x)->childNodes as $node) {
+
+                if($node instanceof DOMElement && $node->hasAttribute("ref") && stripos($node->getAttribute('ref'), 'cac:') !== false) {
+
+                    $parts = explode(":", $node->getAttribute('ref'));
+
+                    $children->push($this->type_map[$parts[1]]);
+                }
+            }
+
+        }
+
+        return $children->unique();
+
+    }
+
+    public function typeChildren()
+    {
+        $children = collect([]);
+
+        foreach($this->type_map as $key => $type)
+        {
+            $sequence = $this->getSequence($key);
+
+            for($x = 0; $x < $sequence->count(); $x++) 
+            {
+
+                foreach($sequence->item($x)->childNodes as $node) 
+                {
+                    
+                    if($node instanceof DOMElement && $node->hasAttribute("ref") && stripos($node->getAttribute('ref'), 'cac:') !== false) 
+                    {
+                    
+                        $parts = explode(":", $node->getAttribute('ref'));
+                    
+                        $children->push($this->type_map[$parts[1]]);
+                    }    
+                }   
+                
+            }
+
+        }
+
+        return $children->unique();
+    }
+
     public function getSequence(string $name): ?DOMNodeList
     {
 

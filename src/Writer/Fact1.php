@@ -132,258 +132,52 @@ class Fact1 extends BaseStandard
 
     private function childTypes(): self
     {
-        
-        /*
-        
-$child_types = collect($this->data)->flatMap(function ($elements) {
 
-    return collect($elements['elements'])->map(function ($element) {
+        $element_collection = collect($this->cacType->elements);
 
-        if(stripos($element['base_type'], 'Type') !== false && !in_array($element['base_type'], $this->type_tracker)) {
+        $type_map = collect($this->data)
+        ->flatMap(function ($type){
 
-            $this->type_tracker[] = $element['base_type'];
-            return $element['base_type'];
+            return collect($type['elements'])
+            ->filter(function ($element){
+                return stripos($element['base_type'], 'Type') !== false && !in_array($element['base_type'], $this->type_tracker);
+            })
+            ->map(function ($element){
+                $this->type_tracker[] = $element['base_type'];
+                return $element['base_type'];
+            })
+            ->flatten();
 
-        }
-        return false;
+        })
+        ->unique();
 
-    })
-    ->filter(function ($e) {
-        return $e;
-    })
-    ->flatten();
-
-})
+        $type_map->flatMap(function ($type){
+            return $this->cacType->typesForType($type);
+        })
         ->unique()
-        ->map(function ($t) {
+        ->merge($type_map)
+        ->flatMap(function ($type){
+            return $this->cacType->typesForType($type);
+        })
+        ->unique()
+        ->flatMap(function ($type){
+            return $this->cacType->typesForType($type);
+        })
+        ->unique()
+        ->each(function ($type) use($element_collection){
 
-            return collect($this->cacType->elements)->first(function ($node) use ($t) {
-                return $node['type'] == $t;
-            });
-
-        });
-
-$nested_level_one = $child_types->filter(function ($level_one) {
-    return isset($level_one['elements']);
-})
-->flatMap(function ($level_one) {
-
-    return collect($level_one['elements'])->map(function ($element) {
-
-        if(stripos($element['base_type'], 'Type') !== false && !in_array($element['base_type'], $this->type_tracker)) {
-
-            $this->type_tracker[] = $element['base_type'];
-            return $element['base_type'];
-
-        }
-        return false;
-
-    })
-    ->filter(function ($e) {
-        return $e;
-    })
-    ->flatten();
-
-})
-->unique()
-->map(function ($t) {
-
-    return collect($this->cacType->elements)->first(function ($node) use ($t) {
-        return $node['type'] == $t;
-    });
-
-});
-
-$nested_level_two = $child_types->filter(function ($nested_level_one) {
-    return isset($nested_level_one['elements']);
-})
-->flatMap(function ($level_one) {
-
-    return collect($level_one['elements'])->map(function ($element) {
-
-        if(stripos($element['base_type'], 'Type') !== false && !in_array($element['base_type'], $this->type_tracker)) {
-
-            $this->type_tracker[] = $element['base_type'];
-            return $element['base_type'];
-
-        }
-        return false;
-
-    })
-    ->filter(function ($e) {
-        return $e;
-    })
-    ->flatten();
-
-})
-->unique()
-->map(function ($t) {
-
-    return collect($this->cacType->elements)->first(function ($node) use ($t) {
-        return $node['type'] == $t;
-    });
-
-});
-*/
-        $types = collect();
-
-        foreach($this->data as $key => $elements) {
-
-            foreach($elements['elements'] as $eKey => $element) {
-                if(stripos($element['base_type'], 'Type') !== false) {
-
-                    if(!in_array($element['base_type'], $this->type_tracker)) {
-                        $this->type_tracker[] = $element['base_type'];
-                    }
-
-                    $types->push($element['base_type']);
-                }
-
-            }
-        }
-        
-        /** harvest only the unique types to populate*/
-        $child_types = $types->unique()->map(function ($t) {
-
-            return collect($this->cacType->elements)->first(function ($node) use($t){
-                return $node['type'] == $t;
-            });
-
-        })->toArray();
-
-        $infants = [];
-
-        foreach($child_types as $infant_type) {
-
-            if(isset($infant_type['elements'])) {
-                foreach($infant_type['elements'] as $e) {
-
-                    if(stripos($e['base_type'], 'Type') !== false && !in_array($e['base_type'], $this->type_tracker)) {
-
-                        foreach($this->cacType->elements as $node) {
-                            if($node['type'] == $e['base_type']) {
-                                $this->type_tracker[] = $e['base_type'];
-                                $infants[$e['name']] = $node;
-                                break;
-                            }
-                        }
-
-                    }
-
-                }
-            }
-
-        }
-
-        $neonates = [];
-
-        foreach($infants as $neonate) {
-
-            if(isset($neonate['elements'])) {
-                foreach($neonate['elements'] as $e) {
-
-                    if(stripos($e['base_type'], 'Type') !== false && !in_array($e['base_type'], $this->type_tracker)) {
-
-                        foreach($this->cacType->elements as $node) {
-
-                            if($node['type'] == $e['base_type']) {
-
-                                $this->type_tracker[] = $e['base_type'];
-
-                                $neonates[$e['name']] = $node;
-                                break;
-                            }
-                        }
-
-
-                    }
-
-                }
-            }
-
-        }
-
-
-        $foetuses = [];
-
-        foreach($neonates as $foetus) {
-
-            if(isset($foetus['elements'])) {
-                foreach($foetus['elements'] as $e) {
-
-                    if(stripos($e['base_type'], 'Type') !== false && !in_array($e['base_type'], $this->type_tracker)) {
-
-                        foreach($this->cacType->elements as $node) {
-                            if($node['type'] == $e['base_type']) {
-                                $this->type_tracker[] = $e['base_type'];
-                                $foetuses[$e['name']] = $node;
-                                break;
-                            }
-                        }
-
-
-                    }
-
-                }
-            }
-
-        }
-
-        foreach($child_types as $type) {
-
+            $type_array = $element_collection->where('type',$type)->first();
+      
             $new_set = [];
-            foreach($type['elements'] as $stub) {
+            foreach($type_array['elements'] as $stub) {
                 $new_set[$stub['name']] = $stub;
             }
-            $type['elements'] = $new_set;
+            $type_array['elements'] = $new_set;
 
-            $this->data[$type['type']] = (object)$type;
-        }
+            $this->data[$type_array['type']] = (object)$type_array;
 
-        foreach($infants as $infant) {
 
-            $new_set = [];
-
-            if(isset($infant['elements'])) {
-
-                foreach($infant['elements'] as $key => $stub) {
-                    $new_set[$stub['name']] = $stub;
-                }
-                $infant['elements'] = $new_set;
-
-            }
-
-            $this->data[$infant['type']] = (object)$infant;
-
-        }
-
-        foreach($neonates as $neonate) {
-
-            $new_set = [];
-            if(isset($neonate['elements'])) {
-
-                foreach($neonate['elements'] as $key => $stub) {
-                    $new_set[$stub['name']] = $stub;
-                }
-                $neonate['elements'] = $new_set;
-            }
-
-            $this->data[$neonate['type']] = (object)$neonate;
-        }
-
-        foreach($foetuses as $foetus) {
-
-            $new_set = [];
-
-            if(isset($foetus['elements'])) {
-                foreach($foetus['elements'] as $key => $stub) {
-                    $new_set[$stub['name']] = $stub;
-                }
-                $foetus['elements'] = $new_set;
-            }
-
-            $this->data[$foetus['type']] = (object)$foetus;
-        }
+        });
 
         return $this;
     }

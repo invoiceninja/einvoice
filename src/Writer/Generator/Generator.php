@@ -12,6 +12,7 @@
 namespace Invoiceninja\Einvoice\Writer\Generator;
 
 use DOMDocument;
+use Illuminate\Support\Collection;
 use Spatie\LaravelData\Data;
 use Nette\PhpGenerator\Printer;
 use Nette\PhpGenerator\ClassType;
@@ -30,6 +31,10 @@ class Generator
         'FatturaPA'
     ];
 
+    private Collection $child_classes;
+
+    private Collection $document;
+
     private string $namespace = "Invoiceninja\Einvoice\Models\\";
 
     private string $standard = "";
@@ -43,18 +48,35 @@ class Generator
 
     public function build()
     {
+        $this->child_classes = collect([]);
+
         $this->standard = "FatturaPA";
         $path = "src/Schema/{$this->standard}/{$this->standard}.json";
 
-        $document = collect(json_decode(file_get_contents($path),1));
+        $this->document = collect(json_decode(file_get_contents($path),1));
 
-        $document->each(function ($node, $key) use ($document){
+        $this->document->each(function ($node, $key){
 
             $class_name = str_replace("Type", "", $key);
             $this->writeNette($class_name, $node);
 
         });
 
+        $this->child_classes->each(function ($child){
+
+            if(!file_exists("{$this->write_path}/{$this->standard}/{$child}.php"))
+                $this->writeNette($child, $this->getChildType($child));
+        });
+    }
+
+    public function getChildType(string $name)
+    {
+        return 
+        $this->document->first(function ($doc) use($name){
+            $x = collect($doc['elements'])->where('name', $name)->first();
+            
+            return $x;
+        });
     }
 
     public function writeNette(string $name, mixed $type)
@@ -62,7 +84,7 @@ class Generator
         
         $namespace = new PhpNamespace($this->namespace.$this->standard);
         $namespace->addUse(Data::class);
-        
+
         $class = new ClassType($name);
 
         $class
@@ -73,6 +95,8 @@ class Generator
             $class->addProperty($element['name'])
                 ->setPublic() // or setVisibility('private')
                 ->setType($this->namespace.$this->standard."\\".$element['name']);
+
+            $this->child_classes->push($key);
         }
 
         $namespace->add($class);

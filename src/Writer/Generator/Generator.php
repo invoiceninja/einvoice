@@ -12,6 +12,10 @@
 namespace Invoiceninja\Einvoice\Writer\Generator;
 
 use DOMDocument;
+use Spatie\LaravelData\Data;
+use Nette\PhpGenerator\Printer;
+use Nette\PhpGenerator\ClassType;
+use Nette\PhpGenerator\PhpNamespace;
 use Laminas\Code\Generator\TypeGenerator;
 use Laminas\Code\Generator\ClassGenerator;
 use Laminas\Code\Generator\DocBlockGenerator;
@@ -47,9 +51,42 @@ class Generator
         $document->each(function ($node, $key) use ($document){
 
             $class_name = str_replace("Type", "", $key);
-            $this->writeClass($class_name, $node);
+            $this->writeNette($class_name, $node);
 
         });
+
+    }
+
+    public function writeNette(string $name, mixed $type)
+    {
+        
+        $namespace = new PhpNamespace($this->namespace.$this->standard);
+        $namespace->addUse(Data::class);
+        
+        $class = new ClassType($name);
+
+        $class
+            ->setExtends(Data::class);
+
+        foreach($type['elements'] as $key => $element) {
+                
+            $class->addProperty($element['name'])
+                ->setPublic() // or setVisibility('private')
+                ->setType($this->namespace.$this->standard."\\".$element['name']);
+        }
+
+        $namespace->add($class);
+
+        $printer = new Printer();
+
+        $class_print = "<?php ". self::LINE_FEED . self::LINE_FEED;
+        $class_print .= $namespace;
+        // $class_print .= $printer->printClass($class); // same as: echo $class
+
+        $fp = fopen("{$this->write_path}{$this->standard}/{$name}.php", 'w');
+        fwrite($fp, $class_print);
+        fclose($fp);
+
 
     }
 
@@ -63,8 +100,11 @@ class Generator
 
         $class = new ClassGenerator();
         $class->setName($name);
-        $class->setExtendedClass('Data');
+        $class->setExtendedClass('Spatie\LaravelData\Data')
+                ->addUse("Spatie\LaravelData\Data");
+
         $class->setNamespaceName("{$this->namespace}{$this->standard}");
+        // $class->Use("Spatie\LaravelData\Data");
         
         $class->setDocblock(
             (new DocBlockGenerator())
@@ -73,33 +113,24 @@ class Generator
 
         foreach($type['elements'] as $key => $element) {
             
-            $type = TypeGenerator::fromTypeString($element['name']."|Optional");
-
+            $type = TypeGenerator::fromTypeString($element['name']);
+            $type->generate();
             $property = new PropertyGenerator();
             $property->setName($element['name']);
             $property->setVisibility(PropertyGenerator::VISIBILITY_PUBLIC);
             $property->setType($type);
             $property->omitDefaultValue(true);
-
-            $class->addPropertyFromGenerator($property);
-
+            
+            $class->addPropertyFromGenerator($property)
+                  ->addUse("{$this->namespace}{$this->standard}\\{$element['name']}");
         }
 
-        $class_string = "<?php ";
+        $class_string = "<?php " . self::LINE_FEED . self::LINE_FEED;
         $class_string .= $class->generate();
 
         $fp = fopen("{$this->write_path}{$this->standard}/{$name}.php", 'w');
         fwrite($fp, $class_string);
         fclose($fp);
 
-        // echo (new ClassGenerator())
-        //     ->setName($class['type'])
-        //     ->setExtendedClass('Data')
-        //
-        //     ->addProperties($props)
-        // ->addConstants([
-        //         new PropertyGenerator('bat', 'foobarbazbat', PropertyGenerator::FLAG_CONSTANT)
-        //     ])
-        //     ->generate();
     }
 }

@@ -74,6 +74,7 @@ class Generator
             'dateTime' => $type = 'Carbon',
             'token' => $type = 'string',
             'base64Binary' => $type = 'mixed',
+            'normalizedString' => $type = 'string',
             default => $type = $type,
         };
 

@@ -89,34 +89,31 @@ class TypeGenerator
                             ->setPublic()
                             ->setType($element['min_occurs'] == 0 ? Type::union($base_type, Optional::class) : $base_type);
 
-            if($element['max_length'])
-            
+            if(isset($element['max_length'])) {
                 $this->namespace->addUse(Max::class);
                 $property->addAttribute(Max::class, [$element['max_length']]);
-                
-            if($element['min_length']) {
-                
+            }
+            
+            if(isset($element['min_length'])) {
                 $this->namespace->addUse(Min::class);
                 $property->addAttribute(Min::class, [$element['min_length']]);
-            
             }
 
             if($element['pattern']){
-                
                 $this->namespace->addUse(Regex::class);
                 $property->addAttribute(Regex::class, [$element['pattern']]);
-            
             }
 
             if($element['base_type'] == 'date'){
                 $this->namespace->addUse(DateTimeInterfaceTransformer::class);
-                $property->addAttribute(WithTransformer::class, [DateTimeInterfaceTransformer::class, ['format' => 'Y-m-d']]);
+                $this->namespace->addUse(WithTransformer::class);
+                $property->addAttribute(WithTransformer::class, [DateTimeInterfaceTransformer::class, 'format' => 'Y-m-d']);
             }
             
             if($element['base_type'] == 'dateTime') {
                 $this->namespace->addUse(DateTimeInterfaceTransformer::class);
                 $this->namespace->addUse(WithTransformer::class);
-                $property->addAttribute(WithTransformer::class, [DateTimeInterfaceTransformer::class, ['format' => 'Y-m-d\TH:i:s.uP']]);
+                $property->addAttribute(WithTransformer::class, [DateTimeInterfaceTransformer::class, 'format' => 'Y-m-d\TH:i:s.uP']);
             }
 
             $this->class->addMember($property);

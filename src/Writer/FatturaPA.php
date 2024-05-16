@@ -104,8 +104,10 @@ class FatturaPA extends BaseStandard
             $choice_array = $this->extractChoice($node);
 
             foreach($choice_array as $selection) {
-                foreach($selection as $select) {
-                    $data[] = $select;
+                foreach($selection as $key => $select) {
+                    $select['resource'] = $this->extractResource($select['type'] ?? $select['base_type']);
+                    $select = array_merge($select, $this->extractRestriction($select['type'] ?? $select['base_type']));
+                    $data[$key] = $select;
                 }
             }
 
@@ -169,6 +171,9 @@ class FatturaPA extends BaseStandard
                 if($childNode instanceof \DomElement) {
 
                     $key = $childNode->getAttribute('name');
+                    
+                    echo $key.PHP_EOL;
+                    echo print_r($child_array).PHP_EOL;
 
                     $child_array[$key] = array_merge($this->stub_validation, $this->extractAttributes($childNode));
 
@@ -180,6 +185,8 @@ class FatturaPA extends BaseStandard
 
         }
 
+        echo "data = ".PHP_EOL;
+        echo print_r($data).PHP_EOL;
         return $data;
 
     }

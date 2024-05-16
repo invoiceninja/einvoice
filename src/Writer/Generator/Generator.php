@@ -12,15 +12,14 @@
 namespace Invoiceninja\Einvoice\Writer\Generator;
 
 use DOMDocument;
-use Illuminate\Support\Collection;
+use Nette\PhpGenerator\Type;
 use Spatie\LaravelData\Data;
 use Nette\PhpGenerator\Printer;
+use Spatie\LaravelData\Optional;
 use Nette\PhpGenerator\ClassType;
+use Illuminate\Support\Collection;
 use Nette\PhpGenerator\PhpNamespace;
-use Laminas\Code\Generator\TypeGenerator;
-use Laminas\Code\Generator\ClassGenerator;
-use Laminas\Code\Generator\DocBlockGenerator;
-use Laminas\Code\Generator\PropertyGenerator;
+use Nette\PhpGenerator\Property;
 
 class Generator
 {
@@ -63,10 +62,9 @@ class Generator
         });
 
         $this->child_classes->each(function ($child){
-
-            if(!file_exists("{$this->write_path}/{$this->standard}/{$child}.php"))
-                $this->writeNette($child, $this->getChildType($child));
+            $this->writeNette($child, $this->getChildType($child));
         });
+
     }
 
     public function getChildType(string $name)
@@ -79,24 +77,44 @@ class Generator
         });
     }
 
+    private function resolveType(string $type): string
+    {
+        return match($type){
+            'integer' => $type = 'int',
+            'decimal' => $type = 'float',
+            'date' => $type = 'DateTime',
+            'dateTime' => $type = 'DateTime',
+            'token' => $type = 'string',
+            default => $type = $type,
+        };
+
+    }
+
     public function writeNette(string $name, mixed $type)
     {
         
         $namespace = new PhpNamespace($this->namespace.$this->standard);
         $namespace->addUse(Data::class);
+        $namespace->addUse(Optional::class);
 
         $class = new ClassType($name);
-
-        $class
-            ->setExtends(Data::class);
+        $class->setExtends(Data::class);
+        $namespace->add($class);
 
         foreach($type['elements'] as $key => $element) {
-                
+
+            if($name == $element['name'])
+                continue;
+
+            $base_type = stripos($element['base_type'], 'Type') !== false ? $this->namespace.$this->standard."\\".$element['name'] : $this->resolveType($element['base_type']);
+            $type = $element['min_occurs'] == 0 ? Type::union($base_type, Optional::class) : $base_type;
+
             $class->addProperty($element['name'])
                 ->setPublic() // or setVisibility('private')
-                ->setType($this->namespace.$this->standard."\\".$element['name']);
+                ->setType($type);
 
-            $this->child_classes->push($key);
+            if(stripos($element['base_type'], 'Type') !== false)
+                $this->child_classes->push($key);
         }
 
         $namespace->add($class);
@@ -111,50 +129,6 @@ class Generator
         fwrite($fp, $class_print);
         fclose($fp);
 
-
-    }
-
-    public function writeClass(string $name, mixed $type)
-    {
-
-        // echo print_r($class).PHP_EOL;
-        echo $name.PHP_EOL;
-
-        $props = [];
-
-        $class = new ClassGenerator();
-        $class->setName($name);
-        $class->setExtendedClass('Spatie\LaravelData\Data')
-                ->addUse("Spatie\LaravelData\Data");
-
-        $class->setNamespaceName("{$this->namespace}{$this->standard}");
-        // $class->Use("Spatie\LaravelData\Data");
-        
-        $class->setDocblock(
-            (new DocBlockGenerator())
-                            ->setShortDescription('Sample generated class')
-        );
-
-        foreach($type['elements'] as $key => $element) {
-            
-            $type = TypeGenerator::fromTypeString($element['name']);
-            $type->generate();
-            $property = new PropertyGenerator();
-            $property->setName($element['name']);
-            $property->setVisibility(PropertyGenerator::VISIBILITY_PUBLIC);
-            $property->setType($type);
-            $property->omitDefaultValue(true);
-            
-            $class->addPropertyFromGenerator($property)
-                  ->addUse("{$this->namespace}{$this->standard}\\{$element['name']}");
-        }
-
-        $class_string = "<?php " . self::LINE_FEED . self::LINE_FEED;
-        $class_string .= $class->generate();
-
-        $fp = fopen("{$this->write_path}{$this->standard}/{$name}.php", 'w');
-        fwrite($fp, $class_string);
-        fclose($fp);
 
     }
 }

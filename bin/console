@@ -11,11 +11,12 @@
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
+use Invoiceninja\Einvoice\Command\ModelCommand;
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 // Create the Application
 $application = new Symfony\Component\Console\Application;
-// $application->add(new StubCommand());
-
+$application->add(new ModelCommand());
 // Run it
 $application->run();

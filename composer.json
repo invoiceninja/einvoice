@@ -2,7 +2,7 @@
     "name": "invoiceninja/einvoice",
     "description": "Schema for einvoicing standards",
     "type": "library",
-    "license": "Elastic License 2.0",
+    "license": "Elastic-2.0",
     "autoload": {
         "psr-4": {
             "Invoiceninja\\Einvoice\\": "src/"

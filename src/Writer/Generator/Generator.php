@@ -11,6 +11,7 @@
 
 namespace Invoiceninja\Einvoice\Writer\Generator;
 
+use Carbon\Carbon;
 use Nette\PhpGenerator\Type;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -69,8 +70,8 @@ class Generator
         return match($type){
             'integer' => $type = 'int',
             'decimal' => $type = 'float',
-            'date' => $type = 'DateTime',
-            'dateTime' => $type = 'DateTime',
+            'date' => $type = 'Carbon',
+            'dateTime' => $type = 'Carbon',
             'token' => $type = 'string',
             'base64Binary' => $type = 'mixed',
             default => $type = $type,
@@ -80,11 +81,10 @@ class Generator
 
     public function writeNette(string $name, mixed $type)
     {
-        echo "nette => {$name}".PHP_EOL;
 
         $namespace = new PhpNamespace($this->namespace.$this->standard);
         $namespace->addUse(Data::class);
-        
+        $namespace->addUse(Carbon::class);
 
         $class = new ClassType($name);
         $class->setExtends(Data::class);
@@ -104,7 +104,11 @@ class Generator
             // $standard_type_path = $this->namespace.$this->standard."\\".$element['base_type']."\\".$element['name'];
             $base_type = stripos($element['base_type'], 'Type') !== false ? $this->namespace.$this->standard."\\".$element['base_type']."\\".$element['name'] : $this->resolveType($element['base_type']);
 
-            
+            if(in_array($base_type,['date','dateTime','Carbon'])){
+                $namespace->addUse(Carbon::class);
+                $base_type = Carbon::class;
+            }
+
             if($element['min_occurs'] == 0){
                 
                 $namespace->addUse(Optional::class);
@@ -140,7 +144,6 @@ class Generator
 
     private function writeBaseType($name, $base_type): \stdClass
     {
-        echo "writing {$name}".PHP_EOL;
 
         $type_generator = new TypeGenerator($this, $name, $base_type);
         
@@ -156,8 +159,6 @@ class Generator
         $class_print .= $namespace;
 
         $pathinfo = pathinfo($path);
-
-        echo print_r($path).PHP_EOL;
 
         if(!is_dir($pathinfo['dirname']))
             mkdir($pathinfo['dirname']);

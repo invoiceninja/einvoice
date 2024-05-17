@@ -13,15 +13,15 @@ class IscrizioneREA extends Data
 {
 	#[Max(2)]
 	#[Min(2)]
-	#[Regex('[A-Z]{2}')]
+	#[Regex('/[A-Z]{2}/')]
 	public string $Ufficio;
 
 	#[Max(20)]
 	#[Min(1)]
-	#[Regex('(\p{IsBasicLatin}{1,20})')]
+	#[Regex('/(\p{Basic_Latin}{1,20})/u')]
 	public string $NumeroREA;
 
-	#[Regex('[\-]?[0-9]{1,11}\.[0-9]{2}')]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float|Optional $CapitaleSociale;
 	public string|Optional $SocioUnico;
 	public array $SocioUnico_array = ['SU' => 'socio unico', 'SM' => 'più soci'];

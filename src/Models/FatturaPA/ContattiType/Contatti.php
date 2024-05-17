@@ -13,14 +13,16 @@ class Contatti extends Data
 {
 	#[Max(12)]
 	#[Min(5)]
-	#[Regex('(\p{IsBasicLatin}{5,12})')]
+	#[Regex('/(\p{Basic_Latin}{5,12})/u')]
 	public string|Optional $Telefono;
 
 	#[Max(12)]
 	#[Min(5)]
-	#[Regex('(\p{IsBasicLatin}{5,12})')]
+	#[Regex('/(\p{Basic_Latin}{5,12})/u')]
 	public string|Optional $Fax;
 
+	#[Max(256)]
+	#[Min(7)]
 	#[Regex('.+@.+[.]+.+')]
 	public string|Optional $Email;
 }

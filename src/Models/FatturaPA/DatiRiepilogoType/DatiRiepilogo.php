@@ -11,7 +11,7 @@ use Spatie\LaravelData\Optional;
 
 class DatiRiepilogo extends Data
 {
-	#[Regex('[0-9]{1,3}\.[0-9]{2}')]
+	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
 	public float $AliquotaIVA;
 	public string|Optional $Natura;
 
@@ -42,17 +42,20 @@ class DatiRiepilogo extends Data
 		'N7' => 'IVA assolta in altro stato UE (prestazione di servizi di telecomunicazioni, tele-radiodiffusione ed elettronici ex art. 7-octies lett. a, b, art. 74-sexies DPR 633/72)',
 	];
 
-	#[Regex('[\-]?[0-9]{1,11}\.[0-9]{2}')]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float|Optional $SpeseAccessorie;
 
-	#[Regex('[\-]?[0-9]{1,11}\.[0-9]{2,8}')]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
 	public float|Optional $Arrotondamento;
 
-	#[Regex('[\-]?[0-9]{1,11}\.[0-9]{2}')]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float $ImponibileImporto;
 
-	#[Regex('[\-]?[0-9]{1,11}\.[0-9]{2}')]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float $Imposta;
+
+	#[Max(1)]
+	#[Min(1)]
 	public string|Optional $EsigibilitaIVA;
 
 	public array $EsigibilitaIVA_array = [
@@ -63,6 +66,6 @@ class DatiRiepilogo extends Data
 
 	#[Max(100)]
 	#[Min(1)]
-	#[Regex('[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,100}')]
+	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,100}/u')]
 	public string|Optional $RiferimentoNormativo;
 }

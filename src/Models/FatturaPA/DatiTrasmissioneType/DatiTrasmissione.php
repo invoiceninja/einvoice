@@ -17,17 +17,18 @@ class DatiTrasmissione extends Data
 
 	#[Max(10)]
 	#[Min(1)]
-	#[Regex('(\p{IsBasicLatin}{1,10})')]
+	#[Regex('/(\p{Basic_Latin}{1,10})/u')]
 	public string $ProgressivoInvio;
 	public string $FormatoTrasmissione;
 	public array $FormatoTrasmissione_array = ['FPA12' => 'Fattura verso PA', 'FPR12' => 'Fattura verso privati'];
 
 	#[Max(7)]
 	#[Min(6)]
-	#[Regex('[A-Z0-9]{6,7}')]
+	#[Regex('/[A-Z0-9]{6,7}/')]
 	public string $CodiceDestinatario;
 	public ContattiTrasmittente|Optional $ContattiTrasmittente;
 
+	#[Max(256)]
 	#[Regex('([!#-\'*+/-9=?A-Z^-~-]+(\.[!#-\'*+/-9=?A-Z^-~-]+)*|"(\[\]!#-[^-~ \t]|(\\\[\t -~]))+")@([!#-\'*+/-9=?A-Z^-~-]+(\.[!#-\'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*\])')]
 	public string|Optional $PECDestinatario;
 }

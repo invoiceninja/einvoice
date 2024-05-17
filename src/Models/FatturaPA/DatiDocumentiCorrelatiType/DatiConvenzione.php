@@ -17,7 +17,7 @@ class DatiConvenzione extends Data
 
 	#[Max(20)]
 	#[Min(1)]
-	#[Regex('(\p{IsBasicLatin}{1,20})')]
+	#[Regex('/(\p{Basic_Latin}{1,20})/u')]
 	public string $IdDocumento;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
@@ -25,21 +25,21 @@ class DatiConvenzione extends Data
 
 	#[Max(20)]
 	#[Min(1)]
-	#[Regex('(\p{IsBasicLatin}{1,20})')]
+	#[Regex('/(\p{Basic_Latin}{1,20})/u')]
 	public string|Optional $NumItem;
 
 	#[Max(100)]
 	#[Min(1)]
-	#[Regex('[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,100}')]
+	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,100}/u')]
 	public string|Optional $CodiceCommessaConvenzione;
 
 	#[Max(15)]
 	#[Min(1)]
-	#[Regex('(\p{IsBasicLatin}{1,15})')]
+	#[Regex('/(\p{Basic_Latin}{1,15})/u')]
 	public string|Optional $CodiceCUP;
 
 	#[Max(15)]
 	#[Min(1)]
-	#[Regex('(\p{IsBasicLatin}{1,15})')]
+	#[Regex('/(\p{Basic_Latin}{1,15})/u')]
 	public string|Optional $CodiceCIG;
 }

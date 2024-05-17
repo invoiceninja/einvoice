@@ -30,15 +30,15 @@ class DettaglioLinee extends Data
 
 	#[Max(1000)]
 	#[Min(1)]
-	#[Regex('[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,1000}')]
+	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,1000}/u')]
 	public string $Descrizione;
 
-	#[Regex('[0-9]{1,12}\.[0-9]{2,8}')]
+	#[Regex('/[0-9]{1,12}\.[0-9]{2,8}/')]
 	public float|Optional $Quantita;
 
 	#[Max(10)]
 	#[Min(1)]
-	#[Regex('(\p{IsBasicLatin}{1,10})')]
+	#[Regex('/(\p{Basic_Latin}{1,10})/u')]
 	public string|Optional $UnitaMisura;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
@@ -47,14 +47,14 @@ class DettaglioLinee extends Data
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $DataFinePeriodo;
 
-	#[Regex('[\-]?[0-9]{1,11}\.[0-9]{2,8}')]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
 	public float $PrezzoUnitario;
 	public ScontoMaggiorazione|Optional $ScontoMaggiorazione;
 
-	#[Regex('[\-]?[0-9]{1,11}\.[0-9]{2,8}')]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
 	public float $PrezzoTotale;
 
-	#[Regex('[0-9]{1,3}\.[0-9]{2}')]
+	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
 	public float $AliquotaIVA;
 	public string|Optional $Ritenuta;
 	public array $Ritenuta_array = ['SI' => 'SI = Cessione / Prestazione soggetta a ritenuta'];
@@ -89,7 +89,7 @@ class DettaglioLinee extends Data
 
 	#[Max(20)]
 	#[Min(1)]
-	#[Regex('(\p{IsBasicLatin}{1,20})')]
+	#[Regex('/(\p{Basic_Latin}{1,20})/u')]
 	public string|Optional $RiferimentoAmministrazione;
 	public AltriDatiGestionali|Optional $AltriDatiGestionali;
 }

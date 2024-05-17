@@ -20,6 +20,75 @@ class FatturaPA extends BaseStandard
 
     public string $standard = "FatturaPA";
     
+    
+    private array $regex_conversion_array = 
+[
+    '(\\p{IsBasicLatin}{1,10})' => '/(\p{Basic_Latin}{1,10})/u',
+    '[A-Z0-9]{6,7}' => '/[A-Z0-9]{6,7}/',
+    '([!#-\'*+/-9=?A-Z^-~-]+(\\.[!#-\'*+/-9=?A-Z^-~-]+)*|"([\\]!#-[^-~ \t]|(\\\\[\t -~]))+")@([!#-\'*+/-9=?A-Z^-~-]+(\\.[!#-\'*+/-9=?A-Z^-~-]+)*|\\[[\t -Z^-~]*\\])' => '/([!#-\'*+/-9=?A-Z^-~-]+(\.[!#-\'*+/-9=?A-Z^-~-]+)*|"([\]!#-[^-~ \t]|(\\\\[\t -~]))+")@([!#-\'*+/-9=?A-Z^-~-]+(\.[!#-\'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*\])/',
+    '[A-Z]{2}' => '/[A-Z]{2}/',
+    '(\\p{IsBasicLatin}{5,12})' => '/(\p{Basic_Latin}{5,12})/u',
+    '.+@.+[.]+.+' => '/.+@.+\..+/',
+    '[A-Z]{3}' => '/[A-Z]{3}/',
+    '(\\p{IsBasicLatin}{1,20})' => '/(\p{Basic_Latin}{1,20})/u',
+    '[\\-]?[0-9]{1,11}\\.[0-9]{2}' => '/[\-]?[0-9]{1,11}\.[0-9]{2}/',
+    '[\\-]?[0-9]{1,11}\\.[0-9]{2,8}' => '/[\-]?[0-9]{1,11}\.[0-9]{2,8}/',
+    '[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,200}' => '/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,200}/u',
+    '[0-9]{1,3}\\.[0-9]{2}' => '/[0-9]{1,3}\.[0-9]{2}/',
+    '[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,100}' => '/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,100}/u',
+    '(\\p{IsBasicLatin}{1,15})' => '/(\p{Basic_Latin}{1,15})/u',
+    '[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,80}' => '/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,80}/u',
+    '[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,1000}' => '/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,1000}/u',
+    '(\\p{IsBasicLatin}{1,8})' => '/(\p{Basic_Latin}{1,8})/u',
+    '[0-9][0-9][0-9][0-9][0-9]' => '/[0-9]{5}/',
+    '[A-Z0-9]{11,16}' => '/[A-Z0-9]{11,16}/',
+    '(\\p{IsBasicLatin}{1,60})' => '/(\p{Basic_Latin}{1,60})/u',
+    '(\\p{IsBasicLatin}{2,10})' => '/(\p{Basic_Latin}{2,10})/u',
+    '[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{11,30}' => '/[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{11,30}/',
+    '[A-Z]{6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3}){0,1}' => '/[A-Z]{6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3})?/',
+    '[0-9]{1,12}\\.[0-9]{2,8}' => '/[0-9]{1,12}\.[0-9]{2,8}/',
+    '[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,35}' => '/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,35}/u',
+    '[A-Z0-9]{16}' => '/[A-Z0-9]{16}/',
+    '[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,60}' => '/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,60}/u',
+    '[A-Z]{2}' => '/[A-Z]{2}/',
+    '[0-9][0-9][0-9][0-9][0-9]' => '/[0-9]{5}/',
+    '(\\p{IsBasicLatin}{1,35})' => '/(\p{Basic_Latin}{1,35})/u',
+    '[0-9]{1,3}\\.[0-9]{2}' => '/[0-9]{1,3}\.[0-9]{2}/',
+    '[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,80}' => '/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,80}/u',
+    '[\\-]?[0-9]{1,11}\\.[0-9]{2,8}' => '/[\-]?[0-9]{1,11}\.[0-9]{2,8}/',
+    '[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,60}' => '/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,60}/u',
+    '(\\p{IsBasicLatin}{1,10})' => '/(\p{Basic_Latin}{1,10})/u',
+    '(\\p{IsBasicLatin}{1,10})' => '/(\p{Basic_Latin}{1,10})/u',
+    '[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,100}' => '/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,100}/u',
+    '(\\p{IsBasicLatin}{1,10})' => '/(\p{Basic_Latin}{1,10})/u',
+    '[\\-]?[0-9]{1,11}\\.[0-9]{2,8}' => '/[\-]?[0-9]{1,11}\.[0-9]{2,8}/',
+    '(\\p{IsBasicLatin}{1,20})' => '/(\p{Basic_Latin}{1,20})/u',
+    '(\\p{IsBasicLatin}{1,20})' => '/(\p{Basic_Latin}{1,20})/u',
+    '[0-9]{1,12}\\.[0-9]{2,8}' => '/[0-9]{1,12}\.[0-9]{2,8}/',
+    '[\\-]?[0-9]{1,11}\\.[0-9]{2}' => '/[\-]?[0-9]{1,11}\.[0-9]{2}/',
+    '(\\p{IsBasicLatin}{1,60})' => '/(\p{Basic_Latin}{1,60})/u',
+    '[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,80}' => '/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,80}/u',
+    '[\\-]?[0-9]{1,11}\\.[0-9]{2,8}' => '/[\-]?[0-9]{1,11}\.[0-9]{2,8}/',
+    '[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,60}' => '/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,60}/u',
+    '(\\p{IsBasicLatin}{2,10})' => '/(\p{Basic_Latin}{2,10})/u',
+    '[A-Z]{2}' => '/[A-Z]{2}/',
+    '(\\p{IsBasicLatin}{1,20})' => '/(\p{Basic_Latin}{1,20})/u',
+    '[\\-]?[0-9]{1,11}\\.[0-9]{2}' => '/[\-]?[0-9]{1,11}\.[0-9]{2}/',
+    '(\\p{IsBasicLatin}{5,12})' => '/(\p{Basic_Latin}{5,12})/u',
+    '(\\p{IsBasicLatin}{1,15})' => '/(\p{Basic_Latin}{1,15})/u',
+    '[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,200}' => '/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,200}/u',
+    '[\\-]?[0-9]{1,11}\\.[0-9]{2}' => '/[\-]?[0-9]{1,11}\.[0-9]{2}/',
+    '[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,60}' => '/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,60}/u',
+    '[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,60}' => '/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,60}/u',
+    '(\\p{IsBasicLatin}{1,35})' => '/(\p{Basic_Latin}{1,35})/u',
+    '[\\-]?[0-9]{1,11}\\.[0-9]{2}' => '/[\-]?[0-9]{1,11}\.[0-9]{2}/',
+    '[\\-]?[0-9]{1,11}\\.[0-9]{2}' => '/[\-]?[0-9]{1,11}\.[0-9]{2}/',
+    '[\\-]?[0-9]{1,11}\\.[0-9]{2}' => '/[\-]?[0-9]{1,11}\.[0-9]{2}/',
+    '[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,100}' => '/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,100}/u',
+    '[0-9]{1,4}\\.[0-9]{1,2}' => '/[0-9]{1,4}\.[0-9]{1,2}/',
+];
+
+
     public function __construct()
     {
 
@@ -386,6 +455,8 @@ class FatturaPA extends BaseStandard
         if (preg_match('/{([^{}]+)}[^{}]*$/', $resource['pattern'] ?? '', $matches)) {
             $contents = $matches[1];
             $parts = explode(",", $contents);
+
+            $resource['pattern'] = $this->regex_conversion_array[$resource['pattern']];
         }
 
         if(count($parts) == 2 && $resource['base_type'] == 'normalizedString') {

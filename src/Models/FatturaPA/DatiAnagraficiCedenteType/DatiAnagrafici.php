@@ -19,23 +19,23 @@ class DatiAnagrafici extends Data
 
 	#[Max(16)]
 	#[Min(11)]
-	#[Regex('[A-Z0-9]{11,16}')]
+	#[Regex('/[A-Z0-9]{11,16}/')]
 	public string|Optional $CodiceFiscale;
 	public Anagrafica $Anagrafica;
 
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,60}')]
+	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,60}/u')]
 	public string|Optional $AlboProfessionale;
 
 	#[Max(2)]
 	#[Min(2)]
-	#[Regex('[A-Z]{2}')]
+	#[Regex('/[A-Z]{2}/')]
 	public string|Optional $ProvinciaAlbo;
 
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('(\p{IsBasicLatin}{1,60})')]
+	#[Regex('/(\p{Basic_Latin}{1,60})/u')]
 	public string|Optional $NumeroIscrizioneAlbo;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]

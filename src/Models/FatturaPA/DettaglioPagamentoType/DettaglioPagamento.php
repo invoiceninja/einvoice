@@ -15,7 +15,7 @@ class DettaglioPagamento extends Data
 {
 	#[Max(200)]
 	#[Min(1)]
-	#[Regex('[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,200}')]
+	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,200}/u')]
 	public string|Optional $Beneficiario;
 	public string $ModalitaPagamento;
 
@@ -52,42 +52,42 @@ class DettaglioPagamento extends Data
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $DataScadenzaPagamento;
 
-	#[Regex('[\-]?[0-9]{1,11}\.[0-9]{2}')]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float $ImportoPagamento;
 
 	#[Max(20)]
 	#[Min(1)]
-	#[Regex('(\p{IsBasicLatin}{1,20})')]
+	#[Regex('/(\p{Basic_Latin}{1,20})/u')]
 	public string|Optional $CodUfficioPostale;
 
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,60}')]
+	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,60}/u')]
 	public string|Optional $CognomeQuietanzante;
 
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,60}')]
+	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,60}/u')]
 	public string|Optional $NomeQuietanzante;
 
 	#[Max(16)]
 	#[Min(16)]
-	#[Regex('[A-Z0-9]{16}')]
+	#[Regex('/[A-Z0-9]{16}/')]
 	public string|Optional $CFQuietanzante;
 
 	#[Max(10)]
 	#[Min(2)]
-	#[Regex('(\p{IsBasicLatin}{2,10})')]
+	#[Regex('/(\p{Basic_Latin}{2,10})/u')]
 	public string|Optional $TitoloQuietanzante;
 
 	#[Max(80)]
 	#[Min(1)]
-	#[Regex('[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,80}')]
+	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,80}/u')]
 	public string|Optional $IstitutoFinanziario;
 
 	#[Max(30)]
 	#[Min(11)]
-	#[Regex('[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{11,30}')]
+	#[Regex('/[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{11,30}/')]
 	public string|Optional $IBAN;
 
 	#[Regex('[0-9][0-9][0-9][0-9][0-9]')]
@@ -98,16 +98,16 @@ class DettaglioPagamento extends Data
 
 	#[Max(1)]
 	#[Min(0)]
-	#[Regex('[A-Z]{6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3}){0,1}')]
+	#[Regex('/[A-Z]{6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3})?/')]
 	public string|Optional $BIC;
 
-	#[Regex('[\-]?[0-9]{1,11}\.[0-9]{2}')]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float|Optional $ScontoPagamentoAnticipato;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $DataLimitePagamentoAnticipato;
 
-	#[Regex('[\-]?[0-9]{1,11}\.[0-9]{2}')]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float|Optional $PenalitaPagamentiRitardati;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
@@ -115,6 +115,6 @@ class DettaglioPagamento extends Data
 
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('(\p{IsBasicLatin}{1,60})')]
+	#[Regex('/(\p{Basic_Latin}{1,60})/u')]
 	public string|Optional $CodicePagamento;
 }

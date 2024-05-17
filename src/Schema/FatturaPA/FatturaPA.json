@@ -188,7 +188,7 @@
                 "resource": [],
                 "max_length": 10,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,10})",
+                "pattern": "\/(\\p{Basic_Latin}{1,10})\/u",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -213,7 +213,7 @@
                 "resource": [],
                 "max_length": 7,
                 "min_length": 6,
-                "pattern": "[A-Z0-9]{6,7}",
+                "pattern": "\/[A-Z0-9]{6,7}\/",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -253,7 +253,7 @@
                 "resource": [],
                 "max_length": 2,
                 "min_length": 2,
-                "pattern": "[A-Z]{2}",
+                "pattern": "\/[A-Z]{2}\/",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -282,7 +282,7 @@
                 "resource": [],
                 "max_length": 12,
                 "min_length": 5,
-                "pattern": "(\\p{IsBasicLatin}{5,12})",
+                "pattern": "\/(\\p{Basic_Latin}{5,12})\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -459,7 +459,7 @@
                 "resource": [],
                 "max_length": 3,
                 "min_length": 3,
-                "pattern": "[A-Z]{3}",
+                "pattern": "\/[A-Z]{3}\/",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -481,7 +481,7 @@
                 "resource": [],
                 "max_length": 20,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,20})",
+                "pattern": "\/(\\p{Basic_Latin}{1,20})\/u",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -536,7 +536,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[\\-]?[0-9]{1,11}\\.[0-9]{2}",
+                "pattern": "\/[\\-]?[0-9]{1,11}\\.[0-9]{2}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -547,7 +547,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[\\-]?[0-9]{1,11}\\.[0-9]{2}",
+                "pattern": "\/[\\-]?[0-9]{1,11}\\.[0-9]{2}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -558,7 +558,7 @@
                 "resource": [],
                 "max_length": 200,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,200}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,200}\/u",
                 "min_occurs": 0,
                 "max_occurs": -1,
                 "help": ""
@@ -607,7 +607,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[\\-]?[0-9]{1,11}\\.[0-9]{2}",
+                "pattern": "\/[\\-]?[0-9]{1,11}\\.[0-9]{2}\/",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -618,7 +618,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[0-9]{1,3}\\.[0-9]{2}",
+                "pattern": "\/[0-9]{1,3}\\.[0-9]{2}\/",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -690,7 +690,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[\\-]?[0-9]{1,11}\\.[0-9]{2}",
+                "pattern": "\/[\\-]?[0-9]{1,11}\\.[0-9]{2}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -742,7 +742,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[0-9]{1,3}\\.[0-9]{2}",
+                "pattern": "\/[0-9]{1,3}\\.[0-9]{2}\/",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -753,7 +753,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[\\-]?[0-9]{1,11}\\.[0-9]{2}",
+                "pattern": "\/[\\-]?[0-9]{1,11}\\.[0-9]{2}\/",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -764,7 +764,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[\\-]?[0-9]{1,11}\\.[0-9]{2}",
+                "pattern": "\/[\\-]?[0-9]{1,11}\\.[0-9]{2}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -775,7 +775,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[0-9]{1,3}\\.[0-9]{2}",
+                "pattern": "\/[0-9]{1,3}\\.[0-9]{2}\/",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -835,7 +835,7 @@
                 "resource": [],
                 "max_length": 20,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,20})",
+                "pattern": "\/(\\p{Basic_Latin}{1,20})\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -867,7 +867,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[0-9]{1,3}\\.[0-9]{2}",
+                "pattern": "\/[0-9]{1,3}\\.[0-9]{2}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -878,7 +878,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[\\-]?[0-9]{1,11}\\.[0-9]{2,8}",
+                "pattern": "\/[\\-]?[0-9]{1,11}\\.[0-9]{2,8}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -925,7 +925,7 @@
                 "resource": [],
                 "max_length": 20,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,20})",
+                "pattern": "\/(\\p{Basic_Latin}{1,20})\/u",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -947,7 +947,7 @@
                 "resource": [],
                 "max_length": 20,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,20})",
+                "pattern": "\/(\\p{Basic_Latin}{1,20})\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -958,7 +958,7 @@
                 "resource": [],
                 "max_length": 100,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,100}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,100}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -969,7 +969,7 @@
                 "resource": [],
                 "max_length": 15,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,15})",
+                "pattern": "\/(\\p{Basic_Latin}{1,15})\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -980,7 +980,7 @@
                 "resource": [],
                 "max_length": 15,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,15})",
+                "pattern": "\/(\\p{Basic_Latin}{1,15})\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -998,7 +998,7 @@
                 "resource": [],
                 "max_length": 20,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,20})",
+                "pattern": "\/(\\p{Basic_Latin}{1,20})\/u",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -1049,7 +1049,7 @@
                 "resource": [],
                 "max_length": 80,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,80}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,80}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1060,7 +1060,7 @@
                 "resource": [],
                 "max_length": 100,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,100}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,100}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1082,7 +1082,7 @@
                 "resource": [],
                 "max_length": 100,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,100}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,100}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1093,7 +1093,7 @@
                 "resource": [],
                 "max_length": 10,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,10})",
+                "pattern": "\/(\\p{Basic_Latin}{1,10})\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1104,7 +1104,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[0-9]{1,4}\\.[0-9]{1,2}",
+                "pattern": "\/[0-9]{1,4}\\.[0-9]{1,2}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1115,7 +1115,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[0-9]{1,4}\\.[0-9]{1,2}",
+                "pattern": "\/[0-9]{1,4}\\.[0-9]{1,2}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1148,7 +1148,7 @@
                 "resource": [],
                 "max_length": 3,
                 "min_length": 3,
-                "pattern": "[A-Z]{3}",
+                "pattern": "\/[A-Z]{3}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1188,7 +1188,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,60}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,60}\/u",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -1199,7 +1199,7 @@
                 "resource": [],
                 "max_length": 8,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,8})",
+                "pattern": "\/(\\p{Basic_Latin}{1,8})\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1221,7 +1221,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,60}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,60}\/u",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -1232,7 +1232,7 @@
                 "resource": [],
                 "max_length": 2,
                 "min_length": 2,
-                "pattern": "[A-Z]{2}",
+                "pattern": "\/[A-Z]{2}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1243,7 +1243,7 @@
                 "resource": [],
                 "max_length": 2,
                 "min_length": 2,
-                "pattern": "[A-Z]{2}",
+                "pattern": "\/[A-Z]{2}\/",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -1261,7 +1261,7 @@
                 "resource": [],
                 "max_length": 20,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,20})",
+                "pattern": "\/(\\p{Basic_Latin}{1,20})\/u",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -1345,7 +1345,7 @@
                 "resource": [],
                 "max_length": 20,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,20})",
+                "pattern": "\/(\\p{Basic_Latin}{1,20})\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1374,7 +1374,7 @@
                 "resource": [],
                 "max_length": 16,
                 "min_length": 11,
-                "pattern": "[A-Z0-9]{11,16}",
+                "pattern": "\/[A-Z0-9]{11,16}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1396,7 +1396,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,60}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,60}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1407,7 +1407,7 @@
                 "resource": [],
                 "max_length": 2,
                 "min_length": 2,
-                "pattern": "[A-Z]{2}",
+                "pattern": "\/[A-Z]{2}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1418,7 +1418,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,60})",
+                "pattern": "\/(\\p{Basic_Latin}{1,60})\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1485,7 +1485,7 @@
                 "resource": [],
                 "max_length": 80,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,80}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,80}\/u",
                 "min_occurs": 1,
                 "max_occurs": 1
             },
@@ -1495,7 +1495,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,60}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,60}\/u",
                 "min_occurs": 1,
                 "max_occurs": 1
             },
@@ -1505,7 +1505,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,60}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,60}\/u",
                 "min_occurs": 1,
                 "max_occurs": 1
             },
@@ -1515,7 +1515,7 @@
                 "resource": [],
                 "max_length": 10,
                 "min_length": 2,
-                "pattern": "(\\p{IsBasicLatin}{2,10})",
+                "pattern": "\/(\\p{Basic_Latin}{2,10})\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1555,7 +1555,7 @@
                 "resource": [],
                 "max_length": 16,
                 "min_length": 11,
-                "pattern": "[A-Z0-9]{11,16}",
+                "pattern": "\/[A-Z0-9]{11,16}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1577,7 +1577,7 @@
                 "resource": [],
                 "max_length": 20,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,20})",
+                "pattern": "\/(\\p{Basic_Latin}{1,20})\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1595,7 +1595,7 @@
                 "resource": [],
                 "max_length": 2,
                 "min_length": 2,
-                "pattern": "[A-Z]{2}",
+                "pattern": "\/[A-Z]{2}\/",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -1606,7 +1606,7 @@
                 "resource": [],
                 "max_length": 20,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,20})",
+                "pattern": "\/(\\p{Basic_Latin}{1,20})\/u",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -1617,7 +1617,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[\\-]?[0-9]{1,11}\\.[0-9]{2}",
+                "pattern": "\/[\\-]?[0-9]{1,11}\\.[0-9]{2}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1663,7 +1663,7 @@
                 "resource": [],
                 "max_length": 12,
                 "min_length": 5,
-                "pattern": "(\\p{IsBasicLatin}{5,12})",
+                "pattern": "\/(\\p{Basic_Latin}{5,12})\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1674,7 +1674,7 @@
                 "resource": [],
                 "max_length": 12,
                 "min_length": 5,
-                "pattern": "(\\p{IsBasicLatin}{5,12})",
+                "pattern": "\/(\\p{Basic_Latin}{5,12})\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1732,7 +1732,7 @@
                 "resource": [],
                 "max_length": 16,
                 "min_length": 11,
-                "pattern": "[A-Z0-9]{11,16}",
+                "pattern": "\/[A-Z0-9]{11,16}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1820,7 +1820,7 @@
                 "resource": [],
                 "max_length": 80,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,80}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,80}\/u",
                 "min_occurs": 1,
                 "max_occurs": 1
             },
@@ -1830,7 +1830,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,60}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,60}\/u",
                 "min_occurs": 1,
                 "max_occurs": 1
             },
@@ -1840,7 +1840,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,60}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,60}\/u",
                 "min_occurs": 1,
                 "max_occurs": 1
             },
@@ -1879,7 +1879,7 @@
                 "resource": [],
                 "max_length": 16,
                 "min_length": 11,
-                "pattern": "[A-Z0-9]{11,16}",
+                "pattern": "\/[A-Z0-9]{11,16}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1948,7 +1948,7 @@
                 "resource": [],
                 "max_length": 15,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,15})",
+                "pattern": "\/(\\p{Basic_Latin}{1,15})\/u",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -1999,7 +1999,7 @@
                 "resource": [],
                 "max_length": 200,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,200}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,200}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2078,7 +2078,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[\\-]?[0-9]{1,11}\\.[0-9]{2}",
+                "pattern": "\/[\\-]?[0-9]{1,11}\\.[0-9]{2}\/",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -2089,7 +2089,7 @@
                 "resource": [],
                 "max_length": 20,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,20})",
+                "pattern": "\/(\\p{Basic_Latin}{1,20})\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2100,7 +2100,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,60}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,60}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2111,7 +2111,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,60}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,60}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2122,7 +2122,7 @@
                 "resource": [],
                 "max_length": 16,
                 "min_length": 16,
-                "pattern": "[A-Z0-9]{16}",
+                "pattern": "\/[A-Z0-9]{16}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2133,7 +2133,7 @@
                 "resource": [],
                 "max_length": 10,
                 "min_length": 2,
-                "pattern": "(\\p{IsBasicLatin}{2,10})",
+                "pattern": "\/(\\p{Basic_Latin}{2,10})\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2144,7 +2144,7 @@
                 "resource": [],
                 "max_length": 80,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,80}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,80}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2155,7 +2155,7 @@
                 "resource": [],
                 "max_length": 30,
                 "min_length": 11,
-                "pattern": "[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{11,30}",
+                "pattern": "\/[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{11,30}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2188,7 +2188,7 @@
                 "resource": [],
                 "max_length": 1,
                 "min_length": 0,
-                "pattern": "[A-Z]{6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3}){0,1}",
+                "pattern": "\/[A-Z]{6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3})?\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2199,7 +2199,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[\\-]?[0-9]{1,11}\\.[0-9]{2}",
+                "pattern": "\/[\\-]?[0-9]{1,11}\\.[0-9]{2}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2221,7 +2221,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[\\-]?[0-9]{1,11}\\.[0-9]{2}",
+                "pattern": "\/[\\-]?[0-9]{1,11}\\.[0-9]{2}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2243,7 +2243,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,60})",
+                "pattern": "\/(\\p{Basic_Latin}{1,60})\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2290,7 +2290,7 @@
                 "resource": [],
                 "max_length": 16,
                 "min_length": 11,
-                "pattern": "[A-Z0-9]{11,16}",
+                "pattern": "\/[A-Z0-9]{11,16}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2319,7 +2319,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,60}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,60}\/u",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -2330,7 +2330,7 @@
                 "resource": [],
                 "max_length": 10,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,10})",
+                "pattern": "\/(\\p{Basic_Latin}{1,10})\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2341,7 +2341,7 @@
                 "resource": [],
                 "max_length": 10,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,10})",
+                "pattern": "\/(\\p{Basic_Latin}{1,10})\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2352,7 +2352,7 @@
                 "resource": [],
                 "max_length": 100,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,100}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,100}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2419,7 +2419,7 @@
                 "resource": [],
                 "max_length": 1000,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,1000}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,1000}\/u",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -2430,7 +2430,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[0-9]{1,12}\\.[0-9]{2,8}",
+                "pattern": "\/[0-9]{1,12}\\.[0-9]{2,8}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2441,7 +2441,7 @@
                 "resource": [],
                 "max_length": 10,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,10})",
+                "pattern": "\/(\\p{Basic_Latin}{1,10})\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2474,7 +2474,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[\\-]?[0-9]{1,11}\\.[0-9]{2,8}",
+                "pattern": "\/[\\-]?[0-9]{1,11}\\.[0-9]{2,8}\/",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -2496,7 +2496,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[\\-]?[0-9]{1,11}\\.[0-9]{2,8}",
+                "pattern": "\/[\\-]?[0-9]{1,11}\\.[0-9]{2,8}\/",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -2507,7 +2507,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[0-9]{1,3}\\.[0-9]{2}",
+                "pattern": "\/[0-9]{1,3}\\.[0-9]{2}\/",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -2567,7 +2567,7 @@
                 "resource": [],
                 "max_length": 20,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,20})",
+                "pattern": "\/(\\p{Basic_Latin}{1,20})\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2596,7 +2596,7 @@
                 "resource": [],
                 "max_length": 35,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,35})",
+                "pattern": "\/(\\p{Basic_Latin}{1,35})\/u",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -2625,7 +2625,7 @@
                 "resource": [],
                 "max_length": 10,
                 "min_length": 1,
-                "pattern": "(\\p{IsBasicLatin}{1,10})",
+                "pattern": "\/(\\p{Basic_Latin}{1,10})\/u",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -2636,7 +2636,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,60}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,60}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2647,7 +2647,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[\\-]?[0-9]{1,11}\\.[0-9]{2,8}",
+                "pattern": "\/[\\-]?[0-9]{1,11}\\.[0-9]{2,8}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2676,7 +2676,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[0-9]{1,3}\\.[0-9]{2}",
+                "pattern": "\/[0-9]{1,3}\\.[0-9]{2}\/",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -2723,7 +2723,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[\\-]?[0-9]{1,11}\\.[0-9]{2}",
+                "pattern": "\/[\\-]?[0-9]{1,11}\\.[0-9]{2}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2734,7 +2734,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[\\-]?[0-9]{1,11}\\.[0-9]{2,8}",
+                "pattern": "\/[\\-]?[0-9]{1,11}\\.[0-9]{2,8}\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2745,7 +2745,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[\\-]?[0-9]{1,11}\\.[0-9]{2}",
+                "pattern": "\/[\\-]?[0-9]{1,11}\\.[0-9]{2}\/",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -2756,7 +2756,7 @@
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
-                "pattern": "[\\-]?[0-9]{1,11}\\.[0-9]{2}",
+                "pattern": "\/[\\-]?[0-9]{1,11}\\.[0-9]{2}\/",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -2782,7 +2782,7 @@
                 "resource": [],
                 "max_length": 100,
                 "min_length": 1,
-                "pattern": "[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,100}",
+                "pattern": "\/[\\p{Basic_Latin}\\p{Latin_1_Supplement}]{1,100}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""

@@ -13,22 +13,22 @@ class Allegati extends Data
 {
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,60}')]
+	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,60}/u')]
 	public string $NomeAttachment;
 
 	#[Max(10)]
 	#[Min(1)]
-	#[Regex('(\p{IsBasicLatin}{1,10})')]
+	#[Regex('/(\p{Basic_Latin}{1,10})/u')]
 	public string|Optional $AlgoritmoCompressione;
 
 	#[Max(10)]
 	#[Min(1)]
-	#[Regex('(\p{IsBasicLatin}{1,10})')]
+	#[Regex('/(\p{Basic_Latin}{1,10})/u')]
 	public string|Optional $FormatoAttachment;
 
 	#[Max(100)]
 	#[Min(1)]
-	#[Regex('[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,100}')]
+	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,100}/u')]
 	public string|Optional $DescrizioneAttachment;
 	public mixed $Attachment;
 }

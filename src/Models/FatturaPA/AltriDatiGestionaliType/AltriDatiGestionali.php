@@ -15,15 +15,15 @@ class AltriDatiGestionali extends Data
 {
 	#[Max(10)]
 	#[Min(1)]
-	#[Regex('(\p{IsBasicLatin}{1,10})')]
+	#[Regex('/(\p{Basic_Latin}{1,10})/u')]
 	public string $TipoDato;
 
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,60}')]
+	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,60}/u')]
 	public string|Optional $RiferimentoTesto;
 
-	#[Regex('[\-]?[0-9]{1,11}\.[0-9]{2,8}')]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
 	public float|Optional $RiferimentoNumero;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]

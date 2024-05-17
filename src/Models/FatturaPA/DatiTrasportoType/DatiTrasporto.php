@@ -19,29 +19,29 @@ class DatiTrasporto extends Data
 
 	#[Max(80)]
 	#[Min(1)]
-	#[Regex('[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,80}')]
+	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,80}/u')]
 	public string|Optional $MezzoTrasporto;
 
 	#[Max(100)]
 	#[Min(1)]
-	#[Regex('[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,100}')]
+	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,100}/u')]
 	public string|Optional $CausaleTrasporto;
 	public int|Optional $NumeroColli;
 
 	#[Max(100)]
 	#[Min(1)]
-	#[Regex('[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,100}')]
+	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,100}/u')]
 	public string|Optional $Descrizione;
 
 	#[Max(10)]
 	#[Min(1)]
-	#[Regex('(\p{IsBasicLatin}{1,10})')]
+	#[Regex('/(\p{Basic_Latin}{1,10})/u')]
 	public string|Optional $UnitaMisuraPeso;
 
-	#[Regex('[0-9]{1,4}\.[0-9]{1,2}')]
+	#[Regex('/[0-9]{1,4}\.[0-9]{1,2}/')]
 	public float|Optional $PesoLordo;
 
-	#[Regex('[0-9]{1,4}\.[0-9]{1,2}')]
+	#[Regex('/[0-9]{1,4}\.[0-9]{1,2}/')]
 	public float|Optional $PesoNetto;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
@@ -52,7 +52,7 @@ class DatiTrasporto extends Data
 
 	#[Max(3)]
 	#[Min(3)]
-	#[Regex('[A-Z]{3}')]
+	#[Regex('/[A-Z]{3}/')]
 	public string|Optional $TipoResa;
 	public IndirizzoResa|Optional $IndirizzoResa;
 

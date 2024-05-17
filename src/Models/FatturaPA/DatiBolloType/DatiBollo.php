@@ -12,6 +12,6 @@ class DatiBollo extends Data
 	public string $BolloVirtuale;
 	public array $BolloVirtuale_array = ['SI' => 'SI'];
 
-	#[Regex('[\-]?[0-9]{1,11}\.[0-9]{2}')]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float|Optional $ImportoBollo;
 }

@@ -13,12 +13,12 @@ class StabileOrganizzazione extends Data
 {
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,60}')]
+	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,60}/u')]
 	public string $Indirizzo;
 
 	#[Max(8)]
 	#[Min(1)]
-	#[Regex('(\p{IsBasicLatin}{1,8})')]
+	#[Regex('/(\p{Basic_Latin}{1,8})/u')]
 	public string|Optional $NumeroCivico;
 
 	#[Regex('[0-9][0-9][0-9][0-9][0-9]')]
@@ -26,16 +26,16 @@ class StabileOrganizzazione extends Data
 
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,60}')]
+	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,60}/u')]
 	public string $Comune;
 
 	#[Max(2)]
 	#[Min(2)]
-	#[Regex('[A-Z]{2}')]
+	#[Regex('/[A-Z]{2}/')]
 	public string|Optional $Provincia;
 
 	#[Max(2)]
 	#[Min(2)]
-	#[Regex('[A-Z]{2}')]
+	#[Regex('/[A-Z]{2}/')]
 	public string $Nazione;
 }

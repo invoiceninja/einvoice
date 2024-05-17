@@ -43,7 +43,7 @@ class DatiGeneraliDocumento extends Data
 
 	#[Max(3)]
 	#[Min(3)]
-	#[Regex('[A-Z]{3}')]
+	#[Regex('/[A-Z]{3}/')]
 	public string $Divisa;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
@@ -51,22 +51,22 @@ class DatiGeneraliDocumento extends Data
 
 	#[Max(20)]
 	#[Min(1)]
-	#[Regex('(\p{IsBasicLatin}{1,20})')]
+	#[Regex('/(\p{Basic_Latin}{1,20})/u')]
 	public string $Numero;
 	public DatiRitenuta|Optional $DatiRitenuta;
 	public DatiBollo|Optional $DatiBollo;
 	public DatiCassaPrevidenziale|Optional $DatiCassaPrevidenziale;
 	public ScontoMaggiorazione|Optional $ScontoMaggiorazione;
 
-	#[Regex('[\-]?[0-9]{1,11}\.[0-9]{2}')]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float|Optional $ImportoTotaleDocumento;
 
-	#[Regex('[\-]?[0-9]{1,11}\.[0-9]{2}')]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float|Optional $Arrotondamento;
 
 	#[Max(200)]
 	#[Min(1)]
-	#[Regex('[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,200}')]
+	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,200}/u')]
 	public string|Optional $Causale;
 	public string|Optional $Art73;
 

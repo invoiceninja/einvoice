@@ -20,10 +20,10 @@ class DatiRitenuta extends Data
 		'RT06' => 'Altro contributo previdenziale',
 	];
 
-	#[Regex('[\-]?[0-9]{1,11}\.[0-9]{2}')]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float $ImportoRitenuta;
 
-	#[Regex('[0-9]{1,3}\.[0-9]{2}')]
+	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
 	public float $AliquotaRitenuta;
 	public string $CausalePagamento;
 

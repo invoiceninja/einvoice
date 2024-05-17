@@ -4,11 +4,15 @@ namespace Invoiceninja\Einvoice\Models\FatturaPA\DatiPagamentoType;
 
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FatturaPA\DettaglioPagamentoType\DettaglioPagamento;
+use Spatie\LaravelData\Attributes\Validation\Max;
+use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
 class DatiPagamento extends Data
 {
+	#[Max(4)]
+	#[Min(4)]
 	public string $CondizioniPagamento;
 
 	public array $CondizioniPagamento_array = [

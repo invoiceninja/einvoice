@@ -12,9 +12,9 @@ class ScontoMaggiorazione extends Data
 	public string $Tipo;
 	public array $Tipo_array = ['SC' => 'SC = Sconto', 'MG' => 'MG = Maggiorazione'];
 
-	#[Regex('[0-9]{1,3}\.[0-9]{2}')]
+	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
 	public float|Optional $Percentuale;
 
-	#[Regex('[\-]?[0-9]{1,11}\.[0-9]{2,8}')]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
 	public float|Optional $Importo;
 }

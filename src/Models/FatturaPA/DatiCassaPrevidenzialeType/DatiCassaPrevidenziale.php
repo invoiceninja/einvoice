@@ -38,16 +38,16 @@ class DatiCassaPrevidenziale extends Data
 		'TC22' => 'INPS',
 	];
 
-	#[Regex('[0-9]{1,3}\.[0-9]{2}')]
+	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
 	public float $AlCassa;
 
-	#[Regex('[\-]?[0-9]{1,11}\.[0-9]{2}')]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float $ImportoContributoCassa;
 
-	#[Regex('[\-]?[0-9]{1,11}\.[0-9]{2}')]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float|Optional $ImponibileCassa;
 
-	#[Regex('[0-9]{1,3}\.[0-9]{2}')]
+	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
 	public float $AliquotaIVA;
 	public string|Optional $Ritenuta;
 	public array $Ritenuta_array = ['SI' => 'SI = Cessione / Prestazione soggetta a ritenuta'];
@@ -82,6 +82,6 @@ class DatiCassaPrevidenziale extends Data
 
 	#[Max(20)]
 	#[Min(1)]
-	#[Regex('(\p{IsBasicLatin}{1,20})')]
+	#[Regex('/(\p{Basic_Latin}{1,20})/u')]
 	public string|Optional $RiferimentoAmministrazione;
 }

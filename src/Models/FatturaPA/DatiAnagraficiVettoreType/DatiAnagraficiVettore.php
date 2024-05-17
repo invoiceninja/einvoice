@@ -17,12 +17,12 @@ class DatiAnagraficiVettore extends Data
 
 	#[Max(16)]
 	#[Min(11)]
-	#[Regex('[A-Z0-9]{11,16}')]
+	#[Regex('/[A-Z0-9]{11,16}/')]
 	public string|Optional $CodiceFiscale;
 	public Anagrafica $Anagrafica;
 
 	#[Max(20)]
 	#[Min(1)]
-	#[Regex('(\p{IsBasicLatin}{1,20})')]
+	#[Regex('/(\p{Basic_Latin}{1,20})/u')]
 	public string|Optional $NumeroLicenzaGuida;
 }

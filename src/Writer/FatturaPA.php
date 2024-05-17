@@ -108,7 +108,6 @@ class FatturaPA extends BaseStandard
 
                     $select['resource'] = $this->extractResource($select['type'] ?? $select['base_type']);
                     $select = array_merge($select, $this->extractRestriction($select['type'] ?? $select['base_type']));
-                    // echo print_r($select).PHP_EOL;
                     $data[$key] = $select;
                 }
             }
@@ -352,6 +351,13 @@ class FatturaPA extends BaseStandard
                         $resource[$this->camelToSnake($childNode->localName)] = $childNode->getAttribute("value");
 
                     }
+                    if(in_array($childNode->localName, ['minLength','maxLength']))
+                    {
+                                                
+                        $resource[$this->camelToSnake($childNode->localName)] = (int)$childNode->getAttribute("value");
+                        $resource['base_type'] = 'string';
+
+                    }
                 }
 
             }
@@ -377,7 +383,7 @@ class FatturaPA extends BaseStandard
     {
         $parts = [];
 
-        if (preg_match('/{([^{}]+)}[^{}]*$/', $resource['pattern'], $matches)) {
+        if (preg_match('/{([^{}]+)}[^{}]*$/', $resource['pattern'] ?? '', $matches)) {
             $contents = $matches[1];
             $parts = explode(",", $contents);
         }
@@ -388,6 +394,7 @@ class FatturaPA extends BaseStandard
             $resource['max_length'] = (int)$parts[1];
             $resource['base_type'] = 'string';
 
+            return $resource;
         }
 
         if(count($parts) == 1 && $resource['base_type'] == 'string') {
@@ -396,6 +403,7 @@ class FatturaPA extends BaseStandard
             $resource['max_length'] = (int)$parts[0];
             $resource['base_type'] = 'string';
 
+            return $resource;
         }
 
         if(count($parts) == 2 && $resource['base_type'] == 'string') {
@@ -404,6 +412,7 @@ class FatturaPA extends BaseStandard
             $resource['max_length'] = (int)$parts[1];
             $resource['base_type'] = 'string';
 
+            return $resource;
         }
 
         return $resource;

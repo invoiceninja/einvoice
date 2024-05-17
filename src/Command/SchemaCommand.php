@@ -22,16 +22,21 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
-    name: 'e:create',
-    description: 'Create Model Classes',
+    name: 'e:schema',
+    description: 'Create Schemas',
     hidden: false,
-    aliases: ['e:create']
+    aliases: ['e:schema']
 )]
-final class ModelCommand extends Command
+final class SchemaCommand extends Command
 {
-
-
     public $output;
+
+    private array $schemas = [
+        'FatturaPA',
+        'Fact1',
+    ];
+
+    private string $namespace = "\\Invoiceninja\Einvoice\Writer\\";
 
     protected function configure()
     {
@@ -44,11 +49,29 @@ final class ModelCommand extends Command
     {
         $this->output = $output;
 
-            $generator = new Generator();
-            $generator->build();
+        $progressBar = new ProgressBar($output, count($this->schemas));
+        $this->output->writeln(PHP_EOL);
+
+        foreach($this->schemas as $schema)
+        {
+            $schema_class = $this->namespace.$schema;
+
+            $this->output->writeln("Building => {$schema}".PHP_EOL);
+
+            $class = new $schema_class();
+            $class->init();
+
+            $progressBar->advance();
+
+            $this->output->writeln(PHP_EOL);
+
+        }
 
         // return value is important when using CI, to fail the build when the command fails
+
         // in case of fail: "return self::FAILURE;"
+        
+        $progressBar->finish();
         return self::SUCCESS;
     }
 

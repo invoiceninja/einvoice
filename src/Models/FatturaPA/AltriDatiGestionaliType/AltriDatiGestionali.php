@@ -15,12 +15,12 @@ class AltriDatiGestionali extends Data
 {
 	#[Max(10)]
 	#[Min(1)]
-	#[Regex('/(\p{Basic_Latin}{1,10})/u')]
+	#[Regex('/(\p{Latin}{1,10})/u')]
 	public string $TipoDato;
 
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,60}/u')]
+	#[Regex('/[\p{Latin}\p{Latin1}]{1,60}/u')]
 	public string|Optional $RiferimentoTesto;
 
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]

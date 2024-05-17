@@ -13,7 +13,7 @@ class CodiceArticolo extends Data
 {
 	#[Max(35)]
 	#[Min(1)]
-	#[Regex('/(\p{Basic_Latin}{1,35})/u')]
+	#[Regex('/(\p{Latin}{1,35})/u')]
 	public string $CodiceTipo;
 
 	#[Max(35)]

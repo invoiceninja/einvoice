@@ -13,12 +13,12 @@ class Sede extends Data
 {
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,60}/u')]
+	#[Regex('/[\p{Latin}\p{Latin1}]{1,60}/u')]
 	public string $Indirizzo;
 
 	#[Max(8)]
 	#[Min(1)]
-	#[Regex('/(\p{Basic_Latin}{1,8})/u')]
+	#[Regex('/(\p{Latin}{1,8})/u')]
 	public string|Optional $NumeroCivico;
 
 	#[Regex('[0-9][0-9][0-9][0-9][0-9]')]
@@ -26,7 +26,7 @@ class Sede extends Data
 
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,60}/u')]
+	#[Regex('/[\p{Latin}\p{Latin1}]{1,60}/u')]
 	public string $Comune;
 
 	#[Max(2)]

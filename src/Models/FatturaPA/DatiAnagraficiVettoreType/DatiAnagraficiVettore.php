@@ -23,6 +23,6 @@ class DatiAnagraficiVettore extends Data
 
 	#[Max(20)]
 	#[Min(1)]
-	#[Regex('/(\p{Basic_Latin}{1,20})/u')]
+	#[Regex('/(\p{Latin}{1,20})/u')]
 	public string|Optional $NumeroLicenzaGuida;
 }

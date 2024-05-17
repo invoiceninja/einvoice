@@ -51,7 +51,7 @@ class DatiGeneraliDocumento extends Data
 
 	#[Max(20)]
 	#[Min(1)]
-	#[Regex('/(\p{Basic_Latin}{1,20})/u')]
+	#[Regex('/(\p{Latin}{1,20})/u')]
 	public string $Numero;
 	public DatiRitenuta|Optional $DatiRitenuta;
 	public DatiBollo|Optional $DatiBollo;
@@ -66,7 +66,7 @@ class DatiGeneraliDocumento extends Data
 
 	#[Max(200)]
 	#[Min(1)]
-	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,200}/u')]
+	#[Regex('/[\p{Latin}\p{Latin1}]{1,200}/u')]
 	public string|Optional $Causale;
 	public string|Optional $Art73;
 

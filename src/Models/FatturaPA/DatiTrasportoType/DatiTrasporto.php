@@ -19,23 +19,23 @@ class DatiTrasporto extends Data
 
 	#[Max(80)]
 	#[Min(1)]
-	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,80}/u')]
+	#[Regex('/[\p{Latin}\p{Latin1}]{1,80}/u')]
 	public string|Optional $MezzoTrasporto;
 
 	#[Max(100)]
 	#[Min(1)]
-	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,100}/u')]
+	#[Regex('/[\p{Latin}\p{Latin1}]{1,100}/u')]
 	public string|Optional $CausaleTrasporto;
 	public int|Optional $NumeroColli;
 
 	#[Max(100)]
 	#[Min(1)]
-	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,100}/u')]
+	#[Regex('/[\p{Latin}\p{Latin1}]{1,100}/u')]
 	public string|Optional $Descrizione;
 
 	#[Max(10)]
 	#[Min(1)]
-	#[Regex('/(\p{Basic_Latin}{1,10})/u')]
+	#[Regex('/(\p{Latin}{1,10})/u')]
 	public string|Optional $UnitaMisuraPeso;
 
 	#[Regex('/[0-9]{1,4}\.[0-9]{1,2}/')]

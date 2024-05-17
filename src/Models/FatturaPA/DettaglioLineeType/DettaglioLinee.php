@@ -30,7 +30,7 @@ class DettaglioLinee extends Data
 
 	#[Max(1000)]
 	#[Min(1)]
-	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,1000}/u')]
+	#[Regex('/[\p{Latin}\p{Latin1}]{1,1000}/u')]
 	public string $Descrizione;
 
 	#[Regex('/[0-9]{1,12}\.[0-9]{2,8}/')]
@@ -38,7 +38,7 @@ class DettaglioLinee extends Data
 
 	#[Max(10)]
 	#[Min(1)]
-	#[Regex('/(\p{Basic_Latin}{1,10})/u')]
+	#[Regex('/(\p{Latin}{1,10})/u')]
 	public string|Optional $UnitaMisura;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
@@ -89,7 +89,7 @@ class DettaglioLinee extends Data
 
 	#[Max(20)]
 	#[Min(1)]
-	#[Regex('/(\p{Basic_Latin}{1,20})/u')]
+	#[Regex('/(\p{Latin}{1,20})/u')]
 	public string|Optional $RiferimentoAmministrazione;
 	public AltriDatiGestionali|Optional $AltriDatiGestionali;
 }

@@ -14,17 +14,17 @@ class RappresentanteFiscale extends Data
 {
 	#[Max(80)]
 	#[Min(1)]
-	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,80}/u')]
+	#[Regex('/[\p{Latin}\p{Latin1}]{1,80}/u')]
 	public string $Denominazione;
 
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,60}/u')]
+	#[Regex('/[\p{Latin}\p{Latin1}]{1,60}/u')]
 	public string $Nome;
 
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,60}/u')]
+	#[Regex('/[\p{Latin}\p{Latin1}]{1,60}/u')]
 	public string $Cognome;
 	public IdFiscaleIVA $IdFiscaleIVA;
 }

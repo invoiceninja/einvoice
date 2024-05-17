@@ -66,6 +66,6 @@ class DatiRiepilogo extends Data
 
 	#[Max(100)]
 	#[Min(1)]
-	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,100}/u')]
+	#[Regex('/[\p{Latin}\p{Latin1}]{1,100}/u')]
 	public string|Optional $RiferimentoNormativo;
 }

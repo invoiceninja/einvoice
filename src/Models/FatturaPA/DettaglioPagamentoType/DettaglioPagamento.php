@@ -15,7 +15,7 @@ class DettaglioPagamento extends Data
 {
 	#[Max(200)]
 	#[Min(1)]
-	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,200}/u')]
+	#[Regex('/[\p{Latin}\p{Latin1}]{1,200}/u')]
 	public string|Optional $Beneficiario;
 	public string $ModalitaPagamento;
 
@@ -57,17 +57,17 @@ class DettaglioPagamento extends Data
 
 	#[Max(20)]
 	#[Min(1)]
-	#[Regex('/(\p{Basic_Latin}{1,20})/u')]
+	#[Regex('/(\p{Latin}{1,20})/u')]
 	public string|Optional $CodUfficioPostale;
 
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,60}/u')]
+	#[Regex('/[\p{Latin}\p{Latin1}]{1,60}/u')]
 	public string|Optional $CognomeQuietanzante;
 
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,60}/u')]
+	#[Regex('/[\p{Latin}\p{Latin1}]{1,60}/u')]
 	public string|Optional $NomeQuietanzante;
 
 	#[Max(16)]
@@ -77,12 +77,12 @@ class DettaglioPagamento extends Data
 
 	#[Max(10)]
 	#[Min(2)]
-	#[Regex('/(\p{Basic_Latin}{2,10})/u')]
+	#[Regex('/(\p{Latin}{2,10})/u')]
 	public string|Optional $TitoloQuietanzante;
 
 	#[Max(80)]
 	#[Min(1)]
-	#[Regex('/[\p{Basic_Latin}\p{Latin_1_Supplement}]{1,80}/u')]
+	#[Regex('/[\p{Latin}\p{Latin1}]{1,80}/u')]
 	public string|Optional $IstitutoFinanziario;
 
 	#[Max(30)]
@@ -115,6 +115,6 @@ class DettaglioPagamento extends Data
 
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('/(\p{Basic_Latin}{1,60})/u')]
+	#[Regex('/(\p{Latin}{1,60})/u')]
 	public string|Optional $CodicePagamento;
 }

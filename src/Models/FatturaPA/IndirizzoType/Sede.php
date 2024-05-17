@@ -21,7 +21,7 @@ class Sede extends Data
 	#[Regex('/[\x{0020}-\x{007E}]{1,8}/u')]
 	public string|Optional $NumeroCivico;
 
-	#[Regex('[0-9][0-9][0-9][0-9][0-9]')]
+	#[Regex('/[0-9][0-9][0-9][0-9][0-9]/')]
 	public string $CAP;
 
 	#[Max(60)]

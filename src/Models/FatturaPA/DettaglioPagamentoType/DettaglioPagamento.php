@@ -90,10 +90,10 @@ class DettaglioPagamento extends Data
 	#[Regex('/[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{11,30}/')]
 	public string|Optional $IBAN;
 
-	#[Regex('[0-9][0-9][0-9][0-9][0-9]')]
+	#[Regex('/[0-9][0-9][0-9][0-9][0-9]/')]
 	public string|Optional $ABI;
 
-	#[Regex('[0-9][0-9][0-9][0-9][0-9]')]
+	#[Regex('/[0-9][0-9][0-9][0-9][0-9]/')]
 	public string|Optional $CAB;
 
 	#[Max(1)]

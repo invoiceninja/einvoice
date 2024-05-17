@@ -18,6 +18,6 @@ class ContattiTrasmittente extends Data
 
 	#[Max(256)]
 	#[Min(7)]
-	#[Regex('.+@.+[.]+.+')]
+	#[Regex('/.+@.+[.]+.+/')]
 	public string|Optional $Email;
 }

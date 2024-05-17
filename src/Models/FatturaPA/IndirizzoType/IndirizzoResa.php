@@ -13,7 +13,7 @@ class IndirizzoResa extends Data
 {
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('/[\p{Latin}\p{Latin1}]{1,60}/u')]
+	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
 	public string $Indirizzo;
 
 	#[Max(8)]
@@ -26,7 +26,7 @@ class IndirizzoResa extends Data
 
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('/[\p{Latin}\p{Latin1}]{1,60}/u')]
+	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
 	public string $Comune;
 
 	#[Max(2)]

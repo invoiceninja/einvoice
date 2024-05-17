@@ -30,7 +30,7 @@ class DatiRicezione extends Data
 
 	#[Max(100)]
 	#[Min(1)]
-	#[Regex('/[\p{Latin}\p{Latin1}]{1,100}/u')]
+	#[Regex('/[\x{0000}-\x{00FF}]{1,100}/u')]
 	public string|Optional $CodiceCommessaConvenzione;
 
 	#[Max(15)]

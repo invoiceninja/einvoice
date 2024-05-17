@@ -30,7 +30,7 @@ class DettaglioLinee extends Data
 
 	#[Max(1000)]
 	#[Min(1)]
-	#[Regex('/[\p{Latin}\p{Latin1}]{1,1000}/u')]
+	#[Regex('/[\x{0000}-\x{00FF}]{1,1000}/u')]
 	public string $Descrizione;
 
 	#[Regex('/[0-9]{1,12}\.[0-9]{2,8}/')]

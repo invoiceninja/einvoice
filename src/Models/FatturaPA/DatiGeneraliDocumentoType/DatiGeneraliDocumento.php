@@ -66,7 +66,7 @@ class DatiGeneraliDocumento extends Data
 
 	#[Max(200)]
 	#[Min(1)]
-	#[Regex('/[\p{Latin}\p{Latin1}]{1,200}/u')]
+	#[Regex('/[\p{L}]{1,200}/u')]
 	public string|Optional $Causale;
 	public string|Optional $Art73;
 

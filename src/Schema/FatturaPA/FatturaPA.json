@@ -558,7 +558,7 @@
                 "resource": [],
                 "max_length": 200,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,200}\/u",
+                "pattern": "\/[\\p{L}]{1,200}\/u",
                 "min_occurs": 0,
                 "max_occurs": -1,
                 "help": ""
@@ -958,7 +958,7 @@
                 "resource": [],
                 "max_length": 100,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,100}\/u",
+                "pattern": "\/[\\x{0000}-\\x{00FF}]{1,100}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1049,7 +1049,7 @@
                 "resource": [],
                 "max_length": 80,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,80}\/u",
+                "pattern": "\/[\\x{0000}-\\x{00FF}]{1,80}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1060,7 +1060,7 @@
                 "resource": [],
                 "max_length": 100,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,100}\/u",
+                "pattern": "\/[\\x{0000}-\\x{00FF}]{1,100}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1082,7 +1082,7 @@
                 "resource": [],
                 "max_length": 100,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,100}\/u",
+                "pattern": "\/[\\x{0000}-\\x{00FF}]{1,100}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1188,7 +1188,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,60}\/u",
+                "pattern": "\/[\\x{0000}-\\x{00FF}]{1,60}\/u",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -1221,7 +1221,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,60}\/u",
+                "pattern": "\/[\\x{0000}-\\x{00FF}]{1,60}\/u",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -1396,7 +1396,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,60}\/u",
+                "pattern": "\/[\\x{0000}-\\x{00FF}]{1,60}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -1485,7 +1485,7 @@
                 "resource": [],
                 "max_length": 80,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,80}\/u",
+                "pattern": "\/[\\x{0000}-\\x{00FF}]{1,80}\/u",
                 "min_occurs": 1,
                 "max_occurs": 1
             },
@@ -1495,7 +1495,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,60}\/u",
+                "pattern": "\/[\\x{0000}-\\x{00FF}]{1,60}\/u",
                 "min_occurs": 1,
                 "max_occurs": 1
             },
@@ -1505,7 +1505,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,60}\/u",
+                "pattern": "\/[\\x{0000}-\\x{00FF}]{1,60}\/u",
                 "min_occurs": 1,
                 "max_occurs": 1
             },
@@ -1820,7 +1820,7 @@
                 "resource": [],
                 "max_length": 80,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,80}\/u",
+                "pattern": "\/[\\x{0000}-\\x{00FF}]{1,80}\/u",
                 "min_occurs": 1,
                 "max_occurs": 1
             },
@@ -1830,7 +1830,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,60}\/u",
+                "pattern": "\/[\\x{0000}-\\x{00FF}]{1,60}\/u",
                 "min_occurs": 1,
                 "max_occurs": 1
             },
@@ -1840,7 +1840,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,60}\/u",
+                "pattern": "\/[\\x{0000}-\\x{00FF}]{1,60}\/u",
                 "min_occurs": 1,
                 "max_occurs": 1
             },
@@ -1999,7 +1999,7 @@
                 "resource": [],
                 "max_length": 200,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,200}\/u",
+                "pattern": "\/[\\p{L}]{1,200}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2100,7 +2100,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,60}\/u",
+                "pattern": "\/[\\x{0000}-\\x{00FF}]{1,60}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2111,7 +2111,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,60}\/u",
+                "pattern": "\/[\\x{0000}-\\x{00FF}]{1,60}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2144,7 +2144,7 @@
                 "resource": [],
                 "max_length": 80,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,80}\/u",
+                "pattern": "\/[\\x{0000}-\\x{00FF}]{1,80}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2319,7 +2319,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,60}\/u",
+                "pattern": "\/[\\x{0000}-\\x{00FF}]{1,60}\/u",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -2352,7 +2352,7 @@
                 "resource": [],
                 "max_length": 100,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,100}\/u",
+                "pattern": "\/[\\x{0000}-\\x{00FF}]{1,100}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2419,7 +2419,7 @@
                 "resource": [],
                 "max_length": 1000,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,1000}\/u",
+                "pattern": "\/[\\x{0000}-\\x{00FF}]{1,1000}\/u",
                 "min_occurs": 1,
                 "max_occurs": 1,
                 "help": ""
@@ -2636,7 +2636,7 @@
                 "resource": [],
                 "max_length": 60,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,60}\/u",
+                "pattern": "\/[\\x{0000}-\\x{00FF}]{1,60}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""
@@ -2782,7 +2782,7 @@
                 "resource": [],
                 "max_length": 100,
                 "min_length": 1,
-                "pattern": "\/[\\p{Latin}\\p{Latin1}]{1,100}\/u",
+                "pattern": "\/[\\x{0000}-\\x{00FF}]{1,100}\/u",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""

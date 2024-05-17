@@ -20,7 +20,7 @@ class AltriDatiGestionali extends Data
 
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('/[\p{Latin}\p{Latin1}]{1,60}/u')]
+	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
 	public string|Optional $RiferimentoTesto;
 
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]

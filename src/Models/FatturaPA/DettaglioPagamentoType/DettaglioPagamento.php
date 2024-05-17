@@ -15,7 +15,7 @@ class DettaglioPagamento extends Data
 {
 	#[Max(200)]
 	#[Min(1)]
-	#[Regex('/[\p{Latin}\p{Latin1}]{1,200}/u')]
+	#[Regex('/[\p{L}]{1,200}/u')]
 	public string|Optional $Beneficiario;
 	public string $ModalitaPagamento;
 
@@ -62,12 +62,12 @@ class DettaglioPagamento extends Data
 
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('/[\p{Latin}\p{Latin1}]{1,60}/u')]
+	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
 	public string|Optional $CognomeQuietanzante;
 
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('/[\p{Latin}\p{Latin1}]{1,60}/u')]
+	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
 	public string|Optional $NomeQuietanzante;
 
 	#[Max(16)]
@@ -82,7 +82,7 @@ class DettaglioPagamento extends Data
 
 	#[Max(80)]
 	#[Min(1)]
-	#[Regex('/[\p{Latin}\p{Latin1}]{1,80}/u')]
+	#[Regex('/[\x{0000}-\x{00FF}]{1,80}/u')]
 	public string|Optional $IstitutoFinanziario;
 
 	#[Max(30)]

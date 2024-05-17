@@ -19,18 +19,18 @@ class DatiTrasporto extends Data
 
 	#[Max(80)]
 	#[Min(1)]
-	#[Regex('/[\p{Latin}\p{Latin1}]{1,80}/u')]
+	#[Regex('/[\x{0000}-\x{00FF}]{1,80}/u')]
 	public string|Optional $MezzoTrasporto;
 
 	#[Max(100)]
 	#[Min(1)]
-	#[Regex('/[\p{Latin}\p{Latin1}]{1,100}/u')]
+	#[Regex('/[\x{0000}-\x{00FF}]{1,100}/u')]
 	public string|Optional $CausaleTrasporto;
 	public int|Optional $NumeroColli;
 
 	#[Max(100)]
 	#[Min(1)]
-	#[Regex('/[\p{Latin}\p{Latin1}]{1,100}/u')]
+	#[Regex('/[\x{0000}-\x{00FF}]{1,100}/u')]
 	public string|Optional $Descrizione;
 
 	#[Max(10)]

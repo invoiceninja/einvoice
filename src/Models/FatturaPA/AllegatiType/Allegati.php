@@ -13,7 +13,7 @@ class Allegati extends Data
 {
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('/[\p{Latin}\p{Latin1}]{1,60}/u')]
+	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
 	public string $NomeAttachment;
 
 	#[Max(10)]
@@ -28,7 +28,7 @@ class Allegati extends Data
 
 	#[Max(100)]
 	#[Min(1)]
-	#[Regex('/[\p{Latin}\p{Latin1}]{1,100}/u')]
+	#[Regex('/[\x{0000}-\x{00FF}]{1,100}/u')]
 	public string|Optional $DescrizioneAttachment;
 	public mixed $Attachment;
 }

@@ -23,7 +23,7 @@ class FatturaPA extends BaseStandard
     
     private array $regex_conversion_array =
 [
-    '(\\p{IsBasicLatin}{1,10})' => '/(\p{Latin}{1,10})/u',
+  '(\\p{IsBasicLatin}{1,10})' => '/(\p{Latin}{1,10})/u',
     '[A-Z0-9]{6,7}' => '/[A-Z0-9]{6,7}/',
     '([!#-\'*+/-9=?A-Z^-~-]+(\\.[!#-\'*+/-9=?A-Z^-~-]+)*|"([\\]!#-[^-~ \t]|(\\\\[\t -~]))+")@([!#-\'*+/-9=?A-Z^-~-]+(\\.[!#-\'*+/-9=?A-Z^-~-]+)*|\\[[\t -Z^-~]*\\])' => '/([!#-\'*+/-9=?A-Z^-~-]+(\.[!#-\'*+/-9=?A-Z^-~-]+)*|"([\]!#-[^-~ \t]|(\\\\[\t -~]))+")@([!#-\'*+/-9=?A-Z^-~-]+(\.[!#-\'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*\])/',
     '[A-Z]{2}' => '/[A-Z]{2}/',
@@ -62,7 +62,7 @@ class FatturaPA extends BaseStandard
     '[\\-]?[0-9]{1,11}\\.[0-9]{2,8}' => '/[\-]?[0-9]{1,11}\.[0-9]{2,8}/',
     '(\\p{IsBasicLatin}{1,20})' => '/(\p{Latin}{1,20})/u',
     '(\\p{IsBasicLatin}{1,20})' => '/(\p{Latin}{1,20})/u',
-    '[0-9]{1,12}\\.[0-9]{2,8}' => '/[0-9]{1,12}\.[0-9]{2,8}/',
+     '[0-9]{1,12}\\.[0-9]{2,8}' => '/[0-9]{1,12}\.[0-9]{2,8}/',
     '[\\-]?[0-9]{1,11}\\.[0-9]{2}' => '/[\-]?[0-9]{1,11}\.[0-9]{2}/',
     '(\\p{IsBasicLatin}{1,60})' => '/(\p{Latin}{1,60})/u',
     '[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,80}' => '/[\p{Latin}\p{Latin1}]{1,80}/u',
@@ -79,6 +79,7 @@ class FatturaPA extends BaseStandard
     '(\\p{IsBasicLatin}{1,20})' => '/(\p{Latin}{1,20})/u',
     '[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,60}' => '/[\p{Latin}\p{Latin1}]{1,60}/u',
     '[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,60}' => '/[\p{Latin}\p{Latin1}]{1,60}/u',
+
 ];
 
 

@@ -13,7 +13,7 @@ class ContattiTrasmittente extends Data
 {
 	#[Max(12)]
 	#[Min(5)]
-	#[Regex('/(\p{Latin}{5,12})/u')]
+	#[Regex('/[\x{0020}-\x{007E}]{5,12}/u')]
 	public string|Optional $Telefono;
 
 	#[Max(256)]

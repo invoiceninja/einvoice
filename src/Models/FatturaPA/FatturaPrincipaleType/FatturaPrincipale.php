@@ -15,7 +15,7 @@ class FatturaPrincipale extends Data
 {
 	#[Max(20)]
 	#[Min(1)]
-	#[Regex('/(\p{Latin}{1,20})/u')]
+	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
 	public string $NumeroFatturaPrincipale;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]

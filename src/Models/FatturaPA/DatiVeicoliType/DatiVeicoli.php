@@ -18,6 +18,6 @@ class DatiVeicoli extends Data
 
 	#[Max(15)]
 	#[Min(1)]
-	#[Regex('/(\p{Latin}{1,15})/u')]
+	#[Regex('/[\x{0020}-\x{007E}]{1,15}/u')]
 	public string $TotalePercorso;
 }

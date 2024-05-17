@@ -35,7 +35,7 @@ class DatiAnagrafici extends Data
 
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('/(\p{Latin}{1,60})/u')]
+	#[Regex('/[\x{0020}-\x{007E}]{1,60}/u')]
 	public string|Optional $NumeroIscrizioneAlbo;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]

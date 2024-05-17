@@ -28,7 +28,7 @@ class Anagrafica extends Data
 
 	#[Max(10)]
 	#[Min(2)]
-	#[Regex('/(\p{Latin}{2,10})/u')]
+	#[Regex('/[\x{0020}-\x{007E}]{2,10}/u')]
 	public string|Optional $Titolo;
 
 	#[Max(17)]

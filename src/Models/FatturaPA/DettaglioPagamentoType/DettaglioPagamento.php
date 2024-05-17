@@ -57,7 +57,7 @@ class DettaglioPagamento extends Data
 
 	#[Max(20)]
 	#[Min(1)]
-	#[Regex('/(\p{Latin}{1,20})/u')]
+	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
 	public string|Optional $CodUfficioPostale;
 
 	#[Max(60)]
@@ -77,7 +77,7 @@ class DettaglioPagamento extends Data
 
 	#[Max(10)]
 	#[Min(2)]
-	#[Regex('/(\p{Latin}{2,10})/u')]
+	#[Regex('/[\x{0020}-\x{007E}]{2,10}/u')]
 	public string|Optional $TitoloQuietanzante;
 
 	#[Max(80)]
@@ -115,6 +115,6 @@ class DettaglioPagamento extends Data
 
 	#[Max(60)]
 	#[Min(1)]
-	#[Regex('/(\p{Latin}{1,60})/u')]
+	#[Regex('/[\x{0020}-\x{007E}]{1,60}/u')]
 	public string|Optional $CodicePagamento;
 }

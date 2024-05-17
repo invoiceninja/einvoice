@@ -18,7 +18,7 @@ class IndirizzoResa extends Data
 
 	#[Max(8)]
 	#[Min(1)]
-	#[Regex('/(\p{Latin}{1,8})/u')]
+	#[Regex('/[\x{0020}-\x{007E}]{1,8}/u')]
 	public string|Optional $NumeroCivico;
 
 	#[Regex('[0-9][0-9][0-9][0-9][0-9]')]

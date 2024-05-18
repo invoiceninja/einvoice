@@ -35,6 +35,11 @@ class Generator
         'FatturaPA'
     ];
 
+    private array $copy_stubs = [
+        'src/Models/Stubs/FatturaPA/DatiGeneraliDocumento.php' => 'src/Models/FatturaPA/DatiGeneraliDocumentoType/DatiGeneraliDocumento.php',
+        'src/Models/Stubs/FatturaPA/Anagrafica.php' => 'src/Models/FatturaPA/AnagraficaType/Anagrafica.php',
+    ];
+
     public Collection $child_classes;
 
     public Collection $document;
@@ -65,86 +70,11 @@ class Generator
 
         });
 
-        $this->handleSpecialClasses();
+        $this->handleStubbedClasses();
 
     }
 
-    private function handleSpecialClasses()
-    {
-        
-        $namespace = new PhpNamespace($this->namespace.$this->standard."\\DatiGeneraliDocumentoType");
-        $namespace->addUse(Data::class);
-        $namespace->addUse(Carbon::class);
-
-        $path = 'src/Models/FatturaPA/DatiGeneraliDocumentoType/DatiGeneraliDocumento.php';
-        
-        $f = file_get_contents($path);
-
-        $class = ClassType::fromCode($f);
-        $class->setExtends(Data::class);
-
-        $class->removeProperty('Causale');
-
-        $property = (new Property('Causale'))
-        ->setPublic()
-        ->setType(Type::union('array', Optional::class));
-
-        $property->addAttribute(StringArrayRule::class);
-
-        $class->addMember($property);
-
-        $namespace->add($class);
-
-        $this->write($namespace,$path);
-
-
-$namespace = new PhpNamespace($this->namespace.$this->standard."\\AnagraficaType");
-$namespace->addUse(Data::class);
-$namespace->addUse(Carbon::class);
-
-$path = 'src/Models/FatturaPA/Anagrafica.php';
-
-$f = file_get_contents($path);
-
-$class = ClassType::fromCode($f);
-$class->setExtends(Data::class);
-
-$class->removeProperty('Denominazione');
-$class->removeProperty('Nome');
-$class->removeProperty('Cognome');
-
-$property = (new Property('Denominazione'))
-->setPublic()
-->setType(Type::union('string', Optional::class));
-$property->addAttribute(Max::class, [80]);
-$property->addAttribute(Min::class, [1]);
-$property->addAttribute(RequiredWithoutAll::class, ['Cognome','Nome']);
-$class->addMember($property);
-
-$property = (new Property('Cognome'))
-->setPublic()
-->setType(Type::union('string', Optional::class));
-$property->addAttribute(Max::class, [80]);
-$property->addAttribute(Min::class, [1]);
-$property->addAttribute(RequiredWith::class, ['Nome']);
-$class->addMember($property);
-
-$property = (new Property('Nome'))
-->setPublic()
-->setType(Type::union('string', Optional::class));
-$property->addAttribute(Max::class, [80]);
-$property->addAttribute(Min::class, [1]);
-$property->addAttribute(RequiredWith::class, ['Cognome']);
-$class->addMember($property);
-
-
-$namespace->add($class);
-
-$this->write($namespace, $path);
-
-        
-    }
-
+   
     public function getChildType(string $name)
     {
         return $this->document[$name];
@@ -252,4 +182,87 @@ $this->write($namespace, $path);
 
     }
 
+    private function handleStubbedClasses()
+    {
+        foreach($this->copy_stubs as $key => $value)
+            copy($key, $value);
+    }
+
 }
+
+
+//  private function handleSpecialClasses()
+//     {
+        
+//         $namespace = new PhpNamespace($this->namespace.$this->standard."\\DatiGeneraliDocumentoType");
+//         $namespace->addUse(Data::class);
+//         $namespace->addUse(Carbon::class);
+
+//         $path = 'src/Models/FatturaPA/DatiGeneraliDocumentoType/DatiGeneraliDocumento.php';
+        
+//         $f = file_get_contents($path);
+
+//         $class = ClassType::fromCode($f);
+//         $class->setExtends(Data::class);
+
+//         $class->removeProperty('Causale');
+
+//         $property = (new Property('Causale'))
+//         ->setPublic()
+//         ->setType(Type::union('array', Optional::class));
+
+//         $property->addAttribute(StringArrayRule::class);
+
+//         $class->addMember($property);
+
+//         $namespace->add($class);
+
+//         $this->write($namespace,$path);
+
+
+//         $namespace = new PhpNamespace($this->namespace.$this->standard."\\AnagraficaType");
+//         $namespace->addUse(Data::class);
+//         $namespace->addUse(Carbon::class);
+
+//         $path = 'src/Models/FatturaPA/Anagrafica.php';
+
+//         $f = file_get_contents($path);
+
+//         $class = ClassType::fromCode($f);
+//         $class->setExtends(Data::class);
+
+//         $class->removeProperty('Denominazione');
+//         $class->removeProperty('Nome');
+//         $class->removeProperty('Cognome');
+
+//         $property = (new Property('Denominazione'))
+//         ->setPublic()
+//         ->setType(Type::union('string', Optional::class));
+//         $property->addAttribute(Max::class, [80]);
+//         $property->addAttribute(Min::class, [1]);
+//         $property->addAttribute(RequiredWithoutAll::class, ['Cognome','Nome']);
+//         $class->addMember($property);
+
+//         $property = (new Property('Cognome'))
+//         ->setPublic()
+//         ->setType(Type::union('string', Optional::class));
+//         $property->addAttribute(Max::class, [80]);
+//         $property->addAttribute(Min::class, [1]);
+//         $property->addAttribute(RequiredWith::class, ['Nome']);
+//         $class->addMember($property);
+
+//         $property = (new Property('Nome'))
+//         ->setPublic()
+//         ->setType(Type::union('string', Optional::class));
+//         $property->addAttribute(Max::class, [80]);
+//         $property->addAttribute(Min::class, [1]);
+//         $property->addAttribute(RequiredWith::class, ['Cognome']);
+//         $class->addMember($property);
+
+
+//         $namespace->add($class);
+
+//         $this->write($namespace, $path);
+
+        
+//     }

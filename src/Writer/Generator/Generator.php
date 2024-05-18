@@ -20,7 +20,11 @@ use Spatie\LaravelData\Optional;
 use Nette\PhpGenerator\ClassType;
 use Illuminate\Support\Collection;
 use Nette\PhpGenerator\PhpNamespace;
+use Spatie\LaravelData\Attributes\Validation\Max;
+use Spatie\LaravelData\Attributes\Validation\Min;
 use Invoiceninja\Einvoice\Models\Rules\StringArrayRule;
+use Spatie\LaravelData\Attributes\Validation\RequiredWith;
+use Spatie\LaravelData\Attributes\Validation\RequiredWithoutAll;
 
 class Generator
 {
@@ -93,6 +97,52 @@ class Generator
 
         $this->write($namespace,$path);
 
+
+$namespace = new PhpNamespace($this->namespace.$this->standard."\\AnagraficaType");
+$namespace->addUse(Data::class);
+$namespace->addUse(Carbon::class);
+
+$path = 'src/Models/FatturaPA/Anagrafica.php';
+
+$f = file_get_contents($path);
+
+$class = ClassType::fromCode($f);
+$class->setExtends(Data::class);
+
+$class->removeProperty('Denominazione');
+$class->removeProperty('Nome');
+$class->removeProperty('Cognome');
+
+$property = (new Property('Denominazione'))
+->setPublic()
+->setType(Type::union('string', Optional::class));
+$property->addAttribute(Max::class, [80]);
+$property->addAttribute(Min::class, [1]);
+$property->addAttribute(RequiredWithoutAll::class, ['Cognome','Nome']);
+$class->addMember($property);
+
+$property = (new Property('Cognome'))
+->setPublic()
+->setType(Type::union('string', Optional::class));
+$property->addAttribute(Max::class, [80]);
+$property->addAttribute(Min::class, [1]);
+$property->addAttribute(RequiredWith::class, ['Nome']);
+$class->addMember($property);
+
+$property = (new Property('Nome'))
+->setPublic()
+->setType(Type::union('string', Optional::class));
+$property->addAttribute(Max::class, [80]);
+$property->addAttribute(Min::class, [1]);
+$property->addAttribute(RequiredWith::class, ['Cognome']);
+$class->addMember($property);
+
+
+$namespace->add($class);
+
+$this->write($namespace, $path);
+
+        
     }
 
     public function getChildType(string $name)

@@ -1,16 +1,27 @@
 <?php 
 
-namespace Invoiceninja\Einvoice\Models\FatturaPA;
+namespace Invoiceninja\Einvoice\Models\FatturaPA\AnagraficaType;
 
 use Carbon\Carbon;
 use Spatie\LaravelData\Data;
-use Spatie\LaravelData\Optional;
 
 class Anagrafica extends Data
 {
-	public string $Denominazione;
-	public string $Nome;
-	public string $Cognome;
-	public string|Optional $Titolo;
-	public string|Optional $CodEORI;
+	public string|\Spatie\LaravelData\Optional $Titolo;
+	public string|\Spatie\LaravelData\Optional $CodEORI;
+
+	#[\Spatie\LaravelData\Attributes\Validation\Max(80)]
+	#[\Spatie\LaravelData\Attributes\Validation\Min(1)]
+	#[\Spatie\LaravelData\Attributes\Validation\RequiredWithoutAll('Cognome', 'Nome')]
+	public string|\Spatie\LaravelData\Optional $Denominazione;
+
+	#[\Spatie\LaravelData\Attributes\Validation\Max(80)]
+	#[\Spatie\LaravelData\Attributes\Validation\Min(1)]
+	#[\Spatie\LaravelData\Attributes\Validation\RequiredWith('Nome')]
+	public string|\Spatie\LaravelData\Optional $Cognome;
+
+	#[\Spatie\LaravelData\Attributes\Validation\Max(80)]
+	#[\Spatie\LaravelData\Attributes\Validation\Min(1)]
+	#[\Spatie\LaravelData\Attributes\Validation\RequiredWith('Cognome')]
+	public string|\Spatie\LaravelData\Optional $Nome;
 }

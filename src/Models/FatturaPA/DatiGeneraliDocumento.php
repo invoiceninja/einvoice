@@ -43,7 +43,11 @@ class DatiGeneraliDocumento extends Data
 	public DatiBollo|Optional $DatiBollo;
 	public DatiCassaPrevidenziale|Optional $DatiCassaPrevidenziale;
 	public ScontoMaggiorazione|Optional $ScontoMaggiorazione;
+
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ImportoTotaleDocumento;
+
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $Arrotondamento;
 	public string|Optional $Causale;
 	public string|Optional $Art73;

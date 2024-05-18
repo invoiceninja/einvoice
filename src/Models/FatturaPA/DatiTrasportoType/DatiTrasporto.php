@@ -5,6 +5,7 @@ namespace Invoiceninja\Einvoice\Models\FatturaPA\DatiTrasportoType;
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FatturaPA\DatiAnagraficiVettoreType\DatiAnagraficiVettore;
 use Invoiceninja\Einvoice\Models\FatturaPA\IndirizzoType\IndirizzoResa;
+use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Attributes\Validation\Regex;
@@ -38,9 +39,11 @@ class DatiTrasporto extends Data
 	#[Regex('/[\x{0020}-\x{007E}]{1,10}/u')]
 	public string|Optional $UnitaMisuraPeso;
 
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[0-9]{1,4}\.[0-9]{1,2}/')]
 	public float|Optional $PesoLordo;
 
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[0-9]{1,4}\.[0-9]{1,2}/')]
 	public float|Optional $PesoNetto;
 

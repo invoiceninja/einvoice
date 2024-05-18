@@ -3,6 +3,7 @@
 namespace Invoiceninja\Einvoice\Models\FatturaPA\AltriDatiGestionaliType;
 
 use Carbon\Carbon;
+use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Attributes\Validation\Regex;
@@ -23,6 +24,7 @@ class AltriDatiGestionali extends Data
 	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
 	public string|Optional $RiferimentoTesto;
 
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
 	public float|Optional $RiferimentoNumero;
 

@@ -40,6 +40,8 @@ class DettaglioPagamento extends Data
 	public Carbon|Optional $DataRiferimentoTerminiPagamento;
 	public int|Optional $GiorniTerminiPagamento;
 	public Carbon|Optional $DataScadenzaPagamento;
+
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float $ImportoPagamento;
 	public string|Optional $CodUfficioPostale;
 	public string|Optional $CognomeQuietanzante;
@@ -51,8 +53,12 @@ class DettaglioPagamento extends Data
 	public string|Optional $ABI;
 	public string|Optional $CAB;
 	public string|Optional $BIC;
+
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ScontoPagamentoAnticipato;
 	public Carbon|Optional $DataLimitePagamentoAnticipato;
+
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $PenalitaPagamentiRitardati;
 	public Carbon|Optional $DataDecorrenzaPenale;
 	public string|Optional $CodicePagamento;

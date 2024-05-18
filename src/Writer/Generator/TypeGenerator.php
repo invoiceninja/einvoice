@@ -11,8 +11,8 @@
 
 namespace Invoiceninja\Einvoice\Writer\Generator;
 
-use Carbon\Carbon;
 use stdClass;
+use Carbon\Carbon;
 use Nette\PhpGenerator\Type;
 use Spatie\LaravelData\Data;
 use Nette\PhpGenerator\Printer;
@@ -22,8 +22,9 @@ use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\PhpNamespace;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
-use Spatie\LaravelData\Attributes\Validation\Regex;
 use Spatie\LaravelData\Attributes\WithTransformer;
+use Spatie\LaravelData\Attributes\Validation\Regex;
+use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class TypeGenerator
@@ -88,6 +89,12 @@ class TypeGenerator
             $property = (new Property($element['name']))
                             ->setPublic()
                             ->setType($element['min_occurs'] == 0 ? Type::union($base_type, Optional::class) : $base_type);
+                            
+            if($base_type == 'float') {
+                $this->namespace->addUse(WithTransformer::class);
+                $this->namespace->addUse(FloatTransformer::class);
+                $property->addAttribute(WithTransformer::class, [FloatTransformer::class]);
+            }
 
             if(isset($element['max_length'])) {
                 $this->namespace->addUse(Max::class);

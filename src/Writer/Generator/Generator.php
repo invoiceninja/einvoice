@@ -23,8 +23,10 @@ use Nette\PhpGenerator\PhpNamespace;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
 use Invoiceninja\Einvoice\Models\Rules\StringArrayRule;
+use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\Validation\RequiredWith;
 use Spatie\LaravelData\Attributes\Validation\RequiredWithoutAll;
+use Spatie\LaravelData\Attributes\WithTransformer;
 
 class Generator
 {
@@ -135,9 +137,14 @@ class Generator
                 $type = $base_type;
             } 
 
-            $class->addProperty($element['name'])
-                ->setPublic() 
-                ->setType($type);
+            $property = (new Property($element['name']))
+                            ->setPublic() 
+                            ->setType($type);
+
+            if($base_type == 'float')
+                $property->addAttribute(WithTransformer::class, [FloatTransformer::class]);
+
+            $class->addMember($property);
 
             if(count($element['resource']) > 0){
                 $class->addProperty($element['name']."_array")
@@ -185,7 +192,7 @@ class Generator
     private function handleStubbedClasses()
     {
         foreach($this->copy_stubs as $key => $value)
-            echo copy($key, $value).PHP_EOL;
+            copy($key, $value);
     }
 
 }

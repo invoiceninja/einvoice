@@ -18,7 +18,10 @@ class DatiRitenuta extends Data
 		'RT06' => 'Altro contributo previdenziale',
 	];
 
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float $ImportoRitenuta;
+
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float $AliquotaRitenuta;
 	public string $CausalePagamento;
 

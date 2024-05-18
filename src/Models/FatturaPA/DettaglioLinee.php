@@ -23,13 +23,21 @@ class DettaglioLinee extends Data
 
 	public CodiceArticolo|Optional $CodiceArticolo;
 	public string $Descrizione;
+
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $Quantita;
 	public string|Optional $UnitaMisura;
 	public Carbon|Optional $DataInizioPeriodo;
 	public Carbon|Optional $DataFinePeriodo;
+
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float $PrezzoUnitario;
 	public ScontoMaggiorazione|Optional $ScontoMaggiorazione;
+
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float $PrezzoTotale;
+
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float $AliquotaIVA;
 	public string|Optional $Ritenuta;
 	public array $Ritenuta_array = ['SI' => 'SI = Cessione / Prestazione soggetta a ritenuta'];

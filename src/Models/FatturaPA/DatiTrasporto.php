@@ -16,7 +16,11 @@ class DatiTrasporto extends Data
 	public int|Optional $NumeroColli;
 	public string|Optional $Descrizione;
 	public string|Optional $UnitaMisuraPeso;
+
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $PesoLordo;
+
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $PesoNetto;
 	public Carbon|Optional $DataOraRitiro;
 	public Carbon|Optional $DataInizioTrasporto;

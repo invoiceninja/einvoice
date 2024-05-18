@@ -13,11 +13,11 @@ namespace Invoiceninja\Einvoice\Decoder;
 
 class Schema 
 {
-    private string $path = "src/Schema/";
+    private string $path = "/../Schema/";
 
     public function __invoke(string $standard)
     {
-        $data = @file_get_contents("{$this->path}{$standard}/{$standard}.json") ?? false;
+        $data = @file_get_contents(__DIR__."{$this->path}{$standard}/{$standard}.json") ?? false;
 
         return json_decode($data, false) ?? throw new \Exception("Schema {$standard} not found.");
     }

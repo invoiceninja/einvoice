@@ -14,18 +14,12 @@ namespace Invoiceninja\Einvoice\Writer\Generator;
 use Carbon\Carbon;
 use Nette\PhpGenerator\Type;
 use Spatie\LaravelData\Data;
-use Nette\PhpGenerator\Printer;
 use Nette\PhpGenerator\Property;
 use Spatie\LaravelData\Optional;
 use Nette\PhpGenerator\ClassType;
 use Illuminate\Support\Collection;
 use Nette\PhpGenerator\PhpNamespace;
-use Spatie\LaravelData\Attributes\Validation\Max;
-use Spatie\LaravelData\Attributes\Validation\Min;
-use Invoiceninja\Einvoice\Models\Rules\StringArrayRule;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
-use Spatie\LaravelData\Attributes\Validation\RequiredWith;
-use Spatie\LaravelData\Attributes\Validation\RequiredWithoutAll;
 use Spatie\LaravelData\Attributes\WithTransformer;
 
 class Generator
@@ -33,13 +27,16 @@ class Generator
     public const LINE_FEED = "\n";
 
     private array $standards = [
-        'FACT1',
         'FatturaPA'
+        'FACT1',
     ];
 
     private array $copy_stubs = [
+        'FatturaPA' => [
         'src/Models/Stubs/FatturaPA/DatiGeneraliDocumento.php.bak' => 'src/Models/FatturaPA/DatiGeneraliDocumentoType/DatiGeneraliDocumento.php',
         'src/Models/Stubs/FatturaPA/Anagrafica.php.bak' => 'src/Models/FatturaPA/AnagraficaType/Anagrafica.php',
+        ],
+        'FACT1' => [],
     ];
 
     public Collection $child_classes;
@@ -191,7 +188,7 @@ class Generator
 
     private function handleStubbedClasses()
     {
-        foreach($this->copy_stubs as $key => $value)
+        foreach($this->copy_stubs[$this->standard] as $key => $value)
             copy($key, $value);
     }
 

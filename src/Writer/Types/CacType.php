@@ -124,12 +124,13 @@ class CacType
                 if($node instanceof DOMElement && $node->hasAttribute("ref") && stripos($node->getAttribute('ref'), 'cac:') !== false) {
 
                     $parts = explode(":", $node->getAttribute('ref'));
-
                     $children->push($this->type_map[$parts[1]]);
                 }
             }
 
         }
+        // echo $type.PHP_EOL;
+        // echo $children->unique()->implode("\n").PHP_EOL;
 
         return $children->unique();
 

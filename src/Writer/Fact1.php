@@ -136,7 +136,7 @@ class Fact1 extends BaseStandard
         $element_collection = collect($this->cacType->elements);
 
         $type_map = collect($this->data)
-        ->flatMap(function ($type){
+        ->map(function ($type){
 
             return collect($type['elements'])
             ->filter(function ($element){
@@ -148,21 +148,52 @@ class Fact1 extends BaseStandard
             })
             ->flatten();
 
+        })->flatten()
+        ->unique()
+        ->map(function ($type){
+            
+            $this->type_tracker[] = $type;
+            return $this->cacType->typesForType($type);
         })
+        ->flatten()
+        ->unique()
+        ->map(function ($type){
+            
+            $this->type_tracker[] = $type;
+            return $this->cacType->typesForType($type);
+        })
+        ->flatten()
+        ->unique()
+        ->map(function ($type){
+            
+            $this->type_tracker[] = $type;
+            return $this->cacType->typesForType($type);
+        })
+        ->flatten()
+        ->unique()
+        ->map(function ($type) {
+            
+            $this->type_tracker[] = $type;
+            return $this->cacType->typesForType($type);
+        })
+        ->flatten()
+        ->unique()
+        ->map(function ($type) {
+
+            $this->type_tracker[] = $type;
+            return $this->cacType->typesForType($type);
+        })
+        ->flatten()
+        ->unique()
+        ->map(function ($type) {
+
+            $this->type_tracker[] = $type;
+            return $this->cacType->typesForType($type);
+        })
+        ->flatten()
         ->unique();
 
-        $type_map->flatMap(function ($type){
-            return $this->cacType->typesForType($type);
-        })
-        ->unique()
-        ->merge($type_map)
-        ->flatMap(function ($type){
-            return $this->cacType->typesForType($type);
-        })
-        ->unique()
-        ->flatMap(function ($type){
-            return $this->cacType->typesForType($type);
-        })
+        collect($this->type_tracker)
         ->unique()
         ->each(function ($type) use($element_collection){
 

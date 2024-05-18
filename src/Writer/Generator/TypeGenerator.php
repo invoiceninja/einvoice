@@ -67,6 +67,7 @@ class TypeGenerator
 
         $child_type = $this->generator->getChildType($this->type);
 
+
         foreach($child_type['elements'] as $key => $element)
         {
             if($this->name == $element['name'])

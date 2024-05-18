@@ -235,7 +235,7 @@
                 "resource": [],
                 "max_length": 256,
                 "min_length": null,
-                "pattern": "\/^(?!.*\\.\\.)(?!.*\\.$)(?!.*\\.\\.)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\/\/u",
+                "pattern": "\/^(?!.*\\.\\.)(?!.*\\.$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\/",
                 "min_occurs": 0,
                 "max_occurs": 1,
                 "help": ""

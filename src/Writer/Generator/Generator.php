@@ -27,7 +27,7 @@ class Generator
     public const LINE_FEED = "\n";
 
     private array $standards = [
-        'FatturaPA'
+        'FatturaPA',
         'FACT1',
     ];
 
@@ -55,22 +55,26 @@ class Generator
 
     public function build()
     {
-        $this->child_classes = collect([]);
+        foreach($this->standards as $standard)
+        {
+        
+            $this->standard = $standard;
+            $this->child_classes = collect([]);
 
-        $this->standard = "FatturaPA";
-        $path = "src/Schema/{$this->standard}/{$this->standard}.json";
+            // $this->standard = "FatturaPA";
+            $path = "src/Schema/{$this->standard}/{$this->standard}.json";
 
-        $this->document = collect(json_decode(file_get_contents($path),1));
+            $this->document = collect(json_decode(file_get_contents($path),1));
 
-        $this->document->each(function ($node, $key){
+            $this->document->each(function ($node, $key){
 
-            $class_name = str_replace("Type", "", $key);
-            $this->writeNette($class_name, $node);
+                $class_name = str_replace("Type", "", $key);
+                $this->writeNette($class_name, $node);
 
-        });
+            });
 
-        $this->handleStubbedClasses();
-
+            $this->handleStubbedClasses();
+        }
     }
 
    

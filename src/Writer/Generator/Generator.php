@@ -148,12 +148,15 @@ class Generator
             elseif($base_type == 'string'){
                 $property->setType('?string');
             }
+            elseif($base_type == 'int'){
+                $property->setType('?int');
+            }
 
             $class->addMember($property);
 
             if(count($element['resource']) > 0){
                 $class->addProperty($element['name']."_array")
-                      ->setPublic()
+                      ->setPrivate()
                       ->setType('array')
                       ->setValue($element['resource']);
             }

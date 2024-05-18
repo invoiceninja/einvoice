@@ -11,10 +11,10 @@ use Spatie\LaravelData\Optional;
 
 class DettaglioLinee extends Data
 {
-	public int $NumeroLinea;
+	public ?int $NumeroLinea;
 	public ?string $TipoCessionePrestazione;
 
-	public array $TipoCessionePrestazione_array = [
+	private array $TipoCessionePrestazione_array = [
 		'SC' => 'Sconto',
 		'PR' => 'Premio',
 		'AB' => 'Abbuono',
@@ -40,10 +40,10 @@ class DettaglioLinee extends Data
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public ?float $AliquotaIVA;
 	public ?string $Ritenuta;
-	public array $Ritenuta_array = ['SI' => 'SI = Cessione / Prestazione soggetta a ritenuta'];
+	private array $Ritenuta_array = ['SI' => 'SI = Cessione / Prestazione soggetta a ritenuta'];
 	public ?string $Natura;
 
-	public array $Natura_array = [
+	private array $Natura_array = [
 		'N1' => 'Escluse ex. art. 15 del D.P.R. 633/1972',
 		'N2' => 'Non soggette',
 		'N2.1' => 'Non soggette ad IVA ai sensi degli artt. da 7 a 7-septies del DPR 633/72',

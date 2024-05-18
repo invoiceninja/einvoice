@@ -9,7 +9,7 @@ use Spatie\LaravelData\Optional;
 class ScontoMaggiorazione extends Data
 {
 	public ?string $Tipo;
-	public array $Tipo_array = ['SC' => 'SC = Sconto', 'MG' => 'MG = Maggiorazione'];
+	private array $Tipo_array = ['SC' => 'SC = Sconto', 'MG' => 'MG = Maggiorazione'];
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public ?float $Percentuale;

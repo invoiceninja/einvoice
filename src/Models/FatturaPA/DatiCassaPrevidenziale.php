@@ -10,7 +10,7 @@ class DatiCassaPrevidenziale extends Data
 {
 	public ?string $TipoCassa;
 
-	public array $TipoCassa_array = [
+	private array $TipoCassa_array = [
 		'TC01' => 'Cassa nazionale previdenza e assistenza avvocati e procuratori legali',
 		'TC02' => 'Cassa previdenza dottori commercialisti',
 		'TC03' => 'Cassa previdenza e assistenza geometri',
@@ -47,10 +47,10 @@ class DatiCassaPrevidenziale extends Data
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public ?float $AliquotaIVA;
 	public ?string $Ritenuta;
-	public array $Ritenuta_array = ['SI' => 'SI = Cessione / Prestazione soggetta a ritenuta'];
+	private array $Ritenuta_array = ['SI' => 'SI = Cessione / Prestazione soggetta a ritenuta'];
 	public ?string $Natura;
 
-	public array $Natura_array = [
+	private array $Natura_array = [
 		'N1' => 'Escluse ex. art. 15 del D.P.R. 633/1972',
 		'N2' => 'Non soggette',
 		'N2.1' => 'Non soggette ad IVA ai sensi degli artt. da 7 a 7-septies del DPR 633/72',

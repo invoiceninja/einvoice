@@ -10,5 +10,5 @@ class DatiDDT extends Data
 {
 	public ?string $NumeroDDT;
 	public Carbon $DataDDT;
-	public int|Optional $RiferimentoNumeroLinea;
+	public ?int $RiferimentoNumeroLinea;
 }

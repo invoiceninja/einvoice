@@ -13,7 +13,7 @@ class DatiTrasporto extends Data
 	public DatiAnagraficiVettore|Optional $DatiAnagraficiVettore;
 	public ?string $MezzoTrasporto;
 	public ?string $CausaleTrasporto;
-	public int|Optional $NumeroColli;
+	public ?int $NumeroColli;
 	public ?string $Descrizione;
 	public ?string $UnitaMisuraPeso;
 

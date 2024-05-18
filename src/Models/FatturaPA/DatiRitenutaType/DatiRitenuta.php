@@ -13,7 +13,7 @@ class DatiRitenuta extends Data
 {
 	public ?string $TipoRitenuta;
 
-	public array $TipoRitenuta_array = [
+	private array $TipoRitenuta_array = [
 		'RT01' => 'Ritenuta di acconto persone fisiche',
 		'RT02' => 'Ritenuta di acconto persone giuridiche',
 		'RT03' => 'Contributo INPS',
@@ -31,7 +31,7 @@ class DatiRitenuta extends Data
 	public ?float $AliquotaRitenuta;
 	public ?string $CausalePagamento;
 
-	public array $CausalePagamento_array = [
+	private array $CausalePagamento_array = [
 		'A' => 'A',
 		'B' => 'B',
 		'C' => 'C',

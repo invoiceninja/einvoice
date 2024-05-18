@@ -13,7 +13,7 @@ class DatiTrasmissione extends Data
 	public IdTrasmittente $IdTrasmittente;
 	public ?string $ProgressivoInvio;
 	public ?string $FormatoTrasmissione;
-	public array $FormatoTrasmissione_array = ['FPA12' => 'Fattura verso PA', 'FPR12' => 'Fattura verso privati'];
+	private array $FormatoTrasmissione_array = ['FPA12' => 'Fattura verso PA', 'FPR12' => 'Fattura verso privati'];
 	public ?string $CodiceDestinatario;
 	public ContattiTrasmittente|Optional $ContattiTrasmittente;
 	public ?string $PECDestinatario;

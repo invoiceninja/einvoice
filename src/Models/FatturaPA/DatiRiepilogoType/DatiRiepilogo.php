@@ -18,7 +18,7 @@ class DatiRiepilogo extends Data
 	public ?float $AliquotaIVA;
 	public string|Optional $Natura;
 
-	public array $Natura_array = [
+	private array $Natura_array = [
 		'N1' => 'Escluse ex. art. 15 del D.P.R. 633/1972',
 		'N2' => 'Non soggette',
 		'N2.1' => 'Non soggette ad IVA ai sensi degli artt. da 7 a 7-septies del DPR 633/72',
@@ -65,7 +65,7 @@ class DatiRiepilogo extends Data
 	#[Min(1)]
 	public string|Optional $EsigibilitaIVA;
 
-	public array $EsigibilitaIVA_array = [
+	private array $EsigibilitaIVA_array = [
 		'D' => 'esigibilità differita',
 		'I' => 'esigibilità immediata',
 		'S' => 'scissione dei pagamenti',

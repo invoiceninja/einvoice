@@ -15,7 +15,7 @@ class DatiPagamento extends Data
 	#[Min(4)]
 	public ?string $CondizioniPagamento;
 
-	public array $CondizioniPagamento_array = [
+	private array $CondizioniPagamento_array = [
 		'TP01' => 'pagamento a rate',
 		'TP02' => 'pagamento completo',
 		'TP03' => 'anticipo',

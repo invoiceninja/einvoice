@@ -11,7 +11,7 @@ class DettaglioPagamento extends Data
 	public ?string $Beneficiario;
 	public ?string $ModalitaPagamento;
 
-	public array $ModalitaPagamento_array = [
+	private array $ModalitaPagamento_array = [
 		'MP01' => 'contanti',
 		'MP02' => 'assegno',
 		'MP03' => 'assegno circolare',
@@ -38,7 +38,7 @@ class DettaglioPagamento extends Data
 	];
 
 	public Carbon|Optional $DataRiferimentoTerminiPagamento;
-	public int|Optional $GiorniTerminiPagamento;
+	public ?int $GiorniTerminiPagamento;
 	public Carbon|Optional $DataScadenzaPagamento;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]

@@ -20,7 +20,7 @@ class DatiTrasmissione extends Data
 	#[Regex('/[\x{0020}-\x{007E}]{1,10}/u')]
 	public ?string $ProgressivoInvio;
 	public ?string $FormatoTrasmissione;
-	public array $FormatoTrasmissione_array = ['FPA12' => 'Fattura verso PA', 'FPR12' => 'Fattura verso privati'];
+	private array $FormatoTrasmissione_array = ['FPA12' => 'Fattura verso PA', 'FPR12' => 'Fattura verso privati'];
 
 	#[Max(7)]
 	#[Min(6)]

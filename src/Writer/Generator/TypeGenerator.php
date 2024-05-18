@@ -92,7 +92,7 @@ class TypeGenerator
             else {
                 $settable_type = $base_type;
 
-                if(in_array($settable_type, ['string','float']))
+                if(in_array($settable_type, ['string','float','int']))
                     $settable_type = "?{$settable_type}";
             }
 
@@ -138,7 +138,7 @@ class TypeGenerator
             if(count($element['resource']) > 0){
                 $this->class
                     ->addProperty($element['name']."_array")
-                    ->setPublic()
+                    ->setPrivate()
                     ->setType('array')
                     ->setValue($element['resource']);
             }

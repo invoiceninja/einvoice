@@ -27,7 +27,7 @@ class IscrizioneREA extends Data
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float|Optional $CapitaleSociale;
 	public string|Optional $SocioUnico;
-	public array $SocioUnico_array = ['SU' => 'socio unico', 'SM' => 'più soci'];
+	private array $SocioUnico_array = ['SU' => 'socio unico', 'SM' => 'più soci'];
 	public ?string $StatoLiquidazione;
-	public array $StatoLiquidazione_array = ['LS' => 'in liquidazione', 'LN' => 'non in liquidazione'];
+	private array $StatoLiquidazione_array = ['LS' => 'in liquidazione', 'LN' => 'non in liquidazione'];
 }

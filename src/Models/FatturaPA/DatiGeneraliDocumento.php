@@ -14,7 +14,7 @@ class DatiGeneraliDocumento extends Data
 {
 	public ?string $TipoDocumento;
 
-	public array $TipoDocumento_array = [
+	private array $TipoDocumento_array = [
 		'TD01' => 'Fattura',
 		'TD02' => 'Acconto / anticipo su fattura',
 		'TD03' => 'Acconto / anticipo su parcella',
@@ -52,7 +52,7 @@ class DatiGeneraliDocumento extends Data
 	public ?string $Causale;
 	public ?string $Art73;
 
-	public array $Art73_array = [
+	private array $Art73_array = [
 		'SI' => 'SI = Documento emesso secondo modalità e termini stabiliti con DM ai sensi dell\'art. 73 DPR 633/72',
 	];
 }

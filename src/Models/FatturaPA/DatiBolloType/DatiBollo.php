@@ -12,7 +12,7 @@ use Spatie\LaravelData\Optional;
 class DatiBollo extends Data
 {
 	public ?string $BolloVirtuale;
-	public array $BolloVirtuale_array = ['SI' => 'SI'];
+	private array $BolloVirtuale_array = ['SI' => 'SI'];
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]

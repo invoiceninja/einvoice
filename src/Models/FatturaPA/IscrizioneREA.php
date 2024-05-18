@@ -14,7 +14,7 @@ class IscrizioneREA extends Data
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public ?float $CapitaleSociale;
 	public ?string $SocioUnico;
-	public array $SocioUnico_array = ['SU' => 'socio unico', 'SM' => 'più soci'];
+	private array $SocioUnico_array = ['SU' => 'socio unico', 'SM' => 'più soci'];
 	public ?string $StatoLiquidazione;
-	public array $StatoLiquidazione_array = ['LS' => 'in liquidazione', 'LN' => 'non in liquidazione'];
+	private array $StatoLiquidazione_array = ['LS' => 'in liquidazione', 'LN' => 'non in liquidazione'];
 }

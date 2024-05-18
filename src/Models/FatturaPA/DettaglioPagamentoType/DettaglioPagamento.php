@@ -20,7 +20,7 @@ class DettaglioPagamento extends Data
 	public string|Optional $Beneficiario;
 	public ?string $ModalitaPagamento;
 
-	public array $ModalitaPagamento_array = [
+	private array $ModalitaPagamento_array = [
 		'MP01' => 'contanti',
 		'MP02' => 'assegno',
 		'MP03' => 'assegno circolare',

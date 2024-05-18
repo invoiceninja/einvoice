@@ -19,7 +19,7 @@ class DatiAnagraficiCedente extends Data
 	public Carbon|Optional $DataIscrizioneAlbo;
 	public ?string $RegimeFiscale;
 
-	public array $RegimeFiscale_array = [
+	private array $RegimeFiscale_array = [
 		'RF01' => ' Regime ordinario',
 		'RF02' => 'Regime dei contribuenti minimi (art. 1,c.96-117, L. 244/2007)',
 		'RF04' => 'Agricoltura e attività connesse e pesca (artt. 34 e 34-bis, D.P.R. 633/1972)',

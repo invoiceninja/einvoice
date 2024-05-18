@@ -8,13 +8,13 @@ use Spatie\LaravelData\Optional;
 
 class IscrizioneREA extends Data
 {
-	public string $Ufficio;
-	public string $NumeroREA;
+	public ?string $Ufficio;
+	public ?string $NumeroREA;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public float|Optional $CapitaleSociale;
-	public string|Optional $SocioUnico;
+	public ?float $CapitaleSociale;
+	public ?string $SocioUnico;
 	public array $SocioUnico_array = ['SU' => 'socio unico', 'SM' => 'più soci'];
-	public string $StatoLiquidazione;
+	public ?string $StatoLiquidazione;
 	public array $StatoLiquidazione_array = ['LS' => 'in liquidazione', 'LN' => 'non in liquidazione'];
 }

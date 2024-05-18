@@ -7,6 +7,6 @@ use Spatie\LaravelData\Data;
 
 class CodiceArticolo extends Data
 {
-	public string $CodiceTipo;
-	public string $CodiceValore;
+	public ?string $CodiceTipo;
+	public ?string $CodiceValore;
 }

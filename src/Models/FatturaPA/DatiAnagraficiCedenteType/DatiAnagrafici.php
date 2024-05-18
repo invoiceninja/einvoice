@@ -40,7 +40,7 @@ class DatiAnagrafici extends Data
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $DataIscrizioneAlbo;
-	public string $RegimeFiscale;
+	public ?string $RegimeFiscale;
 
 	public array $RegimeFiscale_array = [
 		'RF01' => ' Regime ordinario',

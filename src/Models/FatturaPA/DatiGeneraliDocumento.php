@@ -12,7 +12,7 @@ use Spatie\LaravelData\Optional;
 
 class DatiGeneraliDocumento extends Data
 {
-	public string $TipoDocumento;
+	public ?string $TipoDocumento;
 
 	public array $TipoDocumento_array = [
 		'TD01' => 'Fattura',
@@ -36,21 +36,21 @@ class DatiGeneraliDocumento extends Data
 		'TD28' => 'Acquisti da San Marino con IVA (fattura cartacea)',
 	];
 
-	public string $Divisa;
+	public ?string $Divisa;
 	public Carbon $Data;
-	public string $Numero;
+	public ?string $Numero;
 	public DatiRitenuta|Optional $DatiRitenuta;
 	public DatiBollo|Optional $DatiBollo;
 	public DatiCassaPrevidenziale|Optional $DatiCassaPrevidenziale;
 	public ScontoMaggiorazione|Optional $ScontoMaggiorazione;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public float|Optional $ImportoTotaleDocumento;
+	public ?float $ImportoTotaleDocumento;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public float|Optional $Arrotondamento;
-	public string|Optional $Causale;
-	public string|Optional $Art73;
+	public ?float $Arrotondamento;
+	public ?string $Causale;
+	public ?string $Art73;
 
 	public array $Art73_array = [
 		'SI' => 'SI = Documento emesso secondo modalità e termini stabiliti con DM ai sensi dell\'art. 73 DPR 633/72',

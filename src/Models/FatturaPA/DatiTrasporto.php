@@ -11,20 +11,20 @@ use Spatie\LaravelData\Optional;
 class DatiTrasporto extends Data
 {
 	public DatiAnagraficiVettore|Optional $DatiAnagraficiVettore;
-	public string|Optional $MezzoTrasporto;
-	public string|Optional $CausaleTrasporto;
+	public ?string $MezzoTrasporto;
+	public ?string $CausaleTrasporto;
 	public int|Optional $NumeroColli;
-	public string|Optional $Descrizione;
-	public string|Optional $UnitaMisuraPeso;
+	public ?string $Descrizione;
+	public ?string $UnitaMisuraPeso;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public float|Optional $PesoLordo;
+	public ?float $PesoLordo;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public float|Optional $PesoNetto;
+	public ?float $PesoNetto;
 	public Carbon|Optional $DataOraRitiro;
 	public Carbon|Optional $DataInizioTrasporto;
-	public string|Optional $TipoResa;
+	public ?string $TipoResa;
 	public IndirizzoResa|Optional $IndirizzoResa;
 	public Carbon|Optional $DataOraConsegna;
 }

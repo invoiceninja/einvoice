@@ -8,6 +8,6 @@ use Spatie\LaravelData\Optional;
 
 class ContattiTrasmittente extends Data
 {
-	public string|Optional $Telefono;
-	public string|Optional $Email;
+	public ?string $Telefono;
+	public ?string $Email;
 }

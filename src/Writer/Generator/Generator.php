@@ -141,8 +141,13 @@ class Generator
                             ->setPublic() 
                             ->setType($type);
 
-            if($base_type == 'float')
-                $property->addAttribute(WithTransformer::class, [FloatTransformer::class]);
+            if($base_type == 'float'){
+                $property->addAttribute(WithTransformer::class, [FloatTransformer::class])
+                         ->setType('?float');
+            }
+            elseif($base_type == 'string'){
+                $property->setType('?string');
+            }
 
             $class->addMember($property);
 
@@ -159,7 +164,6 @@ class Generator
         $name = str_replace("Type","",$name);
         $this->write($namespace, "{$this->write_path}{$this->standard}/{$name}.php");
         
-        //check for addition child types to write NOW
     }
 
     private function writeBaseType($name, $base_type): \stdClass

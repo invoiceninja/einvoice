@@ -18,5 +18,5 @@ class CedentePrestatore extends Data
 	public StabileOrganizzazione|Optional $StabileOrganizzazione;
 	public IscrizioneREA|Optional $IscrizioneREA;
 	public Contatti|Optional $Contatti;
-	public string|Optional $RiferimentoAmministrazione;
+	public ?string $RiferimentoAmministrazione;
 }

@@ -18,6 +18,6 @@ class FatturaElettronicaHeader extends Data
 	public RappresentanteFiscale|Optional $RappresentanteFiscale;
 	public CessionarioCommittente $CessionarioCommittente;
 	public TerzoIntermediarioOSoggettoEmittente|Optional $TerzoIntermediarioOSoggettoEmittente;
-	public string|Optional $SoggettoEmittente;
+	public ?string $SoggettoEmittente;
 	public array $SoggettoEmittente_array = ['CC' => 'Cessionario / Committente', 'TZ' => 'Terzo'];
 }

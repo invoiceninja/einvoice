@@ -86,9 +86,19 @@ class TypeGenerator
 
             }
 
+            if($element['min_occurs'] == 0){
+                $settable_type = Type::union($base_type, Optional::class);
+            }
+            else {
+                $settable_type = $base_type;
+
+                if(in_array($settable_type, ['string','float']))
+                    $settable_type = "?{$settable_type}";
+            }
+
             $property = (new Property($element['name']))
                             ->setPublic()
-                            ->setType($element['min_occurs'] == 0 ? Type::union($base_type, Optional::class) : $base_type);
+                            ->setType($settable_type);
                             
             if($base_type == 'float') {
                 $this->namespace->addUse(WithTransformer::class);

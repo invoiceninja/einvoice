@@ -18,14 +18,14 @@ class DatiTrasmissione extends Data
 	#[Max(10)]
 	#[Min(1)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,10}/u')]
-	public string $ProgressivoInvio;
-	public string $FormatoTrasmissione;
+	public ?string $ProgressivoInvio;
+	public ?string $FormatoTrasmissione;
 	public array $FormatoTrasmissione_array = ['FPA12' => 'Fattura verso PA', 'FPR12' => 'Fattura verso privati'];
 
 	#[Max(7)]
 	#[Min(6)]
 	#[Regex('/[A-Z0-9]{6,7}/')]
-	public string $CodiceDestinatario;
+	public ?string $CodiceDestinatario;
 	public ContattiTrasmittente|Optional $ContattiTrasmittente;
 
 	#[Max(256)]

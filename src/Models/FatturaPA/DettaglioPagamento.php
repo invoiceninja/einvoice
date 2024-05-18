@@ -8,8 +8,8 @@ use Spatie\LaravelData\Optional;
 
 class DettaglioPagamento extends Data
 {
-	public string|Optional $Beneficiario;
-	public string $ModalitaPagamento;
+	public ?string $Beneficiario;
+	public ?string $ModalitaPagamento;
 
 	public array $ModalitaPagamento_array = [
 		'MP01' => 'contanti',
@@ -42,24 +42,24 @@ class DettaglioPagamento extends Data
 	public Carbon|Optional $DataScadenzaPagamento;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public float $ImportoPagamento;
-	public string|Optional $CodUfficioPostale;
-	public string|Optional $CognomeQuietanzante;
-	public string|Optional $NomeQuietanzante;
-	public string|Optional $CFQuietanzante;
-	public string|Optional $TitoloQuietanzante;
-	public string|Optional $IstitutoFinanziario;
-	public string|Optional $IBAN;
-	public string|Optional $ABI;
-	public string|Optional $CAB;
-	public string|Optional $BIC;
+	public ?float $ImportoPagamento;
+	public ?string $CodUfficioPostale;
+	public ?string $CognomeQuietanzante;
+	public ?string $NomeQuietanzante;
+	public ?string $CFQuietanzante;
+	public ?string $TitoloQuietanzante;
+	public ?string $IstitutoFinanziario;
+	public ?string $IBAN;
+	public ?string $ABI;
+	public ?string $CAB;
+	public ?string $BIC;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public float|Optional $ScontoPagamentoAnticipato;
+	public ?float $ScontoPagamentoAnticipato;
 	public Carbon|Optional $DataLimitePagamentoAnticipato;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public float|Optional $PenalitaPagamentiRitardati;
+	public ?float $PenalitaPagamentiRitardati;
 	public Carbon|Optional $DataDecorrenzaPenale;
-	public string|Optional $CodicePagamento;
+	public ?string $CodicePagamento;
 }

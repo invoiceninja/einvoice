@@ -14,7 +14,7 @@ class Allegati extends Data
 	#[Max(60)]
 	#[Min(1)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
-	public string $NomeAttachment;
+	public ?string $NomeAttachment;
 
 	#[Max(10)]
 	#[Min(1)]

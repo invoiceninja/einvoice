@@ -7,7 +7,7 @@ use Spatie\LaravelData\Data;
 
 class DatiRitenuta extends Data
 {
-	public string $TipoRitenuta;
+	public ?string $TipoRitenuta;
 
 	public array $TipoRitenuta_array = [
 		'RT01' => 'Ritenuta di acconto persone fisiche',
@@ -19,11 +19,11 @@ class DatiRitenuta extends Data
 	];
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public float $ImportoRitenuta;
+	public ?float $ImportoRitenuta;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public float $AliquotaRitenuta;
-	public string $CausalePagamento;
+	public ?float $AliquotaRitenuta;
+	public ?string $CausalePagamento;
 
 	public array $CausalePagamento_array = [
 		'A' => 'A',

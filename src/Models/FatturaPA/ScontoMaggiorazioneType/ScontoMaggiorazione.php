@@ -11,7 +11,7 @@ use Spatie\LaravelData\Optional;
 
 class ScontoMaggiorazione extends Data
 {
-	public string $Tipo;
+	public ?string $Tipo;
 	public array $Tipo_array = ['SC' => 'SC = Sconto', 'MG' => 'MG = Maggiorazione'];
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]

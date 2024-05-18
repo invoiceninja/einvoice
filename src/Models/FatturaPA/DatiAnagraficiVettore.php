@@ -11,7 +11,7 @@ use Spatie\LaravelData\Optional;
 class DatiAnagraficiVettore extends Data
 {
 	public IdFiscaleIVA $IdFiscaleIVA;
-	public string|Optional $CodiceFiscale;
+	public ?string $CodiceFiscale;
 	public Anagrafica $Anagrafica;
-	public string|Optional $NumeroLicenzaGuida;
+	public ?string $NumeroLicenzaGuida;
 }

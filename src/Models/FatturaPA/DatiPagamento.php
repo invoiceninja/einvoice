@@ -8,7 +8,7 @@ use Spatie\LaravelData\Data;
 
 class DatiPagamento extends Data
 {
-	public string $CondizioniPagamento;
+	public ?string $CondizioniPagamento;
 
 	public array $CondizioniPagamento_array = [
 		'TP01' => 'pagamento a rate',

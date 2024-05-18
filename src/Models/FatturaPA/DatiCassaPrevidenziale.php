@@ -8,7 +8,7 @@ use Spatie\LaravelData\Optional;
 
 class DatiCassaPrevidenziale extends Data
 {
-	public string $TipoCassa;
+	public ?string $TipoCassa;
 
 	public array $TipoCassa_array = [
 		'TC01' => 'Cassa nazionale previdenza e assistenza avvocati e procuratori legali',
@@ -36,19 +36,19 @@ class DatiCassaPrevidenziale extends Data
 	];
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public float $AlCassa;
+	public ?float $AlCassa;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public float $ImportoContributoCassa;
+	public ?float $ImportoContributoCassa;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public float|Optional $ImponibileCassa;
+	public ?float $ImponibileCassa;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public float $AliquotaIVA;
-	public string|Optional $Ritenuta;
+	public ?float $AliquotaIVA;
+	public ?string $Ritenuta;
 	public array $Ritenuta_array = ['SI' => 'SI = Cessione / Prestazione soggetta a ritenuta'];
-	public string|Optional $Natura;
+	public ?string $Natura;
 
 	public array $Natura_array = [
 		'N1' => 'Escluse ex. art. 15 del D.P.R. 633/1972',
@@ -77,5 +77,5 @@ class DatiCassaPrevidenziale extends Data
 		'N7' => 'IVA assolta in altro stato UE (prestazione di servizi di telecomunicazioni, tele-radiodiffusione ed elettronici ex art. 7-octies lett. a, b, art. 74-sexies DPR 633/72)',
 	];
 
-	public string|Optional $RiferimentoAmministrazione;
+	public ?string $RiferimentoAmministrazione;
 }

@@ -8,9 +8,9 @@ use Spatie\LaravelData\Optional;
 
 class Indirizzo extends Data
 {
-	public string|Optional $NumeroCivico;
-	public string $CAP;
-	public string $Comune;
-	public string|Optional $Provincia;
-	public string $Nazione;
+	public ?string $NumeroCivico;
+	public ?string $CAP;
+	public ?string $Comune;
+	public ?string $Provincia;
+	public ?string $Nazione;
 }

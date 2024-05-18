@@ -8,9 +8,9 @@ use Spatie\LaravelData\Optional;
 
 class Anagrafica extends Data
 {
-	public string $Denominazione;
-	public string $Nome;
-	public string $Cognome;
-	public string|Optional $Titolo;
-	public string|Optional $CodEORI;
+	public ?string $Denominazione;
+	public ?string $Nome;
+	public ?string $Cognome;
+	public ?string $Titolo;
+	public ?string $CodEORI;
 }

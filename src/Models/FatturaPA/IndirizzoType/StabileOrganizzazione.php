@@ -14,7 +14,7 @@ class StabileOrganizzazione extends Data
 	#[Max(60)]
 	#[Min(1)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
-	public string $Indirizzo;
+	public ?string $Indirizzo;
 
 	#[Max(8)]
 	#[Min(1)]
@@ -22,12 +22,12 @@ class StabileOrganizzazione extends Data
 	public string|Optional $NumeroCivico;
 
 	#[Regex('/[0-9][0-9][0-9][0-9][0-9]/')]
-	public string $CAP;
+	public ?string $CAP;
 
 	#[Max(60)]
 	#[Min(1)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
-	public string $Comune;
+	public ?string $Comune;
 
 	#[Max(2)]
 	#[Min(2)]
@@ -37,5 +37,5 @@ class StabileOrganizzazione extends Data
 	#[Max(2)]
 	#[Min(2)]
 	#[Regex('/[A-Z]{2}/')]
-	public string $Nazione;
+	public ?string $Nazione;
 }

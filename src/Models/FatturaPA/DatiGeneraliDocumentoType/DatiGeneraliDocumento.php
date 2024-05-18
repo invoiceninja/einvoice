@@ -1,6 +1,6 @@
 <?php 
 
-namespace Invoiceninja\Einvoice\Models\FatturaPA;
+namespace Invoiceninja\Einvoice\Models\FatturaPA\DatiGeneraliDocumentoType;
 
 use Carbon\Carbon;
 use Spatie\LaravelData\Data;
@@ -43,10 +43,10 @@ class DatiGeneraliDocumento extends Data
 	#[\Spatie\LaravelData\Attributes\Validation\Min(1)]
 	#[\Spatie\LaravelData\Attributes\Validation\Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
 	public string $Numero;
-	public DatiRitenutaType\DatiRitenuta|\Spatie\LaravelData\Optional $DatiRitenuta;
-	public DatiBolloType\DatiBollo|\Spatie\LaravelData\Optional $DatiBollo;
-	public DatiCassaPrevidenzialeType\DatiCassaPrevidenziale|\Spatie\LaravelData\Optional $DatiCassaPrevidenziale;
-	public ScontoMaggiorazioneType\ScontoMaggiorazione|\Spatie\LaravelData\Optional $ScontoMaggiorazione;
+	public \Invoiceninja\Einvoice\Models\FatturaPA\DatiRitenutaType\DatiRitenuta|\Spatie\LaravelData\Optional $DatiRitenuta;
+	public \Invoiceninja\Einvoice\Models\FatturaPA\DatiBolloType\DatiBollo|\Spatie\LaravelData\Optional $DatiBollo;
+	public \Invoiceninja\Einvoice\Models\FatturaPA\DatiCassaPrevidenzialeType\DatiCassaPrevidenziale|\Spatie\LaravelData\Optional $DatiCassaPrevidenziale;
+	public \Invoiceninja\Einvoice\Models\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione|\Spatie\LaravelData\Optional $ScontoMaggiorazione;
 
 	#[\Spatie\LaravelData\Attributes\Validation\Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float|\Spatie\LaravelData\Optional $ImportoTotaleDocumento;

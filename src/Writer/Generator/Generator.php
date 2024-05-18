@@ -68,7 +68,7 @@ class Generator
     private function handleSpecialClasses()
     {
         
-        $namespace = new PhpNamespace($this->namespace.$this->standard);
+        $namespace = new PhpNamespace($this->namespace.$this->standard."\\DatiGeneraliDocumentoType");
         $namespace->addUse(Data::class);
         $namespace->addUse(Carbon::class);
 

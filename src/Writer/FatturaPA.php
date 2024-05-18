@@ -25,7 +25,7 @@ class FatturaPA extends BaseStandard
     [
         '(\p{IsBasicLatin}{1,10})'  => '/[\x{0020}-\x{007E}]{1,10}/u',
         '[A-Z0-9]{6,7}' => '/[A-Z0-9]{6,7}/',
-        "([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|&quot;(\[\]!#-[^-~ \t]|(\\[\t -~]))+&quot;)@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*\])" => '/^(?!.*\.\.)(?!.*\.$)(?!.*\.\.)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/u',
+        'email' => '/^(?!.*\.\.)(?!.*\.$)(?!.*\.\.)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$//u',
         '[A-Z]{2}' => '/[A-Z]{2}/',
         '(\\p{IsBasicLatin}{5,12})' => '/[\x{0020}-\x{007E}]{5,12}/u',
         '.+@.+[.]+.+' => '/.+@.+\..+/',
@@ -179,7 +179,12 @@ class FatturaPA extends BaseStandard
                         $child_array['base_type'] = str_replace(["xs:","xs:"], "", $child_array['base_type']);
 
                         if(isset($child_array['pattern']) && strlen($child_array['pattern']) > 2 && substr($child_array['pattern'], 0,1) != '/'){
-                            $child_array['pattern'] = '/'.$child_array['pattern'].'/';
+
+                            if(strlen($child_array['pattern']) > 50) {
+                                $child_array['pattern'] = $this->regex_conversion_array['email'];    
+                            }
+                            else
+                                $child_array['pattern'] = '/'.$child_array['pattern'].'/';
                         }
                             
 

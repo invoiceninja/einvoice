@@ -130,6 +130,7 @@ class Fact1 extends BaseStandard
         return $this;
     }
 
+    /** Nested type props need to be harvested and resolved */
     private function childTypes(): self
     {
 

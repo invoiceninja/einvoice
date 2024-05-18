@@ -36,8 +36,8 @@ class Generator
     ];
 
     private array $copy_stubs = [
-        'src/Models/Stubs/FatturaPA/DatiGeneraliDocumento.php' => 'src/Models/FatturaPA/DatiGeneraliDocumentoType/DatiGeneraliDocumento.php',
-        'src/Models/Stubs/FatturaPA/Anagrafica.php' => 'src/Models/FatturaPA/AnagraficaType/Anagrafica.php',
+        'src/Models/Stubs/FatturaPA/DatiGeneraliDocumento.php.bak' => 'src/Models/FatturaPA/DatiGeneraliDocumentoType/DatiGeneraliDocumento.php',
+        'src/Models/Stubs/FatturaPA/Anagrafica.php.bak' => 'src/Models/FatturaPA/AnagraficaType/Anagrafica.php',
     ];
 
     public Collection $child_classes;

@@ -1,6 +1,11 @@
 <?php 
 
-class DatiGeneraliDocumento extends Spatie\LaravelData\Data
+namespace Invoiceninja\Einvoice\Models\FatturaPA;
+
+use Carbon\Carbon;
+use Spatie\LaravelData\Data;
+
+class DatiGeneraliDocumento extends Data
 {
 	public string $TipoDocumento;
 
@@ -26,27 +31,27 @@ class DatiGeneraliDocumento extends Spatie\LaravelData\Data
 		'TD28' => 'Acquisti da San Marino con IVA (fattura cartacea)',
 	];
 
-	#[Spatie\LaravelData\Attributes\Validation\Max(3)]
-	#[Spatie\LaravelData\Attributes\Validation\Min(3)]
-	#[Spatie\LaravelData\Attributes\Validation\Regex('/[A-Z]{3}/')]
+	#[\Spatie\LaravelData\Attributes\Validation\Max(3)]
+	#[\Spatie\LaravelData\Attributes\Validation\Min(3)]
+	#[\Spatie\LaravelData\Attributes\Validation\Regex('/[A-Z]{3}/')]
 	public string $Divisa;
 
-	#[Spatie\LaravelData\Attributes\WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
-	public \Carbon\Carbon $Data;
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
+	public Carbon $Data;
 
-	#[Spatie\LaravelData\Attributes\Validation\Max(20)]
-	#[Spatie\LaravelData\Attributes\Validation\Min(1)]
-	#[Spatie\LaravelData\Attributes\Validation\Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
+	#[\Spatie\LaravelData\Attributes\Validation\Max(20)]
+	#[\Spatie\LaravelData\Attributes\Validation\Min(1)]
+	#[\Spatie\LaravelData\Attributes\Validation\Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
 	public string $Numero;
-	public \Invoiceninja\Einvoice\Models\FatturaPA\DatiRitenutaType\DatiRitenuta|\Spatie\LaravelData\Optional $DatiRitenuta;
-	public \Invoiceninja\Einvoice\Models\FatturaPA\DatiBolloType\DatiBollo|\Spatie\LaravelData\Optional $DatiBollo;
-	public \Invoiceninja\Einvoice\Models\FatturaPA\DatiCassaPrevidenzialeType\DatiCassaPrevidenziale|\Spatie\LaravelData\Optional $DatiCassaPrevidenziale;
-	public \Invoiceninja\Einvoice\Models\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione|\Spatie\LaravelData\Optional $ScontoMaggiorazione;
+	public DatiRitenutaType\DatiRitenuta|\Spatie\LaravelData\Optional $DatiRitenuta;
+	public DatiBolloType\DatiBollo|\Spatie\LaravelData\Optional $DatiBollo;
+	public DatiCassaPrevidenzialeType\DatiCassaPrevidenziale|\Spatie\LaravelData\Optional $DatiCassaPrevidenziale;
+	public ScontoMaggiorazioneType\ScontoMaggiorazione|\Spatie\LaravelData\Optional $ScontoMaggiorazione;
 
-	#[Spatie\LaravelData\Attributes\Validation\Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
+	#[\Spatie\LaravelData\Attributes\Validation\Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float|\Spatie\LaravelData\Optional $ImportoTotaleDocumento;
 
-	#[Spatie\LaravelData\Attributes\Validation\Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
+	#[\Spatie\LaravelData\Attributes\Validation\Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float|\Spatie\LaravelData\Optional $Arrotondamento;
 	public string|\Spatie\LaravelData\Optional $Art73;
 
@@ -54,6 +59,6 @@ class DatiGeneraliDocumento extends Spatie\LaravelData\Data
 		'SI' => 'SI = Documento emesso secondo modalità e termini stabiliti con DM ai sensi dell\'art. 73 DPR 633/72',
 	];
 
-	#[Invoiceninja\Einvoice\Models\Rules\StringArrayRule]
-	public array|Spatie\LaravelData\Optional $Causale;
+	#[\Invoiceninja\Einvoice\Models\Rules\StringArrayRule]
+	public array|\Spatie\LaravelData\Optional $Causale;
 }

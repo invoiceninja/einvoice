@@ -67,11 +67,17 @@ class Generator
 
     private function handleSpecialClasses()
     {
+        
+        $namespace = new PhpNamespace($this->namespace.$this->standard);
+        $namespace->addUse(Data::class);
+        $namespace->addUse(Carbon::class);
+
         $path = 'src/Models/FatturaPA/DatiGeneraliDocumentoType/DatiGeneraliDocumento.php';
         
         $f = file_get_contents($path);
 
         $class = ClassType::fromCode($f);
+        $class->setExtends(Data::class);
 
         $class->removeProperty('Causale');
 
@@ -83,16 +89,9 @@ class Generator
 
         $class->addMember($property);
 
-        $printer = new Printer();
-        $namespace = $printer->printClass($class);
-        
-        $class_print = "<?php ". self::LINE_FEED . self::LINE_FEED;
-        $class_print .= $namespace;
+        $namespace->add($class);
 
-        $fp = fopen($path, 'w');
-        fwrite($fp, $class_print);
-        fclose($fp);
-
+        $this->write($namespace,$path);
 
     }
 

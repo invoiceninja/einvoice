@@ -14,10 +14,13 @@ namespace Invoiceninja\Einvoice\Writer\Generator;
 use Carbon\Carbon;
 use Nette\PhpGenerator\Type;
 use Spatie\LaravelData\Data;
+use Nette\PhpGenerator\Printer;
+use Nette\PhpGenerator\Property;
 use Spatie\LaravelData\Optional;
 use Nette\PhpGenerator\ClassType;
 use Illuminate\Support\Collection;
 use Nette\PhpGenerator\PhpNamespace;
+use Invoiceninja\Einvoice\Models\Rules\StringArrayRule;
 
 class Generator
 {
@@ -57,6 +60,39 @@ class Generator
             $this->writeNette($class_name, $node);
 
         });
+
+        $this->handleSpecialClasses();
+
+    }
+
+    private function handleSpecialClasses()
+    {
+        $path = 'src/Models/FatturaPA/DatiGeneraliDocumentoType/DatiGeneraliDocumento.php';
+        
+        $f = file_get_contents($path);
+
+        $class = ClassType::fromCode($f);
+
+        $class->removeProperty('Causale');
+
+        $property = (new Property('Causale'))
+        ->setPublic()
+        ->setType(Type::union('array', Optional::class));
+
+        $property->addAttribute(StringArrayRule::class);
+
+        $class->addMember($property);
+
+        $printer = new Printer();
+        $namespace = $printer->printClass($class);
+        
+        $class_print = "<?php ". self::LINE_FEED . self::LINE_FEED;
+        $class_print .= $namespace;
+
+        $fp = fopen($path, 'w');
+        fwrite($fp, $class_print);
+        fclose($fp);
+
 
     }
 
@@ -123,9 +159,6 @@ class Generator
             $class->addProperty($element['name'])
                 ->setPublic() 
                 ->setType($type);
-
-            // if(stripos($element['base_type'], 'Type') !== false)
-            //     $this->child_classes->push($element);
 
             if(count($element['resource']) > 0){
                 $class->addProperty($element['name']."_array")

@@ -185,7 +185,7 @@ class Generator
     private function handleStubbedClasses()
     {
         foreach($this->copy_stubs as $key => $value)
-            copy($key, $value);
+            echo copy($key, $value).PHP_EOL;
     }
 
 }

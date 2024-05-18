@@ -13,10 +13,10 @@ use Spatie\LaravelData\Optional;
 
 class FatturaElettronicaHeader extends Data
 {
-	public DatiTrasmissione $DatiTrasmissione;
-	public CedentePrestatore $CedentePrestatore;
+	public ?DatiTrasmissione $DatiTrasmissione;
+	public ?CedentePrestatore $CedentePrestatore;
 	public RappresentanteFiscale|Optional $RappresentanteFiscale;
-	public CessionarioCommittente $CessionarioCommittente;
+	public ?CessionarioCommittente $CessionarioCommittente;
 	public TerzoIntermediarioOSoggettoEmittente|Optional $TerzoIntermediarioOSoggettoEmittente;
 	public string|Optional $SoggettoEmittente;
 	private array $SoggettoEmittente_array = ['CC' => 'Cessionario / Committente', 'TZ' => 'Terzo'];

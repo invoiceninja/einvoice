@@ -13,11 +13,11 @@ use Spatie\LaravelData\Optional;
 
 class DatiAnagrafici extends Data
 {
-	public IdFiscaleIVA $IdFiscaleIVA;
+	public ?IdFiscaleIVA $IdFiscaleIVA;
 
 	#[Max(16)]
 	#[Min(11)]
 	#[Regex('/[A-Z0-9]{11,16}/')]
 	public string|Optional $CodiceFiscale;
-	public Anagrafica $Anagrafica;
+	public ?Anagrafica $Anagrafica;
 }

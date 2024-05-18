@@ -18,7 +18,7 @@ use Spatie\LaravelData\Optional;
 
 class DatiGenerali extends Data
 {
-	public DatiGeneraliDocumento $DatiGeneraliDocumento;
+	public ?DatiGeneraliDocumento $DatiGeneraliDocumento;
 	public DatiOrdineAcquisto|Optional $DatiOrdineAcquisto;
 	public DatiContratto|Optional $DatiContratto;
 	public DatiConvenzione|Optional $DatiConvenzione;

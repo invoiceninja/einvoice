@@ -8,11 +8,11 @@ use Spatie\LaravelData\Optional;
 
 class DatiDocumentiCorrelati extends Data
 {
-	public ?int $RiferimentoNumeroLinea;
+	public int|Optional $RiferimentoNumeroLinea;
 	public ?string $IdDocumento;
 	public Carbon|Optional $Data;
-	public ?string $NumItem;
-	public ?string $CodiceCommessaConvenzione;
-	public ?string $CodiceCUP;
-	public ?string $CodiceCIG;
+	public string|Optional $NumItem;
+	public string|Optional $CodiceCommessaConvenzione;
+	public string|Optional $CodiceCUP;
+	public string|Optional $CodiceCIG;
 }

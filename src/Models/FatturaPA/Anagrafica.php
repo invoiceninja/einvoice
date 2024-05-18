@@ -11,6 +11,6 @@ class Anagrafica extends Data
 	public ?string $Denominazione;
 	public ?string $Nome;
 	public ?string $Cognome;
-	public ?string $Titolo;
-	public ?string $CodEORI;
+	public string|Optional $Titolo;
+	public string|Optional $CodEORI;
 }

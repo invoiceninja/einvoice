@@ -12,7 +12,7 @@ use Spatie\LaravelData\Optional;
 class DettaglioLinee extends Data
 {
 	public ?int $NumeroLinea;
-	public ?string $TipoCessionePrestazione;
+	public string|Optional $TipoCessionePrestazione;
 
 	private array $TipoCessionePrestazione_array = [
 		'SC' => 'Sconto',
@@ -25,8 +25,8 @@ class DettaglioLinee extends Data
 	public ?string $Descrizione;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $Quantita;
-	public ?string $UnitaMisura;
+	public float|Optional $Quantita;
+	public string|Optional $UnitaMisura;
 	public Carbon|Optional $DataInizioPeriodo;
 	public Carbon|Optional $DataFinePeriodo;
 
@@ -39,9 +39,9 @@ class DettaglioLinee extends Data
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public ?float $AliquotaIVA;
-	public ?string $Ritenuta;
+	public string|Optional $Ritenuta;
 	private array $Ritenuta_array = ['SI' => 'SI = Cessione / Prestazione soggetta a ritenuta'];
-	public ?string $Natura;
+	public string|Optional $Natura;
 
 	private array $Natura_array = [
 		'N1' => 'Escluse ex. art. 15 del D.P.R. 633/1972',
@@ -70,6 +70,6 @@ class DettaglioLinee extends Data
 		'N7' => 'IVA assolta in altro stato UE (prestazione di servizi di telecomunicazioni, tele-radiodiffusione ed elettronici ex art. 7-octies lett. a, b, art. 74-sexies DPR 633/72)',
 	];
 
-	public ?string $RiferimentoAmministrazione;
+	public string|Optional $RiferimentoAmministrazione;
 	public AltriDatiGestionali|Optional $AltriDatiGestionali;
 }

@@ -19,5 +19,5 @@ class FatturaPrincipale extends Data
 	public ?string $NumeroFatturaPrincipale;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
-	public Carbon $DataFatturaPrincipale;
+	public ?Carbon $DataFatturaPrincipale;
 }

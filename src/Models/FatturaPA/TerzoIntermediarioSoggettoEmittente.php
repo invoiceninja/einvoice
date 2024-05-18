@@ -8,5 +8,5 @@ use Spatie\LaravelData\Data;
 
 class TerzoIntermediarioSoggettoEmittente extends Data
 {
-	public DatiAnagrafici $DatiAnagrafici;
+	public ?DatiAnagrafici $DatiAnagrafici;
 }

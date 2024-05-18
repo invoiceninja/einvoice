@@ -13,7 +13,7 @@ use Spatie\LaravelData\Optional;
 
 class DatiTrasmissione extends Data
 {
-	public IdTrasmittente $IdTrasmittente;
+	public ?IdTrasmittente $IdTrasmittente;
 
 	#[Max(10)]
 	#[Min(1)]

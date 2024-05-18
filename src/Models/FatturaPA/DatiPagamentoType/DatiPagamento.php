@@ -21,5 +21,5 @@ class DatiPagamento extends Data
 		'TP03' => 'anticipo',
 	];
 
-	public DettaglioPagamento $DettaglioPagamento;
+	public ?DettaglioPagamento $DettaglioPagamento;
 }

@@ -10,12 +10,12 @@ use Spatie\LaravelData\Optional;
 
 class DatiAnagraficiCedente extends Data
 {
-	public IdFiscaleIVA $IdFiscaleIVA;
-	public ?string $CodiceFiscale;
-	public Anagrafica $Anagrafica;
-	public ?string $AlboProfessionale;
-	public ?string $ProvinciaAlbo;
-	public ?string $NumeroIscrizioneAlbo;
+	public ?IdFiscaleIVA $IdFiscaleIVA;
+	public string|Optional $CodiceFiscale;
+	public ?Anagrafica $Anagrafica;
+	public string|Optional $AlboProfessionale;
+	public string|Optional $ProvinciaAlbo;
+	public string|Optional $NumeroIscrizioneAlbo;
 	public Carbon|Optional $DataIscrizioneAlbo;
 	public ?string $RegimeFiscale;
 

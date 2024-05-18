@@ -16,8 +16,8 @@ use Spatie\LaravelData\Optional;
 
 class CedentePrestatore extends Data
 {
-	public DatiAnagrafici $DatiAnagrafici;
-	public Sede $Sede;
+	public ?DatiAnagrafici $DatiAnagrafici;
+	public ?Sede $Sede;
 	public StabileOrganizzazione|Optional $StabileOrganizzazione;
 	public IscrizioneREA|Optional $IscrizioneREA;
 	public Contatti|Optional $Contatti;

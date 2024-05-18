@@ -19,6 +19,6 @@ class DatiDDT extends Data
 	public ?string $NumeroDDT;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
-	public Carbon $DataDDT;
+	public ?Carbon $DataDDT;
 	public int|Optional $RiferimentoNumeroLinea;
 }

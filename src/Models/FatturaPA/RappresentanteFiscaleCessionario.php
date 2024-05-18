@@ -11,5 +11,5 @@ class RappresentanteFiscaleCessionario extends Data
 	public ?string $Denominazione;
 	public ?string $Nome;
 	public ?string $Cognome;
-	public IdFiscaleIVA $IdFiscaleIVA;
+	public ?IdFiscaleIVA $IdFiscaleIVA;
 }

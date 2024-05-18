@@ -11,6 +11,6 @@ use Spatie\LaravelData\Optional;
 class DatiAnagraficiTerzoIntermediario extends Data
 {
 	public IdFiscaleIVA|Optional $IdFiscaleIVA;
-	public ?string $CodiceFiscale;
-	public Anagrafica $Anagrafica;
+	public string|Optional $CodiceFiscale;
+	public ?Anagrafica $Anagrafica;
 }

@@ -19,5 +19,5 @@ class DatiAnagrafici extends Data
 	#[Min(11)]
 	#[Regex('/[A-Z0-9]{11,16}/')]
 	public string|Optional $CodiceFiscale;
-	public Anagrafica $Anagrafica;
+	public ?Anagrafica $Anagrafica;
 }

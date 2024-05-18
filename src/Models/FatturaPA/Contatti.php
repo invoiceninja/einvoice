@@ -8,7 +8,7 @@ use Spatie\LaravelData\Optional;
 
 class Contatti extends Data
 {
-	public ?string $Telefono;
-	public ?string $Fax;
-	public ?string $Email;
+	public string|Optional $Telefono;
+	public string|Optional $Fax;
+	public string|Optional $Email;
 }

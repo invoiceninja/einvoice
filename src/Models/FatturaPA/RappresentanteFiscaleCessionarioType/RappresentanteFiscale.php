@@ -26,5 +26,5 @@ class RappresentanteFiscale extends Data
 	#[Min(1)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
 	public ?string $Cognome;
-	public IdFiscaleIVA $IdFiscaleIVA;
+	public ?IdFiscaleIVA $IdFiscaleIVA;
 }

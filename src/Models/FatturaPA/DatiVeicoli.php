@@ -7,6 +7,6 @@ use Spatie\LaravelData\Data;
 
 class DatiVeicoli extends Data
 {
-	public Carbon $Data;
+	public ?Carbon $Data;
 	public ?string $TotalePercorso;
 }

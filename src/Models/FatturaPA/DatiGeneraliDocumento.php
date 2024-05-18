@@ -37,7 +37,7 @@ class DatiGeneraliDocumento extends Data
 	];
 
 	public ?string $Divisa;
-	public Carbon $Data;
+	public ?Carbon $Data;
 	public ?string $Numero;
 	public DatiRitenuta|Optional $DatiRitenuta;
 	public DatiBollo|Optional $DatiBollo;
@@ -45,12 +45,12 @@ class DatiGeneraliDocumento extends Data
 	public ScontoMaggiorazione|Optional $ScontoMaggiorazione;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $ImportoTotaleDocumento;
+	public float|Optional $ImportoTotaleDocumento;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $Arrotondamento;
-	public ?string $Causale;
-	public ?string $Art73;
+	public float|Optional $Arrotondamento;
+	public string|Optional $Causale;
+	public string|Optional $Art73;
 
 	private array $Art73_array = [
 		'SI' => 'SI = Documento emesso secondo modalità e termini stabiliti con DM ai sensi dell\'art. 73 DPR 633/72',

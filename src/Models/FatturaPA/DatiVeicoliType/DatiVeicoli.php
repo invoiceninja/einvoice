@@ -14,7 +14,7 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 class DatiVeicoli extends Data
 {
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
-	public Carbon $Data;
+	public ?Carbon $Data;
 
 	#[Max(15)]
 	#[Min(1)]

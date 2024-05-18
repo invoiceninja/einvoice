@@ -9,6 +9,6 @@ use Spatie\LaravelData\Data;
 
 class DatiBeniServizi extends Data
 {
-	public DettaglioLinee $DettaglioLinee;
-	public DatiRiepilogo $DatiRiepilogo;
+	public ?DettaglioLinee $DettaglioLinee;
+	public ?DatiRiepilogo $DatiRiepilogo;
 }

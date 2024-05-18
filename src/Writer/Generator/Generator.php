@@ -134,7 +134,7 @@ class Generator
 
             }
             else {    
-                $type = $base_type;
+                $type = "?{$base_type}";
             } 
 
             $property = (new Property($element['name']))
@@ -142,14 +142,7 @@ class Generator
                             ->setType($type);
 
             if($base_type == 'float'){
-                $property->addAttribute(WithTransformer::class, [FloatTransformer::class])
-                         ->setType('?float');
-            }
-            elseif($base_type == 'string'){
-                $property->setType('?string');
-            }
-            elseif($base_type == 'int'){
-                $property->setType('?int');
+                $property->addAttribute(WithTransformer::class, [FloatTransformer::class]);
             }
 
             $class->addMember($property);

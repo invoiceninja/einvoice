@@ -42,13 +42,13 @@ class DatiCassaPrevidenziale extends Data
 	public ?float $ImportoContributoCassa;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $ImponibileCassa;
+	public float|Optional $ImponibileCassa;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public ?float $AliquotaIVA;
-	public ?string $Ritenuta;
+	public string|Optional $Ritenuta;
 	private array $Ritenuta_array = ['SI' => 'SI = Cessione / Prestazione soggetta a ritenuta'];
-	public ?string $Natura;
+	public string|Optional $Natura;
 
 	private array $Natura_array = [
 		'N1' => 'Escluse ex. art. 15 del D.P.R. 633/1972',
@@ -77,5 +77,5 @@ class DatiCassaPrevidenziale extends Data
 		'N7' => 'IVA assolta in altro stato UE (prestazione di servizi di telecomunicazioni, tele-radiodiffusione ed elettronici ex art. 7-octies lett. a, b, art. 74-sexies DPR 633/72)',
 	];
 
-	public ?string $RiferimentoAmministrazione;
+	public string|Optional $RiferimentoAmministrazione;
 }

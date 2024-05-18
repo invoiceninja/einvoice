@@ -12,5 +12,5 @@ class DatiBollo extends Data
 	private array $BolloVirtuale_array = ['SI' => 'SI'];
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $ImportoBollo;
+	public float|Optional $ImportoBollo;
 }

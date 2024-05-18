@@ -9,6 +9,6 @@ use Spatie\LaravelData\Optional;
 class DatiDDT extends Data
 {
 	public ?string $NumeroDDT;
-	public Carbon $DataDDT;
-	public ?int $RiferimentoNumeroLinea;
+	public ?Carbon $DataDDT;
+	public int|Optional $RiferimentoNumeroLinea;
 }

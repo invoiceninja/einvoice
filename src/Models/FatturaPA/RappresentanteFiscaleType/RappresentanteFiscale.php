@@ -9,5 +9,5 @@ use Spatie\LaravelData\Optional;
 
 class RappresentanteFiscale extends Data
 {
-	public DatiAnagrafici $DatiAnagrafici;
+	public ?DatiAnagrafici $DatiAnagrafici;
 }

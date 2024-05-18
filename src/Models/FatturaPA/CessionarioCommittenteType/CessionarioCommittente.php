@@ -12,8 +12,8 @@ use Spatie\LaravelData\Optional;
 
 class CessionarioCommittente extends Data
 {
-	public DatiAnagrafici $DatiAnagrafici;
-	public Sede $Sede;
+	public ?DatiAnagrafici $DatiAnagrafici;
+	public ?Sede $Sede;
 	public StabileOrganizzazione|Optional $StabileOrganizzazione;
 	public RappresentanteFiscale|Optional $RappresentanteFiscale;
 }

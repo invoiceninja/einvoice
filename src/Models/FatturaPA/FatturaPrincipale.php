@@ -8,5 +8,5 @@ use Spatie\LaravelData\Data;
 class FatturaPrincipale extends Data
 {
 	public ?string $NumeroFatturaPrincipale;
-	public Carbon $DataFatturaPrincipale;
+	public ?Carbon $DataFatturaPrincipale;
 }

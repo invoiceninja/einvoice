@@ -29,6 +29,6 @@ class DatiTrasmissione extends Data
 	public ContattiTrasmittente|Optional $ContattiTrasmittente;
 
 	#[Max(256)]
-	#[Regex('/^(?!.*\.\.)(?!.*\.$)(?!.*\.\.)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$//u')]
+	#[Regex('/^(?!.*\.\.)(?!.*\.$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/')]
 	public string|Optional $PECDestinatario;
 }

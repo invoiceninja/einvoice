@@ -20,8 +20,9 @@ class RegistrationAddress extends Data
 	public string|Optional $Floor;
 	public string|Optional $Room;
 
+	#[Max(150)]
 	#[Min(1)]
-	public string|Optional $StreetName;
+	public ?string $StreetName;
 
 	#[Max(100)]
 	public string|Optional $AdditionalStreetName;
@@ -37,13 +38,13 @@ class RegistrationAddress extends Data
 
 	#[Max(50)]
 	#[Min(1)]
-	public string|Optional $CityName;
+	public ?string $CityName;
 
 	#[Max(20)]
 	public string|Optional $PostalZone;
 
 	#[Min(1)]
-	public string|Optional $CountrySubentity;
+	public ?string $CountrySubentity;
 
 	private array $CountrySubentity_array = [
 		'RO-AB',

@@ -17,7 +17,7 @@ class Address extends Data
 	public string|Optional $Postbox;
 	public string|Optional $Floor;
 	public string|Optional $Room;
-	public string|Optional $StreetName;
+	public ?string $StreetName;
 	public string|Optional $AdditionalStreetName;
 	public string|Optional $BlockName;
 	public string|Optional $BuildingName;
@@ -28,9 +28,8 @@ class Address extends Data
 	public string|Optional $MarkCare;
 	public string|Optional $PlotIdentification;
 	public string|Optional $CitySubdivisionName;
-	public string|Optional $CityName;
+	public ?string $CityName;
 	public string|Optional $PostalZone;
-	public string|Optional $CountrySubentity;
 
 	private array $CountrySubentity_array = [
 		'RO-AB',
@@ -77,6 +76,51 @@ class Address extends Data
 		'RO-VS',
 	];
 
+	#[\Spatie\LaravelData\Attributes\Validation\In(
+		'RO-AB',
+		'RO-AG',
+		'RO-AR',
+		'RO-B',
+		'RO-BC',
+		'RO-BH',
+		'RO-BN',
+		'RO-BR',
+		'RO-BT',
+		'RO-BV',
+		'RO-BZ',
+		'RO-CJ',
+		'RO-CL',
+		'RO-CS',
+		'RO-CT',
+		'RO-CV',
+		'RO-DB',
+		'RO-DJ',
+		'RO-GJ',
+		'RO-GL',
+		'RO-GR',
+		'RO-HD',
+		'RO-HR',
+		'RO-IF',
+		'RO-IL',
+		'RO-IS',
+		'RO-MH',
+		'RO-MM',
+		'RO-MS',
+		'RO-NT',
+		'RO-OT',
+		'RO-PH',
+		'RO-SB',
+		'RO-SJ',
+		'RO-SM',
+		'RO-SV',
+		'RO-TL',
+		'RO-TM',
+		'RO-TR',
+		'RO-VL',
+		'RO-VN',
+		'RO-VS',
+	)]
+	public ?string $CountrySubentity;
 	public string|Optional $CountrySubentityCode;
 	public string|Optional $Region;
 	public string|Optional $District;

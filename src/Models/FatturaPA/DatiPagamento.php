@@ -8,13 +8,13 @@ use Spatie\LaravelData\Data;
 
 class DatiPagamento extends Data
 {
-	public ?string $CondizioniPagamento;
-
 	private array $CondizioniPagamento_array = [
 		'TP01' => 'pagamento a rate',
 		'TP02' => 'pagamento completo',
 		'TP03' => 'anticipo',
 	];
 
+	#[\Spatie\LaravelData\Attributes\Validation\In(TP01: 'pagamento a rate', TP02: 'pagamento completo', TP03: 'anticipo')]
+	public ?string $CondizioniPagamento;
 	public ?DettaglioPagamento $DettaglioPagamento;
 }

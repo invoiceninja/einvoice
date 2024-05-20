@@ -19,6 +19,7 @@ use Spatie\LaravelData\Optional;
 use Nette\PhpGenerator\ClassType;
 use Illuminate\Support\Collection;
 use Nette\PhpGenerator\PhpNamespace;
+use Spatie\LaravelData\Attributes\Validation\In;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
@@ -130,7 +131,6 @@ class Generator
             }
 
             if($element['min_occurs'] == 0){
-                
                 $namespace->addUse(Optional::class);
                 $type = Type::union($base_type, Optional::class);
 
@@ -159,14 +159,20 @@ class Generator
                 $property->addAttribute(WithTransformer::class, [DateTimeInterfaceTransformer::class, 'format' => 'Y-m-d']);
             }
 
-            $class->addMember($property);
-
             if(count($element['resource']) > 0){
+
+                $property->addAttribute(In::class, $element['resource']);
+
                 $class->addProperty($element['name']."_array")
                       ->setPrivate()
                       ->setType('array')
                       ->setValue($element['resource']);
             }
+
+
+            $class->addMember($property);
+
+
         }
 
         $namespace->add($class);

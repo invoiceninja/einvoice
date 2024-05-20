@@ -110,14 +110,18 @@ class Fact1Rules
             ],
             'AddressType' => [
                 'AdditionalStreetName' => [
+                    'max_length' => 150,
                     'max_length' => 100,
                 ],
                 'StreetName' => [
+                    'max_length' => 150,
                     'min_length' => 1,
+                    'min_occurs' => 1,
                 ],
                 'CityName' => [
                     'min_length' => 1,
                     'max_length' => 50,
+                    'min_occurs' => 1,
                 ],
                 'PostalZone' => [
                     'max_length' => 20,
@@ -125,11 +129,13 @@ class Fact1Rules
                 'CountrySubentity' => [
                     'base_type' => 'string',
                     'min_length' => 1,
+                    'min_occurs' => 1,
                     'resource' => ['RO-AB','RO-AG','RO-AR','RO-B','RO-BC','RO-BH','RO-BN','RO-BR','RO-BT','RO-BV','RO-BZ','RO-CJ','RO-CL','RO-CS','RO-CT', 'RO-CV', 'RO-DB', 'RO-DJ', 'RO-GJ', 'RO-GL', 'RO-GR', 'RO-HD', 'RO-HR' , 'RO-IF', 'RO-IL', 'RO-IS', 'RO-MH', 'RO-MM', 'RO-MS', 'RO-NT', 'RO-OT', 'RO-PH', 'RO-SB', 'RO-SJ', 'RO-SM', 'RO-SV', 'RO-TL', 'RO-TM', 'RO-TR', 'RO-VL', 'RO-VN', 'RO-VS'],
                 ],
             ],
             'DocumentReferenceType' => [
                 'ID' => [
+                    'min_occurs' => 1,
                     'min_length' => 1,
                     'max_length' => 200,
                 ],
@@ -317,6 +323,7 @@ class Fact1Rules
                 'base_type' => 'string',
                 'min_length' => 1,
                 'max_length' => 200,
+                'min_occurs' => 1,
             ],
         ];
     }

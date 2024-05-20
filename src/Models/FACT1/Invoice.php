@@ -57,8 +57,10 @@ class Invoice extends Data
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $DueDate;
-	public string|Optional $InvoiceTypeCode;
 	private array $InvoiceTypeCode_array = ['380', '384', '389', '751'];
+
+	#[\Spatie\LaravelData\Attributes\Validation\In('380', '384', '389', '751')]
+	public string|Optional $InvoiceTypeCode;
 	public string|Optional $Note;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]

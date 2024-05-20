@@ -16,15 +16,21 @@ class Pickup extends Data
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $ActualPickupDate;
-	public \time|Optional $ActualPickupTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
+	public Carbon|Optional $ActualPickupTime;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $EarliestPickupDate;
-	public \time|Optional $EarliestPickupTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
+	public Carbon|Optional $EarliestPickupTime;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $LatestPickupDate;
-	public \time|Optional $LatestPickupTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
+	public Carbon|Optional $LatestPickupTime;
 	public PickupLocation|Optional $PickupLocation;
 	public PickupParty|Optional $PickupParty;
 }

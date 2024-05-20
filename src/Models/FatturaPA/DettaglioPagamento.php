@@ -3,8 +3,10 @@
 namespace Invoiceninja\Einvoice\Models\FatturaPA;
 
 use Carbon\Carbon;
+use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
+use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class DettaglioPagamento extends Data
 {
@@ -37,11 +39,14 @@ class DettaglioPagamento extends Data
 		'MP23' => 'PagoPA',
 	];
 
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $DataRiferimentoTerminiPagamento;
 	public int|Optional $GiorniTerminiPagamento;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $DataScadenzaPagamento;
 
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public ?float $ImportoPagamento;
 	public string|Optional $CodUfficioPostale;
 	public string|Optional $CognomeQuietanzante;
@@ -54,12 +59,16 @@ class DettaglioPagamento extends Data
 	public string|Optional $CAB;
 	public string|Optional $BIC;
 
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ScontoPagamentoAnticipato;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $DataLimitePagamentoAnticipato;
 
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $PenalitaPagamentiRitardati;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $DataDecorrenzaPenale;
 	public string|Optional $CodicePagamento;
 }

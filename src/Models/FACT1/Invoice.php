@@ -34,8 +34,10 @@ use Invoiceninja\Einvoice\Models\FACT1\SupplierPartyType\AccountingSupplierParty
 use Invoiceninja\Einvoice\Models\FACT1\SupplierPartyType\SellerSupplierParty;
 use Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\TaxTotal;
 use Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\WithholdingTaxTotal;
+use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
+use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class Invoice extends Data
 {
@@ -44,14 +46,22 @@ class Invoice extends Data
 	public string|Optional $ProfileID;
 	public string|Optional $ProfileExecutionID;
 	public ?string $ID;
-	public \boolean|Optional $CopyIndicator;
+	public bool|Optional $CopyIndicator;
 	public string|Optional $UUID;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public ?Carbon $IssueDate;
-	public \time|Optional $IssueTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
+	public Carbon|Optional $IssueTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $DueDate;
 	public string|Optional $InvoiceTypeCode;
 	private array $InvoiceTypeCode_array = ['380', '384', '389', '751'];
 	public string|Optional $Note;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $TaxPointDate;
 	public string|Optional $DocumentCurrencyCode;
 	public string|Optional $TaxCurrencyCode;

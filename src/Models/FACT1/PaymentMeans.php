@@ -9,13 +9,17 @@ use Invoiceninja\Einvoice\Models\FACT1\FinancialAccountType\PayeeFinancialAccoun
 use Invoiceninja\Einvoice\Models\FACT1\FinancialAccountType\PayerFinancialAccount;
 use Invoiceninja\Einvoice\Models\FACT1\PaymentMandateType\PaymentMandate;
 use Invoiceninja\Einvoice\Models\FACT1\TradeFinancingType\TradeFinancing;
+use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
+use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class PaymentMeans extends Data
 {
 	public string|Optional $ID;
 	public ?string $PaymentMeansCode;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $PaymentDueDate;
 	public string|Optional $PaymentChannelCode;
 	public string|Optional $InstructionID;

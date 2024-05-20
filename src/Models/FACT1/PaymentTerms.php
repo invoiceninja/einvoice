@@ -7,8 +7,10 @@ use Invoiceninja\Einvoice\Models\FACT1\ExchangeRateType\ExchangeRate;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\PenaltyPeriod;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\SettlementPeriod;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\ValidityPeriod;
+use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
+use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class PaymentTerms extends Data
 {
@@ -21,16 +23,20 @@ class PaymentTerms extends Data
 	public string|Optional $PenaltySurchargePercent;
 	public string|Optional $PaymentPercent;
 
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $Amount;
 
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $SettlementDiscountAmount;
 
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $PenaltyAmount;
 	public string|Optional $PaymentTermsDetailsURI;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $PaymentDueDate;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $InstallmentDueDate;
 	public string|Optional $InvoicingPartyReference;
 	public SettlementPeriod|Optional $SettlementPeriod;

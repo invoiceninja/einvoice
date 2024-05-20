@@ -16,8 +16,10 @@ use Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\SupportedTransport
 use Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\TransportEquipment;
 use Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\UnsupportedTransportEquipment;
 use Invoiceninja\Einvoice\Models\FACT1\TransportEventType\TransportEvent;
+use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
+use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class TransportationService extends Data
 {
@@ -27,8 +29,12 @@ class TransportationService extends Data
 	public string|Optional $FreightRateClassCode;
 	public string|Optional $TransportationServiceDescription;
 	public string|Optional $TransportationServiceDetailsURI;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $NominationDate;
-	public \time|Optional $NominationTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
+	public Carbon|Optional $NominationTime;
 	public string|Optional $Name;
 	public string|Optional $SequenceNumeric;
 	public TransportEquipment|Optional $TransportEquipment;

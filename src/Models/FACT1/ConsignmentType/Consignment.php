@@ -96,15 +96,15 @@ class Consignment extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $LoadingLengthMeasure;
 	public string|Optional $Remarks;
-	public \boolean|Optional $HazardousRiskIndicator;
-	public \boolean|Optional $AnimalFoodIndicator;
-	public \boolean|Optional $HumanFoodIndicator;
-	public \boolean|Optional $LivestockIndicator;
-	public \boolean|Optional $BulkCargoIndicator;
-	public \boolean|Optional $ContainerizedIndicator;
-	public \boolean|Optional $GeneralCargoIndicator;
-	public \boolean|Optional $SpecialSecurityIndicator;
-	public \boolean|Optional $ThirdPartyPayerIndicator;
+	public bool|Optional $HazardousRiskIndicator;
+	public bool|Optional $AnimalFoodIndicator;
+	public bool|Optional $HumanFoodIndicator;
+	public bool|Optional $LivestockIndicator;
+	public bool|Optional $BulkCargoIndicator;
+	public bool|Optional $ContainerizedIndicator;
+	public bool|Optional $GeneralCargoIndicator;
+	public bool|Optional $SpecialSecurityIndicator;
+	public bool|Optional $ThirdPartyPayerIndicator;
 	public string|Optional $CarrierServiceInstructions;
 	public string|Optional $CustomsClearanceServiceInstructions;
 	public string|Optional $ForwarderServiceInstructions;
@@ -133,12 +133,12 @@ class Consignment extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $FreeOnBoardValueAmount;
 	public string|Optional $SpecialInstructions;
-	public \boolean|Optional $SplitConsignmentIndicator;
+	public bool|Optional $SplitConsignmentIndicator;
 	public string|Optional $DeliveryInstructions;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ConsignmentQuantity;
-	public \boolean|Optional $ConsolidatableIndicator;
+	public bool|Optional $ConsolidatableIndicator;
 	public string|Optional $HaulageInstructions;
 	public string|Optional $LoadingSequenceID;
 

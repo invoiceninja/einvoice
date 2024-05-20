@@ -3,15 +3,19 @@
 namespace Invoiceninja\Einvoice\Models\FatturaPA;
 
 use Carbon\Carbon;
+use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
+use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class AltriDatiGestionali extends Data
 {
 	public ?string $TipoDato;
 	public string|Optional $RiferimentoTesto;
 
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $RiferimentoNumero;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $RiferimentoData;
 }

@@ -13,5 +13,5 @@ class DeliveryUnit extends Data
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ConsumerUnitQuantity;
-	public \boolean|Optional $HazardousRiskIndicator;
+	public bool|Optional $HazardousRiskIndicator;
 }

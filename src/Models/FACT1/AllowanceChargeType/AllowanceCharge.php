@@ -15,7 +15,7 @@ use Spatie\LaravelData\Optional;
 class AllowanceCharge extends Data
 {
 	public string|Optional $ID;
-	public ?\boolean $ChargeIndicator;
+	public ?bool $ChargeIndicator;
 
 	#[Max(100)]
 	public string|Optional $AllowanceChargeReasonCode;
@@ -23,7 +23,7 @@ class AllowanceCharge extends Data
 	#[Max(100)]
 	public string|Optional $AllowanceChargeReason;
 	public string|Optional $MultiplierFactorNumeric;
-	public \boolean|Optional $PrepaidIndicator;
+	public bool|Optional $PrepaidIndicator;
 	public string|Optional $SequenceNumeric;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]

@@ -11,20 +11,38 @@ use Invoiceninja\Einvoice\Models\FACT1\PartyType\DespatchParty;
 use Invoiceninja\Einvoice\Models\FACT1\PartyType\NotifyParty;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\EstimatedDespatchPeriod;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\RequestedDespatchPeriod;
+use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
+use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class Despatch extends Data
 {
 	public string|Optional $ID;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $RequestedDespatchDate;
-	public \time|Optional $RequestedDespatchTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
+	public Carbon|Optional $RequestedDespatchTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $EstimatedDespatchDate;
-	public \time|Optional $EstimatedDespatchTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
+	public Carbon|Optional $EstimatedDespatchTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $ActualDespatchDate;
-	public \time|Optional $ActualDespatchTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
+	public Carbon|Optional $ActualDespatchTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $GuaranteedDespatchDate;
-	public \time|Optional $GuaranteedDespatchTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
+	public Carbon|Optional $GuaranteedDespatchTime;
 	public string|Optional $ReleaseID;
 	public string|Optional $Instructions;
 	public DespatchAddress|Optional $DespatchAddress;

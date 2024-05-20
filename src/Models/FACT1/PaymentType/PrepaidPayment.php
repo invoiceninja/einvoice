@@ -21,6 +21,8 @@ class PrepaidPayment extends Data
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $PaidDate;
-	public \time|Optional $PaidTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
+	public Carbon|Optional $PaidTime;
 	public string|Optional $InstructionID;
 }

@@ -25,7 +25,7 @@ class OriginalItemLocationQuantity extends Data
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $MaximumQuantity;
-	public \boolean|Optional $HazardousRiskIndicator;
+	public bool|Optional $HazardousRiskIndicator;
 	public string|Optional $TradingRestrictions;
 	public ApplicableTerritoryAddress|Optional $ApplicableTerritoryAddress;
 	public Price|Optional $Price;

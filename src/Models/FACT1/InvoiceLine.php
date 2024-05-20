@@ -21,8 +21,10 @@ use Invoiceninja\Einvoice\Models\FACT1\PriceType\Price;
 use Invoiceninja\Einvoice\Models\FACT1\PricingReferenceType\PricingReference;
 use Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\TaxTotal;
 use Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\WithholdingTaxTotal;
+use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
+use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class InvoiceLine extends Data
 {
@@ -30,16 +32,18 @@ class InvoiceLine extends Data
 	public string|Optional $UUID;
 	public string|Optional $Note;
 
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $InvoicedQuantity;
 
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public ?float $LineExtensionAmount;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $TaxPointDate;
 	public string|Optional $AccountingCostCode;
 	public string|Optional $AccountingCost;
 	public string|Optional $PaymentPurposeCode;
-	public \boolean|Optional $FreeOfChargeIndicator;
+	public bool|Optional $FreeOfChargeIndicator;
 	public InvoicePeriod|Optional $InvoicePeriod;
 	public OrderLineReference|Optional $OrderLineReference;
 	public DespatchLineReference|Optional $DespatchLineReference;

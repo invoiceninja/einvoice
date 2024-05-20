@@ -14,7 +14,7 @@ class TaxTotal extends Data
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $RoundingAmount;
-	public \boolean|Optional $TaxEvidenceIndicator;
-	public \boolean|Optional $TaxIncludedIndicator;
+	public bool|Optional $TaxEvidenceIndicator;
+	public bool|Optional $TaxIncludedIndicator;
 	public TaxSubtotal|Optional $TaxSubtotal;
 }

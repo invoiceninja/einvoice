@@ -7,8 +7,10 @@ use Invoiceninja\Einvoice\Models\FatturaPA\DatiBolloType\DatiBollo;
 use Invoiceninja\Einvoice\Models\FatturaPA\DatiCassaPrevidenzialeType\DatiCassaPrevidenziale;
 use Invoiceninja\Einvoice\Models\FatturaPA\DatiRitenutaType\DatiRitenuta;
 use Invoiceninja\Einvoice\Models\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione;
+use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
+use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class DatiGeneraliDocumento extends Data
 {
@@ -37,6 +39,8 @@ class DatiGeneraliDocumento extends Data
 	];
 
 	public ?string $Divisa;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public ?Carbon $Data;
 	public ?string $Numero;
 	public DatiRitenuta|Optional $DatiRitenuta;
@@ -44,10 +48,10 @@ class DatiGeneraliDocumento extends Data
 	public DatiCassaPrevidenziale|Optional $DatiCassaPrevidenziale;
 	public ScontoMaggiorazione|Optional $ScontoMaggiorazione;
 
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ImportoTotaleDocumento;
 
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $Arrotondamento;
 	public string|Optional $Causale;
 	public string|Optional $Art73;

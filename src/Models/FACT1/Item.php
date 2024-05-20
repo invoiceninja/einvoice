@@ -33,9 +33,9 @@ class Item extends Data
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $PackQuantity;
 	public string|Optional $PackSizeNumeric;
-	public \boolean|Optional $CatalogueIndicator;
+	public bool|Optional $CatalogueIndicator;
 	public string|Optional $Name;
-	public \boolean|Optional $HazardousRiskIndicator;
+	public bool|Optional $HazardousRiskIndicator;
 	public string|Optional $AdditionalInformation;
 	public string|Optional $Keyword;
 	public string|Optional $BrandName;

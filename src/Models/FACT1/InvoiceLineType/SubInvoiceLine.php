@@ -48,7 +48,7 @@ class SubInvoiceLine extends Data
 	#[Max(100)]
 	public string|Optional $AccountingCost;
 	public string|Optional $PaymentPurposeCode;
-	public \boolean|Optional $FreeOfChargeIndicator;
+	public bool|Optional $FreeOfChargeIndicator;
 	public InvoicePeriod|Optional $InvoicePeriod;
 	public OrderLineReference|Optional $OrderLineReference;
 	public DespatchLineReference|Optional $DespatchLineReference;

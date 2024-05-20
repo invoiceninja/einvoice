@@ -81,7 +81,7 @@ class TypeGenerator
             else {
                 $base_type = $this->generator->resolveType($element['base_type']);
 
-                if(in_array($base_type, ['date','dateTime','Carbon'])){
+                if(in_array($base_type, ['date','dateTime','Carbon','time'])){
                     $base_type = "Carbon\Carbon";
                 }
 
@@ -126,6 +126,12 @@ class TypeGenerator
             }
             
             if($element['base_type'] == 'dateTime') {
+                $this->namespace->addUse(DateTimeInterfaceTransformer::class);
+                $this->namespace->addUse(WithTransformer::class);
+                $property->addAttribute(WithTransformer::class, [DateTimeInterfaceTransformer::class, 'format' => 'Y-m-d\TH:i:s.uP']);
+            }
+            
+            if($element['base_type'] == 'time') {
                 $this->namespace->addUse(DateTimeInterfaceTransformer::class);
                 $this->namespace->addUse(WithTransformer::class);
                 $property->addAttribute(WithTransformer::class, [DateTimeInterfaceTransformer::class, 'format' => 'Y-m-d\TH:i:s.uP']);

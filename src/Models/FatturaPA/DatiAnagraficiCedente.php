@@ -5,8 +5,10 @@ namespace Invoiceninja\Einvoice\Models\FatturaPA;
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FatturaPA\AnagraficaType\Anagrafica;
 use Invoiceninja\Einvoice\Models\FatturaPA\IdFiscaleType\IdFiscaleIVA;
+use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
+use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class DatiAnagraficiCedente extends Data
 {
@@ -16,6 +18,8 @@ class DatiAnagraficiCedente extends Data
 	public string|Optional $AlboProfessionale;
 	public string|Optional $ProvinciaAlbo;
 	public string|Optional $NumeroIscrizioneAlbo;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $DataIscrizioneAlbo;
 	public ?string $RegimeFiscale;
 

@@ -20,10 +20,12 @@ class TransportEvent extends Data
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $OccurrenceDate;
-	public \time|Optional $OccurrenceTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
+	public Carbon|Optional $OccurrenceTime;
 	public string|Optional $TransportEventTypeCode;
 	public string|Optional $Description;
-	public \boolean|Optional $CompletionIndicator;
+	public bool|Optional $CompletionIndicator;
 	public ReportedShipment|Optional $ReportedShipment;
 	public CurrentStatus|Optional $CurrentStatus;
 	public Contact|Optional $Contact;

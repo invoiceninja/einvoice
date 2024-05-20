@@ -20,8 +20,8 @@ use Spatie\LaravelData\Optional;
 
 class MortgageHolderParty extends Data
 {
-	public \boolean|Optional $MarkCareIndicator;
-	public \boolean|Optional $MarkAttentionIndicator;
+	public bool|Optional $MarkCareIndicator;
+	public bool|Optional $MarkAttentionIndicator;
 	public string|Optional $WebsiteURI;
 	public string|Optional $LogoReferenceID;
 	public string|Optional $EndpointID;

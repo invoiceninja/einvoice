@@ -60,16 +60,20 @@ class OnCarriageShipmentStage extends Data
 	public string|Optional $TransportModeCode;
 	public string|Optional $TransportMeansTypeCode;
 	public string|Optional $TransitDirectionCode;
-	public \boolean|Optional $PreCarriageIndicator;
-	public \boolean|Optional $OnCarriageIndicator;
+	public bool|Optional $PreCarriageIndicator;
+	public bool|Optional $OnCarriageIndicator;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $EstimatedDeliveryDate;
-	public \time|Optional $EstimatedDeliveryTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
+	public Carbon|Optional $EstimatedDeliveryTime;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $RequiredDeliveryDate;
-	public \time|Optional $RequiredDeliveryTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
+	public Carbon|Optional $RequiredDeliveryTime;
 	public string|Optional $LoadingSequenceID;
 	public string|Optional $SuccessiveSequenceID;
 	public string|Optional $Instructions;

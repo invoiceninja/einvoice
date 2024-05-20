@@ -19,8 +19,9 @@ use Spatie\LaravelData\Optional;
 use Nette\PhpGenerator\ClassType;
 use Illuminate\Support\Collection;
 use Nette\PhpGenerator\PhpNamespace;
-use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\WithTransformer;
+use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
+use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class Generator
 {
@@ -61,7 +62,6 @@ class Generator
             $this->standard = $standard;
             $this->child_classes = collect([]);
 
-            // $this->standard = "FatturaPA";
             $path = "src/Schema/{$this->standard}/{$this->standard}.json";
 
             $this->document = collect(json_decode(file_get_contents($path),1));
@@ -89,10 +89,12 @@ class Generator
             'integer' => $type = 'int',
             'decimal' => $type = 'float',
             'date' => $type = 'Carbon',
+            'time' => $type = 'Carbon',
             'dateTime' => $type = 'Carbon',
             'token' => $type = 'string',
             'base64Binary' => $type = 'mixed',
             'normalizedString' => $type = 'string',
+            'boolean' => $type = 'bool',
             default => $type = $type,
         };
 
@@ -120,7 +122,6 @@ class Generator
                 $namespace->addUse($this->namespace.$this->standard."\\".$element['base_type']."\\".$element['name']);
             }
 
-            // $standard_type_path = $this->namespace.$this->standard."\\".$element['base_type']."\\".$element['name'];
             $base_type = stripos($element['base_type'], 'Type') !== false ? $this->namespace.$this->standard."\\".$element['base_type']."\\".$element['name'] : $this->resolveType($element['base_type']);
 
             if(in_array($base_type,['date','dateTime','Carbon'])){
@@ -144,6 +145,18 @@ class Generator
 
             if($base_type == 'float'){
                 $property->addAttribute(WithTransformer::class, [FloatTransformer::class]);
+            }
+
+            if(in_array($element['base_type'],['dateTime','time']))
+            {
+                $namespace->addUse(DateTimeInterfaceTransformer::class);
+                $namespace->addUse(WithTransformer::class);
+                $property->addAttribute(WithTransformer::class, [DateTimeInterfaceTransformer::class, 'format' => 'Y-m-d\TH:i:s.uP']);
+            }
+            elseif(in_array($element['base_type'], ['date'])) {
+                $namespace->addUse(DateTimeInterfaceTransformer::class);
+                $namespace->addUse(WithTransformer::class);
+                $property->addAttribute(WithTransformer::class, [DateTimeInterfaceTransformer::class, 'format' => 'Y-m-d']);
             }
 
             $class->addMember($property);

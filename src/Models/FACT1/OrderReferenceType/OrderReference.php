@@ -17,12 +17,14 @@ class OrderReference extends Data
 
 	#[Max(200)]
 	public string|Optional $SalesOrderID;
-	public \boolean|Optional $CopyIndicator;
+	public bool|Optional $CopyIndicator;
 	public string|Optional $UUID;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $IssueDate;
-	public \time|Optional $IssueTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
+	public Carbon|Optional $IssueTime;
 	public string|Optional $CustomerReference;
 	public string|Optional $OrderTypeCode;
 	public DocumentReference|Optional $DocumentReference;

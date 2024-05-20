@@ -12,11 +12,11 @@ use Spatie\LaravelData\Optional;
 class AllowanceCharge extends Data
 {
 	public string|Optional $ID;
-	public ?\boolean $ChargeIndicator;
+	public ?bool $ChargeIndicator;
 	public string|Optional $AllowanceChargeReasonCode;
 	public string|Optional $AllowanceChargeReason;
 	public string|Optional $MultiplierFactorNumeric;
-	public \boolean|Optional $PrepaidIndicator;
+	public bool|Optional $PrepaidIndicator;
 	public string|Optional $SequenceNumeric;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]

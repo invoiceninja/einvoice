@@ -27,7 +27,7 @@ class ContainedGoodsItem extends Data
 	public string|Optional $ID;
 	public string|Optional $SequenceNumberID;
 	public string|Optional $Description;
-	public \boolean|Optional $HazardousRiskIndicator;
+	public bool|Optional $HazardousRiskIndicator;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $DeclaredCustomsValueAmount;
@@ -73,7 +73,7 @@ class ContainedGoodsItem extends Data
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $CustomsTariffQuantity;
-	public \boolean|Optional $CustomsImportClassifiedIndicator;
+	public bool|Optional $CustomsImportClassifiedIndicator;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ChargeableQuantity;

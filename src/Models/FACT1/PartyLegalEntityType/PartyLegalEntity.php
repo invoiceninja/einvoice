@@ -29,12 +29,12 @@ class PartyLegalEntity extends Data
 
 	#[Max(1000)]
 	public string|Optional $CompanyLegalForm;
-	public \boolean|Optional $SoleProprietorshipIndicator;
+	public bool|Optional $SoleProprietorshipIndicator;
 	public string|Optional $CompanyLiquidationStatusCode;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $CorporateStockAmount;
-	public \boolean|Optional $FullyPaidSharesIndicator;
+	public bool|Optional $FullyPaidSharesIndicator;
 	public RegistrationAddress|Optional $RegistrationAddress;
 	public CorporateRegistrationScheme|Optional $CorporateRegistrationScheme;
 	public HeadOfficeParty|Optional $HeadOfficeParty;

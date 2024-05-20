@@ -38,11 +38,15 @@ class Delivery extends Data
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $ActualDeliveryDate;
-	public \time|Optional $ActualDeliveryTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
+	public Carbon|Optional $ActualDeliveryTime;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $LatestDeliveryDate;
-	public \time|Optional $LatestDeliveryTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
+	public Carbon|Optional $LatestDeliveryTime;
 	public string|Optional $ReleaseID;
 	public string|Optional $TrackingID;
 	public DeliveryAddress|Optional $DeliveryAddress;

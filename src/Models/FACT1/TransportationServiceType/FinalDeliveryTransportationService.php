@@ -32,7 +32,9 @@ class FinalDeliveryTransportationService extends Data
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $NominationDate;
-	public \time|Optional $NominationTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
+	public Carbon|Optional $NominationTime;
 	public string|Optional $Name;
 	public string|Optional $SequenceNumeric;
 	public TransportEquipment|Optional $TransportEquipment;

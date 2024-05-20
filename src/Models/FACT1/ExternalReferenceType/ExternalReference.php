@@ -16,7 +16,9 @@ class ExternalReference extends Data
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $ExpiryDate;
-	public \time|Optional $ExpiryTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
+	public Carbon|Optional $ExpiryTime;
 	public string|Optional $MimeCode;
 	public string|Optional $FormatCode;
 	public string|Optional $EncodingCode;

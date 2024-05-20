@@ -18,7 +18,9 @@ class PowerOfAttorney extends Data
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $IssueDate;
-	public \time|Optional $IssueTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
+	public Carbon|Optional $IssueTime;
 	public string|Optional $Description;
 	public NotaryParty|Optional $NotaryParty;
 	public ?AgentParty $AgentParty;

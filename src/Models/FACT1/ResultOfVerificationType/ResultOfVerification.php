@@ -16,7 +16,9 @@ class ResultOfVerification extends Data
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $ValidationDate;
-	public \time|Optional $ValidationTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
+	public Carbon|Optional $ValidationTime;
 	public string|Optional $ValidateProcess;
 	public string|Optional $ValidateTool;
 	public string|Optional $ValidateToolVersion;

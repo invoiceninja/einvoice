@@ -49,16 +49,16 @@ class ContainingTransportEquipment extends Data
 	public string|Optional $SizeTypeCode;
 	public string|Optional $DispositionCode;
 	public string|Optional $FullnessIndicationCode;
-	public \boolean|Optional $RefrigerationOnIndicator;
+	public bool|Optional $RefrigerationOnIndicator;
 	public string|Optional $Information;
-	public \boolean|Optional $ReturnabilityIndicator;
-	public \boolean|Optional $LegalStatusIndicator;
+	public bool|Optional $ReturnabilityIndicator;
+	public bool|Optional $LegalStatusIndicator;
 	public string|Optional $AirFlowPercent;
 	public string|Optional $HumidityPercent;
-	public \boolean|Optional $AnimalFoodApprovedIndicator;
-	public \boolean|Optional $HumanFoodApprovedIndicator;
-	public \boolean|Optional $DangerousGoodsApprovedIndicator;
-	public \boolean|Optional $RefrigeratedIndicator;
+	public bool|Optional $AnimalFoodApprovedIndicator;
+	public bool|Optional $HumanFoodApprovedIndicator;
+	public bool|Optional $DangerousGoodsApprovedIndicator;
+	public bool|Optional $RefrigeratedIndicator;
 	public string|Optional $Characteristics;
 	public string|Optional $DamageRemarks;
 	public string|Optional $Description;
@@ -73,7 +73,7 @@ class ContainingTransportEquipment extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $TareWeightMeasure;
 	public string|Optional $TrackingDeviceCode;
-	public \boolean|Optional $PowerIndicator;
+	public bool|Optional $PowerIndicator;
 	public string|Optional $TraceID;
 	public MeasurementDimension|Optional $MeasurementDimension;
 	public TransportEquipmentSeal|Optional $TransportEquipmentSeal;

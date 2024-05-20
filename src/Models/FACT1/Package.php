@@ -20,7 +20,7 @@ class Package extends Data
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $Quantity;
-	public \boolean|Optional $ReturnableMaterialIndicator;
+	public bool|Optional $ReturnableMaterialIndicator;
 	public string|Optional $PackageLevelCode;
 	public string|Optional $PackagingTypeCode;
 	public string|Optional $PackingMaterial;

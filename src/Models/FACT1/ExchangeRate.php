@@ -4,8 +4,10 @@ namespace Invoiceninja\Einvoice\Models\FACT1;
 
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\ContractType\ForeignExchangeContract;
+use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
+use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class ExchangeRate extends Data
 {
@@ -16,6 +18,8 @@ class ExchangeRate extends Data
 	public string|Optional $ExchangeMarketID;
 	public string|Optional $CalculationRate;
 	public string|Optional $MathematicOperatorCode;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $Date;
 	public ForeignExchangeContract|Optional $ForeignExchangeContract;
 }

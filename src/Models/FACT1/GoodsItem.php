@@ -26,7 +26,7 @@ class GoodsItem extends Data
 	public string|Optional $ID;
 	public string|Optional $SequenceNumberID;
 	public string|Optional $Description;
-	public \boolean|Optional $HazardousRiskIndicator;
+	public bool|Optional $HazardousRiskIndicator;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $DeclaredCustomsValueAmount;
@@ -72,7 +72,7 @@ class GoodsItem extends Data
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $CustomsTariffQuantity;
-	public \boolean|Optional $CustomsImportClassifiedIndicator;
+	public bool|Optional $CustomsImportClassifiedIndicator;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ChargeableQuantity;

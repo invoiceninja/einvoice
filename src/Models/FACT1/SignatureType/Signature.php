@@ -18,7 +18,9 @@ class Signature extends Data
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $ValidationDate;
-	public \time|Optional $ValidationTime;
+
+	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
+	public Carbon|Optional $ValidationTime;
 	public string|Optional $ValidatorID;
 	public string|Optional $CanonicalizationMethod;
 	public string|Optional $SignatureMethod;

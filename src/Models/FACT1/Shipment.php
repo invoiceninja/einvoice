@@ -62,7 +62,7 @@ class Shipment extends Data
 	public float|Optional $FreeOnBoardValueAmount;
 	public string|Optional $SpecialInstructions;
 	public string|Optional $DeliveryInstructions;
-	public \boolean|Optional $SplitConsignmentIndicator;
+	public bool|Optional $SplitConsignmentIndicator;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ConsignmentQuantity;

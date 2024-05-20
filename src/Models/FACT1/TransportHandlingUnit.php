@@ -29,7 +29,7 @@ class TransportHandlingUnit extends Data
 	public string|Optional $TransportHandlingUnitTypeCode;
 	public string|Optional $HandlingCode;
 	public string|Optional $HandlingInstructions;
-	public \boolean|Optional $HazardousRiskIndicator;
+	public bool|Optional $HazardousRiskIndicator;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $TotalGoodsItemQuantity;

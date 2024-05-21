@@ -16,7 +16,7 @@ class CustomerParty extends Data
 	public string|Optional $CustomerAssignedAccountID;
 	public string|Optional $SupplierAssignedAccountID;
 
-	#[DataCollectionOf('AdditionalAccountID')]
+	#[DataCollectionOf('string')]
 	public string|Optional $AdditionalAccountID;
 	public Party|Optional $Party;
 	public DeliveryContact|Optional $DeliveryContact;

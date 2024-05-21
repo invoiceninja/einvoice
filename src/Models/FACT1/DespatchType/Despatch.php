@@ -47,14 +47,14 @@ class Despatch extends Data
 	public Carbon|Optional $GuaranteedDespatchTime;
 	public string|Optional $ReleaseID;
 
-	#[DataCollectionOf('Instructions')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Instructions;
 	public DespatchAddress|Optional $DespatchAddress;
 	public DespatchLocation|Optional $DespatchLocation;
 	public DespatchParty|Optional $DespatchParty;
 	public CarrierParty|Optional $CarrierParty;
 
-	#[DataCollectionOf('NotifyParty')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PartyType\NotifyParty')]
 	public NotifyParty|Optional $NotifyParty;
 	public Contact|Optional $Contact;
 	public EstimatedDespatchPeriod|Optional $EstimatedDespatchPeriod;

@@ -26,6 +26,6 @@ class PaymentMandate extends Data
 	public ValidityPeriod|Optional $ValidityPeriod;
 	public PaymentReversalPeriod|Optional $PaymentReversalPeriod;
 
-	#[DataCollectionOf('Clause')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ClauseType\Clause')]
 	public Clause|Optional $Clause;
 }

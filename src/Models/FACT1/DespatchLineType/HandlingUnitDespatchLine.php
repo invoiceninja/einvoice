@@ -21,7 +21,7 @@ class HandlingUnitDespatchLine extends Data
 	public string $ID;
 	public string|Optional $UUID;
 
-	#[DataCollectionOf('Note')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Note;
 	public string|Optional $LineStatusCode;
 
@@ -31,28 +31,28 @@ class HandlingUnitDespatchLine extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $BackorderQuantity;
 
-	#[DataCollectionOf('BackorderReason')]
+	#[DataCollectionOf('string')]
 	public string|Optional $BackorderReason;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $OutstandingQuantity;
 
-	#[DataCollectionOf('OutstandingReason')]
+	#[DataCollectionOf('string')]
 	public string|Optional $OutstandingReason;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $OversupplyQuantity;
 
 	#[Required]
-	#[DataCollectionOf('OrderLineReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\OrderLineReferenceType\OrderLineReference')]
 	public DataCollection $OrderLineReference;
 
-	#[DataCollectionOf('DocumentReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\DocumentReference')]
 	public DocumentReference|Optional $DocumentReference;
 
 	#[Required]
 	public Item $Item;
 
-	#[DataCollectionOf('Shipment')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ShipmentType\Shipment')]
 	public Shipment|Optional $Shipment;
 }

@@ -22,7 +22,7 @@ class PayerFinancialAccount extends Data
 	public string|Optional $AccountFormatCode;
 	public string|Optional $CurrencyCode;
 
-	#[DataCollectionOf('PaymentNote')]
+	#[DataCollectionOf('string')]
 	public string|Optional $PaymentNote;
 	public FinancialInstitutionBranch|Optional $FinancialInstitutionBranch;
 	public Country|Optional $Country;

@@ -13,11 +13,11 @@ class DeliveryTerms extends Data
 {
 	public string|Optional $ID;
 
-	#[DataCollectionOf('SpecialTerms')]
+	#[DataCollectionOf('string')]
 	public string|Optional $SpecialTerms;
 	public string|Optional $LossRiskResponsibilityCode;
 
-	#[DataCollectionOf('LossRisk')]
+	#[DataCollectionOf('string')]
 	public string|Optional $LossRisk;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]

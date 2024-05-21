@@ -20,6 +20,6 @@ class GoodsItemContainer extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $Quantity;
 
-	#[DataCollectionOf('TransportEquipment')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\TransportEquipment')]
 	public TransportEquipment|Optional $TransportEquipment;
 }

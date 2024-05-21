@@ -20,6 +20,6 @@ class ProjectReference extends Data
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $IssueDate;
 
-	#[DataCollectionOf('WorkPhaseReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\WorkPhaseReferenceType\WorkPhaseReference')]
 	public WorkPhaseReference|Optional $WorkPhaseReference;
 }

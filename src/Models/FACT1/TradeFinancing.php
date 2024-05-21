@@ -19,13 +19,13 @@ class TradeFinancing extends Data
 	public string|Optional $FinancingInstrumentCode;
 	public ContractDocumentReference|Optional $ContractDocumentReference;
 
-	#[DataCollectionOf('DocumentReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\DocumentReference')]
 	public DocumentReference|Optional $DocumentReference;
 
 	#[Required]
 	public FinancingParty $FinancingParty;
 	public FinancingFinancialAccount|Optional $FinancingFinancialAccount;
 
-	#[DataCollectionOf('Clause')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ClauseType\Clause')]
 	public Clause|Optional $Clause;
 }

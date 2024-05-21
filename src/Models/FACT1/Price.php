@@ -21,17 +21,17 @@ class Price extends Data
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $BaseQuantity;
 
-	#[DataCollectionOf('PriceChangeReason')]
+	#[DataCollectionOf('string')]
 	public string|Optional $PriceChangeReason;
 	public string|Optional $PriceTypeCode;
 	public string|Optional $PriceType;
 	public string|Optional $OrderableUnitFactorRate;
 
-	#[DataCollectionOf('ValidityPeriod')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PeriodType\ValidityPeriod')]
 	public ValidityPeriod|Optional $ValidityPeriod;
 	public PriceList|Optional $PriceList;
 
-	#[DataCollectionOf('AllowanceCharge')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\AllowanceCharge')]
 	public AllowanceCharge|Optional $AllowanceCharge;
 	public PricingExchangeRate|Optional $PricingExchangeRate;
 }

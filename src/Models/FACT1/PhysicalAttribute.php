@@ -15,6 +15,6 @@ class PhysicalAttribute extends Data
 	public string|Optional $PositionCode;
 	public string|Optional $DescriptionCode;
 
-	#[DataCollectionOf('Description')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Description;
 }

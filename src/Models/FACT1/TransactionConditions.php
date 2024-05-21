@@ -13,9 +13,9 @@ class TransactionConditions extends Data
 	public string|Optional $ID;
 	public string|Optional $ActionCode;
 
-	#[DataCollectionOf('Description')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Description;
 
-	#[DataCollectionOf('DocumentReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\DocumentReference')]
 	public DocumentReference|Optional $DocumentReference;
 }

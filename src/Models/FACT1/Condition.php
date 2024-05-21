@@ -16,7 +16,7 @@ class Condition extends Data
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $Measure;
 
-	#[DataCollectionOf('Description')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Description;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]

@@ -17,6 +17,6 @@ class Temperature extends Data
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float $Measure;
 
-	#[DataCollectionOf('Description')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Description;
 }

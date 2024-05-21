@@ -26,21 +26,21 @@ class ItemLocationQuantity extends Data
 	public float|Optional $MaximumQuantity;
 	public bool|Optional $HazardousRiskIndicator;
 
-	#[DataCollectionOf('TradingRestrictions')]
+	#[DataCollectionOf('string')]
 	public string|Optional $TradingRestrictions;
 
-	#[DataCollectionOf('ApplicableTerritoryAddress')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AddressType\ApplicableTerritoryAddress')]
 	public ApplicableTerritoryAddress|Optional $ApplicableTerritoryAddress;
 	public Price|Optional $Price;
 
-	#[DataCollectionOf('DeliveryUnit')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DeliveryUnitType\DeliveryUnit')]
 	public DeliveryUnit|Optional $DeliveryUnit;
 
-	#[DataCollectionOf('ApplicableTaxCategory')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TaxCategoryType\ApplicableTaxCategory')]
 	public ApplicableTaxCategory|Optional $ApplicableTaxCategory;
 	public Package|Optional $Package;
 
-	#[DataCollectionOf('AllowanceCharge')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\AllowanceCharge')]
 	public AllowanceCharge|Optional $AllowanceCharge;
 	public DependentPriceReference|Optional $DependentPriceReference;
 }

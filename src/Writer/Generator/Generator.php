@@ -159,7 +159,7 @@ class Generator
 
             if($element['max_occurs'] > 1 || $element['max_occurs'] == -1) {
                 $namespace->addUse(DataCollectionOf::class);
-                $property->addAttribute(DataCollectionOf::class, [$element['name']]);
+                $property->addAttribute(DataCollectionOf::class, [$base_type]);
             }
 
             // if(stripos($base_type, 'array') !== false){

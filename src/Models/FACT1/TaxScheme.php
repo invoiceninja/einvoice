@@ -15,6 +15,6 @@ class TaxScheme extends Data
 	public string|Optional $TaxTypeCode;
 	public string|Optional $CurrencyCode;
 
-	#[DataCollectionOf('JurisdictionRegionAddress')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AddressType\JurisdictionRegionAddress')]
 	public JurisdictionRegionAddress|Optional $JurisdictionRegionAddress;
 }

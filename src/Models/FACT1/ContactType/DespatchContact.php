@@ -24,9 +24,9 @@ class DespatchContact extends Data
 	#[Max(100)]
 	public string|Optional $ElectronicMail;
 
-	#[DataCollectionOf('Note')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Note;
 
-	#[DataCollectionOf('OtherCommunication')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\CommunicationType\OtherCommunication')]
 	public OtherCommunication|Optional $OtherCommunication;
 }

@@ -34,7 +34,7 @@ class ShipsSurgeonPerson extends Data
 	public Contact|Optional $Contact;
 	public FinancialAccount|Optional $FinancialAccount;
 
-	#[DataCollectionOf('IdentityDocumentReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\IdentityDocumentReference')]
 	public IdentityDocumentReference|Optional $IdentityDocumentReference;
 	public ResidenceAddress|Optional $ResidenceAddress;
 }

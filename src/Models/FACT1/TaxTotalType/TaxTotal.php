@@ -23,6 +23,6 @@ class TaxTotal extends Data
 	public bool|Optional $TaxEvidenceIndicator;
 	public bool|Optional $TaxIncludedIndicator;
 
-	#[DataCollectionOf('TaxSubtotal')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TaxSubtotalType\TaxSubtotal')]
 	public TaxSubtotal|Optional $TaxSubtotal;
 }

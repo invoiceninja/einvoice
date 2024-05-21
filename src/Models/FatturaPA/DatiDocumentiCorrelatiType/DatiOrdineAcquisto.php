@@ -16,7 +16,7 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class DatiOrdineAcquisto extends Data
 {
-	#[DataCollectionOf('RiferimentoNumeroLinea')]
+	#[DataCollectionOf('int')]
 	public int|Optional $RiferimentoNumeroLinea;
 
 	#[Required]

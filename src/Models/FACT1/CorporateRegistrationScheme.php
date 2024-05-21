@@ -14,6 +14,6 @@ class CorporateRegistrationScheme extends Data
 	public string|Optional $Name;
 	public string|Optional $CorporateRegistrationTypeCode;
 
-	#[DataCollectionOf('JurisdictionRegionAddress')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AddressType\JurisdictionRegionAddress')]
 	public JurisdictionRegionAddress|Optional $JurisdictionRegionAddress;
 }

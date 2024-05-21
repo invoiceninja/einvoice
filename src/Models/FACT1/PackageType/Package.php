@@ -27,21 +27,21 @@ class Package extends Data
 	public string|Optional $PackageLevelCode;
 	public string|Optional $PackagingTypeCode;
 
-	#[DataCollectionOf('PackingMaterial')]
+	#[DataCollectionOf('string')]
 	public string|Optional $PackingMaterial;
 	public string|Optional $TraceID;
 
-	#[DataCollectionOf('ContainedPackage')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PackageType\ContainedPackage')]
 	public ContainedPackage|Optional $ContainedPackage;
 	public ContainingTransportEquipment|Optional $ContainingTransportEquipment;
 
-	#[DataCollectionOf('GoodsItem')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\GoodsItemType\GoodsItem')]
 	public GoodsItem|Optional $GoodsItem;
 
-	#[DataCollectionOf('MeasurementDimension')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DimensionType\MeasurementDimension')]
 	public MeasurementDimension|Optional $MeasurementDimension;
 
-	#[DataCollectionOf('DeliveryUnit')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DeliveryUnitType\DeliveryUnit')]
 	public DeliveryUnit|Optional $DeliveryUnit;
 	public Delivery|Optional $Delivery;
 	public Pickup|Optional $Pickup;

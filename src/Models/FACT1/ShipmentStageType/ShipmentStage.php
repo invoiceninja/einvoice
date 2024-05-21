@@ -79,10 +79,10 @@ class ShipmentStage extends Data
 	public string|Optional $LoadingSequenceID;
 	public string|Optional $SuccessiveSequenceID;
 
-	#[DataCollectionOf('Instructions')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Instructions;
 
-	#[DataCollectionOf('DemurrageInstructions')]
+	#[DataCollectionOf('string')]
 	public string|Optional $DemurrageInstructions;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -92,7 +92,7 @@ class ShipmentStage extends Data
 	public float|Optional $PassengerQuantity;
 	public TransitPeriod|Optional $TransitPeriod;
 
-	#[DataCollectionOf('CarrierParty')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PartyType\CarrierParty')]
 	public CarrierParty|Optional $CarrierParty;
 	public TransportMeans|Optional $TransportMeans;
 	public LoadingPortLocation|Optional $LoadingPortLocation;
@@ -116,39 +116,39 @@ class ShipmentStage extends Data
 	public CustomsAgentParty|Optional $CustomsAgentParty;
 	public EstimatedTransitPeriod|Optional $EstimatedTransitPeriod;
 
-	#[DataCollectionOf('FreightAllowanceCharge')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\FreightAllowanceCharge')]
 	public FreightAllowanceCharge|Optional $FreightAllowanceCharge;
 	public FreightChargeLocation|Optional $FreightChargeLocation;
 
-	#[DataCollectionOf('DetentionTransportEvent')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\DetentionTransportEvent')]
 	public DetentionTransportEvent|Optional $DetentionTransportEvent;
 	public RequestedDepartureTransportEvent|Optional $RequestedDepartureTransportEvent;
 	public RequestedArrivalTransportEvent|Optional $RequestedArrivalTransportEvent;
 
-	#[DataCollectionOf('RequestedWaypointTransportEvent')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\RequestedWaypointTransportEvent')]
 	public RequestedWaypointTransportEvent|Optional $RequestedWaypointTransportEvent;
 	public PlannedDepartureTransportEvent|Optional $PlannedDepartureTransportEvent;
 	public PlannedArrivalTransportEvent|Optional $PlannedArrivalTransportEvent;
 
-	#[DataCollectionOf('PlannedWaypointTransportEvent')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\PlannedWaypointTransportEvent')]
 	public PlannedWaypointTransportEvent|Optional $PlannedWaypointTransportEvent;
 	public ActualDepartureTransportEvent|Optional $ActualDepartureTransportEvent;
 	public ActualWaypointTransportEvent|Optional $ActualWaypointTransportEvent;
 	public ActualArrivalTransportEvent|Optional $ActualArrivalTransportEvent;
 
-	#[DataCollectionOf('TransportEvent')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\TransportEvent')]
 	public TransportEvent|Optional $TransportEvent;
 	public EstimatedDepartureTransportEvent|Optional $EstimatedDepartureTransportEvent;
 	public EstimatedArrivalTransportEvent|Optional $EstimatedArrivalTransportEvent;
 
-	#[DataCollectionOf('PassengerPerson')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PersonType\PassengerPerson')]
 	public PassengerPerson|Optional $PassengerPerson;
 
-	#[DataCollectionOf('DriverPerson')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PersonType\DriverPerson')]
 	public DriverPerson|Optional $DriverPerson;
 	public ReportingPerson|Optional $ReportingPerson;
 
-	#[DataCollectionOf('CrewMemberPerson')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PersonType\CrewMemberPerson')]
 	public CrewMemberPerson|Optional $CrewMemberPerson;
 	public SecurityOfficerPerson|Optional $SecurityOfficerPerson;
 	public MasterPerson|Optional $MasterPerson;

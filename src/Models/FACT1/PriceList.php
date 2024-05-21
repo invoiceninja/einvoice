@@ -14,7 +14,7 @@ class PriceList extends Data
 	public string|Optional $ID;
 	public string|Optional $StatusCode;
 
-	#[DataCollectionOf('ValidityPeriod')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PeriodType\ValidityPeriod')]
 	public ValidityPeriod|Optional $ValidityPeriod;
 	public PreviousPriceList|Optional $PreviousPriceList;
 }

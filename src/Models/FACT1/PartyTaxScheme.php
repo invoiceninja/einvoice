@@ -17,7 +17,7 @@ class PartyTaxScheme extends Data
 	public string|Optional $TaxLevelCode;
 	public string|Optional $ExemptionReasonCode;
 
-	#[DataCollectionOf('ExemptionReason')]
+	#[DataCollectionOf('string')]
 	public string|Optional $ExemptionReason;
 	public RegistrationAddress|Optional $RegistrationAddress;
 

@@ -33,7 +33,7 @@ class TransportHandlingUnit extends Data
 	public string|Optional $TransportHandlingUnitTypeCode;
 	public string|Optional $HandlingCode;
 
-	#[DataCollectionOf('HandlingInstructions')]
+	#[DataCollectionOf('string')]
 	public string|Optional $HandlingInstructions;
 	public bool|Optional $HazardousRiskIndicator;
 
@@ -43,53 +43,53 @@ class TransportHandlingUnit extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $TotalPackageQuantity;
 
-	#[DataCollectionOf('DamageRemarks')]
+	#[DataCollectionOf('string')]
 	public string|Optional $DamageRemarks;
 
-	#[DataCollectionOf('ShippingMarks')]
+	#[DataCollectionOf('string')]
 	public string|Optional $ShippingMarks;
 	public string|Optional $TraceID;
 
-	#[DataCollectionOf('HandlingUnitDespatchLine')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DespatchLineType\HandlingUnitDespatchLine')]
 	public HandlingUnitDespatchLine|Optional $HandlingUnitDespatchLine;
 
-	#[DataCollectionOf('ActualPackage')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PackageType\ActualPackage')]
 	public ActualPackage|Optional $ActualPackage;
 
-	#[DataCollectionOf('ReceivedHandlingUnitReceiptLine')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ReceiptLineType\ReceivedHandlingUnitReceiptLine')]
 	public ReceivedHandlingUnitReceiptLine|Optional $ReceivedHandlingUnitReceiptLine;
 
-	#[DataCollectionOf('TransportEquipment')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\TransportEquipment')]
 	public TransportEquipment|Optional $TransportEquipment;
 
-	#[DataCollectionOf('TransportMeans')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportMeansType\TransportMeans')]
 	public TransportMeans|Optional $TransportMeans;
 
-	#[DataCollectionOf('HazardousGoodsTransit')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\HazardousGoodsTransitType\HazardousGoodsTransit')]
 	public HazardousGoodsTransit|Optional $HazardousGoodsTransit;
 
-	#[DataCollectionOf('MeasurementDimension')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DimensionType\MeasurementDimension')]
 	public MeasurementDimension|Optional $MeasurementDimension;
 	public MinimumTemperature|Optional $MinimumTemperature;
 	public MaximumTemperature|Optional $MaximumTemperature;
 
-	#[DataCollectionOf('GoodsItem')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\GoodsItemType\GoodsItem')]
 	public GoodsItem|Optional $GoodsItem;
 	public FloorSpaceMeasurementDimension|Optional $FloorSpaceMeasurementDimension;
 	public PalletSpaceMeasurementDimension|Optional $PalletSpaceMeasurementDimension;
 
-	#[DataCollectionOf('ShipmentDocumentReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\ShipmentDocumentReference')]
 	public ShipmentDocumentReference|Optional $ShipmentDocumentReference;
 
-	#[DataCollectionOf('Status')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\StatusType\Status')]
 	public Status|Optional $Status;
 
-	#[DataCollectionOf('CustomsDeclaration')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\CustomsDeclarationType\CustomsDeclaration')]
 	public CustomsDeclaration|Optional $CustomsDeclaration;
 
-	#[DataCollectionOf('ReferencedShipment')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ShipmentType\ReferencedShipment')]
 	public ReferencedShipment|Optional $ReferencedShipment;
 
-	#[DataCollectionOf('Package')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PackageType\Package')]
 	public Package|Optional $Package;
 }

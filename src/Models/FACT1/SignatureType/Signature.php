@@ -19,7 +19,7 @@ class Signature extends Data
 	#[Required]
 	public string $ID;
 
-	#[DataCollectionOf('Note')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Note;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]

@@ -23,15 +23,15 @@ class Certificate extends Data
 	#[Required]
 	public string $CertificateType;
 
-	#[DataCollectionOf('Remarks')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Remarks;
 
 	#[Required]
 	public IssuerParty $IssuerParty;
 
-	#[DataCollectionOf('DocumentReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\DocumentReference')]
 	public DocumentReference|Optional $DocumentReference;
 
-	#[DataCollectionOf('Signature')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\SignatureType\Signature')]
 	public Signature|Optional $Signature;
 }

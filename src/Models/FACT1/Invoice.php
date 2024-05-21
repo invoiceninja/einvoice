@@ -68,7 +68,7 @@ class Invoice extends Data
 	#[\Spatie\LaravelData\Attributes\Validation\In('380', '384', '389', '751')]
 	public string|Optional $InvoiceTypeCode;
 
-	#[DataCollectionOf('Note')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Note;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
@@ -83,35 +83,35 @@ class Invoice extends Data
 	public string|Optional $LineCountNumeric;
 	public string|Optional $BuyerReference;
 
-	#[DataCollectionOf('InvoicePeriod')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PeriodType\InvoicePeriod')]
 	public InvoicePeriod|Optional $InvoicePeriod;
 	public OrderReference|Optional $OrderReference;
 
-	#[DataCollectionOf('BillingReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\BillingReferenceType\BillingReference')]
 	public BillingReference|Optional $BillingReference;
 
-	#[DataCollectionOf('DespatchDocumentReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\DespatchDocumentReference')]
 	public DespatchDocumentReference|Optional $DespatchDocumentReference;
 
-	#[DataCollectionOf('ReceiptDocumentReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\ReceiptDocumentReference')]
 	public ReceiptDocumentReference|Optional $ReceiptDocumentReference;
 
-	#[DataCollectionOf('StatementDocumentReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\StatementDocumentReference')]
 	public StatementDocumentReference|Optional $StatementDocumentReference;
 
-	#[DataCollectionOf('OriginatorDocumentReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\OriginatorDocumentReference')]
 	public OriginatorDocumentReference|Optional $OriginatorDocumentReference;
 
-	#[DataCollectionOf('ContractDocumentReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\ContractDocumentReference')]
 	public ContractDocumentReference|Optional $ContractDocumentReference;
 
-	#[DataCollectionOf('AdditionalDocumentReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\AdditionalDocumentReference')]
 	public AdditionalDocumentReference|Optional $AdditionalDocumentReference;
 
-	#[DataCollectionOf('ProjectReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ProjectReferenceType\ProjectReference')]
 	public ProjectReference|Optional $ProjectReference;
 
-	#[DataCollectionOf('Signature')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\SignatureType\Signature')]
 	public Signature|Optional $Signature;
 
 	#[Required]
@@ -124,36 +124,36 @@ class Invoice extends Data
 	public SellerSupplierParty|Optional $SellerSupplierParty;
 	public TaxRepresentativeParty|Optional $TaxRepresentativeParty;
 
-	#[DataCollectionOf('Delivery')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DeliveryType\Delivery')]
 	public Delivery|Optional $Delivery;
 	public DeliveryTerms|Optional $DeliveryTerms;
 
-	#[DataCollectionOf('PaymentMeans')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PaymentMeansType\PaymentMeans')]
 	public PaymentMeans|Optional $PaymentMeans;
 
-	#[DataCollectionOf('PaymentTerms')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PaymentTermsType\PaymentTerms')]
 	public PaymentTerms|Optional $PaymentTerms;
 
-	#[DataCollectionOf('PrepaidPayment')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PaymentType\PrepaidPayment')]
 	public PrepaidPayment|Optional $PrepaidPayment;
 
-	#[DataCollectionOf('AllowanceCharge')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\AllowanceCharge')]
 	public AllowanceCharge|Optional $AllowanceCharge;
 	public TaxExchangeRate|Optional $TaxExchangeRate;
 	public PricingExchangeRate|Optional $PricingExchangeRate;
 	public PaymentExchangeRate|Optional $PaymentExchangeRate;
 	public PaymentAlternativeExchangeRate|Optional $PaymentAlternativeExchangeRate;
 
-	#[DataCollectionOf('TaxTotal')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\TaxTotal')]
 	public TaxTotal|Optional $TaxTotal;
 
-	#[DataCollectionOf('WithholdingTaxTotal')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\WithholdingTaxTotal')]
 	public WithholdingTaxTotal|Optional $WithholdingTaxTotal;
 
 	#[Required]
 	public LegalMonetaryTotal $LegalMonetaryTotal;
 
 	#[Required]
-	#[DataCollectionOf('InvoiceLine')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\InvoiceLineType\InvoiceLine')]
 	public DataCollection $InvoiceLine;
 }

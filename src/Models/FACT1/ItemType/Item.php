@@ -33,7 +33,7 @@ use Spatie\LaravelData\Optional;
 
 class Item extends Data
 {
-	#[DataCollectionOf('Description')]
+	#[DataCollectionOf('string')]
 	#[Max(200)]
 	public string|Optional $Description;
 
@@ -46,61 +46,61 @@ class Item extends Data
 	public string|Optional $Name;
 	public bool|Optional $HazardousRiskIndicator;
 
-	#[DataCollectionOf('AdditionalInformation')]
+	#[DataCollectionOf('string')]
 	public string|Optional $AdditionalInformation;
 
-	#[DataCollectionOf('Keyword')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Keyword;
 
-	#[DataCollectionOf('BrandName')]
+	#[DataCollectionOf('string')]
 	public string|Optional $BrandName;
 
-	#[DataCollectionOf('ModelName')]
+	#[DataCollectionOf('string')]
 	public string|Optional $ModelName;
 	public BuyersItemIdentification|Optional $BuyersItemIdentification;
 	public SellersItemIdentification|Optional $SellersItemIdentification;
 
-	#[DataCollectionOf('ManufacturersItemIdentification')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ItemIdentificationType\ManufacturersItemIdentification')]
 	public ManufacturersItemIdentification|Optional $ManufacturersItemIdentification;
 	public StandardItemIdentification|Optional $StandardItemIdentification;
 	public CatalogueItemIdentification|Optional $CatalogueItemIdentification;
 
-	#[DataCollectionOf('AdditionalItemIdentification')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ItemIdentificationType\AdditionalItemIdentification')]
 	public AdditionalItemIdentification|Optional $AdditionalItemIdentification;
 	public CatalogueDocumentReference|Optional $CatalogueDocumentReference;
 
-	#[DataCollectionOf('ItemSpecificationDocumentReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\ItemSpecificationDocumentReference')]
 	public ItemSpecificationDocumentReference|Optional $ItemSpecificationDocumentReference;
 	public OriginCountry|Optional $OriginCountry;
 
-	#[DataCollectionOf('CommodityClassification')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\CommodityClassificationType\CommodityClassification')]
 	public CommodityClassification|Optional $CommodityClassification;
 
-	#[DataCollectionOf('TransactionConditions')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransactionConditionsType\TransactionConditions')]
 	public TransactionConditions|Optional $TransactionConditions;
 
-	#[DataCollectionOf('HazardousItem')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\HazardousItemType\HazardousItem')]
 	public HazardousItem|Optional $HazardousItem;
 
-	#[DataCollectionOf('ClassifiedTaxCategory')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TaxCategoryType\ClassifiedTaxCategory')]
 	public ClassifiedTaxCategory|Optional $ClassifiedTaxCategory;
 
-	#[DataCollectionOf('AdditionalItemProperty')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ItemPropertyType\AdditionalItemProperty')]
 	public AdditionalItemProperty|Optional $AdditionalItemProperty;
 
-	#[DataCollectionOf('ManufacturerParty')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PartyType\ManufacturerParty')]
 	public ManufacturerParty|Optional $ManufacturerParty;
 	public InformationContentProviderParty|Optional $InformationContentProviderParty;
 
-	#[DataCollectionOf('OriginAddress')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AddressType\OriginAddress')]
 	public OriginAddress|Optional $OriginAddress;
 
-	#[DataCollectionOf('ItemInstance')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ItemInstanceType\ItemInstance')]
 	public ItemInstance|Optional $ItemInstance;
 
-	#[DataCollectionOf('Certificate')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\CertificateType\Certificate')]
 	public Certificate|Optional $Certificate;
 
-	#[DataCollectionOf('Dimension')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DimensionType\Dimension')]
 	public Dimension|Optional $Dimension;
 }

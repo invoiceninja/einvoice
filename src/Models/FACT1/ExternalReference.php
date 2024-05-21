@@ -26,6 +26,6 @@ class ExternalReference extends Data
 	public string|Optional $CharacterSetCode;
 	public string|Optional $FileName;
 
-	#[DataCollectionOf('Description')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Description;
 }

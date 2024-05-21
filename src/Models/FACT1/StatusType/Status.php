@@ -21,20 +21,20 @@ class Status extends Data
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
 	public Carbon|Optional $ReferenceTime;
 
-	#[DataCollectionOf('Description')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Description;
 	public string|Optional $StatusReasonCode;
 
-	#[DataCollectionOf('StatusReason')]
+	#[DataCollectionOf('string')]
 	public string|Optional $StatusReason;
 	public string|Optional $SequenceID;
 
-	#[DataCollectionOf('Text')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Text;
 	public bool|Optional $IndicationIndicator;
 	public string|Optional $Percent;
 	public string|Optional $ReliabilityPercent;
 
-	#[DataCollectionOf('Condition')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ConditionType\Condition')]
 	public Condition|Optional $Condition;
 }

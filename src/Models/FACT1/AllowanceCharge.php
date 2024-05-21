@@ -19,7 +19,7 @@ class AllowanceCharge extends Data
 	public bool $ChargeIndicator;
 	public string|Optional $AllowanceChargeReasonCode;
 
-	#[DataCollectionOf('AllowanceChargeReason')]
+	#[DataCollectionOf('string')]
 	public string|Optional $AllowanceChargeReason;
 	public string|Optional $MultiplierFactorNumeric;
 	public bool|Optional $PrepaidIndicator;
@@ -37,10 +37,10 @@ class AllowanceCharge extends Data
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $PerUnitAmount;
 
-	#[DataCollectionOf('TaxCategory')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TaxCategoryType\TaxCategory')]
 	public TaxCategory|Optional $TaxCategory;
 	public TaxTotal|Optional $TaxTotal;
 
-	#[DataCollectionOf('PaymentMeans')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PaymentMeansType\PaymentMeans')]
 	public PaymentMeans|Optional $PaymentMeans;
 }

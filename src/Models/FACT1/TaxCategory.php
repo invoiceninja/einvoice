@@ -22,7 +22,7 @@ class TaxCategory extends Data
 	public float|Optional $PerUnitAmount;
 	public string|Optional $TaxExemptionReasonCode;
 
-	#[DataCollectionOf('TaxExemptionReason')]
+	#[DataCollectionOf('string')]
 	public string|Optional $TaxExemptionReason;
 	public string|Optional $TierRange;
 	public string|Optional $TierRatePercent;

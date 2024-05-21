@@ -11,6 +11,6 @@ class Clause extends Data
 {
 	public string|Optional $ID;
 
-	#[DataCollectionOf('Content')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Content;
 }

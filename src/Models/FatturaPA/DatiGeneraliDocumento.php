@@ -72,14 +72,14 @@ class DatiGeneraliDocumento extends Data
 	#[Required]
 	public string $Numero;
 
-	#[DataCollectionOf('DatiRitenuta')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\DatiRitenutaType\DatiRitenuta')]
 	public DatiRitenuta|Optional $DatiRitenuta;
 	public DatiBollo|Optional $DatiBollo;
 
-	#[DataCollectionOf('DatiCassaPrevidenziale')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\DatiCassaPrevidenzialeType\DatiCassaPrevidenziale')]
 	public DatiCassaPrevidenziale|Optional $DatiCassaPrevidenziale;
 
-	#[DataCollectionOf('ScontoMaggiorazione')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione')]
 	public ScontoMaggiorazione|Optional $ScontoMaggiorazione;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -88,7 +88,7 @@ class DatiGeneraliDocumento extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $Arrotondamento;
 
-	#[DataCollectionOf('Causale')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Causale;
 
 	private array $Art73_array = [

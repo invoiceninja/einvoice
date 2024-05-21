@@ -14,6 +14,6 @@ class PricingReference extends Data
 {
 	public OriginalItemLocationQuantity|Optional $OriginalItemLocationQuantity;
 
-	#[DataCollectionOf('AlternativeConditionPrice')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PriceType\AlternativeConditionPrice')]
 	public AlternativeConditionPrice|Optional $AlternativeConditionPrice;
 }

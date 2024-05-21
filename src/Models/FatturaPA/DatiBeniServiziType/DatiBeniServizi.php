@@ -14,10 +14,10 @@ use Spatie\LaravelData\Optional;
 class DatiBeniServizi extends Data
 {
 	#[Required]
-	#[DataCollectionOf('DettaglioLinee')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\DettaglioLineeType\DettaglioLinee')]
 	public DataCollection $DettaglioLinee;
 
 	#[Required]
-	#[DataCollectionOf('DatiRiepilogo')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\DatiRiepilogoType\DatiRiepilogo')]
 	public DataCollection $DatiRiepilogo;
 }

@@ -17,11 +17,11 @@ class PaymentTerms extends Data
 {
 	public string|Optional $ID;
 
-	#[DataCollectionOf('PaymentMeansID')]
+	#[DataCollectionOf('string')]
 	public string|Optional $PaymentMeansID;
 	public string|Optional $PrepaidPaymentReferenceID;
 
-	#[DataCollectionOf('Note')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Note;
 	public string|Optional $ReferenceEventCode;
 	public string|Optional $SettlementDiscountPercent;

@@ -32,7 +32,7 @@ class FinalDeliveryTransportationService extends Data
 	public string|Optional $Priority;
 	public string|Optional $FreightRateClassCode;
 
-	#[DataCollectionOf('TransportationServiceDescription')]
+	#[DataCollectionOf('string')]
 	public string|Optional $TransportationServiceDescription;
 	public string|Optional $TransportationServiceDetailsURI;
 
@@ -44,36 +44,36 @@ class FinalDeliveryTransportationService extends Data
 	public string|Optional $Name;
 	public string|Optional $SequenceNumeric;
 
-	#[DataCollectionOf('TransportEquipment')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\TransportEquipment')]
 	public TransportEquipment|Optional $TransportEquipment;
 
-	#[DataCollectionOf('SupportedTransportEquipment')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\SupportedTransportEquipment')]
 	public SupportedTransportEquipment|Optional $SupportedTransportEquipment;
 
-	#[DataCollectionOf('UnsupportedTransportEquipment')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\UnsupportedTransportEquipment')]
 	public UnsupportedTransportEquipment|Optional $UnsupportedTransportEquipment;
 
-	#[DataCollectionOf('CommodityClassification')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\CommodityClassificationType\CommodityClassification')]
 	public CommodityClassification|Optional $CommodityClassification;
 
-	#[DataCollectionOf('SupportedCommodityClassification')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\CommodityClassificationType\SupportedCommodityClassification')]
 	public SupportedCommodityClassification|Optional $SupportedCommodityClassification;
 
-	#[DataCollectionOf('UnsupportedCommodityClassification')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\CommodityClassificationType\UnsupportedCommodityClassification')]
 	public UnsupportedCommodityClassification|Optional $UnsupportedCommodityClassification;
 	public TotalCapacityDimension|Optional $TotalCapacityDimension;
 
-	#[DataCollectionOf('ShipmentStage')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ShipmentStageType\ShipmentStage')]
 	public ShipmentStage|Optional $ShipmentStage;
 
-	#[DataCollectionOf('TransportEvent')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\TransportEvent')]
 	public TransportEvent|Optional $TransportEvent;
 	public ResponsibleTransportServiceProviderParty|Optional $ResponsibleTransportServiceProviderParty;
 
-	#[DataCollectionOf('EnvironmentalEmission')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\EnvironmentalEmissionType\EnvironmentalEmission')]
 	public EnvironmentalEmission|Optional $EnvironmentalEmission;
 	public EstimatedDurationPeriod|Optional $EstimatedDurationPeriod;
 
-	#[DataCollectionOf('ScheduledServiceFrequency')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ServiceFrequencyType\ScheduledServiceFrequency')]
 	public ScheduledServiceFrequency|Optional $ScheduledServiceFrequency;
 }

@@ -44,7 +44,7 @@ class TransportEquipment extends Data
 {
 	public string|Optional $ID;
 
-	#[DataCollectionOf('ReferencedConsignmentID')]
+	#[DataCollectionOf('string')]
 	public string|Optional $ReferencedConsignmentID;
 	public string|Optional $TransportEquipmentTypeCode;
 	public string|Optional $ProviderTypeCode;
@@ -54,7 +54,7 @@ class TransportEquipment extends Data
 	public string|Optional $FullnessIndicationCode;
 	public bool|Optional $RefrigerationOnIndicator;
 
-	#[DataCollectionOf('Information')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Information;
 	public bool|Optional $ReturnabilityIndicator;
 	public bool|Optional $LegalStatusIndicator;
@@ -66,13 +66,13 @@ class TransportEquipment extends Data
 	public bool|Optional $RefrigeratedIndicator;
 	public string|Optional $Characteristics;
 
-	#[DataCollectionOf('DamageRemarks')]
+	#[DataCollectionOf('string')]
 	public string|Optional $DamageRemarks;
 
-	#[DataCollectionOf('Description')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Description;
 
-	#[DataCollectionOf('SpecialTransportRequirements')]
+	#[DataCollectionOf('string')]
 	public string|Optional $SpecialTransportRequirements;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -87,10 +87,10 @@ class TransportEquipment extends Data
 	public bool|Optional $PowerIndicator;
 	public string|Optional $TraceID;
 
-	#[DataCollectionOf('MeasurementDimension')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DimensionType\MeasurementDimension')]
 	public MeasurementDimension|Optional $MeasurementDimension;
 
-	#[DataCollectionOf('TransportEquipmentSeal')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentSealType\TransportEquipmentSeal')]
 	public TransportEquipmentSeal|Optional $TransportEquipmentSeal;
 	public MinimumTemperature|Optional $MinimumTemperature;
 	public MaximumTemperature|Optional $MaximumTemperature;
@@ -103,58 +103,58 @@ class TransportEquipment extends Data
 	public UnloadingLocation|Optional $UnloadingLocation;
 	public StorageLocation|Optional $StorageLocation;
 
-	#[DataCollectionOf('PositioningTransportEvent')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\PositioningTransportEvent')]
 	public PositioningTransportEvent|Optional $PositioningTransportEvent;
 
-	#[DataCollectionOf('QuarantineTransportEvent')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\QuarantineTransportEvent')]
 	public QuarantineTransportEvent|Optional $QuarantineTransportEvent;
 
-	#[DataCollectionOf('DeliveryTransportEvent')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\DeliveryTransportEvent')]
 	public DeliveryTransportEvent|Optional $DeliveryTransportEvent;
 
-	#[DataCollectionOf('PickupTransportEvent')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\PickupTransportEvent')]
 	public PickupTransportEvent|Optional $PickupTransportEvent;
 
-	#[DataCollectionOf('HandlingTransportEvent')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\HandlingTransportEvent')]
 	public HandlingTransportEvent|Optional $HandlingTransportEvent;
 
-	#[DataCollectionOf('LoadingTransportEvent')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\LoadingTransportEvent')]
 	public LoadingTransportEvent|Optional $LoadingTransportEvent;
 
-	#[DataCollectionOf('TransportEvent')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\TransportEvent')]
 	public TransportEvent|Optional $TransportEvent;
 	public ApplicableTransportMeans|Optional $ApplicableTransportMeans;
 
-	#[DataCollectionOf('HaulageTradingTerms')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TradingTermsType\HaulageTradingTerms')]
 	public HaulageTradingTerms|Optional $HaulageTradingTerms;
 
-	#[DataCollectionOf('HazardousGoodsTransit')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\HazardousGoodsTransitType\HazardousGoodsTransit')]
 	public HazardousGoodsTransit|Optional $HazardousGoodsTransit;
 
-	#[DataCollectionOf('PackagedTransportHandlingUnit')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportHandlingUnitType\PackagedTransportHandlingUnit')]
 	public PackagedTransportHandlingUnit|Optional $PackagedTransportHandlingUnit;
 
-	#[DataCollectionOf('ServiceAllowanceCharge')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\ServiceAllowanceCharge')]
 	public ServiceAllowanceCharge|Optional $ServiceAllowanceCharge;
 
-	#[DataCollectionOf('FreightAllowanceCharge')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\FreightAllowanceCharge')]
 	public FreightAllowanceCharge|Optional $FreightAllowanceCharge;
 
-	#[DataCollectionOf('AttachedTransportEquipment')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\AttachedTransportEquipment')]
 	public AttachedTransportEquipment|Optional $AttachedTransportEquipment;
 	public Delivery|Optional $Delivery;
 	public Pickup|Optional $Pickup;
 	public Despatch|Optional $Despatch;
 
-	#[DataCollectionOf('ShipmentDocumentReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\ShipmentDocumentReference')]
 	public ShipmentDocumentReference|Optional $ShipmentDocumentReference;
 
-	#[DataCollectionOf('ContainedInTransportEquipment')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\ContainedInTransportEquipment')]
 	public ContainedInTransportEquipment|Optional $ContainedInTransportEquipment;
 
-	#[DataCollectionOf('Package')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PackageType\Package')]
 	public Package|Optional $Package;
 
-	#[DataCollectionOf('GoodsItem')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\GoodsItemType\GoodsItem')]
 	public GoodsItem|Optional $GoodsItem;
 }

@@ -24,16 +24,16 @@ class PowerOfAttorney extends Data
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
 	public Carbon|Optional $IssueTime;
 
-	#[DataCollectionOf('Description')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Description;
 	public NotaryParty|Optional $NotaryParty;
 
 	#[Required]
 	public AgentParty $AgentParty;
 
-	#[DataCollectionOf('WitnessParty')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PartyType\WitnessParty')]
 	public WitnessParty|Optional $WitnessParty;
 
-	#[DataCollectionOf('MandateDocumentReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\MandateDocumentReference')]
 	public MandateDocumentReference|Optional $MandateDocumentReference;
 }

@@ -19,7 +19,7 @@ class TransportMeans extends Data
 	public string|Optional $JourneyID;
 	public string|Optional $RegistrationNationalityID;
 
-	#[DataCollectionOf('RegistrationNationality')]
+	#[DataCollectionOf('string')]
 	public string|Optional $RegistrationNationality;
 	public string|Optional $DirectionCode;
 	public string|Optional $TransportMeansTypeCode;
@@ -31,6 +31,6 @@ class TransportMeans extends Data
 	public MaritimeTransport|Optional $MaritimeTransport;
 	public OwnerParty|Optional $OwnerParty;
 
-	#[DataCollectionOf('MeasurementDimension')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DimensionType\MeasurementDimension')]
 	public MeasurementDimension|Optional $MeasurementDimension;
 }

@@ -34,14 +34,14 @@ class ContractDocumentReference extends Data
 	public string|Optional $DocumentTypeCode;
 	public string|Optional $DocumentType;
 
-	#[DataCollectionOf('XPath')]
+	#[DataCollectionOf('string')]
 	public string|Optional $XPath;
 	public string|Optional $LanguageID;
 	public string|Optional $LocaleCode;
 	public string|Optional $VersionID;
 	public string|Optional $DocumentStatusCode;
 
-	#[DataCollectionOf('DocumentDescription')]
+	#[DataCollectionOf('string')]
 	#[Max(100)]
 	public string|Optional $DocumentDescription;
 	public Attachment|Optional $Attachment;

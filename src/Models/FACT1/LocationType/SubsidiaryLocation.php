@@ -15,10 +15,10 @@ class SubsidiaryLocation extends Data
 {
 	public string|Optional $ID;
 
-	#[DataCollectionOf('Description')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Description;
 
-	#[DataCollectionOf('Conditions')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Conditions;
 	public string|Optional $CountrySubentity;
 	public string|Optional $CountrySubentityCode;
@@ -26,10 +26,10 @@ class SubsidiaryLocation extends Data
 	public string|Optional $InformationURI;
 	public string|Optional $Name;
 
-	#[DataCollectionOf('ValidityPeriod')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PeriodType\ValidityPeriod')]
 	public ValidityPeriod|Optional $ValidityPeriod;
 	public Address|Optional $Address;
 
-	#[DataCollectionOf('LocationCoordinate')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\LocationCoordinateType\LocationCoordinate')]
 	public LocationCoordinate|Optional $LocationCoordinate;
 }

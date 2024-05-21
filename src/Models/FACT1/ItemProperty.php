@@ -25,15 +25,15 @@ class ItemProperty extends Data
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ValueQuantity;
 
-	#[DataCollectionOf('ValueQualifier')]
+	#[DataCollectionOf('string')]
 	public string|Optional $ValueQualifier;
 	public string|Optional $ImportanceCode;
 
-	#[DataCollectionOf('ListValue')]
+	#[DataCollectionOf('string')]
 	public string|Optional $ListValue;
 	public UsabilityPeriod|Optional $UsabilityPeriod;
 
-	#[DataCollectionOf('ItemPropertyGroup')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ItemPropertyGroupType\ItemPropertyGroup')]
 	public ItemPropertyGroup|Optional $ItemPropertyGroup;
 	public RangeDimension|Optional $RangeDimension;
 	public ItemPropertyRange|Optional $ItemPropertyRange;

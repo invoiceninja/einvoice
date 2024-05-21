@@ -23,7 +23,7 @@ class ReceivedHandlingUnitReceiptLine extends Data
 	public string $ID;
 	public string|Optional $UUID;
 
-	#[DataCollectionOf('Note')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Note;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -37,7 +37,7 @@ class ReceivedHandlingUnitReceiptLine extends Data
 	public float|Optional $RejectedQuantity;
 	public string|Optional $RejectReasonCode;
 
-	#[DataCollectionOf('RejectReason')]
+	#[DataCollectionOf('string')]
 	public string|Optional $RejectReason;
 	public string|Optional $RejectActionCode;
 	public string|Optional $QuantityDiscrepancyCode;
@@ -51,15 +51,15 @@ class ReceivedHandlingUnitReceiptLine extends Data
 	public string|Optional $TimingComplaint;
 	public OrderLineReference|Optional $OrderLineReference;
 
-	#[DataCollectionOf('DespatchLineReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\LineReferenceType\DespatchLineReference')]
 	public DespatchLineReference|Optional $DespatchLineReference;
 
-	#[DataCollectionOf('DocumentReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\DocumentReference')]
 	public DocumentReference|Optional $DocumentReference;
 
-	#[DataCollectionOf('Item')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ItemType\Item')]
 	public Item|Optional $Item;
 
-	#[DataCollectionOf('Shipment')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ShipmentType\Shipment')]
 	public Shipment|Optional $Shipment;
 }

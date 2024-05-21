@@ -60,11 +60,11 @@ class Delivery extends Data
 	public CarrierParty|Optional $CarrierParty;
 	public DeliveryParty|Optional $DeliveryParty;
 
-	#[DataCollectionOf('NotifyParty')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PartyType\NotifyParty')]
 	public NotifyParty|Optional $NotifyParty;
 	public Despatch|Optional $Despatch;
 
-	#[DataCollectionOf('DeliveryTerms')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DeliveryTermsType\DeliveryTerms')]
 	public DeliveryTerms|Optional $DeliveryTerms;
 	public MinimumDeliveryUnit|Optional $MinimumDeliveryUnit;
 	public MaximumDeliveryUnit|Optional $MaximumDeliveryUnit;

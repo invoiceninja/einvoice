@@ -20,6 +20,6 @@ class BillingReferenceLine extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $Amount;
 
-	#[DataCollectionOf('AllowanceCharge')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\AllowanceCharge')]
 	public AllowanceCharge|Optional $AllowanceCharge;
 }

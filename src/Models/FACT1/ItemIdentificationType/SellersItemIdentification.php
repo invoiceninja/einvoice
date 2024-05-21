@@ -19,10 +19,10 @@ class SellersItemIdentification extends Data
 	public string|Optional $ExtendedID;
 	public string|Optional $BarcodeSymbologyID;
 
-	#[DataCollectionOf('PhysicalAttribute')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PhysicalAttributeType\PhysicalAttribute')]
 	public PhysicalAttribute|Optional $PhysicalAttribute;
 
-	#[DataCollectionOf('MeasurementDimension')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DimensionType\MeasurementDimension')]
 	public MeasurementDimension|Optional $MeasurementDimension;
 	public IssuerParty|Optional $IssuerParty;
 }

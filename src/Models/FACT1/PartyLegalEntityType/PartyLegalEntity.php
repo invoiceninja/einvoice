@@ -41,6 +41,6 @@ class PartyLegalEntity extends Data
 	public CorporateRegistrationScheme|Optional $CorporateRegistrationScheme;
 	public HeadOfficeParty|Optional $HeadOfficeParty;
 
-	#[DataCollectionOf('ShareholderParty')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ShareholderPartyType\ShareholderParty')]
 	public ShareholderParty|Optional $ShareholderParty;
 }

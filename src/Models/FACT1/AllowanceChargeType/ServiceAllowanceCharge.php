@@ -25,7 +25,7 @@ class ServiceAllowanceCharge extends Data
 	#[Max(100)]
 	public string|Optional $AllowanceChargeReasonCode;
 
-	#[DataCollectionOf('AllowanceChargeReason')]
+	#[DataCollectionOf('string')]
 	#[Max(100)]
 	public string|Optional $AllowanceChargeReason;
 	public string|Optional $MultiplierFactorNumeric;
@@ -44,10 +44,10 @@ class ServiceAllowanceCharge extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $PerUnitAmount;
 
-	#[DataCollectionOf('TaxCategory')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TaxCategoryType\TaxCategory')]
 	public TaxCategory|Optional $TaxCategory;
 	public TaxTotal|Optional $TaxTotal;
 
-	#[DataCollectionOf('PaymentMeans')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PaymentMeansType\PaymentMeans')]
 	public PaymentMeans|Optional $PaymentMeans;
 }

@@ -18,6 +18,6 @@ class ItemPriceExtension extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float $Amount;
 
-	#[DataCollectionOf('TaxTotal')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\TaxTotal')]
 	public TaxTotal|Optional $TaxTotal;
 }

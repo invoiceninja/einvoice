@@ -23,25 +23,25 @@ class DatiGenerali extends Data
 	#[Required]
 	public DatiGeneraliDocumento $DatiGeneraliDocumento;
 
-	#[DataCollectionOf('DatiOrdineAcquisto')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\DatiDocumentiCorrelatiType\DatiOrdineAcquisto')]
 	public DatiOrdineAcquisto|Optional $DatiOrdineAcquisto;
 
-	#[DataCollectionOf('DatiContratto')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\DatiDocumentiCorrelatiType\DatiContratto')]
 	public DatiContratto|Optional $DatiContratto;
 
-	#[DataCollectionOf('DatiConvenzione')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\DatiDocumentiCorrelatiType\DatiConvenzione')]
 	public DatiConvenzione|Optional $DatiConvenzione;
 
-	#[DataCollectionOf('DatiRicezione')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\DatiDocumentiCorrelatiType\DatiRicezione')]
 	public DatiRicezione|Optional $DatiRicezione;
 
-	#[DataCollectionOf('DatiFattureCollegate')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\DatiDocumentiCorrelatiType\DatiFattureCollegate')]
 	public DatiFattureCollegate|Optional $DatiFattureCollegate;
 
-	#[DataCollectionOf('DatiSAL')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\DatiSALType\DatiSAL')]
 	public DatiSAL|Optional $DatiSAL;
 
-	#[DataCollectionOf('DatiDDT')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\DatiDDTType\DatiDDT')]
 	public DatiDDT|Optional $DatiDDT;
 	public DatiTrasporto|Optional $DatiTrasporto;
 	public FatturaPrincipale|Optional $FatturaPrincipale;

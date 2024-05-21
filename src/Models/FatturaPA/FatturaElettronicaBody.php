@@ -22,9 +22,9 @@ class FatturaElettronicaBody extends Data
 	public DatiBeniServizi $DatiBeniServizi;
 	public DatiVeicoli|Optional $DatiVeicoli;
 
-	#[DataCollectionOf('DatiPagamento')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\DatiPagamentoType\DatiPagamento')]
 	public DatiPagamento|Optional $DatiPagamento;
 
-	#[DataCollectionOf('Allegati')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\AllegatiType\Allegati')]
 	public Allegati|Optional $Allegati;
 }

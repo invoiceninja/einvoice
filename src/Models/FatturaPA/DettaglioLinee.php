@@ -28,7 +28,7 @@ class DettaglioLinee extends Data
 	#[\Spatie\LaravelData\Attributes\Validation\In(SC: 'Sconto', PR: 'Premio', AB: 'Abbuono', AC: 'Spesa accessoria')]
 	public string|Optional $TipoCessionePrestazione;
 
-	#[DataCollectionOf('CodiceArticolo')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\CodiceArticoloType\CodiceArticolo')]
 	public CodiceArticolo|Optional $CodiceArticolo;
 
 	#[Required]
@@ -48,7 +48,7 @@ class DettaglioLinee extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float $PrezzoUnitario;
 
-	#[DataCollectionOf('ScontoMaggiorazione')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione')]
 	public ScontoMaggiorazione|Optional $ScontoMaggiorazione;
 
 	#[Required]
@@ -119,6 +119,6 @@ class DettaglioLinee extends Data
 	public string|Optional $Natura;
 	public string|Optional $RiferimentoAmministrazione;
 
-	#[DataCollectionOf('AltriDatiGestionali')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\AltriDatiGestionaliType\AltriDatiGestionali')]
 	public AltriDatiGestionali|Optional $AltriDatiGestionali;
 }

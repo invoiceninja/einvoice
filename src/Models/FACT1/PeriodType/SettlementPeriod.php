@@ -28,10 +28,10 @@ class SettlementPeriod extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $DurationMeasure;
 
-	#[DataCollectionOf('DescriptionCode')]
+	#[DataCollectionOf('string')]
 	public string|Optional $DescriptionCode;
 	private array $DescriptionCode_array = [3 => 'Invoice Date', 35 => 'Delivery Date', 432 => 'Payment Date'];
 
-	#[DataCollectionOf('Description')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Description;
 }

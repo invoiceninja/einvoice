@@ -133,10 +133,10 @@ class Address extends Data
 	public string|Optional $District;
 	public string|Optional $TimezoneOffset;
 
-	#[DataCollectionOf('AddressLine')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AddressLineType\AddressLine')]
 	public AddressLine|Optional $AddressLine;
 	public Country|Optional $Country;
 
-	#[DataCollectionOf('LocationCoordinate')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\LocationCoordinateType\LocationCoordinate')]
 	public LocationCoordinate|Optional $LocationCoordinate;
 }

@@ -31,15 +31,15 @@ class Contract extends Data
 	public string|Optional $ContractTypeCode;
 	public string|Optional $ContractType;
 
-	#[DataCollectionOf('Note')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Note;
 	public string|Optional $VersionID;
 
-	#[DataCollectionOf('Description')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Description;
 	public ValidityPeriod|Optional $ValidityPeriod;
 
-	#[DataCollectionOf('ContractDocumentReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\ContractDocumentReference')]
 	public ContractDocumentReference|Optional $ContractDocumentReference;
 	public NominationPeriod|Optional $NominationPeriod;
 	public ContractualDelivery|Optional $ContractualDelivery;

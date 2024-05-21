@@ -21,9 +21,9 @@ class EnvironmentalEmission extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float $ValueMeasure;
 
-	#[DataCollectionOf('Description')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Description;
 
-	#[DataCollectionOf('EmissionCalculationMethod')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\EmissionCalculationMethodType\EmissionCalculationMethod')]
 	public EmissionCalculationMethod|Optional $EmissionCalculationMethod;
 }

@@ -19,7 +19,7 @@ class HazardousItem extends Data
 	public string|Optional $PlacardNotation;
 	public string|Optional $PlacardEndorsement;
 
-	#[DataCollectionOf('AdditionalInformation')]
+	#[DataCollectionOf('string')]
 	public string|Optional $AdditionalInformation;
 	public string|Optional $UNDGCode;
 	public string|Optional $EmergencyProceduresCode;
@@ -42,14 +42,14 @@ class HazardousItem extends Data
 	public float|Optional $Quantity;
 	public ContactParty|Optional $ContactParty;
 
-	#[DataCollectionOf('SecondaryHazard')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\SecondaryHazardType\SecondaryHazard')]
 	public SecondaryHazard|Optional $SecondaryHazard;
 
-	#[DataCollectionOf('HazardousGoodsTransit')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\HazardousGoodsTransitType\HazardousGoodsTransit')]
 	public HazardousGoodsTransit|Optional $HazardousGoodsTransit;
 	public EmergencyTemperature|Optional $EmergencyTemperature;
 	public FlashpointTemperature|Optional $FlashpointTemperature;
 
-	#[DataCollectionOf('AdditionalTemperature')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TemperatureType\AdditionalTemperature')]
 	public AdditionalTemperature|Optional $AdditionalTemperature;
 }

@@ -15,7 +15,7 @@ class WorkPhaseReference extends Data
 	public string|Optional $ID;
 	public string|Optional $WorkPhaseCode;
 
-	#[DataCollectionOf('WorkPhase')]
+	#[DataCollectionOf('string')]
 	public string|Optional $WorkPhase;
 	public string|Optional $ProgressPercent;
 
@@ -25,6 +25,6 @@ class WorkPhaseReference extends Data
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $EndDate;
 
-	#[DataCollectionOf('WorkOrderDocumentReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\WorkOrderDocumentReference')]
 	public WorkOrderDocumentReference|Optional $WorkOrderDocumentReference;
 }

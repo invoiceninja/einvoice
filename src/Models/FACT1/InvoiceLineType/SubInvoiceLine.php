@@ -36,7 +36,7 @@ class SubInvoiceLine extends Data
 	public string $ID;
 	public string|Optional $UUID;
 
-	#[DataCollectionOf('Note')]
+	#[DataCollectionOf('string')]
 	#[Max(300)]
 	public string|Optional $Note;
 
@@ -56,39 +56,39 @@ class SubInvoiceLine extends Data
 	public string|Optional $PaymentPurposeCode;
 	public bool|Optional $FreeOfChargeIndicator;
 
-	#[DataCollectionOf('InvoicePeriod')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PeriodType\InvoicePeriod')]
 	public InvoicePeriod|Optional $InvoicePeriod;
 
-	#[DataCollectionOf('OrderLineReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\OrderLineReferenceType\OrderLineReference')]
 	public OrderLineReference|Optional $OrderLineReference;
 
-	#[DataCollectionOf('DespatchLineReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\LineReferenceType\DespatchLineReference')]
 	public DespatchLineReference|Optional $DespatchLineReference;
 
-	#[DataCollectionOf('ReceiptLineReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\LineReferenceType\ReceiptLineReference')]
 	public ReceiptLineReference|Optional $ReceiptLineReference;
 
-	#[DataCollectionOf('BillingReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\BillingReferenceType\BillingReference')]
 	public BillingReference|Optional $BillingReference;
 
-	#[DataCollectionOf('DocumentReference')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\DocumentReference')]
 	public DocumentReference|Optional $DocumentReference;
 	public PricingReference|Optional $PricingReference;
 	public OriginatorParty|Optional $OriginatorParty;
 
-	#[DataCollectionOf('Delivery')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DeliveryType\Delivery')]
 	public Delivery|Optional $Delivery;
 
-	#[DataCollectionOf('PaymentTerms')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PaymentTermsType\PaymentTerms')]
 	public PaymentTerms|Optional $PaymentTerms;
 
-	#[DataCollectionOf('AllowanceCharge')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\AllowanceCharge')]
 	public AllowanceCharge|Optional $AllowanceCharge;
 
-	#[DataCollectionOf('TaxTotal')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\TaxTotal')]
 	public TaxTotal|Optional $TaxTotal;
 
-	#[DataCollectionOf('WithholdingTaxTotal')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\WithholdingTaxTotal')]
 	public WithholdingTaxTotal|Optional $WithholdingTaxTotal;
 
 	#[Required]

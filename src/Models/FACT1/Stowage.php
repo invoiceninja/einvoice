@@ -12,9 +12,9 @@ class Stowage extends Data
 {
 	public string|Optional $LocationID;
 
-	#[DataCollectionOf('Location')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Location;
 
-	#[DataCollectionOf('MeasurementDimension')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DimensionType\MeasurementDimension')]
 	public MeasurementDimension|Optional $MeasurementDimension;
 }

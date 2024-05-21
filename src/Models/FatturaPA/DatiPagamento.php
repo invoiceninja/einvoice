@@ -22,6 +22,6 @@ class DatiPagamento extends Data
 	public string $CondizioniPagamento;
 
 	#[Required]
-	#[DataCollectionOf('DettaglioPagamento')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\DettaglioPagamentoType\DettaglioPagamento')]
 	public DataCollection $DettaglioPagamento;
 }

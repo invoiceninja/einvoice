@@ -27,19 +27,19 @@ class WarehousingTransportEvent extends Data
 	public Carbon|Optional $OccurrenceTime;
 	public string|Optional $TransportEventTypeCode;
 
-	#[DataCollectionOf('Description')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Description;
 	public bool|Optional $CompletionIndicator;
 	public ReportedShipment|Optional $ReportedShipment;
 
-	#[DataCollectionOf('CurrentStatus')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\StatusType\CurrentStatus')]
 	public CurrentStatus|Optional $CurrentStatus;
 
-	#[DataCollectionOf('Contact')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ContactType\Contact')]
 	public Contact|Optional $Contact;
 	public Location|Optional $Location;
 	public Signature|Optional $Signature;
 
-	#[DataCollectionOf('Period')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PeriodType\Period')]
 	public Period|Optional $Period;
 }

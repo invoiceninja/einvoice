@@ -29,30 +29,30 @@ class DespatchParty extends Data
 	public string|Optional $EndpointID;
 	public string|Optional $IndustryClassificationCode;
 
-	#[DataCollectionOf('PartyIdentification')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PartyIdentificationType\PartyIdentification')]
 	public PartyIdentification|Optional $PartyIdentification;
 
-	#[DataCollectionOf('PartyName')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PartyNameType\PartyName')]
 	public PartyName|Optional $PartyName;
 	public Language|Optional $Language;
 	public PostalAddress|Optional $PostalAddress;
 	public PhysicalLocation|Optional $PhysicalLocation;
 
-	#[DataCollectionOf('PartyTaxScheme')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PartyTaxSchemeType\PartyTaxScheme')]
 	public PartyTaxScheme|Optional $PartyTaxScheme;
 
-	#[DataCollectionOf('PartyLegalEntity')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PartyLegalEntityType\PartyLegalEntity')]
 	public PartyLegalEntity|Optional $PartyLegalEntity;
 	public Contact|Optional $Contact;
 
-	#[DataCollectionOf('Person')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PersonType\Person')]
 	public Person|Optional $Person;
 	public AgentParty|Optional $AgentParty;
 
-	#[DataCollectionOf('ServiceProviderParty')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ServiceProviderPartyType\ServiceProviderParty')]
 	public ServiceProviderParty|Optional $ServiceProviderParty;
 
-	#[DataCollectionOf('PowerOfAttorney')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PowerOfAttorneyType\PowerOfAttorney')]
 	public PowerOfAttorney|Optional $PowerOfAttorney;
 	public FinancialAccount|Optional $FinancialAccount;
 }

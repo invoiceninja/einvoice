@@ -16,7 +16,7 @@ class ServiceProviderParty extends Data
 	public string|Optional $ID;
 	public string|Optional $ServiceTypeCode;
 
-	#[DataCollectionOf('ServiceType')]
+	#[DataCollectionOf('string')]
 	public string|Optional $ServiceType;
 
 	#[Required]

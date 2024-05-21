@@ -16,6 +16,6 @@ class FatturaElettronica extends Data
 	public FatturaElettronicaHeader $FatturaElettronicaHeader;
 
 	#[Required]
-	#[DataCollectionOf('FatturaElettronicaBody')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\FatturaElettronicaBodyType\FatturaElettronicaBody')]
 	public DataCollection $FatturaElettronicaBody;
 }

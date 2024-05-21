@@ -12,7 +12,7 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class DatiDocumentiCorrelati extends Data
 {
-	#[DataCollectionOf('RiferimentoNumeroLinea')]
+	#[DataCollectionOf('int')]
 	public int|Optional $RiferimentoNumeroLinea;
 
 	#[Required]

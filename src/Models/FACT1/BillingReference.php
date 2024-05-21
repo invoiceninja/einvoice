@@ -25,6 +25,6 @@ class BillingReference extends Data
 	public ReminderDocumentReference|Optional $ReminderDocumentReference;
 	public AdditionalDocumentReference|Optional $AdditionalDocumentReference;
 
-	#[DataCollectionOf('BillingReferenceLine')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\BillingReferenceLineType\BillingReferenceLine')]
 	public BillingReferenceLine|Optional $BillingReferenceLine;
 }

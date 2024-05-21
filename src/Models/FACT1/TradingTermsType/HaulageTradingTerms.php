@@ -11,7 +11,7 @@ use Spatie\LaravelData\Optional;
 
 class HaulageTradingTerms extends Data
 {
-	#[DataCollectionOf('Information')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Information;
 	public string|Optional $Reference;
 	public ApplicableAddress|Optional $ApplicableAddress;

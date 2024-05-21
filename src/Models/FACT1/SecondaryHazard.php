@@ -14,6 +14,6 @@ class SecondaryHazard extends Data
 	public string|Optional $PlacardEndorsement;
 	public string|Optional $EmergencyProceduresCode;
 
-	#[DataCollectionOf('Extension')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Extension;
 }

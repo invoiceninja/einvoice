@@ -30,10 +30,10 @@ class PaymentMeans extends Data
 	public string|Optional $PaymentChannelCode;
 	public string|Optional $InstructionID;
 
-	#[DataCollectionOf('InstructionNote')]
+	#[DataCollectionOf('string')]
 	public string|Optional $InstructionNote;
 
-	#[DataCollectionOf('PaymentID')]
+	#[DataCollectionOf('string')]
 	#[Max(140)]
 	public string|Optional $PaymentID;
 	public CardAccount|Optional $CardAccount;

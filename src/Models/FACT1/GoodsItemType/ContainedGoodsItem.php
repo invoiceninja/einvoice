@@ -29,7 +29,7 @@ class ContainedGoodsItem extends Data
 	public string|Optional $ID;
 	public string|Optional $SequenceNumberID;
 
-	#[DataCollectionOf('Description')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Description;
 	public bool|Optional $HazardousRiskIndicator;
 
@@ -86,29 +86,29 @@ class ContainedGoodsItem extends Data
 	public float|Optional $ReturnableQuantity;
 	public string|Optional $TraceID;
 
-	#[DataCollectionOf('Item')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ItemType\Item')]
 	public Item|Optional $Item;
 
-	#[DataCollectionOf('GoodsItemContainer')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\GoodsItemContainerType\GoodsItemContainer')]
 	public GoodsItemContainer|Optional $GoodsItemContainer;
 
-	#[DataCollectionOf('FreightAllowanceCharge')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\FreightAllowanceCharge')]
 	public FreightAllowanceCharge|Optional $FreightAllowanceCharge;
 
-	#[DataCollectionOf('InvoiceLine')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\InvoiceLineType\InvoiceLine')]
 	public InvoiceLine|Optional $InvoiceLine;
 
-	#[DataCollectionOf('Temperature')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TemperatureType\Temperature')]
 	public Temperature|Optional $Temperature;
 	public OriginAddress|Optional $OriginAddress;
 	public Delivery|Optional $Delivery;
 	public Pickup|Optional $Pickup;
 	public Despatch|Optional $Despatch;
 
-	#[DataCollectionOf('MeasurementDimension')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DimensionType\MeasurementDimension')]
 	public MeasurementDimension|Optional $MeasurementDimension;
 
-	#[DataCollectionOf('ContainingPackage')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PackageType\ContainingPackage')]
 	public ContainingPackage|Optional $ContainingPackage;
 	public ShipmentDocumentReference|Optional $ShipmentDocumentReference;
 	public MinimumTemperature|Optional $MinimumTemperature;

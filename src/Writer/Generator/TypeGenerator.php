@@ -117,7 +117,7 @@ class TypeGenerator
             
             if($element['max_occurs'] > 1 || $element['max_occurs'] == -1) {
                 $this->namespace->addUse(DataCollectionOf::class);
-                $property->addAttribute(DataCollectionOf::class, [$element['name']]);
+                $property->addAttribute(DataCollectionOf::class, [$base_type]);
                 $this->namespace->addUse(DataCollection::class);
                 // $this->namespace->addInterface(DataObject::class);
 

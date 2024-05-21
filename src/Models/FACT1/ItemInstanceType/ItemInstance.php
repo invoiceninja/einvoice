@@ -27,7 +27,7 @@ class ItemInstance extends Data
 	public string|Optional $RegistrationID;
 	public string|Optional $SerialID;
 
-	#[DataCollectionOf('AdditionalItemProperty')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ItemPropertyType\AdditionalItemProperty')]
 	public AdditionalItemProperty|Optional $AdditionalItemProperty;
 	public LotIdentification|Optional $LotIdentification;
 }

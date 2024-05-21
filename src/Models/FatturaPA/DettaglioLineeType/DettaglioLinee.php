@@ -31,7 +31,7 @@ class DettaglioLinee extends Data
 		'AC' => 'Spesa accessoria',
 	];
 
-	#[DataCollectionOf('CodiceArticolo')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\CodiceArticoloType\CodiceArticolo')]
 	public CodiceArticolo|Optional $CodiceArticolo;
 
 	#[Required]
@@ -60,7 +60,7 @@ class DettaglioLinee extends Data
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
 	public float $PrezzoUnitario;
 
-	#[DataCollectionOf('ScontoMaggiorazione')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione')]
 	public ScontoMaggiorazione|Optional $ScontoMaggiorazione;
 
 	#[Required]
@@ -108,6 +108,6 @@ class DettaglioLinee extends Data
 	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
 	public string|Optional $RiferimentoAmministrazione;
 
-	#[DataCollectionOf('AltriDatiGestionali')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\AltriDatiGestionaliType\AltriDatiGestionali')]
 	public AltriDatiGestionali|Optional $AltriDatiGestionali;
 }

@@ -29,10 +29,10 @@ class Shipment extends Data
 	public string|Optional $ShippingPriorityLevelCode;
 	public string|Optional $HandlingCode;
 
-	#[DataCollectionOf('HandlingInstructions')]
+	#[DataCollectionOf('string')]
 	public string|Optional $HandlingInstructions;
 
-	#[DataCollectionOf('Information')]
+	#[DataCollectionOf('string')]
 	public string|Optional $Information;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -71,27 +71,27 @@ class Shipment extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $FreeOnBoardValueAmount;
 
-	#[DataCollectionOf('SpecialInstructions')]
+	#[DataCollectionOf('string')]
 	public string|Optional $SpecialInstructions;
 
-	#[DataCollectionOf('DeliveryInstructions')]
+	#[DataCollectionOf('string')]
 	public string|Optional $DeliveryInstructions;
 	public bool|Optional $SplitConsignmentIndicator;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ConsignmentQuantity;
 
-	#[DataCollectionOf('Consignment')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ConsignmentType\Consignment')]
 	public Consignment|Optional $Consignment;
 
-	#[DataCollectionOf('GoodsItem')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\GoodsItemType\GoodsItem')]
 	public GoodsItem|Optional $GoodsItem;
 
-	#[DataCollectionOf('ShipmentStage')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ShipmentStageType\ShipmentStage')]
 	public ShipmentStage|Optional $ShipmentStage;
 	public Delivery|Optional $Delivery;
 
-	#[DataCollectionOf('TransportHandlingUnit')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportHandlingUnitType\TransportHandlingUnit')]
 	public TransportHandlingUnit|Optional $TransportHandlingUnit;
 	public ReturnAddress|Optional $ReturnAddress;
 	public OriginAddress|Optional $OriginAddress;
@@ -99,6 +99,6 @@ class Shipment extends Data
 	public LastExitPortLocation|Optional $LastExitPortLocation;
 	public ExportCountry|Optional $ExportCountry;
 
-	#[DataCollectionOf('FreightAllowanceCharge')]
+	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\FreightAllowanceCharge')]
 	public FreightAllowanceCharge|Optional $FreightAllowanceCharge;
 }

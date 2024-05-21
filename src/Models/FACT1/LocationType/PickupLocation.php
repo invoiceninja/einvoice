@@ -8,6 +8,7 @@ use Invoiceninja\Einvoice\Models\FACT1\LocationCoordinateType\LocationCoordinate
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\ValidityPeriod;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
 use Spatie\LaravelData\Optional;
 
 class PickupLocation extends Data

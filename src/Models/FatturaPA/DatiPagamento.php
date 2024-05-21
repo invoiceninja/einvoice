@@ -7,6 +7,7 @@ use Invoiceninja\Einvoice\Models\FatturaPA\DettaglioPagamentoType\DettaglioPagam
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
 
 class DatiPagamento extends Data
 {
@@ -22,5 +23,5 @@ class DatiPagamento extends Data
 
 	#[Required]
 	#[DataCollectionOf('DettaglioPagamento')]
-	public \Spatie\LaravelData\DataCollection $DettaglioPagamento;
+	public DataCollection $DettaglioPagamento;
 }

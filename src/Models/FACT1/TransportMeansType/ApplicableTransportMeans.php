@@ -12,6 +12,7 @@ use Invoiceninja\Einvoice\Models\FACT1\RoadTransportType\RoadTransport;
 use Invoiceninja\Einvoice\Models\FACT1\StowageType\Stowage;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
 use Spatie\LaravelData\Optional;
 
 class ApplicableTransportMeans extends Data

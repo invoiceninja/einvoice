@@ -21,6 +21,7 @@ use Spatie\LaravelData\Optional;
 use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\PhpNamespace;
 use Spatie\LaravelData\DataCollection;
+use Spatie\LaravelData\Contracts\DataObject;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -117,6 +118,9 @@ class TypeGenerator
             if($element['max_occurs'] > 1 || $element['max_occurs'] == -1) {
                 $this->namespace->addUse(DataCollectionOf::class);
                 $property->addAttribute(DataCollectionOf::class, [$element['name']]);
+                $this->namespace->addUse(DataCollection::class);
+                // $this->namespace->addInterface(DataObject::class);
+
             }
 
 

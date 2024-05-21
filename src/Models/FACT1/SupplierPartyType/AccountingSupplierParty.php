@@ -9,6 +9,7 @@ use Invoiceninja\Einvoice\Models\FACT1\ContactType\SellerContact;
 use Invoiceninja\Einvoice\Models\FACT1\PartyType\Party;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
 use Spatie\LaravelData\Optional;
 
 class AccountingSupplierParty extends Data

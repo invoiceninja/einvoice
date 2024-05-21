@@ -10,6 +10,7 @@ use Invoiceninja\Einvoice\Models\FACT1\ShipmentType\Shipment;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
 use Spatie\LaravelData\Optional;
 
 class DespatchLine extends Data
@@ -42,7 +43,7 @@ class DespatchLine extends Data
 
 	#[Required]
 	#[DataCollectionOf('OrderLineReference')]
-	public \Spatie\LaravelData\DataCollection $OrderLineReference;
+	public DataCollection $OrderLineReference;
 
 	#[DataCollectionOf('DocumentReference')]
 	public DocumentReference|Optional $DocumentReference;

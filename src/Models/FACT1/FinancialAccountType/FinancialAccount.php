@@ -8,6 +8,7 @@ use Invoiceninja\Einvoice\Models\FACT1\CountryType\Country;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
 use Spatie\LaravelData\Optional;
 
 class FinancialAccount extends Data

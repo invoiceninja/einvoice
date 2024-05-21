@@ -8,6 +8,7 @@ use Invoiceninja\Einvoice\Models\FatturaPA\FatturaElettronicaHeaderType\FatturaE
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
 
 class FatturaElettronica extends Data
 {
@@ -16,5 +17,5 @@ class FatturaElettronica extends Data
 
 	#[Required]
 	#[DataCollectionOf('FatturaElettronicaBody')]
-	public \Spatie\LaravelData\DataCollection $FatturaElettronicaBody;
+	public DataCollection $FatturaElettronicaBody;
 }

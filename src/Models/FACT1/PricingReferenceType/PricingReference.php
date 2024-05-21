@@ -7,6 +7,7 @@ use Invoiceninja\Einvoice\Models\FACT1\ItemLocationQuantityType\OriginalItemLoca
 use Invoiceninja\Einvoice\Models\FACT1\PriceType\AlternativeConditionPrice;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
 use Spatie\LaravelData\Optional;
 
 class PricingReference extends Data

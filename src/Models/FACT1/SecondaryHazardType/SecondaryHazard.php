@@ -5,6 +5,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1\SecondaryHazardType;
 use Carbon\Carbon;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
 use Spatie\LaravelData\Optional;
 
 class SecondaryHazard extends Data

@@ -10,6 +10,7 @@ use Invoiceninja\Einvoice\Models\FACT1\PeriodType\ValidityPeriod;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
 use Spatie\LaravelData\Optional;
 use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 

@@ -24,6 +24,7 @@ use Spatie\LaravelData\Attributes\WithTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
+use Spatie\LaravelData\Contracts\DataObject;
 use Spatie\LaravelData\DataCollection;
 use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
@@ -140,6 +141,7 @@ class Generator
             }
             elseif($element['max_occurs'] > 1 || $element['max_occurs'] == -1) {    
                 // $type = "?{$base_type}";
+                $namespace->addUse(DataCollection::class);
                 $type = DataCollection::class;
             } 
             else {

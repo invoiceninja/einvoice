@@ -11,6 +11,7 @@ use Invoiceninja\Einvoice\Models\FACT1\SignatureType\Signature;
 use Invoiceninja\Einvoice\Models\FACT1\StatusType\CurrentStatus;
 use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
@@ -29,22 +30,22 @@ class DeliveryTransportEvent extends Data
 	public string|Optional $TransportEventTypeCode;
 
 	#[DataCollectionOf('string')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public string|Optional $Description;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $Description;
 	public bool|Optional $CompletionIndicator;
 	public ReportedShipment|Optional $ReportedShipment;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\StatusType\CurrentStatus')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public CurrentStatus|Optional $CurrentStatus;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $CurrentStatus;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ContactType\Contact')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public Contact|Optional $Contact;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $Contact;
 	public Location|Optional $Location;
 	public Signature|Optional $Signature;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PeriodType\Period')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public Period|Optional $Period;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $Period;
 }

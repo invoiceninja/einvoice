@@ -13,6 +13,7 @@ use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Attributes\Validation\Regex;
 use Spatie\LaravelData\Attributes\Validation\Required;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
@@ -27,8 +28,8 @@ class DettaglioLinee extends Data
 	private array $TipoCessionePrestazione_array = ['SC', 'PR', 'AB', 'AC'];
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\CodiceArticoloType\CodiceArticolo')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public CodiceArticolo|Optional $CodiceArticolo;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $CodiceArticolo;
 
 	#[Required]
 	#[Max(1000)]
@@ -57,8 +58,8 @@ class DettaglioLinee extends Data
 	public float $PrezzoUnitario;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public ScontoMaggiorazione|Optional $ScontoMaggiorazione;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $ScontoMaggiorazione;
 
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -106,6 +107,6 @@ class DettaglioLinee extends Data
 	public string|Optional $RiferimentoAmministrazione;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\AltriDatiGestionaliType\AltriDatiGestionali')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public AltriDatiGestionali|Optional $AltriDatiGestionali;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $AltriDatiGestionali;
 }

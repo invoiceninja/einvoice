@@ -12,6 +12,7 @@ use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Attributes\Validation\Required;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
@@ -36,17 +37,17 @@ class MandateDocumentReference extends Data
 	public string|Optional $DocumentType;
 
 	#[DataCollectionOf('string')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public string|Optional $XPath;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $XPath;
 	public string|Optional $LanguageID;
 	public string|Optional $LocaleCode;
 	public string|Optional $VersionID;
 	public string|Optional $DocumentStatusCode;
 
 	#[DataCollectionOf('string')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	#[Max(100)]
-	public string|Optional $DocumentDescription;
+	public DataCollection $DocumentDescription;
 	public Attachment|Optional $Attachment;
 	public ValidityPeriod|Optional $ValidityPeriod;
 	public IssuerParty|Optional $IssuerParty;

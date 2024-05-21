@@ -7,6 +7,7 @@ use Invoiceninja\Einvoice\Models\FACT1\WorkPhaseReferenceType\WorkPhaseReference
 use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
@@ -23,6 +24,6 @@ class ProjectReference extends Data
 	public Carbon|Optional $IssueDate;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\WorkPhaseReferenceType\WorkPhaseReference')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public WorkPhaseReference|Optional $WorkPhaseReference;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $WorkPhaseReference;
 }

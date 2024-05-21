@@ -12,8 +12,10 @@ use Invoiceninja\Einvoice\Models\FACT1\TradeFinancingType\TradeFinancing;
 use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
 use Spatie\LaravelData\Optional;
 use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
@@ -30,12 +32,12 @@ class PaymentMeans extends Data
 	public string|Optional $InstructionID;
 
 	#[DataCollectionOf('string')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public string|Optional $InstructionNote;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $InstructionNote;
 
 	#[DataCollectionOf('string')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public string|Optional $PaymentID;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $PaymentID;
 	public CardAccount|Optional $CardAccount;
 	public PayerFinancialAccount|Optional $PayerFinancialAccount;
 	public PayeeFinancialAccount|Optional $PayeeFinancialAccount;

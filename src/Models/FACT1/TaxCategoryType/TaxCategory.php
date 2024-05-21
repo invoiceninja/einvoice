@@ -9,6 +9,7 @@ use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Required;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
@@ -28,9 +29,9 @@ class TaxCategory extends Data
 	public string|Optional $TaxExemptionReasonCode;
 
 	#[DataCollectionOf('string')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	#[Max(100)]
-	public string|Optional $TaxExemptionReason;
+	public DataCollection $TaxExemptionReason;
 	public string|Optional $TierRange;
 	public string|Optional $TierRatePercent;
 

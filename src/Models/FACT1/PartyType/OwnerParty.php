@@ -17,6 +17,7 @@ use Invoiceninja\Einvoice\Models\FACT1\PowerOfAttorneyType\PowerOfAttorney;
 use Invoiceninja\Einvoice\Models\FACT1\ServiceProviderPartyType\ServiceProviderParty;
 use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
 use Spatie\LaravelData\Optional;
@@ -31,36 +32,36 @@ class OwnerParty extends Data
 	public string|Optional $IndustryClassificationCode;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PartyIdentificationType\PartyIdentification')]
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public PartyIdentification|Optional $PartyIdentification;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $PartyIdentification;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PartyNameType\PartyName')]
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public PartyName|Optional $PartyName;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $PartyName;
 	public Language|Optional $Language;
 	public PostalAddress|Optional $PostalAddress;
 	public PhysicalLocation|Optional $PhysicalLocation;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PartyTaxSchemeType\PartyTaxScheme')]
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public PartyTaxScheme|Optional $PartyTaxScheme;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $PartyTaxScheme;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PartyLegalEntityType\PartyLegalEntity')]
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public PartyLegalEntity|Optional $PartyLegalEntity;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $PartyLegalEntity;
 	public Contact|Optional $Contact;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PersonType\Person')]
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public Person|Optional $Person;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $Person;
 	public AgentParty|Optional $AgentParty;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ServiceProviderPartyType\ServiceProviderParty')]
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public ServiceProviderParty|Optional $ServiceProviderParty;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $ServiceProviderParty;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PowerOfAttorneyType\PowerOfAttorney')]
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public PowerOfAttorney|Optional $PowerOfAttorney;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $PowerOfAttorney;
 	public FinancialAccount|Optional $FinancialAccount;
 }

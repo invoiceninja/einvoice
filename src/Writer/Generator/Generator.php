@@ -18,16 +18,17 @@ use Nette\PhpGenerator\Property;
 use Spatie\LaravelData\Optional;
 use Nette\PhpGenerator\ClassType;
 use Illuminate\Support\Collection;
-use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Nette\PhpGenerator\PhpNamespace;
+use Spatie\LaravelData\DataCollection;
+use Spatie\LaravelData\Attributes\WithCast;
+use Spatie\LaravelData\Contracts\DataObject;
 use Spatie\LaravelData\Attributes\Validation\In;
 use Spatie\LaravelData\Attributes\WithTransformer;
-use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
-use Spatie\LaravelData\Contracts\DataObject;
-use Spatie\LaravelData\DataCollection;
+use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 
 class Generator
 {
@@ -112,6 +113,8 @@ class Generator
         $namespace = new PhpNamespace($this->namespace.$this->standard);
         $namespace->addUse(Data::class);
         $namespace->addUse(Carbon::class);
+        $namespace->addUse(WithCast::class);
+        $namespace->addUse(DataCollectionTransformer::class);
 
         $class = new ClassType($name);
         $class->setExtends(Data::class);
@@ -135,16 +138,16 @@ class Generator
                 $base_type = Carbon::class;
             }
 
-            if($element['min_occurs'] == 0){
-                $namespace->addUse(Optional::class);
-                $type = Type::union($base_type, Optional::class);
-
-            }
-            elseif($element['max_occurs'] > 1 || $element['max_occurs'] == -1) {    
+            if($element['max_occurs'] > 1 || $element['max_occurs'] == -1) {    
                 // $type = "?{$base_type}";
                 $namespace->addUse(DataCollection::class);
                 $type = DataCollection::class;
             } 
+            elseif($element['min_occurs'] == 0){
+                $namespace->addUse(Optional::class);
+                $type = Type::union($base_type, Optional::class);
+
+            }
             else {
                 $type = "{$base_type}";
             }
@@ -162,7 +165,7 @@ class Generator
                 $namespace->addUse(DataCollectionOf::class);
                 $namespace->addUse(DataCollectionTransformer::class);
                 $property->addAttribute(DataCollectionOf::class, [$base_type]);
-                $property->addAttribute(WithTransformer::class, [DataCollectionTransformer::class]);
+                $property->addAttribute(WithCast::class, [DataCollectionTransformer::class]);
 
             }
 

@@ -3,10 +3,12 @@
 namespace Invoiceninja\Einvoice\Models\FatturaPA\DatiDocumentiCorrelatiType;
 
 use Carbon\Carbon;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Attributes\Validation\Regex;
 use Spatie\LaravelData\Attributes\Validation\Required;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -14,7 +16,7 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class DatiRicezione extends Data
 {
-	public int|Optional $RiferimentoNumeroLinea;
+	public \Spatie\LaravelData\DataCollection $RiferimentoNumeroLinea;
 
 	#[Required]
 	#[Max(20)]

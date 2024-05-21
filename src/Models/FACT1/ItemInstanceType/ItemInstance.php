@@ -7,6 +7,7 @@ use Invoiceninja\Einvoice\Models\FACT1\ItemPropertyType\AdditionalItemProperty;
 use Invoiceninja\Einvoice\Models\FACT1\LotIdentificationType\LotIdentification;
 use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
@@ -29,7 +30,7 @@ class ItemInstance extends Data
 	public string|Optional $SerialID;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ItemPropertyType\AdditionalItemProperty')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public AdditionalItemProperty|Optional $AdditionalItemProperty;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $AdditionalItemProperty;
 	public LotIdentification|Optional $LotIdentification;
 }

@@ -11,6 +11,7 @@ use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Max;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
@@ -43,6 +44,6 @@ class PartyLegalEntity extends Data
 	public HeadOfficeParty|Optional $HeadOfficeParty;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ShareholderPartyType\ShareholderParty')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public ShareholderParty|Optional $ShareholderParty;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $ShareholderParty;
 }

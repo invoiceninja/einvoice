@@ -9,7 +9,9 @@ use Invoiceninja\Einvoice\Models\FACT1\ContactType\DeliveryContact;
 use Invoiceninja\Einvoice\Models\FACT1\PartyType\Party;
 use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
 use Spatie\LaravelData\Optional;
 
 class CustomerParty extends Data
@@ -18,8 +20,8 @@ class CustomerParty extends Data
 	public string|Optional $SupplierAssignedAccountID;
 
 	#[DataCollectionOf('string')]
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public string|Optional $AdditionalAccountID;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $AdditionalAccountID;
 	public Party|Optional $Party;
 	public DeliveryContact|Optional $DeliveryContact;
 	public AccountingContact|Optional $AccountingContact;

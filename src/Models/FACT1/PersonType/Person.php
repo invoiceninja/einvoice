@@ -9,6 +9,7 @@ use Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\IdentityDocumentRef
 use Invoiceninja\Einvoice\Models\FACT1\FinancialAccountType\FinancialAccount;
 use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
@@ -36,7 +37,7 @@ class Person extends Data
 	public FinancialAccount|Optional $FinancialAccount;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\IdentityDocumentReference')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public IdentityDocumentReference|Optional $IdentityDocumentReference;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $IdentityDocumentReference;
 	public ResidenceAddress|Optional $ResidenceAddress;
 }

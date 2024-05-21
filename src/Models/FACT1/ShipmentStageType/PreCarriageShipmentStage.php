@@ -51,6 +51,7 @@ use Invoiceninja\Einvoice\Models\FACT1\TransportMeansType\TransportMeans;
 use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
@@ -81,12 +82,12 @@ class PreCarriageShipmentStage extends Data
 	public string|Optional $SuccessiveSequenceID;
 
 	#[DataCollectionOf('string')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public string|Optional $Instructions;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $Instructions;
 
 	#[DataCollectionOf('string')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public string|Optional $DemurrageInstructions;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $DemurrageInstructions;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $CrewQuantity;
@@ -96,8 +97,8 @@ class PreCarriageShipmentStage extends Data
 	public TransitPeriod|Optional $TransitPeriod;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PartyType\CarrierParty')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public CarrierParty|Optional $CarrierParty;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $CarrierParty;
 	public TransportMeans|Optional $TransportMeans;
 	public LoadingPortLocation|Optional $LoadingPortLocation;
 	public UnloadingPortLocation|Optional $UnloadingPortLocation;
@@ -121,47 +122,47 @@ class PreCarriageShipmentStage extends Data
 	public EstimatedTransitPeriod|Optional $EstimatedTransitPeriod;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\FreightAllowanceCharge')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public FreightAllowanceCharge|Optional $FreightAllowanceCharge;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $FreightAllowanceCharge;
 	public FreightChargeLocation|Optional $FreightChargeLocation;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\DetentionTransportEvent')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public DetentionTransportEvent|Optional $DetentionTransportEvent;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $DetentionTransportEvent;
 	public RequestedDepartureTransportEvent|Optional $RequestedDepartureTransportEvent;
 	public RequestedArrivalTransportEvent|Optional $RequestedArrivalTransportEvent;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\RequestedWaypointTransportEvent')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public RequestedWaypointTransportEvent|Optional $RequestedWaypointTransportEvent;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $RequestedWaypointTransportEvent;
 	public PlannedDepartureTransportEvent|Optional $PlannedDepartureTransportEvent;
 	public PlannedArrivalTransportEvent|Optional $PlannedArrivalTransportEvent;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\PlannedWaypointTransportEvent')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public PlannedWaypointTransportEvent|Optional $PlannedWaypointTransportEvent;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $PlannedWaypointTransportEvent;
 	public ActualDepartureTransportEvent|Optional $ActualDepartureTransportEvent;
 	public ActualWaypointTransportEvent|Optional $ActualWaypointTransportEvent;
 	public ActualArrivalTransportEvent|Optional $ActualArrivalTransportEvent;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\TransportEvent')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public TransportEvent|Optional $TransportEvent;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $TransportEvent;
 	public EstimatedDepartureTransportEvent|Optional $EstimatedDepartureTransportEvent;
 	public EstimatedArrivalTransportEvent|Optional $EstimatedArrivalTransportEvent;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PersonType\PassengerPerson')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public PassengerPerson|Optional $PassengerPerson;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $PassengerPerson;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PersonType\DriverPerson')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public DriverPerson|Optional $DriverPerson;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $DriverPerson;
 	public ReportingPerson|Optional $ReportingPerson;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PersonType\CrewMemberPerson')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public CrewMemberPerson|Optional $CrewMemberPerson;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $CrewMemberPerson;
 	public SecurityOfficerPerson|Optional $SecurityOfficerPerson;
 	public MasterPerson|Optional $MasterPerson;
 	public ShipsSurgeonPerson|Optional $ShipsSurgeonPerson;

@@ -7,7 +7,9 @@ use Invoiceninja\Einvoice\Models\FACT1\TaxSchemeType\TaxScheme;
 use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
 use Spatie\LaravelData\Optional;
 
 class TaxCategory extends Data
@@ -24,8 +26,8 @@ class TaxCategory extends Data
 	public string|Optional $TaxExemptionReasonCode;
 
 	#[DataCollectionOf('string')]
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public string|Optional $TaxExemptionReason;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $TaxExemptionReason;
 	public string|Optional $TierRange;
 	public string|Optional $TierRatePercent;
 

@@ -5,6 +5,8 @@ namespace Invoiceninja\Einvoice\Models\FACT1\EmissionCalculationMethodType;
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\LocationType\MeasurementFromLocation;
 use Invoiceninja\Einvoice\Models\FACT1\LocationType\MeasurementToLocation;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 

@@ -10,8 +10,10 @@ use Invoiceninja\Einvoice\Models\FACT1\ResultOfVerificationType\ResultOfVerifica
 use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
 use Spatie\LaravelData\Optional;
 use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
@@ -31,16 +33,16 @@ class DocumentReference extends Data
 	public string|Optional $DocumentType;
 
 	#[DataCollectionOf('string')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public string|Optional $XPath;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $XPath;
 	public string|Optional $LanguageID;
 	public string|Optional $LocaleCode;
 	public string|Optional $VersionID;
 	public string|Optional $DocumentStatusCode;
 
 	#[DataCollectionOf('string')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public string|Optional $DocumentDescription;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $DocumentDescription;
 	public Attachment|Optional $Attachment;
 	public ValidityPeriod|Optional $ValidityPeriod;
 	public IssuerParty|Optional $IssuerParty;

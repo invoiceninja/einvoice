@@ -7,7 +7,9 @@ use Invoiceninja\Einvoice\Models\FACT1\BranchType\FinancialInstitutionBranch;
 use Invoiceninja\Einvoice\Models\FACT1\CountryType\Country;
 use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
 use Spatie\LaravelData\Optional;
 
 class FinancialAccount extends Data
@@ -20,8 +22,8 @@ class FinancialAccount extends Data
 	public string|Optional $CurrencyCode;
 
 	#[DataCollectionOf('string')]
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public string|Optional $PaymentNote;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $PaymentNote;
 	public FinancialInstitutionBranch|Optional $FinancialInstitutionBranch;
 	public Country|Optional $Country;
 }

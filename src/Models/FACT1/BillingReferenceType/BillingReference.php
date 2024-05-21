@@ -13,6 +13,7 @@ use Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\SelfBilledCreditNot
 use Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\SelfBilledInvoiceDocumentReference;
 use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
 use Spatie\LaravelData\Optional;
@@ -28,6 +29,6 @@ class BillingReference extends Data
 	public AdditionalDocumentReference|Optional $AdditionalDocumentReference;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\BillingReferenceLineType\BillingReferenceLine')]
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public BillingReferenceLine|Optional $BillingReferenceLine;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $BillingReferenceLine;
 }

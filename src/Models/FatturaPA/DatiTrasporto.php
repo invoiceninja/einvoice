@@ -5,6 +5,8 @@ namespace Invoiceninja\Einvoice\Models\FatturaPA;
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FatturaPA\DatiAnagraficiVettoreType\DatiAnagraficiVettore;
 use Invoiceninja\Einvoice\Models\FatturaPA\IndirizzoType\IndirizzoResa;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;

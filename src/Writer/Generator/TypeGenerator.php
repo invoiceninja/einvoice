@@ -21,6 +21,7 @@ use Spatie\LaravelData\Optional;
 use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\PhpNamespace;
 use Spatie\LaravelData\DataCollection;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Contracts\DataObject;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
@@ -68,6 +69,9 @@ class TypeGenerator
         $this->namespace->addUse(Optional::class);
         $this->namespace->addUse(Carbon::class);
 
+        $this->namespace->addUse(DataCollectionTransformer::class);
+        $this->namespace->addUse(WithCast::class);
+
         $this->class->setExtends(Data::class);
 
         $child_type = $this->generator->getChildType($this->type);
@@ -93,13 +97,13 @@ class TypeGenerator
             }
             
 
-            if($element['min_occurs'] == 0){
-                $settable_type = Type::union($base_type, Optional::class);
-            }
-            elseif($element['max_occurs'] > 1 || $element['max_occurs'] == -1) {    
+            if($element['max_occurs'] > 1 || $element['max_occurs'] == -1) {    
                 // $type = "?{$base_type}";
                 $settable_type = DataCollection::class;
             } 
+            elseif($element['min_occurs'] == 0){
+                $settable_type = Type::union($base_type, Optional::class);
+            }
             else {
                 // $settable_type = "?{$base_type}";
                 $settable_type = "{$base_type}";
@@ -118,11 +122,11 @@ class TypeGenerator
             
             if($element['max_occurs'] > 1 || $element['max_occurs'] == -1 && $base_type != 'int') {
                 $this->namespace->addUse(DataCollectionOf::class);                
-                $this->namespace->addUse(DataCollectionTransformer::class);
                 $this->namespace->addUse(DataCollection::class);
                 $property->addAttribute(DataCollectionOf::class, [$base_type]);
-                $property->addAttribute(WithTransformer::class, [DataCollectionTransformer::class]);
 
+                $property->addAttribute(WithCast::class, [DataCollectionTransformer::class]);
+                
             }
 
 

@@ -13,6 +13,7 @@ use Invoiceninja\Einvoice\Models\FACT1\PeriodType\EstimatedDespatchPeriod;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\RequestedDespatchPeriod;
 use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
@@ -49,16 +50,16 @@ class Despatch extends Data
 	public string|Optional $ReleaseID;
 
 	#[DataCollectionOf('string')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public string|Optional $Instructions;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $Instructions;
 	public DespatchAddress|Optional $DespatchAddress;
 	public DespatchLocation|Optional $DespatchLocation;
 	public DespatchParty|Optional $DespatchParty;
 	public CarrierParty|Optional $CarrierParty;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PartyType\NotifyParty')]
-	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public NotifyParty|Optional $NotifyParty;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $NotifyParty;
 	public Contact|Optional $Contact;
 	public EstimatedDespatchPeriod|Optional $EstimatedDespatchPeriod;
 	public RequestedDespatchPeriod|Optional $RequestedDespatchPeriod;

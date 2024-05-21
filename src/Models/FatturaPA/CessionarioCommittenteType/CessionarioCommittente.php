@@ -7,7 +7,9 @@ use Invoiceninja\Einvoice\Models\FatturaPA\DatiAnagraficiCessionarioType\DatiAna
 use Invoiceninja\Einvoice\Models\FatturaPA\IndirizzoType\Sede;
 use Invoiceninja\Einvoice\Models\FatturaPA\IndirizzoType\StabileOrganizzazione;
 use Invoiceninja\Einvoice\Models\FatturaPA\RappresentanteFiscaleCessionarioType\RappresentanteFiscale;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\Validation\Required;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 

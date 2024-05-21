@@ -7,7 +7,9 @@ use Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\RegistryCertificate
 use Invoiceninja\Einvoice\Models\FACT1\LocationType\RegistryPortLocation;
 use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
 use Spatie\LaravelData\Optional;
 
 class MaritimeTransport extends Data
@@ -17,8 +19,8 @@ class MaritimeTransport extends Data
 	public string|Optional $RadioCallSignID;
 
 	#[DataCollectionOf('string')]
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public string|Optional $ShipsRequirements;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $ShipsRequirements;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $GrossTonnageMeasure;

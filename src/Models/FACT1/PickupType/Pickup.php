@@ -5,6 +5,8 @@ namespace Invoiceninja\Einvoice\Models\FACT1\PickupType;
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\LocationType\PickupLocation;
 use Invoiceninja\Einvoice\Models\FACT1\PartyType\PickupParty;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;

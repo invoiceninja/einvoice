@@ -6,7 +6,9 @@ use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\AddressType\JurisdictionRegionAddress;
 use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
 use Spatie\LaravelData\Optional;
 
 class CorporateRegistrationScheme extends Data
@@ -16,6 +18,6 @@ class CorporateRegistrationScheme extends Data
 	public string|Optional $CorporateRegistrationTypeCode;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AddressType\JurisdictionRegionAddress')]
-	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
-	public JurisdictionRegionAddress|Optional $JurisdictionRegionAddress;
+	#[WithCast('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
+	public DataCollection $JurisdictionRegionAddress;
 }

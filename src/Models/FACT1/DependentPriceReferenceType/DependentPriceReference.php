@@ -5,6 +5,8 @@ namespace Invoiceninja\Einvoice\Models\FACT1\DependentPriceReferenceType;
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\AddressType\LocationAddress;
 use Invoiceninja\Einvoice\Models\FACT1\LineReferenceType\DependentLineReference;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 

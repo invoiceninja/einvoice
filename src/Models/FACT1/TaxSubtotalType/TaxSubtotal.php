@@ -4,8 +4,10 @@ namespace Invoiceninja\Einvoice\Models\FACT1\TaxSubtotalType;
 
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\TaxCategoryType\TaxCategory;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\Validation\Required;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;

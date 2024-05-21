@@ -5,10 +5,12 @@ namespace Invoiceninja\Einvoice\Models\FatturaPA\DatiTrasmissioneType;
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FatturaPA\ContattiTrasmittenteType\ContattiTrasmittente;
 use Invoiceninja\Einvoice\Models\FatturaPA\IdFiscaleType\IdTrasmittente;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Attributes\Validation\Regex;
 use Spatie\LaravelData\Attributes\Validation\Required;
+use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 

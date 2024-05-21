@@ -3,6 +3,7 @@
 namespace Invoiceninja\Einvoice\Models\FatturaPA;
 
 use Carbon\Carbon;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
 
 class DatiRitenuta extends Data
@@ -16,6 +17,7 @@ class DatiRitenuta extends Data
 		'RT06' => 'Altro contributo previdenziale',
 	];
 
+	#[Required]
 	#[\Spatie\LaravelData\Attributes\Validation\In(
 		RT01: 'Ritenuta di acconto persone fisiche',
 		RT02: 'Ritenuta di acconto persone giuridiche',
@@ -26,9 +28,11 @@ class DatiRitenuta extends Data
 	)]
 	public ?string $TipoRitenuta;
 
+	#[Required]
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public ?float $ImportoRitenuta;
 
+	#[Required]
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public ?float $AliquotaRitenuta;
 
@@ -64,6 +68,7 @@ class DatiRitenuta extends Data
 		'ZO' => 'ZO',
 	];
 
+	#[Required]
 	#[\Spatie\LaravelData\Attributes\Validation\In(
 		A: 'A',
 		B: 'B',

@@ -11,9 +11,13 @@ use Spatie\LaravelData\Optional;
 class DeliveryTerms extends Data
 {
 	public string|Optional $ID;
-	public string|Optional $SpecialTerms;
+
+	/** @param array<SpecialTerms> $SpecialTerms */
+	public array|Optional $SpecialTerms;
 	public string|Optional $LossRiskResponsibilityCode;
-	public string|Optional $LossRisk;
+
+	/** @param array<LossRisk> $LossRisk */
+	public array|Optional $LossRisk;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $Amount;

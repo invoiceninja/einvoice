@@ -3,6 +3,7 @@
 namespace Invoiceninja\Einvoice\Models\FACT1;
 
 use Carbon\Carbon;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
@@ -29,6 +30,7 @@ class MonetaryTotal extends Data
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $PayableRoundingAmount;
 
+	#[Required]
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public ?float $PayableAmount;
 

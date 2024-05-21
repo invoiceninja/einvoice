@@ -9,5 +9,7 @@ use Spatie\LaravelData\Optional;
 class Clause extends Data
 {
 	public string|Optional $ID;
-	public string|Optional $Content;
+
+	/** @param array<Content> $Content */
+	public array|Optional $Content;
 }

@@ -14,6 +14,10 @@ class Contact extends Data
 	public string|Optional $Telephone;
 	public string|Optional $Telefax;
 	public string|Optional $ElectronicMail;
-	public string|Optional $Note;
-	public OtherCommunication|Optional $OtherCommunication;
+
+	/** @param array<Note> $Note */
+	public array|Optional $Note;
+
+	/** @param array<OtherCommunication> $OtherCommunication */
+	public array|Optional $OtherCommunication;
 }

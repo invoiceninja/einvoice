@@ -5,6 +5,7 @@ namespace Invoiceninja\Einvoice\Models\FatturaPA;
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FatturaPA\AnagraficaType\Anagrafica;
 use Invoiceninja\Einvoice\Models\FatturaPA\IdFiscaleType\IdFiscaleIVA;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -12,8 +13,11 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class DatiAnagraficiCedente extends Data
 {
+	#[Required]
 	public ?IdFiscaleIVA $IdFiscaleIVA;
 	public string|Optional $CodiceFiscale;
+
+	#[Required]
 	public ?Anagrafica $Anagrafica;
 	public string|Optional $AlboProfessionale;
 	public string|Optional $ProvinciaAlbo;
@@ -43,6 +47,7 @@ class DatiAnagraficiCedente extends Data
 		'RF18' => 'Altro',
 	];
 
+	#[Required]
 	#[\Spatie\LaravelData\Attributes\Validation\In(
 		RF01: ' Regime ordinario',
 		RF02: 'Regime dei contribuenti minimi (art. 1,c.96-117, L. 244/2007)',

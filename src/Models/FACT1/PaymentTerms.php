@@ -15,9 +15,13 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 class PaymentTerms extends Data
 {
 	public string|Optional $ID;
-	public string|Optional $PaymentMeansID;
+
+	/** @param array<PaymentMeansID> $PaymentMeansID */
+	public array|Optional $PaymentMeansID;
 	public string|Optional $PrepaidPaymentReferenceID;
-	public string|Optional $Note;
+
+	/** @param array<Note> $Note */
+	public array|Optional $Note;
 	public string|Optional $ReferenceEventCode;
 	public string|Optional $SettlementDiscountPercent;
 	public string|Optional $PenaltySurchargePercent;

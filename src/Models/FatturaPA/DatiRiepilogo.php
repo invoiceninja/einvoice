@@ -3,11 +3,13 @@
 namespace Invoiceninja\Einvoice\Models\FatturaPA;
 
 use Carbon\Carbon;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
 class DatiRiepilogo extends Data
 {
+	#[Required]
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public ?float $AliquotaIVA;
 
@@ -72,9 +74,11 @@ class DatiRiepilogo extends Data
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $Arrotondamento;
 
+	#[Required]
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public ?float $ImponibileImporto;
 
+	#[Required]
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public ?float $Imposta;
 

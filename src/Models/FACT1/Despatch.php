@@ -44,12 +44,16 @@ class Despatch extends Data
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
 	public Carbon|Optional $GuaranteedDespatchTime;
 	public string|Optional $ReleaseID;
-	public string|Optional $Instructions;
+
+	/** @param array<Instructions> $Instructions */
+	public array|Optional $Instructions;
 	public DespatchAddress|Optional $DespatchAddress;
 	public DespatchLocation|Optional $DespatchLocation;
 	public DespatchParty|Optional $DespatchParty;
 	public CarrierParty|Optional $CarrierParty;
-	public NotifyParty|Optional $NotifyParty;
+
+	/** @param array<NotifyParty> $NotifyParty */
+	public array|Optional $NotifyParty;
 	public Contact|Optional $Contact;
 	public EstimatedDespatchPeriod|Optional $EstimatedDespatchPeriod;
 	public RequestedDespatchPeriod|Optional $RequestedDespatchPeriod;

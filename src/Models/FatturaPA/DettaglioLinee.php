@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FatturaPA\AltriDatiGestionaliType\AltriDatiGestionali;
 use Invoiceninja\Einvoice\Models\FatturaPA\CodiceArticoloType\CodiceArticolo;
 use Invoiceninja\Einvoice\Models\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -13,6 +14,7 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class DettaglioLinee extends Data
 {
+	#[Required]
 	public ?int $NumeroLinea;
 
 	private array $TipoCessionePrestazione_array = [
@@ -24,7 +26,11 @@ class DettaglioLinee extends Data
 
 	#[\Spatie\LaravelData\Attributes\Validation\In(SC: 'Sconto', PR: 'Premio', AB: 'Abbuono', AC: 'Spesa accessoria')]
 	public string|Optional $TipoCessionePrestazione;
-	public CodiceArticolo|Optional $CodiceArticolo;
+
+	/** @param array<CodiceArticolo> $CodiceArticolo */
+	public array|Optional $CodiceArticolo;
+
+	#[Required]
 	public ?string $Descrizione;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -37,13 +43,18 @@ class DettaglioLinee extends Data
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $DataFinePeriodo;
 
+	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public ?float $PrezzoUnitario;
-	public ScontoMaggiorazione|Optional $ScontoMaggiorazione;
 
+	/** @param array<ScontoMaggiorazione> $ScontoMaggiorazione */
+	public array|Optional $ScontoMaggiorazione;
+
+	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public ?float $PrezzoTotale;
 
+	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public ?float $AliquotaIVA;
 	private array $Ritenuta_array = ['SI' => 'SI = Cessione / Prestazione soggetta a ritenuta'];
@@ -106,5 +117,7 @@ class DettaglioLinee extends Data
 	)]
 	public string|Optional $Natura;
 	public string|Optional $RiferimentoAmministrazione;
-	public AltriDatiGestionali|Optional $AltriDatiGestionali;
+
+	/** @param array<AltriDatiGestionali> $AltriDatiGestionali */
+	public array|Optional $AltriDatiGestionali;
 }

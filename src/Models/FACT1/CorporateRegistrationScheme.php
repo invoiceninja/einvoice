@@ -12,5 +12,7 @@ class CorporateRegistrationScheme extends Data
 	public string|Optional $ID;
 	public string|Optional $Name;
 	public string|Optional $CorporateRegistrationTypeCode;
-	public JurisdictionRegionAddress|Optional $JurisdictionRegionAddress;
+
+	/** @param array<JurisdictionRegionAddress> $JurisdictionRegionAddress */
+	public array|Optional $JurisdictionRegionAddress;
 }

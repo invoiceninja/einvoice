@@ -17,7 +17,9 @@ class HazardousItem extends Data
 	public string|Optional $ID;
 	public string|Optional $PlacardNotation;
 	public string|Optional $PlacardEndorsement;
-	public string|Optional $AdditionalInformation;
+
+	/** @param array<AdditionalInformation> $AdditionalInformation */
+	public array|Optional $AdditionalInformation;
 	public string|Optional $UNDGCode;
 	public string|Optional $EmergencyProceduresCode;
 	public string|Optional $MedicalFirstAidGuideCode;
@@ -38,9 +40,15 @@ class HazardousItem extends Data
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $Quantity;
 	public ContactParty|Optional $ContactParty;
-	public SecondaryHazard|Optional $SecondaryHazard;
-	public HazardousGoodsTransit|Optional $HazardousGoodsTransit;
+
+	/** @param array<SecondaryHazard> $SecondaryHazard */
+	public array|Optional $SecondaryHazard;
+
+	/** @param array<HazardousGoodsTransit> $HazardousGoodsTransit */
+	public array|Optional $HazardousGoodsTransit;
 	public EmergencyTemperature|Optional $EmergencyTemperature;
 	public FlashpointTemperature|Optional $FlashpointTemperature;
-	public AdditionalTemperature|Optional $AdditionalTemperature;
+
+	/** @param array<AdditionalTemperature> $AdditionalTemperature */
+	public array|Optional $AdditionalTemperature;
 }

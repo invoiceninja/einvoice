@@ -8,12 +8,16 @@ use Invoiceninja\Einvoice\Models\FatturaPA\DatiAnagraficiCedenteType\DatiAnagraf
 use Invoiceninja\Einvoice\Models\FatturaPA\IndirizzoType\Sede;
 use Invoiceninja\Einvoice\Models\FatturaPA\IndirizzoType\StabileOrganizzazione;
 use Invoiceninja\Einvoice\Models\FatturaPA\IscrizioneREAType\IscrizioneREA;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
 class CedentePrestatore extends Data
 {
+	#[Required]
 	public ?DatiAnagrafici $DatiAnagrafici;
+
+	#[Required]
 	public ?Sede $Sede;
 	public StabileOrganizzazione|Optional $StabileOrganizzazione;
 	public IscrizioneREA|Optional $IscrizioneREA;

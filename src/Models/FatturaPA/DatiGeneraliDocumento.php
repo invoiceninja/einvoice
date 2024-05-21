@@ -7,6 +7,7 @@ use Invoiceninja\Einvoice\Models\FatturaPA\DatiBolloType\DatiBollo;
 use Invoiceninja\Einvoice\Models\FatturaPA\DatiCassaPrevidenzialeType\DatiCassaPrevidenziale;
 use Invoiceninja\Einvoice\Models\FatturaPA\DatiRitenutaType\DatiRitenuta;
 use Invoiceninja\Einvoice\Models\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -36,6 +37,7 @@ class DatiGeneraliDocumento extends Data
 		'TD28' => 'Acquisti da San Marino con IVA (fattura cartacea)',
 	];
 
+	#[Required]
 	#[\Spatie\LaravelData\Attributes\Validation\In(
 		TD01: 'Fattura',
 		TD02: 'Acconto / anticipo su fattura',
@@ -58,22 +60,35 @@ class DatiGeneraliDocumento extends Data
 		TD28: 'Acquisti da San Marino con IVA (fattura cartacea)',
 	)]
 	public ?string $TipoDocumento;
+
+	#[Required]
 	public ?string $Divisa;
 
+	#[Required]
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public ?Carbon $Data;
+
+	#[Required]
 	public ?string $Numero;
-	public DatiRitenuta|Optional $DatiRitenuta;
+
+	/** @param array<DatiRitenuta> $DatiRitenuta */
+	public array|Optional $DatiRitenuta;
 	public DatiBollo|Optional $DatiBollo;
-	public DatiCassaPrevidenziale|Optional $DatiCassaPrevidenziale;
-	public ScontoMaggiorazione|Optional $ScontoMaggiorazione;
+
+	/** @param array<DatiCassaPrevidenziale> $DatiCassaPrevidenziale */
+	public array|Optional $DatiCassaPrevidenziale;
+
+	/** @param array<ScontoMaggiorazione> $ScontoMaggiorazione */
+	public array|Optional $ScontoMaggiorazione;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ImportoTotaleDocumento;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $Arrotondamento;
-	public string|Optional $Causale;
+
+	/** @param array<Causale> $Causale */
+	public array|Optional $Causale;
 
 	private array $Art73_array = [
 		'SI' => 'SI = Documento emesso secondo modalità e termini stabiliti con DM ai sensi dell\'art. 73 DPR 633/72',

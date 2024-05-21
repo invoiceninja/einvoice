@@ -3,6 +3,7 @@
 namespace Invoiceninja\Einvoice\Models\FatturaPA;
 
 use Carbon\Carbon;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -38,6 +39,7 @@ class DettaglioPagamento extends Data
 		'MP23' => 'PagoPA',
 	];
 
+	#[Required]
 	#[\Spatie\LaravelData\Attributes\Validation\In(
 		MP01: 'contanti',
 		MP02: 'assegno',
@@ -72,6 +74,7 @@ class DettaglioPagamento extends Data
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $DataScadenzaPagamento;
 
+	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public ?float $ImportoPagamento;
 	public string|Optional $CodUfficioPostale;

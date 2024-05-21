@@ -24,6 +24,8 @@ class ItemInstance extends Data
 	public Carbon|Optional $BestBeforeDate;
 	public string|Optional $RegistrationID;
 	public string|Optional $SerialID;
-	public AdditionalItemProperty|Optional $AdditionalItemProperty;
+
+	/** @param array<AdditionalItemProperty> $AdditionalItemProperty */
+	public array|Optional $AdditionalItemProperty;
 	public LotIdentification|Optional $LotIdentification;
 }

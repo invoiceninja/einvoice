@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\AddressLineType\AddressLine;
 use Invoiceninja\Einvoice\Models\FACT1\CountryType\Country;
 use Invoiceninja\Einvoice\Models\FACT1\LocationCoordinateType\LocationCoordinate;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
@@ -17,6 +18,8 @@ class Address extends Data
 	public string|Optional $Postbox;
 	public string|Optional $Floor;
 	public string|Optional $Room;
+
+	#[Required]
 	public ?string $StreetName;
 	public string|Optional $AdditionalStreetName;
 	public string|Optional $BlockName;
@@ -28,6 +31,8 @@ class Address extends Data
 	public string|Optional $MarkCare;
 	public string|Optional $PlotIdentification;
 	public string|Optional $CitySubdivisionName;
+
+	#[Required]
 	public ?string $CityName;
 	public string|Optional $PostalZone;
 
@@ -76,6 +81,7 @@ class Address extends Data
 		'RO-VS',
 	];
 
+	#[Required]
 	#[\Spatie\LaravelData\Attributes\Validation\In(
 		'RO-AB',
 		'RO-AG',
@@ -125,7 +131,11 @@ class Address extends Data
 	public string|Optional $Region;
 	public string|Optional $District;
 	public string|Optional $TimezoneOffset;
-	public AddressLine|Optional $AddressLine;
+
+	/** @param array<AddressLine> $AddressLine */
+	public array|Optional $AddressLine;
 	public Country|Optional $Country;
-	public LocationCoordinate|Optional $LocationCoordinate;
+
+	/** @param array<LocationCoordinate> $LocationCoordinate */
+	public array|Optional $LocationCoordinate;
 }

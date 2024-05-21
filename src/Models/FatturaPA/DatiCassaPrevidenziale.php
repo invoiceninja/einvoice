@@ -3,6 +3,7 @@
 namespace Invoiceninja\Einvoice\Models\FatturaPA;
 
 use Carbon\Carbon;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
@@ -33,6 +34,7 @@ class DatiCassaPrevidenziale extends Data
 		'TC22' => 'INPS',
 	];
 
+	#[Required]
 	#[\Spatie\LaravelData\Attributes\Validation\In(
 		TC01: 'Cassa nazionale previdenza e assistenza avvocati e procuratori legali',
 		TC02: 'Cassa previdenza dottori commercialisti',
@@ -59,15 +61,18 @@ class DatiCassaPrevidenziale extends Data
 	)]
 	public ?string $TipoCassa;
 
+	#[Required]
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public ?float $AlCassa;
 
+	#[Required]
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public ?float $ImportoContributoCassa;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ImponibileCassa;
 
+	#[Required]
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public ?float $AliquotaIVA;
 	private array $Ritenuta_array = ['SI' => 'SI = Cessione / Prestazione soggetta a ritenuta'];

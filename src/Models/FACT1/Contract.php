@@ -29,11 +29,17 @@ class Contract extends Data
 	public Carbon|Optional $NominationTime;
 	public string|Optional $ContractTypeCode;
 	public string|Optional $ContractType;
-	public string|Optional $Note;
+
+	/** @param array<Note> $Note */
+	public array|Optional $Note;
 	public string|Optional $VersionID;
-	public string|Optional $Description;
+
+	/** @param array<Description> $Description */
+	public array|Optional $Description;
 	public ValidityPeriod|Optional $ValidityPeriod;
-	public ContractDocumentReference|Optional $ContractDocumentReference;
+
+	/** @param array<ContractDocumentReference> $ContractDocumentReference */
+	public array|Optional $ContractDocumentReference;
 	public NominationPeriod|Optional $NominationPeriod;
 	public ContractualDelivery|Optional $ContractualDelivery;
 }

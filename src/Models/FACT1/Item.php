@@ -28,7 +28,8 @@ use Spatie\LaravelData\Optional;
 
 class Item extends Data
 {
-	public string|Optional $Description;
+	/** @param array<Description> $Description */
+	public array|Optional $Description;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $PackQuantity;
@@ -36,28 +37,62 @@ class Item extends Data
 	public bool|Optional $CatalogueIndicator;
 	public string|Optional $Name;
 	public bool|Optional $HazardousRiskIndicator;
-	public string|Optional $AdditionalInformation;
-	public string|Optional $Keyword;
-	public string|Optional $BrandName;
-	public string|Optional $ModelName;
+
+	/** @param array<AdditionalInformation> $AdditionalInformation */
+	public array|Optional $AdditionalInformation;
+
+	/** @param array<Keyword> $Keyword */
+	public array|Optional $Keyword;
+
+	/** @param array<BrandName> $BrandName */
+	public array|Optional $BrandName;
+
+	/** @param array<ModelName> $ModelName */
+	public array|Optional $ModelName;
 	public BuyersItemIdentification|Optional $BuyersItemIdentification;
 	public SellersItemIdentification|Optional $SellersItemIdentification;
-	public ManufacturersItemIdentification|Optional $ManufacturersItemIdentification;
+
+	/** @param array<ManufacturersItemIdentification> $ManufacturersItemIdentification */
+	public array|Optional $ManufacturersItemIdentification;
 	public StandardItemIdentification|Optional $StandardItemIdentification;
 	public CatalogueItemIdentification|Optional $CatalogueItemIdentification;
-	public AdditionalItemIdentification|Optional $AdditionalItemIdentification;
+
+	/** @param array<AdditionalItemIdentification> $AdditionalItemIdentification */
+	public array|Optional $AdditionalItemIdentification;
 	public CatalogueDocumentReference|Optional $CatalogueDocumentReference;
-	public ItemSpecificationDocumentReference|Optional $ItemSpecificationDocumentReference;
+
+	/** @param array<ItemSpecificationDocumentReference> $ItemSpecificationDocumentReference */
+	public array|Optional $ItemSpecificationDocumentReference;
 	public OriginCountry|Optional $OriginCountry;
-	public CommodityClassification|Optional $CommodityClassification;
-	public TransactionConditions|Optional $TransactionConditions;
-	public HazardousItem|Optional $HazardousItem;
-	public ClassifiedTaxCategory|Optional $ClassifiedTaxCategory;
-	public AdditionalItemProperty|Optional $AdditionalItemProperty;
-	public ManufacturerParty|Optional $ManufacturerParty;
+
+	/** @param array<CommodityClassification> $CommodityClassification */
+	public array|Optional $CommodityClassification;
+
+	/** @param array<TransactionConditions> $TransactionConditions */
+	public array|Optional $TransactionConditions;
+
+	/** @param array<HazardousItem> $HazardousItem */
+	public array|Optional $HazardousItem;
+
+	/** @param array<ClassifiedTaxCategory> $ClassifiedTaxCategory */
+	public array|Optional $ClassifiedTaxCategory;
+
+	/** @param array<AdditionalItemProperty> $AdditionalItemProperty */
+	public array|Optional $AdditionalItemProperty;
+
+	/** @param array<ManufacturerParty> $ManufacturerParty */
+	public array|Optional $ManufacturerParty;
 	public InformationContentProviderParty|Optional $InformationContentProviderParty;
-	public OriginAddress|Optional $OriginAddress;
-	public ItemInstance|Optional $ItemInstance;
-	public Certificate|Optional $Certificate;
-	public Dimension|Optional $Dimension;
+
+	/** @param array<OriginAddress> $OriginAddress */
+	public array|Optional $OriginAddress;
+
+	/** @param array<ItemInstance> $ItemInstance */
+	public array|Optional $ItemInstance;
+
+	/** @param array<Certificate> $Certificate */
+	public array|Optional $Certificate;
+
+	/** @param array<Dimension> $Dimension */
+	public array|Optional $Dimension;
 }

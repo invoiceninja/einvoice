@@ -7,6 +7,7 @@ use Invoiceninja\Einvoice\Models\FACT1\AttachmentType\Attachment;
 use Invoiceninja\Einvoice\Models\FACT1\PartyType\IssuerParty;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\ValidityPeriod;
 use Invoiceninja\Einvoice\Models\FACT1\ResultOfVerificationType\ResultOfVerification;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -14,6 +15,7 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class DocumentReference extends Data
 {
+	#[Required]
 	public ?string $ID;
 	public bool|Optional $CopyIndicator;
 	public string|Optional $UUID;
@@ -25,12 +27,16 @@ class DocumentReference extends Data
 	public Carbon|Optional $IssueTime;
 	public string|Optional $DocumentTypeCode;
 	public string|Optional $DocumentType;
-	public string|Optional $XPath;
+
+	/** @param array<XPath> $XPath */
+	public array|Optional $XPath;
 	public string|Optional $LanguageID;
 	public string|Optional $LocaleCode;
 	public string|Optional $VersionID;
 	public string|Optional $DocumentStatusCode;
-	public string|Optional $DocumentDescription;
+
+	/** @param array<DocumentDescription> $DocumentDescription */
+	public array|Optional $DocumentDescription;
 	public Attachment|Optional $Attachment;
 	public ValidityPeriod|Optional $ValidityPeriod;
 	public IssuerParty|Optional $IssuerParty;

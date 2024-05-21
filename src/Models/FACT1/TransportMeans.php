@@ -17,7 +17,9 @@ class TransportMeans extends Data
 {
 	public string|Optional $JourneyID;
 	public string|Optional $RegistrationNationalityID;
-	public string|Optional $RegistrationNationality;
+
+	/** @param array<RegistrationNationality> $RegistrationNationality */
+	public array|Optional $RegistrationNationality;
 	public string|Optional $DirectionCode;
 	public string|Optional $TransportMeansTypeCode;
 	public string|Optional $TradeServiceCode;
@@ -27,5 +29,7 @@ class TransportMeans extends Data
 	public RailTransport|Optional $RailTransport;
 	public MaritimeTransport|Optional $MaritimeTransport;
 	public OwnerParty|Optional $OwnerParty;
-	public MeasurementDimension|Optional $MeasurementDimension;
+
+	/** @param array<MeasurementDimension> $MeasurementDimension */
+	public array|Optional $MeasurementDimension;
 }

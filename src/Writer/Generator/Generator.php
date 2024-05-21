@@ -22,6 +22,7 @@ use Nette\PhpGenerator\PhpNamespace;
 use Spatie\LaravelData\Attributes\Validation\In;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class Generator
@@ -130,6 +131,9 @@ class Generator
                 $base_type = Carbon::class;
             }
 
+            if($element['max_occurs'] > 1 || $element['max_occurs'] == -1)
+                $base_type = 'array';
+
             if($element['min_occurs'] == 0){
                 $namespace->addUse(Optional::class);
                 $type = Type::union($base_type, Optional::class);
@@ -142,6 +146,18 @@ class Generator
             $property = (new Property($element['name']))
                             ->setPublic() 
                             ->setType($type);
+
+            if($element['min_occurs'] >= 1){
+                $namespace->addUse(Required::class);
+                $property->addAttribute(Required::class);
+            }
+
+            if(stripos($base_type, 'array') !== false){
+                /**
+                * @param array<int, SongData> $songs
+                */
+                $property->addComment("@param array<".$element['name']."> $".$element['name']);
+            }
 
             if($base_type == 'float'){
                 $property->addAttribute(WithTransformer::class, [FloatTransformer::class]);

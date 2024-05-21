@@ -34,6 +34,7 @@ use Invoiceninja\Einvoice\Models\FACT1\SupplierPartyType\AccountingSupplierParty
 use Invoiceninja\Einvoice\Models\FACT1\SupplierPartyType\SellerSupplierParty;
 use Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\TaxTotal;
 use Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\WithholdingTaxTotal;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -45,10 +46,13 @@ class Invoice extends Data
 	public string|Optional $CustomizationID;
 	public string|Optional $ProfileID;
 	public string|Optional $ProfileExecutionID;
+
+	#[Required]
 	public ?string $ID;
 	public bool|Optional $CopyIndicator;
 	public string|Optional $UUID;
 
+	#[Required]
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public ?Carbon $IssueDate;
 
@@ -61,7 +65,9 @@ class Invoice extends Data
 
 	#[\Spatie\LaravelData\Attributes\Validation\In('380', '384', '389', '751')]
 	public string|Optional $InvoiceTypeCode;
-	public string|Optional $Note;
+
+	/** @param array<Note> $Note */
+	public array|Optional $Note;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $TaxPointDate;
@@ -74,35 +80,78 @@ class Invoice extends Data
 	public string|Optional $AccountingCost;
 	public string|Optional $LineCountNumeric;
 	public string|Optional $BuyerReference;
-	public InvoicePeriod|Optional $InvoicePeriod;
+
+	/** @param array<InvoicePeriod> $InvoicePeriod */
+	public array|Optional $InvoicePeriod;
 	public OrderReference|Optional $OrderReference;
-	public BillingReference|Optional $BillingReference;
-	public DespatchDocumentReference|Optional $DespatchDocumentReference;
-	public ReceiptDocumentReference|Optional $ReceiptDocumentReference;
-	public StatementDocumentReference|Optional $StatementDocumentReference;
-	public OriginatorDocumentReference|Optional $OriginatorDocumentReference;
-	public ContractDocumentReference|Optional $ContractDocumentReference;
-	public AdditionalDocumentReference|Optional $AdditionalDocumentReference;
-	public ProjectReference|Optional $ProjectReference;
-	public Signature|Optional $Signature;
+
+	/** @param array<BillingReference> $BillingReference */
+	public array|Optional $BillingReference;
+
+	/** @param array<DespatchDocumentReference> $DespatchDocumentReference */
+	public array|Optional $DespatchDocumentReference;
+
+	/** @param array<ReceiptDocumentReference> $ReceiptDocumentReference */
+	public array|Optional $ReceiptDocumentReference;
+
+	/** @param array<StatementDocumentReference> $StatementDocumentReference */
+	public array|Optional $StatementDocumentReference;
+
+	/** @param array<OriginatorDocumentReference> $OriginatorDocumentReference */
+	public array|Optional $OriginatorDocumentReference;
+
+	/** @param array<ContractDocumentReference> $ContractDocumentReference */
+	public array|Optional $ContractDocumentReference;
+
+	/** @param array<AdditionalDocumentReference> $AdditionalDocumentReference */
+	public array|Optional $AdditionalDocumentReference;
+
+	/** @param array<ProjectReference> $ProjectReference */
+	public array|Optional $ProjectReference;
+
+	/** @param array<Signature> $Signature */
+	public array|Optional $Signature;
+
+	#[Required]
 	public ?AccountingSupplierParty $AccountingSupplierParty;
+
+	#[Required]
 	public ?AccountingCustomerParty $AccountingCustomerParty;
 	public PayeeParty|Optional $PayeeParty;
 	public BuyerCustomerParty|Optional $BuyerCustomerParty;
 	public SellerSupplierParty|Optional $SellerSupplierParty;
 	public TaxRepresentativeParty|Optional $TaxRepresentativeParty;
-	public Delivery|Optional $Delivery;
+
+	/** @param array<Delivery> $Delivery */
+	public array|Optional $Delivery;
 	public DeliveryTerms|Optional $DeliveryTerms;
-	public PaymentMeans|Optional $PaymentMeans;
-	public PaymentTerms|Optional $PaymentTerms;
-	public PrepaidPayment|Optional $PrepaidPayment;
-	public AllowanceCharge|Optional $AllowanceCharge;
+
+	/** @param array<PaymentMeans> $PaymentMeans */
+	public array|Optional $PaymentMeans;
+
+	/** @param array<PaymentTerms> $PaymentTerms */
+	public array|Optional $PaymentTerms;
+
+	/** @param array<PrepaidPayment> $PrepaidPayment */
+	public array|Optional $PrepaidPayment;
+
+	/** @param array<AllowanceCharge> $AllowanceCharge */
+	public array|Optional $AllowanceCharge;
 	public TaxExchangeRate|Optional $TaxExchangeRate;
 	public PricingExchangeRate|Optional $PricingExchangeRate;
 	public PaymentExchangeRate|Optional $PaymentExchangeRate;
 	public PaymentAlternativeExchangeRate|Optional $PaymentAlternativeExchangeRate;
-	public TaxTotal|Optional $TaxTotal;
-	public WithholdingTaxTotal|Optional $WithholdingTaxTotal;
+
+	/** @param array<TaxTotal> $TaxTotal */
+	public array|Optional $TaxTotal;
+
+	/** @param array<WithholdingTaxTotal> $WithholdingTaxTotal */
+	public array|Optional $WithholdingTaxTotal;
+
+	#[Required]
 	public ?LegalMonetaryTotal $LegalMonetaryTotal;
-	public ?InvoiceLine $InvoiceLine;
+
+	/** @param array<InvoiceLine> $InvoiceLine */
+	#[Required]
+	public ?array $InvoiceLine;
 }

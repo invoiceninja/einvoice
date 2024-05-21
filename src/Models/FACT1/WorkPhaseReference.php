@@ -13,7 +13,9 @@ class WorkPhaseReference extends Data
 {
 	public string|Optional $ID;
 	public string|Optional $WorkPhaseCode;
-	public string|Optional $WorkPhase;
+
+	/** @param array<WorkPhase> $WorkPhase */
+	public array|Optional $WorkPhase;
 	public string|Optional $ProgressPercent;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
@@ -21,5 +23,7 @@ class WorkPhaseReference extends Data
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $EndDate;
-	public WorkOrderDocumentReference|Optional $WorkOrderDocumentReference;
+
+	/** @param array<WorkOrderDocumentReference> $WorkOrderDocumentReference */
+	public array|Optional $WorkOrderDocumentReference;
 }

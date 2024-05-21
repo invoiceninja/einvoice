@@ -24,5 +24,7 @@ class PaymentMandate extends Data
 	public PayerFinancialAccount|Optional $PayerFinancialAccount;
 	public ValidityPeriod|Optional $ValidityPeriod;
 	public PaymentReversalPeriod|Optional $PaymentReversalPeriod;
-	public Clause|Optional $Clause;
+
+	/** @param array<Clause> $Clause */
+	public array|Optional $Clause;
 }

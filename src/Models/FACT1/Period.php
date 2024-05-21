@@ -26,7 +26,10 @@ class Period extends Data
 	public float|Optional $DurationMeasure;
 	private array $DescriptionCode_array = [3 => 'Invoice Date', 35 => 'Delivery Date', 432 => 'Payment Date'];
 
+	/** @param array<DescriptionCode> $DescriptionCode */
 	#[\Spatie\LaravelData\Attributes\Validation\In('Invoice Date', 'Delivery Date', 'Payment Date')]
-	public string|Optional $DescriptionCode;
-	public string|Optional $Description;
+	public array|Optional $DescriptionCode;
+
+	/** @param array<Description> $Description */
+	public array|Optional $Description;
 }

@@ -14,7 +14,7 @@ class DatiBollo extends Data
 {
 	#[Required]
 	public string $BolloVirtuale;
-	private array $BolloVirtuale_array = ['SI' => 'SI'];
+	private array $BolloVirtuale_array = ['SI'];
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]

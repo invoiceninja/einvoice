@@ -11,11 +11,7 @@ use Spatie\LaravelData\DataCollection;
 
 class DatiPagamento extends Data
 {
-	private array $CondizioniPagamento_array = [
-		'TP01' => 'pagamento a rate',
-		'TP02' => 'pagamento completo',
-		'TP03' => 'anticipo',
-	];
+	private array $CondizioniPagamento_array = ['TP01', 'TP02', 'TP03'];
 
 	#[Required]
 	#[\Spatie\LaravelData\Attributes\Validation\In(TP01: 'pagamento a rate', TP02: 'pagamento completo', TP03: 'anticipo')]

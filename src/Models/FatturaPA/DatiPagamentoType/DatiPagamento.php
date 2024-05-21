@@ -18,12 +18,7 @@ class DatiPagamento extends Data
 	#[Max(4)]
 	#[Min(4)]
 	public string $CondizioniPagamento;
-
-	private array $CondizioniPagamento_array = [
-		'TP01' => 'pagamento a rate',
-		'TP02' => 'pagamento completo',
-		'TP03' => 'anticipo',
-	];
+	private array $CondizioniPagamento_array = ['TP01', 'TP02', 'TP03'];
 
 	#[Required]
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\DettaglioPagamentoType\DettaglioPagamento')]

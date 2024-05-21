@@ -25,5 +25,5 @@ class FatturaElettronicaHeader extends Data
 	public CessionarioCommittente $CessionarioCommittente;
 	public TerzoIntermediarioOSoggettoEmittente|Optional $TerzoIntermediarioOSoggettoEmittente;
 	public string|Optional $SoggettoEmittente;
-	private array $SoggettoEmittente_array = ['CC' => 'Cessionario / Committente', 'TZ' => 'Terzo'];
+	private array $SoggettoEmittente_array = ['CC', 'TZ'];
 }

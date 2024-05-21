@@ -9,7 +9,7 @@ use Spatie\LaravelData\Optional;
 
 class ScontoMaggiorazione extends Data
 {
-	private array $Tipo_array = ['SC' => 'SC = Sconto', 'MG' => 'MG = Maggiorazione'];
+	private array $Tipo_array = ['SC', 'MG'];
 
 	#[Required]
 	#[\Spatie\LaravelData\Attributes\Validation\In(SC: 'SC = Sconto', MG: 'MG = Maggiorazione')]

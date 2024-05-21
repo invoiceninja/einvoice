@@ -30,7 +30,7 @@ class SettlementPeriod extends Data
 
 	#[DataCollectionOf('string')]
 	public string|Optional $DescriptionCode;
-	private array $DescriptionCode_array = [3 => 'Invoice Date', 35 => 'Delivery Date', 432 => 'Payment Date'];
+	private array $DescriptionCode_array = [3, 35, 432];
 
 	#[DataCollectionOf('string')]
 	public string|Optional $Description;

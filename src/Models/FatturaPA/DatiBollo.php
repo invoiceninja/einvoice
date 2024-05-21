@@ -9,7 +9,7 @@ use Spatie\LaravelData\Optional;
 
 class DatiBollo extends Data
 {
-	private array $BolloVirtuale_array = ['SI' => 'SI'];
+	private array $BolloVirtuale_array = ['SI'];
 
 	#[Required]
 	#[\Spatie\LaravelData\Attributes\Validation\In(SI: 'SI')]

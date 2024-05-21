@@ -16,7 +16,7 @@ class DatiTrasmissione extends Data
 
 	#[Required]
 	public string $ProgressivoInvio;
-	private array $FormatoTrasmissione_array = ['FPA12' => 'Fattura verso PA', 'FPR12' => 'Fattura verso privati'];
+	private array $FormatoTrasmissione_array = ['FPA12', 'FPR12'];
 
 	#[Required]
 	#[\Spatie\LaravelData\Attributes\Validation\In(FPA12: 'Fattura verso PA', FPR12: 'Fattura verso privati')]

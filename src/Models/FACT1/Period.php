@@ -25,7 +25,7 @@ class Period extends Data
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $DurationMeasure;
-	private array $DescriptionCode_array = [3 => 'Invoice Date', 35 => 'Delivery Date', 432 => 'Payment Date'];
+	private array $DescriptionCode_array = [3, 35, 432];
 
 	#[DataCollectionOf('string')]
 	#[\Spatie\LaravelData\Attributes\Validation\In('Invoice Date', 'Delivery Date', 'Payment Date')]

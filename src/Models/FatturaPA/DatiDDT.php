@@ -3,7 +3,6 @@
 namespace Invoiceninja\Einvoice\Models\FatturaPA;
 
 use Carbon\Carbon;
-use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
@@ -18,7 +17,5 @@ class DatiDDT extends Data
 	#[Required]
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon $DataDDT;
-
-	#[DataCollectionOf('int')]
 	public int|Optional $RiferimentoNumeroLinea;
 }

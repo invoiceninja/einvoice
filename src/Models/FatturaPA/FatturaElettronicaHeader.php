@@ -24,7 +24,7 @@ class FatturaElettronicaHeader extends Data
 	#[Required]
 	public CessionarioCommittente $CessionarioCommittente;
 	public TerzoIntermediarioOSoggettoEmittente|Optional $TerzoIntermediarioOSoggettoEmittente;
-	private array $SoggettoEmittente_array = ['CC' => 'Cessionario / Committente', 'TZ' => 'Terzo'];
+	private array $SoggettoEmittente_array = ['CC', 'TZ'];
 
 	#[\Spatie\LaravelData\Attributes\Validation\In(CC: 'Cessionario / Committente', TZ: 'Terzo')]
 	public string|Optional $SoggettoEmittente;

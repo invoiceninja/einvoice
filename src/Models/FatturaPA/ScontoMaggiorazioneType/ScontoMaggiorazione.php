@@ -14,7 +14,7 @@ class ScontoMaggiorazione extends Data
 {
 	#[Required]
 	public string $Tipo;
-	private array $Tipo_array = ['SC' => 'SC = Sconto', 'MG' => 'MG = Maggiorazione'];
+	private array $Tipo_array = ['SC', 'MG'];
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]

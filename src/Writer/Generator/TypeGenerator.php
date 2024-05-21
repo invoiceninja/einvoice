@@ -115,12 +115,10 @@ class TypeGenerator
             }
 
             
-            if($element['max_occurs'] > 1 || $element['max_occurs'] == -1) {
+            if($element['max_occurs'] > 1 || $element['max_occurs'] == -1 && $base_type != 'int') {
                 $this->namespace->addUse(DataCollectionOf::class);
                 $property->addAttribute(DataCollectionOf::class, [$base_type]);
                 $this->namespace->addUse(DataCollection::class);
-                // $this->namespace->addInterface(DataObject::class);
-
             }
 
 
@@ -177,7 +175,7 @@ class TypeGenerator
                     ->addProperty($element['name']."_array")
                     ->setPrivate()
                     ->setType('array')
-                    ->setValue($element['resource']);
+                      ->setValue(array_keys($element['resource']));
             }
         }
 

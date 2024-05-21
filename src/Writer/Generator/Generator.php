@@ -157,7 +157,7 @@ class Generator
                 $property->addAttribute(Required::class);
             }
 
-            if($element['max_occurs'] > 1 || $element['max_occurs'] == -1) {
+            if($element['max_occurs'] > 1 || $element['max_occurs'] == -1 && $base_type != 'int') {
                 $namespace->addUse(DataCollectionOf::class);
                 $property->addAttribute(DataCollectionOf::class, [$base_type]);
             }
@@ -192,7 +192,7 @@ class Generator
                 $class->addProperty($element['name']."_array")
                       ->setPrivate()
                       ->setType('array')
-                      ->setValue($element['resource']);
+                      ->setValue(array_keys($element['resource']));
             }
 
 

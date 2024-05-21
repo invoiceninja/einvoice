@@ -16,6 +16,7 @@ use Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\SupportedTransport
 use Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\TransportEquipment;
 use Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\UnsupportedTransportEquipment;
 use Invoiceninja\Einvoice\Models\FACT1\TransportEventType\TransportEvent;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
@@ -30,8 +31,8 @@ class FinalDeliveryTransportationService extends Data
 	public string|Optional $Priority;
 	public string|Optional $FreightRateClassCode;
 
-	/** @param array<TransportationServiceDescription> $TransportationServiceDescription */
-	public array|Optional $TransportationServiceDescription;
+	#[DataCollectionOf('TransportationServiceDescription')]
+	public string|Optional $TransportationServiceDescription;
 	public string|Optional $TransportationServiceDetailsURI;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
@@ -42,36 +43,36 @@ class FinalDeliveryTransportationService extends Data
 	public string|Optional $Name;
 	public string|Optional $SequenceNumeric;
 
-	/** @param array<TransportEquipment> $TransportEquipment */
-	public array|Optional $TransportEquipment;
+	#[DataCollectionOf('TransportEquipment')]
+	public TransportEquipment|Optional $TransportEquipment;
 
-	/** @param array<SupportedTransportEquipment> $SupportedTransportEquipment */
-	public array|Optional $SupportedTransportEquipment;
+	#[DataCollectionOf('SupportedTransportEquipment')]
+	public SupportedTransportEquipment|Optional $SupportedTransportEquipment;
 
-	/** @param array<UnsupportedTransportEquipment> $UnsupportedTransportEquipment */
-	public array|Optional $UnsupportedTransportEquipment;
+	#[DataCollectionOf('UnsupportedTransportEquipment')]
+	public UnsupportedTransportEquipment|Optional $UnsupportedTransportEquipment;
 
-	/** @param array<CommodityClassification> $CommodityClassification */
-	public array|Optional $CommodityClassification;
+	#[DataCollectionOf('CommodityClassification')]
+	public CommodityClassification|Optional $CommodityClassification;
 
-	/** @param array<SupportedCommodityClassification> $SupportedCommodityClassification */
-	public array|Optional $SupportedCommodityClassification;
+	#[DataCollectionOf('SupportedCommodityClassification')]
+	public SupportedCommodityClassification|Optional $SupportedCommodityClassification;
 
-	/** @param array<UnsupportedCommodityClassification> $UnsupportedCommodityClassification */
-	public array|Optional $UnsupportedCommodityClassification;
+	#[DataCollectionOf('UnsupportedCommodityClassification')]
+	public UnsupportedCommodityClassification|Optional $UnsupportedCommodityClassification;
 	public TotalCapacityDimension|Optional $TotalCapacityDimension;
 
-	/** @param array<ShipmentStage> $ShipmentStage */
-	public array|Optional $ShipmentStage;
+	#[DataCollectionOf('ShipmentStage')]
+	public ShipmentStage|Optional $ShipmentStage;
 
-	/** @param array<TransportEvent> $TransportEvent */
-	public array|Optional $TransportEvent;
+	#[DataCollectionOf('TransportEvent')]
+	public TransportEvent|Optional $TransportEvent;
 	public ResponsibleTransportServiceProviderParty|Optional $ResponsibleTransportServiceProviderParty;
 
-	/** @param array<EnvironmentalEmission> $EnvironmentalEmission */
-	public array|Optional $EnvironmentalEmission;
+	#[DataCollectionOf('EnvironmentalEmission')]
+	public EnvironmentalEmission|Optional $EnvironmentalEmission;
 	public EstimatedDurationPeriod|Optional $EstimatedDurationPeriod;
 
-	/** @param array<ScheduledServiceFrequency> $ScheduledServiceFrequency */
-	public array|Optional $ScheduledServiceFrequency;
+	#[DataCollectionOf('ScheduledServiceFrequency')]
+	public ScheduledServiceFrequency|Optional $ScheduledServiceFrequency;
 }

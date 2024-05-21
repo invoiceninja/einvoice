@@ -4,6 +4,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1;
 
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\ItemPropertyType\AdditionalItemProperty;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -16,6 +17,6 @@ class LotIdentification extends Data
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $ExpiryDate;
 
-	/** @param array<AdditionalItemProperty> $AdditionalItemProperty */
-	public array|Optional $AdditionalItemProperty;
+	#[DataCollectionOf('AdditionalItemProperty')]
+	public AdditionalItemProperty|Optional $AdditionalItemProperty;
 }

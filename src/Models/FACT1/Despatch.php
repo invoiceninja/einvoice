@@ -11,6 +11,7 @@ use Invoiceninja\Einvoice\Models\FACT1\PartyType\DespatchParty;
 use Invoiceninja\Einvoice\Models\FACT1\PartyType\NotifyParty;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\EstimatedDespatchPeriod;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\RequestedDespatchPeriod;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -45,15 +46,15 @@ class Despatch extends Data
 	public Carbon|Optional $GuaranteedDespatchTime;
 	public string|Optional $ReleaseID;
 
-	/** @param array<Instructions> $Instructions */
-	public array|Optional $Instructions;
+	#[DataCollectionOf('Instructions')]
+	public string|Optional $Instructions;
 	public DespatchAddress|Optional $DespatchAddress;
 	public DespatchLocation|Optional $DespatchLocation;
 	public DespatchParty|Optional $DespatchParty;
 	public CarrierParty|Optional $CarrierParty;
 
-	/** @param array<NotifyParty> $NotifyParty */
-	public array|Optional $NotifyParty;
+	#[DataCollectionOf('NotifyParty')]
+	public NotifyParty|Optional $NotifyParty;
 	public Contact|Optional $Contact;
 	public EstimatedDespatchPeriod|Optional $EstimatedDespatchPeriod;
 	public RequestedDespatchPeriod|Optional $RequestedDespatchPeriod;

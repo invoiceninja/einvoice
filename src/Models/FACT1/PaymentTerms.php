@@ -7,6 +7,7 @@ use Invoiceninja\Einvoice\Models\FACT1\ExchangeRateType\ExchangeRate;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\PenaltyPeriod;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\SettlementPeriod;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\ValidityPeriod;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -16,12 +17,12 @@ class PaymentTerms extends Data
 {
 	public string|Optional $ID;
 
-	/** @param array<PaymentMeansID> $PaymentMeansID */
-	public array|Optional $PaymentMeansID;
+	#[DataCollectionOf('PaymentMeansID')]
+	public string|Optional $PaymentMeansID;
 	public string|Optional $PrepaidPaymentReferenceID;
 
-	/** @param array<Note> $Note */
-	public array|Optional $Note;
+	#[DataCollectionOf('Note')]
+	public string|Optional $Note;
 	public string|Optional $ReferenceEventCode;
 	public string|Optional $SettlementDiscountPercent;
 	public string|Optional $PenaltySurchargePercent;

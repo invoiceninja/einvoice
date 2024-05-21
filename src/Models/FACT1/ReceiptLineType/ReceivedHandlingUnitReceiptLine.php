@@ -9,6 +9,7 @@ use Invoiceninja\Einvoice\Models\FACT1\LineReferenceType\DespatchLineReference;
 use Invoiceninja\Einvoice\Models\FACT1\OrderLineReferenceType\OrderLineReference;
 use Invoiceninja\Einvoice\Models\FACT1\ShipmentType\Shipment;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
@@ -21,8 +22,8 @@ class ReceivedHandlingUnitReceiptLine extends Data
 	public string $ID;
 	public string|Optional $UUID;
 
-	/** @param array<Note> $Note */
-	public array|Optional $Note;
+	#[DataCollectionOf('Note')]
+	public string|Optional $Note;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ReceivedQuantity;
@@ -35,8 +36,8 @@ class ReceivedHandlingUnitReceiptLine extends Data
 	public float|Optional $RejectedQuantity;
 	public string|Optional $RejectReasonCode;
 
-	/** @param array<RejectReason> $RejectReason */
-	public array|Optional $RejectReason;
+	#[DataCollectionOf('RejectReason')]
+	public string|Optional $RejectReason;
 	public string|Optional $RejectActionCode;
 	public string|Optional $QuantityDiscrepancyCode;
 
@@ -49,15 +50,15 @@ class ReceivedHandlingUnitReceiptLine extends Data
 	public string|Optional $TimingComplaint;
 	public OrderLineReference|Optional $OrderLineReference;
 
-	/** @param array<DespatchLineReference> $DespatchLineReference */
-	public array|Optional $DespatchLineReference;
+	#[DataCollectionOf('DespatchLineReference')]
+	public DespatchLineReference|Optional $DespatchLineReference;
 
-	/** @param array<DocumentReference> $DocumentReference */
-	public array|Optional $DocumentReference;
+	#[DataCollectionOf('DocumentReference')]
+	public DocumentReference|Optional $DocumentReference;
 
-	/** @param array<Item> $Item */
-	public array|Optional $Item;
+	#[DataCollectionOf('Item')]
+	public Item|Optional $Item;
 
-	/** @param array<Shipment> $Shipment */
-	public array|Optional $Shipment;
+	#[DataCollectionOf('Shipment')]
+	public Shipment|Optional $Shipment;
 }

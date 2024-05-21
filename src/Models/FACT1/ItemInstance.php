@@ -5,6 +5,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1;
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\ItemPropertyType\AdditionalItemProperty;
 use Invoiceninja\Einvoice\Models\FACT1\LotIdentificationType\LotIdentification;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -25,7 +26,7 @@ class ItemInstance extends Data
 	public string|Optional $RegistrationID;
 	public string|Optional $SerialID;
 
-	/** @param array<AdditionalItemProperty> $AdditionalItemProperty */
-	public array|Optional $AdditionalItemProperty;
+	#[DataCollectionOf('AdditionalItemProperty')]
+	public AdditionalItemProperty|Optional $AdditionalItemProperty;
 	public LotIdentification|Optional $LotIdentification;
 }

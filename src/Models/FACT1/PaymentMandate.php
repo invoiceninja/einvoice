@@ -8,6 +8,7 @@ use Invoiceninja\Einvoice\Models\FACT1\FinancialAccountType\PayerFinancialAccoun
 use Invoiceninja\Einvoice\Models\FACT1\PartyType\PayerParty;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\PaymentReversalPeriod;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\ValidityPeriod;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
@@ -25,6 +26,6 @@ class PaymentMandate extends Data
 	public ValidityPeriod|Optional $ValidityPeriod;
 	public PaymentReversalPeriod|Optional $PaymentReversalPeriod;
 
-	/** @param array<Clause> $Clause */
-	public array|Optional $Clause;
+	#[DataCollectionOf('Clause')]
+	public Clause|Optional $Clause;
 }

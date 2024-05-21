@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FatturaPA\AltriDatiGestionaliType\AltriDatiGestionali;
 use Invoiceninja\Einvoice\Models\FatturaPA\CodiceArticoloType\CodiceArticolo;
 use Invoiceninja\Einvoice\Models\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
@@ -27,8 +28,8 @@ class DettaglioLinee extends Data
 	#[\Spatie\LaravelData\Attributes\Validation\In(SC: 'Sconto', PR: 'Premio', AB: 'Abbuono', AC: 'Spesa accessoria')]
 	public string|Optional $TipoCessionePrestazione;
 
-	/** @param array<CodiceArticolo> $CodiceArticolo */
-	public array|Optional $CodiceArticolo;
+	#[DataCollectionOf('CodiceArticolo')]
+	public CodiceArticolo|Optional $CodiceArticolo;
 
 	#[Required]
 	public string $Descrizione;
@@ -47,8 +48,8 @@ class DettaglioLinee extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float $PrezzoUnitario;
 
-	/** @param array<ScontoMaggiorazione> $ScontoMaggiorazione */
-	public array|Optional $ScontoMaggiorazione;
+	#[DataCollectionOf('ScontoMaggiorazione')]
+	public ScontoMaggiorazione|Optional $ScontoMaggiorazione;
 
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -118,6 +119,6 @@ class DettaglioLinee extends Data
 	public string|Optional $Natura;
 	public string|Optional $RiferimentoAmministrazione;
 
-	/** @param array<AltriDatiGestionali> $AltriDatiGestionali */
-	public array|Optional $AltriDatiGestionali;
+	#[DataCollectionOf('AltriDatiGestionali')]
+	public AltriDatiGestionali|Optional $AltriDatiGestionali;
 }

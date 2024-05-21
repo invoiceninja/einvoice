@@ -4,6 +4,7 @@ namespace Invoiceninja\Einvoice\Models\FatturaPA;
 
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FatturaPA\DettaglioPagamentoType\DettaglioPagamento;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
 
@@ -19,7 +20,7 @@ class DatiPagamento extends Data
 	#[\Spatie\LaravelData\Attributes\Validation\In(TP01: 'pagamento a rate', TP02: 'pagamento completo', TP03: 'anticipo')]
 	public string $CondizioniPagamento;
 
-	/** @param array<DettaglioPagamento> $DettaglioPagamento */
 	#[Required]
-	public array $DettaglioPagamento;
+	#[DataCollectionOf('DettaglioPagamento')]
+	public \Spatie\LaravelData\DataCollection $DettaglioPagamento;
 }

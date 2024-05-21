@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\AddressType\Address;
 use Invoiceninja\Einvoice\Models\FACT1\LocationCoordinateType\LocationCoordinate;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\ValidityPeriod;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
@@ -13,24 +14,24 @@ class StorageLocation extends Data
 {
 	public string|Optional $ID;
 
-	/** @param array<Description> $Description */
-	public array|Optional $Description;
+	#[DataCollectionOf('Description')]
+	public string|Optional $Description;
 
-	/** @param array<Conditions> $Conditions */
-	public array|Optional $Conditions;
+	#[DataCollectionOf('Conditions')]
+	public string|Optional $Conditions;
 	public string|Optional $CountrySubentity;
 	public string|Optional $CountrySubentityCode;
 	public string|Optional $LocationTypeCode;
 	public string|Optional $InformationURI;
 	public string|Optional $Name;
 
-	/** @param array<ValidityPeriod> $ValidityPeriod */
-	public array|Optional $ValidityPeriod;
+	#[DataCollectionOf('ValidityPeriod')]
+	public ValidityPeriod|Optional $ValidityPeriod;
 	public Address|Optional $Address;
 
-	/** @param array<SubsidiaryLocation> $SubsidiaryLocation */
-	public array|Optional $SubsidiaryLocation;
+	#[DataCollectionOf('SubsidiaryLocation')]
+	public SubsidiaryLocation|Optional $SubsidiaryLocation;
 
-	/** @param array<LocationCoordinate> $LocationCoordinate */
-	public array|Optional $LocationCoordinate;
+	#[DataCollectionOf('LocationCoordinate')]
+	public LocationCoordinate|Optional $LocationCoordinate;
 }

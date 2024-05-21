@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\AttachmentType\DigitalSignatureAttachment;
 use Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\OriginalDocumentReference;
 use Invoiceninja\Einvoice\Models\FACT1\PartyType\SignatoryParty;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
@@ -17,8 +18,8 @@ class Signature extends Data
 	#[Required]
 	public string $ID;
 
-	/** @param array<Note> $Note */
-	public array|Optional $Note;
+	#[DataCollectionOf('Note')]
+	public string|Optional $Note;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $ValidationDate;

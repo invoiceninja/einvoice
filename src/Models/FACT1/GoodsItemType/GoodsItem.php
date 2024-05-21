@@ -18,6 +18,7 @@ use Invoiceninja\Einvoice\Models\FACT1\TemperatureType\MaximumTemperature;
 use Invoiceninja\Einvoice\Models\FACT1\TemperatureType\MinimumTemperature;
 use Invoiceninja\Einvoice\Models\FACT1\TemperatureType\Temperature;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -27,8 +28,8 @@ class GoodsItem extends Data
 	public string|Optional $ID;
 	public string|Optional $SequenceNumberID;
 
-	/** @param array<Description> $Description */
-	public array|Optional $Description;
+	#[DataCollectionOf('Description')]
+	public string|Optional $Description;
 	public bool|Optional $HazardousRiskIndicator;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -84,33 +85,33 @@ class GoodsItem extends Data
 	public float|Optional $ReturnableQuantity;
 	public string|Optional $TraceID;
 
-	/** @param array<Item> $Item */
-	public array|Optional $Item;
+	#[DataCollectionOf('Item')]
+	public Item|Optional $Item;
 
-	/** @param array<GoodsItemContainer> $GoodsItemContainer */
-	public array|Optional $GoodsItemContainer;
+	#[DataCollectionOf('GoodsItemContainer')]
+	public GoodsItemContainer|Optional $GoodsItemContainer;
 
-	/** @param array<FreightAllowanceCharge> $FreightAllowanceCharge */
-	public array|Optional $FreightAllowanceCharge;
+	#[DataCollectionOf('FreightAllowanceCharge')]
+	public FreightAllowanceCharge|Optional $FreightAllowanceCharge;
 
-	/** @param array<InvoiceLine> $InvoiceLine */
-	public array|Optional $InvoiceLine;
+	#[DataCollectionOf('InvoiceLine')]
+	public InvoiceLine|Optional $InvoiceLine;
 
-	/** @param array<Temperature> $Temperature */
-	public array|Optional $Temperature;
+	#[DataCollectionOf('Temperature')]
+	public Temperature|Optional $Temperature;
 
-	/** @param array<ContainedGoodsItem> $ContainedGoodsItem */
-	public array|Optional $ContainedGoodsItem;
+	#[DataCollectionOf('ContainedGoodsItem')]
+	public ContainedGoodsItem|Optional $ContainedGoodsItem;
 	public OriginAddress|Optional $OriginAddress;
 	public Delivery|Optional $Delivery;
 	public Pickup|Optional $Pickup;
 	public Despatch|Optional $Despatch;
 
-	/** @param array<MeasurementDimension> $MeasurementDimension */
-	public array|Optional $MeasurementDimension;
+	#[DataCollectionOf('MeasurementDimension')]
+	public MeasurementDimension|Optional $MeasurementDimension;
 
-	/** @param array<ContainingPackage> $ContainingPackage */
-	public array|Optional $ContainingPackage;
+	#[DataCollectionOf('ContainingPackage')]
+	public ContainingPackage|Optional $ContainingPackage;
 	public ShipmentDocumentReference|Optional $ShipmentDocumentReference;
 	public MinimumTemperature|Optional $MinimumTemperature;
 	public MaximumTemperature|Optional $MaximumTemperature;

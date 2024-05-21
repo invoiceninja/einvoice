@@ -8,6 +8,7 @@ use Invoiceninja\Einvoice\Models\FACT1\ItemPropertyGroupType\ItemPropertyGroup;
 use Invoiceninja\Einvoice\Models\FACT1\ItemPropertyRangeType\ItemPropertyRange;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\UsabilityPeriod;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -30,16 +31,16 @@ class AdditionalItemProperty extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ValueQuantity;
 
-	/** @param array<ValueQualifier> $ValueQualifier */
-	public array|Optional $ValueQualifier;
+	#[DataCollectionOf('ValueQualifier')]
+	public string|Optional $ValueQualifier;
 	public string|Optional $ImportanceCode;
 
-	/** @param array<ListValue> $ListValue */
-	public array|Optional $ListValue;
+	#[DataCollectionOf('ListValue')]
+	public string|Optional $ListValue;
 	public UsabilityPeriod|Optional $UsabilityPeriod;
 
-	/** @param array<ItemPropertyGroup> $ItemPropertyGroup */
-	public array|Optional $ItemPropertyGroup;
+	#[DataCollectionOf('ItemPropertyGroup')]
+	public ItemPropertyGroup|Optional $ItemPropertyGroup;
 	public RangeDimension|Optional $RangeDimension;
 	public ItemPropertyRange|Optional $ItemPropertyRange;
 }

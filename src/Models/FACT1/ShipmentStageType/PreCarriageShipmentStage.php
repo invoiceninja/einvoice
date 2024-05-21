@@ -49,6 +49,7 @@ use Invoiceninja\Einvoice\Models\FACT1\TransportEventType\TransportEvent;
 use Invoiceninja\Einvoice\Models\FACT1\TransportEventType\WarehousingTransportEvent;
 use Invoiceninja\Einvoice\Models\FACT1\TransportMeansType\TransportMeans;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -77,11 +78,11 @@ class PreCarriageShipmentStage extends Data
 	public string|Optional $LoadingSequenceID;
 	public string|Optional $SuccessiveSequenceID;
 
-	/** @param array<Instructions> $Instructions */
-	public array|Optional $Instructions;
+	#[DataCollectionOf('Instructions')]
+	public string|Optional $Instructions;
 
-	/** @param array<DemurrageInstructions> $DemurrageInstructions */
-	public array|Optional $DemurrageInstructions;
+	#[DataCollectionOf('DemurrageInstructions')]
+	public string|Optional $DemurrageInstructions;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $CrewQuantity;
@@ -90,8 +91,8 @@ class PreCarriageShipmentStage extends Data
 	public float|Optional $PassengerQuantity;
 	public TransitPeriod|Optional $TransitPeriod;
 
-	/** @param array<CarrierParty> $CarrierParty */
-	public array|Optional $CarrierParty;
+	#[DataCollectionOf('CarrierParty')]
+	public CarrierParty|Optional $CarrierParty;
 	public TransportMeans|Optional $TransportMeans;
 	public LoadingPortLocation|Optional $LoadingPortLocation;
 	public UnloadingPortLocation|Optional $UnloadingPortLocation;
@@ -114,40 +115,40 @@ class PreCarriageShipmentStage extends Data
 	public CustomsAgentParty|Optional $CustomsAgentParty;
 	public EstimatedTransitPeriod|Optional $EstimatedTransitPeriod;
 
-	/** @param array<FreightAllowanceCharge> $FreightAllowanceCharge */
-	public array|Optional $FreightAllowanceCharge;
+	#[DataCollectionOf('FreightAllowanceCharge')]
+	public FreightAllowanceCharge|Optional $FreightAllowanceCharge;
 	public FreightChargeLocation|Optional $FreightChargeLocation;
 
-	/** @param array<DetentionTransportEvent> $DetentionTransportEvent */
-	public array|Optional $DetentionTransportEvent;
+	#[DataCollectionOf('DetentionTransportEvent')]
+	public DetentionTransportEvent|Optional $DetentionTransportEvent;
 	public RequestedDepartureTransportEvent|Optional $RequestedDepartureTransportEvent;
 	public RequestedArrivalTransportEvent|Optional $RequestedArrivalTransportEvent;
 
-	/** @param array<RequestedWaypointTransportEvent> $RequestedWaypointTransportEvent */
-	public array|Optional $RequestedWaypointTransportEvent;
+	#[DataCollectionOf('RequestedWaypointTransportEvent')]
+	public RequestedWaypointTransportEvent|Optional $RequestedWaypointTransportEvent;
 	public PlannedDepartureTransportEvent|Optional $PlannedDepartureTransportEvent;
 	public PlannedArrivalTransportEvent|Optional $PlannedArrivalTransportEvent;
 
-	/** @param array<PlannedWaypointTransportEvent> $PlannedWaypointTransportEvent */
-	public array|Optional $PlannedWaypointTransportEvent;
+	#[DataCollectionOf('PlannedWaypointTransportEvent')]
+	public PlannedWaypointTransportEvent|Optional $PlannedWaypointTransportEvent;
 	public ActualDepartureTransportEvent|Optional $ActualDepartureTransportEvent;
 	public ActualWaypointTransportEvent|Optional $ActualWaypointTransportEvent;
 	public ActualArrivalTransportEvent|Optional $ActualArrivalTransportEvent;
 
-	/** @param array<TransportEvent> $TransportEvent */
-	public array|Optional $TransportEvent;
+	#[DataCollectionOf('TransportEvent')]
+	public TransportEvent|Optional $TransportEvent;
 	public EstimatedDepartureTransportEvent|Optional $EstimatedDepartureTransportEvent;
 	public EstimatedArrivalTransportEvent|Optional $EstimatedArrivalTransportEvent;
 
-	/** @param array<PassengerPerson> $PassengerPerson */
-	public array|Optional $PassengerPerson;
+	#[DataCollectionOf('PassengerPerson')]
+	public PassengerPerson|Optional $PassengerPerson;
 
-	/** @param array<DriverPerson> $DriverPerson */
-	public array|Optional $DriverPerson;
+	#[DataCollectionOf('DriverPerson')]
+	public DriverPerson|Optional $DriverPerson;
 	public ReportingPerson|Optional $ReportingPerson;
 
-	/** @param array<CrewMemberPerson> $CrewMemberPerson */
-	public array|Optional $CrewMemberPerson;
+	#[DataCollectionOf('CrewMemberPerson')]
+	public CrewMemberPerson|Optional $CrewMemberPerson;
 	public SecurityOfficerPerson|Optional $SecurityOfficerPerson;
 	public MasterPerson|Optional $MasterPerson;
 	public ShipsSurgeonPerson|Optional $ShipsSurgeonPerson;

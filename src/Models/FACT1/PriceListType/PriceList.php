@@ -4,6 +4,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1\PriceListType;
 
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\ValidityPeriod;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
@@ -12,7 +13,7 @@ class PriceList extends Data
 	public string|Optional $ID;
 	public string|Optional $StatusCode;
 
-	/** @param array<ValidityPeriod> $ValidityPeriod */
-	public array|Optional $ValidityPeriod;
+	#[DataCollectionOf('ValidityPeriod')]
+	public ValidityPeriod|Optional $ValidityPeriod;
 	public PreviousPriceList|Optional $PreviousPriceList;
 }

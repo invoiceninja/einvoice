@@ -10,6 +10,7 @@ use Invoiceninja\Einvoice\Models\FACT1\DependentPriceReferenceType\DependentPric
 use Invoiceninja\Einvoice\Models\FACT1\PackageType\Package;
 use Invoiceninja\Einvoice\Models\FACT1\PriceType\Price;
 use Invoiceninja\Einvoice\Models\FACT1\TaxCategoryType\ApplicableTaxCategory;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
@@ -25,21 +26,21 @@ class ItemLocationQuantity extends Data
 	public float|Optional $MaximumQuantity;
 	public bool|Optional $HazardousRiskIndicator;
 
-	/** @param array<TradingRestrictions> $TradingRestrictions */
-	public array|Optional $TradingRestrictions;
+	#[DataCollectionOf('TradingRestrictions')]
+	public string|Optional $TradingRestrictions;
 
-	/** @param array<ApplicableTerritoryAddress> $ApplicableTerritoryAddress */
-	public array|Optional $ApplicableTerritoryAddress;
+	#[DataCollectionOf('ApplicableTerritoryAddress')]
+	public ApplicableTerritoryAddress|Optional $ApplicableTerritoryAddress;
 	public Price|Optional $Price;
 
-	/** @param array<DeliveryUnit> $DeliveryUnit */
-	public array|Optional $DeliveryUnit;
+	#[DataCollectionOf('DeliveryUnit')]
+	public DeliveryUnit|Optional $DeliveryUnit;
 
-	/** @param array<ApplicableTaxCategory> $ApplicableTaxCategory */
-	public array|Optional $ApplicableTaxCategory;
+	#[DataCollectionOf('ApplicableTaxCategory')]
+	public ApplicableTaxCategory|Optional $ApplicableTaxCategory;
 	public Package|Optional $Package;
 
-	/** @param array<AllowanceCharge> $AllowanceCharge */
-	public array|Optional $AllowanceCharge;
+	#[DataCollectionOf('AllowanceCharge')]
+	public AllowanceCharge|Optional $AllowanceCharge;
 	public DependentPriceReference|Optional $DependentPriceReference;
 }

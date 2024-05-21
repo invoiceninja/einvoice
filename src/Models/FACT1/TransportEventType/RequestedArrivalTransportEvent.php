@@ -9,6 +9,7 @@ use Invoiceninja\Einvoice\Models\FACT1\PeriodType\Period;
 use Invoiceninja\Einvoice\Models\FACT1\ShipmentType\ReportedShipment;
 use Invoiceninja\Einvoice\Models\FACT1\SignatureType\Signature;
 use Invoiceninja\Einvoice\Models\FACT1\StatusType\CurrentStatus;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -25,19 +26,19 @@ class RequestedArrivalTransportEvent extends Data
 	public Carbon|Optional $OccurrenceTime;
 	public string|Optional $TransportEventTypeCode;
 
-	/** @param array<Description> $Description */
-	public array|Optional $Description;
+	#[DataCollectionOf('Description')]
+	public string|Optional $Description;
 	public bool|Optional $CompletionIndicator;
 	public ReportedShipment|Optional $ReportedShipment;
 
-	/** @param array<CurrentStatus> $CurrentStatus */
-	public array|Optional $CurrentStatus;
+	#[DataCollectionOf('CurrentStatus')]
+	public CurrentStatus|Optional $CurrentStatus;
 
-	/** @param array<Contact> $Contact */
-	public array|Optional $Contact;
+	#[DataCollectionOf('Contact')]
+	public Contact|Optional $Contact;
 	public Location|Optional $Location;
 	public Signature|Optional $Signature;
 
-	/** @param array<Period> $Period */
-	public array|Optional $Period;
+	#[DataCollectionOf('Period')]
+	public Period|Optional $Period;
 }

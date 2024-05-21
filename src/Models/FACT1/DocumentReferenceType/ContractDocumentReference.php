@@ -7,6 +7,7 @@ use Invoiceninja\Einvoice\Models\FACT1\AttachmentType\Attachment;
 use Invoiceninja\Einvoice\Models\FACT1\PartyType\IssuerParty;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\ValidityPeriod;
 use Invoiceninja\Einvoice\Models\FACT1\ResultOfVerificationType\ResultOfVerification;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Attributes\Validation\Required;
@@ -32,16 +33,16 @@ class ContractDocumentReference extends Data
 	public string|Optional $DocumentTypeCode;
 	public string|Optional $DocumentType;
 
-	/** @param array<XPath> $XPath */
-	public array|Optional $XPath;
+	#[DataCollectionOf('XPath')]
+	public string|Optional $XPath;
 	public string|Optional $LanguageID;
 	public string|Optional $LocaleCode;
 	public string|Optional $VersionID;
 	public string|Optional $DocumentStatusCode;
 
-	/** @param array<DocumentDescription> $DocumentDescription */
+	#[DataCollectionOf('DocumentDescription')]
 	#[Max(100)]
-	public array|Optional $DocumentDescription;
+	public string|Optional $DocumentDescription;
 	public Attachment|Optional $Attachment;
 	public ValidityPeriod|Optional $ValidityPeriod;
 	public IssuerParty|Optional $IssuerParty;

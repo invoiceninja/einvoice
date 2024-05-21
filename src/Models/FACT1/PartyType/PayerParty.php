@@ -15,6 +15,7 @@ use Invoiceninja\Einvoice\Models\FACT1\PartyTaxSchemeType\PartyTaxScheme;
 use Invoiceninja\Einvoice\Models\FACT1\PersonType\Person;
 use Invoiceninja\Einvoice\Models\FACT1\PowerOfAttorneyType\PowerOfAttorney;
 use Invoiceninja\Einvoice\Models\FACT1\ServiceProviderPartyType\ServiceProviderParty;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
@@ -27,30 +28,30 @@ class PayerParty extends Data
 	public string|Optional $EndpointID;
 	public string|Optional $IndustryClassificationCode;
 
-	/** @param array<PartyIdentification> $PartyIdentification */
-	public array|Optional $PartyIdentification;
+	#[DataCollectionOf('PartyIdentification')]
+	public PartyIdentification|Optional $PartyIdentification;
 
-	/** @param array<PartyName> $PartyName */
-	public array|Optional $PartyName;
+	#[DataCollectionOf('PartyName')]
+	public PartyName|Optional $PartyName;
 	public Language|Optional $Language;
 	public PostalAddress|Optional $PostalAddress;
 	public PhysicalLocation|Optional $PhysicalLocation;
 
-	/** @param array<PartyTaxScheme> $PartyTaxScheme */
-	public array|Optional $PartyTaxScheme;
+	#[DataCollectionOf('PartyTaxScheme')]
+	public PartyTaxScheme|Optional $PartyTaxScheme;
 
-	/** @param array<PartyLegalEntity> $PartyLegalEntity */
-	public array|Optional $PartyLegalEntity;
+	#[DataCollectionOf('PartyLegalEntity')]
+	public PartyLegalEntity|Optional $PartyLegalEntity;
 	public Contact|Optional $Contact;
 
-	/** @param array<Person> $Person */
-	public array|Optional $Person;
+	#[DataCollectionOf('Person')]
+	public Person|Optional $Person;
 	public AgentParty|Optional $AgentParty;
 
-	/** @param array<ServiceProviderParty> $ServiceProviderParty */
-	public array|Optional $ServiceProviderParty;
+	#[DataCollectionOf('ServiceProviderParty')]
+	public ServiceProviderParty|Optional $ServiceProviderParty;
 
-	/** @param array<PowerOfAttorney> $PowerOfAttorney */
-	public array|Optional $PowerOfAttorney;
+	#[DataCollectionOf('PowerOfAttorney')]
+	public PowerOfAttorney|Optional $PowerOfAttorney;
 	public FinancialAccount|Optional $FinancialAccount;
 }

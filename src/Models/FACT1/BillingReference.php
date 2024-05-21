@@ -11,6 +11,7 @@ use Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\InvoiceDocumentRefe
 use Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\ReminderDocumentReference;
 use Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\SelfBilledCreditNoteDocumentReference;
 use Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\SelfBilledInvoiceDocumentReference;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
@@ -24,6 +25,6 @@ class BillingReference extends Data
 	public ReminderDocumentReference|Optional $ReminderDocumentReference;
 	public AdditionalDocumentReference|Optional $AdditionalDocumentReference;
 
-	/** @param array<BillingReferenceLine> $BillingReferenceLine */
-	public array|Optional $BillingReferenceLine;
+	#[DataCollectionOf('BillingReferenceLine')]
+	public BillingReferenceLine|Optional $BillingReferenceLine;
 }

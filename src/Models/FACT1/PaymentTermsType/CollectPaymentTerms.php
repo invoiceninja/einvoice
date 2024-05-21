@@ -8,6 +8,7 @@ use Invoiceninja\Einvoice\Models\FACT1\PeriodType\PenaltyPeriod;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\SettlementPeriod;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\ValidityPeriod;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
@@ -18,13 +19,13 @@ class CollectPaymentTerms extends Data
 {
 	public string|Optional $ID;
 
-	/** @param array<PaymentMeansID> $PaymentMeansID */
-	public array|Optional $PaymentMeansID;
+	#[DataCollectionOf('PaymentMeansID')]
+	public string|Optional $PaymentMeansID;
 	public string|Optional $PrepaidPaymentReferenceID;
 
-	/** @param array<Note> $Note */
+	#[DataCollectionOf('Note')]
 	#[Max(300)]
-	public array|Optional $Note;
+	public string|Optional $Note;
 	public string|Optional $ReferenceEventCode;
 	public string|Optional $SettlementDiscountPercent;
 	public string|Optional $PenaltySurchargePercent;

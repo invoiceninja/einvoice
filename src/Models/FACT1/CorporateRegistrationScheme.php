@@ -4,6 +4,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1;
 
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\AddressType\JurisdictionRegionAddress;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
@@ -13,6 +14,6 @@ class CorporateRegistrationScheme extends Data
 	public string|Optional $Name;
 	public string|Optional $CorporateRegistrationTypeCode;
 
-	/** @param array<JurisdictionRegionAddress> $JurisdictionRegionAddress */
-	public array|Optional $JurisdictionRegionAddress;
+	#[DataCollectionOf('JurisdictionRegionAddress')]
+	public JurisdictionRegionAddress|Optional $JurisdictionRegionAddress;
 }

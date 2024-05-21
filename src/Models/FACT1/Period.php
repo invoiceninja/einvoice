@@ -3,6 +3,7 @@
 namespace Invoiceninja\Einvoice\Models\FACT1;
 
 use Carbon\Carbon;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -26,10 +27,10 @@ class Period extends Data
 	public float|Optional $DurationMeasure;
 	private array $DescriptionCode_array = [3 => 'Invoice Date', 35 => 'Delivery Date', 432 => 'Payment Date'];
 
-	/** @param array<DescriptionCode> $DescriptionCode */
+	#[DataCollectionOf('DescriptionCode')]
 	#[\Spatie\LaravelData\Attributes\Validation\In('Invoice Date', 'Delivery Date', 'Payment Date')]
-	public array|Optional $DescriptionCode;
+	public string|Optional $DescriptionCode;
 
-	/** @param array<Description> $Description */
-	public array|Optional $Description;
+	#[DataCollectionOf('Description')]
+	public string|Optional $Description;
 }

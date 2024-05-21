@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\AddressLineType\AddressLine;
 use Invoiceninja\Einvoice\Models\FACT1\CountryType\Country;
 use Invoiceninja\Einvoice\Models\FACT1\LocationCoordinateType\LocationCoordinate;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Attributes\Validation\Required;
@@ -100,10 +101,10 @@ class PostalAddress extends Data
 	public string|Optional $District;
 	public string|Optional $TimezoneOffset;
 
-	/** @param array<AddressLine> $AddressLine */
-	public array|Optional $AddressLine;
+	#[DataCollectionOf('AddressLine')]
+	public AddressLine|Optional $AddressLine;
 	public Country|Optional $Country;
 
-	/** @param array<LocationCoordinate> $LocationCoordinate */
-	public array|Optional $LocationCoordinate;
+	#[DataCollectionOf('LocationCoordinate')]
+	public LocationCoordinate|Optional $LocationCoordinate;
 }

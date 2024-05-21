@@ -23,13 +23,14 @@ use Invoiceninja\Einvoice\Models\FACT1\PartyType\InformationContentProviderParty
 use Invoiceninja\Einvoice\Models\FACT1\PartyType\ManufacturerParty;
 use Invoiceninja\Einvoice\Models\FACT1\TaxCategoryType\ClassifiedTaxCategory;
 use Invoiceninja\Einvoice\Models\FACT1\TransactionConditionsType\TransactionConditions;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
 class Item extends Data
 {
-	/** @param array<Description> $Description */
-	public array|Optional $Description;
+	#[DataCollectionOf('Description')]
+	public string|Optional $Description;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $PackQuantity;
@@ -38,61 +39,61 @@ class Item extends Data
 	public string|Optional $Name;
 	public bool|Optional $HazardousRiskIndicator;
 
-	/** @param array<AdditionalInformation> $AdditionalInformation */
-	public array|Optional $AdditionalInformation;
+	#[DataCollectionOf('AdditionalInformation')]
+	public string|Optional $AdditionalInformation;
 
-	/** @param array<Keyword> $Keyword */
-	public array|Optional $Keyword;
+	#[DataCollectionOf('Keyword')]
+	public string|Optional $Keyword;
 
-	/** @param array<BrandName> $BrandName */
-	public array|Optional $BrandName;
+	#[DataCollectionOf('BrandName')]
+	public string|Optional $BrandName;
 
-	/** @param array<ModelName> $ModelName */
-	public array|Optional $ModelName;
+	#[DataCollectionOf('ModelName')]
+	public string|Optional $ModelName;
 	public BuyersItemIdentification|Optional $BuyersItemIdentification;
 	public SellersItemIdentification|Optional $SellersItemIdentification;
 
-	/** @param array<ManufacturersItemIdentification> $ManufacturersItemIdentification */
-	public array|Optional $ManufacturersItemIdentification;
+	#[DataCollectionOf('ManufacturersItemIdentification')]
+	public ManufacturersItemIdentification|Optional $ManufacturersItemIdentification;
 	public StandardItemIdentification|Optional $StandardItemIdentification;
 	public CatalogueItemIdentification|Optional $CatalogueItemIdentification;
 
-	/** @param array<AdditionalItemIdentification> $AdditionalItemIdentification */
-	public array|Optional $AdditionalItemIdentification;
+	#[DataCollectionOf('AdditionalItemIdentification')]
+	public AdditionalItemIdentification|Optional $AdditionalItemIdentification;
 	public CatalogueDocumentReference|Optional $CatalogueDocumentReference;
 
-	/** @param array<ItemSpecificationDocumentReference> $ItemSpecificationDocumentReference */
-	public array|Optional $ItemSpecificationDocumentReference;
+	#[DataCollectionOf('ItemSpecificationDocumentReference')]
+	public ItemSpecificationDocumentReference|Optional $ItemSpecificationDocumentReference;
 	public OriginCountry|Optional $OriginCountry;
 
-	/** @param array<CommodityClassification> $CommodityClassification */
-	public array|Optional $CommodityClassification;
+	#[DataCollectionOf('CommodityClassification')]
+	public CommodityClassification|Optional $CommodityClassification;
 
-	/** @param array<TransactionConditions> $TransactionConditions */
-	public array|Optional $TransactionConditions;
+	#[DataCollectionOf('TransactionConditions')]
+	public TransactionConditions|Optional $TransactionConditions;
 
-	/** @param array<HazardousItem> $HazardousItem */
-	public array|Optional $HazardousItem;
+	#[DataCollectionOf('HazardousItem')]
+	public HazardousItem|Optional $HazardousItem;
 
-	/** @param array<ClassifiedTaxCategory> $ClassifiedTaxCategory */
-	public array|Optional $ClassifiedTaxCategory;
+	#[DataCollectionOf('ClassifiedTaxCategory')]
+	public ClassifiedTaxCategory|Optional $ClassifiedTaxCategory;
 
-	/** @param array<AdditionalItemProperty> $AdditionalItemProperty */
-	public array|Optional $AdditionalItemProperty;
+	#[DataCollectionOf('AdditionalItemProperty')]
+	public AdditionalItemProperty|Optional $AdditionalItemProperty;
 
-	/** @param array<ManufacturerParty> $ManufacturerParty */
-	public array|Optional $ManufacturerParty;
+	#[DataCollectionOf('ManufacturerParty')]
+	public ManufacturerParty|Optional $ManufacturerParty;
 	public InformationContentProviderParty|Optional $InformationContentProviderParty;
 
-	/** @param array<OriginAddress> $OriginAddress */
-	public array|Optional $OriginAddress;
+	#[DataCollectionOf('OriginAddress')]
+	public OriginAddress|Optional $OriginAddress;
 
-	/** @param array<ItemInstance> $ItemInstance */
-	public array|Optional $ItemInstance;
+	#[DataCollectionOf('ItemInstance')]
+	public ItemInstance|Optional $ItemInstance;
 
-	/** @param array<Certificate> $Certificate */
-	public array|Optional $Certificate;
+	#[DataCollectionOf('Certificate')]
+	public Certificate|Optional $Certificate;
 
-	/** @param array<Dimension> $Dimension */
-	public array|Optional $Dimension;
+	#[DataCollectionOf('Dimension')]
+	public Dimension|Optional $Dimension;
 }

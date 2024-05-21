@@ -4,6 +4,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1;
 
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\TaxSchemeType\TaxScheme;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -21,8 +22,8 @@ class TaxCategory extends Data
 	public float|Optional $PerUnitAmount;
 	public string|Optional $TaxExemptionReasonCode;
 
-	/** @param array<TaxExemptionReason> $TaxExemptionReason */
-	public array|Optional $TaxExemptionReason;
+	#[DataCollectionOf('TaxExemptionReason')]
+	public string|Optional $TaxExemptionReason;
 	public string|Optional $TierRange;
 	public string|Optional $TierRatePercent;
 

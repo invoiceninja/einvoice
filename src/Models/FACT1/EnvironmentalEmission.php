@@ -4,6 +4,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1;
 
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\EmissionCalculationMethodType\EmissionCalculationMethod;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -17,9 +18,9 @@ class EnvironmentalEmission extends Data
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float $ValueMeasure;
 
-	/** @param array<Description> $Description */
-	public array|Optional $Description;
+	#[DataCollectionOf('Description')]
+	public string|Optional $Description;
 
-	/** @param array<EmissionCalculationMethod> $EmissionCalculationMethod */
-	public array|Optional $EmissionCalculationMethod;
+	#[DataCollectionOf('EmissionCalculationMethod')]
+	public EmissionCalculationMethod|Optional $EmissionCalculationMethod;
 }

@@ -21,6 +21,7 @@ use Invoiceninja\Einvoice\Models\FACT1\PricingReferenceType\PricingReference;
 use Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\TaxTotal;
 use Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\WithholdingTaxTotal;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -34,9 +35,9 @@ class InvoiceLine extends Data
 	public string $ID;
 	public string|Optional $UUID;
 
-	/** @param array<Note> $Note */
+	#[DataCollectionOf('Note')]
 	#[Max(300)]
-	public array|Optional $Note;
+	public string|Optional $Note;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $InvoicedQuantity;
@@ -54,47 +55,47 @@ class InvoiceLine extends Data
 	public string|Optional $PaymentPurposeCode;
 	public bool|Optional $FreeOfChargeIndicator;
 
-	/** @param array<InvoicePeriod> $InvoicePeriod */
-	public array|Optional $InvoicePeriod;
+	#[DataCollectionOf('InvoicePeriod')]
+	public InvoicePeriod|Optional $InvoicePeriod;
 
-	/** @param array<OrderLineReference> $OrderLineReference */
-	public array|Optional $OrderLineReference;
+	#[DataCollectionOf('OrderLineReference')]
+	public OrderLineReference|Optional $OrderLineReference;
 
-	/** @param array<DespatchLineReference> $DespatchLineReference */
-	public array|Optional $DespatchLineReference;
+	#[DataCollectionOf('DespatchLineReference')]
+	public DespatchLineReference|Optional $DespatchLineReference;
 
-	/** @param array<ReceiptLineReference> $ReceiptLineReference */
-	public array|Optional $ReceiptLineReference;
+	#[DataCollectionOf('ReceiptLineReference')]
+	public ReceiptLineReference|Optional $ReceiptLineReference;
 
-	/** @param array<BillingReference> $BillingReference */
-	public array|Optional $BillingReference;
+	#[DataCollectionOf('BillingReference')]
+	public BillingReference|Optional $BillingReference;
 
-	/** @param array<DocumentReference> $DocumentReference */
-	public array|Optional $DocumentReference;
+	#[DataCollectionOf('DocumentReference')]
+	public DocumentReference|Optional $DocumentReference;
 	public PricingReference|Optional $PricingReference;
 	public OriginatorParty|Optional $OriginatorParty;
 
-	/** @param array<Delivery> $Delivery */
-	public array|Optional $Delivery;
+	#[DataCollectionOf('Delivery')]
+	public Delivery|Optional $Delivery;
 
-	/** @param array<PaymentTerms> $PaymentTerms */
-	public array|Optional $PaymentTerms;
+	#[DataCollectionOf('PaymentTerms')]
+	public PaymentTerms|Optional $PaymentTerms;
 
-	/** @param array<AllowanceCharge> $AllowanceCharge */
-	public array|Optional $AllowanceCharge;
+	#[DataCollectionOf('AllowanceCharge')]
+	public AllowanceCharge|Optional $AllowanceCharge;
 
-	/** @param array<TaxTotal> $TaxTotal */
-	public array|Optional $TaxTotal;
+	#[DataCollectionOf('TaxTotal')]
+	public TaxTotal|Optional $TaxTotal;
 
-	/** @param array<WithholdingTaxTotal> $WithholdingTaxTotal */
-	public array|Optional $WithholdingTaxTotal;
+	#[DataCollectionOf('WithholdingTaxTotal')]
+	public WithholdingTaxTotal|Optional $WithholdingTaxTotal;
 
 	#[Required]
 	public Item $Item;
 	public Price|Optional $Price;
 	public DeliveryTerms|Optional $DeliveryTerms;
 
-	/** @param array<SubInvoiceLine> $SubInvoiceLine */
-	public array|Optional $SubInvoiceLine;
+	#[DataCollectionOf('SubInvoiceLine')]
+	public SubInvoiceLine|Optional $SubInvoiceLine;
 	public ItemPriceExtension|Optional $ItemPriceExtension;
 }

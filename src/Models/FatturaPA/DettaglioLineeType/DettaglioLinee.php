@@ -7,6 +7,7 @@ use Invoiceninja\Einvoice\Models\FatturaPA\AltriDatiGestionaliType\AltriDatiGest
 use Invoiceninja\Einvoice\Models\FatturaPA\CodiceArticoloType\CodiceArticolo;
 use Invoiceninja\Einvoice\Models\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Attributes\Validation\Regex;
@@ -29,8 +30,8 @@ class DettaglioLinee extends Data
 		'AC' => 'Spesa accessoria',
 	];
 
-	/** @param array<CodiceArticolo> $CodiceArticolo */
-	public array|Optional $CodiceArticolo;
+	#[DataCollectionOf('CodiceArticolo')]
+	public CodiceArticolo|Optional $CodiceArticolo;
 
 	#[Required]
 	#[Max(1000)]
@@ -58,8 +59,8 @@ class DettaglioLinee extends Data
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
 	public float $PrezzoUnitario;
 
-	/** @param array<ScontoMaggiorazione> $ScontoMaggiorazione */
-	public array|Optional $ScontoMaggiorazione;
+	#[DataCollectionOf('ScontoMaggiorazione')]
+	public ScontoMaggiorazione|Optional $ScontoMaggiorazione;
 
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -106,6 +107,6 @@ class DettaglioLinee extends Data
 	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
 	public string|Optional $RiferimentoAmministrazione;
 
-	/** @param array<AltriDatiGestionali> $AltriDatiGestionali */
-	public array|Optional $AltriDatiGestionali;
+	#[DataCollectionOf('AltriDatiGestionali')]
+	public AltriDatiGestionali|Optional $AltriDatiGestionali;
 }

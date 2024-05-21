@@ -21,6 +21,7 @@ use Invoiceninja\Einvoice\Models\FACT1\TemperatureType\MinimumTemperature;
 use Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\TransportEquipment;
 use Invoiceninja\Einvoice\Models\FACT1\TransportMeansType\TransportMeans;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -31,8 +32,8 @@ class PackagedTransportHandlingUnit extends Data
 	public string|Optional $TransportHandlingUnitTypeCode;
 	public string|Optional $HandlingCode;
 
-	/** @param array<HandlingInstructions> $HandlingInstructions */
-	public array|Optional $HandlingInstructions;
+	#[DataCollectionOf('HandlingInstructions')]
+	public string|Optional $HandlingInstructions;
 	public bool|Optional $HazardousRiskIndicator;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -41,53 +42,53 @@ class PackagedTransportHandlingUnit extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $TotalPackageQuantity;
 
-	/** @param array<DamageRemarks> $DamageRemarks */
-	public array|Optional $DamageRemarks;
+	#[DataCollectionOf('DamageRemarks')]
+	public string|Optional $DamageRemarks;
 
-	/** @param array<ShippingMarks> $ShippingMarks */
-	public array|Optional $ShippingMarks;
+	#[DataCollectionOf('ShippingMarks')]
+	public string|Optional $ShippingMarks;
 	public string|Optional $TraceID;
 
-	/** @param array<HandlingUnitDespatchLine> $HandlingUnitDespatchLine */
-	public array|Optional $HandlingUnitDespatchLine;
+	#[DataCollectionOf('HandlingUnitDespatchLine')]
+	public HandlingUnitDespatchLine|Optional $HandlingUnitDespatchLine;
 
-	/** @param array<ActualPackage> $ActualPackage */
-	public array|Optional $ActualPackage;
+	#[DataCollectionOf('ActualPackage')]
+	public ActualPackage|Optional $ActualPackage;
 
-	/** @param array<ReceivedHandlingUnitReceiptLine> $ReceivedHandlingUnitReceiptLine */
-	public array|Optional $ReceivedHandlingUnitReceiptLine;
+	#[DataCollectionOf('ReceivedHandlingUnitReceiptLine')]
+	public ReceivedHandlingUnitReceiptLine|Optional $ReceivedHandlingUnitReceiptLine;
 
-	/** @param array<TransportEquipment> $TransportEquipment */
-	public array|Optional $TransportEquipment;
+	#[DataCollectionOf('TransportEquipment')]
+	public TransportEquipment|Optional $TransportEquipment;
 
-	/** @param array<TransportMeans> $TransportMeans */
-	public array|Optional $TransportMeans;
+	#[DataCollectionOf('TransportMeans')]
+	public TransportMeans|Optional $TransportMeans;
 
-	/** @param array<HazardousGoodsTransit> $HazardousGoodsTransit */
-	public array|Optional $HazardousGoodsTransit;
+	#[DataCollectionOf('HazardousGoodsTransit')]
+	public HazardousGoodsTransit|Optional $HazardousGoodsTransit;
 
-	/** @param array<MeasurementDimension> $MeasurementDimension */
-	public array|Optional $MeasurementDimension;
+	#[DataCollectionOf('MeasurementDimension')]
+	public MeasurementDimension|Optional $MeasurementDimension;
 	public MinimumTemperature|Optional $MinimumTemperature;
 	public MaximumTemperature|Optional $MaximumTemperature;
 
-	/** @param array<GoodsItem> $GoodsItem */
-	public array|Optional $GoodsItem;
+	#[DataCollectionOf('GoodsItem')]
+	public GoodsItem|Optional $GoodsItem;
 	public FloorSpaceMeasurementDimension|Optional $FloorSpaceMeasurementDimension;
 	public PalletSpaceMeasurementDimension|Optional $PalletSpaceMeasurementDimension;
 
-	/** @param array<ShipmentDocumentReference> $ShipmentDocumentReference */
-	public array|Optional $ShipmentDocumentReference;
+	#[DataCollectionOf('ShipmentDocumentReference')]
+	public ShipmentDocumentReference|Optional $ShipmentDocumentReference;
 
-	/** @param array<Status> $Status */
-	public array|Optional $Status;
+	#[DataCollectionOf('Status')]
+	public Status|Optional $Status;
 
-	/** @param array<CustomsDeclaration> $CustomsDeclaration */
-	public array|Optional $CustomsDeclaration;
+	#[DataCollectionOf('CustomsDeclaration')]
+	public CustomsDeclaration|Optional $CustomsDeclaration;
 
-	/** @param array<ReferencedShipment> $ReferencedShipment */
-	public array|Optional $ReferencedShipment;
+	#[DataCollectionOf('ReferencedShipment')]
+	public ReferencedShipment|Optional $ReferencedShipment;
 
-	/** @param array<Package> $Package */
-	public array|Optional $Package;
+	#[DataCollectionOf('Package')]
+	public Package|Optional $Package;
 }

@@ -7,6 +7,7 @@ use Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\MandateDocumentRefe
 use Invoiceninja\Einvoice\Models\FACT1\PartyType\AgentParty;
 use Invoiceninja\Einvoice\Models\FACT1\PartyType\NotaryParty;
 use Invoiceninja\Einvoice\Models\FACT1\PartyType\WitnessParty;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
@@ -23,16 +24,16 @@ class PowerOfAttorney extends Data
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
 	public Carbon|Optional $IssueTime;
 
-	/** @param array<Description> $Description */
-	public array|Optional $Description;
+	#[DataCollectionOf('Description')]
+	public string|Optional $Description;
 	public NotaryParty|Optional $NotaryParty;
 
 	#[Required]
 	public AgentParty $AgentParty;
 
-	/** @param array<WitnessParty> $WitnessParty */
-	public array|Optional $WitnessParty;
+	#[DataCollectionOf('WitnessParty')]
+	public WitnessParty|Optional $WitnessParty;
 
-	/** @param array<MandateDocumentReference> $MandateDocumentReference */
-	public array|Optional $MandateDocumentReference;
+	#[DataCollectionOf('MandateDocumentReference')]
+	public MandateDocumentReference|Optional $MandateDocumentReference;
 }

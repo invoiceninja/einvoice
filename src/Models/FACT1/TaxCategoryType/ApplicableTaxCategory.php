@@ -5,6 +5,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1\TaxCategoryType;
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\TaxSchemeType\TaxScheme;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -24,9 +25,9 @@ class ApplicableTaxCategory extends Data
 	public float|Optional $PerUnitAmount;
 	public string|Optional $TaxExemptionReasonCode;
 
-	/** @param array<TaxExemptionReason> $TaxExemptionReason */
+	#[DataCollectionOf('TaxExemptionReason')]
 	#[Max(100)]
-	public array|Optional $TaxExemptionReason;
+	public string|Optional $TaxExemptionReason;
 	public string|Optional $TierRange;
 	public string|Optional $TierRatePercent;
 

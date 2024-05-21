@@ -11,6 +11,7 @@ use Invoiceninja\Einvoice\Models\FACT1\GoodsItemType\GoodsItem;
 use Invoiceninja\Einvoice\Models\FACT1\PackageType\ContainedPackage;
 use Invoiceninja\Einvoice\Models\FACT1\PickupType\Pickup;
 use Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\ContainingTransportEquipment;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
@@ -24,22 +25,22 @@ class Package extends Data
 	public string|Optional $PackageLevelCode;
 	public string|Optional $PackagingTypeCode;
 
-	/** @param array<PackingMaterial> $PackingMaterial */
-	public array|Optional $PackingMaterial;
+	#[DataCollectionOf('PackingMaterial')]
+	public string|Optional $PackingMaterial;
 	public string|Optional $TraceID;
 
-	/** @param array<ContainedPackage> $ContainedPackage */
-	public array|Optional $ContainedPackage;
+	#[DataCollectionOf('ContainedPackage')]
+	public ContainedPackage|Optional $ContainedPackage;
 	public ContainingTransportEquipment|Optional $ContainingTransportEquipment;
 
-	/** @param array<GoodsItem> $GoodsItem */
-	public array|Optional $GoodsItem;
+	#[DataCollectionOf('GoodsItem')]
+	public GoodsItem|Optional $GoodsItem;
 
-	/** @param array<MeasurementDimension> $MeasurementDimension */
-	public array|Optional $MeasurementDimension;
+	#[DataCollectionOf('MeasurementDimension')]
+	public MeasurementDimension|Optional $MeasurementDimension;
 
-	/** @param array<DeliveryUnit> $DeliveryUnit */
-	public array|Optional $DeliveryUnit;
+	#[DataCollectionOf('DeliveryUnit')]
+	public DeliveryUnit|Optional $DeliveryUnit;
 	public Delivery|Optional $Delivery;
 	public Pickup|Optional $Pickup;
 	public Despatch|Optional $Despatch;

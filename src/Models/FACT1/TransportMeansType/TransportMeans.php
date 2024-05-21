@@ -10,6 +10,7 @@ use Invoiceninja\Einvoice\Models\FACT1\PartyType\OwnerParty;
 use Invoiceninja\Einvoice\Models\FACT1\RailTransportType\RailTransport;
 use Invoiceninja\Einvoice\Models\FACT1\RoadTransportType\RoadTransport;
 use Invoiceninja\Einvoice\Models\FACT1\StowageType\Stowage;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
@@ -18,8 +19,8 @@ class TransportMeans extends Data
 	public string|Optional $JourneyID;
 	public string|Optional $RegistrationNationalityID;
 
-	/** @param array<RegistrationNationality> $RegistrationNationality */
-	public array|Optional $RegistrationNationality;
+	#[DataCollectionOf('RegistrationNationality')]
+	public string|Optional $RegistrationNationality;
 	public string|Optional $DirectionCode;
 	public string|Optional $TransportMeansTypeCode;
 	public string|Optional $TradeServiceCode;
@@ -30,6 +31,6 @@ class TransportMeans extends Data
 	public MaritimeTransport|Optional $MaritimeTransport;
 	public OwnerParty|Optional $OwnerParty;
 
-	/** @param array<MeasurementDimension> $MeasurementDimension */
-	public array|Optional $MeasurementDimension;
+	#[DataCollectionOf('MeasurementDimension')]
+	public MeasurementDimension|Optional $MeasurementDimension;
 }

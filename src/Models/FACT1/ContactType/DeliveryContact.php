@@ -4,6 +4,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1\ContactType;
 
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\CommunicationType\OtherCommunication;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -22,9 +23,9 @@ class DeliveryContact extends Data
 	#[Max(100)]
 	public string|Optional $ElectronicMail;
 
-	/** @param array<Note> $Note */
-	public array|Optional $Note;
+	#[DataCollectionOf('Note')]
+	public string|Optional $Note;
 
-	/** @param array<OtherCommunication> $OtherCommunication */
-	public array|Optional $OtherCommunication;
+	#[DataCollectionOf('OtherCommunication')]
+	public OtherCommunication|Optional $OtherCommunication;
 }

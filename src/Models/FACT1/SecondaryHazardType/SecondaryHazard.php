@@ -3,6 +3,7 @@
 namespace Invoiceninja\Einvoice\Models\FACT1\SecondaryHazardType;
 
 use Carbon\Carbon;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
@@ -13,6 +14,6 @@ class SecondaryHazard extends Data
 	public string|Optional $PlacardEndorsement;
 	public string|Optional $EmergencyProceduresCode;
 
-	/** @param array<Extension> $Extension */
-	public array|Optional $Extension;
+	#[DataCollectionOf('Extension')]
+	public string|Optional $Extension;
 }

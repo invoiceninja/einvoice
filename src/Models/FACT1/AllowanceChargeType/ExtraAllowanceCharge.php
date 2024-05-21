@@ -7,6 +7,7 @@ use Invoiceninja\Einvoice\Models\FACT1\PaymentMeansType\PaymentMeans;
 use Invoiceninja\Einvoice\Models\FACT1\TaxCategoryType\TaxCategory;
 use Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\TaxTotal;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -23,9 +24,9 @@ class ExtraAllowanceCharge extends Data
 	#[Max(100)]
 	public string|Optional $AllowanceChargeReasonCode;
 
-	/** @param array<AllowanceChargeReason> $AllowanceChargeReason */
+	#[DataCollectionOf('AllowanceChargeReason')]
 	#[Max(100)]
-	public array|Optional $AllowanceChargeReason;
+	public string|Optional $AllowanceChargeReason;
 	public string|Optional $MultiplierFactorNumeric;
 	public bool|Optional $PrepaidIndicator;
 	public string|Optional $SequenceNumeric;
@@ -42,10 +43,10 @@ class ExtraAllowanceCharge extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $PerUnitAmount;
 
-	/** @param array<TaxCategory> $TaxCategory */
-	public array|Optional $TaxCategory;
+	#[DataCollectionOf('TaxCategory')]
+	public TaxCategory|Optional $TaxCategory;
 	public TaxTotal|Optional $TaxTotal;
 
-	/** @param array<PaymentMeans> $PaymentMeans */
-	public array|Optional $PaymentMeans;
+	#[DataCollectionOf('PaymentMeans')]
+	public PaymentMeans|Optional $PaymentMeans;
 }

@@ -48,6 +48,7 @@ use Invoiceninja\Einvoice\Models\FACT1\TransportHandlingUnitType\TransportHandli
 use Invoiceninja\Einvoice\Models\FACT1\TransportationServiceType\FinalDeliveryTransportationService;
 use Invoiceninja\Einvoice\Models\FACT1\TransportationServiceType\OriginalDespatchTransportationService;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
@@ -65,8 +66,8 @@ class ChildConsignment extends Data
 	public string|Optional $ContractedCarrierAssignedID;
 	public string|Optional $PerformingCarrierAssignedID;
 
-	/** @param array<SummaryDescription> $SummaryDescription */
-	public array|Optional $SummaryDescription;
+	#[DataCollectionOf('SummaryDescription')]
+	public string|Optional $SummaryDescription;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $TotalInvoiceAmount;
@@ -74,8 +75,8 @@ class ChildConsignment extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $DeclaredCustomsValueAmount;
 
-	/** @param array<TariffDescription> $TariffDescription */
-	public array|Optional $TariffDescription;
+	#[DataCollectionOf('TariffDescription')]
+	public string|Optional $TariffDescription;
 	public string|Optional $TariffCode;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -102,8 +103,8 @@ class ChildConsignment extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $LoadingLengthMeasure;
 
-	/** @param array<Remarks> $Remarks */
-	public array|Optional $Remarks;
+	#[DataCollectionOf('Remarks')]
+	public string|Optional $Remarks;
 	public bool|Optional $HazardousRiskIndicator;
 	public bool|Optional $AnimalFoodIndicator;
 	public bool|Optional $HumanFoodIndicator;
@@ -114,26 +115,26 @@ class ChildConsignment extends Data
 	public bool|Optional $SpecialSecurityIndicator;
 	public bool|Optional $ThirdPartyPayerIndicator;
 
-	/** @param array<CarrierServiceInstructions> $CarrierServiceInstructions */
-	public array|Optional $CarrierServiceInstructions;
+	#[DataCollectionOf('CarrierServiceInstructions')]
+	public string|Optional $CarrierServiceInstructions;
 
-	/** @param array<CustomsClearanceServiceInstructions> $CustomsClearanceServiceInstructions */
-	public array|Optional $CustomsClearanceServiceInstructions;
+	#[DataCollectionOf('CustomsClearanceServiceInstructions')]
+	public string|Optional $CustomsClearanceServiceInstructions;
 
-	/** @param array<ForwarderServiceInstructions> $ForwarderServiceInstructions */
-	public array|Optional $ForwarderServiceInstructions;
+	#[DataCollectionOf('ForwarderServiceInstructions')]
+	public string|Optional $ForwarderServiceInstructions;
 
-	/** @param array<SpecialServiceInstructions> $SpecialServiceInstructions */
-	public array|Optional $SpecialServiceInstructions;
+	#[DataCollectionOf('SpecialServiceInstructions')]
+	public string|Optional $SpecialServiceInstructions;
 	public string|Optional $SequenceID;
 	public string|Optional $ShippingPriorityLevelCode;
 	public string|Optional $HandlingCode;
 
-	/** @param array<HandlingInstructions> $HandlingInstructions */
-	public array|Optional $HandlingInstructions;
+	#[DataCollectionOf('HandlingInstructions')]
+	public string|Optional $HandlingInstructions;
 
-	/** @param array<Information> $Information */
-	public array|Optional $Information;
+	#[DataCollectionOf('Information')]
+	public string|Optional $Information;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $TotalGoodsItemQuantity;
@@ -153,19 +154,19 @@ class ChildConsignment extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $FreeOnBoardValueAmount;
 
-	/** @param array<SpecialInstructions> $SpecialInstructions */
-	public array|Optional $SpecialInstructions;
+	#[DataCollectionOf('SpecialInstructions')]
+	public string|Optional $SpecialInstructions;
 	public bool|Optional $SplitConsignmentIndicator;
 
-	/** @param array<DeliveryInstructions> $DeliveryInstructions */
-	public array|Optional $DeliveryInstructions;
+	#[DataCollectionOf('DeliveryInstructions')]
+	public string|Optional $DeliveryInstructions;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ConsignmentQuantity;
 	public bool|Optional $ConsolidatableIndicator;
 
-	/** @param array<HaulageInstructions> $HaulageInstructions */
-	public array|Optional $HaulageInstructions;
+	#[DataCollectionOf('HaulageInstructions')]
+	public string|Optional $HaulageInstructions;
 	public string|Optional $LoadingSequenceID;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -174,18 +175,18 @@ class ChildConsignment extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $TotalPackagesQuantity;
 
-	/** @param array<ConsolidatedShipment> $ConsolidatedShipment */
-	public array|Optional $ConsolidatedShipment;
+	#[DataCollectionOf('ConsolidatedShipment')]
+	public ConsolidatedShipment|Optional $ConsolidatedShipment;
 
-	/** @param array<CustomsDeclaration> $CustomsDeclaration */
-	public array|Optional $CustomsDeclaration;
+	#[DataCollectionOf('CustomsDeclaration')]
+	public CustomsDeclaration|Optional $CustomsDeclaration;
 	public RequestedPickupTransportEvent|Optional $RequestedPickupTransportEvent;
 	public RequestedDeliveryTransportEvent|Optional $RequestedDeliveryTransportEvent;
 	public PlannedPickupTransportEvent|Optional $PlannedPickupTransportEvent;
 	public PlannedDeliveryTransportEvent|Optional $PlannedDeliveryTransportEvent;
 
-	/** @param array<Status> $Status */
-	public array|Optional $Status;
+	#[DataCollectionOf('Status')]
+	public Status|Optional $Status;
 	public ConsigneeParty|Optional $ConsigneeParty;
 	public ExporterParty|Optional $ExporterParty;
 	public ConsignorParty|Optional $ConsignorParty;
@@ -206,12 +207,12 @@ class ChildConsignment extends Data
 	public OriginalDepartureCountry|Optional $OriginalDepartureCountry;
 	public FinalDestinationCountry|Optional $FinalDestinationCountry;
 
-	/** @param array<TransitCountry> $TransitCountry */
-	public array|Optional $TransitCountry;
+	#[DataCollectionOf('TransitCountry')]
+	public TransitCountry|Optional $TransitCountry;
 	public TransportContract|Optional $TransportContract;
 
-	/** @param array<TransportEvent> $TransportEvent */
-	public array|Optional $TransportEvent;
+	#[DataCollectionOf('TransportEvent')]
+	public TransportEvent|Optional $TransportEvent;
 	public OriginalDespatchTransportationService|Optional $OriginalDespatchTransportationService;
 	public FinalDeliveryTransportationService|Optional $FinalDeliveryTransportationService;
 	public DeliveryTerms|Optional $DeliveryTerms;
@@ -220,23 +221,23 @@ class ChildConsignment extends Data
 	public DisbursementPaymentTerms|Optional $DisbursementPaymentTerms;
 	public PrepaidPaymentTerms|Optional $PrepaidPaymentTerms;
 
-	/** @param array<FreightAllowanceCharge> $FreightAllowanceCharge */
-	public array|Optional $FreightAllowanceCharge;
+	#[DataCollectionOf('FreightAllowanceCharge')]
+	public FreightAllowanceCharge|Optional $FreightAllowanceCharge;
 
-	/** @param array<ExtraAllowanceCharge> $ExtraAllowanceCharge */
-	public array|Optional $ExtraAllowanceCharge;
+	#[DataCollectionOf('ExtraAllowanceCharge')]
+	public ExtraAllowanceCharge|Optional $ExtraAllowanceCharge;
 
-	/** @param array<MainCarriageShipmentStage> $MainCarriageShipmentStage */
-	public array|Optional $MainCarriageShipmentStage;
+	#[DataCollectionOf('MainCarriageShipmentStage')]
+	public MainCarriageShipmentStage|Optional $MainCarriageShipmentStage;
 
-	/** @param array<PreCarriageShipmentStage> $PreCarriageShipmentStage */
-	public array|Optional $PreCarriageShipmentStage;
+	#[DataCollectionOf('PreCarriageShipmentStage')]
+	public PreCarriageShipmentStage|Optional $PreCarriageShipmentStage;
 
-	/** @param array<OnCarriageShipmentStage> $OnCarriageShipmentStage */
-	public array|Optional $OnCarriageShipmentStage;
+	#[DataCollectionOf('OnCarriageShipmentStage')]
+	public OnCarriageShipmentStage|Optional $OnCarriageShipmentStage;
 
-	/** @param array<TransportHandlingUnit> $TransportHandlingUnit */
-	public array|Optional $TransportHandlingUnit;
+	#[DataCollectionOf('TransportHandlingUnit')]
+	public TransportHandlingUnit|Optional $TransportHandlingUnit;
 	public FirstArrivalPortLocation|Optional $FirstArrivalPortLocation;
 	public LastExitPortLocation|Optional $LastExitPortLocation;
 }

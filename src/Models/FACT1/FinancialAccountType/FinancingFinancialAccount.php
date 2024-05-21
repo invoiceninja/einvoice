@@ -5,6 +5,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1\FinancialAccountType;
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\BranchType\FinancialInstitutionBranch;
 use Invoiceninja\Einvoice\Models\FACT1\CountryType\Country;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -20,8 +21,8 @@ class FinancingFinancialAccount extends Data
 	public string|Optional $AccountFormatCode;
 	public string|Optional $CurrencyCode;
 
-	/** @param array<PaymentNote> $PaymentNote */
-	public array|Optional $PaymentNote;
+	#[DataCollectionOf('PaymentNote')]
+	public string|Optional $PaymentNote;
 	public FinancialInstitutionBranch|Optional $FinancialInstitutionBranch;
 	public Country|Optional $Country;
 }

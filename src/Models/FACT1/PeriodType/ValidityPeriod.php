@@ -4,6 +4,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1\PeriodType;
 
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -26,10 +27,10 @@ class ValidityPeriod extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $DurationMeasure;
 
-	/** @param array<DescriptionCode> $DescriptionCode */
-	public array|Optional $DescriptionCode;
+	#[DataCollectionOf('DescriptionCode')]
+	public string|Optional $DescriptionCode;
 	private array $DescriptionCode_array = [3 => 'Invoice Date', 35 => 'Delivery Date', 432 => 'Payment Date'];
 
-	/** @param array<Description> $Description */
-	public array|Optional $Description;
+	#[DataCollectionOf('Description')]
+	public string|Optional $Description;
 }

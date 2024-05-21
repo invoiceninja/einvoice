@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\DocumentReference;
 use Invoiceninja\Einvoice\Models\FACT1\PartyType\IssuerParty;
 use Invoiceninja\Einvoice\Models\FACT1\SignatureType\Signature;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -21,15 +22,15 @@ class Certificate extends Data
 	#[Required]
 	public string $CertificateType;
 
-	/** @param array<Remarks> $Remarks */
-	public array|Optional $Remarks;
+	#[DataCollectionOf('Remarks')]
+	public string|Optional $Remarks;
 
 	#[Required]
 	public IssuerParty $IssuerParty;
 
-	/** @param array<DocumentReference> $DocumentReference */
-	public array|Optional $DocumentReference;
+	#[DataCollectionOf('DocumentReference')]
+	public DocumentReference|Optional $DocumentReference;
 
-	/** @param array<Signature> $Signature */
-	public array|Optional $Signature;
+	#[DataCollectionOf('Signature')]
+	public Signature|Optional $Signature;
 }

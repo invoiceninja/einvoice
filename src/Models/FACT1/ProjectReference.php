@@ -4,6 +4,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1;
 
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\WorkPhaseReferenceType\WorkPhaseReference;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
@@ -19,6 +20,6 @@ class ProjectReference extends Data
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $IssueDate;
 
-	/** @param array<WorkPhaseReference> $WorkPhaseReference */
-	public array|Optional $WorkPhaseReference;
+	#[DataCollectionOf('WorkPhaseReference')]
+	public WorkPhaseReference|Optional $WorkPhaseReference;
 }

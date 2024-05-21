@@ -35,6 +35,7 @@ use Invoiceninja\Einvoice\Models\FACT1\TransportEventType\TransportEvent;
 use Invoiceninja\Einvoice\Models\FACT1\TransportHandlingUnitType\PackagedTransportHandlingUnit;
 use Invoiceninja\Einvoice\Models\FACT1\TransportMeansType\ApplicableTransportMeans;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -43,8 +44,8 @@ class SupportedTransportEquipment extends Data
 {
 	public string|Optional $ID;
 
-	/** @param array<ReferencedConsignmentID> $ReferencedConsignmentID */
-	public array|Optional $ReferencedConsignmentID;
+	#[DataCollectionOf('ReferencedConsignmentID')]
+	public string|Optional $ReferencedConsignmentID;
 	public string|Optional $TransportEquipmentTypeCode;
 	public string|Optional $ProviderTypeCode;
 	public string|Optional $OwnerTypeCode;
@@ -53,8 +54,8 @@ class SupportedTransportEquipment extends Data
 	public string|Optional $FullnessIndicationCode;
 	public bool|Optional $RefrigerationOnIndicator;
 
-	/** @param array<Information> $Information */
-	public array|Optional $Information;
+	#[DataCollectionOf('Information')]
+	public string|Optional $Information;
 	public bool|Optional $ReturnabilityIndicator;
 	public bool|Optional $LegalStatusIndicator;
 	public string|Optional $AirFlowPercent;
@@ -65,14 +66,14 @@ class SupportedTransportEquipment extends Data
 	public bool|Optional $RefrigeratedIndicator;
 	public string|Optional $Characteristics;
 
-	/** @param array<DamageRemarks> $DamageRemarks */
-	public array|Optional $DamageRemarks;
+	#[DataCollectionOf('DamageRemarks')]
+	public string|Optional $DamageRemarks;
 
-	/** @param array<Description> $Description */
-	public array|Optional $Description;
+	#[DataCollectionOf('Description')]
+	public string|Optional $Description;
 
-	/** @param array<SpecialTransportRequirements> $SpecialTransportRequirements */
-	public array|Optional $SpecialTransportRequirements;
+	#[DataCollectionOf('SpecialTransportRequirements')]
+	public string|Optional $SpecialTransportRequirements;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $GrossWeightMeasure;
@@ -86,11 +87,11 @@ class SupportedTransportEquipment extends Data
 	public bool|Optional $PowerIndicator;
 	public string|Optional $TraceID;
 
-	/** @param array<MeasurementDimension> $MeasurementDimension */
-	public array|Optional $MeasurementDimension;
+	#[DataCollectionOf('MeasurementDimension')]
+	public MeasurementDimension|Optional $MeasurementDimension;
 
-	/** @param array<TransportEquipmentSeal> $TransportEquipmentSeal */
-	public array|Optional $TransportEquipmentSeal;
+	#[DataCollectionOf('TransportEquipmentSeal')]
+	public TransportEquipmentSeal|Optional $TransportEquipmentSeal;
 	public MinimumTemperature|Optional $MinimumTemperature;
 	public MaximumTemperature|Optional $MaximumTemperature;
 	public ProviderParty|Optional $ProviderParty;
@@ -102,58 +103,58 @@ class SupportedTransportEquipment extends Data
 	public UnloadingLocation|Optional $UnloadingLocation;
 	public StorageLocation|Optional $StorageLocation;
 
-	/** @param array<PositioningTransportEvent> $PositioningTransportEvent */
-	public array|Optional $PositioningTransportEvent;
+	#[DataCollectionOf('PositioningTransportEvent')]
+	public PositioningTransportEvent|Optional $PositioningTransportEvent;
 
-	/** @param array<QuarantineTransportEvent> $QuarantineTransportEvent */
-	public array|Optional $QuarantineTransportEvent;
+	#[DataCollectionOf('QuarantineTransportEvent')]
+	public QuarantineTransportEvent|Optional $QuarantineTransportEvent;
 
-	/** @param array<DeliveryTransportEvent> $DeliveryTransportEvent */
-	public array|Optional $DeliveryTransportEvent;
+	#[DataCollectionOf('DeliveryTransportEvent')]
+	public DeliveryTransportEvent|Optional $DeliveryTransportEvent;
 
-	/** @param array<PickupTransportEvent> $PickupTransportEvent */
-	public array|Optional $PickupTransportEvent;
+	#[DataCollectionOf('PickupTransportEvent')]
+	public PickupTransportEvent|Optional $PickupTransportEvent;
 
-	/** @param array<HandlingTransportEvent> $HandlingTransportEvent */
-	public array|Optional $HandlingTransportEvent;
+	#[DataCollectionOf('HandlingTransportEvent')]
+	public HandlingTransportEvent|Optional $HandlingTransportEvent;
 
-	/** @param array<LoadingTransportEvent> $LoadingTransportEvent */
-	public array|Optional $LoadingTransportEvent;
+	#[DataCollectionOf('LoadingTransportEvent')]
+	public LoadingTransportEvent|Optional $LoadingTransportEvent;
 
-	/** @param array<TransportEvent> $TransportEvent */
-	public array|Optional $TransportEvent;
+	#[DataCollectionOf('TransportEvent')]
+	public TransportEvent|Optional $TransportEvent;
 	public ApplicableTransportMeans|Optional $ApplicableTransportMeans;
 
-	/** @param array<HaulageTradingTerms> $HaulageTradingTerms */
-	public array|Optional $HaulageTradingTerms;
+	#[DataCollectionOf('HaulageTradingTerms')]
+	public HaulageTradingTerms|Optional $HaulageTradingTerms;
 
-	/** @param array<HazardousGoodsTransit> $HazardousGoodsTransit */
-	public array|Optional $HazardousGoodsTransit;
+	#[DataCollectionOf('HazardousGoodsTransit')]
+	public HazardousGoodsTransit|Optional $HazardousGoodsTransit;
 
-	/** @param array<PackagedTransportHandlingUnit> $PackagedTransportHandlingUnit */
-	public array|Optional $PackagedTransportHandlingUnit;
+	#[DataCollectionOf('PackagedTransportHandlingUnit')]
+	public PackagedTransportHandlingUnit|Optional $PackagedTransportHandlingUnit;
 
-	/** @param array<ServiceAllowanceCharge> $ServiceAllowanceCharge */
-	public array|Optional $ServiceAllowanceCharge;
+	#[DataCollectionOf('ServiceAllowanceCharge')]
+	public ServiceAllowanceCharge|Optional $ServiceAllowanceCharge;
 
-	/** @param array<FreightAllowanceCharge> $FreightAllowanceCharge */
-	public array|Optional $FreightAllowanceCharge;
+	#[DataCollectionOf('FreightAllowanceCharge')]
+	public FreightAllowanceCharge|Optional $FreightAllowanceCharge;
 
-	/** @param array<AttachedTransportEquipment> $AttachedTransportEquipment */
-	public array|Optional $AttachedTransportEquipment;
+	#[DataCollectionOf('AttachedTransportEquipment')]
+	public AttachedTransportEquipment|Optional $AttachedTransportEquipment;
 	public Delivery|Optional $Delivery;
 	public Pickup|Optional $Pickup;
 	public Despatch|Optional $Despatch;
 
-	/** @param array<ShipmentDocumentReference> $ShipmentDocumentReference */
-	public array|Optional $ShipmentDocumentReference;
+	#[DataCollectionOf('ShipmentDocumentReference')]
+	public ShipmentDocumentReference|Optional $ShipmentDocumentReference;
 
-	/** @param array<ContainedInTransportEquipment> $ContainedInTransportEquipment */
-	public array|Optional $ContainedInTransportEquipment;
+	#[DataCollectionOf('ContainedInTransportEquipment')]
+	public ContainedInTransportEquipment|Optional $ContainedInTransportEquipment;
 
-	/** @param array<Package> $Package */
-	public array|Optional $Package;
+	#[DataCollectionOf('Package')]
+	public Package|Optional $Package;
 
-	/** @param array<GoodsItem> $GoodsItem */
-	public array|Optional $GoodsItem;
+	#[DataCollectionOf('GoodsItem')]
+	public GoodsItem|Optional $GoodsItem;
 }

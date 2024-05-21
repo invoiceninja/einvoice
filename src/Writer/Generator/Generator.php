@@ -22,7 +22,9 @@ use Nette\PhpGenerator\PhpNamespace;
 use Spatie\LaravelData\Attributes\Validation\In;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
+use Spatie\LaravelData\DataCollection;
 use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class Generator
@@ -131,21 +133,18 @@ class Generator
                 $base_type = Carbon::class;
             }
 
-            if($element['max_occurs'] > 1 || $element['max_occurs'] == -1)
-                $base_type = 'array';
-
             if($element['min_occurs'] == 0){
                 $namespace->addUse(Optional::class);
                 $type = Type::union($base_type, Optional::class);
 
             }
-            else {    
-
-
-// $type = "?{$base_type}";
-
-$type = "{$base_type}";
+            elseif($element['max_occurs'] > 1 || $element['max_occurs'] == -1) {    
+                // $type = "?{$base_type}";
+                $type = DataCollection::class;
             } 
+            else {
+                $type = "{$base_type}";
+            }
 
             $property = (new Property($element['name']))
                             ->setPublic() 
@@ -156,12 +155,17 @@ $type = "{$base_type}";
                 $property->addAttribute(Required::class);
             }
 
-            if(stripos($base_type, 'array') !== false){
-                /**
-                * @param array<int, SongData> $songs
-                */
-                $property->addComment("@param array<".$element['name']."> $".$element['name']);
+            if($element['max_occurs'] > 1 || $element['max_occurs'] == -1) {
+                $namespace->addUse(DataCollectionOf::class);
+                $property->addAttribute(DataCollectionOf::class, [$element['name']]);
             }
+
+            // if(stripos($base_type, 'array') !== false){
+                // /**
+                // * @param array<int, SongData> $songs
+                // */
+                // $property->addComment("@param array<".$element['name']."> $".$element['name']);
+            // }
 
             if($base_type == 'float'){
                 $property->addAttribute(WithTransformer::class, [FloatTransformer::class]);

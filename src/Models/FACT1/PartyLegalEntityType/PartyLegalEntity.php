@@ -8,6 +8,7 @@ use Invoiceninja\Einvoice\Models\FACT1\CorporateRegistrationSchemeType\Corporate
 use Invoiceninja\Einvoice\Models\FACT1\PartyType\HeadOfficeParty;
 use Invoiceninja\Einvoice\Models\FACT1\ShareholderPartyType\ShareholderParty;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
@@ -39,6 +40,6 @@ class PartyLegalEntity extends Data
 	public CorporateRegistrationScheme|Optional $CorporateRegistrationScheme;
 	public HeadOfficeParty|Optional $HeadOfficeParty;
 
-	/** @param array<ShareholderParty> $ShareholderParty */
-	public array|Optional $ShareholderParty;
+	#[DataCollectionOf('ShareholderParty')]
+	public ShareholderParty|Optional $ShareholderParty;
 }

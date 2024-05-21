@@ -15,6 +15,7 @@ use Invoiceninja\Einvoice\Models\FACT1\LocationType\LastExitPortLocation;
 use Invoiceninja\Einvoice\Models\FACT1\ShipmentStageType\ShipmentStage;
 use Invoiceninja\Einvoice\Models\FACT1\TransportHandlingUnitType\TransportHandlingUnit;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
@@ -27,11 +28,11 @@ class Shipment extends Data
 	public string|Optional $ShippingPriorityLevelCode;
 	public string|Optional $HandlingCode;
 
-	/** @param array<HandlingInstructions> $HandlingInstructions */
-	public array|Optional $HandlingInstructions;
+	#[DataCollectionOf('HandlingInstructions')]
+	public string|Optional $HandlingInstructions;
 
-	/** @param array<Information> $Information */
-	public array|Optional $Information;
+	#[DataCollectionOf('Information')]
+	public string|Optional $Information;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $GrossWeightMeasure;
@@ -69,34 +70,34 @@ class Shipment extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $FreeOnBoardValueAmount;
 
-	/** @param array<SpecialInstructions> $SpecialInstructions */
-	public array|Optional $SpecialInstructions;
+	#[DataCollectionOf('SpecialInstructions')]
+	public string|Optional $SpecialInstructions;
 
-	/** @param array<DeliveryInstructions> $DeliveryInstructions */
-	public array|Optional $DeliveryInstructions;
+	#[DataCollectionOf('DeliveryInstructions')]
+	public string|Optional $DeliveryInstructions;
 	public bool|Optional $SplitConsignmentIndicator;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ConsignmentQuantity;
 
-	/** @param array<Consignment> $Consignment */
-	public array|Optional $Consignment;
+	#[DataCollectionOf('Consignment')]
+	public Consignment|Optional $Consignment;
 
-	/** @param array<GoodsItem> $GoodsItem */
-	public array|Optional $GoodsItem;
+	#[DataCollectionOf('GoodsItem')]
+	public GoodsItem|Optional $GoodsItem;
 
-	/** @param array<ShipmentStage> $ShipmentStage */
-	public array|Optional $ShipmentStage;
+	#[DataCollectionOf('ShipmentStage')]
+	public ShipmentStage|Optional $ShipmentStage;
 	public Delivery|Optional $Delivery;
 
-	/** @param array<TransportHandlingUnit> $TransportHandlingUnit */
-	public array|Optional $TransportHandlingUnit;
+	#[DataCollectionOf('TransportHandlingUnit')]
+	public TransportHandlingUnit|Optional $TransportHandlingUnit;
 	public ReturnAddress|Optional $ReturnAddress;
 	public OriginAddress|Optional $OriginAddress;
 	public FirstArrivalPortLocation|Optional $FirstArrivalPortLocation;
 	public LastExitPortLocation|Optional $LastExitPortLocation;
 	public ExportCountry|Optional $ExportCountry;
 
-	/** @param array<FreightAllowanceCharge> $FreightAllowanceCharge */
-	public array|Optional $FreightAllowanceCharge;
+	#[DataCollectionOf('FreightAllowanceCharge')]
+	public FreightAllowanceCharge|Optional $FreightAllowanceCharge;
 }

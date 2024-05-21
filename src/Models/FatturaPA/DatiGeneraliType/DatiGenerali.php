@@ -13,6 +13,7 @@ use Invoiceninja\Einvoice\Models\FatturaPA\DatiGeneraliDocumentoType\DatiGeneral
 use Invoiceninja\Einvoice\Models\FatturaPA\DatiSALType\DatiSAL;
 use Invoiceninja\Einvoice\Models\FatturaPA\DatiTrasportoType\DatiTrasporto;
 use Invoiceninja\Einvoice\Models\FatturaPA\FatturaPrincipaleType\FatturaPrincipale;
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -22,26 +23,26 @@ class DatiGenerali extends Data
 	#[Required]
 	public DatiGeneraliDocumento $DatiGeneraliDocumento;
 
-	/** @param array<DatiOrdineAcquisto> $DatiOrdineAcquisto */
-	public array|Optional $DatiOrdineAcquisto;
+	#[DataCollectionOf('DatiOrdineAcquisto')]
+	public DatiOrdineAcquisto|Optional $DatiOrdineAcquisto;
 
-	/** @param array<DatiContratto> $DatiContratto */
-	public array|Optional $DatiContratto;
+	#[DataCollectionOf('DatiContratto')]
+	public DatiContratto|Optional $DatiContratto;
 
-	/** @param array<DatiConvenzione> $DatiConvenzione */
-	public array|Optional $DatiConvenzione;
+	#[DataCollectionOf('DatiConvenzione')]
+	public DatiConvenzione|Optional $DatiConvenzione;
 
-	/** @param array<DatiRicezione> $DatiRicezione */
-	public array|Optional $DatiRicezione;
+	#[DataCollectionOf('DatiRicezione')]
+	public DatiRicezione|Optional $DatiRicezione;
 
-	/** @param array<DatiFattureCollegate> $DatiFattureCollegate */
-	public array|Optional $DatiFattureCollegate;
+	#[DataCollectionOf('DatiFattureCollegate')]
+	public DatiFattureCollegate|Optional $DatiFattureCollegate;
 
-	/** @param array<DatiSAL> $DatiSAL */
-	public array|Optional $DatiSAL;
+	#[DataCollectionOf('DatiSAL')]
+	public DatiSAL|Optional $DatiSAL;
 
-	/** @param array<DatiDDT> $DatiDDT */
-	public array|Optional $DatiDDT;
+	#[DataCollectionOf('DatiDDT')]
+	public DatiDDT|Optional $DatiDDT;
 	public DatiTrasporto|Optional $DatiTrasporto;
 	public FatturaPrincipale|Optional $FatturaPrincipale;
 }

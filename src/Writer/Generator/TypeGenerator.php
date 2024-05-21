@@ -24,6 +24,7 @@ use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Attributes\Validation\Regex;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
@@ -86,6 +87,10 @@ class TypeGenerator
                 }
 
             }
+            
+            if($element['max_occurs'] > 1 || $element['max_occurs'] == -1) {
+                $base_type = 'array';
+            }
 
             if($element['min_occurs'] == 0){
                 $settable_type = Type::union($base_type, Optional::class);
@@ -98,6 +103,19 @@ class TypeGenerator
                             ->setPublic()
                             ->setType($settable_type);
                             
+
+            if($element['min_occurs'] >= 1) {
+                $this->namespace->addUse(Required::class);
+                $property->addAttribute(Required::class);
+            }
+
+            if(stripos($base_type, 'array') !== false) {
+                /**
+                * @param array<int, SongData> $songs
+                */
+                $property->addComment("@param array<".$element['name']."> $".$element['name']);
+            }
+
             if($base_type == 'float') {
                 $this->namespace->addUse(WithTransformer::class);
                 $this->namespace->addUse(FloatTransformer::class);

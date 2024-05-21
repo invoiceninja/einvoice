@@ -38,5 +38,7 @@ class PartyLegalEntity extends Data
 	public RegistrationAddress|Optional $RegistrationAddress;
 	public CorporateRegistrationScheme|Optional $CorporateRegistrationScheme;
 	public HeadOfficeParty|Optional $HeadOfficeParty;
-	public ShareholderParty|Optional $ShareholderParty;
+
+	/** @param array<ShareholderParty> $ShareholderParty */
+	public array|Optional $ShareholderParty;
 }

@@ -26,12 +26,22 @@ class OriginalItemLocationQuantity extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $MaximumQuantity;
 	public bool|Optional $HazardousRiskIndicator;
-	public string|Optional $TradingRestrictions;
-	public ApplicableTerritoryAddress|Optional $ApplicableTerritoryAddress;
+
+	/** @param array<TradingRestrictions> $TradingRestrictions */
+	public array|Optional $TradingRestrictions;
+
+	/** @param array<ApplicableTerritoryAddress> $ApplicableTerritoryAddress */
+	public array|Optional $ApplicableTerritoryAddress;
 	public Price|Optional $Price;
-	public DeliveryUnit|Optional $DeliveryUnit;
-	public ApplicableTaxCategory|Optional $ApplicableTaxCategory;
+
+	/** @param array<DeliveryUnit> $DeliveryUnit */
+	public array|Optional $DeliveryUnit;
+
+	/** @param array<ApplicableTaxCategory> $ApplicableTaxCategory */
+	public array|Optional $ApplicableTaxCategory;
 	public Package|Optional $Package;
-	public AllowanceCharge|Optional $AllowanceCharge;
+
+	/** @param array<AllowanceCharge> $AllowanceCharge */
+	public array|Optional $AllowanceCharge;
 	public DependentPriceReference|Optional $DependentPriceReference;
 }

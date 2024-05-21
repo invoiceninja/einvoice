@@ -13,7 +13,9 @@ use Spatie\LaravelData\Optional;
 class AccountingSupplierParty extends Data
 {
 	public string|Optional $CustomerAssignedAccountID;
-	public string|Optional $AdditionalAccountID;
+
+	/** @param array<AdditionalAccountID> $AdditionalAccountID */
+	public array|Optional $AdditionalAccountID;
 	public string|Optional $DataSendingCapability;
 	public Party|Optional $Party;
 	public DespatchContact|Optional $DespatchContact;

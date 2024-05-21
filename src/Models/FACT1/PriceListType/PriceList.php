@@ -11,6 +11,8 @@ class PriceList extends Data
 {
 	public string|Optional $ID;
 	public string|Optional $StatusCode;
-	public ValidityPeriod|Optional $ValidityPeriod;
+
+	/** @param array<ValidityPeriod> $ValidityPeriod */
+	public array|Optional $ValidityPeriod;
 	public PreviousPriceList|Optional $PreviousPriceList;
 }

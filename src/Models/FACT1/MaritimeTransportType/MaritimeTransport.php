@@ -15,7 +15,9 @@ class MaritimeTransport extends Data
 	public string|Optional $VesselID;
 	public string|Optional $VesselName;
 	public string|Optional $RadioCallSignID;
-	public string|Optional $ShipsRequirements;
+
+	/** @param array<ShipsRequirements> $ShipsRequirements */
+	public array|Optional $ShipsRequirements;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $GrossTonnageMeasure;

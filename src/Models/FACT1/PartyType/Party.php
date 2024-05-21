@@ -26,17 +26,31 @@ class Party extends Data
 	public string|Optional $LogoReferenceID;
 	public string|Optional $EndpointID;
 	public string|Optional $IndustryClassificationCode;
-	public PartyIdentification|Optional $PartyIdentification;
-	public PartyName|Optional $PartyName;
+
+	/** @param array<PartyIdentification> $PartyIdentification */
+	public array|Optional $PartyIdentification;
+
+	/** @param array<PartyName> $PartyName */
+	public array|Optional $PartyName;
 	public Language|Optional $Language;
 	public PostalAddress|Optional $PostalAddress;
 	public PhysicalLocation|Optional $PhysicalLocation;
-	public PartyTaxScheme|Optional $PartyTaxScheme;
-	public PartyLegalEntity|Optional $PartyLegalEntity;
+
+	/** @param array<PartyTaxScheme> $PartyTaxScheme */
+	public array|Optional $PartyTaxScheme;
+
+	/** @param array<PartyLegalEntity> $PartyLegalEntity */
+	public array|Optional $PartyLegalEntity;
 	public Contact|Optional $Contact;
-	public Person|Optional $Person;
+
+	/** @param array<Person> $Person */
+	public array|Optional $Person;
 	public AgentParty|Optional $AgentParty;
-	public ServiceProviderParty|Optional $ServiceProviderParty;
-	public PowerOfAttorney|Optional $PowerOfAttorney;
+
+	/** @param array<ServiceProviderParty> $ServiceProviderParty */
+	public array|Optional $ServiceProviderParty;
+
+	/** @param array<PowerOfAttorney> $PowerOfAttorney */
+	public array|Optional $PowerOfAttorney;
 	public FinancialAccount|Optional $FinancialAccount;
 }

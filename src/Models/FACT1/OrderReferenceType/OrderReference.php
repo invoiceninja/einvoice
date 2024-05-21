@@ -5,6 +5,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1\OrderReferenceType;
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\DocumentReference;
 use Spatie\LaravelData\Attributes\Validation\Max;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -12,6 +13,7 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class OrderReference extends Data
 {
+	#[Required]
 	#[Max(200)]
 	public ?string $ID;
 

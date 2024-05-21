@@ -8,6 +8,7 @@ use Invoiceninja\Einvoice\Models\FatturaPA\IdFiscaleType\IdFiscaleIVA;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Attributes\Validation\Regex;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -15,12 +16,15 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class DatiAnagrafici extends Data
 {
+	#[Required]
 	public ?IdFiscaleIVA $IdFiscaleIVA;
 
 	#[Max(16)]
 	#[Min(11)]
 	#[Regex('/[A-Z0-9]{11,16}/')]
 	public string|Optional $CodiceFiscale;
+
+	#[Required]
 	public ?Anagrafica $Anagrafica;
 
 	#[Max(60)]
@@ -40,6 +44,8 @@ class DatiAnagrafici extends Data
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $DataIscrizioneAlbo;
+
+	#[Required]
 	public ?string $RegimeFiscale;
 
 	private array $RegimeFiscale_array = [

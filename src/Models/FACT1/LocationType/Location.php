@@ -12,15 +12,25 @@ use Spatie\LaravelData\Optional;
 class Location extends Data
 {
 	public string|Optional $ID;
-	public string|Optional $Description;
-	public string|Optional $Conditions;
+
+	/** @param array<Description> $Description */
+	public array|Optional $Description;
+
+	/** @param array<Conditions> $Conditions */
+	public array|Optional $Conditions;
 	public string|Optional $CountrySubentity;
 	public string|Optional $CountrySubentityCode;
 	public string|Optional $LocationTypeCode;
 	public string|Optional $InformationURI;
 	public string|Optional $Name;
-	public ValidityPeriod|Optional $ValidityPeriod;
+
+	/** @param array<ValidityPeriod> $ValidityPeriod */
+	public array|Optional $ValidityPeriod;
 	public Address|Optional $Address;
-	public SubsidiaryLocation|Optional $SubsidiaryLocation;
-	public LocationCoordinate|Optional $LocationCoordinate;
+
+	/** @param array<SubsidiaryLocation> $SubsidiaryLocation */
+	public array|Optional $SubsidiaryLocation;
+
+	/** @param array<LocationCoordinate> $LocationCoordinate */
+	public array|Optional $LocationCoordinate;
 }

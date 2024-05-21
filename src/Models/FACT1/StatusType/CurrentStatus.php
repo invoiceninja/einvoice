@@ -18,13 +18,21 @@ class CurrentStatus extends Data
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
 	public Carbon|Optional $ReferenceTime;
-	public string|Optional $Description;
+
+	/** @param array<Description> $Description */
+	public array|Optional $Description;
 	public string|Optional $StatusReasonCode;
-	public string|Optional $StatusReason;
+
+	/** @param array<StatusReason> $StatusReason */
+	public array|Optional $StatusReason;
 	public string|Optional $SequenceID;
-	public string|Optional $Text;
+
+	/** @param array<Text> $Text */
+	public array|Optional $Text;
 	public bool|Optional $IndicationIndicator;
 	public string|Optional $Percent;
 	public string|Optional $ReliabilityPercent;
-	public Condition|Optional $Condition;
+
+	/** @param array<Condition> $Condition */
+	public array|Optional $Condition;
 }

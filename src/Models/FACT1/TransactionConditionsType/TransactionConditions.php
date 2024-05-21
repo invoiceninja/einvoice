@@ -11,6 +11,10 @@ class TransactionConditions extends Data
 {
 	public string|Optional $ID;
 	public string|Optional $ActionCode;
-	public string|Optional $Description;
-	public DocumentReference|Optional $DocumentReference;
+
+	/** @param array<Description> $Description */
+	public array|Optional $Description;
+
+	/** @param array<DocumentReference> $DocumentReference */
+	public array|Optional $DocumentReference;
 }

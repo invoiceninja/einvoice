@@ -31,6 +31,8 @@ class MasterPerson extends Data
 	public string|Optional $OrganizationDepartment;
 	public Contact|Optional $Contact;
 	public FinancialAccount|Optional $FinancialAccount;
-	public IdentityDocumentReference|Optional $IdentityDocumentReference;
+
+	/** @param array<IdentityDocumentReference> $IdentityDocumentReference */
+	public array|Optional $IdentityDocumentReference;
 	public ResidenceAddress|Optional $ResidenceAddress;
 }

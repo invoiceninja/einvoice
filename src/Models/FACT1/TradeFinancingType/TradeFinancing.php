@@ -8,6 +8,7 @@ use Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\ContractDocumentRef
 use Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\DocumentReference;
 use Invoiceninja\Einvoice\Models\FACT1\FinancialAccountType\FinancingFinancialAccount;
 use Invoiceninja\Einvoice\Models\FACT1\PartyType\FinancingParty;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
@@ -16,8 +17,14 @@ class TradeFinancing extends Data
 	public string|Optional $ID;
 	public string|Optional $FinancingInstrumentCode;
 	public ContractDocumentReference|Optional $ContractDocumentReference;
-	public DocumentReference|Optional $DocumentReference;
+
+	/** @param array<DocumentReference> $DocumentReference */
+	public array|Optional $DocumentReference;
+
+	#[Required]
 	public ?FinancingParty $FinancingParty;
 	public FinancingFinancialAccount|Optional $FinancingFinancialAccount;
-	public Clause|Optional $Clause;
+
+	/** @param array<Clause> $Clause */
+	public array|Optional $Clause;
 }

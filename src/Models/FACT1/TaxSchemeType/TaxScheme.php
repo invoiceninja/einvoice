@@ -13,5 +13,7 @@ class TaxScheme extends Data
 	public string|Optional $Name;
 	public string|Optional $TaxTypeCode;
 	public string|Optional $CurrencyCode;
-	public JurisdictionRegionAddress|Optional $JurisdictionRegionAddress;
+
+	/** @param array<JurisdictionRegionAddress> $JurisdictionRegionAddress */
+	public array|Optional $JurisdictionRegionAddress;
 }

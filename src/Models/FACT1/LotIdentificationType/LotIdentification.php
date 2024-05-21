@@ -15,5 +15,7 @@ class LotIdentification extends Data
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $ExpiryDate;
-	public AdditionalItemProperty|Optional $AdditionalItemProperty;
+
+	/** @param array<AdditionalItemProperty> $AdditionalItemProperty */
+	public array|Optional $AdditionalItemProperty;
 }

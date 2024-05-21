@@ -8,6 +8,7 @@ use Invoiceninja\Einvoice\Models\FACT1\TaxCategoryType\TaxCategory;
 use Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\TaxTotal;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\Validation\Max;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -15,17 +16,21 @@ use Spatie\LaravelData\Optional;
 class ServiceAllowanceCharge extends Data
 {
 	public string|Optional $ID;
+
+	#[Required]
 	public ?bool $ChargeIndicator;
 
 	#[Max(100)]
 	public string|Optional $AllowanceChargeReasonCode;
 
+	/** @param array<AllowanceChargeReason> $AllowanceChargeReason */
 	#[Max(100)]
-	public string|Optional $AllowanceChargeReason;
+	public array|Optional $AllowanceChargeReason;
 	public string|Optional $MultiplierFactorNumeric;
 	public bool|Optional $PrepaidIndicator;
 	public string|Optional $SequenceNumeric;
 
+	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public ?float $Amount;
 
@@ -36,7 +41,11 @@ class ServiceAllowanceCharge extends Data
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $PerUnitAmount;
-	public TaxCategory|Optional $TaxCategory;
+
+	/** @param array<TaxCategory> $TaxCategory */
+	public array|Optional $TaxCategory;
 	public TaxTotal|Optional $TaxTotal;
-	public PaymentMeans|Optional $PaymentMeans;
+
+	/** @param array<PaymentMeans> $PaymentMeans */
+	public array|Optional $PaymentMeans;
 }

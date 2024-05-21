@@ -15,17 +15,23 @@ use Invoiceninja\Einvoice\Models\FACT1\LocationType\LastExitPortLocation;
 use Invoiceninja\Einvoice\Models\FACT1\ShipmentStageType\ShipmentStage;
 use Invoiceninja\Einvoice\Models\FACT1\TransportHandlingUnitType\TransportHandlingUnit;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
 class Shipment extends Data
 {
+	#[Required]
 	public ?string $ID;
 	public string|Optional $ShippingPriorityLevelCode;
 	public string|Optional $HandlingCode;
-	public string|Optional $HandlingInstructions;
-	public string|Optional $Information;
+
+	/** @param array<HandlingInstructions> $HandlingInstructions */
+	public array|Optional $HandlingInstructions;
+
+	/** @param array<Information> $Information */
+	public array|Optional $Information;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $GrossWeightMeasure;
@@ -62,21 +68,35 @@ class Shipment extends Data
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $FreeOnBoardValueAmount;
-	public string|Optional $SpecialInstructions;
-	public string|Optional $DeliveryInstructions;
+
+	/** @param array<SpecialInstructions> $SpecialInstructions */
+	public array|Optional $SpecialInstructions;
+
+	/** @param array<DeliveryInstructions> $DeliveryInstructions */
+	public array|Optional $DeliveryInstructions;
 	public bool|Optional $SplitConsignmentIndicator;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ConsignmentQuantity;
-	public Consignment|Optional $Consignment;
-	public GoodsItem|Optional $GoodsItem;
-	public ShipmentStage|Optional $ShipmentStage;
+
+	/** @param array<Consignment> $Consignment */
+	public array|Optional $Consignment;
+
+	/** @param array<GoodsItem> $GoodsItem */
+	public array|Optional $GoodsItem;
+
+	/** @param array<ShipmentStage> $ShipmentStage */
+	public array|Optional $ShipmentStage;
 	public Delivery|Optional $Delivery;
-	public TransportHandlingUnit|Optional $TransportHandlingUnit;
+
+	/** @param array<TransportHandlingUnit> $TransportHandlingUnit */
+	public array|Optional $TransportHandlingUnit;
 	public ReturnAddress|Optional $ReturnAddress;
 	public OriginAddress|Optional $OriginAddress;
 	public FirstArrivalPortLocation|Optional $FirstArrivalPortLocation;
 	public LastExitPortLocation|Optional $LastExitPortLocation;
 	public ExportCountry|Optional $ExportCountry;
-	public FreightAllowanceCharge|Optional $FreightAllowanceCharge;
+
+	/** @param array<FreightAllowanceCharge> $FreightAllowanceCharge */
+	public array|Optional $FreightAllowanceCharge;
 }

@@ -23,5 +23,7 @@ class BillingReference extends Data
 	public DebitNoteDocumentReference|Optional $DebitNoteDocumentReference;
 	public ReminderDocumentReference|Optional $ReminderDocumentReference;
 	public AdditionalDocumentReference|Optional $AdditionalDocumentReference;
-	public BillingReferenceLine|Optional $BillingReferenceLine;
+
+	/** @param array<BillingReferenceLine> $BillingReferenceLine */
+	public array|Optional $BillingReferenceLine;
 }

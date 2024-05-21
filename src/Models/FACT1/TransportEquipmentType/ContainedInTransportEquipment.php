@@ -42,7 +42,9 @@ use Spatie\LaravelData\Optional;
 class ContainedInTransportEquipment extends Data
 {
 	public string|Optional $ID;
-	public string|Optional $ReferencedConsignmentID;
+
+	/** @param array<ReferencedConsignmentID> $ReferencedConsignmentID */
+	public array|Optional $ReferencedConsignmentID;
 	public string|Optional $TransportEquipmentTypeCode;
 	public string|Optional $ProviderTypeCode;
 	public string|Optional $OwnerTypeCode;
@@ -50,7 +52,9 @@ class ContainedInTransportEquipment extends Data
 	public string|Optional $DispositionCode;
 	public string|Optional $FullnessIndicationCode;
 	public bool|Optional $RefrigerationOnIndicator;
-	public string|Optional $Information;
+
+	/** @param array<Information> $Information */
+	public array|Optional $Information;
 	public bool|Optional $ReturnabilityIndicator;
 	public bool|Optional $LegalStatusIndicator;
 	public string|Optional $AirFlowPercent;
@@ -60,9 +64,15 @@ class ContainedInTransportEquipment extends Data
 	public bool|Optional $DangerousGoodsApprovedIndicator;
 	public bool|Optional $RefrigeratedIndicator;
 	public string|Optional $Characteristics;
-	public string|Optional $DamageRemarks;
-	public string|Optional $Description;
-	public string|Optional $SpecialTransportRequirements;
+
+	/** @param array<DamageRemarks> $DamageRemarks */
+	public array|Optional $DamageRemarks;
+
+	/** @param array<Description> $Description */
+	public array|Optional $Description;
+
+	/** @param array<SpecialTransportRequirements> $SpecialTransportRequirements */
+	public array|Optional $SpecialTransportRequirements;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $GrossWeightMeasure;
@@ -75,8 +85,12 @@ class ContainedInTransportEquipment extends Data
 	public string|Optional $TrackingDeviceCode;
 	public bool|Optional $PowerIndicator;
 	public string|Optional $TraceID;
-	public MeasurementDimension|Optional $MeasurementDimension;
-	public TransportEquipmentSeal|Optional $TransportEquipmentSeal;
+
+	/** @param array<MeasurementDimension> $MeasurementDimension */
+	public array|Optional $MeasurementDimension;
+
+	/** @param array<TransportEquipmentSeal> $TransportEquipmentSeal */
+	public array|Optional $TransportEquipmentSeal;
 	public MinimumTemperature|Optional $MinimumTemperature;
 	public MaximumTemperature|Optional $MaximumTemperature;
 	public ProviderParty|Optional $ProviderParty;
@@ -87,24 +101,56 @@ class ContainedInTransportEquipment extends Data
 	public LoadingLocation|Optional $LoadingLocation;
 	public UnloadingLocation|Optional $UnloadingLocation;
 	public StorageLocation|Optional $StorageLocation;
-	public PositioningTransportEvent|Optional $PositioningTransportEvent;
-	public QuarantineTransportEvent|Optional $QuarantineTransportEvent;
-	public DeliveryTransportEvent|Optional $DeliveryTransportEvent;
-	public PickupTransportEvent|Optional $PickupTransportEvent;
-	public HandlingTransportEvent|Optional $HandlingTransportEvent;
-	public LoadingTransportEvent|Optional $LoadingTransportEvent;
-	public TransportEvent|Optional $TransportEvent;
+
+	/** @param array<PositioningTransportEvent> $PositioningTransportEvent */
+	public array|Optional $PositioningTransportEvent;
+
+	/** @param array<QuarantineTransportEvent> $QuarantineTransportEvent */
+	public array|Optional $QuarantineTransportEvent;
+
+	/** @param array<DeliveryTransportEvent> $DeliveryTransportEvent */
+	public array|Optional $DeliveryTransportEvent;
+
+	/** @param array<PickupTransportEvent> $PickupTransportEvent */
+	public array|Optional $PickupTransportEvent;
+
+	/** @param array<HandlingTransportEvent> $HandlingTransportEvent */
+	public array|Optional $HandlingTransportEvent;
+
+	/** @param array<LoadingTransportEvent> $LoadingTransportEvent */
+	public array|Optional $LoadingTransportEvent;
+
+	/** @param array<TransportEvent> $TransportEvent */
+	public array|Optional $TransportEvent;
 	public ApplicableTransportMeans|Optional $ApplicableTransportMeans;
-	public HaulageTradingTerms|Optional $HaulageTradingTerms;
-	public HazardousGoodsTransit|Optional $HazardousGoodsTransit;
-	public PackagedTransportHandlingUnit|Optional $PackagedTransportHandlingUnit;
-	public ServiceAllowanceCharge|Optional $ServiceAllowanceCharge;
-	public FreightAllowanceCharge|Optional $FreightAllowanceCharge;
-	public AttachedTransportEquipment|Optional $AttachedTransportEquipment;
+
+	/** @param array<HaulageTradingTerms> $HaulageTradingTerms */
+	public array|Optional $HaulageTradingTerms;
+
+	/** @param array<HazardousGoodsTransit> $HazardousGoodsTransit */
+	public array|Optional $HazardousGoodsTransit;
+
+	/** @param array<PackagedTransportHandlingUnit> $PackagedTransportHandlingUnit */
+	public array|Optional $PackagedTransportHandlingUnit;
+
+	/** @param array<ServiceAllowanceCharge> $ServiceAllowanceCharge */
+	public array|Optional $ServiceAllowanceCharge;
+
+	/** @param array<FreightAllowanceCharge> $FreightAllowanceCharge */
+	public array|Optional $FreightAllowanceCharge;
+
+	/** @param array<AttachedTransportEquipment> $AttachedTransportEquipment */
+	public array|Optional $AttachedTransportEquipment;
 	public Delivery|Optional $Delivery;
 	public Pickup|Optional $Pickup;
 	public Despatch|Optional $Despatch;
-	public ShipmentDocumentReference|Optional $ShipmentDocumentReference;
-	public Package|Optional $Package;
-	public GoodsItem|Optional $GoodsItem;
+
+	/** @param array<ShipmentDocumentReference> $ShipmentDocumentReference */
+	public array|Optional $ShipmentDocumentReference;
+
+	/** @param array<Package> $Package */
+	public array|Optional $Package;
+
+	/** @param array<GoodsItem> $GoodsItem */
+	public array|Optional $GoodsItem;
 }

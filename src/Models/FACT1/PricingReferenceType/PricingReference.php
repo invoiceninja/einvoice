@@ -11,5 +11,7 @@ use Spatie\LaravelData\Optional;
 class PricingReference extends Data
 {
 	public OriginalItemLocationQuantity|Optional $OriginalItemLocationQuantity;
-	public AlternativeConditionPrice|Optional $AlternativeConditionPrice;
+
+	/** @param array<AlternativeConditionPrice> $AlternativeConditionPrice */
+	public array|Optional $AlternativeConditionPrice;
 }

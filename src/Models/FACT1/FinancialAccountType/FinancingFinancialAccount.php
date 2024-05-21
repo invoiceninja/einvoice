@@ -19,7 +19,9 @@ class FinancingFinancialAccount extends Data
 	public string|Optional $AccountTypeCode;
 	public string|Optional $AccountFormatCode;
 	public string|Optional $CurrencyCode;
-	public string|Optional $PaymentNote;
+
+	/** @param array<PaymentNote> $PaymentNote */
+	public array|Optional $PaymentNote;
 	public FinancialInstitutionBranch|Optional $FinancialInstitutionBranch;
 	public Country|Optional $Country;
 }

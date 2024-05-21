@@ -5,12 +5,14 @@ namespace Invoiceninja\Einvoice\Models\FatturaPA\ScontoMaggiorazioneType;
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\Validation\Regex;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
 class ScontoMaggiorazione extends Data
 {
+	#[Required]
 	public ?string $Tipo;
 	private array $Tipo_array = ['SC' => 'SC = Sconto', 'MG' => 'MG = Maggiorazione'];
 

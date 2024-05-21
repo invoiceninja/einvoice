@@ -9,6 +9,7 @@ use Invoiceninja\Einvoice\Models\FACT1\PeriodType\ValidityPeriod;
 use Invoiceninja\Einvoice\Models\FACT1\ResultOfVerificationType\ResultOfVerification;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -16,6 +17,7 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class ContractDocumentReference extends Data
 {
+	#[Required]
 	#[Max(200)]
 	#[Min(1)]
 	public ?string $ID;
@@ -29,14 +31,17 @@ class ContractDocumentReference extends Data
 	public Carbon|Optional $IssueTime;
 	public string|Optional $DocumentTypeCode;
 	public string|Optional $DocumentType;
-	public string|Optional $XPath;
+
+	/** @param array<XPath> $XPath */
+	public array|Optional $XPath;
 	public string|Optional $LanguageID;
 	public string|Optional $LocaleCode;
 	public string|Optional $VersionID;
 	public string|Optional $DocumentStatusCode;
 
+	/** @param array<DocumentDescription> $DocumentDescription */
 	#[Max(100)]
-	public string|Optional $DocumentDescription;
+	public array|Optional $DocumentDescription;
 	public Attachment|Optional $Attachment;
 	public ValidityPeriod|Optional $ValidityPeriod;
 	public IssuerParty|Optional $IssuerParty;

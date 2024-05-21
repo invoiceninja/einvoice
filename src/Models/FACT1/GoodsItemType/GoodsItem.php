@@ -26,7 +26,9 @@ class GoodsItem extends Data
 {
 	public string|Optional $ID;
 	public string|Optional $SequenceNumberID;
-	public string|Optional $Description;
+
+	/** @param array<Description> $Description */
+	public array|Optional $Description;
 	public bool|Optional $HazardousRiskIndicator;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -81,18 +83,34 @@ class GoodsItem extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ReturnableQuantity;
 	public string|Optional $TraceID;
-	public Item|Optional $Item;
-	public GoodsItemContainer|Optional $GoodsItemContainer;
-	public FreightAllowanceCharge|Optional $FreightAllowanceCharge;
-	public InvoiceLine|Optional $InvoiceLine;
-	public Temperature|Optional $Temperature;
-	public ContainedGoodsItem|Optional $ContainedGoodsItem;
+
+	/** @param array<Item> $Item */
+	public array|Optional $Item;
+
+	/** @param array<GoodsItemContainer> $GoodsItemContainer */
+	public array|Optional $GoodsItemContainer;
+
+	/** @param array<FreightAllowanceCharge> $FreightAllowanceCharge */
+	public array|Optional $FreightAllowanceCharge;
+
+	/** @param array<InvoiceLine> $InvoiceLine */
+	public array|Optional $InvoiceLine;
+
+	/** @param array<Temperature> $Temperature */
+	public array|Optional $Temperature;
+
+	/** @param array<ContainedGoodsItem> $ContainedGoodsItem */
+	public array|Optional $ContainedGoodsItem;
 	public OriginAddress|Optional $OriginAddress;
 	public Delivery|Optional $Delivery;
 	public Pickup|Optional $Pickup;
 	public Despatch|Optional $Despatch;
-	public MeasurementDimension|Optional $MeasurementDimension;
-	public ContainingPackage|Optional $ContainingPackage;
+
+	/** @param array<MeasurementDimension> $MeasurementDimension */
+	public array|Optional $MeasurementDimension;
+
+	/** @param array<ContainingPackage> $ContainingPackage */
+	public array|Optional $ContainingPackage;
 	public ShipmentDocumentReference|Optional $ShipmentDocumentReference;
 	public MinimumTemperature|Optional $MinimumTemperature;
 	public MaximumTemperature|Optional $MaximumTemperature;

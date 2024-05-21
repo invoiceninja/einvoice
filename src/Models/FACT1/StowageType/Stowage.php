@@ -10,6 +10,10 @@ use Spatie\LaravelData\Optional;
 class Stowage extends Data
 {
 	public string|Optional $LocationID;
-	public string|Optional $Location;
-	public MeasurementDimension|Optional $MeasurementDimension;
+
+	/** @param array<Location> $Location */
+	public array|Optional $Location;
+
+	/** @param array<MeasurementDimension> $MeasurementDimension */
+	public array|Optional $MeasurementDimension;
 }

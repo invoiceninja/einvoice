@@ -11,12 +11,16 @@ use Invoiceninja\Einvoice\Models\FatturaPA\IscrizioneREAType\IscrizioneREA;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Attributes\Validation\Regex;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
 class CedentePrestatore extends Data
 {
+	#[Required]
 	public ?DatiAnagrafici $DatiAnagrafici;
+
+	#[Required]
 	public ?Sede $Sede;
 	public StabileOrganizzazione|Optional $StabileOrganizzazione;
 	public IscrizioneREA|Optional $IscrizioneREA;

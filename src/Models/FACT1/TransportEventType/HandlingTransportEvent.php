@@ -24,12 +24,20 @@ class HandlingTransportEvent extends Data
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
 	public Carbon|Optional $OccurrenceTime;
 	public string|Optional $TransportEventTypeCode;
-	public string|Optional $Description;
+
+	/** @param array<Description> $Description */
+	public array|Optional $Description;
 	public bool|Optional $CompletionIndicator;
 	public ReportedShipment|Optional $ReportedShipment;
-	public CurrentStatus|Optional $CurrentStatus;
-	public Contact|Optional $Contact;
+
+	/** @param array<CurrentStatus> $CurrentStatus */
+	public array|Optional $CurrentStatus;
+
+	/** @param array<Contact> $Contact */
+	public array|Optional $Contact;
 	public Location|Optional $Location;
 	public Signature|Optional $Signature;
-	public Period|Optional $Period;
+
+	/** @param array<Period> $Period */
+	public array|Optional $Period;
 }

@@ -16,6 +16,7 @@ use Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\SupportedTransport
 use Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\TransportEquipment;
 use Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\UnsupportedTransportEquipment;
 use Invoiceninja\Einvoice\Models\FACT1\TransportEventType\TransportEvent;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -23,11 +24,14 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class FinalDeliveryTransportationService extends Data
 {
+	#[Required]
 	public ?string $TransportServiceCode;
 	public string|Optional $TariffClassCode;
 	public string|Optional $Priority;
 	public string|Optional $FreightRateClassCode;
-	public string|Optional $TransportationServiceDescription;
+
+	/** @param array<TransportationServiceDescription> $TransportationServiceDescription */
+	public array|Optional $TransportationServiceDescription;
 	public string|Optional $TransportationServiceDetailsURI;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
@@ -37,17 +41,37 @@ class FinalDeliveryTransportationService extends Data
 	public Carbon|Optional $NominationTime;
 	public string|Optional $Name;
 	public string|Optional $SequenceNumeric;
-	public TransportEquipment|Optional $TransportEquipment;
-	public SupportedTransportEquipment|Optional $SupportedTransportEquipment;
-	public UnsupportedTransportEquipment|Optional $UnsupportedTransportEquipment;
-	public CommodityClassification|Optional $CommodityClassification;
-	public SupportedCommodityClassification|Optional $SupportedCommodityClassification;
-	public UnsupportedCommodityClassification|Optional $UnsupportedCommodityClassification;
+
+	/** @param array<TransportEquipment> $TransportEquipment */
+	public array|Optional $TransportEquipment;
+
+	/** @param array<SupportedTransportEquipment> $SupportedTransportEquipment */
+	public array|Optional $SupportedTransportEquipment;
+
+	/** @param array<UnsupportedTransportEquipment> $UnsupportedTransportEquipment */
+	public array|Optional $UnsupportedTransportEquipment;
+
+	/** @param array<CommodityClassification> $CommodityClassification */
+	public array|Optional $CommodityClassification;
+
+	/** @param array<SupportedCommodityClassification> $SupportedCommodityClassification */
+	public array|Optional $SupportedCommodityClassification;
+
+	/** @param array<UnsupportedCommodityClassification> $UnsupportedCommodityClassification */
+	public array|Optional $UnsupportedCommodityClassification;
 	public TotalCapacityDimension|Optional $TotalCapacityDimension;
-	public ShipmentStage|Optional $ShipmentStage;
-	public TransportEvent|Optional $TransportEvent;
+
+	/** @param array<ShipmentStage> $ShipmentStage */
+	public array|Optional $ShipmentStage;
+
+	/** @param array<TransportEvent> $TransportEvent */
+	public array|Optional $TransportEvent;
 	public ResponsibleTransportServiceProviderParty|Optional $ResponsibleTransportServiceProviderParty;
-	public EnvironmentalEmission|Optional $EnvironmentalEmission;
+
+	/** @param array<EnvironmentalEmission> $EnvironmentalEmission */
+	public array|Optional $EnvironmentalEmission;
 	public EstimatedDurationPeriod|Optional $EstimatedDurationPeriod;
-	public ScheduledServiceFrequency|Optional $ScheduledServiceFrequency;
+
+	/** @param array<ScheduledServiceFrequency> $ScheduledServiceFrequency */
+	public array|Optional $ScheduledServiceFrequency;
 }

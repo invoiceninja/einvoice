@@ -5,12 +5,14 @@ namespace Invoiceninja\Einvoice\Models\FatturaPA\DatiBolloType;
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\Validation\Regex;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
 class DatiBollo extends Data
 {
+	#[Required]
 	public ?string $BolloVirtuale;
 	private array $BolloVirtuale_array = ['SI' => 'SI'];
 

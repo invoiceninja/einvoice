@@ -10,6 +10,7 @@ use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Attributes\Validation\Regex;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -17,6 +18,7 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 
 class DettaglioLinee extends Data
 {
+	#[Required]
 	public ?int $NumeroLinea;
 	public string|Optional $TipoCessionePrestazione;
 
@@ -27,8 +29,10 @@ class DettaglioLinee extends Data
 		'AC' => 'Spesa accessoria',
 	];
 
-	public CodiceArticolo|Optional $CodiceArticolo;
+	/** @param array<CodiceArticolo> $CodiceArticolo */
+	public array|Optional $CodiceArticolo;
 
+	#[Required]
 	#[Max(1000)]
 	#[Min(1)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,1000}/u')]
@@ -49,15 +53,20 @@ class DettaglioLinee extends Data
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $DataFinePeriodo;
 
+	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
 	public ?float $PrezzoUnitario;
-	public ScontoMaggiorazione|Optional $ScontoMaggiorazione;
 
+	/** @param array<ScontoMaggiorazione> $ScontoMaggiorazione */
+	public array|Optional $ScontoMaggiorazione;
+
+	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
 	public ?float $PrezzoTotale;
 
+	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
 	public ?float $AliquotaIVA;
@@ -96,5 +105,7 @@ class DettaglioLinee extends Data
 	#[Min(1)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
 	public string|Optional $RiferimentoAmministrazione;
-	public AltriDatiGestionali|Optional $AltriDatiGestionali;
+
+	/** @param array<AltriDatiGestionali> $AltriDatiGestionali */
+	public array|Optional $AltriDatiGestionali;
 }

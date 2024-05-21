@@ -8,14 +8,20 @@ use Invoiceninja\Einvoice\Models\FatturaPA\CessionarioCommittenteType\Cessionari
 use Invoiceninja\Einvoice\Models\FatturaPA\DatiTrasmissioneType\DatiTrasmissione;
 use Invoiceninja\Einvoice\Models\FatturaPA\RappresentanteFiscaleType\RappresentanteFiscale;
 use Invoiceninja\Einvoice\Models\FatturaPA\TerzoIntermediarioSoggettoEmittenteType\TerzoIntermediarioOSoggettoEmittente;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
 class FatturaElettronicaHeader extends Data
 {
+	#[Required]
 	public ?DatiTrasmissione $DatiTrasmissione;
+
+	#[Required]
 	public ?CedentePrestatore $CedentePrestatore;
 	public RappresentanteFiscale|Optional $RappresentanteFiscale;
+
+	#[Required]
 	public ?CessionarioCommittente $CessionarioCommittente;
 	public TerzoIntermediarioOSoggettoEmittente|Optional $TerzoIntermediarioOSoggettoEmittente;
 	public string|Optional $SoggettoEmittente;

@@ -76,8 +76,12 @@ class MainCarriageShipmentStage extends Data
 	public Carbon|Optional $RequiredDeliveryTime;
 	public string|Optional $LoadingSequenceID;
 	public string|Optional $SuccessiveSequenceID;
-	public string|Optional $Instructions;
-	public string|Optional $DemurrageInstructions;
+
+	/** @param array<Instructions> $Instructions */
+	public array|Optional $Instructions;
+
+	/** @param array<DemurrageInstructions> $DemurrageInstructions */
+	public array|Optional $DemurrageInstructions;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $CrewQuantity;
@@ -85,7 +89,9 @@ class MainCarriageShipmentStage extends Data
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $PassengerQuantity;
 	public TransitPeriod|Optional $TransitPeriod;
-	public CarrierParty|Optional $CarrierParty;
+
+	/** @param array<CarrierParty> $CarrierParty */
+	public array|Optional $CarrierParty;
 	public TransportMeans|Optional $TransportMeans;
 	public LoadingPortLocation|Optional $LoadingPortLocation;
 	public UnloadingPortLocation|Optional $UnloadingPortLocation;
@@ -107,25 +113,41 @@ class MainCarriageShipmentStage extends Data
 	public TerminalOperatorParty|Optional $TerminalOperatorParty;
 	public CustomsAgentParty|Optional $CustomsAgentParty;
 	public EstimatedTransitPeriod|Optional $EstimatedTransitPeriod;
-	public FreightAllowanceCharge|Optional $FreightAllowanceCharge;
+
+	/** @param array<FreightAllowanceCharge> $FreightAllowanceCharge */
+	public array|Optional $FreightAllowanceCharge;
 	public FreightChargeLocation|Optional $FreightChargeLocation;
-	public DetentionTransportEvent|Optional $DetentionTransportEvent;
+
+	/** @param array<DetentionTransportEvent> $DetentionTransportEvent */
+	public array|Optional $DetentionTransportEvent;
 	public RequestedDepartureTransportEvent|Optional $RequestedDepartureTransportEvent;
 	public RequestedArrivalTransportEvent|Optional $RequestedArrivalTransportEvent;
-	public RequestedWaypointTransportEvent|Optional $RequestedWaypointTransportEvent;
+
+	/** @param array<RequestedWaypointTransportEvent> $RequestedWaypointTransportEvent */
+	public array|Optional $RequestedWaypointTransportEvent;
 	public PlannedDepartureTransportEvent|Optional $PlannedDepartureTransportEvent;
 	public PlannedArrivalTransportEvent|Optional $PlannedArrivalTransportEvent;
-	public PlannedWaypointTransportEvent|Optional $PlannedWaypointTransportEvent;
+
+	/** @param array<PlannedWaypointTransportEvent> $PlannedWaypointTransportEvent */
+	public array|Optional $PlannedWaypointTransportEvent;
 	public ActualDepartureTransportEvent|Optional $ActualDepartureTransportEvent;
 	public ActualWaypointTransportEvent|Optional $ActualWaypointTransportEvent;
 	public ActualArrivalTransportEvent|Optional $ActualArrivalTransportEvent;
-	public TransportEvent|Optional $TransportEvent;
+
+	/** @param array<TransportEvent> $TransportEvent */
+	public array|Optional $TransportEvent;
 	public EstimatedDepartureTransportEvent|Optional $EstimatedDepartureTransportEvent;
 	public EstimatedArrivalTransportEvent|Optional $EstimatedArrivalTransportEvent;
-	public PassengerPerson|Optional $PassengerPerson;
-	public DriverPerson|Optional $DriverPerson;
+
+	/** @param array<PassengerPerson> $PassengerPerson */
+	public array|Optional $PassengerPerson;
+
+	/** @param array<DriverPerson> $DriverPerson */
+	public array|Optional $DriverPerson;
 	public ReportingPerson|Optional $ReportingPerson;
-	public CrewMemberPerson|Optional $CrewMemberPerson;
+
+	/** @param array<CrewMemberPerson> $CrewMemberPerson */
+	public array|Optional $CrewMemberPerson;
 	public SecurityOfficerPerson|Optional $SecurityOfficerPerson;
 	public MasterPerson|Optional $MasterPerson;
 	public ShipsSurgeonPerson|Optional $ShipsSurgeonPerson;

@@ -21,6 +21,10 @@ class SellerContact extends Data
 
 	#[Max(100)]
 	public string|Optional $ElectronicMail;
-	public string|Optional $Note;
-	public OtherCommunication|Optional $OtherCommunication;
+
+	/** @param array<Note> $Note */
+	public array|Optional $Note;
+
+	/** @param array<OtherCommunication> $OtherCommunication */
+	public array|Optional $OtherCommunication;
 }

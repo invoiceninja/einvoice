@@ -24,12 +24,20 @@ class ContainedPackage extends Data
 	public bool|Optional $ReturnableMaterialIndicator;
 	public string|Optional $PackageLevelCode;
 	public string|Optional $PackagingTypeCode;
-	public string|Optional $PackingMaterial;
+
+	/** @param array<PackingMaterial> $PackingMaterial */
+	public array|Optional $PackingMaterial;
 	public string|Optional $TraceID;
 	public ContainingTransportEquipment|Optional $ContainingTransportEquipment;
-	public GoodsItem|Optional $GoodsItem;
-	public MeasurementDimension|Optional $MeasurementDimension;
-	public DeliveryUnit|Optional $DeliveryUnit;
+
+	/** @param array<GoodsItem> $GoodsItem */
+	public array|Optional $GoodsItem;
+
+	/** @param array<MeasurementDimension> $MeasurementDimension */
+	public array|Optional $MeasurementDimension;
+
+	/** @param array<DeliveryUnit> $DeliveryUnit */
+	public array|Optional $DeliveryUnit;
 	public Delivery|Optional $Delivery;
 	public Pickup|Optional $Pickup;
 	public Despatch|Optional $Despatch;

@@ -8,6 +8,7 @@ use Invoiceninja\Einvoice\Models\FACT1\CountryType\Country;
 use Invoiceninja\Einvoice\Models\FACT1\LocationCoordinateType\LocationCoordinate;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
@@ -20,6 +21,7 @@ class ApplicableTerritoryAddress extends Data
 	public string|Optional $Floor;
 	public string|Optional $Room;
 
+	#[Required]
 	#[Max(150)]
 	#[Min(1)]
 	public ?string $StreetName;
@@ -36,6 +38,7 @@ class ApplicableTerritoryAddress extends Data
 	public string|Optional $PlotIdentification;
 	public string|Optional $CitySubdivisionName;
 
+	#[Required]
 	#[Max(50)]
 	#[Min(1)]
 	public ?string $CityName;
@@ -43,6 +46,7 @@ class ApplicableTerritoryAddress extends Data
 	#[Max(20)]
 	public string|Optional $PostalZone;
 
+	#[Required]
 	#[Min(1)]
 	public ?string $CountrySubentity;
 
@@ -95,7 +99,11 @@ class ApplicableTerritoryAddress extends Data
 	public string|Optional $Region;
 	public string|Optional $District;
 	public string|Optional $TimezoneOffset;
-	public AddressLine|Optional $AddressLine;
+
+	/** @param array<AddressLine> $AddressLine */
+	public array|Optional $AddressLine;
 	public Country|Optional $Country;
-	public LocationCoordinate|Optional $LocationCoordinate;
+
+	/** @param array<LocationCoordinate> $LocationCoordinate */
+	public array|Optional $LocationCoordinate;
 }

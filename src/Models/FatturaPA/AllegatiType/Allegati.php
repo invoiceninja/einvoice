@@ -6,11 +6,13 @@ use Carbon\Carbon;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Attributes\Validation\Regex;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
 class Allegati extends Data
 {
+	#[Required]
 	#[Max(60)]
 	#[Min(1)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
@@ -30,5 +32,7 @@ class Allegati extends Data
 	#[Min(1)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,100}/u')]
 	public string|Optional $DescrizioneAttachment;
+
+	#[Required]
 	public mixed $Attachment;
 }

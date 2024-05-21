@@ -14,7 +14,9 @@ class AccountingCustomerParty extends Data
 {
 	public string|Optional $CustomerAssignedAccountID;
 	public string|Optional $SupplierAssignedAccountID;
-	public string|Optional $AdditionalAccountID;
+
+	/** @param array<AdditionalAccountID> $AdditionalAccountID */
+	public array|Optional $AdditionalAccountID;
 	public Party|Optional $Party;
 	public DeliveryContact|Optional $DeliveryContact;
 	public AccountingContact|Optional $AccountingContact;

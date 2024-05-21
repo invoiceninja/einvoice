@@ -57,9 +57,13 @@ class Delivery extends Data
 	public EstimatedDeliveryPeriod|Optional $EstimatedDeliveryPeriod;
 	public CarrierParty|Optional $CarrierParty;
 	public DeliveryParty|Optional $DeliveryParty;
-	public NotifyParty|Optional $NotifyParty;
+
+	/** @param array<NotifyParty> $NotifyParty */
+	public array|Optional $NotifyParty;
 	public Despatch|Optional $Despatch;
-	public DeliveryTerms|Optional $DeliveryTerms;
+
+	/** @param array<DeliveryTerms> $DeliveryTerms */
+	public array|Optional $DeliveryTerms;
 	public MinimumDeliveryUnit|Optional $MinimumDeliveryUnit;
 	public MaximumDeliveryUnit|Optional $MaximumDeliveryUnit;
 	public Shipment|Optional $Shipment;

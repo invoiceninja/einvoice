@@ -7,6 +7,7 @@ use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Attributes\Validation\Regex;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -18,6 +19,8 @@ class DettaglioPagamento extends Data
 	#[Min(1)]
 	#[Regex('/[\p{L}]{1,200}/u')]
 	public string|Optional $Beneficiario;
+
+	#[Required]
 	public ?string $ModalitaPagamento;
 
 	private array $ModalitaPagamento_array = [
@@ -53,6 +56,7 @@ class DettaglioPagamento extends Data
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $DataScadenzaPagamento;
 
+	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public ?float $ImportoPagamento;

@@ -5,12 +5,14 @@ namespace Invoiceninja\Einvoice\Models\FatturaPA\DatiRitenutaType;
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\Validation\Regex;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
 class DatiRitenuta extends Data
 {
+	#[Required]
 	public ?string $TipoRitenuta;
 
 	private array $TipoRitenuta_array = [
@@ -22,13 +24,17 @@ class DatiRitenuta extends Data
 		'RT06' => 'Altro contributo previdenziale',
 	];
 
+	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public ?float $ImportoRitenuta;
 
+	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
 	public ?float $AliquotaRitenuta;
+
+	#[Required]
 	public ?string $CausalePagamento;
 
 	private array $CausalePagamento_array = [

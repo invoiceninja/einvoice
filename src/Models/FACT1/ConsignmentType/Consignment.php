@@ -48,12 +48,14 @@ use Invoiceninja\Einvoice\Models\FACT1\TransportHandlingUnitType\TransportHandli
 use Invoiceninja\Einvoice\Models\FACT1\TransportationServiceType\FinalDeliveryTransportationService;
 use Invoiceninja\Einvoice\Models\FACT1\TransportationServiceType\OriginalDespatchTransportationService;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
 class Consignment extends Data
 {
+	#[Required]
 	public ?string $ID;
 	public string|Optional $CarrierAssignedID;
 	public string|Optional $ConsigneeAssignedID;
@@ -62,14 +64,18 @@ class Consignment extends Data
 	public string|Optional $BrokerAssignedID;
 	public string|Optional $ContractedCarrierAssignedID;
 	public string|Optional $PerformingCarrierAssignedID;
-	public string|Optional $SummaryDescription;
+
+	/** @param array<SummaryDescription> $SummaryDescription */
+	public array|Optional $SummaryDescription;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $TotalInvoiceAmount;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $DeclaredCustomsValueAmount;
-	public string|Optional $TariffDescription;
+
+	/** @param array<TariffDescription> $TariffDescription */
+	public array|Optional $TariffDescription;
 	public string|Optional $TariffCode;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -95,7 +101,9 @@ class Consignment extends Data
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $LoadingLengthMeasure;
-	public string|Optional $Remarks;
+
+	/** @param array<Remarks> $Remarks */
+	public array|Optional $Remarks;
 	public bool|Optional $HazardousRiskIndicator;
 	public bool|Optional $AnimalFoodIndicator;
 	public bool|Optional $HumanFoodIndicator;
@@ -105,15 +113,27 @@ class Consignment extends Data
 	public bool|Optional $GeneralCargoIndicator;
 	public bool|Optional $SpecialSecurityIndicator;
 	public bool|Optional $ThirdPartyPayerIndicator;
-	public string|Optional $CarrierServiceInstructions;
-	public string|Optional $CustomsClearanceServiceInstructions;
-	public string|Optional $ForwarderServiceInstructions;
-	public string|Optional $SpecialServiceInstructions;
+
+	/** @param array<CarrierServiceInstructions> $CarrierServiceInstructions */
+	public array|Optional $CarrierServiceInstructions;
+
+	/** @param array<CustomsClearanceServiceInstructions> $CustomsClearanceServiceInstructions */
+	public array|Optional $CustomsClearanceServiceInstructions;
+
+	/** @param array<ForwarderServiceInstructions> $ForwarderServiceInstructions */
+	public array|Optional $ForwarderServiceInstructions;
+
+	/** @param array<SpecialServiceInstructions> $SpecialServiceInstructions */
+	public array|Optional $SpecialServiceInstructions;
 	public string|Optional $SequenceID;
 	public string|Optional $ShippingPriorityLevelCode;
 	public string|Optional $HandlingCode;
-	public string|Optional $HandlingInstructions;
-	public string|Optional $Information;
+
+	/** @param array<HandlingInstructions> $HandlingInstructions */
+	public array|Optional $HandlingInstructions;
+
+	/** @param array<Information> $Information */
+	public array|Optional $Information;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $TotalGoodsItemQuantity;
@@ -132,14 +152,20 @@ class Consignment extends Data
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $FreeOnBoardValueAmount;
-	public string|Optional $SpecialInstructions;
+
+	/** @param array<SpecialInstructions> $SpecialInstructions */
+	public array|Optional $SpecialInstructions;
 	public bool|Optional $SplitConsignmentIndicator;
-	public string|Optional $DeliveryInstructions;
+
+	/** @param array<DeliveryInstructions> $DeliveryInstructions */
+	public array|Optional $DeliveryInstructions;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ConsignmentQuantity;
 	public bool|Optional $ConsolidatableIndicator;
-	public string|Optional $HaulageInstructions;
+
+	/** @param array<HaulageInstructions> $HaulageInstructions */
+	public array|Optional $HaulageInstructions;
 	public string|Optional $LoadingSequenceID;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -147,14 +173,22 @@ class Consignment extends Data
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $TotalPackagesQuantity;
-	public ConsolidatedShipment|Optional $ConsolidatedShipment;
-	public CustomsDeclaration|Optional $CustomsDeclaration;
+
+	/** @param array<ConsolidatedShipment> $ConsolidatedShipment */
+	public array|Optional $ConsolidatedShipment;
+
+	/** @param array<CustomsDeclaration> $CustomsDeclaration */
+	public array|Optional $CustomsDeclaration;
 	public RequestedPickupTransportEvent|Optional $RequestedPickupTransportEvent;
 	public RequestedDeliveryTransportEvent|Optional $RequestedDeliveryTransportEvent;
 	public PlannedPickupTransportEvent|Optional $PlannedPickupTransportEvent;
 	public PlannedDeliveryTransportEvent|Optional $PlannedDeliveryTransportEvent;
-	public Status|Optional $Status;
-	public ChildConsignment|Optional $ChildConsignment;
+
+	/** @param array<Status> $Status */
+	public array|Optional $Status;
+
+	/** @param array<ChildConsignment> $ChildConsignment */
+	public array|Optional $ChildConsignment;
 	public ConsigneeParty|Optional $ConsigneeParty;
 	public ExporterParty|Optional $ExporterParty;
 	public ConsignorParty|Optional $ConsignorParty;
@@ -174,9 +208,13 @@ class Consignment extends Data
 	public BillOfLadingHolderParty|Optional $BillOfLadingHolderParty;
 	public OriginalDepartureCountry|Optional $OriginalDepartureCountry;
 	public FinalDestinationCountry|Optional $FinalDestinationCountry;
-	public TransitCountry|Optional $TransitCountry;
+
+	/** @param array<TransitCountry> $TransitCountry */
+	public array|Optional $TransitCountry;
 	public TransportContract|Optional $TransportContract;
-	public TransportEvent|Optional $TransportEvent;
+
+	/** @param array<TransportEvent> $TransportEvent */
+	public array|Optional $TransportEvent;
 	public OriginalDespatchTransportationService|Optional $OriginalDespatchTransportationService;
 	public FinalDeliveryTransportationService|Optional $FinalDeliveryTransportationService;
 	public DeliveryTerms|Optional $DeliveryTerms;
@@ -184,12 +222,24 @@ class Consignment extends Data
 	public CollectPaymentTerms|Optional $CollectPaymentTerms;
 	public DisbursementPaymentTerms|Optional $DisbursementPaymentTerms;
 	public PrepaidPaymentTerms|Optional $PrepaidPaymentTerms;
-	public FreightAllowanceCharge|Optional $FreightAllowanceCharge;
-	public ExtraAllowanceCharge|Optional $ExtraAllowanceCharge;
-	public MainCarriageShipmentStage|Optional $MainCarriageShipmentStage;
-	public PreCarriageShipmentStage|Optional $PreCarriageShipmentStage;
-	public OnCarriageShipmentStage|Optional $OnCarriageShipmentStage;
-	public TransportHandlingUnit|Optional $TransportHandlingUnit;
+
+	/** @param array<FreightAllowanceCharge> $FreightAllowanceCharge */
+	public array|Optional $FreightAllowanceCharge;
+
+	/** @param array<ExtraAllowanceCharge> $ExtraAllowanceCharge */
+	public array|Optional $ExtraAllowanceCharge;
+
+	/** @param array<MainCarriageShipmentStage> $MainCarriageShipmentStage */
+	public array|Optional $MainCarriageShipmentStage;
+
+	/** @param array<PreCarriageShipmentStage> $PreCarriageShipmentStage */
+	public array|Optional $PreCarriageShipmentStage;
+
+	/** @param array<OnCarriageShipmentStage> $OnCarriageShipmentStage */
+	public array|Optional $OnCarriageShipmentStage;
+
+	/** @param array<TransportHandlingUnit> $TransportHandlingUnit */
+	public array|Optional $TransportHandlingUnit;
 	public FirstArrivalPortLocation|Optional $FirstArrivalPortLocation;
 	public LastExitPortLocation|Optional $LastExitPortLocation;
 }

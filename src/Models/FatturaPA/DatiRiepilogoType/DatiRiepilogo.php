@@ -7,12 +7,14 @@ use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
 use Spatie\LaravelData\Attributes\Validation\Regex;
+use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
 class DatiRiepilogo extends Data
 {
+	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
 	public ?float $AliquotaIVA;
@@ -53,10 +55,12 @@ class DatiRiepilogo extends Data
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
 	public float|Optional $Arrotondamento;
 
+	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public ?float $ImponibileImporto;
 
+	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public ?float $Imposta;

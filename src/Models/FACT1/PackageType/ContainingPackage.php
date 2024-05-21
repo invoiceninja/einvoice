@@ -10,6 +10,7 @@ use Invoiceninja\Einvoice\Models\FACT1\DimensionType\MeasurementDimension;
 use Invoiceninja\Einvoice\Models\FACT1\GoodsItemType\GoodsItem;
 use Invoiceninja\Einvoice\Models\FACT1\PickupType\Pickup;
 use Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\ContainingTransportEquipment;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -28,20 +29,25 @@ class ContainingPackage extends Data
 	public string|Optional $PackagingTypeCode;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $PackingMaterial;
 	public string|Optional $TraceID;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PackageType\ContainedPackage')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public ContainedPackage|Optional $ContainedPackage;
 	public ContainingTransportEquipment|Optional $ContainingTransportEquipment;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\GoodsItemType\GoodsItem')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public GoodsItem|Optional $GoodsItem;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DimensionType\MeasurementDimension')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public MeasurementDimension|Optional $MeasurementDimension;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DeliveryUnitType\DeliveryUnit')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public DeliveryUnit|Optional $DeliveryUnit;
 	public Delivery|Optional $Delivery;
 	public Pickup|Optional $Pickup;

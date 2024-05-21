@@ -3,6 +3,7 @@
 namespace Invoiceninja\Einvoice\Models\FACT1\PeriodType;
 
 use Carbon\Carbon;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -29,9 +30,11 @@ class NominationPeriod extends Data
 	public float|Optional $DurationMeasure;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $DescriptionCode;
 	private array $DescriptionCode_array = [3, 35, 432];
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $Description;
 }

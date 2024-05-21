@@ -17,6 +17,7 @@ use Invoiceninja\Einvoice\Models\FACT1\PickupType\Pickup;
 use Invoiceninja\Einvoice\Models\FACT1\TemperatureType\MaximumTemperature;
 use Invoiceninja\Einvoice\Models\FACT1\TemperatureType\MinimumTemperature;
 use Invoiceninja\Einvoice\Models\FACT1\TemperatureType\Temperature;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -30,6 +31,7 @@ class GoodsItem extends Data
 	public string|Optional $SequenceNumberID;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $Description;
 	public bool|Optional $HazardousRiskIndicator;
 
@@ -87,21 +89,27 @@ class GoodsItem extends Data
 	public string|Optional $TraceID;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ItemType\Item')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public Item|Optional $Item;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\GoodsItemContainerType\GoodsItemContainer')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public GoodsItemContainer|Optional $GoodsItemContainer;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\FreightAllowanceCharge')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public FreightAllowanceCharge|Optional $FreightAllowanceCharge;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\InvoiceLineType\InvoiceLine')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public InvoiceLine|Optional $InvoiceLine;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TemperatureType\Temperature')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public Temperature|Optional $Temperature;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\GoodsItemType\ContainedGoodsItem')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public ContainedGoodsItem|Optional $ContainedGoodsItem;
 	public OriginAddress|Optional $OriginAddress;
 	public Delivery|Optional $Delivery;
@@ -109,9 +117,11 @@ class GoodsItem extends Data
 	public Despatch|Optional $Despatch;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DimensionType\MeasurementDimension')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public MeasurementDimension|Optional $MeasurementDimension;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PackageType\ContainingPackage')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public ContainingPackage|Optional $ContainingPackage;
 	public ShipmentDocumentReference|Optional $ShipmentDocumentReference;
 	public MinimumTemperature|Optional $MinimumTemperature;

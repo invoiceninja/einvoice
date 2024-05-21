@@ -4,6 +4,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1\BillingReferenceLineType;
 
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\AllowanceCharge;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
@@ -21,5 +22,6 @@ class BillingReferenceLine extends Data
 	public float|Optional $Amount;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\AllowanceCharge')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public AllowanceCharge|Optional $AllowanceCharge;
 }

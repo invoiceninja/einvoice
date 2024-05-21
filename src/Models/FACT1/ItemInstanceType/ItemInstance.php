@@ -5,6 +5,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1\ItemInstanceType;
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\ItemPropertyType\AdditionalItemProperty;
 use Invoiceninja\Einvoice\Models\FACT1\LotIdentificationType\LotIdentification;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
@@ -28,6 +29,7 @@ class ItemInstance extends Data
 	public string|Optional $SerialID;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ItemPropertyType\AdditionalItemProperty')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public AdditionalItemProperty|Optional $AdditionalItemProperty;
 	public LotIdentification|Optional $LotIdentification;
 }

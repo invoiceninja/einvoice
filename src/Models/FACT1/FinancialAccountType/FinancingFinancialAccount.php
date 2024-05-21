@@ -5,6 +5,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1\FinancialAccountType;
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\BranchType\FinancialInstitutionBranch;
 use Invoiceninja\Einvoice\Models\FACT1\CountryType\Country;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Data;
@@ -23,6 +24,7 @@ class FinancingFinancialAccount extends Data
 	public string|Optional $CurrencyCode;
 
 	#[DataCollectionOf('string')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $PaymentNote;
 	public FinancialInstitutionBranch|Optional $FinancialInstitutionBranch;
 	public Country|Optional $Country;

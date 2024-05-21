@@ -7,6 +7,7 @@ use Invoiceninja\Einvoice\Models\FACT1\AddressType\RegistrationAddress;
 use Invoiceninja\Einvoice\Models\FACT1\CorporateRegistrationSchemeType\CorporateRegistrationScheme;
 use Invoiceninja\Einvoice\Models\FACT1\PartyType\HeadOfficeParty;
 use Invoiceninja\Einvoice\Models\FACT1\ShareholderPartyType\ShareholderParty;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
@@ -36,5 +37,6 @@ class PartyLegalEntity extends Data
 	public HeadOfficeParty|Optional $HeadOfficeParty;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ShareholderPartyType\ShareholderParty')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public ShareholderParty|Optional $ShareholderParty;
 }

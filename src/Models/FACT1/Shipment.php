@@ -14,6 +14,7 @@ use Invoiceninja\Einvoice\Models\FACT1\LocationType\FirstArrivalPortLocation;
 use Invoiceninja\Einvoice\Models\FACT1\LocationType\LastExitPortLocation;
 use Invoiceninja\Einvoice\Models\FACT1\ShipmentStageType\ShipmentStage;
 use Invoiceninja\Einvoice\Models\FACT1\TransportHandlingUnitType\TransportHandlingUnit;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
@@ -27,9 +28,11 @@ class Shipment extends Data
 	public string|Optional $HandlingCode;
 
 	#[DataCollectionOf('string')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $HandlingInstructions;
 
 	#[DataCollectionOf('string')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $Information;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -69,9 +72,11 @@ class Shipment extends Data
 	public float|Optional $FreeOnBoardValueAmount;
 
 	#[DataCollectionOf('string')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $SpecialInstructions;
 
 	#[DataCollectionOf('string')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $DeliveryInstructions;
 	public bool|Optional $SplitConsignmentIndicator;
 
@@ -79,16 +84,20 @@ class Shipment extends Data
 	public float|Optional $ConsignmentQuantity;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ConsignmentType\Consignment')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public Consignment|Optional $Consignment;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\GoodsItemType\GoodsItem')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public GoodsItem|Optional $GoodsItem;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ShipmentStageType\ShipmentStage')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public ShipmentStage|Optional $ShipmentStage;
 	public Delivery|Optional $Delivery;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportHandlingUnitType\TransportHandlingUnit')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public TransportHandlingUnit|Optional $TransportHandlingUnit;
 	public ReturnAddress|Optional $ReturnAddress;
 	public OriginAddress|Optional $OriginAddress;
@@ -97,5 +106,6 @@ class Shipment extends Data
 	public ExportCountry|Optional $ExportCountry;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\FreightAllowanceCharge')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public FreightAllowanceCharge|Optional $FreightAllowanceCharge;
 }

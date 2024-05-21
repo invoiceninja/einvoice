@@ -5,6 +5,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1\DeliveryTermsType;
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\AllowanceCharge;
 use Invoiceninja\Einvoice\Models\FACT1\LocationType\DeliveryLocation;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -17,10 +18,12 @@ class DeliveryTerms extends Data
 	public string|Optional $ID;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $SpecialTerms;
 	public string|Optional $LossRiskResponsibilityCode;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $LossRisk;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]

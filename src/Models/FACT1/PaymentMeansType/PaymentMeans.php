@@ -9,6 +9,7 @@ use Invoiceninja\Einvoice\Models\FACT1\FinancialAccountType\PayeeFinancialAccoun
 use Invoiceninja\Einvoice\Models\FACT1\FinancialAccountType\PayerFinancialAccount;
 use Invoiceninja\Einvoice\Models\FACT1\PaymentMandateType\PaymentMandate;
 use Invoiceninja\Einvoice\Models\FACT1\TradeFinancingType\TradeFinancing;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Required;
@@ -31,9 +32,11 @@ class PaymentMeans extends Data
 	public string|Optional $InstructionID;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $InstructionNote;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	#[Max(140)]
 	public string|Optional $PaymentID;
 	public CardAccount|Optional $CardAccount;

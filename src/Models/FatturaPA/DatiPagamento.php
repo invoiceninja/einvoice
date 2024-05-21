@@ -4,6 +4,7 @@ namespace Invoiceninja\Einvoice\Models\FatturaPA;
 
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FatturaPA\DettaglioPagamentoType\DettaglioPagamento;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
@@ -19,5 +20,6 @@ class DatiPagamento extends Data
 
 	#[Required]
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\DettaglioPagamentoType\DettaglioPagamento')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public DataCollection $DettaglioPagamento;
 }

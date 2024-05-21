@@ -3,6 +3,7 @@
 namespace Invoiceninja\Einvoice\Models\FACT1\DimensionType;
 
 use Carbon\Carbon;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
@@ -20,6 +21,7 @@ class PalletSpaceMeasurementDimension extends Data
 	public float|Optional $Measure;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $Description;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]

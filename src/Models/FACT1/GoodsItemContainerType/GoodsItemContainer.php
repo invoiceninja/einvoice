@@ -4,6 +4,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1\GoodsItemContainerType;
 
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\TransportEquipment;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
@@ -21,5 +22,6 @@ class GoodsItemContainer extends Data
 	public float|Optional $Quantity;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\TransportEquipment')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public TransportEquipment|Optional $TransportEquipment;
 }

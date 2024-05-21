@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\PaymentMeansType\PaymentMeans;
 use Invoiceninja\Einvoice\Models\FACT1\TaxCategoryType\TaxCategory;
 use Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\TaxTotal;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
@@ -20,6 +21,7 @@ class AllowanceCharge extends Data
 	public string|Optional $AllowanceChargeReasonCode;
 
 	#[DataCollectionOf('string')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $AllowanceChargeReason;
 	public string|Optional $MultiplierFactorNumeric;
 	public bool|Optional $PrepaidIndicator;
@@ -38,9 +40,11 @@ class AllowanceCharge extends Data
 	public float|Optional $PerUnitAmount;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TaxCategoryType\TaxCategory')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public TaxCategory|Optional $TaxCategory;
 	public TaxTotal|Optional $TaxTotal;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PaymentMeansType\PaymentMeans')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public PaymentMeans|Optional $PaymentMeans;
 }

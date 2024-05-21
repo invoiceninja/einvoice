@@ -9,6 +9,7 @@ use Invoiceninja\Einvoice\Models\FACT1\SecondaryHazardType\SecondaryHazard;
 use Invoiceninja\Einvoice\Models\FACT1\TemperatureType\AdditionalTemperature;
 use Invoiceninja\Einvoice\Models\FACT1\TemperatureType\EmergencyTemperature;
 use Invoiceninja\Einvoice\Models\FACT1\TemperatureType\FlashpointTemperature;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -23,6 +24,7 @@ class HazardousItem extends Data
 	public string|Optional $PlacardEndorsement;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $AdditionalInformation;
 	public string|Optional $UNDGCode;
 	public string|Optional $EmergencyProceduresCode;
@@ -46,13 +48,16 @@ class HazardousItem extends Data
 	public ContactParty|Optional $ContactParty;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\SecondaryHazardType\SecondaryHazard')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public SecondaryHazard|Optional $SecondaryHazard;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\HazardousGoodsTransitType\HazardousGoodsTransit')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public HazardousGoodsTransit|Optional $HazardousGoodsTransit;
 	public EmergencyTemperature|Optional $EmergencyTemperature;
 	public FlashpointTemperature|Optional $FlashpointTemperature;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TemperatureType\AdditionalTemperature')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public AdditionalTemperature|Optional $AdditionalTemperature;
 }

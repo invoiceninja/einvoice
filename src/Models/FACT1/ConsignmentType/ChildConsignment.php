@@ -47,6 +47,7 @@ use Invoiceninja\Einvoice\Models\FACT1\TransportEventType\TransportEvent;
 use Invoiceninja\Einvoice\Models\FACT1\TransportHandlingUnitType\TransportHandlingUnit;
 use Invoiceninja\Einvoice\Models\FACT1\TransportationServiceType\FinalDeliveryTransportationService;
 use Invoiceninja\Einvoice\Models\FACT1\TransportationServiceType\OriginalDespatchTransportationService;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
@@ -68,6 +69,7 @@ class ChildConsignment extends Data
 	public string|Optional $PerformingCarrierAssignedID;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $SummaryDescription;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -77,6 +79,7 @@ class ChildConsignment extends Data
 	public float|Optional $DeclaredCustomsValueAmount;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $TariffDescription;
 	public string|Optional $TariffCode;
 
@@ -105,6 +108,7 @@ class ChildConsignment extends Data
 	public float|Optional $LoadingLengthMeasure;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $Remarks;
 	public bool|Optional $HazardousRiskIndicator;
 	public bool|Optional $AnimalFoodIndicator;
@@ -117,24 +121,30 @@ class ChildConsignment extends Data
 	public bool|Optional $ThirdPartyPayerIndicator;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $CarrierServiceInstructions;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $CustomsClearanceServiceInstructions;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $ForwarderServiceInstructions;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $SpecialServiceInstructions;
 	public string|Optional $SequenceID;
 	public string|Optional $ShippingPriorityLevelCode;
 	public string|Optional $HandlingCode;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $HandlingInstructions;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $Information;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -156,10 +166,12 @@ class ChildConsignment extends Data
 	public float|Optional $FreeOnBoardValueAmount;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $SpecialInstructions;
 	public bool|Optional $SplitConsignmentIndicator;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $DeliveryInstructions;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -167,6 +179,7 @@ class ChildConsignment extends Data
 	public bool|Optional $ConsolidatableIndicator;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $HaulageInstructions;
 	public string|Optional $LoadingSequenceID;
 
@@ -177,9 +190,11 @@ class ChildConsignment extends Data
 	public float|Optional $TotalPackagesQuantity;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ShipmentType\ConsolidatedShipment')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public ConsolidatedShipment|Optional $ConsolidatedShipment;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\CustomsDeclarationType\CustomsDeclaration')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public CustomsDeclaration|Optional $CustomsDeclaration;
 	public RequestedPickupTransportEvent|Optional $RequestedPickupTransportEvent;
 	public RequestedDeliveryTransportEvent|Optional $RequestedDeliveryTransportEvent;
@@ -187,6 +202,7 @@ class ChildConsignment extends Data
 	public PlannedDeliveryTransportEvent|Optional $PlannedDeliveryTransportEvent;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\StatusType\Status')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public Status|Optional $Status;
 	public ConsigneeParty|Optional $ConsigneeParty;
 	public ExporterParty|Optional $ExporterParty;
@@ -209,10 +225,12 @@ class ChildConsignment extends Data
 	public FinalDestinationCountry|Optional $FinalDestinationCountry;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\CountryType\TransitCountry')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public TransitCountry|Optional $TransitCountry;
 	public TransportContract|Optional $TransportContract;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\TransportEvent')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public TransportEvent|Optional $TransportEvent;
 	public OriginalDespatchTransportationService|Optional $OriginalDespatchTransportationService;
 	public FinalDeliveryTransportationService|Optional $FinalDeliveryTransportationService;
@@ -223,21 +241,27 @@ class ChildConsignment extends Data
 	public PrepaidPaymentTerms|Optional $PrepaidPaymentTerms;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\FreightAllowanceCharge')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public FreightAllowanceCharge|Optional $FreightAllowanceCharge;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\ExtraAllowanceCharge')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public ExtraAllowanceCharge|Optional $ExtraAllowanceCharge;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ShipmentStageType\MainCarriageShipmentStage')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public MainCarriageShipmentStage|Optional $MainCarriageShipmentStage;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ShipmentStageType\PreCarriageShipmentStage')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public PreCarriageShipmentStage|Optional $PreCarriageShipmentStage;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ShipmentStageType\OnCarriageShipmentStage')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public OnCarriageShipmentStage|Optional $OnCarriageShipmentStage;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportHandlingUnitType\TransportHandlingUnit')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public TransportHandlingUnit|Optional $TransportHandlingUnit;
 	public FirstArrivalPortLocation|Optional $FirstArrivalPortLocation;
 	public LastExitPortLocation|Optional $LastExitPortLocation;

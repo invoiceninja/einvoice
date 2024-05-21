@@ -9,6 +9,7 @@ use Invoiceninja\Einvoice\Models\FACT1\PeriodType\Period;
 use Invoiceninja\Einvoice\Models\FACT1\ShipmentType\ReportedShipment;
 use Invoiceninja\Einvoice\Models\FACT1\SignatureType\Signature;
 use Invoiceninja\Einvoice\Models\FACT1\StatusType\CurrentStatus;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
@@ -28,18 +29,22 @@ class TakeoverTransportEvent extends Data
 	public string|Optional $TransportEventTypeCode;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $Description;
 	public bool|Optional $CompletionIndicator;
 	public ReportedShipment|Optional $ReportedShipment;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\StatusType\CurrentStatus')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public CurrentStatus|Optional $CurrentStatus;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ContactType\Contact')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public Contact|Optional $Contact;
 	public Location|Optional $Location;
 	public Signature|Optional $Signature;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PeriodType\Period')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public Period|Optional $Period;
 }

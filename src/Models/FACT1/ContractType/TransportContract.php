@@ -7,6 +7,7 @@ use Invoiceninja\Einvoice\Models\FACT1\DeliveryType\ContractualDelivery;
 use Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\ContractDocumentReference;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\NominationPeriod;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\ValidityPeriod;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
@@ -33,14 +34,17 @@ class TransportContract extends Data
 	public string|Optional $ContractType;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $Note;
 	public string|Optional $VersionID;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $Description;
 	public ValidityPeriod|Optional $ValidityPeriod;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\ContractDocumentReference')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public ContractDocumentReference|Optional $ContractDocumentReference;
 	public NominationPeriod|Optional $NominationPeriod;
 	public ContractualDelivery|Optional $ContractualDelivery;

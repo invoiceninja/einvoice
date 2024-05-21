@@ -4,6 +4,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1\PriceExtensionType;
 
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\TaxTotal;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
@@ -19,5 +20,6 @@ class ItemPriceExtension extends Data
 	public float $Amount;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\TaxTotal')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public TaxTotal|Optional $TaxTotal;
 }

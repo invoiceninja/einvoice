@@ -10,6 +10,7 @@ use Invoiceninja\Einvoice\Models\FACT1\DependentPriceReferenceType\DependentPric
 use Invoiceninja\Einvoice\Models\FACT1\PackageType\Package;
 use Invoiceninja\Einvoice\Models\FACT1\PriceType\Price;
 use Invoiceninja\Einvoice\Models\FACT1\TaxCategoryType\ApplicableTaxCategory;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -30,20 +31,25 @@ class OriginalItemLocationQuantity extends Data
 	public bool|Optional $HazardousRiskIndicator;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $TradingRestrictions;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AddressType\ApplicableTerritoryAddress')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public ApplicableTerritoryAddress|Optional $ApplicableTerritoryAddress;
 	public Price|Optional $Price;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DeliveryUnitType\DeliveryUnit')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public DeliveryUnit|Optional $DeliveryUnit;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TaxCategoryType\ApplicableTaxCategory')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public ApplicableTaxCategory|Optional $ApplicableTaxCategory;
 	public Package|Optional $Package;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\AllowanceCharge')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public AllowanceCharge|Optional $AllowanceCharge;
 	public DependentPriceReference|Optional $DependentPriceReference;
 }

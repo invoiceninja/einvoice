@@ -36,6 +36,7 @@ use Invoiceninja\Einvoice\Models\FACT1\TransportEventType\QuarantineTransportEve
 use Invoiceninja\Einvoice\Models\FACT1\TransportEventType\TransportEvent;
 use Invoiceninja\Einvoice\Models\FACT1\TransportHandlingUnitType\PackagedTransportHandlingUnit;
 use Invoiceninja\Einvoice\Models\FACT1\TransportMeansType\ApplicableTransportMeans;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -45,6 +46,7 @@ class TransportEquipment extends Data
 	public string|Optional $ID;
 
 	#[DataCollectionOf('string')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $ReferencedConsignmentID;
 	public string|Optional $TransportEquipmentTypeCode;
 	public string|Optional $ProviderTypeCode;
@@ -55,6 +57,7 @@ class TransportEquipment extends Data
 	public bool|Optional $RefrigerationOnIndicator;
 
 	#[DataCollectionOf('string')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $Information;
 	public bool|Optional $ReturnabilityIndicator;
 	public bool|Optional $LegalStatusIndicator;
@@ -67,12 +70,15 @@ class TransportEquipment extends Data
 	public string|Optional $Characteristics;
 
 	#[DataCollectionOf('string')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $DamageRemarks;
 
 	#[DataCollectionOf('string')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $Description;
 
 	#[DataCollectionOf('string')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $SpecialTransportRequirements;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -88,9 +94,11 @@ class TransportEquipment extends Data
 	public string|Optional $TraceID;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DimensionType\MeasurementDimension')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public MeasurementDimension|Optional $MeasurementDimension;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentSealType\TransportEquipmentSeal')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public TransportEquipmentSeal|Optional $TransportEquipmentSeal;
 	public MinimumTemperature|Optional $MinimumTemperature;
 	public MaximumTemperature|Optional $MaximumTemperature;
@@ -104,57 +112,74 @@ class TransportEquipment extends Data
 	public StorageLocation|Optional $StorageLocation;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\PositioningTransportEvent')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public PositioningTransportEvent|Optional $PositioningTransportEvent;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\QuarantineTransportEvent')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public QuarantineTransportEvent|Optional $QuarantineTransportEvent;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\DeliveryTransportEvent')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public DeliveryTransportEvent|Optional $DeliveryTransportEvent;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\PickupTransportEvent')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public PickupTransportEvent|Optional $PickupTransportEvent;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\HandlingTransportEvent')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public HandlingTransportEvent|Optional $HandlingTransportEvent;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\LoadingTransportEvent')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public LoadingTransportEvent|Optional $LoadingTransportEvent;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEventType\TransportEvent')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public TransportEvent|Optional $TransportEvent;
 	public ApplicableTransportMeans|Optional $ApplicableTransportMeans;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TradingTermsType\HaulageTradingTerms')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public HaulageTradingTerms|Optional $HaulageTradingTerms;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\HazardousGoodsTransitType\HazardousGoodsTransit')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public HazardousGoodsTransit|Optional $HazardousGoodsTransit;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportHandlingUnitType\PackagedTransportHandlingUnit')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public PackagedTransportHandlingUnit|Optional $PackagedTransportHandlingUnit;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\ServiceAllowanceCharge')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public ServiceAllowanceCharge|Optional $ServiceAllowanceCharge;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\FreightAllowanceCharge')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public FreightAllowanceCharge|Optional $FreightAllowanceCharge;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\AttachedTransportEquipment')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public AttachedTransportEquipment|Optional $AttachedTransportEquipment;
 	public Delivery|Optional $Delivery;
 	public Pickup|Optional $Pickup;
 	public Despatch|Optional $Despatch;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\ShipmentDocumentReference')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public ShipmentDocumentReference|Optional $ShipmentDocumentReference;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportEquipmentType\ContainedInTransportEquipment')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public ContainedInTransportEquipment|Optional $ContainedInTransportEquipment;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PackageType\Package')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public Package|Optional $Package;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\GoodsItemType\GoodsItem')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public GoodsItem|Optional $GoodsItem;
 }

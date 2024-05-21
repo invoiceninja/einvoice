@@ -7,6 +7,7 @@ use Invoiceninja\Einvoice\Models\FACT1\DimensionType\RangeDimension;
 use Invoiceninja\Einvoice\Models\FACT1\ItemPropertyGroupType\ItemPropertyGroup;
 use Invoiceninja\Einvoice\Models\FACT1\ItemPropertyRangeType\ItemPropertyRange;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\UsabilityPeriod;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
@@ -26,14 +27,17 @@ class ItemProperty extends Data
 	public float|Optional $ValueQuantity;
 
 	#[DataCollectionOf('string')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $ValueQualifier;
 	public string|Optional $ImportanceCode;
 
 	#[DataCollectionOf('string')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $ListValue;
 	public UsabilityPeriod|Optional $UsabilityPeriod;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ItemPropertyGroupType\ItemPropertyGroup')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public ItemPropertyGroup|Optional $ItemPropertyGroup;
 	public RangeDimension|Optional $RangeDimension;
 	public ItemPropertyRange|Optional $ItemPropertyRange;

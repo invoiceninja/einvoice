@@ -30,6 +30,7 @@ use Spatie\LaravelData\Attributes\Validation\Regex;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 
 class TypeGenerator
 {
@@ -116,9 +117,12 @@ class TypeGenerator
 
             
             if($element['max_occurs'] > 1 || $element['max_occurs'] == -1 && $base_type != 'int') {
-                $this->namespace->addUse(DataCollectionOf::class);
-                $property->addAttribute(DataCollectionOf::class, [$base_type]);
+                $this->namespace->addUse(DataCollectionOf::class);                
+                $this->namespace->addUse(DataCollectionTransformer::class);
                 $this->namespace->addUse(DataCollection::class);
+                $property->addAttribute(DataCollectionOf::class, [$base_type]);
+                $property->addAttribute(WithTransformer::class, [DataCollectionTransformer::class]);
+
             }
 
 

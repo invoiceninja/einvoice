@@ -7,6 +7,7 @@ use Invoiceninja\Einvoice\Models\FACT1\AddressType\ResidenceAddress;
 use Invoiceninja\Einvoice\Models\FACT1\ContactType\Contact;
 use Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\IdentityDocumentReference;
 use Invoiceninja\Einvoice\Models\FACT1\FinancialAccountType\FinancialAccount;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
@@ -34,6 +35,7 @@ class Person extends Data
 	public FinancialAccount|Optional $FinancialAccount;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\IdentityDocumentReference')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public IdentityDocumentReference|Optional $IdentityDocumentReference;
 	public ResidenceAddress|Optional $ResidenceAddress;
 }

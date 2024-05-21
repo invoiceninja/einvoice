@@ -5,6 +5,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1;
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\RegistryCertificateDocumentReference;
 use Invoiceninja\Einvoice\Models\FACT1\LocationType\RegistryPortLocation;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
@@ -16,6 +17,7 @@ class MaritimeTransport extends Data
 	public string|Optional $RadioCallSignID;
 
 	#[DataCollectionOf('string')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $ShipsRequirements;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]

@@ -17,6 +17,7 @@ use Invoiceninja\Einvoice\Models\FACT1\PeriodType\EstimatedDeliveryPeriod;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\PromisedDeliveryPeriod;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\RequestedDeliveryPeriod;
 use Invoiceninja\Einvoice\Models\FACT1\ShipmentType\Shipment;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -61,10 +62,12 @@ class ContractualDelivery extends Data
 	public DeliveryParty|Optional $DeliveryParty;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PartyType\NotifyParty')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public NotifyParty|Optional $NotifyParty;
 	public Despatch|Optional $Despatch;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DeliveryTermsType\DeliveryTerms')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public DeliveryTerms|Optional $DeliveryTerms;
 	public MinimumDeliveryUnit|Optional $MinimumDeliveryUnit;
 	public MaximumDeliveryUnit|Optional $MaximumDeliveryUnit;

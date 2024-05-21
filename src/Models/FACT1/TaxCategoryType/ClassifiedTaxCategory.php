@@ -4,6 +4,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1\TaxCategoryType;
 
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\TaxSchemeType\TaxScheme;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Max;
@@ -27,6 +28,7 @@ class ClassifiedTaxCategory extends Data
 	public string|Optional $TaxExemptionReasonCode;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	#[Max(100)]
 	public string|Optional $TaxExemptionReason;
 	public string|Optional $TierRange;

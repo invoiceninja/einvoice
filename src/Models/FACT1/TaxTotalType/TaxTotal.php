@@ -4,6 +4,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1\TaxTotalType;
 
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\TaxSubtotalType\TaxSubtotal;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
@@ -24,5 +25,6 @@ class TaxTotal extends Data
 	public bool|Optional $TaxIncludedIndicator;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TaxSubtotalType\TaxSubtotal')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public TaxSubtotal|Optional $TaxSubtotal;
 }

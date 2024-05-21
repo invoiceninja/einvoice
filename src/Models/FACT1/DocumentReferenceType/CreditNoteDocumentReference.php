@@ -7,6 +7,7 @@ use Invoiceninja\Einvoice\Models\FACT1\AttachmentType\Attachment;
 use Invoiceninja\Einvoice\Models\FACT1\PartyType\IssuerParty;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\ValidityPeriod;
 use Invoiceninja\Einvoice\Models\FACT1\ResultOfVerificationType\ResultOfVerification;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
@@ -35,6 +36,7 @@ class CreditNoteDocumentReference extends Data
 	public string|Optional $DocumentType;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $XPath;
 	public string|Optional $LanguageID;
 	public string|Optional $LocaleCode;
@@ -42,6 +44,7 @@ class CreditNoteDocumentReference extends Data
 	public string|Optional $DocumentStatusCode;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	#[Max(100)]
 	public string|Optional $DocumentDescription;
 	public Attachment|Optional $Attachment;

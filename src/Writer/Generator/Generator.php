@@ -18,6 +18,7 @@ use Nette\PhpGenerator\Property;
 use Spatie\LaravelData\Optional;
 use Nette\PhpGenerator\ClassType;
 use Illuminate\Support\Collection;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Nette\PhpGenerator\PhpNamespace;
 use Spatie\LaravelData\Attributes\Validation\In;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -159,7 +160,10 @@ class Generator
 
             if($element['max_occurs'] > 1 || $element['max_occurs'] == -1 && $base_type != 'int') {
                 $namespace->addUse(DataCollectionOf::class);
+                $namespace->addUse(DataCollectionTransformer::class);
                 $property->addAttribute(DataCollectionOf::class, [$base_type]);
+                $property->addAttribute(WithTransformer::class, [DataCollectionTransformer::class]);
+
             }
 
             // if(stripos($base_type, 'array') !== false){

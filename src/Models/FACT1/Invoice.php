@@ -34,6 +34,7 @@ use Invoiceninja\Einvoice\Models\FACT1\SupplierPartyType\AccountingSupplierParty
 use Invoiceninja\Einvoice\Models\FACT1\SupplierPartyType\SellerSupplierParty;
 use Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\TaxTotal;
 use Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\WithholdingTaxTotal;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -69,6 +70,7 @@ class Invoice extends Data
 	public string|Optional $InvoiceTypeCode;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $Note;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
@@ -84,34 +86,44 @@ class Invoice extends Data
 	public string|Optional $BuyerReference;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PeriodType\InvoicePeriod')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public InvoicePeriod|Optional $InvoicePeriod;
 	public OrderReference|Optional $OrderReference;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\BillingReferenceType\BillingReference')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public BillingReference|Optional $BillingReference;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\DespatchDocumentReference')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public DespatchDocumentReference|Optional $DespatchDocumentReference;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\ReceiptDocumentReference')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public ReceiptDocumentReference|Optional $ReceiptDocumentReference;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\StatementDocumentReference')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public StatementDocumentReference|Optional $StatementDocumentReference;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\OriginatorDocumentReference')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public OriginatorDocumentReference|Optional $OriginatorDocumentReference;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\ContractDocumentReference')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public ContractDocumentReference|Optional $ContractDocumentReference;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\AdditionalDocumentReference')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public AdditionalDocumentReference|Optional $AdditionalDocumentReference;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ProjectReferenceType\ProjectReference')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public ProjectReference|Optional $ProjectReference;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\SignatureType\Signature')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public Signature|Optional $Signature;
 
 	#[Required]
@@ -125,19 +137,24 @@ class Invoice extends Data
 	public TaxRepresentativeParty|Optional $TaxRepresentativeParty;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DeliveryType\Delivery')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public Delivery|Optional $Delivery;
 	public DeliveryTerms|Optional $DeliveryTerms;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PaymentMeansType\PaymentMeans')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public PaymentMeans|Optional $PaymentMeans;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PaymentTermsType\PaymentTerms')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public PaymentTerms|Optional $PaymentTerms;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PaymentType\PrepaidPayment')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public PrepaidPayment|Optional $PrepaidPayment;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\AllowanceCharge')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public AllowanceCharge|Optional $AllowanceCharge;
 	public TaxExchangeRate|Optional $TaxExchangeRate;
 	public PricingExchangeRate|Optional $PricingExchangeRate;
@@ -145,9 +162,11 @@ class Invoice extends Data
 	public PaymentAlternativeExchangeRate|Optional $PaymentAlternativeExchangeRate;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\TaxTotal')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public TaxTotal|Optional $TaxTotal;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\WithholdingTaxTotal')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public WithholdingTaxTotal|Optional $WithholdingTaxTotal;
 
 	#[Required]
@@ -155,5 +174,6 @@ class Invoice extends Data
 
 	#[Required]
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\InvoiceLineType\InvoiceLine')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public DataCollection $InvoiceLine;
 }

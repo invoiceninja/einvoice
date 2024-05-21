@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\DimensionType\MeasurementDimension;
 use Invoiceninja\Einvoice\Models\FACT1\PartyType\IssuerParty;
 use Invoiceninja\Einvoice\Models\FACT1\PhysicalAttributeType\PhysicalAttribute;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
@@ -20,9 +21,11 @@ class AdditionalItemIdentification extends Data
 	public string|Optional $BarcodeSymbologyID;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PhysicalAttributeType\PhysicalAttribute')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public PhysicalAttribute|Optional $PhysicalAttribute;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DimensionType\MeasurementDimension')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public MeasurementDimension|Optional $MeasurementDimension;
 	public IssuerParty|Optional $IssuerParty;
 }

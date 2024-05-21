@@ -14,6 +14,7 @@ use Invoiceninja\Einvoice\Models\FACT1\LocationType\FirstArrivalPortLocation;
 use Invoiceninja\Einvoice\Models\FACT1\LocationType\LastExitPortLocation;
 use Invoiceninja\Einvoice\Models\FACT1\ShipmentStageType\ShipmentStage;
 use Invoiceninja\Einvoice\Models\FACT1\TransportHandlingUnitType\TransportHandlingUnit;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
@@ -30,9 +31,11 @@ class ConsolidatedShipment extends Data
 	public string|Optional $HandlingCode;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $HandlingInstructions;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $Information;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -72,9 +75,11 @@ class ConsolidatedShipment extends Data
 	public float|Optional $FreeOnBoardValueAmount;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $SpecialInstructions;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $DeliveryInstructions;
 	public bool|Optional $SplitConsignmentIndicator;
 
@@ -82,16 +87,20 @@ class ConsolidatedShipment extends Data
 	public float|Optional $ConsignmentQuantity;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ConsignmentType\Consignment')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public Consignment|Optional $Consignment;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\GoodsItemType\GoodsItem')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public GoodsItem|Optional $GoodsItem;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ShipmentStageType\ShipmentStage')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public ShipmentStage|Optional $ShipmentStage;
 	public Delivery|Optional $Delivery;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TransportHandlingUnitType\TransportHandlingUnit')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public TransportHandlingUnit|Optional $TransportHandlingUnit;
 	public ReturnAddress|Optional $ReturnAddress;
 	public OriginAddress|Optional $OriginAddress;
@@ -100,5 +109,6 @@ class ConsolidatedShipment extends Data
 	public ExportCountry|Optional $ExportCountry;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\FreightAllowanceCharge')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public FreightAllowanceCharge|Optional $FreightAllowanceCharge;
 }

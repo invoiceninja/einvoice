@@ -4,6 +4,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1\WorkPhaseReferenceType;
 
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\WorkOrderDocumentReference;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
@@ -17,6 +18,7 @@ class WorkPhaseReference extends Data
 	public string|Optional $WorkPhaseCode;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $WorkPhase;
 	public string|Optional $ProgressPercent;
 
@@ -27,5 +29,6 @@ class WorkPhaseReference extends Data
 	public Carbon|Optional $EndDate;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\WorkOrderDocumentReference')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public WorkOrderDocumentReference|Optional $WorkOrderDocumentReference;
 }

@@ -4,6 +4,7 @@ namespace Invoiceninja\Einvoice\Models\FACT1\StatusType;
 
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\ConditionType\Condition;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\WithTransformer;
 use Spatie\LaravelData\Data;
@@ -22,19 +23,23 @@ class Status extends Data
 	public Carbon|Optional $ReferenceTime;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $Description;
 	public string|Optional $StatusReasonCode;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $StatusReason;
 	public string|Optional $SequenceID;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $Text;
 	public bool|Optional $IndicationIndicator;
 	public string|Optional $Percent;
 	public string|Optional $ReliabilityPercent;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ConditionType\Condition')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public Condition|Optional $Condition;
 }

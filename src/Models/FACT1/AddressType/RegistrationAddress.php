@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\FACT1\AddressLineType\AddressLine;
 use Invoiceninja\Einvoice\Models\FACT1\CountryType\Country;
 use Invoiceninja\Einvoice\Models\FACT1\LocationCoordinateType\LocationCoordinate;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Max;
 use Spatie\LaravelData\Attributes\Validation\Min;
@@ -103,9 +104,11 @@ class RegistrationAddress extends Data
 	public string|Optional $TimezoneOffset;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AddressLineType\AddressLine')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public AddressLine|Optional $AddressLine;
 	public Country|Optional $Country;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\LocationCoordinateType\LocationCoordinate')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public LocationCoordinate|Optional $LocationCoordinate;
 }

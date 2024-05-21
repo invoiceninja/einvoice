@@ -20,6 +20,7 @@ use Invoiceninja\Einvoice\Models\FACT1\PriceType\Price;
 use Invoiceninja\Einvoice\Models\FACT1\PricingReferenceType\PricingReference;
 use Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\TaxTotal;
 use Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\WithholdingTaxTotal;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Max;
@@ -37,6 +38,7 @@ class InvoiceLine extends Data
 	public string|Optional $UUID;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	#[Max(300)]
 	public string|Optional $Note;
 
@@ -57,38 +59,49 @@ class InvoiceLine extends Data
 	public bool|Optional $FreeOfChargeIndicator;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PeriodType\InvoicePeriod')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public InvoicePeriod|Optional $InvoicePeriod;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\OrderLineReferenceType\OrderLineReference')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public OrderLineReference|Optional $OrderLineReference;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\LineReferenceType\DespatchLineReference')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public DespatchLineReference|Optional $DespatchLineReference;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\LineReferenceType\ReceiptLineReference')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public ReceiptLineReference|Optional $ReceiptLineReference;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\BillingReferenceType\BillingReference')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public BillingReference|Optional $BillingReference;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\DocumentReference')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public DocumentReference|Optional $DocumentReference;
 	public PricingReference|Optional $PricingReference;
 	public OriginatorParty|Optional $OriginatorParty;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DeliveryType\Delivery')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public Delivery|Optional $Delivery;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PaymentTermsType\PaymentTerms')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public PaymentTerms|Optional $PaymentTerms;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\AllowanceCharge')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public AllowanceCharge|Optional $AllowanceCharge;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\TaxTotal')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public TaxTotal|Optional $TaxTotal;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\TaxTotalType\WithholdingTaxTotal')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public WithholdingTaxTotal|Optional $WithholdingTaxTotal;
 
 	#[Required]
@@ -97,6 +110,7 @@ class InvoiceLine extends Data
 	public DeliveryTerms|Optional $DeliveryTerms;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\InvoiceLineType\SubInvoiceLine')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public SubInvoiceLine|Optional $SubInvoiceLine;
 	public ItemPriceExtension|Optional $ItemPriceExtension;
 }

@@ -7,6 +7,7 @@ use Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\DocumentReference;
 use Invoiceninja\Einvoice\Models\FACT1\ItemType\Item;
 use Invoiceninja\Einvoice\Models\FACT1\OrderLineReferenceType\OrderLineReference;
 use Invoiceninja\Einvoice\Models\FACT1\ShipmentType\Shipment;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
@@ -22,6 +23,7 @@ class HandlingUnitDespatchLine extends Data
 	public string|Optional $UUID;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $Note;
 	public string|Optional $LineStatusCode;
 
@@ -32,12 +34,14 @@ class HandlingUnitDespatchLine extends Data
 	public float|Optional $BackorderQuantity;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $BackorderReason;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $OutstandingQuantity;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $OutstandingReason;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -45,14 +49,17 @@ class HandlingUnitDespatchLine extends Data
 
 	#[Required]
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\OrderLineReferenceType\OrderLineReference')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public DataCollection $OrderLineReference;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\DocumentReferenceType\DocumentReference')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public DocumentReference|Optional $DocumentReference;
 
 	#[Required]
 	public Item $Item;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\ShipmentType\Shipment')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public Shipment|Optional $Shipment;
 }

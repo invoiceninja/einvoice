@@ -8,6 +8,7 @@ use Invoiceninja\Einvoice\Models\FatturaPA\DatiBeniServiziType\DatiBeniServizi;
 use Invoiceninja\Einvoice\Models\FatturaPA\DatiGeneraliType\DatiGenerali;
 use Invoiceninja\Einvoice\Models\FatturaPA\DatiPagamentoType\DatiPagamento;
 use Invoiceninja\Einvoice\Models\FatturaPA\DatiVeicoliType\DatiVeicoli;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
@@ -23,8 +24,10 @@ class FatturaElettronicaBody extends Data
 	public DatiVeicoli|Optional $DatiVeicoli;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\DatiPagamentoType\DatiPagamento')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public DatiPagamento|Optional $DatiPagamento;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\AllegatiType\Allegati')]
+	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public Allegati|Optional $Allegati;
 }

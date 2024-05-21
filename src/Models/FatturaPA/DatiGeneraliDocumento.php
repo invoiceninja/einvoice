@@ -7,6 +7,7 @@ use Invoiceninja\Einvoice\Models\FatturaPA\DatiBolloType\DatiBollo;
 use Invoiceninja\Einvoice\Models\FatturaPA\DatiCassaPrevidenzialeType\DatiCassaPrevidenziale;
 use Invoiceninja\Einvoice\Models\FatturaPA\DatiRitenutaType\DatiRitenuta;
 use Invoiceninja\Einvoice\Models\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Attributes\WithTransformer;
@@ -73,13 +74,16 @@ class DatiGeneraliDocumento extends Data
 	public string $Numero;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\DatiRitenutaType\DatiRitenuta')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public DatiRitenuta|Optional $DatiRitenuta;
 	public DatiBollo|Optional $DatiBollo;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\DatiCassaPrevidenzialeType\DatiCassaPrevidenziale')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public DatiCassaPrevidenziale|Optional $DatiCassaPrevidenziale;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public ScontoMaggiorazione|Optional $ScontoMaggiorazione;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -89,6 +93,7 @@ class DatiGeneraliDocumento extends Data
 	public float|Optional $Arrotondamento;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $Causale;
 	private array $Art73_array = ['SI'];
 

@@ -3,6 +3,7 @@
 namespace Invoiceninja\Einvoice\Models\FACT1\TemperatureType;
 
 use Carbon\Carbon;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
@@ -21,5 +22,6 @@ class Temperature extends Data
 	public float $Measure;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $Description;
 }

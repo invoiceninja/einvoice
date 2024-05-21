@@ -7,6 +7,7 @@ use Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\AllowanceCharge;
 use Invoiceninja\Einvoice\Models\FACT1\ExchangeRateType\PricingExchangeRate;
 use Invoiceninja\Einvoice\Models\FACT1\PeriodType\ValidityPeriod;
 use Invoiceninja\Einvoice\Models\FACT1\PriceListType\PriceList;
+use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
 use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Attributes\Validation\Required;
@@ -25,16 +26,19 @@ class AlternativeConditionPrice extends Data
 	public float|Optional $BaseQuantity;
 
 	#[DataCollectionOf('string')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public string|Optional $PriceChangeReason;
 	public string|Optional $PriceTypeCode;
 	public string|Optional $PriceType;
 	public string|Optional $OrderableUnitFactorRate;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\PeriodType\ValidityPeriod')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public ValidityPeriod|Optional $ValidityPeriod;
 	public PriceList|Optional $PriceList;
 
 	#[DataCollectionOf('Invoiceninja\Einvoice\Models\FACT1\AllowanceChargeType\AllowanceCharge')]
+	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer')]
 	public AllowanceCharge|Optional $AllowanceCharge;
 	public PricingExchangeRate|Optional $PricingExchangeRate;
 }

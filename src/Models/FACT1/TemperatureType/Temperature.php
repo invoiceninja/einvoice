@@ -12,11 +12,11 @@ use Spatie\LaravelData\Optional;
 class Temperature extends Data
 {
 	#[Required]
-	public ?string $AttributeID;
+	public string $AttributeID;
 
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $Measure;
+	public float $Measure;
 
 	/** @param array<Description> $Description */
 	public array|Optional $Description;

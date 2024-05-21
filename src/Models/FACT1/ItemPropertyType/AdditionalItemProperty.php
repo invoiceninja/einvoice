@@ -20,7 +20,7 @@ class AdditionalItemProperty extends Data
 
 	#[Required]
 	#[Max(50)]
-	public ?string $Name;
+	public string $Name;
 	public string|Optional $NameCode;
 	public string|Optional $TestMethod;
 

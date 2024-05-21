@@ -15,7 +15,7 @@ class OrderReference extends Data
 {
 	#[Required]
 	#[Max(200)]
-	public ?string $ID;
+	public string $ID;
 
 	#[Max(200)]
 	public string|Optional $SalesOrderID;

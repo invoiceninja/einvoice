@@ -22,7 +22,7 @@ class TradeFinancing extends Data
 	public array|Optional $DocumentReference;
 
 	#[Required]
-	public ?FinancingParty $FinancingParty;
+	public FinancingParty $FinancingParty;
 	public FinancingFinancialAccount|Optional $FinancingFinancialAccount;
 
 	/** @param array<Clause> $Clause */

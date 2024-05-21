@@ -14,7 +14,7 @@ class TaxTotal extends Data
 {
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $TaxAmount;
+	public float $TaxAmount;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $RoundingAmount;

@@ -17,7 +17,7 @@ class Price extends Data
 {
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $PriceAmount;
+	public float $PriceAmount;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $BaseQuantity;

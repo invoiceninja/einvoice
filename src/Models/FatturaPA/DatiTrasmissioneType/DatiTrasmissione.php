@@ -15,23 +15,23 @@ use Spatie\LaravelData\Optional;
 class DatiTrasmissione extends Data
 {
 	#[Required]
-	public ?IdTrasmittente $IdTrasmittente;
+	public IdTrasmittente $IdTrasmittente;
 
 	#[Required]
 	#[Max(10)]
 	#[Min(1)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,10}/u')]
-	public ?string $ProgressivoInvio;
+	public string $ProgressivoInvio;
 
 	#[Required]
-	public ?string $FormatoTrasmissione;
+	public string $FormatoTrasmissione;
 	private array $FormatoTrasmissione_array = ['FPA12' => 'Fattura verso PA', 'FPR12' => 'Fattura verso privati'];
 
 	#[Required]
 	#[Max(7)]
 	#[Min(6)]
 	#[Regex('/[A-Z0-9]{6,7}/')]
-	public ?string $CodiceDestinatario;
+	public string $CodiceDestinatario;
 	public ContattiTrasmittente|Optional $ContattiTrasmittente;
 
 	#[Max(256)]

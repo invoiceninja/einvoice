@@ -13,7 +13,7 @@ use Spatie\LaravelData\Optional;
 class StandardItemIdentification extends Data
 {
 	#[Required]
-	public ?string $ID;
+	public string $ID;
 	public string|Optional $ExtendedID;
 	public string|Optional $BarcodeSymbologyID;
 

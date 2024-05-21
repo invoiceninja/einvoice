@@ -9,5 +9,5 @@ use Spatie\LaravelData\Data;
 class AddressLine extends Data
 {
 	#[Required]
-	public ?string $Line;
+	public string $Line;
 }

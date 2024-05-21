@@ -13,7 +13,7 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 class ProjectReference extends Data
 {
 	#[Required]
-	public ?string $ID;
+	public string $ID;
 	public string|Optional $UUID;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]

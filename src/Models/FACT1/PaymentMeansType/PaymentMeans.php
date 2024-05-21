@@ -21,7 +21,7 @@ class PaymentMeans extends Data
 	public string|Optional $ID;
 
 	#[Required]
-	public ?string $PaymentMeansCode;
+	public string $PaymentMeansCode;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $PaymentDueDate;

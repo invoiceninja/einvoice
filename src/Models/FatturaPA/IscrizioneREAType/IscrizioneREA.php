@@ -18,13 +18,13 @@ class IscrizioneREA extends Data
 	#[Max(2)]
 	#[Min(2)]
 	#[Regex('/[A-Z]{2}/')]
-	public ?string $Ufficio;
+	public string $Ufficio;
 
 	#[Required]
 	#[Max(20)]
 	#[Min(1)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
-	public ?string $NumeroREA;
+	public string $NumeroREA;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
@@ -33,6 +33,6 @@ class IscrizioneREA extends Data
 	private array $SocioUnico_array = ['SU' => 'socio unico', 'SM' => 'più soci'];
 
 	#[Required]
-	public ?string $StatoLiquidazione;
+	public string $StatoLiquidazione;
 	private array $StatoLiquidazione_array = ['LS' => 'in liquidazione', 'LN' => 'non in liquidazione'];
 }

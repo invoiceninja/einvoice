@@ -20,7 +20,7 @@ class Address extends Data
 	public string|Optional $Room;
 
 	#[Required]
-	public ?string $StreetName;
+	public string $StreetName;
 	public string|Optional $AdditionalStreetName;
 	public string|Optional $BlockName;
 	public string|Optional $BuildingName;
@@ -33,7 +33,7 @@ class Address extends Data
 	public string|Optional $CitySubdivisionName;
 
 	#[Required]
-	public ?string $CityName;
+	public string $CityName;
 	public string|Optional $PostalZone;
 
 	private array $CountrySubentity_array = [
@@ -126,7 +126,7 @@ class Address extends Data
 		'RO-VN',
 		'RO-VS',
 	)]
-	public ?string $CountrySubentity;
+	public string $CountrySubentity;
 	public string|Optional $CountrySubentityCode;
 	public string|Optional $Region;
 	public string|Optional $District;

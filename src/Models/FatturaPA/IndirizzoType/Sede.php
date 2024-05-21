@@ -16,7 +16,7 @@ class Sede extends Data
 	#[Max(60)]
 	#[Min(1)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
-	public ?string $Indirizzo;
+	public string $Indirizzo;
 
 	#[Max(8)]
 	#[Min(1)]
@@ -25,13 +25,13 @@ class Sede extends Data
 
 	#[Required]
 	#[Regex('/[0-9][0-9][0-9][0-9][0-9]/')]
-	public ?string $CAP;
+	public string $CAP;
 
 	#[Required]
 	#[Max(60)]
 	#[Min(1)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
-	public ?string $Comune;
+	public string $Comune;
 
 	#[Max(2)]
 	#[Min(2)]
@@ -42,5 +42,5 @@ class Sede extends Data
 	#[Max(2)]
 	#[Min(2)]
 	#[Regex('/[A-Z]{2}/')]
-	public ?string $Nazione;
+	public string $Nazione;
 }

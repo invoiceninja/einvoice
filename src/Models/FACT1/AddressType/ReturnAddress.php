@@ -24,7 +24,7 @@ class ReturnAddress extends Data
 	#[Required]
 	#[Max(150)]
 	#[Min(1)]
-	public ?string $StreetName;
+	public string $StreetName;
 
 	#[Max(100)]
 	public string|Optional $AdditionalStreetName;
@@ -41,14 +41,14 @@ class ReturnAddress extends Data
 	#[Required]
 	#[Max(50)]
 	#[Min(1)]
-	public ?string $CityName;
+	public string $CityName;
 
 	#[Max(20)]
 	public string|Optional $PostalZone;
 
 	#[Required]
 	#[Min(1)]
-	public ?string $CountrySubentity;
+	public string $CountrySubentity;
 
 	private array $CountrySubentity_array = [
 		'RO-AB',

@@ -12,7 +12,7 @@ class TaxTotal extends Data
 {
 	#[Required]
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $TaxAmount;
+	public float $TaxAmount;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $RoundingAmount;

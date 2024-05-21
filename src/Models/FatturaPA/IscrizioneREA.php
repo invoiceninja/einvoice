@@ -10,10 +10,10 @@ use Spatie\LaravelData\Optional;
 class IscrizioneREA extends Data
 {
 	#[Required]
-	public ?string $Ufficio;
+	public string $Ufficio;
 
 	#[Required]
-	public ?string $NumeroREA;
+	public string $NumeroREA;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $CapitaleSociale;
@@ -25,5 +25,5 @@ class IscrizioneREA extends Data
 
 	#[Required]
 	#[\Spatie\LaravelData\Attributes\Validation\In(LS: 'in liquidazione', LN: 'non in liquidazione')]
-	public ?string $StatoLiquidazione;
+	public string $StatoLiquidazione;
 }

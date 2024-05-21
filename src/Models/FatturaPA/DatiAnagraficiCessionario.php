@@ -15,5 +15,5 @@ class DatiAnagraficiCessionario extends Data
 	public string|Optional $CodiceFiscale;
 
 	#[Required]
-	public ?Anagrafica $Anagrafica;
+	public Anagrafica $Anagrafica;
 }

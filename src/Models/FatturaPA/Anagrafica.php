@@ -10,13 +10,13 @@ use Spatie\LaravelData\Optional;
 class Anagrafica extends Data
 {
 	#[Required]
-	public ?string $Denominazione;
+	public string $Denominazione;
 
 	#[Required]
-	public ?string $Nome;
+	public string $Nome;
 
 	#[Required]
-	public ?string $Cognome;
+	public string $Cognome;
 	public string|Optional $Titolo;
 	public string|Optional $CodEORI;
 }

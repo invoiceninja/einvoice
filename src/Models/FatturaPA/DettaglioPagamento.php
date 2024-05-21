@@ -65,7 +65,7 @@ class DettaglioPagamento extends Data
 		MP22: 'Trattenuta su somme già riscosse',
 		MP23: 'PagoPA',
 	)]
-	public ?string $ModalitaPagamento;
+	public string $ModalitaPagamento;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $DataRiferimentoTerminiPagamento;
@@ -76,7 +76,7 @@ class DettaglioPagamento extends Data
 
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $ImportoPagamento;
+	public float $ImportoPagamento;
 	public string|Optional $CodUfficioPostale;
 	public string|Optional $CognomeQuietanzante;
 	public string|Optional $NomeQuietanzante;

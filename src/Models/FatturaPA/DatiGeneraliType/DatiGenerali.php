@@ -20,7 +20,7 @@ use Spatie\LaravelData\Optional;
 class DatiGenerali extends Data
 {
 	#[Required]
-	public ?DatiGeneraliDocumento $DatiGeneraliDocumento;
+	public DatiGeneraliDocumento $DatiGeneraliDocumento;
 
 	/** @param array<DatiOrdineAcquisto> $DatiOrdineAcquisto */
 	public array|Optional $DatiOrdineAcquisto;

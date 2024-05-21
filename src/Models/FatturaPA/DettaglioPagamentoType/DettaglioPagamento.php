@@ -21,7 +21,7 @@ class DettaglioPagamento extends Data
 	public string|Optional $Beneficiario;
 
 	#[Required]
-	public ?string $ModalitaPagamento;
+	public string $ModalitaPagamento;
 
 	private array $ModalitaPagamento_array = [
 		'MP01' => 'contanti',
@@ -59,7 +59,7 @@ class DettaglioPagamento extends Data
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public ?float $ImportoPagamento;
+	public float $ImportoPagamento;
 
 	#[Max(20)]
 	#[Min(1)]

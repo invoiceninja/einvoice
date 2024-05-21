@@ -15,7 +15,7 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 class DettaglioLinee extends Data
 {
 	#[Required]
-	public ?int $NumeroLinea;
+	public int $NumeroLinea;
 
 	private array $TipoCessionePrestazione_array = [
 		'SC' => 'Sconto',
@@ -31,7 +31,7 @@ class DettaglioLinee extends Data
 	public array|Optional $CodiceArticolo;
 
 	#[Required]
-	public ?string $Descrizione;
+	public string $Descrizione;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $Quantita;
@@ -45,18 +45,18 @@ class DettaglioLinee extends Data
 
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $PrezzoUnitario;
+	public float $PrezzoUnitario;
 
 	/** @param array<ScontoMaggiorazione> $ScontoMaggiorazione */
 	public array|Optional $ScontoMaggiorazione;
 
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $PrezzoTotale;
+	public float $PrezzoTotale;
 
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $AliquotaIVA;
+	public float $AliquotaIVA;
 	private array $Ritenuta_array = ['SI' => 'SI = Cessione / Prestazione soggetta a ritenuta'];
 
 	#[\Spatie\LaravelData\Attributes\Validation\In(SI: 'SI = Cessione / Prestazione soggetta a ritenuta')]

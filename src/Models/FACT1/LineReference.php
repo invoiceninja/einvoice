@@ -11,7 +11,7 @@ use Spatie\LaravelData\Optional;
 class LineReference extends Data
 {
 	#[Required]
-	public ?string $LineID;
+	public string $LineID;
 	public string|Optional $UUID;
 	public string|Optional $LineStatusCode;
 	public DocumentReference|Optional $DocumentReference;

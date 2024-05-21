@@ -13,7 +13,7 @@ class ScontoMaggiorazione extends Data
 
 	#[Required]
 	#[\Spatie\LaravelData\Attributes\Validation\In(SC: 'SC = Sconto', MG: 'MG = Maggiorazione')]
-	public ?string $Tipo;
+	public string $Tipo;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $Percentuale;

@@ -96,7 +96,10 @@ class TypeGenerator
                 $settable_type = Type::union($base_type, Optional::class);
             }
             else {
-                $settable_type = "?{$base_type}";
+
+$settable_type = "{$base_type}";
+
+// $settable_type = "?{$base_type}";
             }
 
             $property = (new Property($element['name']))

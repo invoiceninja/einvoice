@@ -10,7 +10,7 @@ use Spatie\LaravelData\Optional;
 class PhysicalAttribute extends Data
 {
 	#[Required]
-	public ?string $AttributeID;
+	public string $AttributeID;
 	public string|Optional $PositionCode;
 	public string|Optional $DescriptionCode;
 

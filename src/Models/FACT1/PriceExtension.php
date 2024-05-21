@@ -12,7 +12,7 @@ class PriceExtension extends Data
 {
 	#[Required]
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $Amount;
+	public float $Amount;
 
 	/** @param array<TaxTotal> $TaxTotal */
 	public array|Optional $TaxTotal;

@@ -13,7 +13,7 @@ class DatiBollo extends Data
 
 	#[Required]
 	#[\Spatie\LaravelData\Attributes\Validation\In(SI: 'SI')]
-	public ?string $BolloVirtuale;
+	public string $BolloVirtuale;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ImportoBollo;

@@ -10,6 +10,6 @@ use Spatie\LaravelData\Optional;
 class RailTransport extends Data
 {
 	#[Required]
-	public ?string $TrainID;
+	public string $TrainID;
 	public string|Optional $RailCarID;
 }

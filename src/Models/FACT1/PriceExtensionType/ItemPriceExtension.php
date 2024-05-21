@@ -14,7 +14,7 @@ class ItemPriceExtension extends Data
 {
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $Amount;
+	public float $Amount;
 
 	/** @param array<TaxTotal> $TaxTotal */
 	public array|Optional $TaxTotal;

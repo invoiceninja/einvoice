@@ -12,5 +12,5 @@ class PartyName extends Data
 {
 	#[Required]
 	#[Max(200)]
-	public ?string $Name;
+	public string $Name;
 }

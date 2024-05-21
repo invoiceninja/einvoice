@@ -10,7 +10,7 @@ use Spatie\LaravelData\Optional;
 class Allegati extends Data
 {
 	#[Required]
-	public ?string $NomeAttachment;
+	public string $NomeAttachment;
 	public string|Optional $AlgoritmoCompressione;
 	public string|Optional $FormatoAttachment;
 	public string|Optional $DescrizioneAttachment;

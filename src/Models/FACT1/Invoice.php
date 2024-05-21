@@ -48,13 +48,13 @@ class Invoice extends Data
 	public string|Optional $ProfileExecutionID;
 
 	#[Required]
-	public ?string $ID;
+	public string $ID;
 	public bool|Optional $CopyIndicator;
 	public string|Optional $UUID;
 
 	#[Required]
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
-	public ?Carbon $IssueDate;
+	public Carbon $IssueDate;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d\TH:i:s.uP')]
 	public Carbon|Optional $IssueTime;
@@ -113,10 +113,10 @@ class Invoice extends Data
 	public array|Optional $Signature;
 
 	#[Required]
-	public ?AccountingSupplierParty $AccountingSupplierParty;
+	public AccountingSupplierParty $AccountingSupplierParty;
 
 	#[Required]
-	public ?AccountingCustomerParty $AccountingCustomerParty;
+	public AccountingCustomerParty $AccountingCustomerParty;
 	public PayeeParty|Optional $PayeeParty;
 	public BuyerCustomerParty|Optional $BuyerCustomerParty;
 	public SellerSupplierParty|Optional $SellerSupplierParty;
@@ -149,9 +149,9 @@ class Invoice extends Data
 	public array|Optional $WithholdingTaxTotal;
 
 	#[Required]
-	public ?LegalMonetaryTotal $LegalMonetaryTotal;
+	public LegalMonetaryTotal $LegalMonetaryTotal;
 
 	/** @param array<InvoiceLine> $InvoiceLine */
 	#[Required]
-	public ?array $InvoiceLine;
+	public array $InvoiceLine;
 }

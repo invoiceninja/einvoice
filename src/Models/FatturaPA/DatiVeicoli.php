@@ -12,8 +12,8 @@ class DatiVeicoli extends Data
 {
 	#[Required]
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
-	public ?Carbon $Data;
+	public Carbon $Data;
 
 	#[Required]
-	public ?string $TotalePercorso;
+	public string $TotalePercorso;
 }

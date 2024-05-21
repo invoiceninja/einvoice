@@ -9,8 +9,8 @@ use Spatie\LaravelData\Data;
 class IdFiscale extends Data
 {
 	#[Required]
-	public ?string $IdPaese;
+	public string $IdPaese;
 
 	#[Required]
-	public ?string $IdCodice;
+	public string $IdCodice;
 }

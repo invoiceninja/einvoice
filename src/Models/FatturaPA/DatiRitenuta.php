@@ -26,15 +26,15 @@ class DatiRitenuta extends Data
 		RT05: 'Contributo ENPAM',
 		RT06: 'Altro contributo previdenziale',
 	)]
-	public ?string $TipoRitenuta;
+	public string $TipoRitenuta;
 
 	#[Required]
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $ImportoRitenuta;
+	public float $ImportoRitenuta;
 
 	#[Required]
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $AliquotaRitenuta;
+	public float $AliquotaRitenuta;
 
 	private array $CausalePagamento_array = [
 		'A' => 'A',
@@ -100,5 +100,5 @@ class DatiRitenuta extends Data
 		V1: 'V1',
 		ZO: 'ZO',
 	)]
-	public ?string $CausalePagamento;
+	public string $CausalePagamento;
 }

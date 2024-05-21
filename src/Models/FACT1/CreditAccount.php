@@ -9,5 +9,5 @@ use Spatie\LaravelData\Data;
 class CreditAccount extends Data
 {
 	#[Required]
-	public ?string $AccountID;
+	public string $AccountID;
 }

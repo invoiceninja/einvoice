@@ -12,5 +12,5 @@ class AddressLine extends Data
 {
 	#[Required]
 	#[Max(100)]
-	public ?string $Line;
+	public string $Line;
 }

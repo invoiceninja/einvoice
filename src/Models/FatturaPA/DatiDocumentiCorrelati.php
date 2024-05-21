@@ -15,7 +15,7 @@ class DatiDocumentiCorrelati extends Data
 	public array|Optional $RiferimentoNumeroLinea;
 
 	#[Required]
-	public ?string $IdDocumento;
+	public string $IdDocumento;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $Data;

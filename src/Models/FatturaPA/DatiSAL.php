@@ -9,5 +9,5 @@ use Spatie\LaravelData\Data;
 class DatiSAL extends Data
 {
 	#[Required]
-	public ?int $RiferimentoFase;
+	public int $RiferimentoFase;
 }

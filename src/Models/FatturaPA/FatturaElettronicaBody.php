@@ -15,10 +15,10 @@ use Spatie\LaravelData\Optional;
 class FatturaElettronicaBody extends Data
 {
 	#[Required]
-	public ?DatiGenerali $DatiGenerali;
+	public DatiGenerali $DatiGenerali;
 
 	#[Required]
-	public ?DatiBeniServizi $DatiBeniServizi;
+	public DatiBeniServizi $DatiBeniServizi;
 	public DatiVeicoli|Optional $DatiVeicoli;
 
 	/** @param array<DatiPagamento> $DatiPagamento */

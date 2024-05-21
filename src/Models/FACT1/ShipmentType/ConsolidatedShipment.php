@@ -23,7 +23,7 @@ use Spatie\LaravelData\Optional;
 class ConsolidatedShipment extends Data
 {
 	#[Required]
-	public ?string $ID;
+	public string $ID;
 	public string|Optional $ShippingPriorityLevelCode;
 	public string|Optional $HandlingCode;
 

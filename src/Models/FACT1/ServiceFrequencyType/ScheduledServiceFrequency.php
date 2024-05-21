@@ -10,5 +10,5 @@ use Spatie\LaravelData\Optional;
 class ScheduledServiceFrequency extends Data
 {
 	#[Required]
-	public ?string $WeekDayCode;
+	public string $WeekDayCode;
 }

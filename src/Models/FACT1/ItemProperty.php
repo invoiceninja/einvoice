@@ -16,7 +16,7 @@ class ItemProperty extends Data
 	public string|Optional $ID;
 
 	#[Required]
-	public ?string $Name;
+	public string $Name;
 	public string|Optional $NameCode;
 	public string|Optional $TestMethod;
 	public string|Optional $Value;

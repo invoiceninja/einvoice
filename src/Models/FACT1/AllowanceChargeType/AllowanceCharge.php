@@ -18,7 +18,7 @@ class AllowanceCharge extends Data
 	public string|Optional $ID;
 
 	#[Required]
-	public ?bool $ChargeIndicator;
+	public bool $ChargeIndicator;
 
 	#[Max(100)]
 	public string|Optional $AllowanceChargeReasonCode;
@@ -32,7 +32,7 @@ class AllowanceCharge extends Data
 
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $Amount;
+	public float $Amount;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $BaseAmount;

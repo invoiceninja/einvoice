@@ -59,17 +59,17 @@ class DatiGeneraliDocumento extends Data
 		TD27: 'Fattura per autoconsumo o per cessioni gratuite senza rivalsa',
 		TD28: 'Acquisti da San Marino con IVA (fattura cartacea)',
 	)]
-	public ?string $TipoDocumento;
+	public string $TipoDocumento;
 
 	#[Required]
-	public ?string $Divisa;
+	public string $Divisa;
 
 	#[Required]
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
-	public ?Carbon $Data;
+	public Carbon $Data;
 
 	#[Required]
-	public ?string $Numero;
+	public string $Numero;
 
 	/** @param array<DatiRitenuta> $DatiRitenuta */
 	public array|Optional $DatiRitenuta;

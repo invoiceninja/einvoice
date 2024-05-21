@@ -11,7 +11,7 @@ class DatiRiepilogo extends Data
 {
 	#[Required]
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $AliquotaIVA;
+	public float $AliquotaIVA;
 
 	private array $Natura_array = [
 		'N1' => 'Escluse ex. art. 15 del D.P.R. 633/1972',
@@ -76,11 +76,11 @@ class DatiRiepilogo extends Data
 
 	#[Required]
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $ImponibileImporto;
+	public float $ImponibileImporto;
 
 	#[Required]
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $Imposta;
+	public float $Imposta;
 
 	private array $EsigibilitaIVA_array = [
 		'D' => 'esigibilità differita',

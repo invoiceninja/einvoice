@@ -15,10 +15,10 @@ use Spatie\LaravelData\Optional;
 class CedentePrestatore extends Data
 {
 	#[Required]
-	public ?DatiAnagrafici $DatiAnagrafici;
+	public DatiAnagrafici $DatiAnagrafici;
 
 	#[Required]
-	public ?Sede $Sede;
+	public Sede $Sede;
 	public StabileOrganizzazione|Optional $StabileOrganizzazione;
 	public IscrizioneREA|Optional $IscrizioneREA;
 	public Contatti|Optional $Contatti;

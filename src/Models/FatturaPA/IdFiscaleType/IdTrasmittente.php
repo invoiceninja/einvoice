@@ -16,10 +16,10 @@ class IdTrasmittente extends Data
 	#[Max(2)]
 	#[Min(2)]
 	#[Regex('/[A-Z]{2}/')]
-	public ?string $IdPaese;
+	public string $IdPaese;
 
 	#[Required]
 	#[Max(28)]
 	#[Min(1)]
-	public ?string $IdCodice;
+	public string $IdCodice;
 }

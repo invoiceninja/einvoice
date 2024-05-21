@@ -15,7 +15,7 @@ use Spatie\LaravelData\Optional;
 class DatiAnagrafici extends Data
 {
 	#[Required]
-	public ?IdFiscaleIVA $IdFiscaleIVA;
+	public IdFiscaleIVA $IdFiscaleIVA;
 
 	#[Max(16)]
 	#[Min(11)]
@@ -23,5 +23,5 @@ class DatiAnagrafici extends Data
 	public string|Optional $CodiceFiscale;
 
 	#[Required]
-	public ?Anagrafica $Anagrafica;
+	public Anagrafica $Anagrafica;
 }

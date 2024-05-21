@@ -21,7 +21,7 @@ class DatiConvenzione extends Data
 	#[Max(20)]
 	#[Min(1)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
-	public ?string $IdDocumento;
+	public string $IdDocumento;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $Data;

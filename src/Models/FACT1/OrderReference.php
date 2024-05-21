@@ -13,7 +13,7 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 class OrderReference extends Data
 {
 	#[Required]
-	public ?string $ID;
+	public string $ID;
 	public string|Optional $SalesOrderID;
 	public bool|Optional $CopyIndicator;
 	public string|Optional $UUID;

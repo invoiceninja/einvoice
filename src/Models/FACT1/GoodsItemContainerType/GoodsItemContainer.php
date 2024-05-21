@@ -13,7 +13,7 @@ use Spatie\LaravelData\Optional;
 class GoodsItemContainer extends Data
 {
 	#[Required]
-	public ?string $ID;
+	public string $ID;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $Quantity;

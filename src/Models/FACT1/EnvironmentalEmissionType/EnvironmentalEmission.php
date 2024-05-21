@@ -13,11 +13,11 @@ use Spatie\LaravelData\Optional;
 class EnvironmentalEmission extends Data
 {
 	#[Required]
-	public ?string $EnvironmentalEmissionTypeCode;
+	public string $EnvironmentalEmissionTypeCode;
 
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $ValueMeasure;
+	public float $ValueMeasure;
 
 	/** @param array<Description> $Description */
 	public array|Optional $Description;

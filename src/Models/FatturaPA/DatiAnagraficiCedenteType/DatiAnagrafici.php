@@ -17,7 +17,7 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 class DatiAnagrafici extends Data
 {
 	#[Required]
-	public ?IdFiscaleIVA $IdFiscaleIVA;
+	public IdFiscaleIVA $IdFiscaleIVA;
 
 	#[Max(16)]
 	#[Min(11)]
@@ -25,7 +25,7 @@ class DatiAnagrafici extends Data
 	public string|Optional $CodiceFiscale;
 
 	#[Required]
-	public ?Anagrafica $Anagrafica;
+	public Anagrafica $Anagrafica;
 
 	#[Max(60)]
 	#[Min(1)]
@@ -46,7 +46,7 @@ class DatiAnagrafici extends Data
 	public Carbon|Optional $DataIscrizioneAlbo;
 
 	#[Required]
-	public ?string $RegimeFiscale;
+	public string $RegimeFiscale;
 
 	private array $RegimeFiscale_array = [
 		'RF01' => ' Regime ordinario',

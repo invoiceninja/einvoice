@@ -13,7 +13,7 @@ class MinimumDeliveryUnit extends Data
 {
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $BatchQuantity;
+	public float $BatchQuantity;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ConsumerUnitQuantity;

@@ -11,6 +11,6 @@ use Spatie\LaravelData\Optional;
 class CustomsDeclaration extends Data
 {
 	#[Required]
-	public ?string $ID;
+	public string $ID;
 	public IssuerParty|Optional $IssuerParty;
 }

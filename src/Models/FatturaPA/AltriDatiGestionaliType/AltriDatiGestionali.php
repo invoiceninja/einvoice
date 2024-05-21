@@ -19,7 +19,7 @@ class AltriDatiGestionali extends Data
 	#[Max(10)]
 	#[Min(1)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,10}/u')]
-	public ?string $TipoDato;
+	public string $TipoDato;
 
 	#[Max(60)]
 	#[Min(1)]

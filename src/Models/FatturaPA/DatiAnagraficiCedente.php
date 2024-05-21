@@ -14,11 +14,11 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 class DatiAnagraficiCedente extends Data
 {
 	#[Required]
-	public ?IdFiscaleIVA $IdFiscaleIVA;
+	public IdFiscaleIVA $IdFiscaleIVA;
 	public string|Optional $CodiceFiscale;
 
 	#[Required]
-	public ?Anagrafica $Anagrafica;
+	public Anagrafica $Anagrafica;
 	public string|Optional $AlboProfessionale;
 	public string|Optional $ProvinciaAlbo;
 	public string|Optional $NumeroIscrizioneAlbo;
@@ -68,5 +68,5 @@ class DatiAnagraficiCedente extends Data
 		RF19: 'Regime forfettario',
 		RF18: 'Altro',
 	)]
-	public ?string $RegimeFiscale;
+	public string $RegimeFiscale;
 }

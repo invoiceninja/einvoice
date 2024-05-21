@@ -12,9 +12,9 @@ use Spatie\LaravelData\Optional;
 class DatiAnagraficiRappresentante extends Data
 {
 	#[Required]
-	public ?IdFiscaleIVA $IdFiscaleIVA;
+	public IdFiscaleIVA $IdFiscaleIVA;
 	public string|Optional $CodiceFiscale;
 
 	#[Required]
-	public ?Anagrafica $Anagrafica;
+	public Anagrafica $Anagrafica;
 }

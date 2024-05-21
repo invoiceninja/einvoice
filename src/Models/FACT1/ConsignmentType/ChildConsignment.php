@@ -56,7 +56,7 @@ use Spatie\LaravelData\Optional;
 class ChildConsignment extends Data
 {
 	#[Required]
-	public ?string $ID;
+	public string $ID;
 	public string|Optional $CarrierAssignedID;
 	public string|Optional $ConsigneeAssignedID;
 	public string|Optional $ConsignorAssignedID;

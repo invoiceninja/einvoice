@@ -18,11 +18,11 @@ class DatiDDT extends Data
 	#[Max(20)]
 	#[Min(1)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
-	public ?string $NumeroDDT;
+	public string $NumeroDDT;
 
 	#[Required]
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
-	public ?Carbon $DataDDT;
+	public Carbon $DataDDT;
 
 	/** @param array<RiferimentoNumeroLinea> $RiferimentoNumeroLinea */
 	public array|Optional $RiferimentoNumeroLinea;

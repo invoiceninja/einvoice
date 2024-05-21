@@ -12,7 +12,7 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 class AltriDatiGestionali extends Data
 {
 	#[Required]
-	public ?string $TipoDato;
+	public string $TipoDato;
 	public string|Optional $RiferimentoTesto;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]

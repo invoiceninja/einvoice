@@ -31,5 +31,5 @@ class ClassifiedTaxCategory extends Data
 	public string|Optional $TierRatePercent;
 
 	#[Required]
-	public ?TaxScheme $TaxScheme;
+	public TaxScheme $TaxScheme;
 }

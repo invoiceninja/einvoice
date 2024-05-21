@@ -17,7 +17,7 @@ class TaxSubtotal extends Data
 
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $TaxAmount;
+	public float $TaxAmount;
 	public string|Optional $CalculationSequenceNumeric;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
@@ -33,5 +33,5 @@ class TaxSubtotal extends Data
 	public string|Optional $TierRatePercent;
 
 	#[Required]
-	public ?TaxCategory $TaxCategory;
+	public TaxCategory $TaxCategory;
 }

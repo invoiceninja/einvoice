@@ -16,7 +16,7 @@ use Spatie\LaravelData\Optional;
 class HandlingUnitDespatchLine extends Data
 {
 	#[Required]
-	public ?string $ID;
+	public string $ID;
 	public string|Optional $UUID;
 
 	/** @param array<Note> $Note */
@@ -43,13 +43,13 @@ class HandlingUnitDespatchLine extends Data
 
 	/** @param array<OrderLineReference> $OrderLineReference */
 	#[Required]
-	public ?array $OrderLineReference;
+	public array $OrderLineReference;
 
 	/** @param array<DocumentReference> $DocumentReference */
 	public array|Optional $DocumentReference;
 
 	#[Required]
-	public ?Item $Item;
+	public Item $Item;
 
 	/** @param array<Shipment> $Shipment */
 	public array|Optional $Shipment;

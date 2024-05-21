@@ -25,7 +25,7 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 class FinalDeliveryTransportationService extends Data
 {
 	#[Required]
-	public ?string $TransportServiceCode;
+	public string $TransportServiceCode;
 	public string|Optional $TariffClassCode;
 	public string|Optional $Priority;
 	public string|Optional $FreightRateClassCode;

@@ -13,19 +13,19 @@ use Spatie\LaravelData\Optional;
 class Certificate extends Data
 {
 	#[Required]
-	public ?string $ID;
+	public string $ID;
 
 	#[Required]
-	public ?string $CertificateTypeCode;
+	public string $CertificateTypeCode;
 
 	#[Required]
-	public ?string $CertificateType;
+	public string $CertificateType;
 
 	/** @param array<Remarks> $Remarks */
 	public array|Optional $Remarks;
 
 	#[Required]
-	public ?IssuerParty $IssuerParty;
+	public IssuerParty $IssuerParty;
 
 	/** @param array<DocumentReference> $DocumentReference */
 	public array|Optional $DocumentReference;

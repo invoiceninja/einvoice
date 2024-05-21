@@ -19,7 +19,7 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 class DettaglioLinee extends Data
 {
 	#[Required]
-	public ?int $NumeroLinea;
+	public int $NumeroLinea;
 	public string|Optional $TipoCessionePrestazione;
 
 	private array $TipoCessionePrestazione_array = [
@@ -36,7 +36,7 @@ class DettaglioLinee extends Data
 	#[Max(1000)]
 	#[Min(1)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,1000}/u')]
-	public ?string $Descrizione;
+	public string $Descrizione;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[0-9]{1,12}\.[0-9]{2,8}/')]
@@ -56,7 +56,7 @@ class DettaglioLinee extends Data
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
-	public ?float $PrezzoUnitario;
+	public float $PrezzoUnitario;
 
 	/** @param array<ScontoMaggiorazione> $ScontoMaggiorazione */
 	public array|Optional $ScontoMaggiorazione;
@@ -64,12 +64,12 @@ class DettaglioLinee extends Data
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
-	public ?float $PrezzoTotale;
+	public float $PrezzoTotale;
 
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public ?float $AliquotaIVA;
+	public float $AliquotaIVA;
 	public string|Optional $Ritenuta;
 	private array $Ritenuta_array = ['SI' => 'SI = Cessione / Prestazione soggetta a ritenuta'];
 	public string|Optional $Natura;

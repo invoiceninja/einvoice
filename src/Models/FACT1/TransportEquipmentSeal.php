@@ -10,7 +10,7 @@ use Spatie\LaravelData\Optional;
 class TransportEquipmentSeal extends Data
 {
 	#[Required]
-	public ?string $ID;
+	public string $ID;
 	public string|Optional $SealIssuerTypeCode;
 	public string|Optional $Condition;
 	public string|Optional $SealStatusCode;

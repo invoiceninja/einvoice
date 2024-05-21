@@ -15,7 +15,7 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 class Signature extends Data
 {
 	#[Required]
-	public ?string $ID;
+	public string $ID;
 
 	/** @param array<Note> $Note */
 	public array|Optional $Note;

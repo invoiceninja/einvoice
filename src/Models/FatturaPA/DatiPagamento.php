@@ -17,9 +17,9 @@ class DatiPagamento extends Data
 
 	#[Required]
 	#[\Spatie\LaravelData\Attributes\Validation\In(TP01: 'pagamento a rate', TP02: 'pagamento completo', TP03: 'anticipo')]
-	public ?string $CondizioniPagamento;
+	public string $CondizioniPagamento;
 
 	/** @param array<DettaglioPagamento> $DettaglioPagamento */
 	#[Required]
-	public ?array $DettaglioPagamento;
+	public array $DettaglioPagamento;
 }

@@ -15,7 +15,7 @@ class DatiPagamento extends Data
 	#[Required]
 	#[Max(4)]
 	#[Min(4)]
-	public ?string $CondizioniPagamento;
+	public string $CondizioniPagamento;
 
 	private array $CondizioniPagamento_array = [
 		'TP01' => 'pagamento a rate',
@@ -25,5 +25,5 @@ class DatiPagamento extends Data
 
 	/** @param array<DettaglioPagamento> $DettaglioPagamento */
 	#[Required]
-	public ?array $DettaglioPagamento;
+	public array $DettaglioPagamento;
 }

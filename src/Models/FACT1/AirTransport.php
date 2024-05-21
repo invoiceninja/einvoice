@@ -9,5 +9,5 @@ use Spatie\LaravelData\Data;
 class AirTransport extends Data
 {
 	#[Required]
-	public ?string $AircraftID;
+	public string $AircraftID;
 }

@@ -9,5 +9,5 @@ use Spatie\LaravelData\Data;
 class PartyName extends Data
 {
 	#[Required]
-	public ?string $Name;
+	public string $Name;
 }

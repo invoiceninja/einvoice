@@ -22,5 +22,5 @@ class DatiAnagrafici extends Data
 	public string|Optional $CodiceFiscale;
 
 	#[Required]
-	public ?Anagrafica $Anagrafica;
+	public Anagrafica $Anagrafica;
 }

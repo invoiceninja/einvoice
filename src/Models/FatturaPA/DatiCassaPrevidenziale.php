@@ -59,22 +59,22 @@ class DatiCassaPrevidenziale extends Data
 		TC21: 'Ente nazionale previdenza e assistenza psicologi (ENPAP)',
 		TC22: 'INPS',
 	)]
-	public ?string $TipoCassa;
+	public string $TipoCassa;
 
 	#[Required]
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $AlCassa;
+	public float $AlCassa;
 
 	#[Required]
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $ImportoContributoCassa;
+	public float $ImportoContributoCassa;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $ImponibileCassa;
 
 	#[Required]
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $AliquotaIVA;
+	public float $AliquotaIVA;
 	private array $Ritenuta_array = ['SI' => 'SI = Cessione / Prestazione soggetta a ritenuta'];
 
 	#[\Spatie\LaravelData\Attributes\Validation\In(SI: 'SI = Cessione / Prestazione soggetta a ritenuta')]

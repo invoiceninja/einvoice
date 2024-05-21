@@ -15,7 +15,7 @@ use Spatie\LaravelData\Optional;
 class DatiCassaPrevidenziale extends Data
 {
 	#[Required]
-	public ?string $TipoCassa;
+	public string $TipoCassa;
 
 	private array $TipoCassa_array = [
 		'TC01' => 'Cassa nazionale previdenza e assistenza avvocati e procuratori legali',
@@ -45,12 +45,12 @@ class DatiCassaPrevidenziale extends Data
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public ?float $AlCassa;
+	public float $AlCassa;
 
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public ?float $ImportoContributoCassa;
+	public float $ImportoContributoCassa;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
@@ -59,7 +59,7 @@ class DatiCassaPrevidenziale extends Data
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public ?float $AliquotaIVA;
+	public float $AliquotaIVA;
 	public string|Optional $Ritenuta;
 	private array $Ritenuta_array = ['SI' => 'SI = Cessione / Prestazione soggetta a ritenuta'];
 	public string|Optional $Natura;

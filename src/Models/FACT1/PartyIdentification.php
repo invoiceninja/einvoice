@@ -9,5 +9,5 @@ use Spatie\LaravelData\Data;
 class PartyIdentification extends Data
 {
 	#[Required]
-	public ?string $ID;
+	public string $ID;
 }

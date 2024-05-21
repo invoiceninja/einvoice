@@ -16,11 +16,11 @@ class DatiVeicoli extends Data
 {
 	#[Required]
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
-	public ?Carbon $Data;
+	public Carbon $Data;
 
 	#[Required]
 	#[Max(15)]
 	#[Min(1)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,15}/u')]
-	public ?string $TotalePercorso;
+	public string $TotalePercorso;
 }

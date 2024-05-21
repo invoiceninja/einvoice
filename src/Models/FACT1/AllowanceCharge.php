@@ -15,7 +15,7 @@ class AllowanceCharge extends Data
 	public string|Optional $ID;
 
 	#[Required]
-	public ?bool $ChargeIndicator;
+	public bool $ChargeIndicator;
 	public string|Optional $AllowanceChargeReasonCode;
 
 	/** @param array<AllowanceChargeReason> $AllowanceChargeReason */
@@ -26,7 +26,7 @@ class AllowanceCharge extends Data
 
 	#[Required]
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $Amount;
+	public float $Amount;
 
 	#[\Spatie\LaravelData\Attributes\WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $BaseAmount;

@@ -31,7 +31,7 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 class InvoiceLine extends Data
 {
 	#[Required]
-	public ?string $ID;
+	public string $ID;
 	public string|Optional $UUID;
 
 	/** @param array<Note> $Note */
@@ -43,7 +43,7 @@ class InvoiceLine extends Data
 
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $LineExtensionAmount;
+	public float $LineExtensionAmount;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
 	public Carbon|Optional $TaxPointDate;
@@ -90,7 +90,7 @@ class InvoiceLine extends Data
 	public array|Optional $WithholdingTaxTotal;
 
 	#[Required]
-	public ?Item $Item;
+	public Item $Item;
 	public Price|Optional $Price;
 	public DeliveryTerms|Optional $DeliveryTerms;
 

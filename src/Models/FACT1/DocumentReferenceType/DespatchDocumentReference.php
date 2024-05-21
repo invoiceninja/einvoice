@@ -20,7 +20,7 @@ class DespatchDocumentReference extends Data
 	#[Required]
 	#[Max(200)]
 	#[Min(1)]
-	public ?string $ID;
+	public string $ID;
 	public bool|Optional $CopyIndicator;
 	public string|Optional $UUID;
 

@@ -11,9 +11,9 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 class FatturaPrincipale extends Data
 {
 	#[Required]
-	public ?string $NumeroFatturaPrincipale;
+	public string $NumeroFatturaPrincipale;
 
 	#[Required]
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
-	public ?Carbon $DataFatturaPrincipale;
+	public Carbon $DataFatturaPrincipale;
 }

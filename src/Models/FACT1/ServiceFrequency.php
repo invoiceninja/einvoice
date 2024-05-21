@@ -9,5 +9,5 @@ use Spatie\LaravelData\Data;
 class ServiceFrequency extends Data
 {
 	#[Required]
-	public ?string $WeekDayCode;
+	public string $WeekDayCode;
 }

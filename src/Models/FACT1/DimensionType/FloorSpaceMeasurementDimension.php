@@ -12,7 +12,7 @@ use Spatie\LaravelData\Optional;
 class FloorSpaceMeasurementDimension extends Data
 {
 	#[Required]
-	public ?string $AttributeID;
+	public string $AttributeID;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $Measure;

@@ -12,9 +12,9 @@ class DatiBeniServizi extends Data
 {
 	/** @param array<DettaglioLinee> $DettaglioLinee */
 	#[Required]
-	public ?array $DettaglioLinee;
+	public array $DettaglioLinee;
 
 	/** @param array<DatiRiepilogo> $DatiRiepilogo */
 	#[Required]
-	public ?array $DatiRiepilogo;
+	public array $DatiRiepilogo;
 }

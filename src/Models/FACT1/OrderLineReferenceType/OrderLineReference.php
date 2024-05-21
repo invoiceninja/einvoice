@@ -11,7 +11,7 @@ use Spatie\LaravelData\Optional;
 class OrderLineReference extends Data
 {
 	#[Required]
-	public ?string $LineID;
+	public string $LineID;
 	public string|Optional $SalesOrderLineID;
 	public string|Optional $UUID;
 	public string|Optional $LineStatusCode;

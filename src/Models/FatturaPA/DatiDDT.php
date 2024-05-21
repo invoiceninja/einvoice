@@ -12,11 +12,11 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 class DatiDDT extends Data
 {
 	#[Required]
-	public ?string $NumeroDDT;
+	public string $NumeroDDT;
 
 	#[Required]
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]
-	public ?Carbon $DataDDT;
+	public Carbon $DataDDT;
 
 	/** @param array<RiferimentoNumeroLinea> $RiferimentoNumeroLinea */
 	public array|Optional $RiferimentoNumeroLinea;

@@ -12,10 +12,10 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 class CardAccount extends Data
 {
 	#[Required]
-	public ?string $PrimaryAccountNumberID;
+	public string $PrimaryAccountNumberID;
 
 	#[Required]
-	public ?string $NetworkID;
+	public string $NetworkID;
 	public string|Optional $CardTypeCode;
 
 	#[WithTransformer('Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer', format: 'Y-m-d')]

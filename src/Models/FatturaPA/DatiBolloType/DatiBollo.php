@@ -13,7 +13,7 @@ use Spatie\LaravelData\Optional;
 class DatiBollo extends Data
 {
 	#[Required]
-	public ?string $BolloVirtuale;
+	public string $BolloVirtuale;
 	private array $BolloVirtuale_array = ['SI' => 'SI'];
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]

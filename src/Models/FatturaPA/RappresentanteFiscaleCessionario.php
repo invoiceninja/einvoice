@@ -10,14 +10,14 @@ use Spatie\LaravelData\Data;
 class RappresentanteFiscaleCessionario extends Data
 {
 	#[Required]
-	public ?string $Denominazione;
+	public string $Denominazione;
 
 	#[Required]
-	public ?string $Nome;
+	public string $Nome;
 
 	#[Required]
-	public ?string $Cognome;
+	public string $Cognome;
 
 	#[Required]
-	public ?IdFiscaleIVA $IdFiscaleIVA;
+	public IdFiscaleIVA $IdFiscaleIVA;
 }

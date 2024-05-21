@@ -10,5 +10,5 @@ use Spatie\LaravelData\Optional;
 class RoadTransport extends Data
 {
 	#[Required]
-	public ?string $LicensePlateID;
+	public string $LicensePlateID;
 }

@@ -11,9 +11,9 @@ use Spatie\LaravelData\Data;
 class FatturaElettronica extends Data
 {
 	#[Required]
-	public ?FatturaElettronicaHeader $FatturaElettronicaHeader;
+	public FatturaElettronicaHeader $FatturaElettronicaHeader;
 
 	/** @param array<FatturaElettronicaBody> $FatturaElettronicaBody */
 	#[Required]
-	public ?array $FatturaElettronicaBody;
+	public array $FatturaElettronicaBody;
 }

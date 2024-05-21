@@ -21,5 +21,5 @@ class PartyTaxScheme extends Data
 	public RegistrationAddress|Optional $RegistrationAddress;
 
 	#[Required]
-	public ?TaxScheme $TaxScheme;
+	public TaxScheme $TaxScheme;
 }

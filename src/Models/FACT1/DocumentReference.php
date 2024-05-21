@@ -16,7 +16,7 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 class DocumentReference extends Data
 {
 	#[Required]
-	public ?string $ID;
+	public string $ID;
 	public bool|Optional $CopyIndicator;
 	public string|Optional $UUID;
 

@@ -10,7 +10,7 @@ use Spatie\LaravelData\Optional;
 class ItemPropertyGroup extends Data
 {
 	#[Required]
-	public ?string $ID;
+	public string $ID;
 	public string|Optional $Name;
 	public string|Optional $ImportanceCode;
 }

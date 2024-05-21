@@ -17,7 +17,7 @@ class DatiRiepilogo extends Data
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public ?float $AliquotaIVA;
+	public float $AliquotaIVA;
 	public string|Optional $Natura;
 
 	private array $Natura_array = [
@@ -58,12 +58,12 @@ class DatiRiepilogo extends Data
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public ?float $ImponibileImporto;
+	public float $ImponibileImporto;
 
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public ?float $Imposta;
+	public float $Imposta;
 
 	#[Max(1)]
 	#[Min(1)]

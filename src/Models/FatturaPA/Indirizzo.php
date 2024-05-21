@@ -12,12 +12,12 @@ class Indirizzo extends Data
 	public string|Optional $NumeroCivico;
 
 	#[Required]
-	public ?string $CAP;
+	public string $CAP;
 
 	#[Required]
-	public ?string $Comune;
+	public string $Comune;
 	public string|Optional $Provincia;
 
 	#[Required]
-	public ?string $Nazione;
+	public string $Nazione;
 }

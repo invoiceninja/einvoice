@@ -13,11 +13,11 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 class PricingExchangeRate extends Data
 {
 	#[Required]
-	public ?string $SourceCurrencyCode;
+	public string $SourceCurrencyCode;
 	public string|Optional $SourceCurrencyBaseRate;
 
 	#[Required]
-	public ?string $TargetCurrencyCode;
+	public string $TargetCurrencyCode;
 	public string|Optional $TargetCurrencyBaseRate;
 	public string|Optional $ExchangeMarketID;
 	public string|Optional $CalculationRate;

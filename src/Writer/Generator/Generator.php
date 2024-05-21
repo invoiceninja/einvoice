@@ -140,7 +140,11 @@ class Generator
 
             }
             else {    
-                $type = "?{$base_type}";
+
+
+// $type = "?{$base_type}";
+
+$type = "{$base_type}";
             } 
 
             $property = (new Property($element['name']))

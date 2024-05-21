@@ -34,7 +34,7 @@ class LegalMonetaryTotal extends Data
 
 	#[Required]
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
-	public ?float $PayableAmount;
+	public float $PayableAmount;
 
 	#[WithTransformer('Invoiceninja\Einvoice\Models\Transformers\FloatTransformer')]
 	public float|Optional $PayableAlternativeAmount;

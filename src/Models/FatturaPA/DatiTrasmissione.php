@@ -12,18 +12,18 @@ use Spatie\LaravelData\Optional;
 class DatiTrasmissione extends Data
 {
 	#[Required]
-	public ?IdTrasmittente $IdTrasmittente;
+	public IdTrasmittente $IdTrasmittente;
 
 	#[Required]
-	public ?string $ProgressivoInvio;
+	public string $ProgressivoInvio;
 	private array $FormatoTrasmissione_array = ['FPA12' => 'Fattura verso PA', 'FPR12' => 'Fattura verso privati'];
 
 	#[Required]
 	#[\Spatie\LaravelData\Attributes\Validation\In(FPA12: 'Fattura verso PA', FPR12: 'Fattura verso privati')]
-	public ?string $FormatoTrasmissione;
+	public string $FormatoTrasmissione;
 
 	#[Required]
-	public ?string $CodiceDestinatario;
+	public string $CodiceDestinatario;
 	public ContattiTrasmittente|Optional $ContattiTrasmittente;
 	public string|Optional $PECDestinatario;
 }

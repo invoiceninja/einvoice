@@ -28,7 +28,7 @@ class PowerOfAttorney extends Data
 	public NotaryParty|Optional $NotaryParty;
 
 	#[Required]
-	public ?AgentParty $AgentParty;
+	public AgentParty $AgentParty;
 
 	/** @param array<WitnessParty> $WitnessParty */
 	public array|Optional $WitnessParty;

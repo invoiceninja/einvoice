@@ -18,6 +18,6 @@ class ServiceProviderParty extends Data
 	public array|Optional $ServiceType;
 
 	#[Required]
-	public ?Party $Party;
+	public Party $Party;
 	public SellerContact|Optional $SellerContact;
 }

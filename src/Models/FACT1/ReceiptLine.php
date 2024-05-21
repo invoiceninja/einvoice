@@ -17,7 +17,7 @@ use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
 class ReceiptLine extends Data
 {
 	#[Required]
-	public ?string $ID;
+	public string $ID;
 	public string|Optional $UUID;
 
 	/** @param array<Note> $Note */

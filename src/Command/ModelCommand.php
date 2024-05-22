@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Invoiceninja\Einvoice\Command;
 
-use Invoiceninja\Einvoice\Writer\Generator\Generator;
+use Invoiceninja\Einvoice\Writer\Symfony\Generator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Attribute\AsCommand;

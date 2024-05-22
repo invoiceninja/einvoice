@@ -1,0 +1,259 @@
+<?php
+
+namespace Invoiceninja\Einvoice\Tests\Data;
+
+use PHPUnit\Framework\TestCase;
+use Symfony\Component\Validator\Validation;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Validator\ValidatorBuilder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Invoiceninja\Einvoice\Models\FatturaPA\FatturaElettronica;
+use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
+use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
+use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\FatturaElettronica as FatturaPAFatturaElettronica;
+
+class FatturaDataTest extends TestCase
+{
+    private $invoice;
+
+    public function setUp(): void
+    {
+
+    }
+
+    public function testInitOfFatturaObjectWithLaravelData()
+    {
+
+        $x = [
+            'FatturaElettronicaHeader' => [
+            'DatiTrasmissione' => [
+                'IdTrasmittente' => [
+                'IdPaese' => 'IT',
+                'IdCodice' => '01234567890',
+                ],
+                'ProgressivoInvio' => '00001',
+                'FormatoTrasmissione' => 'FPA12',
+                'CodiceDestinatario' => 'AAAAAA',
+            ],
+            'CedentePrestatore' => [
+                'DatiAnagrafici' => [
+                'IdFiscaleIVA' => [
+                    'IdPaese' => 'IT',
+                    'IdCodice' => '01234567890',
+                ],
+                'Anagrafica' => [
+                    'Denominazione' => 'ALPHA SRL',
+                ],
+                'RegimeFiscale' => 'RF19',
+                ],
+                'Sede' => [
+                'Indirizzo' => 'VIALE ROMA 543',
+                'CAP' => '07100',
+                'Comune' => 'SASSARI',
+                'Provincia' => 'SS',
+                'Nazione' => 'IT',
+                ],
+            ],
+            'CessionarioCommittente' => [
+                'DatiAnagrafici' => [
+                'CodiceFiscale' => '09876543210',
+                'Anagrafica' => [
+                    'Denominazione' => 'AMMINISTRAZIONE BETA',
+                ],
+                ],
+                'Sede' => [
+                'Indirizzo' => 'VIA TORINO 38-B',
+                'CAP' => '00145',
+                'Comune' => 'ROMA',
+                'Provincia' => 'RM',
+                'Nazione' => 'IT',
+                ],
+            ],
+            ],
+            'FatturaElettronicaBody' => [
+            'DatiGenerali' => [
+                'DatiGeneraliDocumento' => [
+                'TipoDocumento' => 'TD01',
+                'Divisa' => 'EUR',
+                'Data' => '2017-01-18',
+                'Numero' => '123',
+                'Causale' => [
+                    0 => 'LA FATTURA FA RIFERIMENTO AD UNA OPERAZIONE AAAA BBBBBBBBBBBBBBBBBB CCC
+                            DDDDDDDDDDDDDDD E FFFFFFFFFFFFFFFFFFFF GGGGGGGGGG HHHHHHH II LLLLLLLLLLLLLLLLL
+                            MMM NNNNN OO PPPPPPPPPPP QQQQ RRRR SSSSSSSSSSSSSS',
+                    1 => 'SEGUE DESCRIZIONE CAUSALE NEL CASO IN CUI NON SIANO STATI SUFFICIENTI 200
+                            CARATTERI AAAAAAAAAAA BBBBBBBBBBBBBBBBB',
+                ],
+                ],
+                'DatiOrdineAcquisto' => [
+                'RiferimentoNumeroLinea' => '1',
+                'IdDocumento' => '66685',
+                'NumItem' => '1',
+                'CodiceCUP' => '123abc',
+                'CodiceCIG' => '456def',
+                ],
+                'DatiContratto' => [
+                'RiferimentoNumeroLinea' => '1',
+                'IdDocumento' => '123',
+                'Data' => '2016-09-01',
+                'NumItem' => '5',
+                'CodiceCUP' => '123abc',
+                'CodiceCIG' => '456def',
+                ],
+                'DatiConvenzione' => [
+                'RiferimentoNumeroLinea' => '1',
+                'IdDocumento' => '456',
+                'NumItem' => '5',
+                'CodiceCUP' => '123abc',
+                'CodiceCIG' => '456def',
+                ],
+                'DatiRicezione' => [
+                'RiferimentoNumeroLinea' => '1',
+                'IdDocumento' => '789',
+                'NumItem' => '5',
+                'CodiceCUP' => '123abc',
+                'CodiceCIG' => '456def',
+                ],
+                'DatiTrasporto' => [
+                'DatiAnagraficiVettore' => [
+                    'IdFiscaleIVA' => [
+                    'IdPaese' => 'IT',
+                    'IdCodice' => '24681012141',
+                    ],
+                    'Anagrafica' => [
+                    'Denominazione' => 'Trasporto spa',
+                    ],
+                ],
+                'DataOraConsegna' => '2017-01-10T16:46:12.000+02:00',
+                ],
+            ],
+            'DatiBeniServizi' => [
+                'DettaglioLinee' => [
+                'NumeroLinea' => '1',
+                'Descrizione' => 'DESCRIZIONE DELLA FORNITURA',
+                'Quantita' => '5.00',
+                'PrezzoUnitario' => '1.00',
+                'PrezzoTotale' => '5.00',
+                'AliquotaIVA' => '22.00',
+                ],
+                'DatiRiepilogo' => [
+                'AliquotaIVA' => '22.00',
+                'ImponibileImporto' => '5.00',
+                'Imposta' => '1.10',
+                'EsigibilitaIVA' => 'I',
+                ],
+            ],
+            'DatiPagamento' => [
+                'CondizioniPagamento' => 'TP01',
+                'DettaglioPagamento' => [
+                'ModalitaPagamento' => 'MP01',
+                'DataScadenzaPagamento' => '2017-02-18',
+                'ImportoPagamento' => '6.10',
+                ],
+            ],
+            ],
+        ];
+
+        // FatturaElettronica::validate($x);
+        
+        // FatturaElettronica::from($x)->toArray();
+
+            $encoders = [new XmlEncoder(), new JsonEncoder()];
+            $normalizers = [new ObjectNormalizer()];
+
+            $serializer = new Serializer($normalizers, $encoders);
+
+            //[AbstractNormalizer::OBJECT_TO_POPULATE => $person]
+                    
+            $x = $serializer->deserialize(json_encode($x), FatturaPAFatturaElettronica::class, 'json');
+
+            // echo print_r($x).PHP_EOL;
+
+            // echo json_encode($x, JSON_PRETTY_PRINT);
+
+
+        // Create a default validator
+        $validator = Validation::createValidatorBuilder()
+            ->enableAnnotationMapping()
+            ->getValidator();
+
+        $errors = $validator->validate($x);
+
+        if (count($errors) > 0) {
+            foreach ($errors as $error) {
+                echo $error->getPropertyPath() . ': ' . $error->getMessage() . "\n";
+            }
+        } else {
+            echo "Validation passed!\n";
+        }
+
+    }
+
+    public function testValidation()
+    {
+        $files = [
+            'tests/Data/samples/fatturapa0.xml',
+            'tests/Data/samples/fatturapa1.xml',
+            'tests/Data/samples/fatturapa2.xml',
+            'tests/Data/samples/fatturapa3.xml',
+            'tests/Data/samples/fatturapa4.xml',
+            'tests/Data/samples/fatturapa5.xml',
+            'tests/Data/samples/fatturapa6.xml',
+        ];
+
+        $path = 'tests/Data/samples/';
+        
+    
+$context = [
+    'xml_format_output' => true,
+];
+    
+$encoder = new XmlEncoder($context);
+
+$encoders = [$encoder, new JsonEncoder()];
+$normalizers = [new ObjectNormalizer()];
+
+$serializer = new Serializer($normalizers, $encoders);
+
+        foreach($files as $key => $f)
+        {
+            echo($f).PHP_EOL;
+
+            $xmlstring = file_get_contents($f);
+
+            $data = $serializer->deserialize($xmlstring, FatturaPAFatturaElettronica::class, 'xml');
+
+            $fpathjson = $path."{$key}.json";
+            // echo print_r($data).PHP_EOL;
+            $fp = fopen($fpathjson, 'w');
+            fwrite($fp, json_encode($data, JSON_PRETTY_PRINT));
+            fclose($fp);
+
+            // echo print_r($data).PHP_EOL;
+
+            // $dataxml = $serializer->serialize($data, 'xml');
+            
+            // $encoder = new XmlEncoder();
+            // $context = [
+            //     'xml_format_output' => true,
+            //     // 'xml_root_node_name' => '',
+            // ];
+
+            $dataxml = $serializer->encode($data, 'xml', $context);
+
+$dataxml = str_replace(['<response>'],['</response>'], '', $dataxml);
+
+            $fpathjson = $path."{$key}.xml";
+            // echo print_r($data).PHP_EOL;
+            $fp = fopen($fpathjson, 'w');
+            fwrite($fp, $dataxml);
+            fclose($fp);
+
+            $this->assertNotNull($data);
+        }
+
+    }
+
+}

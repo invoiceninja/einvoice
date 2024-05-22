@@ -154,6 +154,7 @@ class FatturaDataTest extends TestCase
     ];
 
     private array $bad_payload = [
+        'FatturaElettronica' =>[
         'FatturaElettronicaHeader' => [
         'DatiTrasmissione' => [
             'IdTrasmittente' => [
@@ -226,6 +227,7 @@ class FatturaDataTest extends TestCase
             ],
         ],
         ],
+    ],
     ];
 
     public function setUp(): void
@@ -270,6 +272,8 @@ class FatturaDataTest extends TestCase
 
         $serializer = new Serializer($normalizers, $encoders);
         $x = $serializer->deserialize(json_encode($this->bad_payload), FatturaElettronica::class, 'json');
+
+        echo print_r($x).PHP_EOL;
 
         // Create a default validator
         $validator = Validation::createValidatorBuilder()

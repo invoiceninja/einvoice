@@ -36,7 +36,11 @@ class DatiTrasporto
 
 	#[\Symfony\Component\Validator\Constraints\Regex('/[0-9]{1,4}\.[0-9]{1,2}/')]
 	public float $PesoNetto;
+
+	#[\Symfony\Component\Validator\Constraints\DateTime('Y-m-d\TH:i:s.uP')]
 	public Carbon $DataOraRitiro;
+
+	#[\Symfony\Component\Validator\Constraints\Date('Y-m-d')]
 	public Carbon $DataInizioTrasporto;
 
 	#[\Symfony\Component\Validator\Constraints\Length(max: 3)]
@@ -44,5 +48,7 @@ class DatiTrasporto
 	#[\Symfony\Component\Validator\Constraints\Regex('/[A-Z]{3}/')]
 	public string $TipoResa;
 	public IndirizzoResa $IndirizzoResa;
+
+	#[\Symfony\Component\Validator\Constraints\DateTime('Y-m-d\TH:i:s.uP')]
 	public Carbon $DataOraConsegna;
 }

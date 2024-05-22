@@ -5,7 +5,10 @@ namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA;
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiAnagraficiVettoreType\DatiAnagraficiVettore;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\IndirizzoType\IndirizzoResa;
+use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Regex;
 
@@ -39,7 +42,11 @@ class DatiTrasporto
 
 	#[Regex('/[0-9]{1,4}\.[0-9]{1,2}/')]
 	public float $PesoNetto;
+
+	#[DateTime('Y-m-d\TH:i:s.uP')]
 	public Carbon $DataOraRitiro;
+
+	#[Date('Y-m-d')]
 	public Carbon $DataInizioTrasporto;
 
 	#[Length(max: 3)]
@@ -47,5 +54,7 @@ class DatiTrasporto
 	#[Regex('/[A-Z]{3}/')]
 	public string $TipoResa;
 	public IndirizzoResa $IndirizzoResa;
+
+	#[DateTime('Y-m-d\TH:i:s.uP')]
 	public Carbon $DataOraConsegna;
 }

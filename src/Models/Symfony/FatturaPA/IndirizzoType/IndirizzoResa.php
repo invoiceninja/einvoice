@@ -7,6 +7,7 @@ use Carbon\Carbon;
 class IndirizzoResa
 {
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	#[\Symfony\Component\Validator\Constraints\Length(max: 60)]
 	#[\Symfony\Component\Validator\Constraints\Length(min: 1)]
 	#[\Symfony\Component\Validator\Constraints\Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
@@ -18,10 +19,12 @@ class IndirizzoResa
 	public string $NumeroCivico;
 
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	#[\Symfony\Component\Validator\Constraints\Regex('/[0-9][0-9][0-9][0-9][0-9]/')]
 	public string $CAP;
 
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	#[\Symfony\Component\Validator\Constraints\Length(max: 60)]
 	#[\Symfony\Component\Validator\Constraints\Length(min: 1)]
 	#[\Symfony\Component\Validator\Constraints\Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
@@ -33,6 +36,7 @@ class IndirizzoResa
 	public string $Provincia;
 
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	#[\Symfony\Component\Validator\Constraints\Length(max: 2)]
 	#[\Symfony\Component\Validator\Constraints\Length(min: 2)]
 	#[\Symfony\Component\Validator\Constraints\Regex('/[A-Z]{2}/')]

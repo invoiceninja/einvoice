@@ -4,12 +4,14 @@ namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA;
 
 use Carbon\Carbon;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Regex;
 
 class DatiRiepilogo
 {
 	#[NotNull]
+	#[NotBlank]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
 	public float $AliquotaIVA;
 
@@ -49,10 +51,12 @@ class DatiRiepilogo
 	public float $Arrotondamento;
 
 	#[NotNull]
+	#[NotBlank]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float $ImponibileImporto;
 
 	#[NotNull]
+	#[NotBlank]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float $Imposta;
 	private array $EsigibilitaIVA_array = ['D', 'I', 'S'];

@@ -89,68 +89,11 @@ class TypeGenerator
 
             $settable_type = "{$base_type}";
             
-
             $property = (new Property($element['name']))
                             ->setPublic()
                             ->setType($settable_type);
 
-
-            // if($element['min_occurs'] >= 1) {
-            //     $this->namespace->addUse(Required::class);
-            //     $property->addAttribute(Required::class);
-            // }
-
-            if($element['max_occurs'] > 1 || $element['max_occurs'] == -1 && $base_type != 'int') {
-                $property->addComment("@var ".$element['name']."[] $".$element['name']);
-            }
-
             $property = $this->generator->setValidation($property, $element);
-
-            // if(stripos($base_type, 'array') !== false) {
-            //     /**
-            //     * @param array<int, SongData> $songs
-            //     */
-            //     $property->addComment("@param array<".$element['name']."> $".$element['name']);
-            // }
-
-            // if($base_type == 'float') {
-            //     $this->namespace->addUse(WithTransformer::class);
-            //     $this->namespace->addUse(FloatTransformer::class);
-            //     $property->addAttribute(WithTransformer::class, [FloatTransformer::class]);
-            // }
-
-            // if(isset($element['max_length'])) {
-            //     $this->namespace->addUse(Max::class);
-            //     $property->addAttribute(Max::class, [$element['max_length']]);
-            // }
-
-            // if(isset($element['min_length'])) {
-            //     $this->namespace->addUse(Min::class);
-            //     $property->addAttribute(Min::class, [$element['min_length']]);
-            // }
-
-            // if($element['pattern']) {
-            //     $this->namespace->addUse(Regex::class);
-            //     $property->addAttribute(Regex::class, [$element['pattern']]);
-            // }
-
-            // if($element['base_type'] == 'date') {
-            //     $this->namespace->addUse(DateTimeInterfaceTransformer::class);
-            //     $this->namespace->addUse(WithTransformer::class);
-            //     $property->addAttribute(WithTransformer::class, [DateTimeInterfaceTransformer::class, 'format' => 'Y-m-d']);
-            // }
-
-            // if($element['base_type'] == 'dateTime') {
-            //     $this->namespace->addUse(DateTimeInterfaceTransformer::class);
-            //     $this->namespace->addUse(WithTransformer::class);
-            //     $property->addAttribute(WithTransformer::class, [DateTimeInterfaceTransformer::class, 'format' => 'Y-m-d\TH:i:s.uP']);
-            // }
-
-            // if($element['base_type'] == 'time') {
-            //     $this->namespace->addUse(DateTimeInterfaceTransformer::class);
-            //     $this->namespace->addUse(WithTransformer::class);
-            //     $property->addAttribute(WithTransformer::class, [DateTimeInterfaceTransformer::class, 'format' => 'Y-m-d\TH:i:s.uP']);
-            // }
 
             $this->class->addMember($property);
 

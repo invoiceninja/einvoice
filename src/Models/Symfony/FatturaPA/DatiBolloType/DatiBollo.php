@@ -7,6 +7,7 @@ use Carbon\Carbon;
 class DatiBollo
 {
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	public string $BolloVirtuale;
 	private array $BolloVirtuale_array = ['SI'];
 

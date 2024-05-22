@@ -3,7 +3,9 @@
 namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA;
 
 use Carbon\Carbon;
+use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Regex;
 
@@ -41,12 +43,18 @@ class DettaglioPagamento
 	];
 
 	#[NotNull]
+	#[NotBlank]
 	public string $ModalitaPagamento;
+
+	#[Date('Y-m-d')]
 	public Carbon $DataRiferimentoTerminiPagamento;
 	public int $GiorniTerminiPagamento;
+
+	#[Date('Y-m-d')]
 	public Carbon $DataScadenzaPagamento;
 
 	#[NotNull]
+	#[NotBlank]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float $ImportoPagamento;
 
@@ -98,10 +106,14 @@ class DettaglioPagamento
 
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float $ScontoPagamentoAnticipato;
+
+	#[Date('Y-m-d')]
 	public Carbon $DataLimitePagamentoAnticipato;
 
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float $PenalitaPagamentiRitardati;
+
+	#[Date('Y-m-d')]
 	public Carbon $DataDecorrenzaPenale;
 
 	#[Length(max: 60)]

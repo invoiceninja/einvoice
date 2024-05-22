@@ -7,7 +7,9 @@ use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiBolloType\DatiBollo;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiCassaPrevidenzialeType\DatiCassaPrevidenziale;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiRitenutaType\DatiRitenuta;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione;
+use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Regex;
 
@@ -36,18 +38,23 @@ class DatiGeneraliDocumento
 	];
 
 	#[NotNull]
+	#[NotBlank]
 	public string $TipoDocumento;
 
 	#[NotNull]
+	#[NotBlank]
 	#[Length(max: 3)]
 	#[Length(min: 3)]
 	#[Regex('/[A-Z]{3}/')]
 	public string $Divisa;
 
 	#[NotNull]
+	#[NotBlank]
+	#[Date('Y-m-d')]
 	public Carbon $Data;
 
 	#[NotNull]
+	#[NotBlank]
 	#[Length(max: 20)]
 	#[Length(min: 1)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]

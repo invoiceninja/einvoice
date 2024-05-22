@@ -16,5 +16,6 @@ class DatiAnagrafici
 	public string $CodiceFiscale;
 
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	public Anagrafica $Anagrafica;
 }

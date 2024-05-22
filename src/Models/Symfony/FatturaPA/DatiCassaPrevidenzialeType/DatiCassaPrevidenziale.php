@@ -7,6 +7,7 @@ use Carbon\Carbon;
 class DatiCassaPrevidenziale
 {
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	public string $TipoCassa;
 
 	private array $TipoCassa_array = [
@@ -35,10 +36,12 @@ class DatiCassaPrevidenziale
 	];
 
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	#[\Symfony\Component\Validator\Constraints\Regex('/[0-9]{1,3}\.[0-9]{2}/')]
 	public float $AlCassa;
 
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	#[\Symfony\Component\Validator\Constraints\Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float $ImportoContributoCassa;
 
@@ -46,6 +49,7 @@ class DatiCassaPrevidenziale
 	public float $ImponibileCassa;
 
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	#[\Symfony\Component\Validator\Constraints\Regex('/[0-9]{1,3}\.[0-9]{2}/')]
 	public float $AliquotaIVA;
 	public string $Ritenuta;

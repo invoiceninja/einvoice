@@ -4,6 +4,7 @@ namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA;
 
 use Carbon\Carbon;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Regex;
 
@@ -35,13 +36,16 @@ class DatiCassaPrevidenziale
 	];
 
 	#[NotNull]
+	#[NotBlank]
 	public string $TipoCassa;
 
 	#[NotNull]
+	#[NotBlank]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
 	public float $AlCassa;
 
 	#[NotNull]
+	#[NotBlank]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float $ImportoContributoCassa;
 
@@ -49,6 +53,7 @@ class DatiCassaPrevidenziale
 	public float $ImponibileCassa;
 
 	#[NotNull]
+	#[NotBlank]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
 	public float $AliquotaIVA;
 	private array $Ritenuta_array = ['SI'];

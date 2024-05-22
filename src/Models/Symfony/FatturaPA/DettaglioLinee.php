@@ -6,13 +6,16 @@ use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\AltriDatiGestionaliType\AltriDatiGestionali;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\CodiceArticoloType\CodiceArticolo;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione;
+use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Regex;
 
 class DettaglioLinee
 {
 	#[NotNull]
+	#[NotBlank]
 	public int $NumeroLinea;
 	private array $TipoCessionePrestazione_array = ['SC', 'PR', 'AB', 'AC'];
 	public string $TipoCessionePrestazione;
@@ -21,6 +24,7 @@ class DettaglioLinee
 	public CodiceArticolo $CodiceArticolo;
 
 	#[NotNull]
+	#[NotBlank]
 	#[Length(max: 1000)]
 	#[Length(min: 1)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,1000}/u')]
@@ -33,10 +37,15 @@ class DettaglioLinee
 	#[Length(min: 1)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,10}/u')]
 	public string $UnitaMisura;
+
+	#[Date('Y-m-d')]
 	public Carbon $DataInizioPeriodo;
+
+	#[Date('Y-m-d')]
 	public Carbon $DataFinePeriodo;
 
 	#[NotNull]
+	#[NotBlank]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
 	public float $PrezzoUnitario;
 
@@ -44,10 +53,12 @@ class DettaglioLinee
 	public ScontoMaggiorazione $ScontoMaggiorazione;
 
 	#[NotNull]
+	#[NotBlank]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
 	public float $PrezzoTotale;
 
 	#[NotNull]
+	#[NotBlank]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
 	public float $AliquotaIVA;
 	private array $Ritenuta_array = ['SI'];

@@ -12,21 +12,17 @@ use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiVeicoliType\DatiVeicoli;
 class FatturaElettronicaBody
 {
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	public DatiGenerali $DatiGenerali;
 
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	public DatiBeniServizi $DatiBeniServizi;
 	public DatiVeicoli $DatiVeicoli;
 
-	/**
-	 * @var DatiPagamento[] $DatiPagamento
-	 * @var DatiPagamento[] $DatiPagamento
-	 */
+	/** @var DatiPagamento[] $DatiPagamento */
 	public DatiPagamento $DatiPagamento;
 
-	/**
-	 * @var Allegati[] $Allegati
-	 * @var Allegati[] $Allegati
-	 */
+	/** @var Allegati[] $Allegati */
 	public Allegati $Allegati;
 }

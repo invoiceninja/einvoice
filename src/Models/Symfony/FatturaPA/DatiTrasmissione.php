@@ -6,15 +6,18 @@ use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\ContattiTrasmittenteType\ContattiTrasmittente;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\IdFiscaleType\IdTrasmittente;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Regex;
 
 class DatiTrasmissione
 {
 	#[NotNull]
+	#[NotBlank]
 	public IdTrasmittente $IdTrasmittente;
 
 	#[NotNull]
+	#[NotBlank]
 	#[Length(max: 10)]
 	#[Length(min: 1)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,10}/u')]
@@ -22,9 +25,11 @@ class DatiTrasmissione
 	private array $FormatoTrasmissione_array = ['FPA12', 'FPR12'];
 
 	#[NotNull]
+	#[NotBlank]
 	public string $FormatoTrasmissione;
 
 	#[NotNull]
+	#[NotBlank]
 	#[Length(max: 7)]
 	#[Length(min: 6)]
 	#[Regex('/[A-Z0-9]{6,7}/')]

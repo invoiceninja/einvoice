@@ -9,6 +9,7 @@ use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\IdFiscaleType\IdFiscaleIVA;
 class DatiAnagraficiVettore
 {
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	public IdFiscaleIVA $IdFiscaleIVA;
 
 	#[\Symfony\Component\Validator\Constraints\Length(max: 16)]
@@ -17,6 +18,7 @@ class DatiAnagraficiVettore
 	public string $CodiceFiscale;
 
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	public Anagrafica $Anagrafica;
 
 	#[\Symfony\Component\Validator\Constraints\Length(max: 20)]

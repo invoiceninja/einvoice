@@ -8,17 +8,13 @@ use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DettaglioLineeType\DettaglioL
 
 class DatiBeniServizi
 {
-	/**
-	 * @var DettaglioLinee[] $DettaglioLinee
-	 * @var DettaglioLinee[] $DettaglioLinee
-	 */
+	/** @var DettaglioLinee[] $DettaglioLinee */
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	public DettaglioLinee $DettaglioLinee;
 
-	/**
-	 * @var DatiRiepilogo[] $DatiRiepilogo
-	 * @var DatiRiepilogo[] $DatiRiepilogo
-	 */
+	/** @var DatiRiepilogo[] $DatiRiepilogo */
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	public DatiRiepilogo $DatiRiepilogo;
 }

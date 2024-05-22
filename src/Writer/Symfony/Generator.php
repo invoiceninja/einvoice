@@ -21,6 +21,9 @@ use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Invoiceninja\Einvoice\Writer\Symfony\TypeGenerator;
+use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\DateTime;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class Generator
 {
@@ -74,7 +77,14 @@ class Generator
         if($type == Carbon::class);  
             $this->namespace->addUse(Carbon::class);
 
-            return $type;
+        if(in_array($raw_type, ['time','dateTime'])){
+            $this->namespace->addUse(DateTime::class);
+        }
+
+        if($raw_type == 'date')
+            $this->namespace->addUse(Date::class);
+
+        return $type;
 
     }
 
@@ -82,7 +92,10 @@ class Generator
     {
         if($element['min_occurs'] >= 1){
             $this->namespace->addUse(NotNull::class);
+            $this->namespace->addUse(NotBlank::class);
+
             $property->addAttribute(NotNull::class);
+            $property->addAttribute(NotBlank::class);
         }
 
         if($element['max_occurs'] > 1 || $element['max_occurs'] == -1) {
@@ -103,6 +116,14 @@ class Generator
             $this->namespace->addUse(Regex::class);
             $property->addAttribute(Regex::class, [$element['pattern']]);
         }
+
+        if(in_array($element['base_type'], ['time', 'dateTime']))
+            $property->addAttribute(DateTime::class, ['Y-m-d\TH:i:s.uP']);
+
+        if(in_array($element['base_type'], ['date'])) {
+            $property->addAttribute(Date::class, ['Y-m-d']);
+        }
+
 
         return $property;
     }

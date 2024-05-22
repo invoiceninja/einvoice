@@ -8,16 +8,20 @@ use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiBeniServiziType\DatiBeniS
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiGeneraliType\DatiGenerali;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiPagamentoType\DatiPagamento;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiVeicoliType\DatiVeicoli;
+use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Regex;
 
 class FatturaElettronicaBody
 {
 	#[NotNull]
+	#[NotBlank]
 	public DatiGenerali $DatiGenerali;
 
 	#[NotNull]
+	#[NotBlank]
 	public DatiBeniServizi $DatiBeniServizi;
 	public DatiVeicoli $DatiVeicoli;
 

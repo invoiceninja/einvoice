@@ -8,5 +8,6 @@ use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiAnagraficiTerzoIntermedia
 class TerzoIntermediarioOSoggettoEmittente
 {
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	public DatiAnagrafici $DatiAnagrafici;
 }

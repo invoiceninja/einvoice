@@ -9,24 +9,14 @@ use Symfony\Component\Validator\ValidatorBuilder;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-use Invoiceninja\Einvoice\Models\FatturaPA\FatturaElettronica;
-use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
-use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
-use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\FatturaElettronica as FatturaPAFatturaElettronica;
+use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\FatturaElettronica;
 
 class FatturaDataTest extends TestCase
 {
     private $invoice;
 
-    public function setUp(): void
-    {
 
-    }
-
-    public function testInitOfFatturaObjectWithLaravelData()
-    {
-
-        $x = [
+        private array $good_payload = [
             'FatturaElettronicaHeader' => [
             'DatiTrasmissione' => [
                 'IdTrasmittente' => [
@@ -156,27 +146,134 @@ class FatturaDataTest extends TestCase
             ],
         ];
 
-        // FatturaElettronica::validate($x);
+    private array $empty = [
+        'FatturaElettronicaHeader' => [],
+        'FatturaElettronicaBody' => [
+            'DatiPagamento' => [],
+        ],
+    ];
+
+    private array $bad_payload = [
+        'FatturaElettronicaHeader' => [
+        'DatiTrasmissione' => [
+            'IdTrasmittente' => [
+            'IdPaese' => '',
+            'IdCodice' => '01234567890',
+            ],
+            'ProgressivoInvio' => '',
+            'FormatoTrasmissione' => '',
+            'CodiceDestinatario' => 'AAAAAA',
+        ],
+        'CedentePrestatore' => [
+            'DatiAnagrafici' => [
+            'IdFiscaleIVA' => [
+                'IdPaese' => 'IT',
+                'IdCodice' => '01234567890',
+            ],
+            'Anagrafica' => [
+                'Denominazione' => 'ALPHA SRL',
+            ],
+            'RegimeFiscale' => 'RF19',
+            ],
+            'Sede' => [
+            'Indirizzo' => 'VIALE ROMA 543',
+            'CAP' => '07100',
+            'Comune' => 'SASSARI',
+            'Provincia' => 'SS',
+            'Nazione' => 'IT',
+            ],
+        ],
+        'CessionarioCommittente' => [
+            'DatiAnagrafici' => [
+            'CodiceFiscale' => '09876543210',
+            'Anagrafica' => [
+                'Denominazione' => 'AMMINISTRAZIONE BETA',
+            ],
+            ],
+            'Sede' => [
+            'Indirizzo' => 'VIA TORINO 38-B',
+            'CAP' => '00145',
+            'Comune' => 'ROMA',
+            'Provincia' => 'RM',
+            'Nazione' => 'IT',
+            ],
+        ],
+        ],
+        'FatturaElettronicaBody' => [
         
-        // FatturaElettronica::from($x)->toArray();
+        'DatiBeniServizi' => [
+            'DettaglioLinee' => [
+            'NumeroLinea' => '1',
+            'Descrizione' => 'DESCRIZIONE DELLA FORNITURA',
+            'Quantita' => '5.00',
+            'PrezzoUnitario' => '1.00',
+            'PrezzoTotale' => '5.00',
+            'AliquotaIVA' => '22.00',
+            ],
+            'DatiRiepilogo' => [
+            'AliquotaIVA' => '22.00',
+            'ImponibileImporto' => '5.00',
+            'Imposta' => '1.10',
+            'EsigibilitaIVA' => 'I',
+            ],
+        ],
+        'DatiPagamento' => [
+            'CondizioniPagamento' => 'TP01',
+            'DettaglioPagamento' => [
+            'ModalitaPagamento' => 'MP01',
+            'DataScadenzaPagamento' => '2017-02-18',
+            'ImportoPagamento' => '6.10',
+            ],
+        ],
+        ],
+    ];
 
-            $encoders = [new XmlEncoder(), new JsonEncoder()];
-            $normalizers = [new ObjectNormalizer()];
+    public function setUp(): void
+    {
 
-            $serializer = new Serializer($normalizers, $encoders);
+    }
 
-            //[AbstractNormalizer::OBJECT_TO_POPULATE => $person]
-                    
-            $x = $serializer->deserialize(json_encode($x), FatturaPAFatturaElettronica::class, 'json');
+    public function testSerializeAndDeserializeWithValidationSymfony()
+    {
 
-            // echo print_r($x).PHP_EOL;
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
 
-            // echo json_encode($x, JSON_PRETTY_PRINT);
+        $serializer = new Serializer($normalizers, $encoders);
+        $x = $serializer->deserialize(json_encode($this->good_payload), FatturaElettronica::class, 'json');
 
 
         // Create a default validator
         $validator = Validation::createValidatorBuilder()
-            ->enableAnnotationMapping()
+            ->enableAttributeMapping()
+            ->getValidator();
+
+        $errors = $validator->validate($x);
+
+        $this->assertCount(0, $errors);
+        if (count($errors) > 0) {
+            foreach ($errors as $error) {
+                echo $error->getPropertyPath() . ': ' . $error->getMessage() . "\n";
+            }
+        } else {
+            // echo "Validation passed!\n";
+        }
+
+    }
+
+    public function testBadPayloadValidation()
+    {
+
+
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+
+        $serializer = new Serializer($normalizers, $encoders);
+        $x = $serializer->deserialize(json_encode($this->bad_payload), FatturaElettronica::class, 'json');
+
+        // Create a default validator
+        $validator = Validation::createValidatorBuilder()
+            ->enableAttributeMapping()
             ->getValidator();
 
         $errors = $validator->validate($x);
@@ -186,8 +283,10 @@ class FatturaDataTest extends TestCase
                 echo $error->getPropertyPath() . ': ' . $error->getMessage() . "\n";
             }
         } else {
-            echo "Validation passed!\n";
+            // echo "Validation passed!\n";
         }
+
+        $this->assertGreaterThan(0, count($errors));
 
     }
 
@@ -205,25 +304,25 @@ class FatturaDataTest extends TestCase
 
         $path = 'tests/Data/samples/';
         
-    
-$context = [
-    'xml_format_output' => true,
-];
-    
-$encoder = new XmlEncoder($context);
+            
+        $context = [
+            'xml_format_output' => true,
+        ];
+            
+        $encoder = new XmlEncoder($context);
 
-$encoders = [$encoder, new JsonEncoder()];
-$normalizers = [new ObjectNormalizer()];
+        $encoders = [$encoder, new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
 
-$serializer = new Serializer($normalizers, $encoders);
+        $serializer = new Serializer($normalizers, $encoders);
 
         foreach($files as $key => $f)
         {
-            echo($f).PHP_EOL;
+            // echo($f).PHP_EOL;
 
             $xmlstring = file_get_contents($f);
 
-            $data = $serializer->deserialize($xmlstring, FatturaPAFatturaElettronica::class, 'xml');
+            $data = $serializer->deserialize($xmlstring, FatturaElettronica::class, 'xml');
 
             $fpathjson = $path."{$key}.json";
             // echo print_r($data).PHP_EOL;
@@ -231,19 +330,9 @@ $serializer = new Serializer($normalizers, $encoders);
             fwrite($fp, json_encode($data, JSON_PRETTY_PRINT));
             fclose($fp);
 
-            // echo print_r($data).PHP_EOL;
-
-            // $dataxml = $serializer->serialize($data, 'xml');
-            
-            // $encoder = new XmlEncoder();
-            // $context = [
-            //     'xml_format_output' => true,
-            //     // 'xml_root_node_name' => '',
-            // ];
-
             $dataxml = $serializer->encode($data, 'xml', $context);
 
-$dataxml = str_replace(['<response>'],['</response>'], '', $dataxml);
+            $dataxml = str_replace(['<response>'],['</response>'], '', $dataxml);
 
             $fpathjson = $path."{$key}.xml";
             // echo print_r($data).PHP_EOL;

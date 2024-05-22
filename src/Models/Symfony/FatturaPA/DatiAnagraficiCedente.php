@@ -5,13 +5,16 @@ namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA;
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\AnagraficaType\Anagrafica;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\IdFiscaleType\IdFiscaleIVA;
+use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Regex;
 
 class DatiAnagraficiCedente
 {
 	#[NotNull]
+	#[NotBlank]
 	public IdFiscaleIVA $IdFiscaleIVA;
 
 	#[Length(max: 16)]
@@ -20,6 +23,7 @@ class DatiAnagraficiCedente
 	public string $CodiceFiscale;
 
 	#[NotNull]
+	#[NotBlank]
 	public Anagrafica $Anagrafica;
 
 	#[Length(max: 60)]
@@ -36,6 +40,8 @@ class DatiAnagraficiCedente
 	#[Length(min: 1)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,60}/u')]
 	public string $NumeroIscrizioneAlbo;
+
+	#[Date('Y-m-d')]
 	public Carbon $DataIscrizioneAlbo;
 
 	private array $RegimeFiscale_array = [
@@ -60,5 +66,6 @@ class DatiAnagraficiCedente
 	];
 
 	#[NotNull]
+	#[NotBlank]
 	public string $RegimeFiscale;
 }

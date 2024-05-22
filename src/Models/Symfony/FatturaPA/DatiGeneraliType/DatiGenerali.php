@@ -17,48 +17,28 @@ use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\FatturaPrincipaleType\Fattura
 class DatiGenerali
 {
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	public DatiGeneraliDocumento $DatiGeneraliDocumento;
 
-	/**
-	 * @var DatiOrdineAcquisto[] $DatiOrdineAcquisto
-	 * @var DatiOrdineAcquisto[] $DatiOrdineAcquisto
-	 */
+	/** @var DatiOrdineAcquisto[] $DatiOrdineAcquisto */
 	public DatiOrdineAcquisto $DatiOrdineAcquisto;
 
-	/**
-	 * @var DatiContratto[] $DatiContratto
-	 * @var DatiContratto[] $DatiContratto
-	 */
+	/** @var DatiContratto[] $DatiContratto */
 	public DatiContratto $DatiContratto;
 
-	/**
-	 * @var DatiConvenzione[] $DatiConvenzione
-	 * @var DatiConvenzione[] $DatiConvenzione
-	 */
+	/** @var DatiConvenzione[] $DatiConvenzione */
 	public DatiConvenzione $DatiConvenzione;
 
-	/**
-	 * @var DatiRicezione[] $DatiRicezione
-	 * @var DatiRicezione[] $DatiRicezione
-	 */
+	/** @var DatiRicezione[] $DatiRicezione */
 	public DatiRicezione $DatiRicezione;
 
-	/**
-	 * @var DatiFattureCollegate[] $DatiFattureCollegate
-	 * @var DatiFattureCollegate[] $DatiFattureCollegate
-	 */
+	/** @var DatiFattureCollegate[] $DatiFattureCollegate */
 	public DatiFattureCollegate $DatiFattureCollegate;
 
-	/**
-	 * @var DatiSAL[] $DatiSAL
-	 * @var DatiSAL[] $DatiSAL
-	 */
+	/** @var DatiSAL[] $DatiSAL */
 	public DatiSAL $DatiSAL;
 
-	/**
-	 * @var DatiDDT[] $DatiDDT
-	 * @var DatiDDT[] $DatiDDT
-	 */
+	/** @var DatiDDT[] $DatiDDT */
 	public DatiDDT $DatiDDT;
 	public DatiTrasporto $DatiTrasporto;
 	public FatturaPrincipale $FatturaPrincipale;

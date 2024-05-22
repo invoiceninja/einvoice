@@ -11,9 +11,11 @@ use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\RappresentanteFiscaleCessiona
 class CessionarioCommittente
 {
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	public DatiAnagrafici $DatiAnagrafici;
 
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	public Sede $Sede;
 	public StabileOrganizzazione $StabileOrganizzazione;
 	public RappresentanteFiscale $RappresentanteFiscale;

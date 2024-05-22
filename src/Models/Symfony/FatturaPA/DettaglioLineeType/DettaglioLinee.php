@@ -10,17 +10,16 @@ use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\ScontoMaggiorazioneType\Scont
 class DettaglioLinee
 {
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	public int $NumeroLinea;
 	public string $TipoCessionePrestazione;
 	private array $TipoCessionePrestazione_array = ['SC', 'PR', 'AB', 'AC'];
 
-	/**
-	 * @var CodiceArticolo[] $CodiceArticolo
-	 * @var CodiceArticolo[] $CodiceArticolo
-	 */
+	/** @var CodiceArticolo[] $CodiceArticolo */
 	public CodiceArticolo $CodiceArticolo;
 
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	#[\Symfony\Component\Validator\Constraints\Length(max: 1000)]
 	#[\Symfony\Component\Validator\Constraints\Length(min: 1)]
 	#[\Symfony\Component\Validator\Constraints\Regex('/[\x{0000}-\x{00FF}]{1,1000}/u')]
@@ -33,24 +32,28 @@ class DettaglioLinee
 	#[\Symfony\Component\Validator\Constraints\Length(min: 1)]
 	#[\Symfony\Component\Validator\Constraints\Regex('/[\x{0020}-\x{007E}]{1,10}/u')]
 	public string $UnitaMisura;
+
+	#[\Symfony\Component\Validator\Constraints\Date('Y-m-d')]
 	public Carbon $DataInizioPeriodo;
+
+	#[\Symfony\Component\Validator\Constraints\Date('Y-m-d')]
 	public Carbon $DataFinePeriodo;
 
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	#[\Symfony\Component\Validator\Constraints\Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
 	public float $PrezzoUnitario;
 
-	/**
-	 * @var ScontoMaggiorazione[] $ScontoMaggiorazione
-	 * @var ScontoMaggiorazione[] $ScontoMaggiorazione
-	 */
+	/** @var ScontoMaggiorazione[] $ScontoMaggiorazione */
 	public ScontoMaggiorazione $ScontoMaggiorazione;
 
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	#[\Symfony\Component\Validator\Constraints\Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
 	public float $PrezzoTotale;
 
 	#[\Symfony\Component\Validator\Constraints\NotNull]
+	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	#[\Symfony\Component\Validator\Constraints\Regex('/[0-9]{1,3}\.[0-9]{2}/')]
 	public float $AliquotaIVA;
 	public string $Ritenuta;
@@ -89,9 +92,6 @@ class DettaglioLinee
 	#[\Symfony\Component\Validator\Constraints\Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
 	public string $RiferimentoAmministrazione;
 
-	/**
-	 * @var AltriDatiGestionali[] $AltriDatiGestionali
-	 * @var AltriDatiGestionali[] $AltriDatiGestionali
-	 */
+	/** @var AltriDatiGestionali[] $AltriDatiGestionali */
 	public AltriDatiGestionali $AltriDatiGestionali;
 }

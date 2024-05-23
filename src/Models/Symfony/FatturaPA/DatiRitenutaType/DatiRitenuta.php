@@ -8,6 +8,7 @@ class DatiRitenuta
 {
 	#[\Symfony\Component\Validator\Constraints\NotNull]
 	#[\Symfony\Component\Validator\Constraints\NotBlank]
+	#[\Symfony\Component\Validator\Constraints\Choice('RT01', 'RT02', 'RT03', 'RT04', 'RT05', 'RT06')]
 	public string $TipoRitenuta;
 	private array $TipoRitenuta_array = ['RT01', 'RT02', 'RT03', 'RT04', 'RT05', 'RT06'];
 
@@ -23,6 +24,37 @@ class DatiRitenuta
 
 	#[\Symfony\Component\Validator\Constraints\NotNull]
 	#[\Symfony\Component\Validator\Constraints\NotBlank]
+	#[\Symfony\Component\Validator\Constraints\Choice(
+		'A',
+		'B',
+		'C',
+		'D',
+		'E',
+		'G',
+		'H',
+		'I',
+		'L',
+		'M',
+		'N',
+		'O',
+		'P',
+		'Q',
+		'R',
+		'S',
+		'T',
+		'U',
+		'V',
+		'W',
+		'X',
+		'Y',
+		'Z',
+		'L1',
+		'M1',
+		'M2',
+		'O1',
+		'V1',
+		'ZO',
+	)]
 	public string $CausalePagamento;
 
 	private array $CausalePagamento_array = [

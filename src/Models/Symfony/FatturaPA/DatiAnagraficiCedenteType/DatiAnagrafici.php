@@ -41,6 +41,26 @@ class DatiAnagrafici
 
 	#[\Symfony\Component\Validator\Constraints\NotNull]
 	#[\Symfony\Component\Validator\Constraints\NotBlank]
+	#[\Symfony\Component\Validator\Constraints\Choice(
+		'RF01',
+		'RF02',
+		'RF04',
+		'RF05',
+		'RF06',
+		'RF07',
+		'RF08',
+		'RF09',
+		'RF10',
+		'RF11',
+		'RF12',
+		'RF13',
+		'RF14',
+		'RF15',
+		'RF16',
+		'RF17',
+		'RF19',
+		'RF18',
+	)]
 	public string $RegimeFiscale;
 
 	private array $RegimeFiscale_array = [

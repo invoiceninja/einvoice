@@ -3,6 +3,7 @@
 namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA;
 
 use Carbon\Carbon;
+use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Regex;
@@ -13,6 +14,7 @@ class DatiRitenuta
 
 	#[NotNull]
 	#[NotBlank]
+	#[Choice('RT01', 'RT02', 'RT03', 'RT04', 'RT05', 'RT06')]
 	public string $TipoRitenuta;
 
 	#[NotNull]
@@ -59,5 +61,36 @@ class DatiRitenuta
 
 	#[NotNull]
 	#[NotBlank]
+	#[Choice(
+		'A',
+		'B',
+		'C',
+		'D',
+		'E',
+		'G',
+		'H',
+		'I',
+		'L',
+		'M',
+		'N',
+		'O',
+		'P',
+		'Q',
+		'R',
+		'S',
+		'T',
+		'U',
+		'V',
+		'W',
+		'X',
+		'Y',
+		'Z',
+		'L1',
+		'M1',
+		'M2',
+		'O1',
+		'V1',
+		'ZO',
+	)]
 	public string $CausalePagamento;
 }

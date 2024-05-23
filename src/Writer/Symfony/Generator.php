@@ -21,6 +21,7 @@ use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Invoiceninja\Einvoice\Writer\Symfony\TypeGenerator;
+use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -124,6 +125,10 @@ class Generator
             $property->addAttribute(Date::class, ['Y-m-d']);
         }
 
+        if(count($element['resource']) > 1){
+            $this->namespace->addUse(Choice::class);
+            $property->addAttribute(Choice::class, array_keys($element['resource']));
+        }
 
         return $property;
     }
@@ -148,11 +153,19 @@ class Generator
             
             $base_type = stripos($element['base_type'], 'Type') !== false ? $this->path_namespace.$this->standard."\\".$element['base_type']."\\".$element['name'] : $this->resolveType($element['base_type']);
             
-            $property = (new Property($element['name']))
-                                        ->setPublic()
-                                        ->setType($base_type);
+            //root elements do not need types;
+            if(in_array($element['name'], ['FatturaElettronicaHeader','FatturaElettronicaBody'])) {
 
+                $property = (new Property($element['name']))
+                                    ->setPublic();
+            }
+            else {
 
+                $property = (new Property($element['name']))
+                                            ->setPublic()
+                                            ->setType($base_type);
+
+            }
 
             $property = $this->setValidation($property, $element);
 
@@ -167,7 +180,6 @@ class Generator
             $class->addMember($property);
 
         }
-
                 
         $this->namespace->add($class);
 
@@ -175,6 +187,7 @@ class Generator
         $this->write($this->namespace, "{$this->write_path}{$this->standard}/{$name}.php");
 
     }
+
 
     public function getChildType(string $name)
     {

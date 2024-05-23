@@ -89,9 +89,12 @@ class TypeGenerator
 
             $settable_type = "{$base_type}";
             
+
+
             $property = (new Property($element['name']))
-                            ->setPublic()
-                            ->setType($settable_type);
+                        ->setPublic()
+                        ->setType($settable_type);
+
 
             $property = $this->generator->setValidation($property, $element);
 

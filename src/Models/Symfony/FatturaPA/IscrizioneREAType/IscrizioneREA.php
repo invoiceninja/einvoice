@@ -22,11 +22,14 @@ class IscrizioneREA
 
 	#[\Symfony\Component\Validator\Constraints\Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float $CapitaleSociale;
+
+	#[\Symfony\Component\Validator\Constraints\Choice('SU', 'SM')]
 	public string $SocioUnico;
 	private array $SocioUnico_array = ['SU', 'SM'];
 
 	#[\Symfony\Component\Validator\Constraints\NotNull]
 	#[\Symfony\Component\Validator\Constraints\NotBlank]
+	#[\Symfony\Component\Validator\Constraints\Choice('LS', 'LN')]
 	public string $StatoLiquidazione;
 	private array $StatoLiquidazione_array = ['LS', 'LN'];
 }

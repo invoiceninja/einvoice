@@ -24,6 +24,8 @@ class FatturaElettronicaHeader
 	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	public CessionarioCommittente $CessionarioCommittente;
 	public TerzoIntermediarioOSoggettoEmittente $TerzoIntermediarioOSoggettoEmittente;
+
+	#[\Symfony\Component\Validator\Constraints\Choice('CC', 'TZ')]
 	public string $SoggettoEmittente;
 	private array $SoggettoEmittente_array = ['CC', 'TZ'];
 }

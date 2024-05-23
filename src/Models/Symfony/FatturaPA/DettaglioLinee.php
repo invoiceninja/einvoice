@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\AltriDatiGestionaliType\AltriDatiGestionali;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\CodiceArticoloType\CodiceArticolo;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione;
+use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -18,6 +19,8 @@ class DettaglioLinee
 	#[NotBlank]
 	public int $NumeroLinea;
 	private array $TipoCessionePrestazione_array = ['SC', 'PR', 'AB', 'AC'];
+
+	#[Choice('SC', 'PR', 'AB', 'AC')]
 	public string $TipoCessionePrestazione;
 
 	/** @var CodiceArticolo[] $CodiceArticolo */
@@ -91,6 +94,32 @@ class DettaglioLinee
 		'N7',
 	];
 
+	#[Choice(
+		'N1',
+		'N2',
+		'N2.1',
+		'N2.2',
+		'N3',
+		'N3.1',
+		'N3.2',
+		'N3.3',
+		'N3.4',
+		'N3.5',
+		'N3.6',
+		'N4',
+		'N5',
+		'N6',
+		'N6.1',
+		'N6.2',
+		'N6.3',
+		'N6.4',
+		'N6.5',
+		'N6.6',
+		'N6.7',
+		'N6.8',
+		'N6.9',
+		'N7',
+	)]
 	public string $Natura;
 
 	#[Length(max: 20)]

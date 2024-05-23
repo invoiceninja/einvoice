@@ -5,6 +5,7 @@ namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA;
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\AnagraficaType\Anagrafica;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\IdFiscaleType\IdFiscaleIVA;
+use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -67,5 +68,25 @@ class DatiAnagraficiCedente
 
 	#[NotNull]
 	#[NotBlank]
+	#[Choice(
+		'RF01',
+		'RF02',
+		'RF04',
+		'RF05',
+		'RF06',
+		'RF07',
+		'RF08',
+		'RF09',
+		'RF10',
+		'RF11',
+		'RF12',
+		'RF13',
+		'RF14',
+		'RF15',
+		'RF16',
+		'RF17',
+		'RF19',
+		'RF18',
+	)]
 	public string $RegimeFiscale;
 }

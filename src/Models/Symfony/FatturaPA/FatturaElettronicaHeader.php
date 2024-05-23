@@ -8,6 +8,7 @@ use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\CessionarioCommittenteType\Ce
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiTrasmissioneType\DatiTrasmissione;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\RappresentanteFiscaleType\RappresentanteFiscale;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\TerzoIntermediarioSoggettoEmittenteType\TerzoIntermediarioOSoggettoEmittente;
+use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
@@ -29,5 +30,7 @@ class FatturaElettronicaHeader
 	public CessionarioCommittente $CessionarioCommittente;
 	public TerzoIntermediarioOSoggettoEmittente $TerzoIntermediarioOSoggettoEmittente;
 	private array $SoggettoEmittente_array = ['CC', 'TZ'];
+
+	#[Choice('CC', 'TZ')]
 	public string $SoggettoEmittente;
 }

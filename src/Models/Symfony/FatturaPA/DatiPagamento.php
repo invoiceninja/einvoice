@@ -4,6 +4,7 @@ namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA;
 
 use Carbon\Carbon;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DettaglioPagamentoType\DettaglioPagamento;
+use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -18,6 +19,7 @@ class DatiPagamento
 	#[NotBlank]
 	#[Length(max: 4)]
 	#[Length(min: 4)]
+	#[Choice('TP01', 'TP02', 'TP03')]
 	public string $CondizioniPagamento;
 
 	/** @var DettaglioPagamento[] $DettaglioPagamento */

@@ -8,13 +8,11 @@ use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiBeniServiziType\DatiBeniS
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiGeneraliType\DatiGenerali;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiPagamentoType\DatiPagamento;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiVeicoliType\DatiVeicoli;
-use Symfony\Component\Validator\Constraints\Type;
 
 class FatturaElettronicaBody
 {
 	#[\Symfony\Component\Validator\Constraints\NotNull]
 	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	#[Type(DatiGenerali::class)]
 	public DatiGenerali $DatiGenerali;
 
 	#[\Symfony\Component\Validator\Constraints\NotNull]

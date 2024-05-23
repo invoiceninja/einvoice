@@ -21,6 +21,7 @@ class DatiTrasmissione
 
 	#[\Symfony\Component\Validator\Constraints\NotNull]
 	#[\Symfony\Component\Validator\Constraints\NotBlank]
+	#[\Symfony\Component\Validator\Constraints\Choice('FPA12', 'FPR12')]
 	public string $FormatoTrasmissione;
 	private array $FormatoTrasmissione_array = ['FPA12', 'FPR12'];
 

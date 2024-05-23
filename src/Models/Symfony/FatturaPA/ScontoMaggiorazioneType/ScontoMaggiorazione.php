@@ -8,6 +8,7 @@ class ScontoMaggiorazione
 {
 	#[\Symfony\Component\Validator\Constraints\NotNull]
 	#[\Symfony\Component\Validator\Constraints\NotBlank]
+	#[\Symfony\Component\Validator\Constraints\Choice('SC', 'MG')]
 	public string $Tipo;
 	private array $Tipo_array = ['SC', 'MG'];
 

@@ -12,6 +12,27 @@ class DatiGeneraliDocumento
 {
 	#[\Symfony\Component\Validator\Constraints\NotNull]
 	#[\Symfony\Component\Validator\Constraints\NotBlank]
+	#[\Symfony\Component\Validator\Constraints\Choice(
+		'TD01',
+		'TD02',
+		'TD03',
+		'TD04',
+		'TD05',
+		'TD06',
+		'TD16',
+		'TD17',
+		'TD18',
+		'TD19',
+		'TD20',
+		'TD21',
+		'TD22',
+		'TD23',
+		'TD24',
+		'TD25',
+		'TD26',
+		'TD27',
+		'TD28',
+	)]
 	public string $TipoDocumento;
 
 	private array $TipoDocumento_array = [

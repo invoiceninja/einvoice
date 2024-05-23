@@ -9,6 +9,8 @@ use Symfony\Component\Validator\ValidatorBuilder;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
+use Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\FatturaElettronica;
 
 class FatturaDataTest extends TestCase
@@ -144,6 +146,7 @@ class FatturaDataTest extends TestCase
                 ],
             ],
             ],
+        
         ];
 
     private array $empty = [
@@ -238,19 +241,31 @@ class FatturaDataTest extends TestCase
     public function testSerializeAndDeserializeWithValidationSymfony()
     {
 
-        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $encoders = [new JsonEncoder()];
         $normalizers = [new ObjectNormalizer()];
 
-        $serializer = new Serializer($normalizers, $encoders);
-        $x = $serializer->deserialize(json_encode($this->good_payload), FatturaElettronica::class, 'json');
+        $context = [
+            // AbstractObjectNormalizer::DISABLE_TYPE_ENFORCEMENT => true,
+            // 'skip_null_values' => true, // Skip null values
+        //     // 'xml_root_node_name' => 'FatturaElettronica', // Define an alias for the parent tag
+            // 'xml_root_node_name' => false,
+        ];
 
+        echo print_r(json_encode($this->good_payload, JSON_PRETTY_PRINT));
+
+        $serializer = new Serializer($normalizers, $encoders);
+        $fattura = $serializer->deserialize(json_encode($this->good_payload), FatturaElettronica::class, 'json',$context);
+
+        // echo print_r($fattura).PHP_EOL;
+
+        $this->assertNotNull($fattura->FatturaElettronicaBody);
 
         // Create a default validator
         $validator = Validation::createValidatorBuilder()
             ->enableAttributeMapping()
             ->getValidator();
 
-        $errors = $validator->validate($x);
+        $errors = $validator->validate($fattura);
 
         $this->assertCount(0, $errors);
         if (count($errors) > 0) {
@@ -273,7 +288,7 @@ class FatturaDataTest extends TestCase
         $serializer = new Serializer($normalizers, $encoders);
         $x = $serializer->deserialize(json_encode($this->bad_payload), FatturaElettronica::class, 'json');
 
-        echo print_r($x).PHP_EOL;
+        // echo print_r($x).PHP_EOL;
 
         // Create a default validator
         $validator = Validation::createValidatorBuilder()
@@ -284,7 +299,7 @@ class FatturaDataTest extends TestCase
 
         if (count($errors) > 0) {
             foreach ($errors as $error) {
-                echo $error->getPropertyPath() . ': ' . $error->getMessage() . "\n";
+                // echo $error->getPropertyPath() . ': ' . $error->getMessage() . "\n";
             }
         } else {
             // echo "Validation passed!\n";
@@ -316,9 +331,16 @@ class FatturaDataTest extends TestCase
         $encoder = new XmlEncoder($context);
 
         $encoders = [$encoder, new JsonEncoder()];
-        $normalizers = [new ObjectNormalizer()];
+        $normalizers = [new ObjectNormalizer(), new ArrayDenormalizer()];
 
-        $serializer = new Serializer($normalizers, $encoders);
+        
+        // $context = [
+        //     // AbstractObjectNormalizer::DISABLE_TYPE_ENFORCEMENT => true,
+        //     // 'skip_null_values' => true, // Skip null values
+        //     'xml_root_node_name' => 'p:FatturaElettronica', // Define an alias for the parent tag
+        // ];
+
+        $serializer = new Serializer($normalizers, $encoders, $context);
 
         foreach($files as $key => $f)
         {

@@ -3,6 +3,7 @@
 namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA;
 
 use Carbon\Carbon;
+use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
@@ -27,10 +28,13 @@ class IscrizioneREA
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float $CapitaleSociale;
 	private array $SocioUnico_array = ['SU', 'SM'];
+
+	#[Choice('SU', 'SM')]
 	public string $SocioUnico;
 	private array $StatoLiquidazione_array = ['LS', 'LN'];
 
 	#[NotNull]
 	#[NotBlank]
+	#[Choice('LS', 'LN')]
 	public string $StatoLiquidazione;
 }

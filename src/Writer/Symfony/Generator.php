@@ -153,19 +153,26 @@ class Generator
             
             $base_type = stripos($element['base_type'], 'Type') !== false ? $this->path_namespace.$this->standard."\\".$element['base_type']."\\".$element['name'] : $this->resolveType($element['base_type']);
             
-            //root elements do not need types;
-            if(in_array($element['name'], ['FatturaElettronicaHeader','FatturaElettronicaBody'])) {
 
-                $property = (new Property($element['name']))
-                                    ->setPublic();
-            }
-            else {
+            // $property = (new Property($element['name']))
+            //                         ->setPublic();
+
+            //     if(stripos($element['base_type'], 'Type') === false)
+            //         $property->setType($base_type);
+
+            // //root elements do not need types;
+            // if(in_array($element['name'], ['FatturaElettronicaHeader','FatturaElettronicaBody'])) {
+
+            //     $property = (new Property($element['name']))
+            //                         ->setPublic();
+            // }
+            // else {
 
                 $property = (new Property($element['name']))
                                             ->setPublic()
                                             ->setType($base_type);
 
-            }
+            // }
 
             $property = $this->setValidation($property, $element);
 

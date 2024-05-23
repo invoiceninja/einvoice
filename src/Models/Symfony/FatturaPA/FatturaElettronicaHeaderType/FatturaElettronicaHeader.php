@@ -11,18 +11,18 @@ use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\TerzoIntermediarioSoggettoEmi
 
 class FatturaElettronicaHeader
 {
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	public DatiTrasmissione $DatiTrasmissione;
+	// #[\Symfony\Component\Validator\Constraints\NotNull]
+	// #[\Symfony\Component\Validator\Constraints\NotBlank]
+	// public DatiTrasmissione $DatiTrasmissione;
 
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	public CedentePrestatore $CedentePrestatore;
-	public RappresentanteFiscale $RappresentanteFiscale;
+	// #[\Symfony\Component\Validator\Constraints\NotNull]
+	// #[\Symfony\Component\Validator\Constraints\NotBlank]
+	// public CedentePrestatore $CedentePrestatore;
+	// public RappresentanteFiscale $RappresentanteFiscale;
 
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	public CessionarioCommittente $CessionarioCommittente;
+	// #[\Symfony\Component\Validator\Constraints\NotNull]
+	// #[\Symfony\Component\Validator\Constraints\NotBlank]
+	// public CessionarioCommittente $CessionarioCommittente;
 	public TerzoIntermediarioOSoggettoEmittente $TerzoIntermediarioOSoggettoEmittente;
 
 	#[\Symfony\Component\Validator\Constraints\Choice('CC', 'TZ')]

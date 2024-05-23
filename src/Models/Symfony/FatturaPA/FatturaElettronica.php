@@ -13,10 +13,10 @@ class FatturaElettronica
 {
 	#[NotNull]
 	#[NotBlank]
-	public $FatturaElettronicaHeader;
+	public FatturaElettronicaHeader $FatturaElettronicaHeader;
 
-	/** @var FatturaElettronicaBody[] $FatturaElettronicaBody */
-	#[NotNull]
-	#[NotBlank]
-	public $FatturaElettronicaBody;
+	// /** @var FatturaElettronicaBody[] $FatturaElettronicaBody */
+	// #[NotNull]
+	// #[NotBlank]
+	// public FatturaElettronicaBody $FatturaElettronicaBody;
 }

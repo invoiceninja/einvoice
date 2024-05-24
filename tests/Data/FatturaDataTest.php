@@ -375,24 +375,41 @@ class FatturaDataTest extends TestCase
             $data = $serializer->deserialize($xmlstring, FatturaElettronica::class, 'xml');
 
             // $this->assertNotNull($data->FatturaElettronicaBody->DatiBeniServizi);
-
+            // echo print_r($data);
             $fpathjson = $path."{$key}.json";
             // echo print_r($data).PHP_EOL;
             $fp = fopen($fpathjson, 'w');
             fwrite($fp, json_encode($data, JSON_PRETTY_PRINT));
             fclose($fp);
 
+
+
+        $validator = Validation::createValidatorBuilder()
+            ->enableAttributeMapping()
+            ->getValidator();
+
+        $errors = $validator->validate($data);
+
+        echo print_r($errors);
+        $this->assertCount(0, $errors);
+
+
             $dataxml = $serializer->encode($data, 'xml', $context);
 
             $dataxml = str_replace(['<response>','</response>'], '', $dataxml);
 
             $fpathjson = $path."{$key}.xml";
-            echo print_r($dataxml).PHP_EOL;
+            // echo print_r($dataxml).PHP_EOL;
             $fp = fopen($fpathjson, 'w');
             fwrite($fp, $dataxml);
             fclose($fp);
 
             $this->assertNotNull($data);
+
+            if(!$data?->FatturaElettronicaBody?->DatiBeniServizi ?? false)
+                echo print_r($data);
+
+            $this->assertNotNull($data->FatturaElettronicaBody->DatiBeniServizi);
         }
 
     }

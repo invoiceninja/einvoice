@@ -50,7 +50,7 @@
                 "TipoDocumento": "TD01",
                 "Divisa": "EUR",
                 "Data": {
-                    "date": "2024-05-24 06:23:10.252106",
+                    "date": "2024-05-24 08:38:29.479997",
                     "timezone_type": 3,
                     "timezone": "UTC"
                 },
@@ -71,7 +71,7 @@
                 "RiferimentoNumeroLinea": 1,
                 "IdDocumento": "123",
                 "Data": {
-                    "date": "2024-05-24 06:23:10.252245",
+                    "date": "2024-05-24 08:38:29.480214",
                     "timezone_type": 3,
                     "timezone": "UTC"
                 },
@@ -104,7 +104,7 @@
                     }
                 },
                 "DataOraConsegna": {
-                    "date": "2024-05-24 06:23:10.252415",
+                    "date": "2024-05-24 08:38:29.480475",
                     "timezone_type": 3,
                     "timezone": "UTC"
                 }
@@ -124,7 +124,7 @@
             "DettaglioPagamento": {
                 "ModalitaPagamento": "MP01",
                 "DataScadenzaPagamento": {
-                    "date": "2024-05-24 06:23:10.252716",
+                    "date": "2024-05-24 08:38:29.480791",
                     "timezone_type": 3,
                     "timezone": "UTC"
                 },

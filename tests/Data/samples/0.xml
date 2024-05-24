@@ -46,5 +46,88 @@
       </Sede>
     </CessionarioCommittente>
   </FatturaElettronicaHeader>
-  <FatturaElettronicaBody/>
+  <FatturaElettronicaBody>
+    <DatiGenerali>
+      <DatiGeneraliDocumento>
+        <TipoDocumento>TD01</TipoDocumento>
+        <Divisa>EUR</Divisa>
+        <Data>
+          <timezone>
+            <name>UTC</name>
+            <transitions>
+              <ts>-9223372036854775808</ts>
+              <time>-292277022657-01-27T08:29:52+00:00</time>
+              <offset>0</offset>
+              <isdst>0</isdst>
+              <abbr>UTC</abbr>
+            </transitions>
+            <location>
+              <country_code>??</country_code>
+              <latitude>0</latitude>
+              <longitude>0</longitude>
+              <comments>?</comments>
+            </location>
+          </timezone>
+          <offset>0</offset>
+          <timestamp>1716539909</timestamp>
+        </Data>
+        <Numero>456</Numero>
+        <Causale>LA FATTURA FA RIFERIMENTO AD UNA OPERAZIONE AAAA BBBBBBBBBBBBBBBBBB CCC
+                    DDDDDDDDDDDDDDD E FFFFFFFFFFFFFFFFFFFF GGGGGGGGGG HHHHHHH II LLLLLLLLLLLLLLLLL
+                    MMM NNNNN OO PPPPPPPPPPP QQQQ RRRR SSSSSSSSSSSSSS</Causale>
+        <Causale>SEGUE DESCRIZIONE CAUSALE NEL CASO IN CUI NON SIANO STATI SUFFICIENTI 200
+                    CARATTERI AAAAAAAAAAA BBBBBBBBBBBBBBBBB</Causale>
+      </DatiGeneraliDocumento>
+      <DatiOrdineAcquisto>
+        <RiferimentoNumeroLinea>1</RiferimentoNumeroLinea>
+        <IdDocumento>66685</IdDocumento>
+        <NumItem>1</NumItem>
+      </DatiOrdineAcquisto>
+    </DatiGenerali>
+    <DatiBeniServizi>
+      <DettaglioLinee>
+        <NumeroLinea>1</NumeroLinea>
+        <Descrizione>PRESTAZIONE DEL SEGUENTE SERVIZIO PROFESSIONALE: LA DESCRIZIONE DELLA
+                    PRESTAZIONE PUO' SUPERARE I CENTO CARATTERI CHE RAPPRESENTAVANO IL PRECEDENTE
+                    LIMITE DIMENSIONALE. TALE LIMITE NELLA NUOVA VERSIONE E' STATO PORTATO A MILLE
+                    CARATTERI</Descrizione>
+        <PrezzoUnitario>2000.00</PrezzoUnitario>
+        <PrezzoTotale>2000.00</PrezzoTotale>
+        <AliquotaIVA>22.00</AliquotaIVA>
+      </DettaglioLinee>
+      <DatiRiepilogo>
+        <AliquotaIVA>22.00</AliquotaIVA>
+        <ImponibileImporto>2000.00</ImponibileImporto>
+        <Imposta>440.00</Imposta>
+        <EsigibilitaIVA>I</EsigibilitaIVA>
+      </DatiRiepilogo>
+    </DatiBeniServizi>
+    <DatiPagamento>
+      <CondizioniPagamento>TP01</CondizioniPagamento>
+      <DettaglioPagamento>
+        <ModalitaPagamento>MP19</ModalitaPagamento>
+        <DataScadenzaPagamento>
+          <timezone>
+            <name>UTC</name>
+            <transitions>
+              <ts>-9223372036854775808</ts>
+              <time>-292277022657-01-27T08:29:52+00:00</time>
+              <offset>0</offset>
+              <isdst>0</isdst>
+              <abbr>UTC</abbr>
+            </transitions>
+            <location>
+              <country_code>??</country_code>
+              <latitude>0</latitude>
+              <longitude>0</longitude>
+              <comments>?</comments>
+            </location>
+          </timezone>
+          <offset>0</offset>
+          <timestamp>1716539909</timestamp>
+        </DataScadenzaPagamento>
+        <ImportoPagamento>2440.00</ImportoPagamento>
+      </DettaglioPagamento>
+    </DatiPagamento>
+  </FatturaElettronicaBody>
 

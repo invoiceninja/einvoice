@@ -69,7 +69,7 @@
             </location>
           </timezone>
           <offset>0</offset>
-          <timestamp>1716531790</timestamp>
+          <timestamp>1716539610</timestamp>
         </Data>
         <Numero>123</Numero>
         <Causale>LA FATTURA FA RIFERIMENTO AD UNA OPERAZIONE AAAA BBBBBBBBBBBBBBBBBB CCC
@@ -104,7 +104,7 @@
             </location>
           </timezone>
           <offset>0</offset>
-          <timestamp>1716531790</timestamp>
+          <timestamp>1716539610</timestamp>
         </Data>
         <NumItem>5</NumItem>
         <CodiceCUP>123abc</CodiceCUP>
@@ -138,7 +138,7 @@
             </location>
           </timezone>
           <offset>0</offset>
-          <timestamp>1716531790</timestamp>
+          <timestamp>1716539610</timestamp>
         </DataOraConsegna>
       </DatiTrasporto>
     </DatiGenerali>
@@ -180,7 +180,7 @@
             </location>
           </timezone>
           <offset>0</offset>
-          <timestamp>1716531790</timestamp>
+          <timestamp>1716539610</timestamp>
         </DataScadenzaPagamento>
         <ImportoPagamento>6.10</ImportoPagamento>
       </DettaglioPagamento>

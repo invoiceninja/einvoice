@@ -45,5 +45,54 @@
             }
         }
     },
-    "FatturaElettronicaBody": {}
+    "FatturaElettronicaBody": {
+        "DatiGenerali": {
+            "DatiGeneraliDocumento": {
+                "TipoDocumento": "TD01",
+                "Divisa": "EUR",
+                "Data": {
+                    "date": "2024-05-24 08:45:00.238188",
+                    "timezone_type": 3,
+                    "timezone": "UTC"
+                },
+                "Numero": "456",
+                "Causale": [
+                    "LA FATTURA FA RIFERIMENTO AD UNA OPERAZIONE AAAA BBBBBBBBBBBBBBBBBB CCC\n                    DDDDDDDDDDDDDDD E FFFFFFFFFFFFFFFFFFFF GGGGGGGGGG HHHHHHH II LLLLLLLLLLLLLLLLL\n                    MMM NNNNN OO PPPPPPPPPPP QQQQ RRRR SSSSSSSSSSSSSS",
+                    "SEGUE DESCRIZIONE CAUSALE NEL CASO IN CUI NON SIANO STATI SUFFICIENTI 200\n                    CARATTERI AAAAAAAAAAA BBBBBBBBBBBBBBBBB"
+                ]
+            },
+            "DatiOrdineAcquisto": {
+                "RiferimentoNumeroLinea": 1,
+                "IdDocumento": "66685",
+                "NumItem": "1"
+            }
+        },
+        "DatiBeniServizi": {
+            "DettaglioLinee": {
+                "NumeroLinea": 1,
+                "Descrizione": "PRESTAZIONE DEL SEGUENTE SERVIZIO PROFESSIONALE: LA DESCRIZIONE DELLA\n                    PRESTAZIONE PUO' SUPERARE I CENTO CARATTERI CHE RAPPRESENTAVANO IL PRECEDENTE\n                    LIMITE DIMENSIONALE. TALE LIMITE NELLA NUOVA VERSIONE E' STATO PORTATO A MILLE\n                    CARATTERI",
+                "PrezzoUnitario": "2000.00",
+                "PrezzoTotale": "2000.00",
+                "AliquotaIVA": "22.00"
+            },
+            "DatiRiepilogo": {
+                "AliquotaIVA": "22.00",
+                "ImponibileImporto": "2000.00",
+                "Imposta": "440.00",
+                "EsigibilitaIVA": "I"
+            }
+        },
+        "DatiPagamento": {
+            "CondizioniPagamento": "TP01",
+            "DettaglioPagamento": {
+                "ModalitaPagamento": "MP19",
+                "DataScadenzaPagamento": {
+                    "date": "2024-05-24 08:45:00.239670",
+                    "timezone_type": 3,
+                    "timezone": "UTC"
+                },
+                "ImportoPagamento": "2440.00"
+            }
+        }
+    }
 }

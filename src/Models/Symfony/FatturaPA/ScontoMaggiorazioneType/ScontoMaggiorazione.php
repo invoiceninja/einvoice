@@ -5,9 +5,9 @@ namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA\ScontoMaggiorazioneType
 use DateTime;
 use DateTimeInterface;
 use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
-use Invoiceninja\Einvoice\Writer\Symfony\All;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Validator\Constraints\All;
 use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;

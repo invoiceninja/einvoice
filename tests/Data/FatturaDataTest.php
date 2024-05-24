@@ -248,8 +248,9 @@ class FatturaDataTest extends TestCase
 
     }
 
-    public function testBasicFirstLevel()
+    public function initSerializer(): Serializer
     {
+
         $phpDocExtractor = new PhpDocExtractor();
         $reflectionExtractor = new ReflectionExtractor();
 
@@ -276,172 +277,128 @@ class FatturaDataTest extends TestCase
             // $propertyInitializableExtractors
         );
 
+        
+        $context = [
+            'xml_format_output' => true,
+        ];
+
+        $encoder = new XmlEncoder($context);
+
         $classMetadataFactory = new ClassMetadataFactory(new AttributeLoader());
         $normalizer = new ObjectNormalizer($classMetadataFactory, null, null, $propertyInfo);
         $normalizers = [$normalizer, new DateTimeNormalizer()];
-        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $encoders = [$encoder, new JsonEncoder()];
 
-        
+        $serializer = new Serializer($normalizers, $encoders);
+
+        return $serializer;
+
+    }
+
+    public function testBasicFirstLevel()
+    {
+
         $context = [
             // AbstractObjectNormalizer::DISABLE_TYPE_ENFORCEMENT => false,
             // 'skip_null_values' => false, // Skip null values
         ];
 
-        $serializer = new Serializer($normalizers, $encoders);
+        
+        // $context = ['groups' => ['fattura_elettronica_header','fattura_elettronica_body']];
+
+        $serializer = $this->initSerializer();
+
         $fattura = $serializer->deserialize(json_encode($this->good_payload), FatturaElettronica::class, 'json', $context);
 
-        echo print_r($fattura).PHP_EOL;
-        
+        echo print_r($fattura);
         $validator = Validation::createValidatorBuilder()
             ->enableAttributeMapping()
             ->getValidator();
 
         $errors = $validator->validate($fattura);
-echo print_r($errors);
+
         foreach($errors as $error)
             echo $error->getPropertyPath() . ': ' . $error->getMessage() . "\n";
 
         $this->assertCount(0, $errors);
 
-
-        // $this->assertNotNull($fattura->FatturaElettronicaHeader);
+        $this->assertNotNull($fattura->FatturaElettronicaHeader);
 
     }
 
-//     public function testSerializeAndDeserializeWithValidationSymfony()
-//     {
+    public function testBadPayloadValidation()
+    {
+        $context = [];
 
-//         $encoders = [new XmlEncoder(), new JsonEncoder()];
-//         $normalizers = [new ObjectNormalizer()];
+        $serializer = $this->initSerializer();
 
-//         $context = [
-//             // AbstractObjectNormalizer::DISABLE_TYPE_ENFORCEMENT => true,
-//             // 'skip_null_values' => true, // Skip null values
-//         //     // 'xml_root_node_name' => 'FatturaElettronica', // Define an alias for the parent tag
-//             // 'xml_root_node_name' => false,
-//         ];
+        $x = $serializer->deserialize(json_encode($this->bad_payload), FatturaElettronica::class, 'json');
 
-//         // echo print_r(json_encode($this->good_payload, JSON_PRETTY_PRINT));
+        $validator = Validation::createValidatorBuilder()
+            ->enableAttributeMapping()
+            ->getValidator();
 
-//         $serializer = new Serializer($normalizers, $encoders);
-//         $fattura = $serializer->deserialize(json_encode($this->good_payload), FatturaElettronica::class, 'json',$context);
+        $errors = $validator->validate($x);
 
-//         // echo print_r($fattura).PHP_EOL;
+        if (count($errors) > 0) {
+            foreach ($errors as $error) {
+                // echo $error->getPropertyPath() . ': ' . $error->getMessage() . "\n";
+            }
+        } else {
+            // echo "Validation passed!\n";
+        }
 
-//         $this->assertNotNull($fattura->FatturaElettronicaBody->DatiBeniServizi);
+        $this->assertGreaterThan(0, count($errors));
 
-//         // Create a default validator
-//         $validator = Validation::createValidatorBuilder()
-//             ->enableAttributeMapping()
-//             ->getValidator();
+    }
 
-//         $errors = $validator->validate($fattura);
+    public function testValidation()
+    {
+        $files = [
+            'tests/Data/samples/fatturapa0.xml',
+            'tests/Data/samples/fatturapa1.xml',
+            'tests/Data/samples/fatturapa2.xml',
+            'tests/Data/samples/fatturapa3.xml',
+            'tests/Data/samples/fatturapa4.xml',
+            'tests/Data/samples/fatturapa5.xml',
+            'tests/Data/samples/fatturapa6.xml',
+        ];
 
-//         $this->assertCount(0, $errors);
-//         if (count($errors) > 0) {
-//             foreach ($errors as $error) {
-//                 // echo $error->getPropertyPath() . ': ' . $error->getMessage() . "\n";
-//             }
-//         } else {
-//             // echo "Validation passed!\n";
-//         }
-
-//     }
-
-//     public function testBadPayloadValidation()
-//     {
-
-
-//         $encoders = [new XmlEncoder(), new JsonEncoder()];
-//         $normalizers = [new ObjectNormalizer()];
-
-//         $serializer = new Serializer($normalizers, $encoders);
-//         $x = $serializer->deserialize(json_encode($this->bad_payload), FatturaElettronica::class, 'json');
-
-//         // echo print_r($x).PHP_EOL;
-
-//         // Create a default validator
-//         $validator = Validation::createValidatorBuilder()
-//             ->enableAttributeMapping()
-//             ->getValidator();
-
-//         $errors = $validator->validate($x);
-
-//         if (count($errors) > 0) {
-//             foreach ($errors as $error) {
-//                 // echo $error->getPropertyPath() . ': ' . $error->getMessage() . "\n";
-//             }
-//         } else {
-//             // echo "Validation passed!\n";
-//         }
-
-//         $this->assertGreaterThan(0, count($errors));
-
-//     }
-
-//     public function testValidation()
-//     {
-//         $files = [
-//             'tests/Data/samples/fatturapa0.xml',
-//             'tests/Data/samples/fatturapa1.xml',
-//             'tests/Data/samples/fatturapa2.xml',
-//             'tests/Data/samples/fatturapa3.xml',
-//             'tests/Data/samples/fatturapa4.xml',
-//             'tests/Data/samples/fatturapa5.xml',
-//             'tests/Data/samples/fatturapa6.xml',
-//         ];
-
-//         $path = 'tests/Data/samples/';
+        $path = 'tests/Data/samples/';
         
-            
-//         $context = [
-//             'xml_format_output' => true,
-//         ];
-            
-//         $encoder = new XmlEncoder($context);
+        $context = [];
 
-//         $encoders = [$encoder, new JsonEncoder()];
-//         $normalizers = [new ObjectNormalizer()];
+        $serializer = $this->initSerializer();
 
-        
-//         // $context = [
-//         //     // AbstractObjectNormalizer::DISABLE_TYPE_ENFORCEMENT => true,
-//         //     // 'skip_null_values' => true, // Skip null values
-//         //     'xml_root_node_name' => 'p:FatturaElettronica', // Define an alias for the parent tag
-//         // ];
+        foreach($files as $key => $f)
+        {
+            echo($f).PHP_EOL;
 
-//         $serializer = new Serializer($normalizers, $encoders, $context);
+            $xmlstring = file_get_contents($f);
 
-//         foreach($files as $key => $f)
-//         {
-//             // echo($f).PHP_EOL;
+            $data = $serializer->deserialize($xmlstring, FatturaElettronica::class, 'xml');
 
-//             $xmlstring = file_get_contents($f);
+            // $this->assertNotNull($data->FatturaElettronicaBody->DatiBeniServizi);
 
-//             $data = $serializer->deserialize($xmlstring, FatturaElettronica::class, 'xml');
+            $fpathjson = $path."{$key}.json";
+            // echo print_r($data).PHP_EOL;
+            $fp = fopen($fpathjson, 'w');
+            fwrite($fp, json_encode($data, JSON_PRETTY_PRINT));
+            fclose($fp);
 
+            $dataxml = $serializer->encode($data, 'xml', $context);
 
-// $this->assertNotNull($data->FatturaElettronicaBody->DatiBeniServizi);
+            $dataxml = str_replace(['<response>','</response>'], '', $dataxml);
 
-//             $fpathjson = $path."{$key}.json";
-//             // echo print_r($data).PHP_EOL;
-//             $fp = fopen($fpathjson, 'w');
-//             fwrite($fp, json_encode($data, JSON_PRETTY_PRINT));
-//             fclose($fp);
+            $fpathjson = $path."{$key}.xml";
+            // echo print_r($dataxml).PHP_EOL;
+            $fp = fopen($fpathjson, 'w');
+            fwrite($fp, $dataxml);
+            fclose($fp);
 
-//             $dataxml = $serializer->encode($data, 'xml', $context);
+            $this->assertNotNull($data);
+        }
 
-//             $dataxml = str_replace(['<response>'],['</response>'], '', $dataxml);
-
-//             $fpathjson = $path."{$key}.xml";
-//             echo print_r($dataxml).PHP_EOL;
-//             $fp = fopen($fpathjson, 'w');
-//             fwrite($fp, $dataxml);
-//             fclose($fp);
-
-//             $this->assertNotNull($data);
-//         }
-
-//     }
+    }
 
 }

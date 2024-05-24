@@ -6,21 +6,25 @@ use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\FatturaElettronicaBodyType\Fa
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\FatturaElettronicaHeaderType\FatturaElettronicaHeader;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Validator\Constraints\All;
 use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\Type;
 use Symfony\Component\Validator\Constraints\Valid;
 
 class FatturaElettronica
 {
-	#[NotNull]
-	#[NotBlank]
 	#[Valid]
 	public FatturaElettronicaHeader $FatturaElettronicaHeader;
 
-	/** @param FatturaElettronicaBody[] $FatturaElettronicaBody */
+	/*
+	 * @var FatturaElettronicaBody|FatturaElettronicaBody[] $FatturaElettronicaBody
+	 */
+
+	// #[All([new NotNull(), new NotBlank(), new Type(FatturaElettronicaBody::class)])]
+	#[Valid]
 	#[NotNull]
 	#[NotBlank]
-	#[Valid]
-	public FatturaElettronicaBody $FatturaElettronicaBody;
+	public FatturaElettronicaBody$FatturaElettronicaBody;
 }

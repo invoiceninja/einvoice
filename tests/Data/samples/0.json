@@ -8,7 +8,7 @@
             "ProgressivoInvio": "00001",
             "FormatoTrasmissione": "FPR12",
             "CodiceDestinatario": "ABC1234",
-            "ContattiTrasmittente": ""
+            "ContattiTrasmittente": {}
         },
         "CedentePrestatore": {
             "DatiAnagrafici": {
@@ -45,113 +45,5 @@
             }
         }
     },
-    "FatturaElettronicaBody": [
-        {
-            "DatiGenerali": {
-                "DatiGeneraliDocumento": {
-                    "TipoDocumento": "TD01",
-                    "Divisa": "EUR",
-                    "Data": "2014-12-18",
-                    "Numero": "123",
-                    "Causale": [
-                        "LA FATTURA FA RIFERIMENTO AD UNA OPERAZIONE AAAA BBBBBBBBBBBBBBBBBB CCC\n                    DDDDDDDDDDDDDDD E FFFFFFFFFFFFFFFFFFFF GGGGGGGGGG HHHHHHH II LLLLLLLLLLLLLLLLL\n                    MMM NNNNN OO PPPPPPPPPPP QQQQ RRRR SSSSSSSSSSSSSS",
-                        "SEGUE DESCRIZIONE CAUSALE NEL CASO IN CUI NON SIANO STATI SUFFICIENTI 200\n                    CARATTERI AAAAAAAAAAA BBBBBBBBBBBBBBBBB"
-                    ]
-                },
-                "DatiOrdineAcquisto": {
-                    "RiferimentoNumeroLinea": "1",
-                    "IdDocumento": "66685",
-                    "NumItem": "1"
-                },
-                "DatiTrasporto": {
-                    "DatiAnagraficiVettore": {
-                        "IdFiscaleIVA": {
-                            "IdPaese": "IT",
-                            "IdCodice": "24681012141"
-                        },
-                        "Anagrafica": {
-                            "Denominazione": "Trasporto spa"
-                        }
-                    },
-                    "DataOraConsegna": "2012-10-22T16:46:12.000+02:00"
-                }
-            },
-            "DatiBeniServizi": {
-                "DettaglioLinee": [
-                    {
-                        "NumeroLinea": "1",
-                        "Descrizione": "LA DESCRIZIONE DELLA FORNITURA PUO' SUPERARE I CENTO CARATTERI CHE\n                    RAPPRESENTAVANO IL PRECEDENTE LIMITE DIMENSIONALE. TALE LIMITE NELLA NUOVA\n                    VERSIONE E' STATO PORTATO A MILLE CARATTERI",
-                        "Quantita": "5.00",
-                        "PrezzoUnitario": "1.00",
-                        "PrezzoTotale": "5.00",
-                        "AliquotaIVA": "22.00"
-                    },
-                    {
-                        "NumeroLinea": "2",
-                        "Descrizione": "FORNITURE VARIE PER UFFICIO",
-                        "Quantita": "10.00",
-                        "PrezzoUnitario": "2.00",
-                        "PrezzoTotale": "20.00",
-                        "AliquotaIVA": "22.00"
-                    }
-                ],
-                "DatiRiepilogo": {
-                    "AliquotaIVA": "22.00",
-                    "ImponibileImporto": "27.00",
-                    "Imposta": "5.95",
-                    "EsigibilitaIVA": "I"
-                }
-            },
-            "DatiPagamento": {
-                "CondizioniPagamento": "TP01",
-                "DettaglioPagamento": {
-                    "ModalitaPagamento": "MP01",
-                    "DataScadenzaPagamento": "2015-01-30",
-                    "ImportoPagamento": "32.95"
-                }
-            }
-        },
-        {
-            "DatiGenerali": {
-                "DatiGeneraliDocumento": {
-                    "TipoDocumento": "TD01",
-                    "Divisa": "EUR",
-                    "Data": "2014-12-20",
-                    "Numero": "456",
-                    "Causale": [
-                        "LA FATTURA FA RIFERIMENTO AD UNA OPERAZIONE AAAA BBBBBBBBBBBBBBBBBB CCC\n                    DDDDDDDDDDDDDDD E FFFFFFFFFFFFFFFFFFFF GGGGGGGGGG HHHHHHH II LLLLLLLLLLLLLLLLL\n                    MMM NNNNN OO PPPPPPPPPPP QQQQ RRRR SSSSSSSSSSSSSS",
-                        "SEGUE DESCRIZIONE CAUSALE NEL CASO IN CUI NON SIANO STATI SUFFICIENTI 200\n                    CARATTERI AAAAAAAAAAA BBBBBBBBBBBBBBBBB"
-                    ]
-                },
-                "DatiOrdineAcquisto": {
-                    "RiferimentoNumeroLinea": "1",
-                    "IdDocumento": "66685",
-                    "NumItem": "1"
-                }
-            },
-            "DatiBeniServizi": {
-                "DettaglioLinee": {
-                    "NumeroLinea": "1",
-                    "Descrizione": "PRESTAZIONE DEL SEGUENTE SERVIZIO PROFESSIONALE: LA DESCRIZIONE DELLA\n                    PRESTAZIONE PUO' SUPERARE I CENTO CARATTERI CHE RAPPRESENTAVANO IL PRECEDENTE\n                    LIMITE DIMENSIONALE. TALE LIMITE NELLA NUOVA VERSIONE E' STATO PORTATO A MILLE\n                    CARATTERI",
-                    "PrezzoUnitario": "2000.00",
-                    "PrezzoTotale": "2000.00",
-                    "AliquotaIVA": "22.00"
-                },
-                "DatiRiepilogo": {
-                    "AliquotaIVA": "22.00",
-                    "ImponibileImporto": "2000.00",
-                    "Imposta": "440.00",
-                    "EsigibilitaIVA": "I"
-                }
-            },
-            "DatiPagamento": {
-                "CondizioniPagamento": "TP01",
-                "DettaglioPagamento": {
-                    "ModalitaPagamento": "MP19",
-                    "DataScadenzaPagamento": "2015-01-28",
-                    "ImportoPagamento": "2440.00"
-                }
-            }
-        }
-    ]
+    "FatturaElettronicaBody": {}
 }

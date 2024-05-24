@@ -49,7 +49,11 @@
             "DatiGeneraliDocumento": {
                 "TipoDocumento": "TD01",
                 "Divisa": "EUR",
-                "Data": "2017-01-18",
+                "Data": {
+                    "date": "2024-05-24 05:30:10.361672",
+                    "timezone_type": 3,
+                    "timezone": "UTC"
+                },
                 "Numero": "123",
                 "Causale": [
                     "LA FATTURA FA RIFERIMENTO AD UNA OPERAZIONE AAAA BBBBBBBBBBBBBBBBBB CCC\n                    DDDDDDDDDDDDDDD E FFFFFFFFFFFFFFFFFFFF GGGGGGGGGG HHHHHHH II LLLLLLLLLLLLLLLLL\n                    MMM NNNNN OO PPPPPPPPPPP QQQQ RRRR SSSSSSSSSSSSSS",
@@ -57,29 +61,33 @@
                 ]
             },
             "DatiOrdineAcquisto": {
-                "RiferimentoNumeroLinea": "1",
+                "RiferimentoNumeroLinea": 1,
                 "IdDocumento": "66685",
                 "NumItem": "1",
                 "CodiceCUP": "123abc",
                 "CodiceCIG": "456def"
             },
             "DatiContratto": {
-                "RiferimentoNumeroLinea": "1",
+                "RiferimentoNumeroLinea": 1,
                 "IdDocumento": "123",
-                "Data": "2016-09-01",
+                "Data": {
+                    "date": "2024-05-24 05:30:10.362349",
+                    "timezone_type": 3,
+                    "timezone": "UTC"
+                },
                 "NumItem": "5",
                 "CodiceCUP": "123abc",
                 "CodiceCIG": "456def"
             },
             "DatiConvenzione": {
-                "RiferimentoNumeroLinea": "1",
+                "RiferimentoNumeroLinea": 1,
                 "IdDocumento": "456",
                 "NumItem": "5",
                 "CodiceCUP": "123abc",
                 "CodiceCIG": "456def"
             },
             "DatiRicezione": {
-                "RiferimentoNumeroLinea": "1",
+                "RiferimentoNumeroLinea": 1,
                 "IdDocumento": "789",
                 "NumItem": "5",
                 "CodiceCUP": "123abc",
@@ -95,12 +103,16 @@
                         "Denominazione": "Trasporto spa"
                     }
                 },
-                "DataOraConsegna": "2017-01-10T16:46:12.000+02:00"
+                "DataOraConsegna": {
+                    "date": "2024-05-24 05:30:10.363355",
+                    "timezone_type": 3,
+                    "timezone": "UTC"
+                }
             }
         },
         "DatiBeniServizi": {
             "DettaglioLinee": {
-                "NumeroLinea": "1",
+                "NumeroLinea": 1,
                 "Descrizione": "DESCRIZIONE DELLA FORNITURA",
                 "Quantita": "5.00",
                 "PrezzoUnitario": "1.00",
@@ -118,7 +130,11 @@
             "CondizioniPagamento": "TP01",
             "DettaglioPagamento": {
                 "ModalitaPagamento": "MP01",
-                "DataScadenzaPagamento": "2017-02-18",
+                "DataScadenzaPagamento": {
+                    "date": "2024-05-24 05:30:10.364618",
+                    "timezone_type": 3,
+                    "timezone": "UTC"
+                },
                 "ImportoPagamento": "6.10"
             }
         }

@@ -9,9 +9,9 @@ use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiBolloType\DatiBollo;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiCassaPrevidenzialeType\DatiCassaPrevidenziale;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiRitenutaType\DatiRitenuta;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione;
-use Invoiceninja\Einvoice\Writer\Symfony\All;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Validator\Constraints\All;
 use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -99,7 +99,7 @@ class DatiGeneraliDocumento
 	public float|string $Arrotondamento;
 
 	/** @param Causale[] $Causale */
-	#[\Symfony\Component\Validator\Constraints\All([new Length(min: 1,max: 200),new Regex(pattern: "/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,200}/u")])]
+	#[All([new Length(min: 1,max: 200),new Regex(pattern: "/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,200}/u")])]
 	public array $Causale;
 	public string $Art73;
 	private array $Art73_array = ['SI'];

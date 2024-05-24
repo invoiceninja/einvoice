@@ -8,7 +8,7 @@
             "ProgressivoInvio": "00001",
             "FormatoTrasmissione": "FPR12",
             "CodiceDestinatario": "ABC1234",
-            "ContattiTrasmittente": ""
+            "ContattiTrasmittente": {}
         },
         "CedentePrestatore": {
             "DatiAnagrafici": {
@@ -50,7 +50,11 @@
             "DatiGeneraliDocumento": {
                 "TipoDocumento": "TD01",
                 "Divisa": "EUR",
-                "Data": "2014-12-18",
+                "Data": {
+                    "date": "2024-05-24 05:30:10.369680",
+                    "timezone_type": 3,
+                    "timezone": "UTC"
+                },
                 "Numero": "123",
                 "Causale": [
                     "LA FATTURA FA RIFERIMENTO AD UNA OPERAZIONE AAAA BBBBBBBBBBBBBBBBBB CCC\n                    DDDDDDDDDDDDDDD E FFFFFFFFFFFFFFFFFFFF GGGGGGGGGG HHHHHHH II LLLLLLLLLLLLLLLLL\n                    MMM NNNNN OO PPPPPPPPPPP QQQQ RRRR SSSSSSSSSSSSSS",
@@ -58,14 +62,18 @@
                 ]
             },
             "DatiOrdineAcquisto": {
-                "RiferimentoNumeroLinea": "1",
+                "RiferimentoNumeroLinea": 1,
                 "IdDocumento": "66685",
                 "NumItem": "1"
             },
             "DatiContratto": {
-                "RiferimentoNumeroLinea": "1",
+                "RiferimentoNumeroLinea": 1,
                 "IdDocumento": "123",
-                "Data": "2012-09-01",
+                "Data": {
+                    "date": "2024-05-24 05:30:10.369817",
+                    "timezone_type": 3,
+                    "timezone": "UTC"
+                },
                 "NumItem": "5",
                 "CodiceCUP": "123abc",
                 "CodiceCIG": "456def"
@@ -80,12 +88,16 @@
                         "Denominazione": "Trasporto spa"
                     }
                 },
-                "DataOraConsegna": "2012-10-22T16:46:12.000+02:00"
+                "DataOraConsegna": {
+                    "date": "2024-05-24 05:30:10.369958",
+                    "timezone_type": 3,
+                    "timezone": "UTC"
+                }
             }
         },
         "DatiBeniServizi": {
             "DettaglioLinee": {
-                "NumeroLinea": "1",
+                "NumeroLinea": 1,
                 "Descrizione": "DESCRIZIONE DELLA FORNITURA",
                 "Quantita": "5.00",
                 "PrezzoUnitario": "1.00",
@@ -103,7 +115,11 @@
             "CondizioniPagamento": "TP01",
             "DettaglioPagamento": {
                 "ModalitaPagamento": "MP01",
-                "DataScadenzaPagamento": "2015-01-30",
+                "DataScadenzaPagamento": {
+                    "date": "2024-05-24 05:30:10.370245",
+                    "timezone_type": 3,
+                    "timezone": "UTC"
+                },
                 "ImportoPagamento": "6.10"
             }
         }

@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+
+  <FatturaElettronicaHeader>
+    <DatiTrasmissione>
+      <IdTrasmittente>
+        <IdPaese>IT</IdPaese>
+        <IdCodice>01234567890</IdCodice>
+      </IdTrasmittente>
+      <ProgressivoInvio>00001</ProgressivoInvio>
+      <FormatoTrasmissione>FPR12</FormatoTrasmissione>
+      <CodiceDestinatario>ABC1234</CodiceDestinatario>
+      <ContattiTrasmittente/>
+    </DatiTrasmissione>
+    <CedentePrestatore>
+      <DatiAnagrafici>
+        <IdFiscaleIVA>
+          <IdPaese>IT</IdPaese>
+          <IdCodice>01234567890</IdCodice>
+        </IdFiscaleIVA>
+        <Anagrafica>
+          <Denominazione>SOCIETA' ALPHA SRL</Denominazione>
+        </Anagrafica>
+        <RegimeFiscale>RF01</RegimeFiscale>
+      </DatiAnagrafici>
+      <Sede>
+        <Indirizzo>VIALE ROMA 543</Indirizzo>
+        <CAP>07100</CAP>
+        <Comune>SASSARI</Comune>
+        <Provincia>SS</Provincia>
+        <Nazione>IT</Nazione>
+      </Sede>
+    </CedentePrestatore>
+    <CessionarioCommittente>
+      <DatiAnagrafici>
+        <CodiceFiscale>09876543210</CodiceFiscale>
+        <Anagrafica>
+          <Denominazione>BETA GAMMA</Denominazione>
+        </Anagrafica>
+      </DatiAnagrafici>
+      <Sede>
+        <Indirizzo>VIA TORINO 38-B</Indirizzo>
+        <CAP>00145</CAP>
+        <Comune>ROMA</Comune>
+        <Provincia>RM</Provincia>
+        <Nazione>IT</Nazione>
+      </Sede>
+    </CessionarioCommittente>
+  </FatturaElettronicaHeader>
+  <FatturaElettronicaBody/>
+

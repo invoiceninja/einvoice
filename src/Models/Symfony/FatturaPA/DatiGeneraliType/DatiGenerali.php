@@ -15,6 +15,7 @@ use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiGeneraliDocumentoType\Dat
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiSALType\DatiSAL;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiTrasportoType\DatiTrasporto;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\FatturaPrincipaleType\FatturaPrincipale;
+use Invoiceninja\Einvoice\Writer\Symfony\All;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Validator\Constraints\Choice;

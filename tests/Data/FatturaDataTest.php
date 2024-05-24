@@ -83,10 +83,9 @@ class FatturaDataTest extends TestCase
                 'Numero' => '123',
                 'Causale' => [
                     0 => 'LA FATTURA FA RIFERIMENTO AD UNA OPERAZIONE AAAA BBBBBBBBBBBBBBBBBB CCC
-                            DDDDDDDDDDDDDDD E FFFFFFFFFFFFFFFFFFFF GGGGGGGGGG HHHHHHH II LLLLLLLLLLLLLLLLL
-                            MMM NNNNN OO PPPPPPPPPPP QQQQ RRRR SSSSSSSSSSSSSS',
+                            DDDDDDDDDDDDDDD E FFFFFFFFFFFFFFFFFFFF GGGGSSSSSS',
                     1 => 'SEGUE DESCRIZIONE CAUSALE NEL CASO IN CUI NON SIANO STATI SUFFICIENTI 200
-                            CARATTERI AAAAAAAAAAA BBBBBBBBBBBBBBBBB',
+                            CARATTERI AAAAA',
                 ],
                 ],
                 'DatiOrdineAcquisto' => [
@@ -298,7 +297,7 @@ class FatturaDataTest extends TestCase
             ->getValidator();
 
         $errors = $validator->validate($fattura);
-
+echo print_r($errors);
         foreach($errors as $error)
             echo $error->getPropertyPath() . ': ' . $error->getMessage() . "\n";
 

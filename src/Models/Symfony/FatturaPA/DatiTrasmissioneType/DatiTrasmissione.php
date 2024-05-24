@@ -7,6 +7,7 @@ use DateTimeInterface;
 use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\ContattiTrasmittenteType\ContattiTrasmittente;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\IdFiscaleType\IdTrasmittente;
+use Invoiceninja\Einvoice\Writer\Symfony\All;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Validator\Constraints\Choice;

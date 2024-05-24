@@ -31,6 +31,7 @@ use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Invoiceninja\Einvoice\Writer\Symfony\TypeGenerator;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Validator\Constraints\All;
 
 class Generator
 {
@@ -137,6 +138,13 @@ class Generator
         if(count($element['resource']) > 1){
             $this->namespace->addUse(Choice::class);
             $property->addAttribute(Choice::class, [array_keys($element['resource'])]);
+        }
+        
+        if($element['name'] == 'Causale') {
+            $this->namespace->addUse(All::class);
+            $property->setType('array');
+            $property->setAttributes([]);
+            $property->addAttribute(All::class, [new Literal('[new Length(min: 1,max: 200),new Regex(pattern: "/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,200}/u")]')]);
         }
 
         return $property;

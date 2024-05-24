@@ -9,6 +9,7 @@ use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiRitenutaType\DatiRitenuta
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Validator\Constraints\All;
 use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints\Length;
@@ -97,9 +98,8 @@ class DatiGeneraliDocumento
 	public float|string $Arrotondamento;
 
 	/** @param Causale[] $Causale */
-	#[Length(min: 1, max: 200)]
-	#[Regex('/[\p{L}]{1,200}/u')]
-	public string $Causale;
+	#[All([new Length(min: 1,max: 200),new Regex(pattern: "/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,200}/u")])]
+	public array $Causale;
 	private array $Art73_array = ['SI'];
 	public string $Art73;
 }

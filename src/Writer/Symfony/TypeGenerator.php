@@ -51,6 +51,7 @@ class TypeGenerator
         $this->namespace->addUse(Choice::class);
         $this->namespace->addUse(Length::class);
         $this->namespace->addUse(DecimalPrecision::class);
+        $this->namespace->addUse(All::class);
 
         $this->class = new ClassType($this->name);
 

@@ -303,14 +303,10 @@ class FatturaDataTest extends TestCase
             // 'skip_null_values' => false, // Skip null values
         ];
 
-        
-        // $context = ['groups' => ['fattura_elettronica_header','fattura_elettronica_body']];
-
         $serializer = $this->initSerializer();
 
         $fattura = $serializer->deserialize(json_encode($this->good_payload), FatturaElettronica::class, 'json', $context);
 
-        echo print_r($fattura);
         $validator = Validation::createValidatorBuilder()
             ->enableAttributeMapping()
             ->getValidator();
@@ -391,7 +387,7 @@ class FatturaDataTest extends TestCase
             $dataxml = str_replace(['<response>','</response>'], '', $dataxml);
 
             $fpathjson = $path."{$key}.xml";
-            // echo print_r($dataxml).PHP_EOL;
+            echo print_r($dataxml).PHP_EOL;
             $fp = fopen($fpathjson, 'w');
             fwrite($fp, $dataxml);
             fclose($fp);

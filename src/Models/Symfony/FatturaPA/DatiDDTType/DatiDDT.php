@@ -2,22 +2,30 @@
 
 namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiDDTType;
 
-use Carbon\Carbon;
+use DateTime;
+use DateTimeInterface;
+use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Validator\Constraints\Choice;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiDDT
 {
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	#[\Symfony\Component\Validator\Constraints\Length(max: 20)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 1)]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
+	#[Length(min: 1, max: 20)]
+	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
 	public string $NumeroDDT;
 
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	#[\Symfony\Component\Validator\Constraints\Date('Y-m-d')]
-	public Carbon $DataDDT;
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
+	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+	public DateTime $DataDDT;
 
-	/** @var RiferimentoNumeroLinea[] $RiferimentoNumeroLinea */
+	/** @param RiferimentoNumeroLinea[] $RiferimentoNumeroLinea */
 	public int $RiferimentoNumeroLinea;
 }

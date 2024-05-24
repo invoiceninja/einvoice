@@ -2,68 +2,60 @@
 
 namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA;
 
-use Carbon\Carbon;
+use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\AltriDatiGestionaliType\AltriDatiGestionali;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\CodiceArticoloType\CodiceArticolo;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints\Length;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Regex;
 
 class DettaglioLinee
 {
-	#[NotNull]
-	#[NotBlank]
 	public int $NumeroLinea;
 	private array $TipoCessionePrestazione_array = ['SC', 'PR', 'AB', 'AC'];
 
-	#[Choice('SC', 'PR', 'AB', 'AC')]
+	#[Choice(['SC', 'PR', 'AB', 'AC'])]
 	public string $TipoCessionePrestazione;
 
-	/** @var CodiceArticolo[] $CodiceArticolo */
+	/** @param CodiceArticolo[] $CodiceArticolo */
 	public CodiceArticolo $CodiceArticolo;
 
-	#[NotNull]
-	#[NotBlank]
-	#[Length(max: 1000)]
-	#[Length(min: 1)]
+	#[Length(min: 1, max: 1000)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,1000}/u')]
 	public string $Descrizione;
 
+	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,12}\.[0-9]{2,8}/')]
-	public float $Quantita;
+	public float|string $Quantita;
 
-	#[Length(max: 10)]
-	#[Length(min: 1)]
+	#[Length(min: 1, max: 10)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,10}/u')]
 	public string $UnitaMisura;
 
-	#[Date('Y-m-d')]
-	public Carbon $DataInizioPeriodo;
+	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+	public \DateTime $DataInizioPeriodo;
 
-	#[Date('Y-m-d')]
-	public Carbon $DataFinePeriodo;
+	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+	public \DateTime $DataFinePeriodo;
 
-	#[NotNull]
-	#[NotBlank]
+	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
-	public float $PrezzoUnitario;
+	public float|string $PrezzoUnitario;
 
-	/** @var ScontoMaggiorazione[] $ScontoMaggiorazione */
+	/** @param ScontoMaggiorazione[] $ScontoMaggiorazione */
 	public ScontoMaggiorazione $ScontoMaggiorazione;
 
-	#[NotNull]
-	#[NotBlank]
+	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
-	public float $PrezzoTotale;
+	public float|string $PrezzoTotale;
 
-	#[NotNull]
-	#[NotBlank]
+	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public float $AliquotaIVA;
+	public float|string $AliquotaIVA;
 	private array $Ritenuta_array = ['SI'];
 	public string $Ritenuta;
 
@@ -94,7 +86,7 @@ class DettaglioLinee
 		'N7',
 	];
 
-	#[Choice(
+	#[Choice([
 		'N1',
 		'N2',
 		'N2.1',
@@ -119,14 +111,13 @@ class DettaglioLinee
 		'N6.8',
 		'N6.9',
 		'N7',
-	)]
+	])]
 	public string $Natura;
 
-	#[Length(max: 20)]
-	#[Length(min: 1)]
+	#[Length(min: 1, max: 20)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
 	public string $RiferimentoAmministrazione;
 
-	/** @var AltriDatiGestionali[] $AltriDatiGestionali */
+	/** @param AltriDatiGestionali[] $AltriDatiGestionali */
 	public AltriDatiGestionali $AltriDatiGestionali;
 }

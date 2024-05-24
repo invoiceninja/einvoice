@@ -2,7 +2,9 @@
 
 namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiGeneraliType;
 
-use Carbon\Carbon;
+use DateTime;
+use DateTimeInterface;
+use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiDDTType\DatiDDT;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiDocumentiCorrelatiType\DatiContratto;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiDocumentiCorrelatiType\DatiConvenzione;
@@ -13,32 +15,41 @@ use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiGeneraliDocumentoType\Dat
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiSALType\DatiSAL;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiTrasportoType\DatiTrasporto;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\FatturaPrincipaleType\FatturaPrincipale;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Validator\Constraints\Choice;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiGenerali
 {
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	public DatiGeneraliDocumento $DatiGeneraliDocumento;
 
-	/** @var DatiOrdineAcquisto[] $DatiOrdineAcquisto */
+	/** @param DatiOrdineAcquisto[] $DatiOrdineAcquisto */
 	public DatiOrdineAcquisto $DatiOrdineAcquisto;
 
-	/** @var DatiContratto[] $DatiContratto */
+	/** @param DatiContratto[] $DatiContratto */
 	public DatiContratto $DatiContratto;
 
-	/** @var DatiConvenzione[] $DatiConvenzione */
+	/** @param DatiConvenzione[] $DatiConvenzione */
 	public DatiConvenzione $DatiConvenzione;
 
-	/** @var DatiRicezione[] $DatiRicezione */
+	/** @param DatiRicezione[] $DatiRicezione */
 	public DatiRicezione $DatiRicezione;
 
-	/** @var DatiFattureCollegate[] $DatiFattureCollegate */
+	/** @param DatiFattureCollegate[] $DatiFattureCollegate */
 	public DatiFattureCollegate $DatiFattureCollegate;
 
-	/** @var DatiSAL[] $DatiSAL */
+	/** @param DatiSAL[] $DatiSAL */
 	public DatiSAL $DatiSAL;
 
-	/** @var DatiDDT[] $DatiDDT */
+	/** @param DatiDDT[] $DatiDDT */
 	public DatiDDT $DatiDDT;
 	public DatiTrasporto $DatiTrasporto;
 	public FatturaPrincipale $FatturaPrincipale;

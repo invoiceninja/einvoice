@@ -2,19 +2,18 @@
 
 namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA;
 
-use Carbon\Carbon;
+use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\Length;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Regex;
 
 class DatiRiepilogo
 {
-	#[NotNull]
-	#[NotBlank]
+	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public float $AliquotaIVA;
+	public float|string $AliquotaIVA;
 
 	private array $Natura_array = [
 		'N1',
@@ -43,7 +42,7 @@ class DatiRiepilogo
 		'N7',
 	];
 
-	#[Choice(
+	#[Choice([
 		'N1',
 		'N2',
 		'N2.1',
@@ -68,33 +67,31 @@ class DatiRiepilogo
 		'N6.8',
 		'N6.9',
 		'N7',
-	)]
+	])]
 	public string $Natura;
 
+	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float $SpeseAccessorie;
+	public float|string $SpeseAccessorie;
 
+	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
-	public float $Arrotondamento;
+	public float|string $Arrotondamento;
 
-	#[NotNull]
-	#[NotBlank]
+	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float $ImponibileImporto;
+	public float|string $ImponibileImporto;
 
-	#[NotNull]
-	#[NotBlank]
+	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float $Imposta;
+	public float|string $Imposta;
 	private array $EsigibilitaIVA_array = ['D', 'I', 'S'];
 
-	#[Length(max: 1)]
-	#[Length(min: 1)]
-	#[Choice('D', 'I', 'S')]
+	#[Length(min: 1, max: 1)]
+	#[Choice(['D', 'I', 'S'])]
 	public string $EsigibilitaIVA;
 
-	#[Length(max: 100)]
-	#[Length(min: 1)]
+	#[Length(min: 1, max: 100)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,100}/u')]
 	public string $RiferimentoNormativo;
 }

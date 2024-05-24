@@ -2,13 +2,10 @@
 
 namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA;
 
-use Carbon\Carbon;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 
 class DatiSAL
 {
-	#[NotNull]
-	#[NotBlank]
 	public int $RiferimentoFase;
 }

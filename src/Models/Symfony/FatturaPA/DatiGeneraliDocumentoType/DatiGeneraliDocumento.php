@@ -2,17 +2,25 @@
 
 namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiGeneraliDocumentoType;
 
-use Carbon\Carbon;
+use DateTime;
+use DateTimeInterface;
+use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiBolloType\DatiBollo;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiCassaPrevidenzialeType\DatiCassaPrevidenziale;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiRitenutaType\DatiRitenuta;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Validator\Constraints\Choice;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiGeneraliDocumento
 {
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	#[\Symfony\Component\Validator\Constraints\Choice(
+	#[Choice([
 		'TD01',
 		'TD02',
 		'TD03',
@@ -32,7 +40,7 @@ class DatiGeneraliDocumento
 		'TD26',
 		'TD27',
 		'TD28',
-	)]
+	])]
 	public string $TipoDocumento;
 
 	private array $TipoDocumento_array = [
@@ -57,46 +65,42 @@ class DatiGeneraliDocumento
 		'TD28',
 	];
 
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	#[\Symfony\Component\Validator\Constraints\Length(max: 3)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 3)]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[A-Z]{3}/')]
+	#[Length(min: 3, max: 3)]
+	#[Regex('/[A-Z]{3}/')]
 	public string $Divisa;
 
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	#[\Symfony\Component\Validator\Constraints\Date('Y-m-d')]
-	public Carbon $Data;
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
+	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+	public DateTime $Data;
 
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	#[\Symfony\Component\Validator\Constraints\Length(max: 20)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 1)]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
+	#[Length(min: 1, max: 20)]
+	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
 	public string $Numero;
 
-	/** @var DatiRitenuta[] $DatiRitenuta */
+	/** @param DatiRitenuta[] $DatiRitenuta */
 	public DatiRitenuta $DatiRitenuta;
 	public DatiBollo $DatiBollo;
 
-	/** @var DatiCassaPrevidenziale[] $DatiCassaPrevidenziale */
+	/** @param DatiCassaPrevidenziale[] $DatiCassaPrevidenziale */
 	public DatiCassaPrevidenziale $DatiCassaPrevidenziale;
 
-	/** @var ScontoMaggiorazione[] $ScontoMaggiorazione */
+	/** @param ScontoMaggiorazione[] $ScontoMaggiorazione */
 	public ScontoMaggiorazione $ScontoMaggiorazione;
 
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float $ImportoTotaleDocumento;
+	#[DecimalPrecision(2)]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
+	public float|string $ImportoTotaleDocumento;
 
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float $Arrotondamento;
+	#[DecimalPrecision(2)]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
+	public float|string $Arrotondamento;
 
-	/** @var Causale[] $Causale */
-	#[\Symfony\Component\Validator\Constraints\Length(max: 200)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 1)]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\p{L}]{1,200}/u')]
-	public string $Causale;
+	/** @param Causale[] $Causale */
+	#[Length(min: 1, max: 200)]
+	#[Regex('/[\p{L}]{1,200}/u')]
+	public array $Causale;
 	public string $Art73;
 	private array $Art73_array = ['SI'];
 }

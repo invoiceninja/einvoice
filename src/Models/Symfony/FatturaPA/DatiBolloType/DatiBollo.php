@@ -2,15 +2,24 @@
 
 namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiBolloType;
 
-use Carbon\Carbon;
+use DateTime;
+use DateTimeInterface;
+use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Validator\Constraints\Choice;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiBollo
 {
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
 	public string $BolloVirtuale;
 	private array $BolloVirtuale_array = ['SI'];
 
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float $ImportoBollo;
+	#[DecimalPrecision(2)]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
+	public float|string $ImportoBollo;
 }

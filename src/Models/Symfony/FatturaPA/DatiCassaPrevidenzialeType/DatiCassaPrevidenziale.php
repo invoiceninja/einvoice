@@ -2,13 +2,21 @@
 
 namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiCassaPrevidenzialeType;
 
-use Carbon\Carbon;
+use DateTime;
+use DateTimeInterface;
+use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Validator\Constraints\Choice;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiCassaPrevidenziale
 {
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	#[\Symfony\Component\Validator\Constraints\Choice(
+	#[Choice([
 		'TC01',
 		'TC02',
 		'TC03',
@@ -31,7 +39,7 @@ class DatiCassaPrevidenziale
 		'TC20',
 		'TC21',
 		'TC22',
-	)]
+	])]
 	public string $TipoCassa;
 
 	private array $TipoCassa_array = [
@@ -59,27 +67,25 @@ class DatiCassaPrevidenziale
 		'TC22',
 	];
 
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public float $AlCassa;
+	#[DecimalPrecision(2)]
+	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
+	public float|string $AlCassa;
 
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float $ImportoContributoCassa;
+	#[DecimalPrecision(2)]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
+	public float|string $ImportoContributoCassa;
 
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float $ImponibileCassa;
+	#[DecimalPrecision(2)]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
+	public float|string $ImponibileCassa;
 
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public float $AliquotaIVA;
+	#[DecimalPrecision(2)]
+	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
+	public float|string $AliquotaIVA;
 	public string $Ritenuta;
 	private array $Ritenuta_array = ['SI'];
 
-	#[\Symfony\Component\Validator\Constraints\Choice(
+	#[Choice([
 		'N1',
 		'N2',
 		'N2.1',
@@ -104,7 +110,7 @@ class DatiCassaPrevidenziale
 		'N6.8',
 		'N6.9',
 		'N7',
-	)]
+	])]
 	public string $Natura;
 
 	private array $Natura_array = [
@@ -134,8 +140,7 @@ class DatiCassaPrevidenziale
 		'N7',
 	];
 
-	#[\Symfony\Component\Validator\Constraints\Length(max: 20)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 1)]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
+	#[Length(min: 1, max: 20)]
+	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
 	public string $RiferimentoAmministrazione;
 }

@@ -2,37 +2,36 @@
 
 namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA\AnagraficaType;
 
-use Carbon\Carbon;
+use DateTime;
+use DateTimeInterface;
+use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Validator\Constraints\Choice;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class Anagrafica
 {
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	#[\Symfony\Component\Validator\Constraints\Length(max: 80)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 1)]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\x{0000}-\x{00FF}]{1,80}/u')]
+	#[Length(min: 1, max: 80)]
+	#[Regex('/[\x{0000}-\x{00FF}]{1,80}/u')]
 	public string $Denominazione;
 
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	#[\Symfony\Component\Validator\Constraints\Length(max: 60)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 1)]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
+	#[Length(min: 1, max: 60)]
+	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
 	public string $Nome;
 
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	#[\Symfony\Component\Validator\Constraints\Length(max: 60)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 1)]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
+	#[Length(min: 1, max: 60)]
+	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
 	public string $Cognome;
 
-	#[\Symfony\Component\Validator\Constraints\Length(max: 10)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 2)]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\x{0020}-\x{007E}]{2,10}/u')]
+	#[Length(min: 2, max: 10)]
+	#[Regex('/[\x{0020}-\x{007E}]{2,10}/u')]
 	public string $Titolo;
 
-	#[\Symfony\Component\Validator\Constraints\Length(max: 17)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 13)]
+	#[Length(min: 13, max: 17)]
 	public string $CodEORI;
 }

@@ -2,11 +2,11 @@
 
 namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA;
 
-use Carbon\Carbon;
+use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\Length;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Regex;
 
 class DatiCassaPrevidenziale
@@ -36,9 +36,7 @@ class DatiCassaPrevidenziale
 		'TC22',
 	];
 
-	#[NotNull]
-	#[NotBlank]
-	#[Choice(
+	#[Choice([
 		'TC01',
 		'TC02',
 		'TC03',
@@ -61,26 +59,24 @@ class DatiCassaPrevidenziale
 		'TC20',
 		'TC21',
 		'TC22',
-	)]
+	])]
 	public string $TipoCassa;
 
-	#[NotNull]
-	#[NotBlank]
+	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public float $AlCassa;
+	public float|string $AlCassa;
 
-	#[NotNull]
-	#[NotBlank]
+	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float $ImportoContributoCassa;
+	public float|string $ImportoContributoCassa;
 
+	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float $ImponibileCassa;
+	public float|string $ImponibileCassa;
 
-	#[NotNull]
-	#[NotBlank]
+	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public float $AliquotaIVA;
+	public float|string $AliquotaIVA;
 	private array $Ritenuta_array = ['SI'];
 	public string $Ritenuta;
 
@@ -111,7 +107,7 @@ class DatiCassaPrevidenziale
 		'N7',
 	];
 
-	#[Choice(
+	#[Choice([
 		'N1',
 		'N2',
 		'N2.1',
@@ -136,11 +132,10 @@ class DatiCassaPrevidenziale
 		'N6.8',
 		'N6.9',
 		'N7',
-	)]
+	])]
 	public string $Natura;
 
-	#[Length(max: 20)]
-	#[Length(min: 1)]
+	#[Length(min: 1, max: 20)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
 	public string $RiferimentoAmministrazione;
 }

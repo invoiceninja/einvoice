@@ -2,22 +2,33 @@
 
 namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiAnagraficiRappresentanteType;
 
-use Carbon\Carbon;
+use DateTime;
+use DateTimeInterface;
+use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\AnagraficaType\Anagrafica;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\IdFiscaleType\IdFiscaleIVA;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Validator\Constraints\Choice;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiAnagrafici
 {
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	public IdFiscaleIVA $IdFiscaleIVA;
 
-	#[\Symfony\Component\Validator\Constraints\Length(max: 16)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 11)]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[A-Z0-9]{11,16}/')]
+	#[Length(min: 11, max: 16)]
+	#[Regex('/[A-Z0-9]{11,16}/')]
 	public string $CodiceFiscale;
 
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	public Anagrafica $Anagrafica;
 }

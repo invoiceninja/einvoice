@@ -2,30 +2,26 @@
 
 namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA;
 
-use Carbon\Carbon;
+use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Validator\Constraints\Choice;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Regex;
 
 class DatiRitenuta
 {
 	private array $TipoRitenuta_array = ['RT01', 'RT02', 'RT03', 'RT04', 'RT05', 'RT06'];
 
-	#[NotNull]
-	#[NotBlank]
-	#[Choice('RT01', 'RT02', 'RT03', 'RT04', 'RT05', 'RT06')]
+	#[Choice(['RT01', 'RT02', 'RT03', 'RT04', 'RT05', 'RT06'])]
 	public string $TipoRitenuta;
 
-	#[NotNull]
-	#[NotBlank]
+	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float $ImportoRitenuta;
+	public float|string $ImportoRitenuta;
 
-	#[NotNull]
-	#[NotBlank]
+	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public float $AliquotaRitenuta;
+	public float|string $AliquotaRitenuta;
 
 	private array $CausalePagamento_array = [
 		'A',
@@ -59,9 +55,7 @@ class DatiRitenuta
 		'ZO',
 	];
 
-	#[NotNull]
-	#[NotBlank]
-	#[Choice(
+	#[Choice([
 		'A',
 		'B',
 		'C',
@@ -91,6 +85,6 @@ class DatiRitenuta
 		'O1',
 		'V1',
 		'ZO',
-	)]
+	])]
 	public string $CausalePagamento;
 }

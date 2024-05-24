@@ -6,12 +6,22 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Validator\ValidatorBuilder;
+use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\PropertyInfo\PropertyInfoExtractor;
+use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
+use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
+use Symfony\Component\Serializer\Mapping\Loader\AttributeLoader;
+use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\FatturaElettronica;
+use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
+use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\FatturaElettronicaBody;
+use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\FatturaElettronicaHeader;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 
 class FatturaDataTest extends TestCase
 {
@@ -80,14 +90,14 @@ class FatturaDataTest extends TestCase
                 ],
                 ],
                 'DatiOrdineAcquisto' => [
-                'RiferimentoNumeroLinea' => '1',
+                'RiferimentoNumeroLinea' => 1,
                 'IdDocumento' => '66685',
                 'NumItem' => '1',
                 'CodiceCUP' => '123abc',
                 'CodiceCIG' => '456def',
                 ],
                 'DatiContratto' => [
-                'RiferimentoNumeroLinea' => '1',
+                'RiferimentoNumeroLinea' => 1,
                 'IdDocumento' => '123',
                 'Data' => '2016-09-01',
                 'NumItem' => '5',
@@ -95,14 +105,14 @@ class FatturaDataTest extends TestCase
                 'CodiceCIG' => '456def',
                 ],
                 'DatiConvenzione' => [
-                'RiferimentoNumeroLinea' => '1',
+                'RiferimentoNumeroLinea' => 1,
                 'IdDocumento' => '456',
                 'NumItem' => '5',
                 'CodiceCUP' => '123abc',
                 'CodiceCIG' => '456def',
                 ],
                 'DatiRicezione' => [
-                'RiferimentoNumeroLinea' => '1',
+                'RiferimentoNumeroLinea' => 1,
                 'IdDocumento' => '789',
                 'NumItem' => '5',
                 'CodiceCUP' => '123abc',
@@ -123,17 +133,17 @@ class FatturaDataTest extends TestCase
             ],
             'DatiBeniServizi' => [
                 'DettaglioLinee' => [
-                'NumeroLinea' => '1',
-                'Descrizione' => 'DESCRIZIONE DELLA FORNITURA',
-                'Quantita' => '5.00',
-                'PrezzoUnitario' => '1.00',
-                'PrezzoTotale' => '5.00',
-                'AliquotaIVA' => '22.00',
+                'NumeroLinea' => 1,
+                'Descrizione' => 'DESCRIZIONE DELLA FORNITURAa',
+                'Quantita' => "5.00",
+                'PrezzoUnitario' => "1.00",
+                'PrezzoTotale' => "5.00",
+                'AliquotaIVA' => "22.00",
                 ],
                 'DatiRiepilogo' => [
-                'AliquotaIVA' => '22.00',
-                'ImponibileImporto' => '5.00',
-                'Imposta' => '1.10',
+                'AliquotaIVA' => "22.00",
+                'ImponibileImporto' => "5.00",
+                'Imposta' => "1.10",
                 'EsigibilitaIVA' => 'I',
                 ],
             ],
@@ -142,7 +152,7 @@ class FatturaDataTest extends TestCase
                 'DettaglioPagamento' => [
                 'ModalitaPagamento' => 'MP01',
                 'DataScadenzaPagamento' => '2017-02-18',
-                'ImportoPagamento' => '6.10',
+                'ImportoPagamento' => "6.10",
                 ],
             ],
             ],
@@ -208,17 +218,17 @@ class FatturaDataTest extends TestCase
         
         'DatiBeniServizi' => [
             'DettaglioLinee' => [
-            'NumeroLinea' => '1',
+            'NumeroLinea' => 1,
             'Descrizione' => 'DESCRIZIONE DELLA FORNITURA',
-            'Quantita' => '5.00',
-            'PrezzoUnitario' => '1.00',
-            'PrezzoTotale' => '5.00',
-            'AliquotaIVA' => '22.00',
+            'Quantita' => 5.00,
+            'PrezzoUnitario' => 1.00,
+            'PrezzoTotale' => 5.00,
+            'AliquotaIVA' => 22.00,
             ],
             'DatiRiepilogo' => [
-            'AliquotaIVA' => '22.00',
-            'ImponibileImporto' => '5.00',
-            'Imposta' => '1.10',
+            'AliquotaIVA' => 22.00,
+            'ImponibileImporto' => 5.00,
+            'Imposta' => 1.10,
             'EsigibilitaIVA' => 'I',
             ],
         ],
@@ -241,24 +251,61 @@ class FatturaDataTest extends TestCase
 
     public function testBasicFirstLevel()
     {
-        $arr = [
-            'FatturaElettronica' => [
-            'FatturaElettronicaHeader' => [
-                'SoggettoEmittente' => 'aa'
-            ],
-            'FatturaElettronicaBody' => [],
-        ],
+        $phpDocExtractor = new PhpDocExtractor();
+        $reflectionExtractor = new ReflectionExtractor();
+
+        // list of PropertyListExtractorInterface (any iterable)
+        $listExtractors = [$reflectionExtractor];
+
+        // list of PropertyTypeExtractorInterface (any iterable)
+        $typeExtractors = [$phpDocExtractor, $reflectionExtractor];
+
+        // list of PropertyDescriptionExtractorInterface (any iterable)
+        $descriptionExtractors = [$phpDocExtractor];
+
+        // list of PropertyAccessExtractorInterface (any iterable)
+        $accessExtractors = [$reflectionExtractor];
+
+        // list of PropertyInitializableExtractorInterface (any iterable)
+        $propertyInitializableExtractors = [$reflectionExtractor];
+
+        $propertyInfo = new PropertyInfoExtractor(
+            $listExtractors,
+            $typeExtractors,
+            // $descriptionExtractors,
+            // $accessExtractors,
+            // $propertyInitializableExtractors
+        );
+
+        $classMetadataFactory = new ClassMetadataFactory(new AttributeLoader());
+        $normalizer = new ObjectNormalizer($classMetadataFactory, null, null, $propertyInfo);
+        $normalizers = [$normalizer, new DateTimeNormalizer()];
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+
+        
+        $context = [
+            // AbstractObjectNormalizer::DISABLE_TYPE_ENFORCEMENT => false,
+            // 'skip_null_values' => false, // Skip null values
         ];
 
-        $encoders = [new XmlEncoder(), new JsonEncoder()];
-        $normalizers = [new ObjectNormalizer()];
- 
         $serializer = new Serializer($normalizers, $encoders);
-        $fattura = $serializer->deserialize(json_encode($arr), FatturaElettronica::class, 'json');
+        $fattura = $serializer->deserialize(json_encode($this->good_payload), FatturaElettronica::class, 'json', $context);
 
         echo print_r($fattura).PHP_EOL;
+        
+        $validator = Validation::createValidatorBuilder()
+            ->enableAttributeMapping()
+            ->getValidator();
 
-        $this->assertNotNull($fattura->FatturaElettronicaHeader);
+        $errors = $validator->validate($fattura);
+
+        foreach($errors as $error)
+            echo $error->getPropertyPath() . ': ' . $error->getMessage() . "\n";
+
+        $this->assertCount(0, $errors);
+
+
+        // $this->assertNotNull($fattura->FatturaElettronicaHeader);
 
     }
 

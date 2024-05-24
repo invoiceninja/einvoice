@@ -45,7 +45,7 @@ final class SchemaCommand extends Command
     /**
      * Here all logic happens
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->output = $output;
 

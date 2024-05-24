@@ -2,20 +2,24 @@
 
 namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA\CodiceArticoloType;
 
-use Carbon\Carbon;
+use DateTime;
+use DateTimeInterface;
+use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Validator\Constraints\Choice;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class CodiceArticolo
 {
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	#[\Symfony\Component\Validator\Constraints\Length(max: 35)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 1)]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\x{0020}-\x{007E}]{1,35}/u')]
+	#[Length(min: 1, max: 35)]
+	#[Regex('/[\x{0020}-\x{007E}]{1,35}/u')]
 	public string $CodiceTipo;
 
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	#[\Symfony\Component\Validator\Constraints\Length(max: 35)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 1)]
+	#[Length(min: 1, max: 35)]
 	public string $CodiceValore;
 }

@@ -11,27 +11,21 @@
 
 namespace Invoiceninja\Einvoice\Writer\Symfony;
 
+use DateTime;
 use stdClass;
-use Carbon\Carbon;
-use Nette\PhpGenerator\Type;
-use Spatie\LaravelData\Data;
-use Nette\PhpGenerator\Printer;
+use DateTimeInterface;
+use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
 use Nette\PhpGenerator\Property;
-use Spatie\LaravelData\Optional;
 use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\PhpNamespace;
-use Spatie\LaravelData\DataCollection;
-use Spatie\LaravelData\Attributes\WithCast;
-use Spatie\LaravelData\Contracts\DataObject;
-use Spatie\LaravelData\Attributes\Validation\Max;
-use Spatie\LaravelData\Attributes\Validation\Min;
-use Spatie\LaravelData\Attributes\WithTransformer;
-use Spatie\LaravelData\Attributes\DataCollectionOf;
-use Spatie\LaravelData\Attributes\Validation\Regex;
-use Spatie\LaravelData\Attributes\Validation\Required;
-use Invoiceninja\Einvoice\Models\Transformers\FloatTransformer;
-use Spatie\LaravelData\Transformers\DateTimeInterfaceTransformer;
-use Invoiceninja\Einvoice\Models\Transformers\DataCollectionTransformer;
+use Symfony\Component\Validator\Constraints\Valid;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Validator\Constraints\Choice;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class TypeGenerator
 {
@@ -45,7 +39,19 @@ class TypeGenerator
 
     public function init(): stdClass
     {
-        $this->namespace = new PhpNamespace($this->generator->path_namespace.$this->generator->standard."\\".$this->type);
+        $this->namespace = new PhpNamespace($this->generator->path_namespace.$this->generator->standard."\\".$this->type);        
+        $this->namespace->addUse(NotNull::class);
+        $this->namespace->addUse(NotBlank::class);
+        $this->namespace->addUse(DateTimeInterface::class);
+        $this->namespace->addUse(DateTimeNormalizer::class);
+        $this->namespace->addUse(DateTime::class);
+        $this->namespace->addUse(Valid::class);
+        $this->namespace->addUse(Context::class);
+        $this->namespace->addUse(Regex::class);
+        $this->namespace->addUse(Choice::class);
+        $this->namespace->addUse(Length::class);
+        $this->namespace->addUse(DecimalPrecision::class);
+
         $this->class = new ClassType($this->name);
 
         $this->build();
@@ -64,7 +70,7 @@ class TypeGenerator
     private function build(): self
     {
 
-        $this->namespace->addUse(Carbon::class);
+        $this->namespace->addUse(DateTime::class);
 
         $child_type = $this->generator->getChildType($this->type);
 
@@ -81,8 +87,8 @@ class TypeGenerator
             } else {
                 $base_type = $this->generator->resolveType($element['base_type']);
 
-                if(in_array($base_type, ['date','dateTime','Carbon','time'])) {
-                    $base_type = "Carbon\Carbon";
+                if(in_array($base_type, ['date','dateTime','time'])) {
+                    $base_type = "Datetime";
                 }
 
             }

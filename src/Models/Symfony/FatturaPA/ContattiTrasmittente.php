@@ -2,19 +2,18 @@
 
 namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA;
 
-use Carbon\Carbon;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\Regex;
 
 class ContattiTrasmittente
 {
-	#[Length(max: 12)]
-	#[Length(min: 5)]
+	#[Length(min: 5, max: 12)]
 	#[Regex('/[\x{0020}-\x{007E}]{5,12}/u')]
 	public string $Telefono;
 
-	#[Length(max: 256)]
-	#[Length(min: 7)]
+	#[Length(min: 7, max: 256)]
 	#[Regex('/.+@.+[.]+.+/')]
 	public string $Email;
 }

@@ -11,20 +11,26 @@
 
 namespace Invoiceninja\Einvoice\Writer\Symfony;
 
+use DateTime;
 use Carbon\Carbon;
+use DateTimeInterface;
 use Nette\PhpGenerator\Type;
+use Nette\PhpGenerator\Literal;
 use Nette\PhpGenerator\Property;
 use Nette\PhpGenerator\ClassType;
 use Illuminate\Support\Collection;
+use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
 use Nette\PhpGenerator\PhpNamespace;
+use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\Valid;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotNull;
-use Invoiceninja\Einvoice\Writer\Symfony\TypeGenerator;
-use Symfony\Component\Validator\Constraints\Choice;
-use Symfony\Component\Validator\Constraints\Date;
-use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Invoiceninja\Einvoice\Writer\Symfony\TypeGenerator;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 
 class Generator
 {
@@ -64,19 +70,16 @@ class Generator
     {
         match($raw_type){
             'integer' => $type = 'int',
-            'decimal' => $type = 'float',
-            'date' => $type = Carbon::class,
-            'time' => $type = Carbon::class,
-            'dateTime' => $type = Carbon::class,
+            'decimal' => $type = 'float|string',
+            'date' => $type = DateTime::class,
+            'time' => $type = DateTime::class,
+            'dateTime' => $type = DateTime::class,
             'token' => $type = 'string',
             'base64Binary' => $type = 'mixed',
             'normalizedString' => $type = 'string',
             'boolean' => $type = 'bool',
             default => $type = $raw_type,
         };
-
-        if($type == Carbon::class);  
-            $this->namespace->addUse(Carbon::class);
 
         if(in_array($raw_type, ['time','dateTime'])){
             $this->namespace->addUse(DateTime::class);
@@ -91,43 +94,49 @@ class Generator
 
     public function setValidation(Property $property, array $element): Property
     {
-        if($element['min_occurs'] >= 1){
+        if($element['min_occurs'] >= 1 && count($element['resource']) == 0 && !in_array($element['base_type'], ['integer', 'decimal', 'float', 'double', 'string'])){
             $this->namespace->addUse(NotNull::class);
             $this->namespace->addUse(NotBlank::class);
-
+            $this->namespace->addUse(Valid::class);
             $property->addAttribute(NotNull::class);
             $property->addAttribute(NotBlank::class);
+            $property->addAttribute(Valid::class);
+        }
+
+        if($element['base_type'] == 'decimal'){
+            $this->namespace->addUse(DecimalPrecision::class);
+            $property->addAttribute(DecimalPrecision::class, [2]);
         }
 
         if($element['max_occurs'] > 1 || $element['max_occurs'] == -1) {
-            $property->addComment("@var ".$element['name']."[] $".$element['name']);
+            $property->addComment("@param ".$element['name']."[] $".$element['name']);
         }
 
         if(isset($element['max_length'])) {
             $this->namespace->addUse(Length::class);
-            $property->addAttribute(Length::class, ['max' => $element['max_length']]);
+            $property->addAttribute(Length::class, ['min' => $element['min_length'], 'max' => $element['max_length']]);
         }
         
-        if(isset($element['max_length'])) {
-            $this->namespace->addUse(Length::class);
-            $property->addAttribute(Length::class, ['min' => $element['min_length']]);
-        }
-
         if($element['pattern']) {
             $this->namespace->addUse(Regex::class);
             $property->addAttribute(Regex::class, [$element['pattern']]);
         }
 
-        if(in_array($element['base_type'], ['time', 'dateTime']))
-            $property->addAttribute(DateTime::class, ['Y-m-d\TH:i:s.uP']);
+        if(in_array($element['base_type'], ['time', 'dateTime'])){
+            $this->namespace->addUse(Context::class);
+            $this->namespace->addUse(DateTimeNormalizer::class);
+            $property->addAttribute(Context::class, [new Literal("[DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP']")]);
+            // $property->addAttribute(DateTime::class, ['Y-m-d\TH:i:s.uP']);
+        }
 
         if(in_array($element['base_type'], ['date'])) {
-            $property->addAttribute(Date::class, ['Y-m-d']);
+            $this->namespace->addUse(Context::class);
+            $property->addAttribute(Context::class, [new Literal("[DateTimeNormalizer::FORMAT_KEY => 'Y-m-d']")]);
         }
 
         if(count($element['resource']) > 1){
             $this->namespace->addUse(Choice::class);
-            $property->addAttribute(Choice::class, array_keys($element['resource']));
+            $property->addAttribute(Choice::class, [array_keys($element['resource'])]);
         }
 
         return $property;
@@ -137,6 +146,9 @@ class Generator
     {
         
         $this->namespace = new PhpNamespace($this->path_namespace.$this->standard);
+
+        $this->namespace->addUse(Context::class);
+        $this->namespace->addUse(DateTimeNormalizer::class);
 
         $class = new ClassType($name);
 
@@ -152,27 +164,11 @@ class Generator
             }
             
             $base_type = stripos($element['base_type'], 'Type') !== false ? $this->path_namespace.$this->standard."\\".$element['base_type']."\\".$element['name'] : $this->resolveType($element['base_type']);
-            
 
-            // $property = (new Property($element['name']))
-            //                         ->setPublic();
+            $property = (new Property($element['name']))
+                                        ->setPublic()
+                                        ->setType($base_type);
 
-            //     if(stripos($element['base_type'], 'Type') === false)
-            //         $property->setType($base_type);
-
-            // //root elements do not need types;
-            // if(in_array($element['name'], ['FatturaElettronicaHeader','FatturaElettronicaBody'])) {
-
-            //     $property = (new Property($element['name']))
-            //                         ->setPublic();
-            // }
-            // else {
-
-                $property = (new Property($element['name']))
-                                            ->setPublic()
-                                            ->setType($base_type);
-
-            // }
 
             $property = $this->setValidation($property, $element);
 

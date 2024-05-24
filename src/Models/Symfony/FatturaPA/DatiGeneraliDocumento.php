@@ -2,17 +2,20 @@
 
 namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA;
 
-use Carbon\Carbon;
+use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiBolloType\DatiBollo;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiCassaPrevidenzialeType\DatiCassaPrevidenziale;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiRitenutaType\DatiRitenuta;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiGeneraliDocumento
 {
@@ -38,9 +41,7 @@ class DatiGeneraliDocumento
 		'TD28',
 	];
 
-	#[NotNull]
-	#[NotBlank]
-	#[Choice(
+	#[Choice([
 		'TD01',
 		'TD02',
 		'TD03',
@@ -60,47 +61,43 @@ class DatiGeneraliDocumento
 		'TD26',
 		'TD27',
 		'TD28',
-	)]
+	])]
 	public string $TipoDocumento;
 
-	#[NotNull]
-	#[NotBlank]
-	#[Length(max: 3)]
-	#[Length(min: 3)]
+	#[Length(min: 3, max: 3)]
 	#[Regex('/[A-Z]{3}/')]
 	public string $Divisa;
 
 	#[NotNull]
 	#[NotBlank]
-	#[Date('Y-m-d')]
-	public Carbon $Data;
+	#[Valid]
+	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+	public \DateTime $Data;
 
-	#[NotNull]
-	#[NotBlank]
-	#[Length(max: 20)]
-	#[Length(min: 1)]
+	#[Length(min: 1, max: 20)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
 	public string $Numero;
 
-	/** @var DatiRitenuta[] $DatiRitenuta */
+	/** @param DatiRitenuta[] $DatiRitenuta */
 	public DatiRitenuta $DatiRitenuta;
 	public DatiBollo $DatiBollo;
 
-	/** @var DatiCassaPrevidenziale[] $DatiCassaPrevidenziale */
+	/** @param DatiCassaPrevidenziale[] $DatiCassaPrevidenziale */
 	public DatiCassaPrevidenziale $DatiCassaPrevidenziale;
 
-	/** @var ScontoMaggiorazione[] $ScontoMaggiorazione */
+	/** @param ScontoMaggiorazione[] $ScontoMaggiorazione */
 	public ScontoMaggiorazione $ScontoMaggiorazione;
 
+	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float $ImportoTotaleDocumento;
+	public float|string $ImportoTotaleDocumento;
 
+	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float $Arrotondamento;
+	public float|string $Arrotondamento;
 
-	/** @var Causale[] $Causale */
-	#[Length(max: 200)]
-	#[Length(min: 1)]
+	/** @param Causale[] $Causale */
+	#[Length(min: 1, max: 200)]
 	#[Regex('/[\p{L}]{1,200}/u')]
 	public string $Causale;
 	private array $Art73_array = ['SI'];

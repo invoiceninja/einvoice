@@ -2,20 +2,24 @@
 
 namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA\IdFiscaleType;
 
-use Carbon\Carbon;
+use DateTime;
+use DateTimeInterface;
+use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Validator\Constraints\Choice;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class IdTrasmittente
 {
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	#[\Symfony\Component\Validator\Constraints\Length(max: 2)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 2)]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[A-Z]{2}/')]
+	#[Length(min: 2, max: 2)]
+	#[Regex('/[A-Z]{2}/')]
 	public string $IdPaese;
 
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	#[\Symfony\Component\Validator\Constraints\Length(max: 28)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 1)]
+	#[Length(min: 1, max: 28)]
 	public string $IdCodice;
 }

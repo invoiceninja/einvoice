@@ -2,18 +2,25 @@
 
 namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DettaglioPagamentoType;
 
-use Carbon\Carbon;
+use DateTime;
+use DateTimeInterface;
+use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Validator\Constraints\Choice;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class DettaglioPagamento
 {
-	#[\Symfony\Component\Validator\Constraints\Length(max: 200)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 1)]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\p{L}]{1,200}/u')]
+	#[Length(min: 1, max: 200)]
+	#[Regex('/[\p{L}]{1,200}/u')]
 	public string $Beneficiario;
 
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	#[\Symfony\Component\Validator\Constraints\Choice(
+	#[Choice([
 		'MP01',
 		'MP02',
 		'MP03',
@@ -37,7 +44,7 @@ class DettaglioPagamento
 		'MP21',
 		'MP22',
 		'MP23',
-	)]
+	])]
 	public string $ModalitaPagamento;
 
 	private array $ModalitaPagamento_array = [
@@ -66,78 +73,70 @@ class DettaglioPagamento
 		'MP23',
 	];
 
-	#[\Symfony\Component\Validator\Constraints\Date('Y-m-d')]
-	public Carbon $DataRiferimentoTerminiPagamento;
+	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+	public DateTime $DataRiferimentoTerminiPagamento;
 	public int $GiorniTerminiPagamento;
 
-	#[\Symfony\Component\Validator\Constraints\Date('Y-m-d')]
-	public Carbon $DataScadenzaPagamento;
+	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+	public DateTime $DataScadenzaPagamento;
 
-	#[\Symfony\Component\Validator\Constraints\NotNull]
-	#[\Symfony\Component\Validator\Constraints\NotBlank]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float $ImportoPagamento;
+	#[DecimalPrecision(2)]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
+	public float|string $ImportoPagamento;
 
-	#[\Symfony\Component\Validator\Constraints\Length(max: 20)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 1)]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
+	#[Length(min: 1, max: 20)]
+	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
 	public string $CodUfficioPostale;
 
-	#[\Symfony\Component\Validator\Constraints\Length(max: 60)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 1)]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
+	#[Length(min: 1, max: 60)]
+	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
 	public string $CognomeQuietanzante;
 
-	#[\Symfony\Component\Validator\Constraints\Length(max: 60)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 1)]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
+	#[Length(min: 1, max: 60)]
+	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
 	public string $NomeQuietanzante;
 
-	#[\Symfony\Component\Validator\Constraints\Length(max: 16)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 16)]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[A-Z0-9]{16}/')]
+	#[Length(min: 16, max: 16)]
+	#[Regex('/[A-Z0-9]{16}/')]
 	public string $CFQuietanzante;
 
-	#[\Symfony\Component\Validator\Constraints\Length(max: 10)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 2)]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\x{0020}-\x{007E}]{2,10}/u')]
+	#[Length(min: 2, max: 10)]
+	#[Regex('/[\x{0020}-\x{007E}]{2,10}/u')]
 	public string $TitoloQuietanzante;
 
-	#[\Symfony\Component\Validator\Constraints\Length(max: 80)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 1)]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\x{0000}-\x{00FF}]{1,80}/u')]
+	#[Length(min: 1, max: 80)]
+	#[Regex('/[\x{0000}-\x{00FF}]{1,80}/u')]
 	public string $IstitutoFinanziario;
 
-	#[\Symfony\Component\Validator\Constraints\Length(max: 30)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 11)]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{11,30}/')]
+	#[Length(min: 11, max: 30)]
+	#[Regex('/[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{11,30}/')]
 	public string $IBAN;
 
-	#[\Symfony\Component\Validator\Constraints\Regex('/[0-9][0-9][0-9][0-9][0-9]/')]
+	#[Regex('/[0-9][0-9][0-9][0-9][0-9]/')]
 	public string $ABI;
 
-	#[\Symfony\Component\Validator\Constraints\Regex('/[0-9][0-9][0-9][0-9][0-9]/')]
+	#[Regex('/[0-9][0-9][0-9][0-9][0-9]/')]
 	public string $CAB;
 
-	#[\Symfony\Component\Validator\Constraints\Length(max: 1)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 0)]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[A-Z]{6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3})?/')]
+	#[Length(min: 0, max: 1)]
+	#[Regex('/[A-Z]{6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3})?/')]
 	public string $BIC;
 
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float $ScontoPagamentoAnticipato;
+	#[DecimalPrecision(2)]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
+	public float|string $ScontoPagamentoAnticipato;
 
-	#[\Symfony\Component\Validator\Constraints\Date('Y-m-d')]
-	public Carbon $DataLimitePagamentoAnticipato;
+	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+	public DateTime $DataLimitePagamentoAnticipato;
 
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float $PenalitaPagamentiRitardati;
+	#[DecimalPrecision(2)]
+	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
+	public float|string $PenalitaPagamentiRitardati;
 
-	#[\Symfony\Component\Validator\Constraints\Date('Y-m-d')]
-	public Carbon $DataDecorrenzaPenale;
+	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+	public DateTime $DataDecorrenzaPenale;
 
-	#[\Symfony\Component\Validator\Constraints\Length(max: 60)]
-	#[\Symfony\Component\Validator\Constraints\Length(min: 1)]
-	#[\Symfony\Component\Validator\Constraints\Regex('/[\x{0020}-\x{007E}]{1,60}/u')]
+	#[Length(min: 1, max: 60)]
+	#[Regex('/[\x{0020}-\x{007E}]{1,60}/u')]
 	public string $CodicePagamento;
 }

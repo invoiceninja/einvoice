@@ -520,8 +520,6 @@ $path = 'tests/Data/samples/';
 $f = 'tests/Data/samples/fatturapa0.xml';
 $xmlstring = file_get_contents($f);
 
-$context = [];
-
 //prevents null values from appearing
 $xmlstring = $serializer->deserialize($xmlstring, FatturaElettronica::class, 'xml');
 $fattura = $normalizer->normalize($xmlstring, 'xml', [AbstractObjectNormalizer::SKIP_NULL_VALUES => true]);
@@ -532,6 +530,10 @@ echo print_r($fattura);
 
 $dataxml = $serializer->encode($fattura, 'xml', $context);
 $dataxml = str_replace(['<response>','</response>'], '', $dataxml);
+
+//remove any empty lines from output
+$dataxml = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $dataxml);
+
 $fpathjson = $path."hydra.xml";
 $fp = fopen($fpathjson, 'w');
 fwrite($fp, $dataxml);

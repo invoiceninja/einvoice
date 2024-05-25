@@ -20,6 +20,7 @@ class DatiAnagraficiVettore
 	#[Valid]
 	public $IdFiscaleIVA;
 
+	/** @var string */
 	#[Length(min: 11, max: 16)]
 	#[Regex('/[A-Z0-9]{11,16}/')]
 	public string $CodiceFiscale;
@@ -30,7 +31,8 @@ class DatiAnagraficiVettore
 	#[Valid]
 	public $Anagrafica;
 
+	/** @var string */
 	#[Length(min: 1, max: 20)]
-	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,20}/u')]
 	public string $NumeroLicenzaGuida;
 }

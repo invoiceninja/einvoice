@@ -22,7 +22,7 @@ class Fact1Rules
         "pattern" => null,
     ];
 
-    private $build_array;
+    private $build_array = [];
 
     public function __construct()
     {
@@ -43,7 +43,7 @@ class Fact1Rules
 
     public function buildInvoice(): array
     {
-        $this->build_array;
+        $this->build_array = [];
 
         $invoice =
 

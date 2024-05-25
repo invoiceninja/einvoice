@@ -15,25 +15,29 @@ use Symfony\Component\Validator\Constraints\Regex;
 
 class DettaglioLinee
 {
+	/** @var integer */
 	public int $NumeroLinea;
 	private array $TipoCessionePrestazione_array = ['SC', 'PR', 'AB', 'AC'];
 
+	/** @var string */
 	#[Choice(['SC', 'PR', 'AB', 'AC'])]
 	public string $TipoCessionePrestazione;
 
 	/** @var CodiceArticolo[] */
-	public array $CodiceArticolo;
+	public array $CodiceArticolo = [];
 
+	/** @var string */
 	#[Length(min: 1, max: 1000)]
-	#[Regex('/[\x{0000}-\x{00FF}]{1,1000}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,1000}/u')]
 	public string $Descrizione;
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,12}\.[0-9]{2,8}/')]
-	public float $Quantita;
+	public string $Quantita;
 
+	/** @var string */
 	#[Length(min: 1, max: 10)]
-	#[Regex('/[\x{0020}-\x{007E}]{1,10}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,10}/u')]
 	public string $UnitaMisura;
 
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
@@ -44,19 +48,21 @@ class DettaglioLinee
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
-	public float|string $PrezzoUnitario;
+	public string $PrezzoUnitario;
 
 	/** @var ScontoMaggiorazione[] */
-	public array $ScontoMaggiorazione;
+	public array $ScontoMaggiorazione = [];
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
-	public float|string $PrezzoTotale;
+	public string $PrezzoTotale;
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public float|string $AliquotaIVA;
+	public string $AliquotaIVA;
 	private array $Ritenuta_array = ['SI'];
+
+	/** @var string */
 	public string $Ritenuta;
 
 	private array $Natura_array = [
@@ -86,6 +92,7 @@ class DettaglioLinee
 		'N7',
 	];
 
+	/** @var string */
 	#[Choice([
 		'N1',
 		'N2',
@@ -114,10 +121,11 @@ class DettaglioLinee
 	])]
 	public string $Natura;
 
+	/** @var string */
 	#[Length(min: 1, max: 20)]
-	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,20}/u')]
 	public string $RiferimentoAmministrazione;
 
 	/** @var AltriDatiGestionali[] */
-	public array $AltriDatiGestionali;
+	public array $AltriDatiGestionali = [];
 }

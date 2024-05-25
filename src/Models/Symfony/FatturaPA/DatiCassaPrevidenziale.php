@@ -36,6 +36,7 @@ class DatiCassaPrevidenziale
 		'TC22',
 	];
 
+	/** @var string */
 	#[Choice([
 		'TC01',
 		'TC02',
@@ -64,20 +65,22 @@ class DatiCassaPrevidenziale
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public float|string $AlCassa;
+	public string $AlCassa;
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float|string $ImportoContributoCassa;
+	public string $ImportoContributoCassa;
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float|string $ImponibileCassa;
+	public string $ImponibileCassa;
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public float|string $AliquotaIVA;
+	public string $AliquotaIVA;
 	private array $Ritenuta_array = ['SI'];
+
+	/** @var string */
 	public string $Ritenuta;
 
 	private array $Natura_array = [
@@ -107,6 +110,7 @@ class DatiCassaPrevidenziale
 		'N7',
 	];
 
+	/** @var string */
 	#[Choice([
 		'N1',
 		'N2',
@@ -135,7 +139,8 @@ class DatiCassaPrevidenziale
 	])]
 	public string $Natura;
 
+	/** @var string */
 	#[Length(min: 1, max: 20)]
-	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,20}/u')]
 	public string $RiferimentoAmministrazione;
 }

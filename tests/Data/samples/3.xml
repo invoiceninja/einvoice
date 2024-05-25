@@ -61,7 +61,10 @@
         <Divisa>EUR</Divisa>
         <Data>2017-01-20</Data>
         <Numero>456</Numero>
+        <DatiRitenuta/>
         <DatiBollo/>
+        <DatiCassaPrevidenziale/>
+        <ScontoMaggiorazione/>
         <Causale>LA FATTURA FA RIFERIMENTO  RRRR SSSSSSSSSSSSSS</Causale>
         <Causale> IN CUI NON SIANO S BBBBBBBBBBBBBBBBB</Causale>
       </DatiGeneraliDocumento>
@@ -94,20 +97,25 @@
         <CodiceCUP>123abc</CodiceCUP>
         <CodiceCIG>456def</CodiceCIG>
       </DatiRicezione>
+      <DatiFattureCollegate/>
+      <DatiSAL/>
+      <DatiDDT/>
       <DatiTrasporto/>
       <FatturaPrincipale/>
     </DatiGenerali>
     <DatiBeniServizi>
       <DettaglioLinee>
         <NumeroLinea>1</NumeroLinea>
+        <CodiceArticolo/>
         <Descrizione>PRESTAZIONE DEL SEGUENTE SERVIZIO PROFESSIONALE: LA DESCRIZIONE DELLA
                     PRESTAZIONE PUO' SUPERARE I CENTO CARATTERI CHE RAPPRESENTAVANO IL PRECEDENTE
                     LIMITE DIMENSIONALE. TALE LIMITE NELLA NUOVA VERSIONE E' STATO PORTATO A MILLE
                     CARATTERI</Descrizione>
-        <Quantita/>
         <PrezzoUnitario>2000.00</PrezzoUnitario>
+        <ScontoMaggiorazione/>
         <PrezzoTotale>2000.00</PrezzoTotale>
         <AliquotaIVA>22.00</AliquotaIVA>
+        <AltriDatiGestionali/>
       </DettaglioLinee>
       <DatiRiepilogo>
         <AliquotaIVA>22.00</AliquotaIVA>
@@ -122,8 +130,9 @@
       <DettaglioPagamento>
         <ModalitaPagamento>MP19</ModalitaPagamento>
         <DataScadenzaPagamento>2017-02-20</DataScadenzaPagamento>
-        <ImportoPagamento>2440</ImportoPagamento>
+        <ImportoPagamento>2440.00</ImportoPagamento>
       </DettaglioPagamento>
     </DatiPagamento>
+    <Allegati/>
   </FatturaElettronicaBody>
 

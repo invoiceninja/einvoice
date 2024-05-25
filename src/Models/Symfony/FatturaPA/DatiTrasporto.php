@@ -20,30 +20,36 @@ class DatiTrasporto
 	/** @var DatiAnagraficiVettore */
 	public $DatiAnagraficiVettore;
 
+	/** @var string */
 	#[Length(min: 1, max: 80)]
-	#[Regex('/[\x{0000}-\x{00FF}]{1,80}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,80}/u')]
 	public string $MezzoTrasporto;
 
+	/** @var string */
 	#[Length(min: 1, max: 100)]
-	#[Regex('/[\x{0000}-\x{00FF}]{1,100}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,100}/u')]
 	public string $CausaleTrasporto;
+
+	/** @var integer */
 	public int $NumeroColli;
 
+	/** @var string */
 	#[Length(min: 1, max: 100)]
-	#[Regex('/[\x{0000}-\x{00FF}]{1,100}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,100}/u')]
 	public string $Descrizione;
 
+	/** @var string */
 	#[Length(min: 1, max: 10)]
-	#[Regex('/[\x{0020}-\x{007E}]{1,10}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,10}/u')]
 	public string $UnitaMisuraPeso;
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,4}\.[0-9]{1,2}/')]
-	public float|string $PesoLordo;
+	public string $PesoLordo;
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,4}\.[0-9]{1,2}/')]
-	public float|string $PesoNetto;
+	public string $PesoNetto;
 
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	public DateTime $DataOraRitiro;
@@ -51,6 +57,7 @@ class DatiTrasporto
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	public DateTime $DataInizioTrasporto;
 
+	/** @var string */
 	#[Length(min: 3, max: 3)]
 	#[Regex('/[A-Z]{3}/')]
 	public string $TipoResa;

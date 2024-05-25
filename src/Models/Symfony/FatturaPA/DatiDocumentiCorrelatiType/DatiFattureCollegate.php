@@ -17,12 +17,12 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiFattureCollegate
 {
-	/** @var int */
+	/** @var integer */
 	public int $RiferimentoNumeroLinea;
 
 	/** @var string */
 	#[Length(min: 1, max: 20)]
-	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,20}/u')]
 	public string $IdDocumento;
 
 	/** @var DateTime */
@@ -31,21 +31,21 @@ class DatiFattureCollegate
 
 	/** @var string */
 	#[Length(min: 1, max: 20)]
-	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,20}/u')]
 	public string $NumItem;
 
 	/** @var string */
 	#[Length(min: 1, max: 100)]
-	#[Regex('/[\x{0000}-\x{00FF}]{1,100}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,100}/u')]
 	public string $CodiceCommessaConvenzione;
 
 	/** @var string */
 	#[Length(min: 1, max: 15)]
-	#[Regex('/[\x{0020}-\x{007E}]{1,15}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,15}/u')]
 	public string $CodiceCUP;
 
 	/** @var string */
 	#[Length(min: 1, max: 15)]
-	#[Regex('/[\x{0020}-\x{007E}]{1,15}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,15}/u')]
 	public string $CodiceCIG;
 }

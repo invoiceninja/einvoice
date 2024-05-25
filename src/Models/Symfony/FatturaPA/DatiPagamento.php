@@ -18,6 +18,7 @@ class DatiPagamento
 {
 	private array $CondizioniPagamento_array = ['TP01', 'TP02', 'TP03'];
 
+	/** @var string */
 	#[Length(min: 4, max: 4)]
 	#[Choice(['TP01', 'TP02', 'TP03'])]
 	public string $CondizioniPagamento;
@@ -26,5 +27,5 @@ class DatiPagamento
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public array $DettaglioPagamento;
+	public array $DettaglioPagamento = [];
 }

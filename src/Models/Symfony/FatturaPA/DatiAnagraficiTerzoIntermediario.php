@@ -17,6 +17,7 @@ class DatiAnagraficiTerzoIntermediario
 	/** @var IdFiscaleIVA */
 	public $IdFiscaleIVA;
 
+	/** @var string */
 	#[Length(min: 11, max: 16)]
 	#[Regex('/[A-Z0-9]{11,16}/')]
 	public string $CodiceFiscale;

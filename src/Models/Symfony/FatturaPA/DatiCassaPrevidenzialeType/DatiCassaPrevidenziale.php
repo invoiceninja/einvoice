@@ -69,25 +69,25 @@ class DatiCassaPrevidenziale
 		'TC22',
 	];
 
-	/** @var float|string */
+	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public float|string $AlCassa;
+	public string $AlCassa;
 
-	/** @var float|string */
+	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float|string $ImportoContributoCassa;
+	public string $ImportoContributoCassa;
 
-	/** @var float|string */
+	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float|string $ImponibileCassa;
+	public string $ImponibileCassa;
 
-	/** @var float|string */
+	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public float|string $AliquotaIVA;
+	public string $AliquotaIVA;
 
 	/** @var string */
 	public string $Ritenuta;
@@ -151,6 +151,6 @@ class DatiCassaPrevidenziale
 
 	/** @var string */
 	#[Length(min: 1, max: 20)]
-	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,20}/u')]
 	public string $RiferimentoAmministrazione;
 }

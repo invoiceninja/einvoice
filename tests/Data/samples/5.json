@@ -61,12 +61,15 @@
                     "TipoDocumento": "TD01",
                     "Divisa": "EUR",
                     "Data": {
-                        "date": "2014-12-18 21:22:48.000000",
+                        "date": "2014-12-18 21:31:08.000000",
                         "timezone_type": 3,
                         "timezone": "UTC"
                     },
                     "Numero": "123",
+                    "DatiRitenuta": [],
                     "DatiBollo": null,
+                    "DatiCassaPrevidenziale": [],
+                    "ScontoMaggiorazione": [],
                     "Causale": [
                         "LA FATLLLLLLL MMM NNNNN OO PPPSSSSSSSSSSSSSS",
                         "SEGUE DESCRIZIONE CAUA BBBBBBBBBBBBBBBBB"
@@ -79,6 +82,12 @@
                         "NumItem": "1"
                     }
                 ],
+                "DatiContratto": [],
+                "DatiConvenzione": [],
+                "DatiRicezione": [],
+                "DatiFattureCollegate": [],
+                "DatiSAL": [],
+                "DatiDDT": [],
                 "DatiTrasporto": {
                     "DatiAnagraficiVettore": {
                         "IdFiscaleIVA": {
@@ -102,19 +111,25 @@
                 "DettaglioLinee": [
                     {
                         "NumeroLinea": 1,
+                        "CodiceArticolo": [],
                         "Descrizione": "LA DESCRIZIONE DELLA FORNITURA PUO' SUPERARE I CENTO CARATTERI CHE RAPPRESENTAVANO IL PRECEDENTE LIMITE DIMENSIONALE. TALE LIMITE NELLA NUOVA VERSIONE E' STATO PORTATO A MILLE CARATTERI",
                         "Quantita": "5.00",
                         "PrezzoUnitario": "1.00",
+                        "ScontoMaggiorazione": [],
                         "PrezzoTotale": "5.00",
-                        "AliquotaIVA": "22.00"
+                        "AliquotaIVA": "22.00",
+                        "AltriDatiGestionali": []
                     },
                     {
                         "NumeroLinea": 2,
+                        "CodiceArticolo": [],
                         "Descrizione": "FORNITURE VARIE PER UFFICIO",
                         "Quantita": "10.00",
                         "PrezzoUnitario": "2.00",
+                        "ScontoMaggiorazione": [],
                         "PrezzoTotale": "20.00",
-                        "AliquotaIVA": "22.00"
+                        "AliquotaIVA": "22.00",
+                        "AltriDatiGestionali": []
                     }
                 ],
                 "DatiRiepilogo": [
@@ -134,15 +149,16 @@
                         {
                             "ModalitaPagamento": "MP01",
                             "DataScadenzaPagamento": {
-                                "date": "2015-01-30 21:22:48.000000",
+                                "date": "2015-01-30 21:31:08.000000",
                                 "timezone_type": 3,
                                 "timezone": "UTC"
                             },
-                            "ImportoPagamento": 32.95
+                            "ImportoPagamento": "32.95"
                         }
                     ]
                 }
-            ]
+            ],
+            "Allegati": []
         }
     ]
 }

@@ -67,7 +67,6 @@ class DatiGeneraliDocumento
 		'TD28',
 	];
 
-
 	/** @var string */
 	#[Length(min: 3, max: 3)]
 	#[Regex('/[A-Z]{3}/')]
@@ -82,30 +81,30 @@ class DatiGeneraliDocumento
 
 	/** @var string */
 	#[Length(min: 1, max: 20)]
-	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,20}/u')]
 	public string $Numero;
 
 	/** @var DatiRitenuta[] */
-	public array $DatiRitenuta;
+	public array $DatiRitenuta = [];
 
 	/** @var DatiBollo */
 	public $DatiBollo;
 
 	/** @var DatiCassaPrevidenziale[] */
-	public array $DatiCassaPrevidenziale;
+	public array $DatiCassaPrevidenziale = [];
 
 	/** @var ScontoMaggiorazione[] */
-	public array $ScontoMaggiorazione;
+	public array $ScontoMaggiorazione = [];
 
-	/** @var float|string */
+	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float|string $ImportoTotaleDocumento;
+	public string $ImportoTotaleDocumento;
 
-	/** @var float|string */
+	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float|string $Arrotondamento;
+	public string $Arrotondamento;
 
 	/** @var string[] */
 	#[All([new Length(min: 1,max: 200),new Regex(pattern: "/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,200}/u")])]

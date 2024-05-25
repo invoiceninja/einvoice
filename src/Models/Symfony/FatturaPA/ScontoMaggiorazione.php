@@ -12,14 +12,15 @@ class ScontoMaggiorazione
 {
 	private array $Tipo_array = ['SC', 'MG'];
 
+	/** @var string */
 	#[Choice(['SC', 'MG'])]
 	public string $Tipo;
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public float|string $Percentuale;
+	public string $Percentuale;
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
-	public float|string $Importo;
+	public string $Importo;
 }

@@ -26,6 +26,6 @@ class DatiVeicoli
 
 	/** @var string */
 	#[Length(min: 1, max: 15)]
-	#[Regex('/[\x{0020}-\x{007E}]{1,15}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,15}/u')]
 	public string $TotalePercorso;
 }

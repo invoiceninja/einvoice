@@ -19,7 +19,7 @@ class DettaglioPagamento
 {
 	/** @var string */
 	#[Length(min: 1, max: 200)]
-	#[Regex('/[\p{L}]{1,200}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,200}/u')]
 	public string $Beneficiario;
 
 	/** @var string */
@@ -80,31 +80,31 @@ class DettaglioPagamento
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	public DateTime $DataRiferimentoTerminiPagamento;
 
-	/** @var int */
+	/** @var integer */
 	public int $GiorniTerminiPagamento;
 
 	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	public DateTime $DataScadenzaPagamento;
 
-	/** @var float|string */
+	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float|string $ImportoPagamento;
+	public string $ImportoPagamento;
 
 	/** @var string */
 	#[Length(min: 1, max: 20)]
-	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,20}/u')]
 	public string $CodUfficioPostale;
 
 	/** @var string */
 	#[Length(min: 1, max: 60)]
-	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,60}/u')]
 	public string $CognomeQuietanzante;
 
 	/** @var string */
 	#[Length(min: 1, max: 60)]
-	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,60}/u')]
 	public string $NomeQuietanzante;
 
 	/** @var string */
@@ -114,12 +114,12 @@ class DettaglioPagamento
 
 	/** @var string */
 	#[Length(min: 2, max: 10)]
-	#[Regex('/[\x{0020}-\x{007E}]{2,10}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{2,10}/u')]
 	public string $TitoloQuietanzante;
 
 	/** @var string */
 	#[Length(min: 1, max: 80)]
-	#[Regex('/[\x{0000}-\x{00FF}]{1,80}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,80}/u')]
 	public string $IstitutoFinanziario;
 
 	/** @var string */
@@ -140,19 +140,19 @@ class DettaglioPagamento
 	#[Regex('/[A-Z]{6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3})?/')]
 	public string $BIC;
 
-	/** @var float|string */
+	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float|string $ScontoPagamentoAnticipato;
+	public string $ScontoPagamentoAnticipato;
 
 	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	public DateTime $DataLimitePagamentoAnticipato;
 
-	/** @var float|string */
+	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float|string $PenalitaPagamentiRitardati;
+	public string $PenalitaPagamentiRitardati;
 
 	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
@@ -160,6 +160,6 @@ class DettaglioPagamento
 
 	/** @var string */
 	#[Length(min: 1, max: 60)]
-	#[Regex('/[\x{0020}-\x{007E}]{1,60}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,60}/u')]
 	public string $CodicePagamento;
 }

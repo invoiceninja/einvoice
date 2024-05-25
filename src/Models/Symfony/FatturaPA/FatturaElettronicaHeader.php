@@ -43,6 +43,7 @@ class FatturaElettronicaHeader
 	public $TerzoIntermediarioOSoggettoEmittente;
 	private array $SoggettoEmittente_array = ['CC', 'TZ'];
 
+	/** @var string */
 	#[Choice(['CC', 'TZ'])]
 	public string $SoggettoEmittente;
 }

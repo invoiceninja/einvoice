@@ -60,12 +60,15 @@
                     "TipoDocumento": "TD01",
                     "Divisa": "EUR",
                     "Data": {
-                        "date": "2014-12-20 21:22:48.000000",
+                        "date": "2014-12-20 21:31:08.000000",
                         "timezone_type": 3,
                         "timezone": "UTC"
                     },
                     "Numero": "456",
+                    "DatiRitenuta": [],
                     "DatiBollo": null,
+                    "DatiCassaPrevidenziale": [],
+                    "ScontoMaggiorazione": [],
                     "Causale": [
                         "LA FATTURA FA RIFERIMENTO AD UNA ",
                         "SEGUE DESCRIZIONE CAUSALE NEL CASO"
@@ -78,6 +81,12 @@
                         "NumItem": "1"
                     }
                 ],
+                "DatiContratto": [],
+                "DatiConvenzione": [],
+                "DatiRicezione": [],
+                "DatiFattureCollegate": [],
+                "DatiSAL": [],
+                "DatiDDT": [],
                 "DatiTrasporto": null,
                 "FatturaPrincipale": null
             },
@@ -85,19 +94,23 @@
                 "DettaglioLinee": [
                     {
                         "NumeroLinea": 1,
+                        "CodiceArticolo": [],
                         "Descrizione": "PRESTAZIONE DEL SEGUENTE SERVIZIO PROFESSIONALE: LA DESCRIZIONE DELLA\n                    PRESTAZIONE PUO' SUPERARE I CENTO CARATTERI CHE RAPPRESENTAVANO IL PRECEDENTE\n                    LIMITE DIMENSIONALE. TALE LIMITE NELLA NUOVA VERSIONE E' STATO PORTATO A MILLE\n                    CARATTERI",
-                        "Quantita": null,
                         "PrezzoUnitario": "2000.00",
+                        "ScontoMaggiorazione": [],
                         "PrezzoTotale": "2000.00",
-                        "AliquotaIVA": "22.00"
+                        "AliquotaIVA": "22.00",
+                        "AltriDatiGestionali": []
                     },
                     {
                         "NumeroLinea": 2,
+                        "CodiceArticolo": [],
                         "Descrizione": "PRESTAZIONE DEL SEGUENTE SERVIZIO PROFESSIONALE: LA DESCRIZIONE DELLA\n                    PRESTAZIONE PUO' SUPERARE I CENTO CARATTERI CHE RAPPRESENTAVANO IL PRECEDENTE\n                    LIMITE DIMENSIONALE. TALE LIMITE NELLA NUOVA VERSIONE E' STATO PORTATO A MILLE\n                    CARATTERI",
-                        "Quantita": null,
                         "PrezzoUnitario": "2000.00",
+                        "ScontoMaggiorazione": [],
                         "PrezzoTotale": "2000.00",
-                        "AliquotaIVA": "22.00"
+                        "AliquotaIVA": "22.00",
+                        "AltriDatiGestionali": []
                     }
                 ],
                 "DatiRiepilogo": [
@@ -117,15 +130,16 @@
                         {
                             "ModalitaPagamento": "MP19",
                             "DataScadenzaPagamento": {
-                                "date": "2015-01-28 21:22:48.000000",
+                                "date": "2015-01-28 21:31:08.000000",
                                 "timezone_type": 3,
                                 "timezone": "UTC"
                             },
-                            "ImportoPagamento": 2440
+                            "ImportoPagamento": "2440.00"
                         }
                     ]
                 }
-            ]
+            ],
+            "Allegati": []
         }
     ]
 }

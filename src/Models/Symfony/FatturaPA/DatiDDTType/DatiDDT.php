@@ -19,7 +19,7 @@ class DatiDDT
 {
 	/** @var string */
 	#[Length(min: 1, max: 20)]
-	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,20}/u')]
 	public string $NumeroDDT;
 
 	/** @var DateTime */
@@ -29,6 +29,6 @@ class DatiDDT
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	public DateTime $DataDDT;
 
-	/** @var int */
+	/** @var integer */
 	public int $RiferimentoNumeroLinea;
 }

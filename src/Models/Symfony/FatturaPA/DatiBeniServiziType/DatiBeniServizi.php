@@ -20,48 +20,14 @@ use Symfony\Component\Validator\Constraints\Valid;
 class DatiBeniServizi
 {
 	/** @var DettaglioLinee[] */
-	#[All([
-		new NotNull(),
-		new NotBlank(),
-	])]
+	#[NotNull]
+	#[NotBlank]
 	#[Valid]
-	public array $DettaglioLinee;
+	public array $DettaglioLinee = [];
 
 	/** @var DatiRiepilogo[] */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public array $DatiRiepilogo;
-
-	// /**
-	//  * Get the value of DettaglioLinee
-	//  */ 
-	// public function getDettaglioLinee()
-	// {
-	// 	return $this->DettaglioLinee;
-	// }
-
-	// /**
-	//  * Set the value of DettaglioLinee
-	//  *
-	//  * @return  self
-	//  */ 
-	// public function setDettaglioLinee($DettaglioLinee)
-	// {
-	// 	$this->DettaglioLinee = $DettaglioLinee;
-
-	// 	return $this;
-	// }
-
-	// public function addDettaglioLinee(DettaglioLinee $DettaglioLinee)
-	// {
-	// 	$this->DettaglioLinee[] = $DettaglioLinee;
-
-	// 	return $this;
-	// }
-
-	// public function hasDettaglioLinee()
-	// {
-	// 	return count($this->DettaglioLinee) > 0;
-	// }
+	public array $DatiRiepilogo = [];
 }

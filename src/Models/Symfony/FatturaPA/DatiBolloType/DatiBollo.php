@@ -21,8 +21,8 @@ class DatiBollo
 	public string $BolloVirtuale;
 	private array $BolloVirtuale_array = ['SI'];
 
-	/** @var float|string */
+	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float|string $ImportoBollo;
+	public string $ImportoBollo;
 }

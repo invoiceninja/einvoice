@@ -26,7 +26,7 @@ class Fact1 extends BaseStandard
     private CacType $cacType;
     private CbcType $cbcType;
 
-    private array $type_tracker;
+    private array $type_tracker = [];
 
     public string $path = "src/Standards/FACT1/UBL-Invoice-2.1.xsd";
 
@@ -68,7 +68,7 @@ class Fact1 extends BaseStandard
 
         $elements = $this->document->getElementsByTagName('element');
 
-        $parent_elements;
+        $parent_elements = [];
 
         foreach($elements as $element) {
 
@@ -200,7 +200,7 @@ class Fact1 extends BaseStandard
 
             $type_array = $element_collection->where('type',$type)->first();
       
-            $new_set;
+            $new_set = [];
             foreach($type_array['elements'] as $stub) {
                 $new_set[$stub['name']] = $stub;
             }

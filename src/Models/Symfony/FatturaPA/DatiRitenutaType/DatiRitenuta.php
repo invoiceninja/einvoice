@@ -22,15 +22,15 @@ class DatiRitenuta
 	public string $TipoRitenuta;
 	private array $TipoRitenuta_array = ['RT01', 'RT02', 'RT03', 'RT04', 'RT05', 'RT06'];
 
-	/** @var float|string */
+	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float|string $ImportoRitenuta;
+	public string $ImportoRitenuta;
 
-	/** @var float|string */
+	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public float|string $AliquotaRitenuta;
+	public string $AliquotaRitenuta;
 
 	/** @var string */
 	#[Choice([

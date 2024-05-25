@@ -12,16 +12,17 @@ class DatiRitenuta
 {
 	private array $TipoRitenuta_array = ['RT01', 'RT02', 'RT03', 'RT04', 'RT05', 'RT06'];
 
+	/** @var string */
 	#[Choice(['RT01', 'RT02', 'RT03', 'RT04', 'RT05', 'RT06'])]
 	public string $TipoRitenuta;
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float|string $ImportoRitenuta;
+	public string $ImportoRitenuta;
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public float|string $AliquotaRitenuta;
+	public string $AliquotaRitenuta;
 
 	private array $CausalePagamento_array = [
 		'A',
@@ -55,6 +56,7 @@ class DatiRitenuta
 		'ZO',
 	];
 
+	/** @var string */
 	#[Choice([
 		'A',
 		'B',

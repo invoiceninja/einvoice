@@ -13,7 +13,7 @@ class DatiRiepilogo
 {
 	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public float|string $AliquotaIVA;
+	public string $AliquotaIVA;
 
 	private array $Natura_array = [
 		'N1',
@@ -42,6 +42,7 @@ class DatiRiepilogo
 		'N7',
 	];
 
+	/** @var string */
 	#[Choice([
 		'N1',
 		'N2',
@@ -72,26 +73,28 @@ class DatiRiepilogo
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float|string $SpeseAccessorie;
+	public string $SpeseAccessorie;
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
-	public float|string $Arrotondamento;
+	public string $Arrotondamento;
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float|string $ImponibileImporto;
+	public string $ImponibileImporto;
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float|string $Imposta;
+	public string $Imposta;
 	private array $EsigibilitaIVA_array = ['D', 'I', 'S'];
 
+	/** @var string */
 	#[Length(min: 1, max: 1)]
 	#[Choice(['D', 'I', 'S'])]
 	public string $EsigibilitaIVA;
 
+	/** @var string */
 	#[Length(min: 1, max: 100)]
-	#[Regex('/[\x{0000}-\x{00FF}]{1,100}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,100}/u')]
 	public string $RiferimentoNormativo;
 }

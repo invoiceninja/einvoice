@@ -17,9 +17,10 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiRiepilogo
 {
+	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public float|string $AliquotaIVA;
+	public string $AliquotaIVA;
 
 	/** @var string */
 	#[Choice([
@@ -77,21 +78,25 @@ class DatiRiepilogo
 		'N7',
 	];
 
+	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float|string $SpeseAccessorie;
+	public string $SpeseAccessorie;
 
+	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
-	public float|string $Arrotondamento;
+	public string $Arrotondamento;
 
+	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float|string $ImponibileImporto;
+	public string $ImponibileImporto;
 
+	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float|string $Imposta;
+	public string $Imposta;
 
 	/** @var string */
 	#[Length(min: 1, max: 1)]
@@ -101,6 +106,6 @@ class DatiRiepilogo
 
 	/** @var string */
 	#[Length(min: 1, max: 100)]
-	#[Regex('/[\x{0000}-\x{00FF}]{1,100}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,100}/u')]
 	public string $RiferimentoNormativo;
 }

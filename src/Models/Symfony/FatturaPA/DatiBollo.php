@@ -10,9 +10,11 @@ use Symfony\Component\Validator\Constraints\Regex;
 class DatiBollo
 {
 	private array $BolloVirtuale_array = ['SI'];
+
+	/** @var string */
 	public string $BolloVirtuale;
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float|string $ImportoBollo;
+	public string $ImportoBollo;
 }

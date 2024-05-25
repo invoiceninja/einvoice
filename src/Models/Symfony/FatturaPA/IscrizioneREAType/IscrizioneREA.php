@@ -24,13 +24,13 @@ class IscrizioneREA
 
 	/** @var string */
 	#[Length(min: 1, max: 20)]
-	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,20}/u')]
 	public string $NumeroREA;
 
-	/** @var float|string */
+	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public float|string $CapitaleSociale;
+	public string $CapitaleSociale;
 
 	/** @var string */
 	#[Choice(['SU', 'SM'])]

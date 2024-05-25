@@ -62,7 +62,10 @@
         <Divisa>EUR</Divisa>
         <Data>2014-12-18</Data>
         <Numero>123</Numero>
+        <DatiRitenuta/>
         <DatiBollo/>
+        <DatiCassaPrevidenziale/>
+        <ScontoMaggiorazione/>
         <Causale>LA FATLLLLLLL MMM NNNNN OO PPPSSSSSSSSSSSSSS</Causale>
         <Causale>SEGUE DESCRIZIONE CAUA BBBBBBBBBBBBBBBBB</Causale>
       </DatiGeneraliDocumento>
@@ -71,6 +74,12 @@
         <IdDocumento>66685</IdDocumento>
         <NumItem>1</NumItem>
       </DatiOrdineAcquisto>
+      <DatiContratto/>
+      <DatiConvenzione/>
+      <DatiRicezione/>
+      <DatiFattureCollegate/>
+      <DatiSAL/>
+      <DatiDDT/>
       <DatiTrasporto>
         <DatiAnagraficiVettore>
           <IdFiscaleIVA>
@@ -89,19 +98,25 @@
     <DatiBeniServizi>
       <DettaglioLinee>
         <NumeroLinea>1</NumeroLinea>
+        <CodiceArticolo/>
         <Descrizione>LA DESCRIZIONE DELLA FORNITURA PUO' SUPERARE I CENTO CARATTERI CHE RAPPRESENTAVANO IL PRECEDENTE LIMITE DIMENSIONALE. TALE LIMITE NELLA NUOVA VERSIONE E' STATO PORTATO A MILLE CARATTERI</Descrizione>
         <Quantita>5.00</Quantita>
         <PrezzoUnitario>1.00</PrezzoUnitario>
+        <ScontoMaggiorazione/>
         <PrezzoTotale>5.00</PrezzoTotale>
         <AliquotaIVA>22.00</AliquotaIVA>
+        <AltriDatiGestionali/>
       </DettaglioLinee>
       <DettaglioLinee>
         <NumeroLinea>2</NumeroLinea>
+        <CodiceArticolo/>
         <Descrizione>FORNITURE VARIE PER UFFICIO</Descrizione>
         <Quantita>10.00</Quantita>
         <PrezzoUnitario>2.00</PrezzoUnitario>
+        <ScontoMaggiorazione/>
         <PrezzoTotale>20.00</PrezzoTotale>
         <AliquotaIVA>22.00</AliquotaIVA>
+        <AltriDatiGestionali/>
       </DettaglioLinee>
       <DatiRiepilogo>
         <AliquotaIVA>22.00</AliquotaIVA>
@@ -119,5 +134,6 @@
         <ImportoPagamento>32.95</ImportoPagamento>
       </DettaglioPagamento>
     </DatiPagamento>
+    <Allegati/>
   </FatturaElettronicaBody>
 

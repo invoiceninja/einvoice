@@ -9,10 +9,12 @@ use Symfony\Component\Validator\Constraints\Regex;
 
 class ContattiTrasmittente
 {
+	/** @var string */
 	#[Length(min: 5, max: 12)]
-	#[Regex('/[\x{0020}-\x{007E}]{5,12}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{5,12}/u')]
 	public string $Telefono;
 
+	/** @var string */
 	#[Length(min: 7, max: 256)]
 	#[Regex('/.+@.+[.]+.+/')]
 	public string $Email;

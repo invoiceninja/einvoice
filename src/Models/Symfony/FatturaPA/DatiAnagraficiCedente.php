@@ -22,6 +22,7 @@ class DatiAnagraficiCedente
 	#[Valid]
 	public $IdFiscaleIVA;
 
+	/** @var string */
 	#[Length(min: 11, max: 16)]
 	#[Regex('/[A-Z0-9]{11,16}/')]
 	public string $CodiceFiscale;
@@ -32,16 +33,19 @@ class DatiAnagraficiCedente
 	#[Valid]
 	public $Anagrafica;
 
+	/** @var string */
 	#[Length(min: 1, max: 60)]
-	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,60}/u')]
 	public string $AlboProfessionale;
 
+	/** @var string */
 	#[Length(min: 2, max: 2)]
 	#[Regex('/[A-Z]{2}/')]
 	public string $ProvinciaAlbo;
 
+	/** @var string */
 	#[Length(min: 1, max: 60)]
-	#[Regex('/[\x{0020}-\x{007E}]{1,60}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,60}/u')]
 	public string $NumeroIscrizioneAlbo;
 
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
@@ -68,6 +72,7 @@ class DatiAnagraficiCedente
 		'RF18',
 	];
 
+	/** @var string */
 	#[Choice([
 		'RF01',
 		'RF02',

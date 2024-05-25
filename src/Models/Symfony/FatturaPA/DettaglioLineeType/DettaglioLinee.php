@@ -20,7 +20,7 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DettaglioLinee
 {
-	/** @var int */
+	/** @var integer */
 	public int $NumeroLinea;
 
 	/** @var string */
@@ -29,21 +29,21 @@ class DettaglioLinee
 	private array $TipoCessionePrestazione_array = ['SC', 'PR', 'AB', 'AC'];
 
 	/** @var CodiceArticolo[] */
-	public array $CodiceArticolo;
+	public array $CodiceArticolo = [];
 
 	/** @var string */
 	#[Length(min: 1, max: 1000)]
-	#[Regex('/[\x{0000}-\x{00FF}]{1,1000}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,1000}/u')]
 	public string $Descrizione;
 
 	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,12}\.[0-9]{2,8}/')]
-	public $Quantita;
+	public string $Quantita;
 
 	/** @var string */
 	#[Length(min: 1, max: 10)]
-	#[Regex('/[\x{0020}-\x{007E}]{1,10}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,10}/u')]
 	public string $UnitaMisura;
 
 	/** @var DateTime */
@@ -54,20 +54,23 @@ class DettaglioLinee
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	public DateTime $DataFinePeriodo;
 
+	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
-	public float|string $PrezzoUnitario;
+	public string $PrezzoUnitario;
 
 	/** @var ScontoMaggiorazione[] */
-	public array $ScontoMaggiorazione;
+	public array $ScontoMaggiorazione = [];
 
+	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
-	public float|string $PrezzoTotale;
+	public string $PrezzoTotale;
 
+	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public $AliquotaIVA;
+	public string $AliquotaIVA;
 
 	/** @var string */
 	public string $Ritenuta;
@@ -131,9 +134,9 @@ class DettaglioLinee
 
 	/** @var string */
 	#[Length(min: 1, max: 20)]
-	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,20}/u')]
 	public string $RiferimentoAmministrazione;
 
 	/** @var AltriDatiGestionali[] */
-	public array $AltriDatiGestionali;
+	public array $AltriDatiGestionali = [];
 }

@@ -11,17 +11,19 @@ use Symfony\Component\Validator\Constraints\Regex;
 
 class AltriDatiGestionali
 {
+	/** @var string */
 	#[Length(min: 1, max: 10)]
-	#[Regex('/[\x{0020}-\x{007E}]{1,10}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,10}/u')]
 	public string $TipoDato;
 
+	/** @var string */
 	#[Length(min: 1, max: 60)]
-	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,60}/u')]
 	public string $RiferimentoTesto;
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
-	public float|string $RiferimentoNumero;
+	public string $RiferimentoNumero;
 
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	public \DateTime $RiferimentoData;

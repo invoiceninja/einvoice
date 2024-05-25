@@ -71,7 +71,7 @@ class Generator
     {
         match($raw_type){
             'integer' => $type = 'int',
-            'decimal' => $type = 'float|string',
+            'decimal' => $type = 'string',
             'date' => $type = DateTime::class,
             'time' => $type = DateTime::class,
             'dateTime' => $type = DateTime::class,
@@ -93,6 +93,11 @@ class Generator
 
     }
 
+    public function isPrimative(string $type)
+    {
+        return in_array($type, ['int','integer','string','float','bool']);
+    }
+
     public function setValidation(Property $property, array $element): Property
     {
         if($element['min_occurs'] >= 1 && count($element['resource']) == 0 && !in_array($element['base_type'], ['integer', 'decimal', 'float', 'double', 'string'])){
@@ -109,7 +114,7 @@ class Generator
             $property->addAttribute(DecimalPrecision::class, [2]);
         }
 
-        if($element['max_occurs'] > 1 || $element['max_occurs'] == -1) {
+        if($element['max_occurs'] > 1 || $element['max_occurs'] == -1 && !$this->isPrimative($element['base_type'])) {
             $property->setType("array");
             $property->setValue([]);
             $property->removeComment();
@@ -142,13 +147,21 @@ class Generator
             $this->namespace->addUse(Choice::class);
             $property->addAttribute(Choice::class, [array_keys($element['resource'])]);
         }
+
+        if($this->isPrimative($element['base_type'])) {
+            $property->removeComment();
+            $property->addComment("@var ".$element['base_type']);
+        }
         
         if($element['name'] == 'Causale') {
             $this->namespace->addUse(All::class);
             $property->setType('array');
             $property->setAttributes([]);
             $property->addAttribute(All::class, [new Literal('[new Length(min: 1,max: 200),new Regex(pattern: "/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,200}/u")]')]);
+            $property->removeComment();
+            $property->addComment("@var string[]");
         }
+
 
         return $property;
     }

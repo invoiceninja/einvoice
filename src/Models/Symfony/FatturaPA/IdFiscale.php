@@ -9,10 +9,12 @@ use Symfony\Component\Validator\Constraints\Regex;
 
 class IdFiscale
 {
+	/** @var string */
 	#[Length(min: 2, max: 2)]
 	#[Regex('/[A-Z]{2}/')]
 	public string $IdPaese;
 
+	/** @var string */
 	#[Length(min: 1, max: 28)]
 	public string $IdCodice;
 }

@@ -60,12 +60,15 @@
                     "TipoDocumento": "TD01",
                     "Divisa": "EUR",
                     "Data": {
-                        "date": "2017-01-18 21:22:48.000000",
+                        "date": "2017-01-18 21:31:08.000000",
                         "timezone_type": 3,
                         "timezone": "UTC"
                     },
                     "Numero": "123",
+                    "DatiRitenuta": [],
                     "DatiBollo": null,
+                    "DatiCassaPrevidenziale": [],
+                    "ScontoMaggiorazione": [],
                     "Causale": [
                         "LA FATTURA FA RIFERIMENTO AD UF GGGGGGGGGG HHHHHHH II LLLLLLLLLLLLLLLLL\n                    MMM NNNNN OO PPPPPPPPPPP QQQQ RRRR SSSSSSSSSSSSSS",
                         "SEGUE DESCRIZIONE CAUSALE NEBBBBB"
@@ -85,7 +88,7 @@
                         "RiferimentoNumeroLinea": 1,
                         "IdDocumento": "123",
                         "Data": {
-                            "date": "2016-09-01 21:22:48.000000",
+                            "date": "2016-09-01 21:31:08.000000",
                             "timezone_type": 3,
                             "timezone": "UTC"
                         },
@@ -112,6 +115,9 @@
                         "CodiceCIG": "456def"
                     }
                 ],
+                "DatiFattureCollegate": [],
+                "DatiSAL": [],
+                "DatiDDT": [],
                 "DatiTrasporto": {
                     "DatiAnagraficiVettore": {
                         "IdFiscaleIVA": {
@@ -135,11 +141,14 @@
                 "DettaglioLinee": [
                     {
                         "NumeroLinea": 1,
+                        "CodiceArticolo": [],
                         "Descrizione": "DESCRIZIONE DELLA FORNITURA",
                         "Quantita": "5.00",
                         "PrezzoUnitario": "1.00",
+                        "ScontoMaggiorazione": [],
                         "PrezzoTotale": "5.00",
-                        "AliquotaIVA": "22.00"
+                        "AliquotaIVA": "22.00",
+                        "AltriDatiGestionali": []
                     }
                 ],
                 "DatiRiepilogo": [
@@ -159,15 +168,16 @@
                         {
                             "ModalitaPagamento": "MP01",
                             "DataScadenzaPagamento": {
-                                "date": "2017-02-18 21:22:48.000000",
+                                "date": "2017-02-18 21:31:08.000000",
                                 "timezone_type": 3,
                                 "timezone": "UTC"
                             },
-                            "ImportoPagamento": 6.1
+                            "ImportoPagamento": "6.10"
                         }
                     ]
                 }
-            ]
+            ],
+            "Allegati": []
         }
     ]
 }

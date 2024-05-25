@@ -27,7 +27,6 @@
         "phpunit/phpunit": "^10.5",
         "symfony/console": "^7",
         "nette/php-generator": "^4.1",
-        "phpstan/phpstan": "^1.11",
-        "nesbot/carbon": "^2"
+        "phpstan/phpstan": "^1.11"
     }
 }

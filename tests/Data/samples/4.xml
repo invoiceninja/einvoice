@@ -59,31 +59,9 @@
       <DatiGeneraliDocumento>
         <TipoDocumento>TD01</TipoDocumento>
         <Divisa>EUR</Divisa>
-        <Data>
-          <timezone>
-            <name>UTC</name>
-            <transitions>
-              <ts>-9223372036854775808</ts>
-              <time>-292277022657-01-27T08:29:52+00:00</time>
-              <offset>0</offset>
-              <isdst>0</isdst>
-              <abbr>UTC</abbr>
-            </transitions>
-            <location>
-              <country_code>??</country_code>
-              <latitude>0</latitude>
-              <longitude>0</longitude>
-              <comments>?</comments>
-            </location>
-          </timezone>
-          <offset>0</offset>
-          <timestamp>1716669845</timestamp>
-        </Data>
+        <Data>2014-12-18</Data>
         <Numero>123</Numero>
-        <DatiRitenuta/>
         <DatiBollo/>
-        <DatiCassaPrevidenziale/>
-        <ScontoMaggiorazione/>
         <Causale>LA FATTURA FA RIFERIMENTO AD UNA SSSSSSSSSS</Causale>
         <Causale>SEGUE DESCRIZIONE CAUSALE NEL CBBB</Causale>
       </DatiGeneraliDocumento>
@@ -95,35 +73,11 @@
       <DatiContratto>
         <RiferimentoNumeroLinea>1</RiferimentoNumeroLinea>
         <IdDocumento>123</IdDocumento>
-        <Data>
-          <timezone>
-            <name>UTC</name>
-            <transitions>
-              <ts>-9223372036854775808</ts>
-              <time>-292277022657-01-27T08:29:52+00:00</time>
-              <offset>0</offset>
-              <isdst>0</isdst>
-              <abbr>UTC</abbr>
-            </transitions>
-            <location>
-              <country_code>??</country_code>
-              <latitude>0</latitude>
-              <longitude>0</longitude>
-              <comments>?</comments>
-            </location>
-          </timezone>
-          <offset>0</offset>
-          <timestamp>1716669845</timestamp>
-        </Data>
+        <Data>2012-09-01</Data>
         <NumItem>5</NumItem>
         <CodiceCUP>123abc</CodiceCUP>
         <CodiceCIG>456def</CodiceCIG>
       </DatiContratto>
-      <DatiConvenzione/>
-      <DatiRicezione/>
-      <DatiFattureCollegate/>
-      <DatiSAL/>
-      <DatiDDT/>
       <DatiTrasporto>
         <DatiAnagraficiVettore>
           <IdFiscaleIVA>
@@ -135,40 +89,18 @@
           </Anagrafica>
         </DatiAnagraficiVettore>
         <IndirizzoResa/>
-        <DataOraConsegna>
-          <timezone>
-            <name>UTC</name>
-            <transitions>
-              <ts>-9223372036854775808</ts>
-              <time>-292277022657-01-27T08:29:52+00:00</time>
-              <offset>0</offset>
-              <isdst>0</isdst>
-              <abbr>UTC</abbr>
-            </transitions>
-            <location>
-              <country_code>??</country_code>
-              <latitude>0</latitude>
-              <longitude>0</longitude>
-              <comments>?</comments>
-            </location>
-          </timezone>
-          <offset>0</offset>
-          <timestamp>1716669845</timestamp>
-        </DataOraConsegna>
+        <DataOraConsegna>2012-10-22T16:46:12.000000+02:00</DataOraConsegna>
       </DatiTrasporto>
       <FatturaPrincipale/>
     </DatiGenerali>
     <DatiBeniServizi>
       <DettaglioLinee>
         <NumeroLinea>1</NumeroLinea>
-        <CodiceArticolo/>
         <Descrizione>DESCRIZIONE DELLA FORNITURA</Descrizione>
         <Quantita>5.00</Quantita>
         <PrezzoUnitario>1.00</PrezzoUnitario>
-        <ScontoMaggiorazione/>
         <PrezzoTotale>5.00</PrezzoTotale>
         <AliquotaIVA>22.00</AliquotaIVA>
-        <AltriDatiGestionali/>
       </DettaglioLinee>
       <DatiRiepilogo>
         <AliquotaIVA>22.00</AliquotaIVA>
@@ -182,29 +114,9 @@
       <CondizioniPagamento>TP01</CondizioniPagamento>
       <DettaglioPagamento>
         <ModalitaPagamento>MP01</ModalitaPagamento>
-        <DataScadenzaPagamento>
-          <timezone>
-            <name>UTC</name>
-            <transitions>
-              <ts>-9223372036854775808</ts>
-              <time>-292277022657-01-27T08:29:52+00:00</time>
-              <offset>0</offset>
-              <isdst>0</isdst>
-              <abbr>UTC</abbr>
-            </transitions>
-            <location>
-              <country_code>??</country_code>
-              <latitude>0</latitude>
-              <longitude>0</longitude>
-              <comments>?</comments>
-            </location>
-          </timezone>
-          <offset>0</offset>
-          <timestamp>1716669845</timestamp>
-        </DataScadenzaPagamento>
+        <DataScadenzaPagamento>2015-01-30</DataScadenzaPagamento>
         <ImportoPagamento>6.1</ImportoPagamento>
       </DettaglioPagamento>
     </DatiPagamento>
-    <Allegati/>
   </FatturaElettronicaBody>
 

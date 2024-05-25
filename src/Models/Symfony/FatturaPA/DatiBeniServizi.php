@@ -21,13 +21,13 @@ class DatiBeniServiziacac
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public array $DettaglioLinee = [];
+	public array $DettaglioLinee;
 
 	/** @var DatiRiepilogo[] */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public array $DatiRiepilogo = [];
+	public array $DatiRiepilogo;
 
 	public function addDatiRiepilogo(DatiRiepilogo $DatiRiepilogo)
 	{

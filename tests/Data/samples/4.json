@@ -60,15 +60,12 @@
                     "TipoDocumento": "TD01",
                     "Divisa": "EUR",
                     "Data": {
-                        "date": "2024-05-25 20:44:05.676076",
+                        "date": "2014-12-18 21:14:08.000000",
                         "timezone_type": 3,
                         "timezone": "UTC"
                     },
                     "Numero": "123",
-                    "DatiRitenuta": [],
                     "DatiBollo": null,
-                    "DatiCassaPrevidenziale": [],
-                    "ScontoMaggiorazione": [],
                     "Causale": [
                         "LA FATTURA FA RIFERIMENTO AD UNA SSSSSSSSSS",
                         "SEGUE DESCRIZIONE CAUSALE NEL CBBB"
@@ -86,7 +83,7 @@
                         "RiferimentoNumeroLinea": 1,
                         "IdDocumento": "123",
                         "Data": {
-                            "date": "2024-05-25 20:44:05.676231",
+                            "date": "2012-09-01 21:14:08.000000",
                             "timezone_type": 3,
                             "timezone": "UTC"
                         },
@@ -95,11 +92,6 @@
                         "CodiceCIG": "456def"
                     }
                 ],
-                "DatiConvenzione": [],
-                "DatiRicezione": [],
-                "DatiFattureCollegate": [],
-                "DatiSAL": [],
-                "DatiDDT": [],
                 "DatiTrasporto": {
                     "DatiAnagraficiVettore": {
                         "IdFiscaleIVA": {
@@ -112,9 +104,9 @@
                     },
                     "IndirizzoResa": null,
                     "DataOraConsegna": {
-                        "date": "2024-05-25 20:44:05.676384",
-                        "timezone_type": 3,
-                        "timezone": "UTC"
+                        "date": "2012-10-22 16:46:12.000000",
+                        "timezone_type": 1,
+                        "timezone": "+02:00"
                     }
                 },
                 "FatturaPrincipale": null
@@ -123,14 +115,11 @@
                 "DettaglioLinee": [
                     {
                         "NumeroLinea": 1,
-                        "CodiceArticolo": [],
                         "Descrizione": "DESCRIZIONE DELLA FORNITURA",
                         "Quantita": "5.00",
                         "PrezzoUnitario": "1.00",
-                        "ScontoMaggiorazione": [],
                         "PrezzoTotale": "5.00",
-                        "AliquotaIVA": "22.00",
-                        "AltriDatiGestionali": []
+                        "AliquotaIVA": "22.00"
                     }
                 ],
                 "DatiRiepilogo": [
@@ -150,7 +139,7 @@
                         {
                             "ModalitaPagamento": "MP01",
                             "DataScadenzaPagamento": {
-                                "date": "2024-05-25 20:44:05.676706",
+                                "date": "2015-01-30 21:14:08.000000",
                                 "timezone_type": 3,
                                 "timezone": "UTC"
                             },
@@ -158,8 +147,7 @@
                         }
                     ]
                 }
-            ],
-            "Allegati": []
+            ]
         }
     ]
 }

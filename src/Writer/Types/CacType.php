@@ -20,9 +20,9 @@ class CacType
 
     private string $prefix = 'xsd';
 
-    public array $type_map = [];
+    public array $type_map;
 
-    public array $elements = [];
+    public array $elements;
 
     private array $stub_validation =
         [
@@ -80,7 +80,7 @@ class CacType
     public function getElements(): self
     {
 
-        $this->elements = [];
+        $this->elements;
 
         foreach($this->type_map as $key => $value) {
 
@@ -88,7 +88,7 @@ class CacType
 
             $base_type = $value;
 
-            $elements = [];
+            $elements;
 
             for($x = 0; $x < $sequence->count(); $x++) {
 
@@ -180,11 +180,11 @@ class CacType
     private function parseSequenceNode(DOMElement $element): array
     {
 
-        $data = [];
+        $data;
 
         foreach($element->childNodes as $childNode) {
 
-            $child_array = [];
+            $child_array;
 
             if($childNode instanceof DOMElement) {
 

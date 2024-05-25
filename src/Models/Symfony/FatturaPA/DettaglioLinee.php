@@ -22,7 +22,7 @@ class DettaglioLinee
 	public string $TipoCessionePrestazione;
 
 	/** @var CodiceArticolo[] */
-	public array $CodiceArticolo = [];
+	public array $CodiceArticolo;
 
 	#[Length(min: 1, max: 1000)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,1000}/u')]
@@ -47,7 +47,7 @@ class DettaglioLinee
 	public float|string $PrezzoUnitario;
 
 	/** @var ScontoMaggiorazione[] */
-	public array $ScontoMaggiorazione = [];
+	public array $ScontoMaggiorazione;
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
@@ -119,5 +119,5 @@ class DettaglioLinee
 	public string $RiferimentoAmministrazione;
 
 	/** @var AltriDatiGestionali[] */
-	public array $AltriDatiGestionali = [];
+	public array $AltriDatiGestionali;
 }

@@ -20,8 +20,8 @@ class CbcType
 
     private string $prefix = 'xsd';
 
-    public array $type_map = [];
-    public array $elements = [];
+    public array $type_map;
+    public array $elements;
 
     private array $stub_validation =
         [
@@ -50,7 +50,7 @@ class CbcType
     public function getElements(): self
     {
 
-        $this->elements = [];
+        $this->elements;
 
         foreach($this->type_map as $key => $value) {
 

@@ -21,9 +21,9 @@ class UdtType
 
     private string $prefix = 'xsd';
 
-    public array $type_map = [];
+    public array $type_map;
 
-    public array $elements = [];
+    public array $elements;
 
     private array $stub_validation =
         [

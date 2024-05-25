@@ -28,7 +28,7 @@ class FatturaElettronica
 		new Type(FatturaElettronicaBody::class)
 	])]
 	#[Valid]
-	public $FatturaElettronicaBody = [];
+	public $FatturaElettronicaBody;
 
 // 	/**
 // 	 * Get the value of FatturaElettronicaBody

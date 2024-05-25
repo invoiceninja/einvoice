@@ -25,13 +25,13 @@ class DatiBeniServizi
 		new NotBlank(),
 	])]
 	#[Valid]
-	public array $DettaglioLinee = [];
+	public array $DettaglioLinee;
 
 	/** @var DatiRiepilogo[] */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public array $DatiRiepilogo = [];
+	public array $DatiRiepilogo;
 
 	// /**
 	//  * Get the value of DettaglioLinee

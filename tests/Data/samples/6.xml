@@ -59,60 +59,28 @@
       <DatiGeneraliDocumento>
         <TipoDocumento>TD01</TipoDocumento>
         <Divisa>EUR</Divisa>
-        <Data>
-          <timezone>
-            <name>UTC</name>
-            <transitions>
-              <ts>-9223372036854775808</ts>
-              <time>-292277022657-01-27T08:29:52+00:00</time>
-              <offset>0</offset>
-              <isdst>0</isdst>
-              <abbr>UTC</abbr>
-            </transitions>
-            <location>
-              <country_code>??</country_code>
-              <latitude>0</latitude>
-              <longitude>0</longitude>
-              <comments>?</comments>
-            </location>
-          </timezone>
-          <offset>0</offset>
-          <timestamp>1716669845</timestamp>
-        </Data>
+        <Data>2014-12-20</Data>
         <Numero>456</Numero>
-        <DatiRitenuta/>
         <DatiBollo/>
-        <DatiCassaPrevidenziale/>
-        <ScontoMaggiorazione/>
-        <Causale/>
       </DatiGeneraliDocumento>
       <DatiOrdineAcquisto>
         <RiferimentoNumeroLinea>1</RiferimentoNumeroLinea>
         <IdDocumento>66685</IdDocumento>
         <NumItem>1</NumItem>
       </DatiOrdineAcquisto>
-      <DatiContratto/>
-      <DatiConvenzione/>
-      <DatiRicezione/>
-      <DatiFattureCollegate/>
-      <DatiSAL/>
-      <DatiDDT/>
       <DatiTrasporto/>
       <FatturaPrincipale/>
     </DatiGenerali>
     <DatiBeniServizi>
       <DettaglioLinee>
         <NumeroLinea>1</NumeroLinea>
-        <CodiceArticolo/>
         <Descrizione>PRESTAZIONE DEL SEGUENTE SERVIZIO PROFESSIONALE: LA DESCRIZIONE DELLA
                     PRESTAZIONE PUO' SUPERARE I CENTO CARATUOVA VERSIONE E' STATO PORTATO A MILLE
                     CARATTERI</Descrizione>
         <Quantita/>
         <PrezzoUnitario>2000.00</PrezzoUnitario>
-        <ScontoMaggiorazione/>
         <PrezzoTotale>2000.00</PrezzoTotale>
         <AliquotaIVA>22.00</AliquotaIVA>
-        <AltriDatiGestionali/>
       </DettaglioLinee>
       <DatiRiepilogo>
         <AliquotaIVA>22.00</AliquotaIVA>
@@ -126,29 +94,9 @@
       <CondizioniPagamento>TP01</CondizioniPagamento>
       <DettaglioPagamento>
         <ModalitaPagamento>MP19</ModalitaPagamento>
-        <DataScadenzaPagamento>
-          <timezone>
-            <name>UTC</name>
-            <transitions>
-              <ts>-9223372036854775808</ts>
-              <time>-292277022657-01-27T08:29:52+00:00</time>
-              <offset>0</offset>
-              <isdst>0</isdst>
-              <abbr>UTC</abbr>
-            </transitions>
-            <location>
-              <country_code>??</country_code>
-              <latitude>0</latitude>
-              <longitude>0</longitude>
-              <comments>?</comments>
-            </location>
-          </timezone>
-          <offset>0</offset>
-          <timestamp>1716669845</timestamp>
-        </DataScadenzaPagamento>
+        <DataScadenzaPagamento>2015-01-28</DataScadenzaPagamento>
         <ImportoPagamento>2440</ImportoPagamento>
       </DettaglioPagamento>
     </DatiPagamento>
-    <Allegati/>
   </FatturaElettronicaBody>
 

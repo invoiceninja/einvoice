@@ -90,7 +90,7 @@ class FatturaPA extends BaseStandard
 
         foreach($complexTypes as $type) {
 
-            $set = [];
+            $set;
 
             if($type instanceof \DOMElement) {
 
@@ -101,7 +101,7 @@ class FatturaPA extends BaseStandard
 
                 $choice_array = $this->extractChoice($sequence->item(0));
 
-                $choice_keys = [];
+                $choice_keys;
 
                 foreach($choice_array as $key => $arr) {
                     $choice_keys[] = array_keys($arr);
@@ -132,7 +132,7 @@ class FatturaPA extends BaseStandard
      */
     private function processSequences(\DOMNodeList $list): array
     {
-        $data = [];
+        $data;
 
         for($x = 0; $x < $list->count(); $x++) {
             $node = $list->item($x);
@@ -148,7 +148,7 @@ class FatturaPA extends BaseStandard
                 }
             }
 
-            $child_array = [];
+            $child_array;
 
             foreach($node->childNodes as $childNode) {
 
@@ -209,12 +209,12 @@ class FatturaPA extends BaseStandard
     private function processChoiceSequence(\DomNodeList $list): array
     {
 
-        $data = [];
+        $data;
 
         for($x = 0; $x < $list->count(); $x++) {
             $node = $list->item($x);
 
-            $child_array = [];
+            $child_array;
 
             foreach($node->childNodes as $childNode) {
 
@@ -239,7 +239,7 @@ class FatturaPA extends BaseStandard
 
     private function extractAttributes(\DomElement $childNode): array
     {
-        $child_array = [];
+        $child_array;
 
         foreach($childNode->attributes as $key => $attr) {
             if(in_array($attr->nodeName, ['name','type','minOccurs','maxOccurs'])) {
@@ -281,7 +281,7 @@ class FatturaPA extends BaseStandard
 
     private function extractChoice(\DomElement $element): array
     {
-        $data = [];
+        $data;
 
         $xpath = new \DOMXPath($this->document);
         $result = $xpath->query('./xs:choice//xs:sequence', $element);
@@ -331,7 +331,7 @@ class FatturaPA extends BaseStandard
             return [];
         }
 
-        $resource = [];
+        $resource;
 
         $xpath = new \DOMXPath($this->document);
         $result = $xpath->query('./xs:simpleType [@name="'.$type.'"]//xs:restriction');
@@ -368,7 +368,7 @@ class FatturaPA extends BaseStandard
      */
     private function extractRestriction(string $type): array
     {
-        $resource = [];
+        $resource;
 
         $xpath = new \DOMXPath($this->document);
         $result = $xpath->query('./xs:simpleType [@name="'.$type.'"]//xs:restriction');
@@ -427,7 +427,7 @@ class FatturaPA extends BaseStandard
      */
     private function extractPattern($resource): array
     {
-        $parts = [];
+        $parts;
 
         if (preg_match('/{([^{}]+)}[^{}]*$/', $resource['pattern'] ?? '', $matches)) {
             $contents = $matches[1];

@@ -80,16 +80,16 @@ class DatiGeneraliDocumento
 	public string $Numero;
 
 	/** @var DatiRitenuta[] */
-	public array $DatiRitenuta = [];
+	public array $DatiRitenuta;
 
 	/** @var DatiBollo */
 	public $DatiBollo;
 
 	/** @var DatiCassaPrevidenziale[] */
-	public array $DatiCassaPrevidenziale = [];
+	public array $DatiCassaPrevidenziale;
 
 	/** @var ScontoMaggiorazione[] */
-	public array $ScontoMaggiorazione = [];
+	public array $ScontoMaggiorazione;
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
@@ -101,7 +101,7 @@ class DatiGeneraliDocumento
 
 	/** @var Causale[] */
 	#[All([new Length(min: 1,max: 200),new Regex(pattern: "/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,200}/u")])]
-	public array $Causale = [];
+	public array $Causale;
 	private array $Art73_array = ['SI'];
 	public string $Art73;
 }

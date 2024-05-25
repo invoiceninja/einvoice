@@ -19,9 +19,9 @@ class BaseStandard
 
     public \DomDocument $document;
     
-    public array $type_map = [];
+    public array $type_map;
     
-    public array $data = [];
+    public array $data;
 
     public string $path = "";
     

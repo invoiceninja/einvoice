@@ -21,9 +21,9 @@ class ExtType
 
     private string $prefix = 'xsd';
 
-    public array $type_map = [];
+    public array $type_map;
 
-    public array $elements = [];
+    public array $elements;
     
     private array $stub_validation =
         [
@@ -105,13 +105,13 @@ class ExtType
      */
     public function getElements(): self
     {
-        $this->elements = [];
+        $this->elements;
 
         foreach($this->type_map as $key => $value) {
             $sequence = $this->getSequence($key);
             $base_type = $value;
 
-            $elements = [];
+            $elements;
 
             for($x = 0; $x < $sequence->count(); $x++) {
                 if($sequence->item($x) instanceof DOMElement) {
@@ -139,10 +139,10 @@ class ExtType
     private function parseSequenceNode(DOMElement $element): array
     {
 
-        $data = [];
+        $data;
 
         foreach($element->childNodes as $childNode) {
-            $child_array = [];
+            $child_array;
 
             if($childNode instanceof DOMElement) {
                 foreach($childNode->attributes as $key => $attr) {

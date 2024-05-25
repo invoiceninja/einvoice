@@ -5,6 +5,7 @@ namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DettaglioLineeType;
 use DateTime;
 use DateTimeInterface;
 use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
+use Invoiceninja\Einvoice\Models\Normalizers\IntegerCast;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\AltriDatiGestionaliType\AltriDatiGestionali;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\CodiceArticoloType\CodiceArticolo;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione;
@@ -20,6 +21,7 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DettaglioLinee
 {
+	#[IntegerCast(2)]
 	public int $NumeroLinea;
 
 	#[Choice(['SC', 'PR', 'AB', 'AC'])]
@@ -125,4 +127,24 @@ class DettaglioLinee
 
 	/** @param AltriDatiGestionali[] $AltriDatiGestionali */
 	public AltriDatiGestionali $AltriDatiGestionali;
+
+	/**
+	 * Get the value of Descrizione
+	 */ 
+	public function getDescrizione()
+	{
+		return $this->Descrizione;
+	}
+
+	/**
+	 * Set the value of Descrizione
+	 *
+	 * @return  self
+	 */ 
+	public function setDescrizione($Descrizione)
+	{
+		$this->Descrizione = $Descrizione;
+
+		return $this;
+	}
 }

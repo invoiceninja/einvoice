@@ -8,8 +8,8 @@
             "ProgressivoInvio": "00001",
             "FormatoTrasmissione": "FPR12",
             "CodiceDestinatario": "0000000",
-            "ContattiTrasmittente": {},
-            "PECDestinatario": "betagamma@pec.it"
+            "PECDestinatario": "betagamma@pec.it",
+            "ContattiTrasmittente": ""
         },
         "CedentePrestatore": {
             "DatiAnagrafici": {
@@ -46,24 +46,20 @@
             }
         }
     },
-    "FatturaElettronicaBody": {
-        "DatiGenerali": {
+    "FatturaElettronicaBody": [
+        {
             "DatiGeneraliDocumento": {
                 "TipoDocumento": "TD01",
                 "Divisa": "EUR",
-                "Data": {
-                    "date": "2024-05-24 08:33:30.122838",
-                    "timezone_type": 3,
-                    "timezone": "UTC"
-                },
+                "Data": "2014-12-18",
                 "Numero": "123",
                 "Causale": [
-                    "LA FATTURA FA RIFERIMENTO AD UNA OPERAZIONE AAAA BBBBBBBBBBBBBBBBBB CCC DDDDDDDDDDDDDDD E FFFFFFFFFFFFFFFFFFFF GGGGGGGGGG HHHHHHH II LLLLLLLLLLLLLLLLL MMM NNNNN OO PPPPPPPPPPP QQQQ RRRR SSSSSSSSSSSSSS",
-                    "SEGUE DESCRIZIONE CAUSALE NEL CASO IN CUI NON SIANO STATI SUFFICIENTI 200 CARATTERI AAAAAAAAAAA BBBBBBBBBBBBBBBBB"
+                    "LA FATLLLLLLL MMM NNNNN OO PPPSSSSSSSSSSSSSS",
+                    "SEGUE DESCRIZIONE CAUA BBBBBBBBBBBBBBBBB"
                 ]
             },
             "DatiOrdineAcquisto": {
-                "RiferimentoNumeroLinea": 1,
+                "RiferimentoNumeroLinea": "1",
                 "IdDocumento": "66685",
                 "NumItem": "1"
             },
@@ -77,15 +73,28 @@
                         "Denominazione": "Trasporto spa"
                     }
                 },
-                "DataOraConsegna": {
-                    "date": "2024-05-24 08:33:30.122999",
-                    "timezone_type": 3,
-                    "timezone": "UTC"
-                }
+                "DataOraConsegna": "2012-10-22T16:46:12.000+02:00"
             }
         },
-        "DatiBeniServizi": {
-            "DettaglioLinee": {},
+        {
+            "DettaglioLinee": [
+                {
+                    "NumeroLinea": "1",
+                    "Descrizione": "LA DESCRIZIONE DELLA FORNITURA PUO' SUPERARE I CENTO CARATTERI CHE RAPPRESENTAVANO IL PRECEDENTE LIMITE DIMENSIONALE. TALE LIMITE NELLA NUOVA VERSIONE E' STATO PORTATO A MILLE CARATTERI",
+                    "Quantita": "5.00",
+                    "PrezzoUnitario": "1.00",
+                    "PrezzoTotale": "5.00",
+                    "AliquotaIVA": "22.00"
+                },
+                {
+                    "NumeroLinea": "2",
+                    "Descrizione": "FORNITURE VARIE PER UFFICIO",
+                    "Quantita": "10.00",
+                    "PrezzoUnitario": "2.00",
+                    "PrezzoTotale": "20.00",
+                    "AliquotaIVA": "22.00"
+                }
+            ],
             "DatiRiepilogo": {
                 "AliquotaIVA": "22.00",
                 "ImponibileImporto": "27.00",
@@ -93,17 +102,13 @@
                 "EsigibilitaIVA": "D"
             }
         },
-        "DatiPagamento": {
+        {
             "CondizioniPagamento": "TP01",
             "DettaglioPagamento": {
                 "ModalitaPagamento": "MP01",
-                "DataScadenzaPagamento": {
-                    "date": "2024-05-24 08:33:30.123313",
-                    "timezone_type": 3,
-                    "timezone": "UTC"
-                },
+                "DataScadenzaPagamento": "2015-01-30",
                 "ImportoPagamento": "32.95"
             }
         }
-    }
+    ]
 }

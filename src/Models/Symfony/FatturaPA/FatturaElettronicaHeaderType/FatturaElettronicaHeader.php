@@ -25,7 +25,8 @@ class FatturaElettronicaHeader
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public DatiTrasmissione $DatiTrasmissione;
+	/** @var DatiTrasmissione */
+	public $DatiTrasmissione;
 
 	#[NotNull]
 	#[NotBlank]

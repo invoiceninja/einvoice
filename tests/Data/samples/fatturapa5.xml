@@ -57,8 +57,8 @@ xsi:schemaLocation="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.
         <Divisa>EUR</Divisa>
         <Data>2014-12-18</Data>
         <Numero>123</Numero>
-        <Causale>LA FATTURA FA RIFERIMENTO AD UNA OPERAZIONE AAAA BBBBBBBBBBBBBBBBBB CCC DDDDDDDDDDDDDDD E FFFFFFFFFFFFFFFFFFFF GGGGGGGGGG HHHHHHH II LLLLLLLLLLLLLLLLL MMM NNNNN OO PPPPPPPPPPP QQQQ RRRR SSSSSSSSSSSSSS</Causale>
-        <Causale>SEGUE DESCRIZIONE CAUSALE NEL CASO IN CUI NON SIANO STATI SUFFICIENTI 200 CARATTERI AAAAAAAAAAA BBBBBBBBBBBBBBBBB</Causale>
+        <Causale>LA FATLLLLLLL MMM NNNNN OO PPPSSSSSSSSSSSSSS</Causale>
+        <Causale>SEGUE DESCRIZIONE CAUA BBBBBBBBBBBBBBBBB</Causale>
       </DatiGeneraliDocumento>
       <DatiOrdineAcquisto>
         <RiferimentoNumeroLinea>1</RiferimentoNumeroLinea>

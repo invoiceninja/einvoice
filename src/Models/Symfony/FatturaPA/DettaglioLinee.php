@@ -2,20 +2,20 @@
 
 namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA;
 
-use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
-use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\AltriDatiGestionaliType\AltriDatiGestionali;
-use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\CodiceArticoloType\CodiceArticolo;
-use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione;
-use Symfony\Component\Serializer\Attribute\Context;
-use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
-use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\Date;
-use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Validator\Constraints\Choice;
+use Symfony\Component\Validator\Constraints\Length;
+use Invoiceninja\Einvoice\Models\Normalizers\Integer;
+use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\CodiceArticoloType\CodiceArticolo;
+use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\AltriDatiGestionaliType\AltriDatiGestionali;
+use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione;
 
 class DettaglioLinee
 {
-	public int $NumeroLinea;
 	private array $TipoCessionePrestazione_array = ['SC', 'PR', 'AB', 'AC'];
 
 	#[Choice(['SC', 'PR', 'AB', 'AC'])]

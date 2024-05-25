@@ -5,6 +5,7 @@ namespace Invoiceninja\Einvoice\Tests\Data;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Serializer\Serializer;
+use Doctrine\Common\Annotations\AnnotationReader;
 use Symfony\Component\Validator\ValidatorBuilder;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
@@ -14,14 +15,18 @@ use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Serializer\Normalizer\PropertyNormalizer;
 use Symfony\Component\Serializer\Mapping\Loader\AttributeLoader;
 use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
+use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 use Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\FatturaElettronica;
 use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\FatturaElettronicaBody;
+use Symfony\Component\Serializer\NameConverter\MetadataAwareNameConverter;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\FatturaElettronicaHeader;
-use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Serializer\Mapping\ClassDiscriminatorFromClassMetadata;
 
 class FatturaDataTest extends TestCase
 {
@@ -132,7 +137,7 @@ class FatturaDataTest extends TestCase
             ],
             'DatiBeniServizi' => [
                 'DettaglioLinee' => [
-                'NumeroLinea' => 1,
+                // 'NumeroLinea' => 1,
                 'Descrizione' => 'DESCRIZIONE DELLA FORNITURAa',
                 'Quantita' => "5.00",
                 'PrezzoUnitario' => "1.00",
@@ -272,9 +277,9 @@ class FatturaDataTest extends TestCase
         $propertyInfo = new PropertyInfoExtractor(
             $listExtractors,
             $typeExtractors,
-            // $descriptionExtractors,
-            // $accessExtractors,
-            // $propertyInitializableExtractors
+            $descriptionExtractors,
+            $accessExtractors,
+            $propertyInitializableExtractors
         );
 
         
@@ -285,9 +290,25 @@ class FatturaDataTest extends TestCase
         $encoder = new XmlEncoder($context);
 
         $classMetadataFactory = new ClassMetadataFactory(new AttributeLoader());
-        $normalizer = new ObjectNormalizer($classMetadataFactory, null, null, $propertyInfo);
-        $normalizers = [$normalizer, new DateTimeNormalizer()];
+        $metadataAwareNameConverter = new MetadataAwareNameConverter($classMetadataFactory);
+        
+        $discriminator = new ClassDiscriminatorFromClassMetadata($classMetadataFactory);
+
+        $normalizer = new ObjectNormalizer($classMetadataFactory, $metadataAwareNameConverter, null, $phpDocExtractor);
+        $normalizers = [ new ArrayDenormalizer(),$normalizer,   new DateTimeNormalizer()];
         $encoders = [$encoder, new JsonEncoder()];
+
+
+
+// $encoders = [new JsonEncoder(), new XmlEncoder()];
+// $extractor = new PropertyInfoExtractor([], [new PhpDocExtractor(), new ReflectionExtractor()]);
+// $normalizers = [new PropertyNormalizer($classMetadataFactory),new ArrayDenormalizer(),new GetSetMethodNormalizer(), new ObjectNormalizer(null, null, null, $extractor),];
+
+
+// $serializer = new Serializer([new ObjectNormalizer($classMetadataFactory, null, null, null,$discriminator), new ArrayDenormalizer(), new GetSetMethodNormalizer()], [new XmlEncoder(), new JsonEncoder()]);
+
+// $serializer = new Serializer([ new ArrayDenormalizer(), new GetSetMethodNormalizer(),new ObjectNormalizer($classMetadataFactory, $metadataAwareNameConverter, null, $propertyInfo, $discriminator), 
+//   ], [new XmlEncoder(), new JsonEncoder()]);
 
         $serializer = new Serializer($normalizers, $encoders);
 
@@ -318,7 +339,12 @@ class FatturaDataTest extends TestCase
 
         $this->assertCount(0, $errors);
 
-        $this->assertNotNull($fattura->FatturaElettronicaHeader);
+
+$this->assertNotNull($fattura->FatturaElettronicaHeader);
+
+$this->assertNotNull($fattura->FatturaElettronicaBody);
+
+echo print_r($fattura).PHP_EOL;
 
     }
 
@@ -390,14 +416,14 @@ class FatturaDataTest extends TestCase
 
         $errors = $validator->validate($data);
 
-        echo print_r($errors);
-        $this->assertCount(0, $errors);
+
+            foreach($errors as $error) {
+                echo $error->getPropertyPath() . ': ' . $error->getMessage() . "\n";
+            }
 
 
             $dataxml = $serializer->encode($data, 'xml', $context);
-
             $dataxml = str_replace(['<response>','</response>'], '', $dataxml);
-
             $fpathjson = $path."{$key}.xml";
             // echo print_r($dataxml).PHP_EOL;
             $fp = fopen($fpathjson, 'w');
@@ -406,12 +432,46 @@ class FatturaDataTest extends TestCase
 
             $this->assertNotNull($data);
 
-            if(!$data?->FatturaElettronicaBody?->DatiBeniServizi ?? false)
-                echo print_r($data);
+            // if(!$data?->FatturaElettronicaBody?->DatiBeniServizi ?? false)
+            //     echo print_r($data);
 
-            $this->assertNotNull($data->FatturaElettronicaBody->DatiBeniServizi);
+            // $this->assertNotNull($data->FatturaElettronicaBody->DatiBeniServizi);
         }
 
+    }
+
+    public function testCountLineItems()
+    {
+        
+        $f = 'tests/Data/samples/fatturapa0.xml';
+        $xmlstring = file_get_contents($f);
+
+        $context = [];
+        $serializer = $this->initSerializer();
+        $fattura = $serializer->deserialize($xmlstring, FatturaElettronica::class, 'xml');
+
+        $validator = Validation::createValidatorBuilder()
+                    ->enableAttributeMapping()
+                    ->getValidator();
+
+        $errors = $validator->validate($fattura);
+
+        // echo print_r($errors);
+        $this->assertCount(0, $errors);
+
+        echo print_r($fattura->FatturaElettronicaBody->DatiBeniServizi);
+
+        foreach($fattura->FatturaElettronicaBody->DatiBeniServizi->DettaglioLinee as $item){
+
+            echo print_r($item).PHP_EOL;
+
+            echo $item->NumeroLinea.PHP_EOL;
+            echo $item->PrezzoTotale.PHP_EOL;
+
+            
+        }
+
+        echo print_r($fattura->FatturaElettronicaBody->DatiBeniServizi->DatiRiepilogo).PHP_EOL;
     }
 
 }

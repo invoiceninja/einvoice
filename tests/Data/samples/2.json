@@ -44,50 +44,42 @@
             }
         }
     },
-    "FatturaElettronicaBody": {
-        "DatiGenerali": {
+    "FatturaElettronicaBody": [
+        {
             "DatiGeneraliDocumento": {
                 "TipoDocumento": "TD01",
                 "Divisa": "EUR",
-                "Data": {
-                    "date": "2024-05-24 08:38:29.479997",
-                    "timezone_type": 3,
-                    "timezone": "UTC"
-                },
+                "Data": "2017-01-18",
                 "Numero": "123",
                 "Causale": [
-                    "LA FATTURA FA RIFERIMENTO AD UNA OPERAZIONE AAAA BBBBBBBBBBBBBBBBBB CCC\n                    DDDDDDDDDDDDDDD E FFFFFFFFFFFFFFFFFFFF GGGGGGGGGG HHHHHHH II LLLLLLLLLLLLLLLLL\n                    MMM NNNNN OO PPPPPPPPPPP QQQQ RRRR SSSSSSSSSSSSSS",
-                    "SEGUE DESCRIZIONE CAUSALE NEL CASO IN CUI NON SIANO STATI SUFFICIENTI 200\n                    CARATTERI AAAAAAAAAAA BBBBBBBBBBBBBBBBB"
+                    "LA FATTURA FA RIFERIMENTO AD UFF GGGGGGGGGG HHHHHHH II LLLLLLLLLLLLLLLLL\n                    MMM NNNNN OO PPPPPPPPPPP QQQQ RRRR SSSSSSSSSSSSSS",
+                    "SEGUE DESCRIZIONE CAUSALE NELBBBB"
                 ]
             },
             "DatiOrdineAcquisto": {
-                "RiferimentoNumeroLinea": 1,
+                "RiferimentoNumeroLinea": "1",
                 "IdDocumento": "66685",
                 "NumItem": "1",
                 "CodiceCUP": "123abc",
                 "CodiceCIG": "456def"
             },
             "DatiContratto": {
-                "RiferimentoNumeroLinea": 1,
+                "RiferimentoNumeroLinea": "1",
                 "IdDocumento": "123",
-                "Data": {
-                    "date": "2024-05-24 08:38:29.480214",
-                    "timezone_type": 3,
-                    "timezone": "UTC"
-                },
+                "Data": "2016-09-01",
                 "NumItem": "5",
                 "CodiceCUP": "123abc",
                 "CodiceCIG": "456def"
             },
             "DatiConvenzione": {
-                "RiferimentoNumeroLinea": 1,
+                "RiferimentoNumeroLinea": "1",
                 "IdDocumento": "456",
                 "NumItem": "5",
                 "CodiceCUP": "123abc",
                 "CodiceCIG": "456def"
             },
             "DatiRicezione": {
-                "RiferimentoNumeroLinea": 1,
+                "RiferimentoNumeroLinea": "1",
                 "IdDocumento": "789",
                 "NumItem": "5",
                 "CodiceCUP": "123abc",
@@ -103,15 +95,28 @@
                         "Denominazione": "Trasporto spa"
                     }
                 },
-                "DataOraConsegna": {
-                    "date": "2024-05-24 08:38:29.480475",
-                    "timezone_type": 3,
-                    "timezone": "UTC"
-                }
+                "DataOraConsegna": "2017-01-10T16:46:12.000+02:00"
             }
         },
-        "DatiBeniServizi": {
-            "DettaglioLinee": {},
+        {
+            "DettaglioLinee": [
+                {
+                    "NumeroLinea": "1",
+                    "Descrizione": "LA DESCRIZIONE DELLA FORNITURA PUO' SUPERARE I CENTO CARATTERI CHE\n                    RAPPRESENTAVANO IL PRECEDENTE LIMITE DIMENSIONALE. TALE LIMITE NELLA NUOVA\n                    VERSIONE E' STATO PORTATO A MILLE CARATTERI",
+                    "Quantita": "5.00",
+                    "PrezzoUnitario": "1.00",
+                    "PrezzoTotale": "5.00",
+                    "AliquotaIVA": "22.00"
+                },
+                {
+                    "NumeroLinea": "2",
+                    "Descrizione": "FORNITURE VARIE PER UFFICIO",
+                    "Quantita": "10.00",
+                    "PrezzoUnitario": "2.00",
+                    "PrezzoTotale": "20.00",
+                    "AliquotaIVA": "22.00"
+                }
+            ],
             "DatiRiepilogo": {
                 "AliquotaIVA": "22.00",
                 "ImponibileImporto": "25.00",
@@ -119,17 +124,13 @@
                 "EsigibilitaIVA": "D"
             }
         },
-        "DatiPagamento": {
+        {
             "CondizioniPagamento": "TP01",
             "DettaglioPagamento": {
                 "ModalitaPagamento": "MP01",
-                "DataScadenzaPagamento": {
-                    "date": "2024-05-24 08:38:29.480791",
-                    "timezone_type": 3,
-                    "timezone": "UTC"
-                },
+                "DataScadenzaPagamento": "2017-03-30",
                 "ImportoPagamento": "30.50"
             }
         }
-    }
+    ]
 }

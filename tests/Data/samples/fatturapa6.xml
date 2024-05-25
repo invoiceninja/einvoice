@@ -54,79 +54,9 @@
             <DatiGeneraliDocumento>
                 <TipoDocumento>TD01</TipoDocumento>
                 <Divisa>EUR</Divisa>
-                <Data>2014-12-18</Data>
-                <Numero>123</Numero>
-                <Causale>LA FATTURA FA RIFERIMENTO AD UNA OPERAZIONE AAAA BBBBBBBBBBBBBBBBBB CCC
-                    DDDDDDDDDDDDDDD E FFFFFFFFFFFFFFFFFFFF GGGGGGGGGG HHHHHHH II LLLLLLLLLLLLLLLLL
-                    MMM NNNNN OO PPPPPPPPPPP QQQQ RRRR SSSSSSSSSSSSSS</Causale>
-                <Causale>SEGUE DESCRIZIONE CAUSALE NEL CASO IN CUI NON SIANO STATI SUFFICIENTI 200
-                    CARATTERI AAAAAAAAAAA BBBBBBBBBBBBBBBBB</Causale>
-            </DatiGeneraliDocumento>
-            <DatiOrdineAcquisto>
-                <RiferimentoNumeroLinea>1</RiferimentoNumeroLinea>
-                <IdDocumento>66685</IdDocumento>
-                <NumItem>1</NumItem>
-            </DatiOrdineAcquisto>
-            <DatiTrasporto>
-                <DatiAnagraficiVettore>
-                    <IdFiscaleIVA>
-                        <IdPaese>IT</IdPaese>
-                        <IdCodice>24681012141</IdCodice>
-                    </IdFiscaleIVA>
-                    <Anagrafica>
-                        <Denominazione>Trasporto spa</Denominazione>
-                    </Anagrafica>
-                </DatiAnagraficiVettore>
-                <DataOraConsegna>2012-10-22T16:46:12.000+02:00</DataOraConsegna>
-            </DatiTrasporto>
-        </DatiGenerali>
-        <DatiBeniServizi>
-            <DettaglioLinee>
-                <NumeroLinea>1</NumeroLinea>
-                <Descrizione>LA DESCRIZIONE DELLA FORNITURA PUO' SUPERARE I CENTO CARATTERI CHE
-                    RAPPRESENTAVANO IL PRECEDENTE LIMITE DIMENSIONALE. TALE LIMITE NELLA NUOVA
-                    VERSIONE E' STATO PORTATO A MILLE CARATTERI</Descrizione>
-                <Quantita>5.00</Quantita>
-                <PrezzoUnitario>1.00</PrezzoUnitario>
-                <PrezzoTotale>5.00</PrezzoTotale>
-                <AliquotaIVA>22.00</AliquotaIVA>
-            </DettaglioLinee>
-            <DettaglioLinee>
-                <NumeroLinea>2</NumeroLinea>
-                <Descrizione>FORNITURE VARIE PER UFFICIO</Descrizione>
-                <Quantita>10.00</Quantita>
-                <PrezzoUnitario>2.00</PrezzoUnitario>
-                <PrezzoTotale>20.00</PrezzoTotale>
-                <AliquotaIVA>22.00</AliquotaIVA>
-            </DettaglioLinee>
-            <DatiRiepilogo>
-                <AliquotaIVA>22.00</AliquotaIVA>
-                <ImponibileImporto>27.00</ImponibileImporto>
-                <Imposta>5.95</Imposta>
-                <EsigibilitaIVA>I</EsigibilitaIVA>
-            </DatiRiepilogo>
-        </DatiBeniServizi>
-        <DatiPagamento>
-            <CondizioniPagamento>TP01</CondizioniPagamento>
-            <DettaglioPagamento>
-                <ModalitaPagamento>MP01</ModalitaPagamento>
-                <DataScadenzaPagamento>2015-01-30</DataScadenzaPagamento>
-                <ImportoPagamento>32.95</ImportoPagamento>
-            </DettaglioPagamento>
-        </DatiPagamento>
-    </FatturaElettronicaBody>
-    <FatturaElettronicaBody>
-        <DatiGenerali>
-            <DatiGeneraliDocumento>
-                <TipoDocumento>TD01</TipoDocumento>
-                <Divisa>EUR</Divisa>
                 <Data>2014-12-20</Data>
                 <Numero>456</Numero>
-                <Causale>LA FATTURA FA RIFERIMENTO AD UNA OPERAZIONE AAAA BBBBBBBBBBBBBBBBBB CCC
-                    DDDDDDDDDDDDDDD E FFFFFFFFFFFFFFFFFFFF GGGGGGGGGG HHHHHHH II LLLLLLLLLLLLLLLLL
-                    MMM NNNNN OO PPPPPPPPPPP QQQQ RRRR SSSSSSSSSSSSSS</Causale>
-                <Causale>SEGUE DESCRIZIONE CAUSALE NEL CASO IN CUI NON SIANO STATI SUFFICIENTI 200
-                    CARATTERI AAAAAAAAAAA BBBBBBBBBBBBBBBBB</Causale>
+                
             </DatiGeneraliDocumento>
             <DatiOrdineAcquisto>
                 <RiferimentoNumeroLinea>1</RiferimentoNumeroLinea>
@@ -138,8 +68,7 @@
             <DettaglioLinee>
                 <NumeroLinea>1</NumeroLinea>
                 <Descrizione>PRESTAZIONE DEL SEGUENTE SERVIZIO PROFESSIONALE: LA DESCRIZIONE DELLA
-                    PRESTAZIONE PUO' SUPERARE I CENTO CARATTERI CHE RAPPRESENTAVANO IL PRECEDENTE
-                    LIMITE DIMENSIONALE. TALE LIMITE NELLA NUOVA VERSIONE E' STATO PORTATO A MILLE
+                    PRESTAZIONE PUO' SUPERARE I CENTO CARATUOVA VERSIONE E' STATO PORTATO A MILLE
                     CARATTERI</Descrizione>
                 <PrezzoUnitario>2000.00</PrezzoUnitario>
                 <PrezzoTotale>2000.00</PrezzoTotale>

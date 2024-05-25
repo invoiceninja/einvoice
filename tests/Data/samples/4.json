@@ -8,7 +8,7 @@
             "ProgressivoInvio": "00001",
             "FormatoTrasmissione": "FPR12",
             "CodiceDestinatario": "ABC1234",
-            "ContattiTrasmittente": {}
+            "ContattiTrasmittente": ""
         },
         "CedentePrestatore": {
             "DatiAnagrafici": {
@@ -45,35 +45,27 @@
             }
         }
     },
-    "FatturaElettronicaBody": {
-        "DatiGenerali": {
+    "FatturaElettronicaBody": [
+        {
             "DatiGeneraliDocumento": {
                 "TipoDocumento": "TD01",
                 "Divisa": "EUR",
-                "Data": {
-                    "date": "2024-05-24 08:33:30.120728",
-                    "timezone_type": 3,
-                    "timezone": "UTC"
-                },
+                "Data": "2014-12-18",
                 "Numero": "123",
                 "Causale": [
-                    "LA FATTURA FA RIFERIMENTO AD UNA OPERAZIONE AAAA BBBBBBBBBBBBBBBBBB CCC\n                    DDDDDDDDDDDDDDD E FFFFFFFFFFFFFFFFFFFF GGGGGGGGGG HHHHHHH II LLLLLLLLLLLLLLLLL\n                    MMM NNNNN OO PPPPPPPPPPP QQQQ RRRR SSSSSSSSSSSSSS",
-                    "SEGUE DESCRIZIONE CAUSALE NEL CASO IN CUI NON SIANO STATI SUFFICIENTI 200\n                    CARATTERI AAAAAAAAAAA BBBBBBBBBBBBBBBBB"
+                    "LA FATTURA FA RIFERIMENTO AD UNA SSSSSSSSSS",
+                    "SEGUE DESCRIZIONE CAUSALE NEL CBBB"
                 ]
             },
             "DatiOrdineAcquisto": {
-                "RiferimentoNumeroLinea": 1,
+                "RiferimentoNumeroLinea": "1",
                 "IdDocumento": "66685",
                 "NumItem": "1"
             },
             "DatiContratto": {
-                "RiferimentoNumeroLinea": 1,
+                "RiferimentoNumeroLinea": "1",
                 "IdDocumento": "123",
-                "Data": {
-                    "date": "2024-05-24 08:33:30.120866",
-                    "timezone_type": 3,
-                    "timezone": "UTC"
-                },
+                "Data": "2012-09-01",
                 "NumItem": "5",
                 "CodiceCUP": "123abc",
                 "CodiceCIG": "456def"
@@ -88,16 +80,12 @@
                         "Denominazione": "Trasporto spa"
                     }
                 },
-                "DataOraConsegna": {
-                    "date": "2024-05-24 08:33:30.121012",
-                    "timezone_type": 3,
-                    "timezone": "UTC"
-                }
+                "DataOraConsegna": "2012-10-22T16:46:12.000+02:00"
             }
         },
-        "DatiBeniServizi": {
+        {
             "DettaglioLinee": {
-                "NumeroLinea": 1,
+                "NumeroLinea": "1",
                 "Descrizione": "DESCRIZIONE DELLA FORNITURA",
                 "Quantita": "5.00",
                 "PrezzoUnitario": "1.00",
@@ -111,17 +99,13 @@
                 "EsigibilitaIVA": "I"
             }
         },
-        "DatiPagamento": {
+        {
             "CondizioniPagamento": "TP01",
             "DettaglioPagamento": {
                 "ModalitaPagamento": "MP01",
-                "DataScadenzaPagamento": {
-                    "date": "2024-05-24 08:33:30.121304",
-                    "timezone_type": 3,
-                    "timezone": "UTC"
-                },
+                "DataScadenzaPagamento": "2015-01-30",
                 "ImportoPagamento": "6.10"
             }
         }
-    }
+    ]
 }

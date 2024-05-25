@@ -8,7 +8,7 @@
             "ProgressivoInvio": "00001",
             "FormatoTrasmissione": "FPR12",
             "CodiceDestinatario": "ABC1234",
-            "ContattiTrasmittente": {}
+            "ContattiTrasmittente": ""
         },
         "CedentePrestatore": {
             "DatiAnagrafici": {
@@ -45,5 +45,42 @@
             }
         }
     },
-    "FatturaElettronicaBody": {}
+    "FatturaElettronicaBody": [
+        {
+            "DatiGeneraliDocumento": {
+                "TipoDocumento": "TD01",
+                "Divisa": "EUR",
+                "Data": "2014-12-20",
+                "Numero": "456"
+            },
+            "DatiOrdineAcquisto": {
+                "RiferimentoNumeroLinea": "1",
+                "IdDocumento": "66685",
+                "NumItem": "1"
+            }
+        },
+        {
+            "DettaglioLinee": {
+                "NumeroLinea": "1",
+                "Descrizione": "PRESTAZIONE DEL SEGUENTE SERVIZIO PROFESSIONALE: LA DESCRIZIONE DELLA\n                    PRESTAZIONE PUO' SUPERARE I CENTO CARATUOVA VERSIONE E' STATO PORTATO A MILLE\n                    CARATTERI",
+                "PrezzoUnitario": "2000.00",
+                "PrezzoTotale": "2000.00",
+                "AliquotaIVA": "22.00"
+            },
+            "DatiRiepilogo": {
+                "AliquotaIVA": "22.00",
+                "ImponibileImporto": "2000.00",
+                "Imposta": "440.00",
+                "EsigibilitaIVA": "I"
+            }
+        },
+        {
+            "CondizioniPagamento": "TP01",
+            "DettaglioPagamento": {
+                "ModalitaPagamento": "MP19",
+                "DataScadenzaPagamento": "2015-01-28",
+                "ImportoPagamento": "2440.00"
+            }
+        }
+    ]
 }

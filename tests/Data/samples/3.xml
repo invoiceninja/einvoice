@@ -1,5 +1,70 @@
 <?xml version="1.0"?>
 
+  <FatturaElettronicaBody>
+    <DatiGeneraliDocumento>
+      <TipoDocumento>TD01</TipoDocumento>
+      <Divisa>EUR</Divisa>
+      <Data>2017-01-20</Data>
+      <Numero>456</Numero>
+      <Causale>LA FATTURA FA RIFERIMENTO  RRRR SSSSSSSSSSSSSS</Causale>
+      <Causale> IN CUI NON SIANO S BBBBBBBBBBBBBBBBB</Causale>
+    </DatiGeneraliDocumento>
+    <DatiOrdineAcquisto>
+      <RiferimentoNumeroLinea>1</RiferimentoNumeroLinea>
+      <IdDocumento>85666</IdDocumento>
+      <NumItem>1</NumItem>
+      <CodiceCUP>123abc</CodiceCUP>
+      <CodiceCIG>456def</CodiceCIG>
+    </DatiOrdineAcquisto>
+    <DatiContratto>
+      <RiferimentoNumeroLinea>1</RiferimentoNumeroLinea>
+      <IdDocumento>321</IdDocumento>
+      <Data>2016-09-01</Data>
+      <NumItem>5</NumItem>
+      <CodiceCUP>123abc</CodiceCUP>
+      <CodiceCIG>456def</CodiceCIG>
+    </DatiContratto>
+    <DatiConvenzione>
+      <RiferimentoNumeroLinea>1</RiferimentoNumeroLinea>
+      <IdDocumento>654</IdDocumento>
+      <NumItem>5</NumItem>
+      <CodiceCUP>123abc</CodiceCUP>
+      <CodiceCIG>456def</CodiceCIG>
+    </DatiConvenzione>
+    <DatiRicezione>
+      <RiferimentoNumeroLinea>1</RiferimentoNumeroLinea>
+      <IdDocumento>987</IdDocumento>
+      <NumItem>5</NumItem>
+      <CodiceCUP>123abc</CodiceCUP>
+      <CodiceCIG>456def</CodiceCIG>
+    </DatiRicezione>
+  </FatturaElettronicaBody>
+  <FatturaElettronicaBody>
+    <DettaglioLinee>
+      <NumeroLinea>1</NumeroLinea>
+      <Descrizione>PRESTAZIONE DEL SEGUENTE SERVIZIO PROFESSIONALE: LA DESCRIZIONE DELLA
+                    PRESTAZIONE PUO' SUPERARE I CENTO CARATTERI CHE RAPPRESENTAVANO IL PRECEDENTE
+                    LIMITE DIMENSIONALE. TALE LIMITE NELLA NUOVA VERSIONE E' STATO PORTATO A MILLE
+                    CARATTERI</Descrizione>
+      <PrezzoUnitario>2000.00</PrezzoUnitario>
+      <PrezzoTotale>2000.00</PrezzoTotale>
+      <AliquotaIVA>22.00</AliquotaIVA>
+    </DettaglioLinee>
+    <DatiRiepilogo>
+      <AliquotaIVA>22.00</AliquotaIVA>
+      <ImponibileImporto>2000.00</ImponibileImporto>
+      <Imposta>440.00</Imposta>
+      <EsigibilitaIVA>I</EsigibilitaIVA>
+    </DatiRiepilogo>
+  </FatturaElettronicaBody>
+  <FatturaElettronicaBody>
+    <CondizioniPagamento>TP01</CondizioniPagamento>
+    <DettaglioPagamento>
+      <ModalitaPagamento>MP19</ModalitaPagamento>
+      <DataScadenzaPagamento>2017-02-20</DataScadenzaPagamento>
+      <ImportoPagamento>2440.00</ImportoPagamento>
+    </DettaglioPagamento>
+  </FatturaElettronicaBody>
   <FatturaElettronicaHeader>
     <DatiTrasmissione>
       <IdTrasmittente>
@@ -45,5 +110,4 @@
       </Sede>
     </CessionarioCommittente>
   </FatturaElettronicaHeader>
-  <FatturaElettronicaBody/>
 

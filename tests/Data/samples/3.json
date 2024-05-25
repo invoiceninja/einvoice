@@ -44,5 +44,70 @@
             }
         }
     },
-    "FatturaElettronicaBody": {}
+    "FatturaElettronicaBody": [
+        {
+            "DatiGeneraliDocumento": {
+                "TipoDocumento": "TD01",
+                "Divisa": "EUR",
+                "Data": "2017-01-20",
+                "Numero": "456",
+                "Causale": [
+                    "LA FATTURA FA RIFERIMENTO  RRRR SSSSSSSSSSSSSS",
+                    " IN CUI NON SIANO S BBBBBBBBBBBBBBBBB"
+                ]
+            },
+            "DatiOrdineAcquisto": {
+                "RiferimentoNumeroLinea": "1",
+                "IdDocumento": "85666",
+                "NumItem": "1",
+                "CodiceCUP": "123abc",
+                "CodiceCIG": "456def"
+            },
+            "DatiContratto": {
+                "RiferimentoNumeroLinea": "1",
+                "IdDocumento": "321",
+                "Data": "2016-09-01",
+                "NumItem": "5",
+                "CodiceCUP": "123abc",
+                "CodiceCIG": "456def"
+            },
+            "DatiConvenzione": {
+                "RiferimentoNumeroLinea": "1",
+                "IdDocumento": "654",
+                "NumItem": "5",
+                "CodiceCUP": "123abc",
+                "CodiceCIG": "456def"
+            },
+            "DatiRicezione": {
+                "RiferimentoNumeroLinea": "1",
+                "IdDocumento": "987",
+                "NumItem": "5",
+                "CodiceCUP": "123abc",
+                "CodiceCIG": "456def"
+            }
+        },
+        {
+            "DettaglioLinee": {
+                "NumeroLinea": "1",
+                "Descrizione": "PRESTAZIONE DEL SEGUENTE SERVIZIO PROFESSIONALE: LA DESCRIZIONE DELLA\n                    PRESTAZIONE PUO' SUPERARE I CENTO CARATTERI CHE RAPPRESENTAVANO IL PRECEDENTE\n                    LIMITE DIMENSIONALE. TALE LIMITE NELLA NUOVA VERSIONE E' STATO PORTATO A MILLE\n                    CARATTERI",
+                "PrezzoUnitario": "2000.00",
+                "PrezzoTotale": "2000.00",
+                "AliquotaIVA": "22.00"
+            },
+            "DatiRiepilogo": {
+                "AliquotaIVA": "22.00",
+                "ImponibileImporto": "2000.00",
+                "Imposta": "440.00",
+                "EsigibilitaIVA": "I"
+            }
+        },
+        {
+            "CondizioniPagamento": "TP01",
+            "DettaglioPagamento": {
+                "ModalitaPagamento": "MP19",
+                "DataScadenzaPagamento": "2017-02-20",
+                "ImportoPagamento": "2440.00"
+            }
+        }
+    ]
 }

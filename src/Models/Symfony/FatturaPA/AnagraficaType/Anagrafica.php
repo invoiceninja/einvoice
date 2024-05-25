@@ -17,22 +17,27 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class Anagrafica
 {
+	/** @var string */
 	#[Length(min: 1, max: 80)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,80}/u')]
 	public string $Denominazione;
 
+	/** @var string */
 	#[Length(min: 1, max: 60)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
 	public string $Nome;
 
+	/** @var string */
 	#[Length(min: 1, max: 60)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
 	public string $Cognome;
 
+	/** @var string */
 	#[Length(min: 2, max: 10)]
 	#[Regex('/[\x{0020}-\x{007E}]{2,10}/u')]
 	public string $Titolo;
 
+	/** @var string */
 	#[Length(min: 13, max: 17)]
 	public string $CodEORI;
 }

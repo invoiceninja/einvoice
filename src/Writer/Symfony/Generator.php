@@ -110,9 +110,12 @@ class Generator
         }
 
         if($element['max_occurs'] > 1 || $element['max_occurs'] == -1) {
-            $property->addComment("@param ".$element['name']."[] $".$element['name']);
+            $property->setType("array");
+            $property->setValue([]);
+            $property->removeComment();
+            $property->addComment("@var ".$element['name']."[]");
         }
-
+        
         if(isset($element['max_length'])) {
             $this->namespace->addUse(Length::class);
             $property->addAttribute(Length::class, ['min' => $element['min_length'], 'max' => $element['max_length']]);
@@ -174,9 +177,13 @@ class Generator
             $base_type = stripos($element['base_type'], 'Type') !== false ? $this->path_namespace.$this->standard."\\".$element['base_type']."\\".$element['name'] : $this->resolveType($element['base_type']);
 
             $property = (new Property($element['name']))
-                                        ->setPublic()
-                                        ->setType($base_type);
+                                        ->setPublic();
 
+            if(stripos($element['base_type'], 'Type') === false)
+                    $property->setType($base_type);
+             else {
+                $property->addComment("@var ".$element['name']);
+            }
 
             $property = $this->setValidation($property, $element);
 

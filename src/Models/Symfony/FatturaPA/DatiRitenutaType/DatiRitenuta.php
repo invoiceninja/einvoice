@@ -17,18 +17,22 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiRitenuta
 {
+	/** @var string */
 	#[Choice(['RT01', 'RT02', 'RT03', 'RT04', 'RT05', 'RT06'])]
 	public string $TipoRitenuta;
 	private array $TipoRitenuta_array = ['RT01', 'RT02', 'RT03', 'RT04', 'RT05', 'RT06'];
 
+	/** @var float|string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float|string $ImportoRitenuta;
 
+	/** @var float|string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
 	public float|string $AliquotaRitenuta;
 
+	/** @var string */
 	#[Choice([
 		'A',
 		'B',

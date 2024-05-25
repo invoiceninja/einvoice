@@ -98,9 +98,15 @@ class TypeGenerator
             $settable_type = "{$base_type}";
 
             $property = (new Property($element['name']))
-                        ->setPublic()
-                        ->setType($settable_type);
-
+                        ->setPublic();
+            
+            if(stripos($element['base_type'], 'Type') === false) {
+                $property->addComment("@var ".$settable_type);
+                $property->setType($settable_type);
+            }
+            else {
+                $property->addComment("@var ".$element['name']);
+            }
 
             $property = $this->generator->setValidation($property, $element);
 

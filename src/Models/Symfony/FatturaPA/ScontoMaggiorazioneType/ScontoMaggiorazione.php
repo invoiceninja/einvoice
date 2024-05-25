@@ -17,14 +17,17 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class ScontoMaggiorazione
 {
+	/** @var string */
 	#[Choice(['SC', 'MG'])]
 	public string $Tipo;
 	private array $Tipo_array = ['SC', 'MG'];
 
+	/** @var float|string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
 	public float|string $Percentuale;
 
+	/** @var float|string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
 	public float|string $Importo;

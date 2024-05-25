@@ -8,7 +8,7 @@
             "ProgressivoInvio": "00001",
             "FormatoTrasmissione": "FPR12",
             "CodiceDestinatario": "ABC1234",
-            "ContattiTrasmittente": ""
+            "ContattiTrasmittente": {}
         },
         "CedentePrestatore": {
             "DatiAnagrafici": {
@@ -27,10 +27,15 @@
                 "Comune": "SASSARI",
                 "Provincia": "SS",
                 "Nazione": "IT"
-            }
+            },
+            "StabileOrganizzazione": null,
+            "IscrizioneREA": null,
+            "Contatti": null
         },
+        "RappresentanteFiscale": null,
         "CessionarioCommittente": {
             "DatiAnagrafici": {
+                "IdFiscaleIVA": null,
                 "CodiceFiscale": "09876543210",
                 "Anagrafica": {
                     "Denominazione": "BETA GAMMA"
@@ -42,45 +47,87 @@
                 "Comune": "ROMA",
                 "Provincia": "RM",
                 "Nazione": "IT"
-            }
-        }
+            },
+            "StabileOrganizzazione": null,
+            "RappresentanteFiscale": null
+        },
+        "TerzoIntermediarioOSoggettoEmittente": null
     },
     "FatturaElettronicaBody": [
         {
-            "DatiGeneraliDocumento": {
-                "TipoDocumento": "TD01",
-                "Divisa": "EUR",
-                "Data": "2014-12-20",
-                "Numero": "456"
+            "DatiGenerali": {
+                "DatiGeneraliDocumento": {
+                    "TipoDocumento": "TD01",
+                    "Divisa": "EUR",
+                    "Data": {
+                        "date": "2024-05-25 20:44:05.681508",
+                        "timezone_type": 3,
+                        "timezone": "UTC"
+                    },
+                    "Numero": "456",
+                    "DatiRitenuta": [],
+                    "DatiBollo": null,
+                    "DatiCassaPrevidenziale": [],
+                    "ScontoMaggiorazione": [],
+                    "Causale": []
+                },
+                "DatiOrdineAcquisto": [
+                    {
+                        "RiferimentoNumeroLinea": 1,
+                        "IdDocumento": "66685",
+                        "NumItem": "1"
+                    }
+                ],
+                "DatiContratto": [],
+                "DatiConvenzione": [],
+                "DatiRicezione": [],
+                "DatiFattureCollegate": [],
+                "DatiSAL": [],
+                "DatiDDT": [],
+                "DatiTrasporto": null,
+                "FatturaPrincipale": null
             },
-            "DatiOrdineAcquisto": {
-                "RiferimentoNumeroLinea": "1",
-                "IdDocumento": "66685",
-                "NumItem": "1"
-            }
-        },
-        {
-            "DettaglioLinee": {
-                "NumeroLinea": "1",
-                "Descrizione": "PRESTAZIONE DEL SEGUENTE SERVIZIO PROFESSIONALE: LA DESCRIZIONE DELLA\n                    PRESTAZIONE PUO' SUPERARE I CENTO CARATUOVA VERSIONE E' STATO PORTATO A MILLE\n                    CARATTERI",
-                "PrezzoUnitario": "2000.00",
-                "PrezzoTotale": "2000.00",
-                "AliquotaIVA": "22.00"
+            "DatiBeniServizi": {
+                "DettaglioLinee": [
+                    {
+                        "NumeroLinea": 1,
+                        "CodiceArticolo": [],
+                        "Descrizione": "PRESTAZIONE DEL SEGUENTE SERVIZIO PROFESSIONALE: LA DESCRIZIONE DELLA\n                    PRESTAZIONE PUO' SUPERARE I CENTO CARATUOVA VERSIONE E' STATO PORTATO A MILLE\n                    CARATTERI",
+                        "Quantita": null,
+                        "PrezzoUnitario": "2000.00",
+                        "ScontoMaggiorazione": [],
+                        "PrezzoTotale": "2000.00",
+                        "AliquotaIVA": "22.00",
+                        "AltriDatiGestionali": []
+                    }
+                ],
+                "DatiRiepilogo": [
+                    {
+                        "AliquotaIVA": "22.00",
+                        "ImponibileImporto": "2000.00",
+                        "Imposta": "440.00",
+                        "EsigibilitaIVA": "I"
+                    }
+                ]
             },
-            "DatiRiepilogo": {
-                "AliquotaIVA": "22.00",
-                "ImponibileImporto": "2000.00",
-                "Imposta": "440.00",
-                "EsigibilitaIVA": "I"
-            }
-        },
-        {
-            "CondizioniPagamento": "TP01",
-            "DettaglioPagamento": {
-                "ModalitaPagamento": "MP19",
-                "DataScadenzaPagamento": "2015-01-28",
-                "ImportoPagamento": "2440.00"
-            }
+            "DatiVeicoli": null,
+            "DatiPagamento": [
+                {
+                    "CondizioniPagamento": "TP01",
+                    "DettaglioPagamento": [
+                        {
+                            "ModalitaPagamento": "MP19",
+                            "DataScadenzaPagamento": {
+                                "date": "2024-05-25 20:44:05.681857",
+                                "timezone_type": 3,
+                                "timezone": "UTC"
+                            },
+                            "ImportoPagamento": 2440
+                        }
+                    ]
+                }
+            ],
+            "Allegati": []
         }
     ]
 }

@@ -22,9 +22,9 @@ class DatiPagamento
 	#[Choice(['TP01', 'TP02', 'TP03'])]
 	public string $CondizioniPagamento;
 
-	/** @param DettaglioPagamento[] $DettaglioPagamento */
+	/** @var DettaglioPagamento[] */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public DettaglioPagamento $DettaglioPagamento;
+	public array $DettaglioPagamento = [];
 }

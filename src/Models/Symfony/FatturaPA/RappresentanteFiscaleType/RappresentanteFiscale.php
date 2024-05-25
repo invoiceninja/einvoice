@@ -18,8 +18,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class RappresentanteFiscale
 {
+	/** @var DatiAnagrafici */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public DatiAnagrafici $DatiAnagrafici;
+	public $DatiAnagrafici;
 }

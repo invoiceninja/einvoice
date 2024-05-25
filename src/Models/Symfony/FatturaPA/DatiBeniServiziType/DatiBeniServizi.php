@@ -4,80 +4,64 @@ namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiBeniServiziType;
 
 use DateTime;
 use DateTimeInterface;
-use Symfony\Component\Validator\Constraints\All;
-use Symfony\Component\Validator\Constraints\Type;
-use Symfony\Component\Validator\Constraints\Regex;
-use Symfony\Component\Validator\Constraints\Valid;
-use Symfony\Component\Serializer\Attribute\Context;
-use Symfony\Component\Validator\Constraints\Choice;
-use Symfony\Component\Validator\Constraints\Length;
-use Symfony\Component\Validator\Constraints\NotNull;
-use Symfony\Component\Validator\Constraints\NotBlank;
 use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
-use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DatiRiepilogoType\DatiRiepilogo;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DettaglioLineeType\DettaglioLinee;
-use Symfony\Component\Serializer\Attribute\SerializedName;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Validator\Constraints\All;
+use Symfony\Component\Validator\Constraints\Choice;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiBeniServizi
 {
-	/*
-	* @var DettaglioLinee[]
-	*/
+	/** @var DettaglioLinee[] */
 	#[All([
-	 new NotNull(),
-	 new NotBlank(),
-	 new Type(DettaglioLinee::class)
+		new NotNull(),
+		new NotBlank(),
 	])]
-	public $DettaglioLinee = [];
+	#[Valid]
+	public array $DettaglioLinee = [];
 
-	/*
-	* @var DatiRiepilogo $DatiRiepilogo
-	*/
+	/** @var DatiRiepilogo[] */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public DatiRiepilogo $DatiRiepilogo;
+	public array $DatiRiepilogo = [];
 
-	public function getDatiRiepilogo()
-	{
-		return $this->DatiRiepilogo;
-	}
+	// /**
+	//  * Get the value of DettaglioLinee
+	//  */ 
+	// public function getDettaglioLinee()
+	// {
+	// 	return $this->DettaglioLinee;
+	// }
 
-	public function setDatiRiepilogo($DatiRiepilogo)
-	{
-		$this->DatiRiepilogo = $DatiRiepilogo;
-		return $this;
-	}
+	// /**
+	//  * Set the value of DettaglioLinee
+	//  *
+	//  * @return  self
+	//  */ 
+	// public function setDettaglioLinee($DettaglioLinee)
+	// {
+	// 	$this->DettaglioLinee = $DettaglioLinee;
 
-	public function addDatiRiepilogo($DatiRiepilogo)
-	{
-		$this->DatiRiepilogo = $DatiRiepilogo;
-		return $this;
-	}
-	public function getDettaglioLinee()
-	{ 
-		return $this->DettaglioLinee;
-	}
+	// 	return $this;
+	// }
 
-	public function setDetagglioLinee($DettaglioLinee)
-	{
-		$this->DettaglioLinee = $DettaglioLinee;
+	// public function addDettaglioLinee(DettaglioLinee $DettaglioLinee)
+	// {
+	// 	$this->DettaglioLinee[] = $DettaglioLinee;
 
-		return $this;
-	}
+	// 	return $this;
+	// }
 
-	public function addDettaglioLinee($DettaglioLinee): void
-	{
-		$this->DettaglioLinee[] = $DettaglioLinee;
-	}
-
-	public function hasDettaglioLinee(): bool
-	{
-		return count($this->DettaglioLinee) > 0;
-	}
-
-	 public function removeDettaglioLinee( $DettaglioLinee): void
-    {
-    }
+	// public function hasDettaglioLinee()
+	// {
+	// 	return count($this->DettaglioLinee) > 0;
+	// }
 }

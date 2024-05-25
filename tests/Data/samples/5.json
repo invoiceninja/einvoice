@@ -8,8 +8,8 @@
             "ProgressivoInvio": "00001",
             "FormatoTrasmissione": "FPR12",
             "CodiceDestinatario": "0000000",
-            "PECDestinatario": "betagamma@pec.it",
-            "ContattiTrasmittente": ""
+            "ContattiTrasmittente": {},
+            "PECDestinatario": "betagamma@pec.it"
         },
         "CedentePrestatore": {
             "DatiAnagrafici": {
@@ -28,10 +28,15 @@
                 "Comune": "SASSARI",
                 "Provincia": "SS",
                 "Nazione": "IT"
-            }
+            },
+            "StabileOrganizzazione": null,
+            "IscrizioneREA": null,
+            "Contatti": null
         },
+        "RappresentanteFiscale": null,
         "CessionarioCommittente": {
             "DatiAnagrafici": {
+                "IdFiscaleIVA": null,
                 "CodiceFiscale": "09876543210",
                 "Anagrafica": {
                     "Denominazione": "BETA GAMMA"
@@ -43,72 +48,117 @@
                 "Comune": "ROMA",
                 "Provincia": "RM",
                 "Nazione": "IT"
-            }
-        }
+            },
+            "StabileOrganizzazione": null,
+            "RappresentanteFiscale": null
+        },
+        "TerzoIntermediarioOSoggettoEmittente": null
     },
     "FatturaElettronicaBody": [
         {
-            "DatiGeneraliDocumento": {
-                "TipoDocumento": "TD01",
-                "Divisa": "EUR",
-                "Data": "2014-12-18",
-                "Numero": "123",
-                "Causale": [
-                    "LA FATLLLLLLL MMM NNNNN OO PPPSSSSSSSSSSSSSS",
-                    "SEGUE DESCRIZIONE CAUA BBBBBBBBBBBBBBBBB"
-                ]
-            },
-            "DatiOrdineAcquisto": {
-                "RiferimentoNumeroLinea": "1",
-                "IdDocumento": "66685",
-                "NumItem": "1"
-            },
-            "DatiTrasporto": {
-                "DatiAnagraficiVettore": {
-                    "IdFiscaleIVA": {
-                        "IdPaese": "IT",
-                        "IdCodice": "24681012141"
+            "DatiGenerali": {
+                "DatiGeneraliDocumento": {
+                    "TipoDocumento": "TD01",
+                    "Divisa": "EUR",
+                    "Data": {
+                        "date": "2024-05-25 20:44:05.678819",
+                        "timezone_type": 3,
+                        "timezone": "UTC"
                     },
-                    "Anagrafica": {
-                        "Denominazione": "Trasporto spa"
+                    "Numero": "123",
+                    "DatiRitenuta": [],
+                    "DatiBollo": null,
+                    "DatiCassaPrevidenziale": [],
+                    "ScontoMaggiorazione": [],
+                    "Causale": [
+                        "LA FATLLLLLLL MMM NNNNN OO PPPSSSSSSSSSSSSSS",
+                        "SEGUE DESCRIZIONE CAUA BBBBBBBBBBBBBBBBB"
+                    ]
+                },
+                "DatiOrdineAcquisto": [
+                    {
+                        "RiferimentoNumeroLinea": 1,
+                        "IdDocumento": "66685",
+                        "NumItem": "1"
+                    }
+                ],
+                "DatiContratto": [],
+                "DatiConvenzione": [],
+                "DatiRicezione": [],
+                "DatiFattureCollegate": [],
+                "DatiSAL": [],
+                "DatiDDT": [],
+                "DatiTrasporto": {
+                    "DatiAnagraficiVettore": {
+                        "IdFiscaleIVA": {
+                            "IdPaese": "IT",
+                            "IdCodice": "24681012141"
+                        },
+                        "Anagrafica": {
+                            "Denominazione": "Trasporto spa"
+                        }
+                    },
+                    "IndirizzoResa": null,
+                    "DataOraConsegna": {
+                        "date": "2024-05-25 20:44:05.678993",
+                        "timezone_type": 3,
+                        "timezone": "UTC"
                     }
                 },
-                "DataOraConsegna": "2012-10-22T16:46:12.000+02:00"
-            }
-        },
-        {
-            "DettaglioLinee": [
+                "FatturaPrincipale": null
+            },
+            "DatiBeniServizi": {
+                "DettaglioLinee": [
+                    {
+                        "NumeroLinea": 1,
+                        "CodiceArticolo": [],
+                        "Descrizione": "LA DESCRIZIONE DELLA FORNITURA PUO' SUPERARE I CENTO CARATTERI CHE RAPPRESENTAVANO IL PRECEDENTE LIMITE DIMENSIONALE. TALE LIMITE NELLA NUOVA VERSIONE E' STATO PORTATO A MILLE CARATTERI",
+                        "Quantita": "5.00",
+                        "PrezzoUnitario": "1.00",
+                        "ScontoMaggiorazione": [],
+                        "PrezzoTotale": "5.00",
+                        "AliquotaIVA": "22.00",
+                        "AltriDatiGestionali": []
+                    },
+                    {
+                        "NumeroLinea": 2,
+                        "CodiceArticolo": [],
+                        "Descrizione": "FORNITURE VARIE PER UFFICIO",
+                        "Quantita": "10.00",
+                        "PrezzoUnitario": "2.00",
+                        "ScontoMaggiorazione": [],
+                        "PrezzoTotale": "20.00",
+                        "AliquotaIVA": "22.00",
+                        "AltriDatiGestionali": []
+                    }
+                ],
+                "DatiRiepilogo": [
+                    {
+                        "AliquotaIVA": "22.00",
+                        "ImponibileImporto": "27.00",
+                        "Imposta": "5.95",
+                        "EsigibilitaIVA": "D"
+                    }
+                ]
+            },
+            "DatiVeicoli": null,
+            "DatiPagamento": [
                 {
-                    "NumeroLinea": "1",
-                    "Descrizione": "LA DESCRIZIONE DELLA FORNITURA PUO' SUPERARE I CENTO CARATTERI CHE RAPPRESENTAVANO IL PRECEDENTE LIMITE DIMENSIONALE. TALE LIMITE NELLA NUOVA VERSIONE E' STATO PORTATO A MILLE CARATTERI",
-                    "Quantita": "5.00",
-                    "PrezzoUnitario": "1.00",
-                    "PrezzoTotale": "5.00",
-                    "AliquotaIVA": "22.00"
-                },
-                {
-                    "NumeroLinea": "2",
-                    "Descrizione": "FORNITURE VARIE PER UFFICIO",
-                    "Quantita": "10.00",
-                    "PrezzoUnitario": "2.00",
-                    "PrezzoTotale": "20.00",
-                    "AliquotaIVA": "22.00"
+                    "CondizioniPagamento": "TP01",
+                    "DettaglioPagamento": [
+                        {
+                            "ModalitaPagamento": "MP01",
+                            "DataScadenzaPagamento": {
+                                "date": "2024-05-25 20:44:05.679391",
+                                "timezone_type": 3,
+                                "timezone": "UTC"
+                            },
+                            "ImportoPagamento": 32.95
+                        }
+                    ]
                 }
             ],
-            "DatiRiepilogo": {
-                "AliquotaIVA": "22.00",
-                "ImponibileImporto": "27.00",
-                "Imposta": "5.95",
-                "EsigibilitaIVA": "D"
-            }
-        },
-        {
-            "CondizioniPagamento": "TP01",
-            "DettaglioPagamento": {
-                "ModalitaPagamento": "MP01",
-                "DataScadenzaPagamento": "2015-01-30",
-                "ImportoPagamento": "32.95"
-            }
+            "Allegati": []
         }
     ]
 }

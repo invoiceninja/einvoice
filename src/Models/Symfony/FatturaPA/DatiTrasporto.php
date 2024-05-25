@@ -17,7 +17,8 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiTrasporto
 {
-	public DatiAnagraficiVettore $DatiAnagraficiVettore;
+	/** @var DatiAnagraficiVettore */
+	public $DatiAnagraficiVettore;
 
 	#[Length(min: 1, max: 80)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,80}/u')]
@@ -53,7 +54,9 @@ class DatiTrasporto
 	#[Length(min: 3, max: 3)]
 	#[Regex('/[A-Z]{3}/')]
 	public string $TipoResa;
-	public IndirizzoResa $IndirizzoResa;
+
+	/** @var IndirizzoResa */
+	public $IndirizzoResa;
 
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	public DateTime $DataOraConsegna;

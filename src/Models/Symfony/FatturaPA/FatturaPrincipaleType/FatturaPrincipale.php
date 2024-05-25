@@ -17,10 +17,12 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class FatturaPrincipale
 {
+	/** @var string */
 	#[Length(min: 1, max: 20)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
 	public string $NumeroFatturaPrincipale;
 
+	/** @var DateTime */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]

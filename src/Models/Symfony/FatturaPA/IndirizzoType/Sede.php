@@ -17,25 +17,31 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class Sede
 {
+	/** @var string */
 	#[Length(min: 1, max: 60)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
 	public string $Indirizzo;
 
+	/** @var string */
 	#[Length(min: 1, max: 8)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,8}/u')]
 	public string $NumeroCivico;
 
+	/** @var string */
 	#[Regex('/[0-9][0-9][0-9][0-9][0-9]/')]
 	public string $CAP;
 
+	/** @var string */
 	#[Length(min: 1, max: 60)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
 	public string $Comune;
 
+	/** @var string */
 	#[Length(min: 2, max: 2)]
 	#[Regex('/[A-Z]{2}/')]
 	public string $Provincia;
 
+	/** @var string */
 	#[Length(min: 2, max: 2)]
 	#[Regex('/[A-Z]{2}/')]
 	public string $Nazione;

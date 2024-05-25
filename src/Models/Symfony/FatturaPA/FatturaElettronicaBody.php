@@ -19,20 +19,24 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class FatturaElettronicaBody
 {
+	/** @var DatiGenerali */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public DatiGenerali $DatiGenerali;
+	public $DatiGenerali;
 
+	/** @var DatiBeniServizi */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public DatiBeniServizi $DatiBeniServizi;
-	public DatiVeicoli $DatiVeicoli;
+	public $DatiBeniServizi;
 
-	/** @param DatiPagamento[] $DatiPagamento */
-	public DatiPagamento $DatiPagamento;
+	/** @var DatiVeicoli */
+	public $DatiVeicoli;
 
-	/** @param Allegati[] $Allegati */
-	public Allegati $Allegati;
+	/** @var DatiPagamento[] */
+	public array $DatiPagamento = [];
+
+	/** @var Allegati[] */
+	public array $Allegati = [];
 }

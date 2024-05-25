@@ -19,35 +19,43 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiAnagrafici
 {
+	/** @var IdFiscaleIVA */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public IdFiscaleIVA $IdFiscaleIVA;
+	public $IdFiscaleIVA;
 
+	/** @var string */
 	#[Length(min: 11, max: 16)]
 	#[Regex('/[A-Z0-9]{11,16}/')]
 	public string $CodiceFiscale;
 
+	/** @var Anagrafica */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public Anagrafica $Anagrafica;
+	public $Anagrafica;
 
+	/** @var string */
 	#[Length(min: 1, max: 60)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
 	public string $AlboProfessionale;
 
+	/** @var string */
 	#[Length(min: 2, max: 2)]
 	#[Regex('/[A-Z]{2}/')]
 	public string $ProvinciaAlbo;
 
+	/** @var string */
 	#[Length(min: 1, max: 60)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,60}/u')]
 	public string $NumeroIscrizioneAlbo;
 
+	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	public DateTime $DataIscrizioneAlbo;
 
+	/** @var string */
 	#[Choice([
 		'RF01',
 		'RF02',

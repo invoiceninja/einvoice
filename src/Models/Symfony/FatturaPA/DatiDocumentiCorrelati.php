@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints\Regex;
 
 class DatiDocumentiCorrelati
 {
-	/** @param RiferimentoNumeroLinea[] $RiferimentoNumeroLinea */
+	/** @var int */
 	public int $RiferimentoNumeroLinea;
 
 	#[Length(min: 1, max: 20)]

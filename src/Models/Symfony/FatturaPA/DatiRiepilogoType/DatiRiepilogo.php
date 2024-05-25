@@ -21,6 +21,7 @@ class DatiRiepilogo
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
 	public float|string $AliquotaIVA;
 
+	/** @var string */
 	#[Choice([
 		'N1',
 		'N2',
@@ -92,11 +93,13 @@ class DatiRiepilogo
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float|string $Imposta;
 
+	/** @var string */
 	#[Length(min: 1, max: 1)]
 	#[Choice(['D', 'I', 'S'])]
 	public string $EsigibilitaIVA;
 	private array $EsigibilitaIVA_array = ['D', 'I', 'S'];
 
+	/** @var string */
 	#[Length(min: 1, max: 100)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,100}/u')]
 	public string $RiferimentoNormativo;

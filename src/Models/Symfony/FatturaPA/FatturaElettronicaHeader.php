@@ -18,23 +18,29 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class FatturaElettronicaHeader
 {
+	/** @var DatiTrasmissione */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	/** @var DatiTrasmissione */
 	public $DatiTrasmissione;
 
+	/** @var CedentePrestatore */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public CedentePrestatore $CedentePrestatore;
-	public RappresentanteFiscale $RappresentanteFiscale;
+	public $CedentePrestatore;
 
+	/** @var RappresentanteFiscale */
+	public $RappresentanteFiscale;
+
+	/** @var CessionarioCommittente */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public CessionarioCommittente $CessionarioCommittente;
-	public TerzoIntermediarioOSoggettoEmittente $TerzoIntermediarioOSoggettoEmittente;
+	public $CessionarioCommittente;
+
+	/** @var TerzoIntermediarioOSoggettoEmittente */
+	public $TerzoIntermediarioOSoggettoEmittente;
 	private array $SoggettoEmittente_array = ['CC', 'TZ'];
 
 	#[Choice(['CC', 'TZ'])]

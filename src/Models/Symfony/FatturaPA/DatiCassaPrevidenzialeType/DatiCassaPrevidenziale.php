@@ -17,6 +17,7 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiCassaPrevidenziale
 {
+	/** @var string */
 	#[Choice([
 		'TC01',
 		'TC02',
@@ -68,24 +69,31 @@ class DatiCassaPrevidenziale
 		'TC22',
 	];
 
+	/** @var float|string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
 	public float|string $AlCassa;
 
+	/** @var float|string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float|string $ImportoContributoCassa;
 
+	/** @var float|string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float|string $ImponibileCassa;
 
+	/** @var float|string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
 	public float|string $AliquotaIVA;
+
+	/** @var string */
 	public string $Ritenuta;
 	private array $Ritenuta_array = ['SI'];
 
+	/** @var string */
 	#[Choice([
 		'N1',
 		'N2',
@@ -141,6 +149,7 @@ class DatiCassaPrevidenziale
 		'N7',
 	];
 
+	/** @var string */
 	#[Length(min: 1, max: 20)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
 	public string $RiferimentoAmministrazione;

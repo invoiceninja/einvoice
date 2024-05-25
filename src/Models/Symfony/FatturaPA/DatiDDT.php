@@ -23,6 +23,6 @@ class DatiDDT
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	public \DateTime $DataDDT;
 
-	/** @param RiferimentoNumeroLinea[] $RiferimentoNumeroLinea */
+	/** @var int */
 	public int $RiferimentoNumeroLinea;
 }

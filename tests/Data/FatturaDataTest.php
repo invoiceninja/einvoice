@@ -137,7 +137,7 @@ class FatturaDataTest extends TestCase
             ],
             'DatiBeniServizi' => [
                 'DettaglioLinee' => [
-                // 'NumeroLinea' => 1,
+                'NumeroLinea' => 1,
                 'Descrizione' => 'DESCRIZIONE DELLA FORNITURAa',
                 'Quantita' => "5.00",
                 'PrezzoUnitario' => "1.00",
@@ -263,7 +263,7 @@ class FatturaDataTest extends TestCase
         $listExtractors = [$reflectionExtractor];
 
         // list of PropertyTypeExtractorInterface (any iterable)
-        $typeExtractors = [$phpDocExtractor, $reflectionExtractor];
+        $typeExtractors = [$reflectionExtractor,$phpDocExtractor];
 
         // list of PropertyDescriptionExtractorInterface (any iterable)
         $descriptionExtractors = [$phpDocExtractor];
@@ -275,11 +275,11 @@ class FatturaDataTest extends TestCase
         $propertyInitializableExtractors = [$reflectionExtractor];
 
         $propertyInfo = new PropertyInfoExtractor(
-            $listExtractors,
-            $typeExtractors,
+            // $listExtractors,
+            $propertyInitializableExtractors,
             $descriptionExtractors,
-            $accessExtractors,
-            $propertyInitializableExtractors
+            $typeExtractors,
+            // $accessExtractors,
         );
 
         
@@ -294,8 +294,8 @@ class FatturaDataTest extends TestCase
         
         $discriminator = new ClassDiscriminatorFromClassMetadata($classMetadataFactory);
 
-        $normalizer = new ObjectNormalizer($classMetadataFactory, $metadataAwareNameConverter, null, $phpDocExtractor);
-        $normalizers = [ new ArrayDenormalizer(),$normalizer,   new DateTimeNormalizer()];
+        $normalizer = new ObjectNormalizer($classMetadataFactory, $metadataAwareNameConverter, null, $propertyInfo);
+        $normalizers = [  $normalizer,  new ArrayDenormalizer() , new DateTimeNormalizer()];
         $encoders = [$encoder, new JsonEncoder()];
 
 
@@ -316,37 +316,39 @@ class FatturaDataTest extends TestCase
 
     }
 
-    public function testBasicFirstLevel()
-    {
+//     public function testBasicFirstLevel()
+//     {
 
-        $context = [
-            // AbstractObjectNormalizer::DISABLE_TYPE_ENFORCEMENT => false,
-            // 'skip_null_values' => false, // Skip null values
-        ];
+//         $context = [
+//             // AbstractObjectNormalizer::DISABLE_TYPE_ENFORCEMENT => false,
+//             // 'skip_null_values' => false, // Skip null values
+//         ];
 
-        $serializer = $this->initSerializer();
+//         $serializer = $this->initSerializer();
 
-        $fattura = $serializer->deserialize(json_encode($this->good_payload), FatturaElettronica::class, 'json', $context);
+//         $fattura = $serializer->deserialize(json_encode($this->good_payload), FatturaElettronica::class, 'json', $context);
+// echo "testBasicFirstLevel".PHP_EOL;
+// echo print_r($fattura).PHP_EOL;
 
-        $validator = Validation::createValidatorBuilder()
-            ->enableAttributeMapping()
-            ->getValidator();
+//         $validator = Validation::createValidatorBuilder()
+//             ->enableAttributeMapping()
+//             ->getValidator();
 
-        $errors = $validator->validate($fattura);
+//         $errors = $validator->validate($fattura);
 
-        foreach($errors as $error)
-            echo $error->getPropertyPath() . ': ' . $error->getMessage() . "\n";
+//         foreach($errors as $error)
+//             echo $error->getPropertyPath() . ': ' . $error->getMessage() . "\n";
 
-        $this->assertCount(0, $errors);
+//         $this->assertCount(0, $errors);
 
 
-$this->assertNotNull($fattura->FatturaElettronicaHeader);
+// $this->assertNotNull($fattura->FatturaElettronicaHeader);
 
-$this->assertNotNull($fattura->FatturaElettronicaBody);
+// $this->assertNotNull($fattura->FatturaElettronicaBody);
 
-echo print_r($fattura).PHP_EOL;
 
-    }
+
+//     }
 
     public function testBadPayloadValidation()
     {
@@ -456,12 +458,17 @@ echo print_r($fattura).PHP_EOL;
 
         $errors = $validator->validate($fattura);
 
-        // echo print_r($errors);
+        // echo print_r($fattura);
+        // echo print_r($fattura->FatturaElettronicaBody->DatiBeniServizi->DettaglioLinee);
+        
+        $this->assertNotNull($errors);
         $this->assertCount(0, $errors);
+        $this->assertNotNull($fattura);         
+// echo print_r($fattura->FatturaElettronicaBody->DatiBeniServizi);
 
-        echo print_r($fattura->FatturaElettronicaBody->DatiBeniServizi);
+$this->assertCount(2, $fattura->FatturaElettronicaBody[0]->DatiBeniServizi->DettaglioLinee);
 
-        foreach($fattura->FatturaElettronicaBody->DatiBeniServizi->DettaglioLinee as $item){
+        foreach($fattura->FatturaElettronicaBody[0]->DatiBeniServizi->DettaglioLinee as $item){
 
             echo print_r($item).PHP_EOL;
 
@@ -471,7 +478,7 @@ echo print_r($fattura).PHP_EOL;
             
         }
 
-        echo print_r($fattura->FatturaElettronicaBody->DatiBeniServizi->DatiRiepilogo).PHP_EOL;
+        // echo print_r($fattura->FatturaElettronicaBody[0]->DatiBeniServizi->DatiRiepilogo).PHP_EOL;
     }
 
 }

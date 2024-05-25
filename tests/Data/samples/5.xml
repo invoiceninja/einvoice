@@ -1,64 +1,5 @@
 <?xml version="1.0"?>
 
-  <FatturaElettronicaBody>
-    <DatiGeneraliDocumento>
-      <TipoDocumento>TD01</TipoDocumento>
-      <Divisa>EUR</Divisa>
-      <Data>2014-12-18</Data>
-      <Numero>123</Numero>
-      <Causale>LA FATLLLLLLL MMM NNNNN OO PPPSSSSSSSSSSSSSS</Causale>
-      <Causale>SEGUE DESCRIZIONE CAUA BBBBBBBBBBBBBBBBB</Causale>
-    </DatiGeneraliDocumento>
-    <DatiOrdineAcquisto>
-      <RiferimentoNumeroLinea>1</RiferimentoNumeroLinea>
-      <IdDocumento>66685</IdDocumento>
-      <NumItem>1</NumItem>
-    </DatiOrdineAcquisto>
-    <DatiTrasporto>
-      <DatiAnagraficiVettore>
-        <IdFiscaleIVA>
-          <IdPaese>IT</IdPaese>
-          <IdCodice>24681012141</IdCodice>
-        </IdFiscaleIVA>
-        <Anagrafica>
-          <Denominazione>Trasporto spa</Denominazione>
-        </Anagrafica>
-      </DatiAnagraficiVettore>
-      <DataOraConsegna>2012-10-22T16:46:12.000+02:00</DataOraConsegna>
-    </DatiTrasporto>
-  </FatturaElettronicaBody>
-  <FatturaElettronicaBody>
-    <DettaglioLinee>
-      <NumeroLinea>1</NumeroLinea>
-      <Descrizione>LA DESCRIZIONE DELLA FORNITURA PUO' SUPERARE I CENTO CARATTERI CHE RAPPRESENTAVANO IL PRECEDENTE LIMITE DIMENSIONALE. TALE LIMITE NELLA NUOVA VERSIONE E' STATO PORTATO A MILLE CARATTERI</Descrizione>
-      <Quantita>5.00</Quantita>
-      <PrezzoUnitario>1.00</PrezzoUnitario>
-      <PrezzoTotale>5.00</PrezzoTotale>
-      <AliquotaIVA>22.00</AliquotaIVA>
-    </DettaglioLinee>
-    <DettaglioLinee>
-      <NumeroLinea>2</NumeroLinea>
-      <Descrizione>FORNITURE VARIE PER UFFICIO</Descrizione>
-      <Quantita>10.00</Quantita>
-      <PrezzoUnitario>2.00</PrezzoUnitario>
-      <PrezzoTotale>20.00</PrezzoTotale>
-      <AliquotaIVA>22.00</AliquotaIVA>
-    </DettaglioLinee>
-    <DatiRiepilogo>
-      <AliquotaIVA>22.00</AliquotaIVA>
-      <ImponibileImporto>27.00</ImponibileImporto>
-      <Imposta>5.95</Imposta>
-      <EsigibilitaIVA>D</EsigibilitaIVA>
-    </DatiRiepilogo>
-  </FatturaElettronicaBody>
-  <FatturaElettronicaBody>
-    <CondizioniPagamento>TP01</CondizioniPagamento>
-    <DettaglioPagamento>
-      <ModalitaPagamento>MP01</ModalitaPagamento>
-      <DataScadenzaPagamento>2015-01-30</DataScadenzaPagamento>
-      <ImportoPagamento>32.95</ImportoPagamento>
-    </DettaglioPagamento>
-  </FatturaElettronicaBody>
   <FatturaElettronicaHeader>
     <DatiTrasmissione>
       <IdTrasmittente>
@@ -68,8 +9,8 @@
       <ProgressivoInvio>00001</ProgressivoInvio>
       <FormatoTrasmissione>FPR12</FormatoTrasmissione>
       <CodiceDestinatario>0000000</CodiceDestinatario>
+      <ContattiTrasmittente/>
       <PECDestinatario>betagamma@pec.it</PECDestinatario>
-      <ContattiTrasmittente></ContattiTrasmittente>
     </DatiTrasmissione>
     <CedentePrestatore>
       <DatiAnagrafici>
@@ -89,9 +30,14 @@
         <Provincia>SS</Provincia>
         <Nazione>IT</Nazione>
       </Sede>
+      <StabileOrganizzazione/>
+      <IscrizioneREA/>
+      <Contatti/>
     </CedentePrestatore>
+    <RappresentanteFiscale/>
     <CessionarioCommittente>
       <DatiAnagrafici>
+        <IdFiscaleIVA/>
         <CodiceFiscale>09876543210</CodiceFiscale>
         <Anagrafica>
           <Denominazione>BETA GAMMA</Denominazione>
@@ -104,6 +50,147 @@
         <Provincia>RM</Provincia>
         <Nazione>IT</Nazione>
       </Sede>
+      <StabileOrganizzazione/>
+      <RappresentanteFiscale/>
     </CessionarioCommittente>
+    <TerzoIntermediarioOSoggettoEmittente/>
   </FatturaElettronicaHeader>
+  <FatturaElettronicaBody>
+    <DatiGenerali>
+      <DatiGeneraliDocumento>
+        <TipoDocumento>TD01</TipoDocumento>
+        <Divisa>EUR</Divisa>
+        <Data>
+          <timezone>
+            <name>UTC</name>
+            <transitions>
+              <ts>-9223372036854775808</ts>
+              <time>-292277022657-01-27T08:29:52+00:00</time>
+              <offset>0</offset>
+              <isdst>0</isdst>
+              <abbr>UTC</abbr>
+            </transitions>
+            <location>
+              <country_code>??</country_code>
+              <latitude>0</latitude>
+              <longitude>0</longitude>
+              <comments>?</comments>
+            </location>
+          </timezone>
+          <offset>0</offset>
+          <timestamp>1716669845</timestamp>
+        </Data>
+        <Numero>123</Numero>
+        <DatiRitenuta/>
+        <DatiBollo/>
+        <DatiCassaPrevidenziale/>
+        <ScontoMaggiorazione/>
+        <Causale>LA FATLLLLLLL MMM NNNNN OO PPPSSSSSSSSSSSSSS</Causale>
+        <Causale>SEGUE DESCRIZIONE CAUA BBBBBBBBBBBBBBBBB</Causale>
+      </DatiGeneraliDocumento>
+      <DatiOrdineAcquisto>
+        <RiferimentoNumeroLinea>1</RiferimentoNumeroLinea>
+        <IdDocumento>66685</IdDocumento>
+        <NumItem>1</NumItem>
+      </DatiOrdineAcquisto>
+      <DatiContratto/>
+      <DatiConvenzione/>
+      <DatiRicezione/>
+      <DatiFattureCollegate/>
+      <DatiSAL/>
+      <DatiDDT/>
+      <DatiTrasporto>
+        <DatiAnagraficiVettore>
+          <IdFiscaleIVA>
+            <IdPaese>IT</IdPaese>
+            <IdCodice>24681012141</IdCodice>
+          </IdFiscaleIVA>
+          <Anagrafica>
+            <Denominazione>Trasporto spa</Denominazione>
+          </Anagrafica>
+        </DatiAnagraficiVettore>
+        <IndirizzoResa/>
+        <DataOraConsegna>
+          <timezone>
+            <name>UTC</name>
+            <transitions>
+              <ts>-9223372036854775808</ts>
+              <time>-292277022657-01-27T08:29:52+00:00</time>
+              <offset>0</offset>
+              <isdst>0</isdst>
+              <abbr>UTC</abbr>
+            </transitions>
+            <location>
+              <country_code>??</country_code>
+              <latitude>0</latitude>
+              <longitude>0</longitude>
+              <comments>?</comments>
+            </location>
+          </timezone>
+          <offset>0</offset>
+          <timestamp>1716669845</timestamp>
+        </DataOraConsegna>
+      </DatiTrasporto>
+      <FatturaPrincipale/>
+    </DatiGenerali>
+    <DatiBeniServizi>
+      <DettaglioLinee>
+        <NumeroLinea>1</NumeroLinea>
+        <CodiceArticolo/>
+        <Descrizione>LA DESCRIZIONE DELLA FORNITURA PUO' SUPERARE I CENTO CARATTERI CHE RAPPRESENTAVANO IL PRECEDENTE LIMITE DIMENSIONALE. TALE LIMITE NELLA NUOVA VERSIONE E' STATO PORTATO A MILLE CARATTERI</Descrizione>
+        <Quantita>5.00</Quantita>
+        <PrezzoUnitario>1.00</PrezzoUnitario>
+        <ScontoMaggiorazione/>
+        <PrezzoTotale>5.00</PrezzoTotale>
+        <AliquotaIVA>22.00</AliquotaIVA>
+        <AltriDatiGestionali/>
+      </DettaglioLinee>
+      <DettaglioLinee>
+        <NumeroLinea>2</NumeroLinea>
+        <CodiceArticolo/>
+        <Descrizione>FORNITURE VARIE PER UFFICIO</Descrizione>
+        <Quantita>10.00</Quantita>
+        <PrezzoUnitario>2.00</PrezzoUnitario>
+        <ScontoMaggiorazione/>
+        <PrezzoTotale>20.00</PrezzoTotale>
+        <AliquotaIVA>22.00</AliquotaIVA>
+        <AltriDatiGestionali/>
+      </DettaglioLinee>
+      <DatiRiepilogo>
+        <AliquotaIVA>22.00</AliquotaIVA>
+        <ImponibileImporto>27.00</ImponibileImporto>
+        <Imposta>5.95</Imposta>
+        <EsigibilitaIVA>D</EsigibilitaIVA>
+      </DatiRiepilogo>
+    </DatiBeniServizi>
+    <DatiVeicoli/>
+    <DatiPagamento>
+      <CondizioniPagamento>TP01</CondizioniPagamento>
+      <DettaglioPagamento>
+        <ModalitaPagamento>MP01</ModalitaPagamento>
+        <DataScadenzaPagamento>
+          <timezone>
+            <name>UTC</name>
+            <transitions>
+              <ts>-9223372036854775808</ts>
+              <time>-292277022657-01-27T08:29:52+00:00</time>
+              <offset>0</offset>
+              <isdst>0</isdst>
+              <abbr>UTC</abbr>
+            </transitions>
+            <location>
+              <country_code>??</country_code>
+              <latitude>0</latitude>
+              <longitude>0</longitude>
+              <comments>?</comments>
+            </location>
+          </timezone>
+          <offset>0</offset>
+          <timestamp>1716669845</timestamp>
+        </DataScadenzaPagamento>
+        <ImportoPagamento>32.95</ImportoPagamento>
+      </DettaglioPagamento>
+    </DatiPagamento>
+    <Allegati/>
+  </FatturaElettronicaBody>
 

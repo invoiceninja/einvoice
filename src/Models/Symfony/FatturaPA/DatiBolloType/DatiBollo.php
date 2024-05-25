@@ -17,9 +17,11 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiBollo
 {
+	/** @var string */
 	public string $BolloVirtuale;
 	private array $BolloVirtuale_array = ['SI'];
 
+	/** @var float|string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float|string $ImportoBollo;

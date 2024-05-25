@@ -21,15 +21,21 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class CessionarioCommittente
 {
+	/** @var DatiAnagrafici */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public DatiAnagrafici $DatiAnagrafici;
+	public $DatiAnagrafici;
 
+	/** @var Sede */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public Sede $Sede;
-	public StabileOrganizzazione $StabileOrganizzazione;
-	public RappresentanteFiscale $RappresentanteFiscale;
+	public $Sede;
+
+	/** @var StabileOrganizzazione */
+	public $StabileOrganizzazione;
+
+	/** @var RappresentanteFiscale */
+	public $RappresentanteFiscale;
 }

@@ -15,10 +15,11 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiTrasmissione
 {
+	/** @var IdTrasmittente */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public IdTrasmittente $IdTrasmittente;
+	public $IdTrasmittente;
 
 	#[Length(min: 1, max: 10)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,10}/u')]
@@ -31,7 +32,9 @@ class DatiTrasmissione
 	#[Length(min: 6, max: 7)]
 	#[Regex('/[A-Z0-9]{6,7}/')]
 	public string $CodiceDestinatario;
-	public ContattiTrasmittente $ContattiTrasmittente;
+
+	/** @var ContattiTrasmittente */
+	public $ContattiTrasmittente;
 
 	#[Length(min: null, max: 256)]
 	#[Regex('/^(?!.*\.\.)(?!.*\.$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/')]

@@ -25,8 +25,9 @@ class RappresentanteFiscaleCessionario
 	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
 	public string $Cognome;
 
+	/** @var IdFiscaleIVA */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public IdFiscaleIVA $IdFiscaleIVA;
+	public $IdFiscaleIVA;
 }

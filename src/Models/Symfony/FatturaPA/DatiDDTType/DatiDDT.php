@@ -17,16 +17,18 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiDDT
 {
+	/** @var string */
 	#[Length(min: 1, max: 20)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
 	public string $NumeroDDT;
 
+	/** @var DateTime */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	public DateTime $DataDDT;
 
-	/** @param RiferimentoNumeroLinea[] $RiferimentoNumeroLinea */
+	/** @var int */
 	public int $RiferimentoNumeroLinea;
 }

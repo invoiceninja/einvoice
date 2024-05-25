@@ -18,14 +18,15 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiPagamento
 {
+	/** @var string */
 	#[Length(min: 4, max: 4)]
 	#[Choice(['TP01', 'TP02', 'TP03'])]
 	public string $CondizioniPagamento;
 	private array $CondizioniPagamento_array = ['TP01', 'TP02', 'TP03'];
 
-	/** @param DettaglioPagamento[] $DettaglioPagamento */
+	/** @var DettaglioPagamento[] */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public DettaglioPagamento $DettaglioPagamento;
+	public array $DettaglioPagamento = [];
 }

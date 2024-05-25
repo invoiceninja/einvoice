@@ -5,7 +5,6 @@ namespace Invoiceninja\Einvoice\Models\Symfony\FatturaPA\DettaglioLineeType;
 use DateTime;
 use DateTimeInterface;
 use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
-use Invoiceninja\Einvoice\Models\Normalizers\IntegerCast;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\AltriDatiGestionaliType\AltriDatiGestionali;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\CodiceArticoloType\CodiceArticolo;
 use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\ScontoMaggiorazioneType\ScontoMaggiorazione;
@@ -21,31 +20,37 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DettaglioLinee
 {
-	#[IntegerCast(2)]
+	/** @var int */
 	public int $NumeroLinea;
 
+	/** @var string */
 	#[Choice(['SC', 'PR', 'AB', 'AC'])]
 	public string $TipoCessionePrestazione;
 	private array $TipoCessionePrestazione_array = ['SC', 'PR', 'AB', 'AC'];
 
-	/** @param CodiceArticolo[] $CodiceArticolo */
-	public CodiceArticolo $CodiceArticolo;
+	/** @var CodiceArticolo[] */
+	public array $CodiceArticolo = [];
 
+	/** @var string */
 	#[Length(min: 1, max: 1000)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,1000}/u')]
 	public string $Descrizione;
 
+	/** @var string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,12}\.[0-9]{2,8}/')]
-	public float|string $Quantita;
+	public $Quantita;
 
+	/** @var string */
 	#[Length(min: 1, max: 10)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,10}/u')]
 	public string $UnitaMisura;
 
+	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	public DateTime $DataInizioPeriodo;
 
+	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	public DateTime $DataFinePeriodo;
 
@@ -53,8 +58,8 @@ class DettaglioLinee
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
 	public float|string $PrezzoUnitario;
 
-	/** @param ScontoMaggiorazione[] $ScontoMaggiorazione */
-	public ScontoMaggiorazione $ScontoMaggiorazione;
+	/** @var ScontoMaggiorazione[] */
+	public array $ScontoMaggiorazione = [];
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
@@ -62,10 +67,13 @@ class DettaglioLinee
 
 	#[DecimalPrecision(2)]
 	#[Regex('/[0-9]{1,3}\.[0-9]{2}/')]
-	public float|string $AliquotaIVA;
+	public $AliquotaIVA;
+
+	/** @var string */
 	public string $Ritenuta;
 	private array $Ritenuta_array = ['SI'];
 
+	/** @var string */
 	#[Choice([
 		'N1',
 		'N2',
@@ -121,30 +129,11 @@ class DettaglioLinee
 		'N7',
 	];
 
+	/** @var string */
 	#[Length(min: 1, max: 20)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
 	public string $RiferimentoAmministrazione;
 
-	/** @param AltriDatiGestionali[] $AltriDatiGestionali */
-	public AltriDatiGestionali $AltriDatiGestionali;
-
-	/**
-	 * Get the value of Descrizione
-	 */ 
-	public function getDescrizione()
-	{
-		return $this->Descrizione;
-	}
-
-	/**
-	 * Set the value of Descrizione
-	 *
-	 * @return  self
-	 */ 
-	public function setDescrizione($Descrizione)
-	{
-		$this->Descrizione = $Descrizione;
-
-		return $this;
-	}
+	/** @var AltriDatiGestionali[] */
+	public array $AltriDatiGestionali = [];
 }

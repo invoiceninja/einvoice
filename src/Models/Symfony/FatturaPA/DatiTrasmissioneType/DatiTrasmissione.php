@@ -19,28 +19,31 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiTrasmissione
 {
+	/** @var IdTrasmittente */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	/** @var IdTrasmittente */
 	public $IdTrasmittente;
 
+	/** @var string */
 	#[Length(min: 1, max: 10)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,10}/u')]
 	public string $ProgressivoInvio;
 
+	/** @var string */
 	#[Choice(['FPA12', 'FPR12'])]
 	public string $FormatoTrasmissione;
 	private array $FormatoTrasmissione_array = ['FPA12', 'FPR12'];
 
+	/** @var string */
 	#[Length(min: 6, max: 7)]
 	#[Regex('/[A-Z0-9]{6,7}/')]
 	public string $CodiceDestinatario;
 
-	
 	/** @var ContattiTrasmittente */
-	public  $ContattiTrasmittente;
+	public $ContattiTrasmittente;
 
+	/** @var string */
 	#[Length(min: null, max: 256)]
 	#[Regex('/^(?!.*\.\.)(?!.*\.$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/')]
 	public string $PECDestinatario;

@@ -27,31 +27,36 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiGenerali
 {
+	/** @var DatiGeneraliDocumento */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public DatiGeneraliDocumento $DatiGeneraliDocumento;
+	public $DatiGeneraliDocumento;
 
-	/** @param DatiOrdineAcquisto[] $DatiOrdineAcquisto */
-	public DatiOrdineAcquisto $DatiOrdineAcquisto;
+	/** @var DatiOrdineAcquisto[] */
+	public array $DatiOrdineAcquisto = [];
 
-	/** @param DatiContratto[] $DatiContratto */
-	public DatiContratto $DatiContratto;
+	/** @var DatiContratto[] */
+	public array $DatiContratto = [];
 
-	/** @param DatiConvenzione[] $DatiConvenzione */
-	public DatiConvenzione $DatiConvenzione;
+	/** @var DatiConvenzione[] */
+	public array $DatiConvenzione = [];
 
-	/** @param DatiRicezione[] $DatiRicezione */
-	public DatiRicezione $DatiRicezione;
+	/** @var DatiRicezione[] */
+	public array $DatiRicezione = [];
 
-	/** @param DatiFattureCollegate[] $DatiFattureCollegate */
-	public DatiFattureCollegate $DatiFattureCollegate;
+	/** @var DatiFattureCollegate[] */
+	public array $DatiFattureCollegate = [];
 
-	/** @param DatiSAL[] $DatiSAL */
-	public DatiSAL $DatiSAL;
+	/** @var DatiSAL[] */
+	public array $DatiSAL = [];
 
-	/** @param DatiDDT[] $DatiDDT */
-	public DatiDDT $DatiDDT;
-	public DatiTrasporto $DatiTrasporto;
-	public FatturaPrincipale $FatturaPrincipale;
+	/** @var DatiDDT[] */
+	public array $DatiDDT = [];
+
+	/** @var DatiTrasporto */
+	public $DatiTrasporto;
+
+	/** @var FatturaPrincipale */
+	public $FatturaPrincipale;
 }

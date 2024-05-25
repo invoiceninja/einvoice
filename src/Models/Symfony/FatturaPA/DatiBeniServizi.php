@@ -15,17 +15,49 @@ use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\Valid;
 
-class DatiBeniServizi
+class DatiBeniServiziacac
 {
-	/** @param DettaglioLinee[] $DettaglioLinee */
+	/** @var DettaglioLinccee[] */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public DettaglioLinee $DettaglioLinee;
+	public array $DettaglioLinee = [];
 
-	/** @param DatiRiepilogo[] $DatiRiepilogo */
+	/** @var DatiRiepilogo[] */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public DatiRiepilogo $DatiRiepilogo;
+	public array $DatiRiepilogo = [];
+
+	public function addDatiRiepilogo(DatiRiepilogo $DatiRiepilogo)
+	{
+		$this->DatiRiepilogo[] = $DatiRiepilogo;
+
+		return $this;
+	}
+
+	public function hasDatiRiepilogo()
+	{
+		return count($this->DatiRiepilogo) > 0;
+	}
+
+	/**
+	 * Get the value of DatiRiepilogo
+	 */ 
+	public function getDatiRiepilogo()
+	{
+		return $this->DatiRiepilogo;
+	}
+
+	/**
+	 * Set the value of DatiRiepilogo
+	 *
+	 * @return  self
+	 */ 
+	public function setDatiRiepilogo($DatiRiepilogo)
+	{
+		$this->DatiRiepilogo = $DatiRiepilogo;
+
+		return $this;
+	}
 }

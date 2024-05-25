@@ -22,19 +22,28 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class CedentePrestatore
 {
+	/** @var DatiAnagrafici */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public DatiAnagrafici $DatiAnagrafici;
+	public $DatiAnagrafici;
 
+	/** @var Sede */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public Sede $Sede;
-	public StabileOrganizzazione $StabileOrganizzazione;
-	public IscrizioneREA $IscrizioneREA;
-	public Contatti $Contatti;
+	public $Sede;
 
+	/** @var StabileOrganizzazione */
+	public $StabileOrganizzazione;
+
+	/** @var IscrizioneREA */
+	public $IscrizioneREA;
+
+	/** @var Contatti */
+	public $Contatti;
+
+	/** @var string */
 	#[Length(min: 1, max: 20)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
 	public string $RiferimentoAmministrazione;

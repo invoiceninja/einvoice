@@ -21,6 +21,7 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiGeneraliDocumento
 {
+	/** @var string */
 	#[Choice([
 		'TD01',
 		'TD02',
@@ -66,41 +67,50 @@ class DatiGeneraliDocumento
 		'TD28',
 	];
 
+	/** @var string */
 	#[Length(min: 3, max: 3)]
 	#[Regex('/[A-Z]{3}/')]
 	public string $Divisa;
 
+	/** @var DateTime */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	public DateTime $Data;
 
+	/** @var string */
 	#[Length(min: 1, max: 20)]
 	#[Regex('/[\x{0020}-\x{007E}]{1,20}/u')]
 	public string $Numero;
 
-	/** @param DatiRitenuta[] $DatiRitenuta */
-	public DatiRitenuta $DatiRitenuta;
-	public DatiBollo $DatiBollo;
+	/** @var DatiRitenuta[] */
+	public array $DatiRitenuta = [];
 
-	/** @param DatiCassaPrevidenziale[] $DatiCassaPrevidenziale */
-	public DatiCassaPrevidenziale $DatiCassaPrevidenziale;
+	/** @var DatiBollo */
+	public $DatiBollo;
 
-	/** @param ScontoMaggiorazione[] $ScontoMaggiorazione */
-	public ScontoMaggiorazione $ScontoMaggiorazione;
+	/** @var DatiCassaPrevidenziale[] */
+	public array $DatiCassaPrevidenziale = [];
 
+	/** @var ScontoMaggiorazione[] */
+	public array $ScontoMaggiorazione = [];
+
+	/** @var float|string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float|string $ImportoTotaleDocumento;
 
+	/** @var float|string */
 	#[DecimalPrecision(2)]
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public float|string $Arrotondamento;
 
-	/** @param Causale[] $Causale */
+	/** @var string[] */
 	#[All([new Length(min: 1,max: 200),new Regex(pattern: "/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,200}/u")])]
-	public array $Causale;
+	public array $Causale = [];
+
+	/** @var string */
 	public string $Art73;
 	private array $Art73_array = ['SI'];
 }

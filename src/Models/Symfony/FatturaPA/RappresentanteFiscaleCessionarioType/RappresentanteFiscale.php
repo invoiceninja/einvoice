@@ -18,20 +18,24 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class RappresentanteFiscale
 {
+	/** @var string */
 	#[Length(min: 1, max: 80)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,80}/u')]
 	public string $Denominazione;
 
+	/** @var string */
 	#[Length(min: 1, max: 60)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
 	public string $Nome;
 
+	/** @var string */
 	#[Length(min: 1, max: 60)]
 	#[Regex('/[\x{0000}-\x{00FF}]{1,60}/u')]
 	public string $Cognome;
 
+	/** @var IdFiscaleIVA */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public IdFiscaleIVA $IdFiscaleIVA;
+	public $IdFiscaleIVA;
 }

@@ -17,5 +17,6 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiSAL
 {
+	/** @var int */
 	public int $RiferimentoFase;
 }

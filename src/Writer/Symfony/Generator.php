@@ -34,11 +34,17 @@ use Symfony\Component\Validator\Constraints\All;
 
 class Generator
 {
+
+    private array $standards = [
+        'FatturaPA',
+        'FACT1',
+    ];
+
     public const LINE_FEED = "\n";
 
-    public string $path_namespace = "Invoiceninja\Einvoice\Models\Symfony\\";
+    public string $path_namespace = "Invoiceninja\Einvoice\Models\\";
 
-    public string $write_path = "src/Models/Symfony/";
+    public string $write_path = "src/Models/";
     
     public string $standard = "";
 
@@ -50,20 +56,22 @@ class Generator
 
     public function build()
     {
-        $this->standard = 'FatturaPA';
-        $this->child_classes = collect([]);
+        foreach($this->standards as $standard)
+        {
+            $this->standard = $standard;
+            $this->child_classes = collect([]);
 
-        $path = "src/Schema/{$this->standard}/{$this->standard}.json";
+            $path = "src/Schema/{$this->standard}/{$this->standard}.json";
 
-        $this->document = collect(json_decode(file_get_contents($path), 1));
+            $this->document = collect(json_decode(file_get_contents($path), 1));
 
-        $this->document->each(function ($node, $key) {
+            $this->document->each(function ($node, $key) {
 
-            $class_name = str_replace("Type", "", $key);
-            $this->writeClass($class_name, $node);
+                $class_name = str_replace("Type", "", $key);
+                $this->writeClass($class_name, $node);
 
-        });
-
+            });
+        }
     }
 
     public function resolveType(string $raw_type): string

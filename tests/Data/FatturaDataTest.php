@@ -21,155 +21,16 @@ use Symfony\Component\Serializer\Mapping\Loader\AttributeLoader;
 use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 use Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer;
-use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\FatturaElettronica;
+use Invoiceninja\Einvoice\Models\FatturaPA\FatturaElettronica;
 use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
-use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\FatturaElettronicaBody;
+use Invoiceninja\Einvoice\Models\FatturaPA\FatturaElettronicaBody;
 use Symfony\Component\Serializer\NameConverter\MetadataAwareNameConverter;
-use Invoiceninja\Einvoice\Models\Symfony\FatturaPA\FatturaElettronicaHeader;
+use Invoiceninja\Einvoice\Models\FatturaPA\FatturaElettronicaHeader;
 use Symfony\Component\Serializer\Mapping\ClassDiscriminatorFromClassMetadata;
 
 class FatturaDataTest extends TestCase
 {
     private $invoice;
-
-
-        private array $good_payload = [
-            'FatturaElettronicaHeader' => [
-            'DatiTrasmissione' => [
-                'IdTrasmittente' => [
-                'IdPaese' => 'IT',
-                'IdCodice' => '01234567890',
-                ],
-                'ProgressivoInvio' => '00001',
-                'FormatoTrasmissione' => 'FPA12',
-                'CodiceDestinatario' => 'AAAAAA',
-            ],
-            'CedentePrestatore' => [
-                'DatiAnagrafici' => [
-                'IdFiscaleIVA' => [
-                    'IdPaese' => 'IT',
-                    'IdCodice' => '01234567890',
-                ],
-                'Anagrafica' => [
-                    'Denominazione' => 'ALPHA SRL',
-                ],
-                'RegimeFiscale' => 'RF19',
-                ],
-                'Sede' => [
-                'Indirizzo' => 'VIALE ROMA 543',
-                'CAP' => '07100',
-                'Comune' => 'SASSARI',
-                'Provincia' => 'SS',
-                'Nazione' => 'IT',
-                ],
-            ],
-            'CessionarioCommittente' => [
-                'DatiAnagrafici' => [
-                'CodiceFiscale' => '09876543210',
-                'Anagrafica' => [
-                    'Denominazione' => 'AMMINISTRAZIONE BETA',
-                ],
-                ],
-                'Sede' => [
-                'Indirizzo' => 'VIA TORINO 38-B',
-                'CAP' => '00145',
-                'Comune' => 'ROMA',
-                'Provincia' => 'RM',
-                'Nazione' => 'IT',
-                ],
-            ],
-            ],
-            'FatturaElettronicaBody' => [
-            'DatiGenerali' => [
-                'DatiGeneraliDocumento' => [
-                'TipoDocumento' => 'TD01',
-                'Divisa' => 'EUR',
-                'Data' => '2017-01-18',
-                'Numero' => '123',
-                'Causale' => [
-                    0 => 'LA FATTURA FA RIFERIMENTO AD UNA OPERAZIONE AAAA BBBBBBBBBBBBBBBBBB CCC
-                            DDDDDDDDDDDDDDD E FFFFFFFFFFFFFFFFFFFF GGGGSSSSSS',
-                    1 => 'SEGUE DESCRIZIONE CAUSALE NEL CASO IN CUI NON SIANO STATI SUFFICIENTI 200
-                            CARATTERI AAAAA',
-                ],
-                ],
-                'DatiOrdineAcquisto' => [
-                'RiferimentoNumeroLinea' => 1,
-                'IdDocumento' => '66685',
-                'NumItem' => '1',
-                'CodiceCUP' => '123abc',
-                'CodiceCIG' => '456def',
-                ],
-                'DatiContratto' => [
-                'RiferimentoNumeroLinea' => 1,
-                'IdDocumento' => '123',
-                'Data' => '2016-09-01',
-                'NumItem' => '5',
-                'CodiceCUP' => '123abc',
-                'CodiceCIG' => '456def',
-                ],
-                'DatiConvenzione' => [
-                'RiferimentoNumeroLinea' => 1,
-                'IdDocumento' => '456',
-                'NumItem' => '5',
-                'CodiceCUP' => '123abc',
-                'CodiceCIG' => '456def',
-                ],
-                'DatiRicezione' => [
-                'RiferimentoNumeroLinea' => 1,
-                'IdDocumento' => '789',
-                'NumItem' => '5',
-                'CodiceCUP' => '123abc',
-                'CodiceCIG' => '456def',
-                ],
-                'DatiTrasporto' => [
-                'DatiAnagraficiVettore' => [
-                    'IdFiscaleIVA' => [
-                    'IdPaese' => 'IT',
-                    'IdCodice' => '24681012141',
-                    ],
-                    'Anagrafica' => [
-                    'Denominazione' => 'Trasporto spa',
-                    ],
-                ],
-                'DataOraConsegna' => '2017-01-10T16:46:12.000+02:00',
-                ],
-            ],
-            'DatiBeniServizi' => [
-                'DettaglioLinee' => [
-                'NumeroLinea' => 1,
-                'Descrizione' => 'DESCRIZIONE DELLA FORNITURAa',
-                'Quantita' => "5.00",
-                'PrezzoUnitario' => "1.00",
-                'PrezzoTotale' => "5.00",
-                'AliquotaIVA' => "22.00",
-                ],
-                'DatiRiepilogo' => [
-                'AliquotaIVA' => "22.00",
-                'ImponibileImporto' => "5.00",
-                'Imposta' => "1.10",
-                'EsigibilitaIVA' => 'I',
-                ],
-            ],
-            'DatiPagamento' => [
-                'CondizioniPagamento' => 'TP01',
-                'DettaglioPagamento' => [
-                'ModalitaPagamento' => 'MP01',
-                'DataScadenzaPagamento' => '2017-02-18',
-                'ImportoPagamento' => "6.10",
-                ],
-            ],
-            ],
-        
-        ];
-
-    private array $empty = [
-        'FatturaElettronicaHeader' => [
-        ],
-        'FatturaElettronicaBody' => [
-            'DatiPagamento' => [],
-        ],
-    ];
 
     private array $bad_payload = [
         'FatturaElettronica' =>[
@@ -305,40 +166,6 @@ class FatturaDataTest extends TestCase
 
     }
 
-//     public function testBasicFirstLevel()
-//     {
-
-//         $context = [
-//             // AbstractObjectNormalizer::DISABLE_TYPE_ENFORCEMENT => false,
-//             // 'skip_null_values' => false, // Skip null values
-//         ];
-
-//         $serializer = $this->initSerializer();
-
-//         $fattura = $serializer->deserialize(json_encode($this->good_payload), FatturaElettronica::class, 'json', $context);
-// echo "testBasicFirstLevel".PHP_EOL;
-// echo print_r($fattura).PHP_EOL;
-
-//         $validator = Validation::createValidatorBuilder()
-//             ->enableAttributeMapping()
-//             ->getValidator();
-
-//         $errors = $validator->validate($fattura);
-
-//         foreach($errors as $error)
-//             echo $error->getPropertyPath() . ': ' . $error->getMessage() . "\n";
-
-//         $this->assertCount(0, $errors);
-
-
-// $this->assertNotNull($fattura->FatturaElettronicaHeader);
-
-// $this->assertNotNull($fattura->FatturaElettronicaBody);
-
-
-
-//     }
-
     public function testBadPayloadValidation()
     {
         $context = [];
@@ -385,16 +212,9 @@ class FatturaDataTest extends TestCase
 
         foreach($files as $key => $f)
         {
-            echo($f).PHP_EOL;
-
             $xmlstring = file_get_contents($f);
-
             $data = $serializer->deserialize($xmlstring, FatturaElettronica::class, 'xml');
-
-            // $this->assertNotNull($data->FatturaElettronicaBody->DatiBeniServizi);
-            // echo print_r($data);
             $fpathjson = $path."{$key}.json";
-            // echo print_r($data).PHP_EOL;
             $fp = fopen($fpathjson, 'w');
             fwrite($fp, json_encode($data, JSON_PRETTY_PRINT));
             fclose($fp);
@@ -452,16 +272,6 @@ class FatturaDataTest extends TestCase
         $this->assertNotNull($fattura);         
 
         $this->assertCount(2, $fattura->FatturaElettronicaBody[0]->DatiBeniServizi->DettaglioLinee);
-
-        // foreach($fattura->FatturaElettronicaBody[0]->DatiBeniServizi->DettaglioLinee as $item){
-
-        //     echo print_r($item).PHP_EOL;
-
-        //     echo $item->NumeroLinea.PHP_EOL;
-        //     echo $item->PrezzoTotale.PHP_EOL;
-
-            
-        // }
 
     }
 
@@ -524,13 +334,9 @@ $xmlstring = file_get_contents($f);
 $xmlstring = $serializer->deserialize($xmlstring, FatturaElettronica::class, 'xml');
 $fattura = $normalizer->normalize($xmlstring, 'xml', [AbstractObjectNormalizer::SKIP_NULL_VALUES => true]);
 
-
 $this->assertNotNull($fattura);
-echo print_r($fattura);
-
 $dataxml = $serializer->encode($fattura, 'xml', $context);
 $dataxml = str_replace(['<response>','</response>'], '', $dataxml);
-
 //remove any empty lines from output
 $dataxml = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $dataxml);
 

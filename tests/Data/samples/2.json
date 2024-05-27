@@ -60,7 +60,7 @@
                     "TipoDocumento": "TD01",
                     "Divisa": "EUR",
                     "Data": {
-                        "date": "2017-01-18 01:29:00.000000",
+                        "date": "2017-01-18 06:04:14.000000",
                         "timezone_type": 3,
                         "timezone": "UTC"
                     },
@@ -88,7 +88,7 @@
                         "RiferimentoNumeroLinea": 1,
                         "IdDocumento": "123",
                         "Data": {
-                            "date": "2016-09-01 01:29:00.000000",
+                            "date": "2016-09-01 06:04:14.000000",
                             "timezone_type": 3,
                             "timezone": "UTC"
                         },
@@ -179,7 +179,7 @@
                         {
                             "ModalitaPagamento": "MP01",
                             "DataScadenzaPagamento": {
-                                "date": "2017-03-30 01:29:00.000000",
+                                "date": "2017-03-30 06:04:14.000000",
                                 "timezone_type": 3,
                                 "timezone": "UTC"
                             },

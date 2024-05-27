@@ -15,7 +15,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use ReflectionClass;
 
-class IntegerNormalizer implements NormalizerInterface
+class IntegerCastNormalizer implements NormalizerInterface
 {
     private ObjectNormalizer $normalizer;
 

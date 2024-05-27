@@ -29,6 +29,7 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Invoiceninja\Einvoice\Writer\Symfony\TypeGenerator;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Validator\Constraints\All;
 
@@ -36,8 +37,16 @@ class Generator
 {
 
     private array $standards = [
-        'FatturaPA',
-        'FACT1',
+        'FatturaPA' => [
+            'options' => [
+                'set_serialized_name' => false,
+            ]
+        ],
+        'FACT1' => [
+            'options' => [
+                'set_serialized_name' => true,
+            ]
+        ],
     ];
 
     public const LINE_FEED = "\n";
@@ -54,11 +63,15 @@ class Generator
 
     public Collection $child_classes;
 
+    private bool $set_serialized_name = false;
+
     public function build()
     {
-        foreach($this->standards as $standard)
+        foreach($this->standards as $key => $value)
         {
-            $this->standard = $standard;
+
+            $this->standard = $key;
+            $this->setOptions();
             $this->child_classes = collect([]);
 
             $path = "src/Schema/{$this->standard}/{$this->standard}.json";
@@ -122,6 +135,10 @@ class Generator
         }
 
         if($element['max_occurs'] > 1 || $element['max_occurs'] == -1 && !$this->isPrimative($element['base_type'])) {
+
+            if($element['name'] == 'TaxTotal')
+                echo print_r($element).PHP_EOL;
+
             $property->setType("array");
             $property->setValue([]);
             $property->removeComment();
@@ -169,6 +186,25 @@ class Generator
             $property->addComment("@var string[]");
         }
 
+        if($this->set_serialized_name && isset($element['namespace'])) {
+            $this->namespace->addUse(SerializedName::class);
+            $property->addAttribute(SerializedName::class, [$element['namespace'].":".$element['name']]);
+        }
+
+        if($element['name'] == 'amount'){            
+            $this->namespace->addUse(SerializedName::class);
+            $property->addAttribute(SerializedName::class, ['#']);
+        }
+
+        if($element['name'] == 'currencyID') {
+            $this->namespace->addUse(SerializedName::class);
+            $property->addAttribute(SerializedName::class, ['@currencyID']);
+        }
+                
+        if($element['name'] == 'unitCode') {
+            $this->namespace->addUse(SerializedName::class);
+            $property->addAttribute(SerializedName::class, ['@unitCode']);
+        }
 
         return $property;
     }
@@ -199,9 +235,10 @@ class Generator
             $property = (new Property($element['name']))
                                         ->setPublic();
 
-            if(stripos($element['base_type'], 'Type') === false)
+            if(stripos($element['base_type'], 'Type') === false){
+                    $property->addComment("@var ".$base_type);
                     $property->setType($base_type);
-             else {
+            }else {
                 $property->addComment("@var ".$element['name']);
             }
 
@@ -258,4 +295,14 @@ class Generator
 
     }
 
+    private function setOptions(): self
+    {
+        $options = $this->standards[$this->standard]['options'];
+
+        foreach($options as $key => $value){
+            $this->{$key} = $value;
+        }
+
+        return $this;
+    }
 }

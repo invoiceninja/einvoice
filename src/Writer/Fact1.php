@@ -89,7 +89,8 @@ class Fact1 extends BaseStandard
                 'base_type' => $element->getAttribute('ref'),
                 'min_occurs' => (int)$element->getAttribute('minOccurs'),
                 'max_occurs' => (int)$maxOccurs,
-                'help' => $this->getAnnotation($element)
+                'help' => $this->getAnnotation($element),
+                'namespace' => $parts[0],
             ]);
 
         }
@@ -133,7 +134,8 @@ class Fact1 extends BaseStandard
     /** Nested type props need to be harvested and resolved */
     private function childTypes(): self
     {
-
+        $this->type_tracker[] = 'AmountType';
+        $this->type_tracker[] = 'QuantityType';
         $element_collection = collect($this->cacType->elements);
 
         $type_map = collect($this->data)

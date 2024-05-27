@@ -101,6 +101,31 @@ class CacType
             $data[] = ['type' => $base_type, 'help' => '', 'choices' => [], 'elements' => $elements[0]];
         }
 
+        /** Special types which may contain attributes */
+        $data[] = [
+            'type' => 'AmountType', 
+            'base_type' => 'AmountType', 
+            'help' => '', 
+            'choices' => [], 
+            'elements' => [
+                '#' => array_merge($this->stub_validation, ['name' => 'amount', 'base_type' => 'decimal','min_occurs' => 1, 'max_occurs' => 1, ]),
+                '@currencyId' => array_merge($this->stub_validation, ['name' => 'currencyID', 'base_type' => 'string', 'min_occurs' => 1, 'max_occurs' => 1, ]),
+                'currencyId' => array_merge($this->stub_validation, ['name' => 'currencyID', 'base_type' => 'string', 'min_occurs' => 1, 'max_occurs' => 1, ]),
+            ]
+        ];
+        
+        $data[] = [
+            'type' => 'QuantityType',
+            'base_type' => 'QuantityType',
+            'help' => '',
+            'choices' => [],
+            'elements' => [
+                '#' => array_merge($this->stub_validation, ['name' => 'amount', 'base_type' => 'decimal','min_occurs' => 1, 'max_occurs' => 1, ]),
+                '@unitCode' => array_merge($this->stub_validation, ['name' => 'unitCode', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                'unitCode' => array_merge($this->stub_validation, ['name' => 'unitCode', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+            ]
+        ];
+
         $this->elements = $data;
 
         return $this;
@@ -238,6 +263,8 @@ class CacType
         if(stripos($searchable_type, ":") !== false) {
             $data['name'] = $parsed_name;
             $data['base_type'] = $this->extractRelatedType($searchable_type);
+            $data['namespace'] = $parts[0];
+
             ksort($data);
             return $data;
         }

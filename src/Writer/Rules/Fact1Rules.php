@@ -60,7 +60,7 @@ class Fact1Rules
             [
                 'name' => 'InvoiceTypeCode',
                 'base_type' => 'string',
-                'resource' => ['380','384','389','751'],
+                'resource' => ['380' => '380','384' => '384','389' => '389','751' => '751'],
             ],
             [
                 'name' => 'StreetName',
@@ -75,12 +75,12 @@ class Fact1Rules
             [
                 'name' => 'DescriptionCode',
                 'base_type' => 'string',
-                'resource' => ['3', '35', '432'],
+                'resource' => ['3' => '3', '35' => '35', '432' => '432'],
             ],
             [
                 'name' => 'CreditTypeCode',
                 'base_type' => 'string',
-                'resource' => ['381'],
+                'resource' => ['381' => '381'],
             ],
             [
                 'name' => 'Note',
@@ -130,7 +130,50 @@ class Fact1Rules
                     'base_type' => 'string',
                     'min_length' => 1,
                     'min_occurs' => 1,
-                    'resource' => ['RO-AB','RO-AG','RO-AR','RO-B','RO-BC','RO-BH','RO-BN','RO-BR','RO-BT','RO-BV','RO-BZ','RO-CJ','RO-CL','RO-CS','RO-CT', 'RO-CV', 'RO-DB', 'RO-DJ', 'RO-GJ', 'RO-GL', 'RO-GR', 'RO-HD', 'RO-HR' , 'RO-IF', 'RO-IL', 'RO-IS', 'RO-MH', 'RO-MM', 'RO-MS', 'RO-NT', 'RO-OT', 'RO-PH', 'RO-SB', 'RO-SJ', 'RO-SM', 'RO-SV', 'RO-TL', 'RO-TM', 'RO-TR', 'RO-VL', 'RO-VN', 'RO-VS'],
+                    'resource' => [
+                        'RO-AB' => 'RO-AB',
+                        'RO-AG' => 'RO-AG',
+                        'RO-AR' => 'RO-AR',
+                        'RO-B' => 'RO-B',
+                        'RO-BC' => 'RO-BC',
+                        'RO-BH' => 'RO-BH',
+                        'RO-BN' => 'RO-BN',
+                        'RO-BR' => 'RO-BR',
+                        'RO-BT' => 'RO-BT',
+                        'RO-BV' => 'RO-BV',
+                        'RO-BZ' => 'RO-BZ',
+                        'RO-CJ' => 'RO-CJ',
+                        'RO-CL' => 'RO-CL',
+                        'RO-CS' => 'RO-CS',
+                        'RO-CT' => 'RO-CT', 
+                        'RO-CV' => 'RO-CV', 
+                        'RO-DB' => 'RO-DB', 
+                        'RO-DJ' => 'RO-DJ', 
+                        'RO-GJ' => 'RO-GJ', 
+                        'RO-GL' => 'RO-GL', 
+                        'RO-GR' => 'RO-GR', 
+                        'RO-HD' => 'RO-HD', 
+                        'RO-HR' => 'RO-HR', 
+                        'RO-IF' => 'RO-IF', 
+                        'RO-IL' => 'RO-IL', 
+                        'RO-IS' => 'RO-IS', 
+                        'RO-MH' => 'RO-MH', 
+                        'RO-MM' => 'RO-MM', 
+                        'RO-MS' => 'RO-MS', 
+                        'RO-NT' => 'RO-NT', 
+                        'RO-OT' => 'RO-OT', 
+                        'RO-PH' => 'RO-PH', 
+                        'RO-SB' => 'RO-SB', 
+                        'RO-SJ' => 'RO-SJ', 
+                        'RO-SM' => 'RO-SM', 
+                        'RO-SV' => 'RO-SV', 
+                        'RO-TL' => 'RO-TL', 
+                        'RO-TM' => 'RO-TM', 
+                        'RO-TR' => 'RO-TR', 
+                        'RO-VL' => 'RO-VL', 
+                        'RO-VN' => 'RO-VN', 
+                        'RO-VS' => 'RO-VS',
+                    ],
                 ],
             ],
             'DocumentReferenceType' => [
@@ -292,7 +335,12 @@ class Fact1Rules
         return [
             'InvoiceTypeCode' => [
                 'base_type' => 'string',
-                'resource' => ['380','384','389','751'],
+                'resource' => [
+                    '380' => '380',
+                    '384' => '384',
+                    '389' => '389',
+                    '751' => '751',
+                ],
             ],
         ];
     }
@@ -302,7 +350,9 @@ class Fact1Rules
         return [
             'CreditTypeCode' => [
                 'base_type' => 'string',
-                'resource' => ['381'],
+                'resource' => [
+                    '381' => '381'
+                ],
             ],
         ];
     }

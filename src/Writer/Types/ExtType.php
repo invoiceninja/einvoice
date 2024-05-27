@@ -200,6 +200,7 @@ class ExtType
         if(stripos($searchable_type, ":") !== false) {
             $data['name'] = $parsed_name;
             $data['base_type'] = $this->extractRelatedType($searchable_type);
+            $data['namespace'] = $parts[0];
             $data = array_merge($this->stub_validation, $data);
 
             ksort($data);

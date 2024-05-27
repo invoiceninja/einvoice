@@ -63,6 +63,10 @@ class UdtType
 
             if(stripos($type, "ccts") !== false) {
                 $parts = explode(":", $type);
+
+                if(in_array($parts[1], ['QuantityType','AmountType']))
+                    return $parts[1];
+
                 return (new CccType())->getPrimativeType($parts[1]);
             }
 

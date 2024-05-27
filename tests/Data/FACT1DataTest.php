@@ -8,6 +8,7 @@ use Symfony\Component\Serializer\Serializer;
 use Invoiceninja\Einvoice\Models\FACT1\Invoice;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Invoiceninja\Einvoice\Models\FACT1\PartyType\Party;
 use Symfony\Component\PropertyInfo\PropertyInfoExtractor;
 use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -19,6 +20,8 @@ use Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer;
 use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
 use Symfony\Component\Serializer\NameConverter\MetadataAwareNameConverter;
 use Symfony\Component\Serializer\Mapping\ClassDiscriminatorFromClassMetadata;
+use Invoiceninja\Einvoice\Models\FACT1\SupplierPartyType\AccountingSupplierParty;
+use Invoiceninja\Einvoice\Models\FACT1\PartyIdentificationType\PartyIdentification;
 
 class FACT1DataTest extends TestCase
 {
@@ -113,8 +116,6 @@ class FACT1DataTest extends TestCase
 
         $context = [
             'xml_format_output' => true,
-            // 'decoder_ignored_node_types' => [\XML_ATTRIBUTE_ENTITY],
-            // 'encoder_ignored_node_types' => [\XML_ATTRIBUTE_ENTITY],
         ];
 
         $encoder = new XmlEncoder($context);
@@ -154,8 +155,16 @@ class FACT1DataTest extends TestCase
             // echo "Validation passed!\n";
         }
 
+        $this->assertCount(0, $errors);
 
-        echo print_r($invoice);
+        $this->assertInstanceOf(AccountingSupplierParty::class, $invoice->AccountingSupplierParty);
+
+        $this->assertInstanceOf(Party::class, $invoice->AccountingSupplierParty->Party);
+
+        $this->assertInstanceOf(PartyIdentification::class, $invoice->AccountingSupplierParty->Party->PartyIdentification[0]);
+
+        $this->assertEquals(234234234, $invoice->AccountingSupplierParty->Party->PartyIdentification[0]->ID);
+        // echo print_r($invoice);
     }
 
 }

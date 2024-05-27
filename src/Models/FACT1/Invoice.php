@@ -96,10 +96,10 @@ class Invoice
 	public DateTime $DueDate;
 	private array $InvoiceTypeCode_array = [380, 384, 389, 751];
 
-	/** @var string */
+	/** @var int */
 	#[Choice([380, 384, 389, 751])]
 	#[SerializedName('cbc:InvoiceTypeCode')]
-	public string $InvoiceTypeCode;
+	public int $InvoiceTypeCode;
 
 	/** @var string */
 	#[Length(min: 0, max: 300)]

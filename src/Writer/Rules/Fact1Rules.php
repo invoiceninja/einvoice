@@ -60,7 +60,11 @@ class Fact1Rules
             [
                 'name' => 'InvoiceTypeCode',
                 'base_type' => 'string',
-                'resource' => ['380' => '380','384' => '384','389' => '389','751' => '751'],
+                'resource' => [
+                    '380' => '380',
+                    '384' => '384',
+                    '389' => '389', 
+                    '751' => '751'],
             ],
             [
                 'name' => 'StreetName',
@@ -334,7 +338,7 @@ class Fact1Rules
     {
         return [
             'InvoiceTypeCode' => [
-                'base_type' => 'string',
+                'base_type' => 'int',
                 'resource' => [
                     '380' => '380',
                     '384' => '384',
@@ -349,7 +353,7 @@ class Fact1Rules
     {
         return [
             'CreditTypeCode' => [
-                'base_type' => 'string',
+                'base_type' => 'int',
                 'resource' => [
                     '381' => '381'
                 ],

@@ -126,7 +126,7 @@
             },
             "InvoiceTypeCode": {
                 "name": "InvoiceTypeCode",
-                "base_type": "string",
+                "base_type": "int",
                 "resource": {
                     "380": "380",
                     "384": "384",

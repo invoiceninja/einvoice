@@ -126,15 +126,15 @@ class Shipment
 
 	/** @var Consignment[] */
 	#[SerializedName('cac:Consignment')]
-	public array $Consignment = [];
+	public array $Consignment;
 
 	/** @var GoodsItem[] */
 	#[SerializedName('cac:GoodsItem')]
-	public array $GoodsItem = [];
+	public array $GoodsItem;
 
 	/** @var ShipmentStage[] */
 	#[SerializedName('cac:ShipmentStage')]
-	public array $ShipmentStage = [];
+	public array $ShipmentStage;
 
 	/** @var Delivery */
 	#[SerializedName('cac:Delivery')]
@@ -142,7 +142,7 @@ class Shipment
 
 	/** @var TransportHandlingUnit[] */
 	#[SerializedName('cac:TransportHandlingUnit')]
-	public array $TransportHandlingUnit = [];
+	public array $TransportHandlingUnit;
 
 	/** @var ReturnAddress */
 	#[SerializedName('cac:ReturnAddress')]
@@ -166,5 +166,5 @@ class Shipment
 
 	/** @var FreightAllowanceCharge[] */
 	#[SerializedName('cac:FreightAllowanceCharge')]
-	public array $FreightAllowanceCharge = [];
+	public array $FreightAllowanceCharge;
 }

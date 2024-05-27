@@ -85,7 +85,7 @@ class MasterPerson
 
 	/** @var IdentityDocumentReference[] */
 	#[SerializedName('cac:IdentityDocumentReference')]
-	public array $IdentityDocumentReference = [];
+	public array $IdentityDocumentReference;
 
 	/** @var ResidenceAddress */
 	#[SerializedName('cac:ResidenceAddress')]

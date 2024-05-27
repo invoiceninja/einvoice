@@ -29,5 +29,5 @@ class TaxScheme
 
 	/** @var JurisdictionRegionAddress[] */
 	#[SerializedName('cac:JurisdictionRegionAddress')]
-	public array $JurisdictionRegionAddress = [];
+	public array $JurisdictionRegionAddress;
 }

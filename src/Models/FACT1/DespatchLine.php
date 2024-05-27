@@ -68,11 +68,11 @@ class DespatchLine
 	#[NotBlank]
 	#[Valid]
 	#[SerializedName('cac:OrderLineReference')]
-	public array $OrderLineReference = [];
+	public array $OrderLineReference;
 
 	/** @var DocumentReference[] */
 	#[SerializedName('cac:DocumentReference')]
-	public array $DocumentReference = [];
+	public array $DocumentReference;
 
 	/** @var Item */
 	#[NotNull]
@@ -83,5 +83,5 @@ class DespatchLine
 
 	/** @var Shipment[] */
 	#[SerializedName('cac:Shipment')]
-	public array $Shipment = [];
+	public array $Shipment;
 }

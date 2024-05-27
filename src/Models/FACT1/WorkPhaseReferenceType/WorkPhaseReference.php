@@ -47,5 +47,5 @@ class WorkPhaseReference
 
 	/** @var WorkOrderDocumentReference[] */
 	#[SerializedName('cac:WorkOrderDocumentReference')]
-	public array $WorkOrderDocumentReference = [];
+	public array $WorkOrderDocumentReference;
 }

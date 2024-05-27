@@ -51,7 +51,7 @@ class Price
 
 	/** @var ValidityPeriod[] */
 	#[SerializedName('cac:ValidityPeriod')]
-	public array $ValidityPeriod = [];
+	public array $ValidityPeriod;
 
 	/** @var PriceList */
 	#[SerializedName('cac:PriceList')]
@@ -59,7 +59,7 @@ class Price
 
 	/** @var AllowanceCharge[] */
 	#[SerializedName('cac:AllowanceCharge')]
-	public array $AllowanceCharge = [];
+	public array $AllowanceCharge;
 
 	/** @var PricingExchangeRate */
 	#[SerializedName('cac:PricingExchangeRate')]

@@ -34,5 +34,5 @@ class EnvironmentalEmission
 
 	/** @var EmissionCalculationMethod[] */
 	#[SerializedName('cac:EmissionCalculationMethod')]
-	public array $EmissionCalculationMethod = [];
+	public array $EmissionCalculationMethod;
 }

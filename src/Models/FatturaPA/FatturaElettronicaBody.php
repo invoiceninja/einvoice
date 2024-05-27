@@ -35,8 +35,8 @@ class FatturaElettronicaBody
 	public $DatiVeicoli;
 
 	/** @var DatiPagamento[] */
-	public array $DatiPagamento = [];
+	public array $DatiPagamento;
 
 	/** @var Allegati[] */
-	public array $Allegati = [];
+	public array $Allegati;
 }

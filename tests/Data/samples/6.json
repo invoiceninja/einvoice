@@ -60,15 +60,12 @@
                     "TipoDocumento": "TD01",
                     "Divisa": "EUR",
                     "Data": {
-                        "date": "2014-12-20 06:04:14.000000",
+                        "date": "2014-12-20 23:02:36.000000",
                         "timezone_type": 3,
                         "timezone": "UTC"
                     },
                     "Numero": "456",
-                    "DatiRitenuta": [],
-                    "DatiBollo": null,
-                    "DatiCassaPrevidenziale": [],
-                    "ScontoMaggiorazione": []
+                    "DatiBollo": null
                 },
                 "DatiOrdineAcquisto": [
                     {
@@ -77,12 +74,6 @@
                         "NumItem": "1"
                     }
                 ],
-                "DatiContratto": [],
-                "DatiConvenzione": [],
-                "DatiRicezione": [],
-                "DatiFattureCollegate": [],
-                "DatiSAL": [],
-                "DatiDDT": [],
                 "DatiTrasporto": null,
                 "FatturaPrincipale": null
             },
@@ -90,13 +81,10 @@
                 "DettaglioLinee": [
                     {
                         "NumeroLinea": 1,
-                        "CodiceArticolo": [],
                         "Descrizione": "PRESTAZIONE DEL SEGUENTE SERVIZIO PROFESSIONALE: LA DESCRIZIONE DELLA\n                    PRESTAZIONE PUO' SUPERARE I CENTO CARATUOVA VERSIONE E' STATO PORTATO A MILLE\n                    CARATTERI",
                         "PrezzoUnitario": "2000.00",
-                        "ScontoMaggiorazione": [],
                         "PrezzoTotale": "2000.00",
-                        "AliquotaIVA": "22.00",
-                        "AltriDatiGestionali": []
+                        "AliquotaIVA": "22.00"
                     }
                 ],
                 "DatiRiepilogo": [
@@ -116,7 +104,7 @@
                         {
                             "ModalitaPagamento": "MP19",
                             "DataScadenzaPagamento": {
-                                "date": "2015-01-28 06:04:14.000000",
+                                "date": "2015-01-28 23:02:36.000000",
                                 "timezone_type": 3,
                                 "timezone": "UTC"
                             },
@@ -124,8 +112,7 @@
                         }
                     ]
                 }
-            ],
-            "Allegati": []
+            ]
         }
     ]
 }

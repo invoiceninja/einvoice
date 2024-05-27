@@ -25,5 +25,5 @@ class ProjectReference
 
 	/** @var WorkPhaseReference[] */
 	#[SerializedName('cac:WorkPhaseReference')]
-	public array $WorkPhaseReference = [];
+	public array $WorkPhaseReference;
 }

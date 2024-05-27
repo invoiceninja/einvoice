@@ -166,11 +166,11 @@ class AttachedTransportEquipment
 
 	/** @var MeasurementDimension[] */
 	#[SerializedName('cac:MeasurementDimension')]
-	public array $MeasurementDimension = [];
+	public array $MeasurementDimension;
 
 	/** @var TransportEquipmentSeal[] */
 	#[SerializedName('cac:TransportEquipmentSeal')]
-	public array $TransportEquipmentSeal = [];
+	public array $TransportEquipmentSeal;
 
 	/** @var MinimumTemperature */
 	#[SerializedName('cac:MinimumTemperature')]
@@ -214,31 +214,31 @@ class AttachedTransportEquipment
 
 	/** @var PositioningTransportEvent[] */
 	#[SerializedName('cac:PositioningTransportEvent')]
-	public array $PositioningTransportEvent = [];
+	public array $PositioningTransportEvent;
 
 	/** @var QuarantineTransportEvent[] */
 	#[SerializedName('cac:QuarantineTransportEvent')]
-	public array $QuarantineTransportEvent = [];
+	public array $QuarantineTransportEvent;
 
 	/** @var DeliveryTransportEvent[] */
 	#[SerializedName('cac:DeliveryTransportEvent')]
-	public array $DeliveryTransportEvent = [];
+	public array $DeliveryTransportEvent;
 
 	/** @var PickupTransportEvent[] */
 	#[SerializedName('cac:PickupTransportEvent')]
-	public array $PickupTransportEvent = [];
+	public array $PickupTransportEvent;
 
 	/** @var HandlingTransportEvent[] */
 	#[SerializedName('cac:HandlingTransportEvent')]
-	public array $HandlingTransportEvent = [];
+	public array $HandlingTransportEvent;
 
 	/** @var LoadingTransportEvent[] */
 	#[SerializedName('cac:LoadingTransportEvent')]
-	public array $LoadingTransportEvent = [];
+	public array $LoadingTransportEvent;
 
 	/** @var TransportEvent[] */
 	#[SerializedName('cac:TransportEvent')]
-	public array $TransportEvent = [];
+	public array $TransportEvent;
 
 	/** @var ApplicableTransportMeans */
 	#[SerializedName('cac:ApplicableTransportMeans')]
@@ -246,23 +246,23 @@ class AttachedTransportEquipment
 
 	/** @var HaulageTradingTerms[] */
 	#[SerializedName('cac:HaulageTradingTerms')]
-	public array $HaulageTradingTerms = [];
+	public array $HaulageTradingTerms;
 
 	/** @var HazardousGoodsTransit[] */
 	#[SerializedName('cac:HazardousGoodsTransit')]
-	public array $HazardousGoodsTransit = [];
+	public array $HazardousGoodsTransit;
 
 	/** @var PackagedTransportHandlingUnit[] */
 	#[SerializedName('cac:PackagedTransportHandlingUnit')]
-	public array $PackagedTransportHandlingUnit = [];
+	public array $PackagedTransportHandlingUnit;
 
 	/** @var ServiceAllowanceCharge[] */
 	#[SerializedName('cac:ServiceAllowanceCharge')]
-	public array $ServiceAllowanceCharge = [];
+	public array $ServiceAllowanceCharge;
 
 	/** @var FreightAllowanceCharge[] */
 	#[SerializedName('cac:FreightAllowanceCharge')]
-	public array $FreightAllowanceCharge = [];
+	public array $FreightAllowanceCharge;
 
 	/** @var Delivery */
 	#[SerializedName('cac:Delivery')]
@@ -278,17 +278,17 @@ class AttachedTransportEquipment
 
 	/** @var ShipmentDocumentReference[] */
 	#[SerializedName('cac:ShipmentDocumentReference')]
-	public array $ShipmentDocumentReference = [];
+	public array $ShipmentDocumentReference;
 
 	/** @var ContainedInTransportEquipment[] */
 	#[SerializedName('cac:ContainedInTransportEquipment')]
-	public array $ContainedInTransportEquipment = [];
+	public array $ContainedInTransportEquipment;
 
 	/** @var Package[] */
 	#[SerializedName('cac:Package')]
-	public array $Package = [];
+	public array $Package;
 
 	/** @var GoodsItem[] */
 	#[SerializedName('cac:GoodsItem')]
-	public array $GoodsItem = [];
+	public array $GoodsItem;
 }

@@ -26,5 +26,5 @@ class TransactionConditions
 
 	/** @var DocumentReference[] */
 	#[SerializedName('cac:DocumentReference')]
-	public array $DocumentReference = [];
+	public array $DocumentReference;
 }

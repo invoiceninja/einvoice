@@ -113,7 +113,7 @@ class ContractualDelivery
 
 	/** @var NotifyParty[] */
 	#[SerializedName('cac:NotifyParty')]
-	public array $NotifyParty = [];
+	public array $NotifyParty;
 
 	/** @var Despatch */
 	#[SerializedName('cac:Despatch')]
@@ -121,7 +121,7 @@ class ContractualDelivery
 
 	/** @var DeliveryTerms[] */
 	#[SerializedName('cac:DeliveryTerms')]
-	public array $DeliveryTerms = [];
+	public array $DeliveryTerms;
 
 	/** @var MinimumDeliveryUnit */
 	#[SerializedName('cac:MinimumDeliveryUnit')]

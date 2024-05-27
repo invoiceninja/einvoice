@@ -30,5 +30,5 @@ class LotIdentification
 
 	/** @var AdditionalItemProperty[] */
 	#[SerializedName('cac:AdditionalItemProperty')]
-	public array $AdditionalItemProperty = [];
+	public array $AdditionalItemProperty;
 }

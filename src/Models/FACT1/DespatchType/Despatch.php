@@ -96,7 +96,7 @@ class Despatch
 
 	/** @var NotifyParty[] */
 	#[SerializedName('cac:NotifyParty')]
-	public array $NotifyParty = [];
+	public array $NotifyParty;
 
 	/** @var Contact */
 	#[SerializedName('cac:Contact')]

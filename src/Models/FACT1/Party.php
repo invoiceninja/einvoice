@@ -54,11 +54,11 @@ class Party
 
 	/** @var PartyIdentification[] */
 	#[SerializedName('cac:PartyIdentification')]
-	public array $PartyIdentification = [];
+	public array $PartyIdentification;
 
 	/** @var PartyName[] */
 	#[SerializedName('cac:PartyName')]
-	public array $PartyName = [];
+	public array $PartyName;
 
 	/** @var Language */
 	#[SerializedName('cac:Language')]
@@ -74,11 +74,11 @@ class Party
 
 	/** @var PartyTaxScheme[] */
 	#[SerializedName('cac:PartyTaxScheme')]
-	public array $PartyTaxScheme = [];
+	public array $PartyTaxScheme;
 
 	/** @var PartyLegalEntity[] */
 	#[SerializedName('cac:PartyLegalEntity')]
-	public array $PartyLegalEntity = [];
+	public array $PartyLegalEntity;
 
 	/** @var Contact */
 	#[SerializedName('cac:Contact')]
@@ -86,7 +86,7 @@ class Party
 
 	/** @var Person[] */
 	#[SerializedName('cac:Person')]
-	public array $Person = [];
+	public array $Person;
 
 	/** @var AgentParty */
 	#[SerializedName('cac:AgentParty')]
@@ -94,11 +94,11 @@ class Party
 
 	/** @var ServiceProviderParty[] */
 	#[SerializedName('cac:ServiceProviderParty')]
-	public array $ServiceProviderParty = [];
+	public array $ServiceProviderParty;
 
 	/** @var PowerOfAttorney[] */
 	#[SerializedName('cac:PowerOfAttorney')]
-	public array $PowerOfAttorney = [];
+	public array $PowerOfAttorney;
 
 	/** @var FinancialAccount */
 	#[SerializedName('cac:FinancialAccount')]

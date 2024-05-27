@@ -84,27 +84,27 @@ class InvoiceLine
 
 	/** @var InvoicePeriod[] */
 	#[SerializedName('cac:InvoicePeriod')]
-	public array $InvoicePeriod = [];
+	public array $InvoicePeriod;
 
 	/** @var OrderLineReference[] */
 	#[SerializedName('cac:OrderLineReference')]
-	public array $OrderLineReference = [];
+	public array $OrderLineReference;
 
 	/** @var DespatchLineReference[] */
 	#[SerializedName('cac:DespatchLineReference')]
-	public array $DespatchLineReference = [];
+	public array $DespatchLineReference;
 
 	/** @var ReceiptLineReference[] */
 	#[SerializedName('cac:ReceiptLineReference')]
-	public array $ReceiptLineReference = [];
+	public array $ReceiptLineReference;
 
 	/** @var BillingReference[] */
 	#[SerializedName('cac:BillingReference')]
-	public array $BillingReference = [];
+	public array $BillingReference;
 
 	/** @var DocumentReference[] */
 	#[SerializedName('cac:DocumentReference')]
-	public array $DocumentReference = [];
+	public array $DocumentReference;
 
 	/** @var PricingReference */
 	#[SerializedName('cac:PricingReference')]
@@ -116,23 +116,23 @@ class InvoiceLine
 
 	/** @var Delivery[] */
 	#[SerializedName('cac:Delivery')]
-	public array $Delivery = [];
+	public array $Delivery;
 
 	/** @var PaymentTerms[] */
 	#[SerializedName('cac:PaymentTerms')]
-	public array $PaymentTerms = [];
+	public array $PaymentTerms;
 
 	/** @var AllowanceCharge[] */
 	#[SerializedName('cac:AllowanceCharge')]
-	public array $AllowanceCharge = [];
+	public array $AllowanceCharge;
 
 	/** @var TaxTotal[] */
 	#[SerializedName('cac:TaxTotal')]
-	public array $TaxTotal = [];
+	public array $TaxTotal;
 
 	/** @var WithholdingTaxTotal[] */
 	#[SerializedName('cac:WithholdingTaxTotal')]
-	public array $WithholdingTaxTotal = [];
+	public array $WithholdingTaxTotal;
 
 	/** @var Item */
 	#[NotNull]
@@ -151,7 +151,7 @@ class InvoiceLine
 
 	/** @var SubInvoiceLine[] */
 	#[SerializedName('cac:SubInvoiceLine')]
-	public array $SubInvoiceLine = [];
+	public array $SubInvoiceLine;
 
 	/** @var ItemPriceExtension */
 	#[SerializedName('cac:ItemPriceExtension')]

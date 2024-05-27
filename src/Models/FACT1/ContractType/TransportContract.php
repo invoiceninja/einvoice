@@ -72,7 +72,7 @@ class TransportContract
 
 	/** @var ContractDocumentReference[] */
 	#[SerializedName('cac:ContractDocumentReference')]
-	public array $ContractDocumentReference = [];
+	public array $ContractDocumentReference;
 
 	/** @var NominationPeriod */
 	#[SerializedName('cac:NominationPeriod')]

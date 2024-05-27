@@ -50,7 +50,7 @@ class OriginalItemLocationQuantity
 
 	/** @var ApplicableTerritoryAddress[] */
 	#[SerializedName('cac:ApplicableTerritoryAddress')]
-	public array $ApplicableTerritoryAddress = [];
+	public array $ApplicableTerritoryAddress;
 
 	/** @var Price */
 	#[SerializedName('cac:Price')]
@@ -58,11 +58,11 @@ class OriginalItemLocationQuantity
 
 	/** @var DeliveryUnit[] */
 	#[SerializedName('cac:DeliveryUnit')]
-	public array $DeliveryUnit = [];
+	public array $DeliveryUnit;
 
 	/** @var ApplicableTaxCategory[] */
 	#[SerializedName('cac:ApplicableTaxCategory')]
-	public array $ApplicableTaxCategory = [];
+	public array $ApplicableTaxCategory;
 
 	/** @var Package */
 	#[SerializedName('cac:Package')]
@@ -70,7 +70,7 @@ class OriginalItemLocationQuantity
 
 	/** @var AllowanceCharge[] */
 	#[SerializedName('cac:AllowanceCharge')]
-	public array $AllowanceCharge = [];
+	public array $AllowanceCharge;
 
 	/** @var DependentPriceReference */
 	#[SerializedName('cac:DependentPriceReference')]

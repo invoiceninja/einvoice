@@ -61,10 +61,7 @@
         <Divisa>EUR</Divisa>
         <Data>2014-12-18</Data>
         <Numero>123</Numero>
-        <DatiRitenuta/>
         <DatiBollo/>
-        <DatiCassaPrevidenziale/>
-        <ScontoMaggiorazione/>
         <Causale>LA FATTURA FA RIFERIMENTO AD UNA SSSSSSSSSS</Causale>
         <Causale>SEGUE DESCRIZIONE CAUSALE NEL CBBB</Causale>
       </DatiGeneraliDocumento>
@@ -81,11 +78,6 @@
         <CodiceCUP>123abc</CodiceCUP>
         <CodiceCIG>456def</CodiceCIG>
       </DatiContratto>
-      <DatiConvenzione/>
-      <DatiRicezione/>
-      <DatiFattureCollegate/>
-      <DatiSAL/>
-      <DatiDDT/>
       <DatiTrasporto>
         <DatiAnagraficiVettore>
           <IdFiscaleIVA>
@@ -104,14 +96,11 @@
     <DatiBeniServizi>
       <DettaglioLinee>
         <NumeroLinea>1</NumeroLinea>
-        <CodiceArticolo/>
         <Descrizione>DESCRIZIONE DELLA FORNITURA</Descrizione>
         <Quantita>5.00</Quantita>
         <PrezzoUnitario>1.00</PrezzoUnitario>
-        <ScontoMaggiorazione/>
         <PrezzoTotale>5.00</PrezzoTotale>
         <AliquotaIVA>22.00</AliquotaIVA>
-        <AltriDatiGestionali/>
       </DettaglioLinee>
       <DatiRiepilogo>
         <AliquotaIVA>22.00</AliquotaIVA>
@@ -129,6 +118,5 @@
         <ImportoPagamento>6.10</ImportoPagamento>
       </DettaglioPagamento>
     </DatiPagamento>
-    <Allegati/>
   </FatturaElettronicaBody>
 

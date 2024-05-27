@@ -89,7 +89,7 @@ class Item
 
 	/** @var ManufacturersItemIdentification[] */
 	#[SerializedName('cac:ManufacturersItemIdentification')]
-	public array $ManufacturersItemIdentification = [];
+	public array $ManufacturersItemIdentification;
 
 	/** @var StandardItemIdentification */
 	#[SerializedName('cac:StandardItemIdentification')]
@@ -101,7 +101,7 @@ class Item
 
 	/** @var AdditionalItemIdentification[] */
 	#[SerializedName('cac:AdditionalItemIdentification')]
-	public array $AdditionalItemIdentification = [];
+	public array $AdditionalItemIdentification;
 
 	/** @var CatalogueDocumentReference */
 	#[SerializedName('cac:CatalogueDocumentReference')]
@@ -109,7 +109,7 @@ class Item
 
 	/** @var ItemSpecificationDocumentReference[] */
 	#[SerializedName('cac:ItemSpecificationDocumentReference')]
-	public array $ItemSpecificationDocumentReference = [];
+	public array $ItemSpecificationDocumentReference;
 
 	/** @var OriginCountry */
 	#[SerializedName('cac:OriginCountry')]
@@ -117,27 +117,27 @@ class Item
 
 	/** @var CommodityClassification[] */
 	#[SerializedName('cac:CommodityClassification')]
-	public array $CommodityClassification = [];
+	public array $CommodityClassification;
 
 	/** @var TransactionConditions[] */
 	#[SerializedName('cac:TransactionConditions')]
-	public array $TransactionConditions = [];
+	public array $TransactionConditions;
 
 	/** @var HazardousItem[] */
 	#[SerializedName('cac:HazardousItem')]
-	public array $HazardousItem = [];
+	public array $HazardousItem;
 
 	/** @var ClassifiedTaxCategory[] */
 	#[SerializedName('cac:ClassifiedTaxCategory')]
-	public array $ClassifiedTaxCategory = [];
+	public array $ClassifiedTaxCategory;
 
 	/** @var AdditionalItemProperty[] */
 	#[SerializedName('cac:AdditionalItemProperty')]
-	public array $AdditionalItemProperty = [];
+	public array $AdditionalItemProperty;
 
 	/** @var ManufacturerParty[] */
 	#[SerializedName('cac:ManufacturerParty')]
-	public array $ManufacturerParty = [];
+	public array $ManufacturerParty;
 
 	/** @var InformationContentProviderParty */
 	#[SerializedName('cac:InformationContentProviderParty')]
@@ -145,17 +145,17 @@ class Item
 
 	/** @var OriginAddress[] */
 	#[SerializedName('cac:OriginAddress')]
-	public array $OriginAddress = [];
+	public array $OriginAddress;
 
 	/** @var ItemInstance[] */
 	#[SerializedName('cac:ItemInstance')]
-	public array $ItemInstance = [];
+	public array $ItemInstance;
 
 	/** @var Certificate[] */
 	#[SerializedName('cac:Certificate')]
-	public array $Certificate = [];
+	public array $Certificate;
 
 	/** @var Dimension[] */
 	#[SerializedName('cac:Dimension')]
-	public array $Dimension = [];
+	public array $Dimension;
 }

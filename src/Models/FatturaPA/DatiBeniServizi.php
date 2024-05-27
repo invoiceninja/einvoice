@@ -21,11 +21,11 @@ class DatiBeniServizi
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public array $DettaglioLinee = [];
+	public array $DettaglioLinee;
 
 	/** @var DatiRiepilogo[] */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public array $DatiRiepilogo = [];
+	public array $DatiRiepilogo;
 }

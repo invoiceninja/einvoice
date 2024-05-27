@@ -101,11 +101,11 @@ class HazardousItem
 
 	/** @var SecondaryHazard[] */
 	#[SerializedName('cac:SecondaryHazard')]
-	public array $SecondaryHazard = [];
+	public array $SecondaryHazard;
 
 	/** @var HazardousGoodsTransit[] */
 	#[SerializedName('cac:HazardousGoodsTransit')]
-	public array $HazardousGoodsTransit = [];
+	public array $HazardousGoodsTransit;
 
 	/** @var EmergencyTemperature */
 	#[SerializedName('cac:EmergencyTemperature')]
@@ -117,5 +117,5 @@ class HazardousItem
 
 	/** @var AdditionalTemperature[] */
 	#[SerializedName('cac:AdditionalTemperature')]
-	public array $AdditionalTemperature = [];
+	public array $AdditionalTemperature;
 }

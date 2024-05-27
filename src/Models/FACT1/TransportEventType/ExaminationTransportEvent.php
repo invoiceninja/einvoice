@@ -56,11 +56,11 @@ class ExaminationTransportEvent
 
 	/** @var CurrentStatus[] */
 	#[SerializedName('cac:CurrentStatus')]
-	public array $CurrentStatus = [];
+	public array $CurrentStatus;
 
 	/** @var Contact[] */
 	#[SerializedName('cac:Contact')]
-	public array $Contact = [];
+	public array $Contact;
 
 	/** @var Location */
 	#[SerializedName('cac:Location')]
@@ -72,5 +72,5 @@ class ExaminationTransportEvent
 
 	/** @var Period[] */
 	#[SerializedName('cac:Period')]
-	public array $Period = [];
+	public array $Period;
 }

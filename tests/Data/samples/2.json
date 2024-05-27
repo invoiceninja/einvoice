@@ -60,15 +60,12 @@
                     "TipoDocumento": "TD01",
                     "Divisa": "EUR",
                     "Data": {
-                        "date": "2017-01-18 06:04:14.000000",
+                        "date": "2017-01-18 23:02:36.000000",
                         "timezone_type": 3,
                         "timezone": "UTC"
                     },
                     "Numero": "123",
-                    "DatiRitenuta": [],
                     "DatiBollo": null,
-                    "DatiCassaPrevidenziale": [],
-                    "ScontoMaggiorazione": [],
                     "Causale": [
                         "LA FATTURA FA RIFERIMENTO AD UFF GGGGGGGGGG HHHHHHH II LLLLLLLLLLLLLLLLL\n                    MMM NNNNN OO PPPPPPPPPPP QQQQ RRRR SSSSSSSSSSSSSS",
                         "SEGUE DESCRIZIONE CAUSALE NELBBBB"
@@ -88,7 +85,7 @@
                         "RiferimentoNumeroLinea": 1,
                         "IdDocumento": "123",
                         "Data": {
-                            "date": "2016-09-01 06:04:14.000000",
+                            "date": "2016-09-01 23:02:36.000000",
                             "timezone_type": 3,
                             "timezone": "UTC"
                         },
@@ -115,9 +112,6 @@
                         "CodiceCIG": "456def"
                     }
                 ],
-                "DatiFattureCollegate": [],
-                "DatiSAL": [],
-                "DatiDDT": [],
                 "DatiTrasporto": {
                     "DatiAnagraficiVettore": {
                         "IdFiscaleIVA": {
@@ -141,25 +135,19 @@
                 "DettaglioLinee": [
                     {
                         "NumeroLinea": 1,
-                        "CodiceArticolo": [],
                         "Descrizione": "LA DESCRIZIONE DELLA FORNITURA PUO' SUPERARE I CENTO CARATTERI CHE\n                    RAPPRESENTAVANO IL PRECEDENTE LIMITE DIMENSIONALE. TALE LIMITE NELLA NUOVA\n                    VERSIONE E' STATO PORTATO A MILLE CARATTERI",
                         "Quantita": "5.00",
                         "PrezzoUnitario": "1.00",
-                        "ScontoMaggiorazione": [],
                         "PrezzoTotale": "5.00",
-                        "AliquotaIVA": "22.00",
-                        "AltriDatiGestionali": []
+                        "AliquotaIVA": "22.00"
                     },
                     {
                         "NumeroLinea": 2,
-                        "CodiceArticolo": [],
                         "Descrizione": "FORNITURE VARIE PER UFFICIO",
                         "Quantita": "10.00",
                         "PrezzoUnitario": "2.00",
-                        "ScontoMaggiorazione": [],
                         "PrezzoTotale": "20.00",
-                        "AliquotaIVA": "22.00",
-                        "AltriDatiGestionali": []
+                        "AliquotaIVA": "22.00"
                     }
                 ],
                 "DatiRiepilogo": [
@@ -179,7 +167,7 @@
                         {
                             "ModalitaPagamento": "MP01",
                             "DataScadenzaPagamento": {
-                                "date": "2017-03-30 06:04:14.000000",
+                                "date": "2017-03-30 23:02:36.000000",
                                 "timezone_type": 3,
                                 "timezone": "UTC"
                             },
@@ -187,8 +175,7 @@
                         }
                     ]
                 }
-            ],
-            "Allegati": []
+            ]
         }
     ]
 }

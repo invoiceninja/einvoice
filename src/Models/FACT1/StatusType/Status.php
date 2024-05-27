@@ -67,5 +67,5 @@ class Status
 
 	/** @var Condition[] */
 	#[SerializedName('cac:Condition')]
-	public array $Condition = [];
+	public array $Condition;
 }

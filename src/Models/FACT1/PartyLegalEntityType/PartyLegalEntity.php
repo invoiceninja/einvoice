@@ -81,5 +81,5 @@ class PartyLegalEntity
 
 	/** @var ShareholderParty[] */
 	#[SerializedName('cac:ShareholderParty')]
-	public array $ShareholderParty = [];
+	public array $ShareholderParty;
 }

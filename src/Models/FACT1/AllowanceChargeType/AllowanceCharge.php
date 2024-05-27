@@ -82,7 +82,7 @@ class AllowanceCharge
 
 	/** @var TaxCategory[] */
 	#[SerializedName('cac:TaxCategory')]
-	public array $TaxCategory = [];
+	public array $TaxCategory;
 
 	/** @var TaxTotal */
 	#[SerializedName('cac:TaxTotal')]
@@ -90,5 +90,5 @@ class AllowanceCharge
 
 	/** @var PaymentMeans[] */
 	#[SerializedName('cac:PaymentMeans')]
-	public array $PaymentMeans = [];
+	public array $PaymentMeans;
 }

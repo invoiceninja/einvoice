@@ -150,23 +150,23 @@ class ContainedGoodsItem
 
 	/** @var Item[] */
 	#[SerializedName('cac:Item')]
-	public array $Item = [];
+	public array $Item;
 
 	/** @var GoodsItemContainer[] */
 	#[SerializedName('cac:GoodsItemContainer')]
-	public array $GoodsItemContainer = [];
+	public array $GoodsItemContainer;
 
 	/** @var FreightAllowanceCharge[] */
 	#[SerializedName('cac:FreightAllowanceCharge')]
-	public array $FreightAllowanceCharge = [];
+	public array $FreightAllowanceCharge;
 
 	/** @var InvoiceLine[] */
 	#[SerializedName('cac:InvoiceLine')]
-	public array $InvoiceLine = [];
+	public array $InvoiceLine;
 
 	/** @var Temperature[] */
 	#[SerializedName('cac:Temperature')]
-	public array $Temperature = [];
+	public array $Temperature;
 
 	/** @var OriginAddress */
 	#[SerializedName('cac:OriginAddress')]
@@ -186,11 +186,11 @@ class ContainedGoodsItem
 
 	/** @var MeasurementDimension[] */
 	#[SerializedName('cac:MeasurementDimension')]
-	public array $MeasurementDimension = [];
+	public array $MeasurementDimension;
 
 	/** @var ContainingPackage[] */
 	#[SerializedName('cac:ContainingPackage')]
-	public array $ContainingPackage = [];
+	public array $ContainingPackage;
 
 	/** @var ShipmentDocumentReference */
 	#[SerializedName('cac:ShipmentDocumentReference')]

@@ -137,7 +137,7 @@ class ShipmentStage
 
 	/** @var CarrierParty[] */
 	#[SerializedName('cac:CarrierParty')]
-	public array $CarrierParty = [];
+	public array $CarrierParty;
 
 	/** @var TransportMeans */
 	#[SerializedName('cac:TransportMeans')]
@@ -225,7 +225,7 @@ class ShipmentStage
 
 	/** @var FreightAllowanceCharge[] */
 	#[SerializedName('cac:FreightAllowanceCharge')]
-	public array $FreightAllowanceCharge = [];
+	public array $FreightAllowanceCharge;
 
 	/** @var FreightChargeLocation */
 	#[SerializedName('cac:FreightChargeLocation')]
@@ -233,7 +233,7 @@ class ShipmentStage
 
 	/** @var DetentionTransportEvent[] */
 	#[SerializedName('cac:DetentionTransportEvent')]
-	public array $DetentionTransportEvent = [];
+	public array $DetentionTransportEvent;
 
 	/** @var RequestedDepartureTransportEvent */
 	#[SerializedName('cac:RequestedDepartureTransportEvent')]
@@ -245,7 +245,7 @@ class ShipmentStage
 
 	/** @var RequestedWaypointTransportEvent[] */
 	#[SerializedName('cac:RequestedWaypointTransportEvent')]
-	public array $RequestedWaypointTransportEvent = [];
+	public array $RequestedWaypointTransportEvent;
 
 	/** @var PlannedDepartureTransportEvent */
 	#[SerializedName('cac:PlannedDepartureTransportEvent')]
@@ -257,7 +257,7 @@ class ShipmentStage
 
 	/** @var PlannedWaypointTransportEvent[] */
 	#[SerializedName('cac:PlannedWaypointTransportEvent')]
-	public array $PlannedWaypointTransportEvent = [];
+	public array $PlannedWaypointTransportEvent;
 
 	/** @var ActualDepartureTransportEvent */
 	#[SerializedName('cac:ActualDepartureTransportEvent')]
@@ -273,7 +273,7 @@ class ShipmentStage
 
 	/** @var TransportEvent[] */
 	#[SerializedName('cac:TransportEvent')]
-	public array $TransportEvent = [];
+	public array $TransportEvent;
 
 	/** @var EstimatedDepartureTransportEvent */
 	#[SerializedName('cac:EstimatedDepartureTransportEvent')]
@@ -285,11 +285,11 @@ class ShipmentStage
 
 	/** @var PassengerPerson[] */
 	#[SerializedName('cac:PassengerPerson')]
-	public array $PassengerPerson = [];
+	public array $PassengerPerson;
 
 	/** @var DriverPerson[] */
 	#[SerializedName('cac:DriverPerson')]
-	public array $DriverPerson = [];
+	public array $DriverPerson;
 
 	/** @var ReportingPerson */
 	#[SerializedName('cac:ReportingPerson')]
@@ -297,7 +297,7 @@ class ShipmentStage
 
 	/** @var CrewMemberPerson[] */
 	#[SerializedName('cac:CrewMemberPerson')]
-	public array $CrewMemberPerson = [];
+	public array $CrewMemberPerson;
 
 	/** @var SecurityOfficerPerson */
 	#[SerializedName('cac:SecurityOfficerPerson')]

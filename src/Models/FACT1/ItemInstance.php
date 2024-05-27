@@ -42,7 +42,7 @@ class ItemInstance
 
 	/** @var AdditionalItemProperty[] */
 	#[SerializedName('cac:AdditionalItemProperty')]
-	public array $AdditionalItemProperty = [];
+	public array $AdditionalItemProperty;
 
 	/** @var LotIdentification */
 	#[SerializedName('cac:LotIdentification')]

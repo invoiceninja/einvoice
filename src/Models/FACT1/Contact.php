@@ -39,5 +39,5 @@ class Contact
 
 	/** @var OtherCommunication[] */
 	#[SerializedName('cac:OtherCommunication')]
-	public array $OtherCommunication = [];
+	public array $OtherCommunication;
 }

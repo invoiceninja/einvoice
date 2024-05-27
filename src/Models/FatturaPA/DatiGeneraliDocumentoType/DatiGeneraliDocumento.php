@@ -86,16 +86,16 @@ class DatiGeneraliDocumento
 	public string $Numero;
 
 	/** @var DatiRitenuta[] */
-	public array $DatiRitenuta = [];
+	public array $DatiRitenuta;
 
 	/** @var DatiBollo */
 	public $DatiBollo;
 
 	/** @var DatiCassaPrevidenziale[] */
-	public array $DatiCassaPrevidenziale = [];
+	public array $DatiCassaPrevidenziale;
 
 	/** @var ScontoMaggiorazione[] */
-	public array $ScontoMaggiorazione = [];
+	public array $ScontoMaggiorazione;
 
 	/** @var string */
 	#[DecimalPrecision(2)]

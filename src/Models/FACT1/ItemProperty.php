@@ -62,7 +62,7 @@ class ItemProperty
 
 	/** @var ItemPropertyGroup[] */
 	#[SerializedName('cac:ItemPropertyGroup')]
-	public array $ItemPropertyGroup = [];
+	public array $ItemPropertyGroup;
 
 	/** @var RangeDimension */
 	#[SerializedName('cac:RangeDimension')]

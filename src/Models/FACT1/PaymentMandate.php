@@ -57,5 +57,5 @@ class PaymentMandate
 
 	/** @var Clause[] */
 	#[SerializedName('cac:Clause')]
-	public array $Clause = [];
+	public array $Clause;
 }

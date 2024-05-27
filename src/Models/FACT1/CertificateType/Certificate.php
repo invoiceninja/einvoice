@@ -46,9 +46,9 @@ class Certificate
 
 	/** @var DocumentReference[] */
 	#[SerializedName('cac:DocumentReference')]
-	public array $DocumentReference = [];
+	public array $DocumentReference;
 
 	/** @var Signature[] */
 	#[SerializedName('cac:Signature')]
-	public array $Signature = [];
+	public array $Signature;
 }

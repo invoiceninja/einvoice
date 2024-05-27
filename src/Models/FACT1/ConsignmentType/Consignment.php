@@ -303,11 +303,11 @@ class Consignment
 
 	/** @var ConsolidatedShipment[] */
 	#[SerializedName('cac:ConsolidatedShipment')]
-	public array $ConsolidatedShipment = [];
+	public array $ConsolidatedShipment;
 
 	/** @var CustomsDeclaration[] */
 	#[SerializedName('cac:CustomsDeclaration')]
-	public array $CustomsDeclaration = [];
+	public array $CustomsDeclaration;
 
 	/** @var RequestedPickupTransportEvent */
 	#[SerializedName('cac:RequestedPickupTransportEvent')]
@@ -327,11 +327,11 @@ class Consignment
 
 	/** @var Status[] */
 	#[SerializedName('cac:Status')]
-	public array $Status = [];
+	public array $Status;
 
 	/** @var ChildConsignment[] */
 	#[SerializedName('cac:ChildConsignment')]
-	public array $ChildConsignment = [];
+	public array $ChildConsignment;
 
 	/** @var ConsigneeParty */
 	#[SerializedName('cac:ConsigneeParty')]
@@ -411,7 +411,7 @@ class Consignment
 
 	/** @var TransitCountry[] */
 	#[SerializedName('cac:TransitCountry')]
-	public array $TransitCountry = [];
+	public array $TransitCountry;
 
 	/** @var TransportContract */
 	#[SerializedName('cac:TransportContract')]
@@ -419,7 +419,7 @@ class Consignment
 
 	/** @var TransportEvent[] */
 	#[SerializedName('cac:TransportEvent')]
-	public array $TransportEvent = [];
+	public array $TransportEvent;
 
 	/** @var OriginalDespatchTransportationService */
 	#[SerializedName('cac:OriginalDespatchTransportationService')]
@@ -451,27 +451,27 @@ class Consignment
 
 	/** @var FreightAllowanceCharge[] */
 	#[SerializedName('cac:FreightAllowanceCharge')]
-	public array $FreightAllowanceCharge = [];
+	public array $FreightAllowanceCharge;
 
 	/** @var ExtraAllowanceCharge[] */
 	#[SerializedName('cac:ExtraAllowanceCharge')]
-	public array $ExtraAllowanceCharge = [];
+	public array $ExtraAllowanceCharge;
 
 	/** @var MainCarriageShipmentStage[] */
 	#[SerializedName('cac:MainCarriageShipmentStage')]
-	public array $MainCarriageShipmentStage = [];
+	public array $MainCarriageShipmentStage;
 
 	/** @var PreCarriageShipmentStage[] */
 	#[SerializedName('cac:PreCarriageShipmentStage')]
-	public array $PreCarriageShipmentStage = [];
+	public array $PreCarriageShipmentStage;
 
 	/** @var OnCarriageShipmentStage[] */
 	#[SerializedName('cac:OnCarriageShipmentStage')]
-	public array $OnCarriageShipmentStage = [];
+	public array $OnCarriageShipmentStage;
 
 	/** @var TransportHandlingUnit[] */
 	#[SerializedName('cac:TransportHandlingUnit')]
-	public array $TransportHandlingUnit = [];
+	public array $TransportHandlingUnit;
 
 	/** @var FirstArrivalPortLocation */
 	#[SerializedName('cac:FirstArrivalPortLocation')]

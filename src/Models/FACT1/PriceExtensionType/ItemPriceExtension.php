@@ -29,5 +29,5 @@ class ItemPriceExtension
 
 	/** @var TaxTotal[] */
 	#[SerializedName('cac:TaxTotal')]
-	public array $TaxTotal = [];
+	public array $TaxTotal;
 }

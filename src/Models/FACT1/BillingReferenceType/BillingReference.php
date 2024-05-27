@@ -56,5 +56,5 @@ class BillingReference
 
 	/** @var BillingReferenceLine[] */
 	#[SerializedName('cac:BillingReferenceLine')]
-	public array $BillingReferenceLine = [];
+	public array $BillingReferenceLine;
 }

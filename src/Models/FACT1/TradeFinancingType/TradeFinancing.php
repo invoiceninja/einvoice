@@ -37,7 +37,7 @@ class TradeFinancing
 
 	/** @var DocumentReference[] */
 	#[SerializedName('cac:DocumentReference')]
-	public array $DocumentReference = [];
+	public array $DocumentReference;
 
 	/** @var FinancingParty */
 	#[NotNull]
@@ -52,5 +52,5 @@ class TradeFinancing
 
 	/** @var Clause[] */
 	#[SerializedName('cac:Clause')]
-	public array $Clause = [];
+	public array $Clause;
 }

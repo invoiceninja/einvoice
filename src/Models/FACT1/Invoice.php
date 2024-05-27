@@ -149,7 +149,7 @@ class Invoice
 
 	/** @var InvoicePeriod[] */
 	#[SerializedName('cac:InvoicePeriod')]
-	public array $InvoicePeriod = [];
+	public array $InvoicePeriod;
 
 	/** @var OrderReference */
 	#[SerializedName('cac:OrderReference')]
@@ -157,39 +157,39 @@ class Invoice
 
 	/** @var BillingReference[] */
 	#[SerializedName('cac:BillingReference')]
-	public array $BillingReference = [];
+	public array $BillingReference;
 
 	/** @var DespatchDocumentReference[] */
 	#[SerializedName('cac:DespatchDocumentReference')]
-	public array $DespatchDocumentReference = [];
+	public array $DespatchDocumentReference;
 
 	/** @var ReceiptDocumentReference[] */
 	#[SerializedName('cac:ReceiptDocumentReference')]
-	public array $ReceiptDocumentReference = [];
+	public array $ReceiptDocumentReference;
 
 	/** @var StatementDocumentReference[] */
 	#[SerializedName('cac:StatementDocumentReference')]
-	public array $StatementDocumentReference = [];
+	public array $StatementDocumentReference;
 
 	/** @var OriginatorDocumentReference[] */
 	#[SerializedName('cac:OriginatorDocumentReference')]
-	public array $OriginatorDocumentReference = [];
+	public array $OriginatorDocumentReference;
 
 	/** @var ContractDocumentReference[] */
 	#[SerializedName('cac:ContractDocumentReference')]
-	public array $ContractDocumentReference = [];
+	public array $ContractDocumentReference;
 
 	/** @var AdditionalDocumentReference[] */
 	#[SerializedName('cac:AdditionalDocumentReference')]
-	public array $AdditionalDocumentReference = [];
+	public array $AdditionalDocumentReference;
 
 	/** @var ProjectReference[] */
 	#[SerializedName('cac:ProjectReference')]
-	public array $ProjectReference = [];
+	public array $ProjectReference;
 
 	/** @var Signature[] */
 	#[SerializedName('cac:Signature')]
-	public array $Signature = [];
+	public array $Signature;
 
 	/** @var AccountingSupplierParty */
 	#[NotNull]
@@ -223,7 +223,7 @@ class Invoice
 
 	/** @var Delivery[] */
 	#[SerializedName('cac:Delivery')]
-	public array $Delivery = [];
+	public array $Delivery;
 
 	/** @var DeliveryTerms */
 	#[SerializedName('cac:DeliveryTerms')]
@@ -231,19 +231,19 @@ class Invoice
 
 	/** @var PaymentMeans[] */
 	#[SerializedName('cac:PaymentMeans')]
-	public array $PaymentMeans = [];
+	public array $PaymentMeans;
 
 	/** @var PaymentTerms[] */
 	#[SerializedName('cac:PaymentTerms')]
-	public array $PaymentTerms = [];
+	public array $PaymentTerms;
 
 	/** @var PrepaidPayment[] */
 	#[SerializedName('cac:PrepaidPayment')]
-	public array $PrepaidPayment = [];
+	public array $PrepaidPayment;
 
 	/** @var AllowanceCharge[] */
 	#[SerializedName('cac:AllowanceCharge')]
-	public array $AllowanceCharge = [];
+	public array $AllowanceCharge;
 
 	/** @var TaxExchangeRate */
 	#[SerializedName('cac:TaxExchangeRate')]
@@ -263,11 +263,11 @@ class Invoice
 
 	/** @var TaxTotal[] */
 	#[SerializedName('cac:TaxTotal')]
-	public array $TaxTotal = [];
+	public array $TaxTotal;
 
 	/** @var WithholdingTaxTotal[] */
 	#[SerializedName('cac:WithholdingTaxTotal')]
-	public array $WithholdingTaxTotal = [];
+	public array $WithholdingTaxTotal;
 
 	/** @var LegalMonetaryTotal */
 	#[NotNull]
@@ -281,5 +281,5 @@ class Invoice
 	#[NotBlank]
 	#[Valid]
 	#[SerializedName('cac:InvoiceLine')]
-	public array $InvoiceLine = [];
+	public array $InvoiceLine;
 }

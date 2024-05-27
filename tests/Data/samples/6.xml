@@ -61,37 +61,25 @@
         <Divisa>EUR</Divisa>
         <Data>2014-12-20</Data>
         <Numero>456</Numero>
-        <DatiRitenuta/>
         <DatiBollo/>
-        <DatiCassaPrevidenziale/>
-        <ScontoMaggiorazione/>
       </DatiGeneraliDocumento>
       <DatiOrdineAcquisto>
         <RiferimentoNumeroLinea>1</RiferimentoNumeroLinea>
         <IdDocumento>66685</IdDocumento>
         <NumItem>1</NumItem>
       </DatiOrdineAcquisto>
-      <DatiContratto/>
-      <DatiConvenzione/>
-      <DatiRicezione/>
-      <DatiFattureCollegate/>
-      <DatiSAL/>
-      <DatiDDT/>
       <DatiTrasporto/>
       <FatturaPrincipale/>
     </DatiGenerali>
     <DatiBeniServizi>
       <DettaglioLinee>
         <NumeroLinea>1</NumeroLinea>
-        <CodiceArticolo/>
         <Descrizione>PRESTAZIONE DEL SEGUENTE SERVIZIO PROFESSIONALE: LA DESCRIZIONE DELLA
                     PRESTAZIONE PUO' SUPERARE I CENTO CARATUOVA VERSIONE E' STATO PORTATO A MILLE
                     CARATTERI</Descrizione>
         <PrezzoUnitario>2000.00</PrezzoUnitario>
-        <ScontoMaggiorazione/>
         <PrezzoTotale>2000.00</PrezzoTotale>
         <AliquotaIVA>22.00</AliquotaIVA>
-        <AltriDatiGestionali/>
       </DettaglioLinee>
       <DatiRiepilogo>
         <AliquotaIVA>22.00</AliquotaIVA>
@@ -109,6 +97,5 @@
         <ImportoPagamento>2440.00</ImportoPagamento>
       </DettaglioPagamento>
     </DatiPagamento>
-    <Allegati/>
   </FatturaElettronicaBody>
 

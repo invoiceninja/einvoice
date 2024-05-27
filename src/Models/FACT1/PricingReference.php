@@ -20,5 +20,5 @@ class PricingReference
 
 	/** @var AlternativeConditionPrice[] */
 	#[SerializedName('cac:AlternativeConditionPrice')]
-	public array $AlternativeConditionPrice = [];
+	public array $AlternativeConditionPrice;
 }

@@ -75,5 +75,5 @@ class TransportMeans
 
 	/** @var MeasurementDimension[] */
 	#[SerializedName('cac:MeasurementDimension')]
-	public array $MeasurementDimension = [];
+	public array $MeasurementDimension;
 }

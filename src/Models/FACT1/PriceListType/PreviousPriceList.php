@@ -29,5 +29,5 @@ class PreviousPriceList
 
 	/** @var ValidityPeriod[] */
 	#[SerializedName('cac:ValidityPeriod')]
-	public array $ValidityPeriod = [];
+	public array $ValidityPeriod;
 }

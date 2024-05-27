@@ -30,5 +30,5 @@ class GoodsItemContainer
 
 	/** @var TransportEquipment[] */
 	#[SerializedName('cac:TransportEquipment')]
-	public array $TransportEquipment = [];
+	public array $TransportEquipment;
 }

@@ -212,7 +212,7 @@ class ApplicableTerritoryAddress
 
 	/** @var AddressLine[] */
 	#[SerializedName('cac:AddressLine')]
-	public array $AddressLine = [];
+	public array $AddressLine;
 
 	/** @var Country */
 	#[SerializedName('cac:Country')]
@@ -220,5 +220,5 @@ class ApplicableTerritoryAddress
 
 	/** @var LocationCoordinate[] */
 	#[SerializedName('cac:LocationCoordinate')]
-	public array $LocationCoordinate = [];
+	public array $LocationCoordinate;
 }

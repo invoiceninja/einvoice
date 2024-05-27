@@ -79,31 +79,31 @@ class PackagedTransportHandlingUnit
 
 	/** @var HandlingUnitDespatchLine[] */
 	#[SerializedName('cac:HandlingUnitDespatchLine')]
-	public array $HandlingUnitDespatchLine = [];
+	public array $HandlingUnitDespatchLine;
 
 	/** @var ActualPackage[] */
 	#[SerializedName('cac:ActualPackage')]
-	public array $ActualPackage = [];
+	public array $ActualPackage;
 
 	/** @var ReceivedHandlingUnitReceiptLine[] */
 	#[SerializedName('cac:ReceivedHandlingUnitReceiptLine')]
-	public array $ReceivedHandlingUnitReceiptLine = [];
+	public array $ReceivedHandlingUnitReceiptLine;
 
 	/** @var TransportEquipment[] */
 	#[SerializedName('cac:TransportEquipment')]
-	public array $TransportEquipment = [];
+	public array $TransportEquipment;
 
 	/** @var TransportMeans[] */
 	#[SerializedName('cac:TransportMeans')]
-	public array $TransportMeans = [];
+	public array $TransportMeans;
 
 	/** @var HazardousGoodsTransit[] */
 	#[SerializedName('cac:HazardousGoodsTransit')]
-	public array $HazardousGoodsTransit = [];
+	public array $HazardousGoodsTransit;
 
 	/** @var MeasurementDimension[] */
 	#[SerializedName('cac:MeasurementDimension')]
-	public array $MeasurementDimension = [];
+	public array $MeasurementDimension;
 
 	/** @var MinimumTemperature */
 	#[SerializedName('cac:MinimumTemperature')]
@@ -115,7 +115,7 @@ class PackagedTransportHandlingUnit
 
 	/** @var GoodsItem[] */
 	#[SerializedName('cac:GoodsItem')]
-	public array $GoodsItem = [];
+	public array $GoodsItem;
 
 	/** @var FloorSpaceMeasurementDimension */
 	#[SerializedName('cac:FloorSpaceMeasurementDimension')]
@@ -127,21 +127,21 @@ class PackagedTransportHandlingUnit
 
 	/** @var ShipmentDocumentReference[] */
 	#[SerializedName('cac:ShipmentDocumentReference')]
-	public array $ShipmentDocumentReference = [];
+	public array $ShipmentDocumentReference;
 
 	/** @var Status[] */
 	#[SerializedName('cac:Status')]
-	public array $Status = [];
+	public array $Status;
 
 	/** @var CustomsDeclaration[] */
 	#[SerializedName('cac:CustomsDeclaration')]
-	public array $CustomsDeclaration = [];
+	public array $CustomsDeclaration;
 
 	/** @var ReferencedShipment[] */
 	#[SerializedName('cac:ReferencedShipment')]
-	public array $ReferencedShipment = [];
+	public array $ReferencedShipment;
 
 	/** @var Package[] */
 	#[SerializedName('cac:Package')]
-	public array $Package = [];
+	public array $Package;
 }

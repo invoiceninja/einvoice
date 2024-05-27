@@ -53,9 +53,9 @@ class PowerOfAttorney
 
 	/** @var WitnessParty[] */
 	#[SerializedName('cac:WitnessParty')]
-	public array $WitnessParty = [];
+	public array $WitnessParty;
 
 	/** @var MandateDocumentReference[] */
 	#[SerializedName('cac:MandateDocumentReference')]
-	public array $MandateDocumentReference = [];
+	public array $MandateDocumentReference;
 }

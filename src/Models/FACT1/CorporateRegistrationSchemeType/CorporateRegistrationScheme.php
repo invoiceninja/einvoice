@@ -33,5 +33,5 @@ class CorporateRegistrationScheme
 
 	/** @var JurisdictionRegionAddress[] */
 	#[SerializedName('cac:JurisdictionRegionAddress')]
-	public array $JurisdictionRegionAddress = [];
+	public array $JurisdictionRegionAddress;
 }

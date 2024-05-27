@@ -212,7 +212,7 @@ class DeliveryAddress
 
 	/** @var AddressLine[] */
 	#[SerializedName('cac:AddressLine')]
-	public array $AddressLine = [];
+	public array $AddressLine;
 
 	/** @var Country */
 	#[SerializedName('cac:Country')]
@@ -220,5 +220,5 @@ class DeliveryAddress
 
 	/** @var LocationCoordinate[] */
 	#[SerializedName('cac:LocationCoordinate')]
-	public array $LocationCoordinate = [];
+	public array $LocationCoordinate;
 }

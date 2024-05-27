@@ -2,6 +2,7 @@
 
 namespace Invoiceninja\Einvoice\Tests\Data;
 
+use Milo\Schematron;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Serializer\Serializer;
@@ -167,4 +168,40 @@ class FACT1DataTest extends TestCase
         // echo print_r($invoice);
     }
 
+
+    public function testXSDValidation()
+    {
+        
+        $f = 'tests/Data/samples/fact1.xml';
+
+        libxml_use_internal_errors(true);
+
+        $dom = new \DOMDocument();
+        $dom->load($f);
+
+        $validation = $dom->schemaValidate("src/Standards/FACT1/UBL-Invoice-2.1.xsd");
+        // $validation = $dom->schemaValidateSource("src/Standards/FACT1/Validation-Invoice_v1.0.8.sch");
+
+        $errors = libxml_get_errors();
+
+        echo print_r($errors);
+
+        $this->assertTrue($validation);
+    }
+
+//     public function testSchemaTronValidation()
+//     {
+        
+// $f = 'tests/Data/samples/fact1.xml';
+
+// $schematron = new Schematron();
+// $schematron->load('src/Standards/FACT1/Validation-Invoice_v1.0.8.sch');
+
+// $document = new \DOMDocument();
+// $document->load($f);
+// $result = $schematron->validate($document);
+
+// echo print_r($result, 1);
+
+//     }
 }

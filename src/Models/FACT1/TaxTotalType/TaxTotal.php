@@ -42,5 +42,5 @@ class TaxTotal
 
 	/** @var TaxSubtotal[] */
 	#[SerializedName('cac:TaxSubtotal')]
-	public array $TaxSubtotal = [];
+	public array $TaxSubtotal;
 }

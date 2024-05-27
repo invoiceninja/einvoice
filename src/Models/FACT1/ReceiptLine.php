@@ -88,17 +88,17 @@ class ReceiptLine
 
 	/** @var DespatchLineReference[] */
 	#[SerializedName('cac:DespatchLineReference')]
-	public array $DespatchLineReference = [];
+	public array $DespatchLineReference;
 
 	/** @var DocumentReference[] */
 	#[SerializedName('cac:DocumentReference')]
-	public array $DocumentReference = [];
+	public array $DocumentReference;
 
 	/** @var Item[] */
 	#[SerializedName('cac:Item')]
-	public array $Item = [];
+	public array $Item;
 
 	/** @var Shipment[] */
 	#[SerializedName('cac:Shipment')]
-	public array $Shipment = [];
+	public array $Shipment;
 }

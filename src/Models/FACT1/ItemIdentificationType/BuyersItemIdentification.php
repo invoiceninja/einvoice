@@ -35,11 +35,11 @@ class BuyersItemIdentification
 
 	/** @var PhysicalAttribute[] */
 	#[SerializedName('cac:PhysicalAttribute')]
-	public array $PhysicalAttribute = [];
+	public array $PhysicalAttribute;
 
 	/** @var MeasurementDimension[] */
 	#[SerializedName('cac:MeasurementDimension')]
-	public array $MeasurementDimension = [];
+	public array $MeasurementDimension;
 
 	/** @var IssuerParty */
 	#[SerializedName('cac:IssuerParty')]

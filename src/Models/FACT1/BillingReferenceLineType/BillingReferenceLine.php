@@ -30,5 +30,5 @@ class BillingReferenceLine
 
 	/** @var AllowanceCharge[] */
 	#[SerializedName('cac:AllowanceCharge')]
-	public array $AllowanceCharge = [];
+	public array $AllowanceCharge;
 }

@@ -27,5 +27,5 @@ class DatiPagamento
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public array $DettaglioPagamento = [];
+	public array $DettaglioPagamento;
 }

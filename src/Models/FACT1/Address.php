@@ -205,7 +205,7 @@ class Address
 
 	/** @var AddressLine[] */
 	#[SerializedName('cac:AddressLine')]
-	public array $AddressLine = [];
+	public array $AddressLine;
 
 	/** @var Country */
 	#[SerializedName('cac:Country')]
@@ -213,5 +213,5 @@ class Address
 
 	/** @var LocationCoordinate[] */
 	#[SerializedName('cac:LocationCoordinate')]
-	public array $LocationCoordinate = [];
+	public array $LocationCoordinate;
 }

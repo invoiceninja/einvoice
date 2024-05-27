@@ -69,27 +69,27 @@ class TransportationService
 
 	/** @var TransportEquipment[] */
 	#[SerializedName('cac:TransportEquipment')]
-	public array $TransportEquipment = [];
+	public array $TransportEquipment;
 
 	/** @var SupportedTransportEquipment[] */
 	#[SerializedName('cac:SupportedTransportEquipment')]
-	public array $SupportedTransportEquipment = [];
+	public array $SupportedTransportEquipment;
 
 	/** @var UnsupportedTransportEquipment[] */
 	#[SerializedName('cac:UnsupportedTransportEquipment')]
-	public array $UnsupportedTransportEquipment = [];
+	public array $UnsupportedTransportEquipment;
 
 	/** @var CommodityClassification[] */
 	#[SerializedName('cac:CommodityClassification')]
-	public array $CommodityClassification = [];
+	public array $CommodityClassification;
 
 	/** @var SupportedCommodityClassification[] */
 	#[SerializedName('cac:SupportedCommodityClassification')]
-	public array $SupportedCommodityClassification = [];
+	public array $SupportedCommodityClassification;
 
 	/** @var UnsupportedCommodityClassification[] */
 	#[SerializedName('cac:UnsupportedCommodityClassification')]
-	public array $UnsupportedCommodityClassification = [];
+	public array $UnsupportedCommodityClassification;
 
 	/** @var TotalCapacityDimension */
 	#[SerializedName('cac:TotalCapacityDimension')]
@@ -97,11 +97,11 @@ class TransportationService
 
 	/** @var ShipmentStage[] */
 	#[SerializedName('cac:ShipmentStage')]
-	public array $ShipmentStage = [];
+	public array $ShipmentStage;
 
 	/** @var TransportEvent[] */
 	#[SerializedName('cac:TransportEvent')]
-	public array $TransportEvent = [];
+	public array $TransportEvent;
 
 	/** @var ResponsibleTransportServiceProviderParty */
 	#[SerializedName('cac:ResponsibleTransportServiceProviderParty')]
@@ -109,7 +109,7 @@ class TransportationService
 
 	/** @var EnvironmentalEmission[] */
 	#[SerializedName('cac:EnvironmentalEmission')]
-	public array $EnvironmentalEmission = [];
+	public array $EnvironmentalEmission;
 
 	/** @var EstimatedDurationPeriod */
 	#[SerializedName('cac:EstimatedDurationPeriod')]
@@ -117,5 +117,5 @@ class TransportationService
 
 	/** @var ScheduledServiceFrequency[] */
 	#[SerializedName('cac:ScheduledServiceFrequency')]
-	public array $ScheduledServiceFrequency = [];
+	public array $ScheduledServiceFrequency;
 }

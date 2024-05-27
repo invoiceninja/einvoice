@@ -55,7 +55,7 @@ class SubsidiaryLocation
 
 	/** @var ValidityPeriod[] */
 	#[SerializedName('cac:ValidityPeriod')]
-	public array $ValidityPeriod = [];
+	public array $ValidityPeriod;
 
 	/** @var Address */
 	#[SerializedName('cac:Address')]
@@ -63,5 +63,5 @@ class SubsidiaryLocation
 
 	/** @var LocationCoordinate[] */
 	#[SerializedName('cac:LocationCoordinate')]
-	public array $LocationCoordinate = [];
+	public array $LocationCoordinate;
 }

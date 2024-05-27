@@ -53,7 +53,7 @@ class Package
 
 	/** @var ContainedPackage[] */
 	#[SerializedName('cac:ContainedPackage')]
-	public array $ContainedPackage = [];
+	public array $ContainedPackage;
 
 	/** @var ContainingTransportEquipment */
 	#[SerializedName('cac:ContainingTransportEquipment')]
@@ -61,15 +61,15 @@ class Package
 
 	/** @var GoodsItem[] */
 	#[SerializedName('cac:GoodsItem')]
-	public array $GoodsItem = [];
+	public array $GoodsItem;
 
 	/** @var MeasurementDimension[] */
 	#[SerializedName('cac:MeasurementDimension')]
-	public array $MeasurementDimension = [];
+	public array $MeasurementDimension;
 
 	/** @var DeliveryUnit[] */
 	#[SerializedName('cac:DeliveryUnit')]
-	public array $DeliveryUnit = [];
+	public array $DeliveryUnit;
 
 	/** @var Delivery */
 	#[SerializedName('cac:Delivery')]

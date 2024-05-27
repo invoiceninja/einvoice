@@ -24,7 +24,7 @@ class DettaglioLinee
 	public string $TipoCessionePrestazione;
 
 	/** @var CodiceArticolo[] */
-	public array $CodiceArticolo = [];
+	public array $CodiceArticolo;
 
 	/** @var string */
 	#[Length(min: 1, max: 1000)]
@@ -55,7 +55,7 @@ class DettaglioLinee
 	public string $PrezzoUnitario;
 
 	/** @var ScontoMaggiorazione[] */
-	public array $ScontoMaggiorazione = [];
+	public array $ScontoMaggiorazione;
 
 	/** @var string */
 	#[DecimalPrecision(2)]
@@ -133,5 +133,5 @@ class DettaglioLinee
 	public string $RiferimentoAmministrazione;
 
 	/** @var AltriDatiGestionali[] */
-	public array $AltriDatiGestionali = [];
+	public array $AltriDatiGestionali;
 }

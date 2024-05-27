@@ -140,7 +140,7 @@ class Generator
                 echo print_r($element).PHP_EOL;
 
             $property->setType("array");
-            $property->setValue([]);
+            // $property->setValue([]);
             $property->removeComment();
             $property->addComment("@var ".$element['name']."[]");
         }

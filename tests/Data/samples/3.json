@@ -60,15 +60,12 @@
                     "TipoDocumento": "TD01",
                     "Divisa": "EUR",
                     "Data": {
-                        "date": "2017-01-20 06:04:14.000000",
+                        "date": "2017-01-20 23:02:36.000000",
                         "timezone_type": 3,
                         "timezone": "UTC"
                     },
                     "Numero": "456",
-                    "DatiRitenuta": [],
                     "DatiBollo": null,
-                    "DatiCassaPrevidenziale": [],
-                    "ScontoMaggiorazione": [],
                     "Causale": [
                         "LA FATTURA FA RIFERIMENTO  RRRR SSSSSSSSSSSSSS",
                         " IN CUI NON SIANO S BBBBBBBBBBBBBBBBB"
@@ -88,7 +85,7 @@
                         "RiferimentoNumeroLinea": 1,
                         "IdDocumento": "321",
                         "Data": {
-                            "date": "2016-09-01 06:04:14.000000",
+                            "date": "2016-09-01 23:02:36.000000",
                             "timezone_type": 3,
                             "timezone": "UTC"
                         },
@@ -115,9 +112,6 @@
                         "CodiceCIG": "456def"
                     }
                 ],
-                "DatiFattureCollegate": [],
-                "DatiSAL": [],
-                "DatiDDT": [],
                 "DatiTrasporto": null,
                 "FatturaPrincipale": null
             },
@@ -125,13 +119,10 @@
                 "DettaglioLinee": [
                     {
                         "NumeroLinea": 1,
-                        "CodiceArticolo": [],
                         "Descrizione": "PRESTAZIONE DEL SEGUENTE SERVIZIO PROFESSIONALE: LA DESCRIZIONE DELLA\n                    PRESTAZIONE PUO' SUPERARE I CENTO CARATTERI CHE RAPPRESENTAVANO IL PRECEDENTE\n                    LIMITE DIMENSIONALE. TALE LIMITE NELLA NUOVA VERSIONE E' STATO PORTATO A MILLE\n                    CARATTERI",
                         "PrezzoUnitario": "2000.00",
-                        "ScontoMaggiorazione": [],
                         "PrezzoTotale": "2000.00",
-                        "AliquotaIVA": "22.00",
-                        "AltriDatiGestionali": []
+                        "AliquotaIVA": "22.00"
                     }
                 ],
                 "DatiRiepilogo": [
@@ -151,7 +142,7 @@
                         {
                             "ModalitaPagamento": "MP19",
                             "DataScadenzaPagamento": {
-                                "date": "2017-02-20 06:04:14.000000",
+                                "date": "2017-02-20 23:02:36.000000",
                                 "timezone_type": 3,
                                 "timezone": "UTC"
                             },
@@ -159,8 +150,7 @@
                         }
                     ]
                 }
-            ],
-            "Allegati": []
+            ]
         }
     ]
 }

@@ -23,5 +23,5 @@ class FatturaElettronica
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
-	public array $FatturaElettronicaBody = [];
+	public array $FatturaElettronicaBody;
 }

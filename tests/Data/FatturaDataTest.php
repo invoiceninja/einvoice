@@ -369,35 +369,53 @@ class FatturaDataTest extends TestCase
             $doc->load($f);
             // $validation = $doc->schemaValidate("src/Standards/FatturaPA/validation.xsl");
 
-// Load your XSLT stylesheet
-$xsl = new \DOMDocument();
-$xsl->load("src/Standards/FatturaPA/validation.xsl");
+            // Load your XSLT stylesheet
+            $xsl = new \DOMDocument();
+            $xsl->load("src/Standards/FatturaPA/validation.xsl");
 
-// Create an XSLTProcessor instance and import the XSLT stylesheet
-$processor = new \XSLTProcessor();
-$processor->importStylesheet($xsl);
-
-
-// Perform the transformation
-$result = $processor->transformToXML($doc);
+            // Create an XSLTProcessor instance and import the XSLT stylesheet
+            $processor = new \XSLTProcessor();
+            $processor->importStylesheet($xsl);
 
 
-if ($result !== false) {
-    // Transformation was successful, $result contains the transformed XML
-    // echo "Transformation result:\n", $result;
-} else {
-    // Transformation failed
-    // echo "Transformation failed.";
-}
+            // Perform the transformation
+            $result = $processor->transformToXML($doc);
+
+
+            if ($result !== false) {
+                // Transformation was successful, $result contains the transformed XML
+                // echo "Transformation result:\n", $result;
+            } else {
+                // Transformation failed
+                // echo "Transformation failed.";
+            }
 
 
 
-$errors = libxml_get_errors();
-echo print_r($errors);
-// $this->assertTrue($validation);
+            $errors = libxml_get_errors();
+            echo print_r($errors);
+            // $this->assertTrue($validation);
 
-$this->assertCount(0, $errors);
+            $this->assertCount(0, $errors);
         }        
 
+    }
+
+    public function testFinalDocValidation()
+    {
+                
+        libxml_use_internal_errors(true);
+
+        $f = 'tests/Data/samples/fatturapa7.xml';
+
+        $doc = new \DOMDocument();
+        $doc->load($f);
+
+        $validation = $doc->schemaValidate("src/Standards/FatturaPA/Schema_del_file_xml_FatturaPA_v1.2.2.xsd");
+
+        $errors = libxml_get_errors();
+        echo print_r($errors);
+
+        $this->assertTrue($validation);
     }
 }

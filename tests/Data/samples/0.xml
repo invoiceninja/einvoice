@@ -33,9 +33,7 @@
       <IscrizioneREA/>
       <Contatti/>
     </CedentePrestatore>
-    <RappresentanteFiscale>
-      <DatiAnagrafici/>
-    </RappresentanteFiscale>
+    <RappresentanteFiscale/>
     <CessionarioCommittente>
       <DatiAnagrafici>
         <IdFiscaleIVA/>
@@ -52,13 +50,9 @@
         <Nazione>IT</Nazione>
       </Sede>
       <StabileOrganizzazione/>
-      <RappresentanteFiscale>
-        <IdFiscaleIVA/>
-      </RappresentanteFiscale>
+      <RappresentanteFiscale/>
     </CessionarioCommittente>
-    <TerzoIntermediarioOSoggettoEmittente>
-      <DatiAnagrafici/>
-    </TerzoIntermediarioOSoggettoEmittente>
+    <TerzoIntermediarioOSoggettoEmittente/>
   </FatturaElettronicaHeader>
   <FatturaElettronicaBody>
     <DatiGenerali>
@@ -76,10 +70,7 @@
         <IdDocumento>66685</IdDocumento>
         <NumItem>1</NumItem>
       </DatiOrdineAcquisto>
-      <DatiTrasporto>
-        <DatiAnagraficiVettore/>
-        <IndirizzoResa/>
-      </DatiTrasporto>
+      <DatiTrasporto/>
       <FatturaPrincipale/>
     </DatiGenerali>
     <DatiBeniServizi>

@@ -28,14 +28,16 @@
                 "Provincia": "SS",
                 "Nazione": "IT"
             },
-            "StabileOrganizzazione": null,
-            "IscrizioneREA": null,
-            "Contatti": null
+            "StabileOrganizzazione": {},
+            "IscrizioneREA": {},
+            "Contatti": {}
         },
-        "RappresentanteFiscale": null,
+        "RappresentanteFiscale": {
+            "DatiAnagrafici": null
+        },
         "CessionarioCommittente": {
             "DatiAnagrafici": {
-                "IdFiscaleIVA": null,
+                "IdFiscaleIVA": {},
                 "CodiceFiscale": "09876543210",
                 "Anagrafica": {
                     "Denominazione": "BETA GAMMA"
@@ -48,10 +50,14 @@
                 "Provincia": "RM",
                 "Nazione": "IT"
             },
-            "StabileOrganizzazione": null,
-            "RappresentanteFiscale": null
+            "StabileOrganizzazione": {},
+            "RappresentanteFiscale": {
+                "IdFiscaleIVA": null
+            }
         },
-        "TerzoIntermediarioOSoggettoEmittente": null
+        "TerzoIntermediarioOSoggettoEmittente": {
+            "DatiAnagrafici": null
+        }
     },
     "FatturaElettronicaBody": [
         {
@@ -60,12 +66,12 @@
                     "TipoDocumento": "TD01",
                     "Divisa": "EUR",
                     "Data": {
-                        "date": "2014-12-20 23:02:36.000000",
+                        "date": "2014-12-20 23:28:09.000000",
                         "timezone_type": 3,
                         "timezone": "UTC"
                     },
                     "Numero": "456",
-                    "DatiBollo": null,
+                    "DatiBollo": {},
                     "Causale": [
                         "LA FATTURA FA RIFERIMENTO AD UNA ",
                         "SEGUE DESCRIZIONE CAUSALE NEL CASO"
@@ -78,8 +84,11 @@
                         "NumItem": "1"
                     }
                 ],
-                "DatiTrasporto": null,
-                "FatturaPrincipale": null
+                "DatiTrasporto": {
+                    "DatiAnagraficiVettore": null,
+                    "IndirizzoResa": null
+                },
+                "FatturaPrincipale": {}
             },
             "DatiBeniServizi": {
                 "DettaglioLinee": [
@@ -107,7 +116,7 @@
                     }
                 ]
             },
-            "DatiVeicoli": null,
+            "DatiVeicoli": {},
             "DatiPagamento": [
                 {
                     "CondizioniPagamento": "TP01",
@@ -115,7 +124,7 @@
                         {
                             "ModalitaPagamento": "MP19",
                             "DataScadenzaPagamento": {
-                                "date": "2015-01-28 23:02:36.000000",
+                                "date": "2015-01-28 23:28:09.000000",
                                 "timezone_type": 3,
                                 "timezone": "UTC"
                             },

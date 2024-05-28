@@ -28,9 +28,14 @@
         <Provincia>SS</Provincia>
         <Nazione>IT</Nazione>
       </Sede>
+      <StabileOrganizzazione/>
+      <IscrizioneREA/>
+      <Contatti/>
     </CedentePrestatore>
+    <RappresentanteFiscale/>
     <CessionarioCommittente>
       <DatiAnagrafici>
+        <IdFiscaleIVA/>
         <CodiceFiscale>09876543210</CodiceFiscale>
         <Anagrafica>
           <Denominazione>BETA GAMMA</Denominazione>
@@ -43,7 +48,10 @@
         <Provincia>RM</Provincia>
         <Nazione>IT</Nazione>
       </Sede>
+      <StabileOrganizzazione/>
+      <RappresentanteFiscale/>
     </CessionarioCommittente>
+    <TerzoIntermediarioOSoggettoEmittente/>
   </FatturaElettronicaHeader>
   <FatturaElettronicaBody>
     <DatiGenerali>
@@ -52,6 +60,7 @@
         <Divisa>EUR</Divisa>
         <Data>2014-12-20</Data>
         <Numero>456</Numero>
+        <DatiBollo/>
         <Causale>LA FATTURA FA RIFERIMENTO AD UNA </Causale>
         <Causale>SEGUE DESCRIZIONE CAUSALE NEL CASO</Causale>
       </DatiGeneraliDocumento>
@@ -60,6 +69,8 @@
         <IdDocumento>66685</IdDocumento>
         <NumItem>1</NumItem>
       </DatiOrdineAcquisto>
+      <DatiTrasporto/>
+      <FatturaPrincipale/>
     </DatiGenerali>
     <DatiBeniServizi>
       <DettaglioLinee>
@@ -89,6 +100,7 @@
         <EsigibilitaIVA>I</EsigibilitaIVA>
       </DatiRiepilogo>
     </DatiBeniServizi>
+    <DatiVeicoli/>
     <DatiPagamento>
       <CondizioniPagamento>TP01</CondizioniPagamento>
       <DettaglioPagamento>

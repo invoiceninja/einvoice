@@ -280,71 +280,124 @@ class FatturaDataTest extends TestCase
     {
 
 
-$phpDocExtractor = new PhpDocExtractor();
-$reflectionExtractor = new ReflectionExtractor();
+        $phpDocExtractor = new PhpDocExtractor();
+        $reflectionExtractor = new ReflectionExtractor();
 
-// list of PropertyListExtractorInterface (any iterable)
-$listExtractors = [$reflectionExtractor];
+        // list of PropertyListExtractorInterface (any iterable)
+        $listExtractors = [$reflectionExtractor];
 
-// list of PropertyTypeExtractorInterface (any iterable)
-$typeExtractors = [$reflectionExtractor,$phpDocExtractor];
+        // list of PropertyTypeExtractorInterface (any iterable)
+        $typeExtractors = [$reflectionExtractor,$phpDocExtractor];
 
-// list of PropertyDescriptionExtractorInterface (any iterable)
-$descriptionExtractors = [$phpDocExtractor];
+        // list of PropertyDescriptionExtractorInterface (any iterable)
+        $descriptionExtractors = [$phpDocExtractor];
 
-// list of PropertyAccessExtractorInterface (any iterable)
-$accessExtractors = [$reflectionExtractor];
+        // list of PropertyAccessExtractorInterface (any iterable)
+        $accessExtractors = [$reflectionExtractor];
 
-// list of PropertyInitializableExtractorInterface (any iterable)
-$propertyInitializableExtractors = [$reflectionExtractor];
+        // list of PropertyInitializableExtractorInterface (any iterable)
+        $propertyInitializableExtractors = [$reflectionExtractor];
 
-$propertyInfo = new PropertyInfoExtractor(
-    // $listExtractors,
-    $propertyInitializableExtractors,
-    $descriptionExtractors,
-    $typeExtractors,
-    // $accessExtractors,
-);
+        $propertyInfo = new PropertyInfoExtractor(
+            // $listExtractors,
+            $propertyInitializableExtractors,
+            $descriptionExtractors,
+            $typeExtractors,
+            // $accessExtractors,
+        );
 
 
-$context = [
-    'xml_format_output' => true,
-];
+        $context = [
+            'xml_format_output' => true,
+        ];
 
-$encoder = new XmlEncoder($context);
+        $encoder = new XmlEncoder($context);
 
-$classMetadataFactory = new ClassMetadataFactory(new AttributeLoader());
-$metadataAwareNameConverter = new MetadataAwareNameConverter($classMetadataFactory);
+        $classMetadataFactory = new ClassMetadataFactory(new AttributeLoader());
+        $metadataAwareNameConverter = new MetadataAwareNameConverter($classMetadataFactory);
 
-$discriminator = new ClassDiscriminatorFromClassMetadata($classMetadataFactory);
+        $discriminator = new ClassDiscriminatorFromClassMetadata($classMetadataFactory);
 
-$normalizer = new ObjectNormalizer($classMetadataFactory, $metadataAwareNameConverter, null, $propertyInfo);
+        $normalizer = new ObjectNormalizer($classMetadataFactory, $metadataAwareNameConverter, null, $propertyInfo);
 
-$normalizers = [  new DateTimeNormalizer(), $normalizer,  new ArrayDenormalizer() , ];
-$encoders = [$encoder, new JsonEncoder()];
+        $normalizers = [  new DateTimeNormalizer(), $normalizer,  new ArrayDenormalizer() , ];
+        $encoders = [$encoder, new JsonEncoder()];
 
-$serializer = new Serializer($normalizers, $encoders);
+        $serializer = new Serializer($normalizers, $encoders);
 
-$path = 'tests/Data/samples/';
+        $path = 'tests/Data/samples/';
 
-$f = 'tests/Data/samples/fatturapa0.xml';
-$xmlstring = file_get_contents($f);
+        $f = 'tests/Data/samples/fatturapa0.xml';
+        $xmlstring = file_get_contents($f);
 
-//prevents null values from appearing
-$xmlstring = $serializer->deserialize($xmlstring, FatturaElettronica::class, 'xml');
-$fattura = $normalizer->normalize($xmlstring, 'xml', [AbstractObjectNormalizer::SKIP_NULL_VALUES => true]);
+        //prevents null values from appearing
+        $xmlstring = $serializer->deserialize($xmlstring, FatturaElettronica::class, 'xml');
+        $fattura = $normalizer->normalize($xmlstring, 'xml', [AbstractObjectNormalizer::SKIP_NULL_VALUES => true]);
 
-$this->assertNotNull($fattura);
-$dataxml = $serializer->encode($fattura, 'xml', $context);
-$dataxml = str_replace(['<response>','</response>'], '', $dataxml);
-//remove any empty lines from output
-$dataxml = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $dataxml);
+        $this->assertNotNull($fattura);
+        $dataxml = $serializer->encode($fattura, 'xml', $context);
+        $dataxml = str_replace(['<response>','</response>'], '', $dataxml);
+        //remove any empty lines from output
+        $dataxml = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $dataxml);
 
-$fpathjson = $path."hydra.xml";
-$fp = fopen($fpathjson, 'w');
-fwrite($fp, $dataxml);
-fclose($fp);
+        $fpathjson = $path."hydra.xml";
+        $fp = fopen($fpathjson, 'w');
+        fwrite($fp, $dataxml);
+        fclose($fp);
 
+
+    }
+
+    public function testSchemaValidation()
+    {
+        $files = [
+            'tests/Data/samples/fatturapa0.xml',
+            'tests/Data/samples/fatturapa1.xml',
+            'tests/Data/samples/fatturapa2.xml',
+            'tests/Data/samples/fatturapa3.xml',
+            'tests/Data/samples/fatturapa4.xml',
+            'tests/Data/samples/fatturapa5.xml',
+            'tests/Data/samples/fatturapa6.xml',
+        ];
+
+        foreach($files as $key => $f)
+        {
+
+            libxml_use_internal_errors(true);
+
+            $doc = new \DOMDocument();
+            $doc->load($f);
+            // $validation = $doc->schemaValidate("src/Standards/FatturaPA/validation.xsl");
+
+// Load your XSLT stylesheet
+$xsl = new \DOMDocument();
+$xsl->load("src/Standards/FatturaPA/validation.xsl");
+
+// Create an XSLTProcessor instance and import the XSLT stylesheet
+$processor = new \XSLTProcessor();
+$processor->importStylesheet($xsl);
+
+
+// Perform the transformation
+$result = $processor->transformToXML($doc);
+
+
+if ($result !== false) {
+    // Transformation was successful, $result contains the transformed XML
+    // echo "Transformation result:\n", $result;
+} else {
+    // Transformation failed
+    // echo "Transformation failed.";
+}
+
+
+
+$errors = libxml_get_errors();
+echo print_r($errors);
+// $this->assertTrue($validation);
+
+$this->assertCount(0, $errors);
+        }        
 
     }
 }

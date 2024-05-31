@@ -20,6 +20,46 @@ class FatturaPA extends BaseStandard
 
     public string $standard = "FatturaPA";
     
+    public array $visibility = [
+        'DatiTrasmissione' => 0,
+        'IdFiscale' => 7,
+        'ContattiTrasmittente' => 0,
+        'DatiGenerali' => 7,
+        'DatiGeneraliDocumento' => 7,
+        'DatiRitenuta' => 0,
+        'DatiBollo' => 0,
+        'DatiCassaPrevidenziale' => 0,
+        'ScontoMaggiorazione' => 7,
+        'DatiSAL' => 7,
+        'DatiDocumentiCorrelati' => 7,
+        'DatiDDT' => 7,
+        'DatiTrasporto' => 7,
+        'Indirizzo' => 7,
+        'FatturaPrincipale' => 6,
+        'CedentePrestatore' => 7,
+        'DatiAnagraficiCedente' => 7,
+        'Anagrafica' => 7,
+        'DatiAnagraficiVettore' => 6,
+        'IscrizioneREA' => 7,
+        'Contatti' => 7,
+        'RappresentanteFiscale' => 7,
+        'DatiAnagraficiRappresentante' => 7,
+        'CessionarioCommittente' => 7,
+        'RappresentanteFiscaleCessionario' => 7,
+        'DatiAnagraficiCessionario' => 7,
+        'DatiBeniServizi' => 7,
+        'DatiVeicoli' => 0,
+        'DatiPagamento' => 7,
+        'DettaglioPagamento' => 7,
+        'TerzoIntermediarioSoggettoEmittente' => 7,
+        'DatiAnagraficiTerzoIntermediario' => 7,
+        'Allegati' => 0,
+        'DettaglioLinee' => 0,
+        'CodiceArticolo' => 0,
+        'AltriDatiGestionali' => 0,
+        'DatiRiepilogo' => 0,
+    ];
+
     /** Regex patterns need to be converted into preg_match equivalents */
     private array $regex_conversion_array =
     [

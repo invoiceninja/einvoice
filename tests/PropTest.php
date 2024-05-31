@@ -38,51 +38,43 @@ class PropTest extends TestCase
 
 // $complexTypes = $dom->getElementsByTagName('element');
         $complexTypes = $dom->getElementsByTagName('complexType');
+        
+        $x = [];
 
         foreach($complexTypes as $type) {
 
-            if($type->hasAttribute('name'))
+            if($type->hasAttribute('name')){
                 echo $type->getAttribute('name').PHP_EOL;
+                $x[] = $type->getAttribute('name');
+            }
         }
+
+        $a = [];
+        foreach($x as $y)
+        {
+                  
+            
+            $xpath = new \DOMXPath($dom);
+            $result = $xpath->query('./xs:complexType [@name="'.$y.'"]//xs:sequence');
+
+            $node = $result->item(0);
+
+            // $a[$y]
+            foreach($node->childNodes as $childNode) {
+            
+                if($childNode instanceof \DomElement) {
+                    // echo $childNode->getAttribute('name').PHP_EOL;
+                    $a[$y][] = $childNode->getAttribute('name');
+                }
+            }
+
+        }
+            
+            
+        echo print_r($a,1).PHP_EOL;
+
     }
 }
 
 
 
-// DatiTrasmissione' => ,
-// IdFiscale' => ,
-// ContattiTrasmittente' => ,
-// DatiGenerali' => ,
-// DatiGeneraliDocumento' => ,
-// DatiRitenuta' => ,
-// DatiBollo' => ,
-// DatiCassaPrevidenziale' => ,
-// ScontoMaggiorazione' => ,
-// DatiSAL' => ,
-// DatiDocumentiCorrelati' => ,
-// DatiDDT' => ,
-// DatiTrasporto' => ,
-// Indirizzo' => ,
-// FatturaPrincipale' => ,
-// CedentePrestatore' => ,
-// DatiAnagraficiCedente' => ,
-// Anagrafica' => ,
-// DatiAnagraficiVettore' => ,
-// IscrizioneREA' => ,
-// Contatti' => ,
-// RappresentanteFiscale' => ,
-// DatiAnagraficiRappresentante' => ,
-// CessionarioCommittente' => ,
-// RappresentanteFiscaleCessionario' => ,
-// DatiAnagraficiCessionario' => ,
-// DatiBeniServizi' => ,
-// DatiVeicoli' => ,
-// DatiPagamento' => ,
-// DettaglioPagamento' => ,
-// TerzoIntermediarioSoggettoEmittente' => ,
-// DatiAnagraficiTerzoIntermediario' => ,
-// Allegati' => ,
-// DettaglioLinee' => ,
-// CodiceArticolo' => ,
-// AltriDatiGestionali' => ,
-// DatiRiepilogo' => ,

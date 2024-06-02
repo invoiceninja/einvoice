@@ -36,7 +36,7 @@ class PropTest extends TestCase
         $dom->load("src/Standards/FatturaPA/Schema_del_file_xml_FatturaPA_v1.2.2.xsd");
 
 
-// $complexTypes = $dom->getElementsByTagName('element');
+        // $complexTypes = $dom->getElementsByTagName('element');
         $complexTypes = $dom->getElementsByTagName('complexType');
         
         $x = [];
@@ -71,7 +71,7 @@ class PropTest extends TestCase
         }
             
             
-        echo print_r($a,1).PHP_EOL;
+        echo json_encode($a,JSON_PRETTY_PRINT).PHP_EOL;
 
     }
 }

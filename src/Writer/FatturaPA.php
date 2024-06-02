@@ -20,6 +20,11 @@ class FatturaPA extends BaseStandard
 
     public string $standard = "FatturaPA";
     
+    //0 - do not show
+    //1 - company level
+    //2 - client level
+    //4 - entity level
+
     public array $visibility = [
         'DatiTrasmissione' => 0,
         'IdFiscale' => 7,
@@ -58,6 +63,290 @@ class FatturaPA extends BaseStandard
         'CodiceArticolo' => 0,
         'AltriDatiGestionali' => 0,
         'DatiRiepilogo' => 0,
+    ];
+
+    public array $vis = [
+    "FatturaElettronicaType" => [
+        "FatturaElettronicaHeader"=> 7,
+        "FatturaElettronicaBody"=> 7,
+    ],
+    "FatturaElettronicaHeaderType"=> [
+        "DatiTrasmissione"=> 0,
+        "CedentePrestatore"=> 7,
+        "RappresentanteFiscale"=> 7,
+        "CessionarioCommittente"=> 6,
+        "TerzoIntermediarioOSoggettoEmittente"=> 7,
+        "SoggettoEmittente" => 7,
+    ],
+    "FatturaElettronicaBodyType"=> [
+        "DatiGenerali"=> 7,
+        "DatiBeniServizi"=> 4,
+        "DatiVeicoli"=> 7,
+        "DatiPagamento"=> 6,
+        "Allegati" => 6,
+    ],
+    "DatiTrasmissioneType"=> [
+        "IdTrasmittente"=> 0,
+        "ProgressivoInvio"=> 0,
+        "FormatoTrasmissione"=> 0,
+        "CodiceDestinatario"=> 0,
+        "ContattiTrasmittente"=> 0,
+        "PECDestinatario"  => 0
+    ],
+    "IdFiscaleType"=> [
+        "IdPaese"=> 0,
+        "IdCodice" => 0,
+    ],
+    "ContattiTrasmittenteType"=> [
+        "Telefono"=> 7,
+        "Email" => 7,
+    ],
+    "DatiGeneraliType"=> [
+        "DatiGeneraliDocumento"=> 6,
+        "DatiOrdineAcquisto"=> 6,
+        "DatiContratto"=> 6,
+        "DatiConvenzione"=> 6,
+        "DatiRicezione"=> 6,
+        "DatiFattureCollegate"=> 6,
+        "DatiSAL"=> 6,
+        "DatiDDT"=> 6,
+        "DatiTrasporto"=> 6,
+        "FatturaPrincipale" => 6
+    ],
+    "DatiGeneraliDocumentoType"=> [
+        "TipoDocumento"=> 6,
+        "Divisa"=> 6,
+        "Data"=> 6,
+        "Numero"=> 6,
+        "DatiRitenuta"=> 6,
+        "DatiBollo"=> 6,
+        "DatiCassaPrevidenziale"=> 6,
+        "ScontoMaggiorazione"=> 6,
+        "ImportoTotaleDocumento"=> 6,
+        "Arrotondamento"=> 6,
+        "Causale"=> 6,
+        "Art73" => 6,
+    ],
+    "DatiRitenutaType"=> [
+        "TipoRitenuta"=> 6,
+        "ImportoRitenuta"=> 6,
+        "AliquotaRitenuta"=> 6,
+        "CausalePagamento" => 6
+    ],
+    "DatiBolloType"=> [
+        "BolloVirtuale"=> 6,
+        "ImportoBollo" => 6
+    ],
+    "DatiCassaPrevidenzialeType"=> [
+        "TipoCassa"=> 0,
+        "AlCassa"=> 0,
+        "ImportoContributoCassa"=> 0,
+        "ImponibileCassa"=> 0,
+        "AliquotaIVA"=> 0,
+        "Ritenuta"=> 0,
+        "Natura"=> 0,
+        "RiferimentoAmministrazione" => 0,
+    ],
+    "ScontoMaggiorazioneType"=> [
+        "Tipo"=> 7,
+        "Percentuale"=> 7,
+        "Importo" => 7
+    ],
+    "DatiSALType"=> [
+        "RiferimentoFase" => 0
+    ],
+    "DatiDocumentiCorrelatiType"=> [
+        "RiferimentoNumeroLinea"=> 0,
+        "IdDocumento"=> 0,
+        "Data"=> 0,
+        "NumItem"=> 0,
+        "CodiceCommessaConvenzione"=> 0,
+        "CodiceCUP"=> 0,
+        "CodiceCIG" => 0,
+    ],
+    "DatiDDTType"=> [
+        "NumeroDDT"=> 0,
+        "DataDDT"=> 0,
+        "RiferimentoNumeroLinea" => 0,
+    ],
+    "DatiTrasportoType"=> [
+        "DatiAnagraficiVettore"=> 0,
+        "MezzoTrasporto"=> 0,
+        "CausaleTrasporto"=> 0,
+        "NumeroColli"=> 0,
+        "Descrizione"=> 0,
+        "UnitaMisuraPeso"=> 0,
+        "PesoLordo"=> 0,
+        "PesoNetto"=> 0,
+        "DataOraRitiro"=> 0,
+        "DataInizioTrasporto"=> 0,
+        "TipoResa"=> 0,
+        "IndirizzoResa"=> 0,
+        "DataOraConsegna" => 0,
+    ],
+    "IndirizzoType"=> [
+        "Indirizzo"=> 7,
+        "NumeroCivico"=> 7,
+        "CAP"=> 7,
+        "Comune"=> 7,
+        "Provincia"=> 7,
+        "Nazione" => 7,
+    ],
+    "FatturaPrincipaleType"=> [
+        "NumeroFatturaPrincipale"=> 0,
+        "DataFatturaPrincipale" => 0,
+    ],
+    "CedentePrestatoreType"=> [
+        "DatiAnagrafici"=> 7,
+        "Sede"=> 7,
+        "StabileOrganizzazione"=> 7,
+        "IscrizioneREA"=> 7,
+        "Contatti"=> 7,
+        "RiferimentoAmministrazione" => 7,
+    ],
+    "DatiAnagraficiCedenteType"=> [
+        "IdFiscaleIVA"=> 6,
+        "CodiceFiscale"=> 6,
+        "Anagrafica"=> 6,
+        "AlboProfessionale"=> 6,
+        "ProvinciaAlbo"=> 6,
+        "NumeroIscrizioneAlbo"=> 6,
+        "DataIscrizioneAlbo"=> 6,
+        "RegimeFiscale" => 6, 
+    ],
+    "AnagraficaType"=> [
+        "Denominazione"=> 6,
+        "Titolo"=> 6,
+        "CodEORI" => 6,
+    ],
+    "DatiAnagraficiVettoreType"=> [
+        "IdFiscaleIVA"=> 0,
+        "CodiceFiscale"=> 0,
+        "Anagrafica"=> 0,
+        "NumeroLicenzaGuida" => 0,
+    ],
+    "IscrizioneREAType"=> [
+        "Ufficio"=> 0,
+        "NumeroREA"=> 0,
+        "CapitaleSociale"=> 0,
+        "SocioUnico"=> 0,
+        "StatoLiquidazione" => 0,
+    ],
+    "ContattiType"=> [
+        "Telefono"=> 6,
+        "Fax"=> 6,
+        "Email" => 6,
+    ],
+    "RappresentanteFiscaleType"=> [
+        "DatiAnagrafici" => 6,
+    ],
+    "DatiAnagraficiRappresentanteType"=> [
+        "IdFiscaleIVA"=> 7,
+        "CodiceFiscale"=> 7,
+        "Anagrafica" => 7,
+    ],
+    "CessionarioCommittenteType"=> [
+        "DatiAnagrafici"=> 6,
+        "Sede"=> 6,
+        "StabileOrganizzazione"=> 6,
+        "RappresentanteFiscale" => 6,
+    ],
+    "RappresentanteFiscaleCessionarioType"=> [
+        "IdFiscaleIVA"=> 7,
+    ],
+    "DatiAnagraficiCessionarioType"=> [
+        "IdFiscaleIVA"=> 6,
+        "CodiceFiscale"=> 6,
+        "Anagrafica" => 6,
+    ],
+    "DatiBeniServiziType"=> [
+        "DettaglioLinee"=> 0,
+        "DatiRiepilogo" => 0,
+    ],
+    "DatiVeicoliType"=> [
+        "Data"=> 0,
+        "TotalePercorso" => 0,
+    ],
+    "DatiPagamentoType"=> [
+        "CondizioniPagamento"=> 7,
+        "DettaglioPagamento" => 7,
+    ],
+    "DettaglioPagamentoType"=> [
+        "Beneficiario"=> 6,
+        "ModalitaPagamento"=> 6,
+        "DataRiferimentoTerminiPagamento"=> 6,
+        "GiorniTerminiPagamento"=> 6,
+        "DataScadenzaPagamento"=> 6,
+        "ImportoPagamento"=> 6,
+        "CodUfficioPostale"=> 6,
+        "CognomeQuietanzante"=> 6,
+        "NomeQuietanzante"=> 6,
+        "CFQuietanzante"=> 6,
+        "TitoloQuietanzante"=> 6,
+        "IstitutoFinanziario"=> 6,
+        "IBAN"=> 6,
+        "ABI"=> 6,
+        "CAB"=> 6,
+        "BIC"=> 6,
+        "ScontoPagamentoAnticipato"=> 6,
+        "DataLimitePagamentoAnticipato"=> 6,
+        "PenalitaPagamentiRitardati"=> 6,
+        "DataDecorrenzaPenale"=> 6,
+        "CodicePagamento" => 6,
+    ],
+    "TerzoIntermediarioSoggettoEmittenteType"=> [
+        "DatiAnagrafici"=> 0,
+    ],
+    "DatiAnagraficiTerzoIntermediarioType"=> [
+        "IdFiscaleIVA"=> 0,
+        "CodiceFiscale"=> 0,
+        "Anagrafica"=> 0,
+    ],
+    "AllegatiType"=> [
+        "NomeAttachment"=> 0,
+        "AlgoritmoCompressione"=> 0,
+        "FormatoAttachment"=> 0,
+        "DescrizioneAttachment"=> 0,
+        "Attachment"=> 0,
+    ],
+    "DettaglioLineeType"=> [
+        "NumeroLinea"=> 0,
+        "TipoCessionePrestazione"=> 0,
+        "CodiceArticolo"=> 0,
+        "Descrizione"=> 0,
+        "Quantita"=> 0,
+        "UnitaMisura"=> 0,
+        "DataInizioPeriodo"=> 0,
+        "DataFinePeriodo"=> 0,
+        "PrezzoUnitario"=> 0,
+        "ScontoMaggiorazione"=> 0,
+        "PrezzoTotale"=> 0,
+        "AliquotaIVA"=> 0,
+        "Ritenuta"=> 0,
+        "Natura"=> 0,
+        "RiferimentoAmministrazione"=> 0,
+        "AltriDatiG0estionali" => 0,
+    ],
+    "CodiceArticoloType"=> [
+        "CodiceTipo"=> 4,
+        "CodiceValore"=> 4,
+    ],
+    "AltriDatiGestionaliType"=> [
+        "TipoDato"=> 0,
+        "RiferimentoTesto"=> 0,
+        "RiferimentoNumero"=> 0,
+        "RiferimentoDat0a"=> 0,
+    ],
+    "DatiRiepilogoType"=> [
+        "AliquotaIVA"=> 0,
+        "Natura"=> 0,
+        "SpeseAccessorie"=> 0,
+        "Arrotondamento"=> 0,
+        "ImponibileImporto"=> 0,
+        "Imposta"=> 0,
+        "EsigibilitaIVA"=> 0,
+        "RiferimentoNormativo"=> 0,
+    ]
     ];
 
     /** Regex patterns need to be converted into preg_match equivalents */
@@ -152,6 +441,7 @@ class FatturaPA extends BaseStandard
                 $sequence_list = $this->processSequences($sequence);
 
                 $set['elements'] = count($sequence_list) > 0 ? $sequence_list : [];
+                $set['visibility'] = $this->getVisibility($set['type']) ?? 0;
 
                 $this->data[$set['type']] = $set;
 
@@ -161,6 +451,21 @@ class FatturaPA extends BaseStandard
         return $this;
     }
 
+    private function getVisibility(string $type): int
+    {
+        if(isset($this->vis[$type]))
+            return 7;
+
+        foreach($this->vis as $key => $value)
+        {
+
+            if(isset($this->vis[$key][$type]))
+                return $this->vis[$key][$type];
+
+        }
+
+        return 0;
+    }
     
     /**
      * processSequences
@@ -212,6 +517,7 @@ class FatturaPA extends BaseStandard
                         }
                         
                         $child_array['base_type'] = str_replace(["xs:","xs:"], "", $child_array['base_type']);
+                        $child_array['visibility'] = $this->getVisibility($child_array['base_type']);
 
                         if(isset($child_array['pattern']) && strlen($child_array['pattern']) > 2 && substr($child_array['pattern'], 0,1) != '/'){
 

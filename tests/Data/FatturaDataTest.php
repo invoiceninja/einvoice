@@ -227,11 +227,9 @@ class FatturaDataTest extends TestCase
 
         $errors = $validator->validate($data);
 
-
             foreach($errors as $error) {
                 echo $error->getPropertyPath() . ': ' . $error->getMessage() . "\n";
             }
-
 
             $dataxml = $serializer->encode($data, 'xml', $context);
             $dataxml = str_replace(['<response>','</response>'], '', $dataxml);
@@ -242,11 +240,6 @@ class FatturaDataTest extends TestCase
             fclose($fp);
 
             $this->assertNotNull($data);
-
-            // if(!$data?->FatturaElettronicaBody?->DatiBeniServizi ?? false)
-            //     echo print_r($data);
-
-            // $this->assertNotNull($data->FatturaElettronicaBody->DatiBeniServizi);
         }
 
     }
@@ -348,6 +341,8 @@ class FatturaDataTest extends TestCase
 
     }
 
+    
+
     public function testSchemaValidation()
     {
         $files = [
@@ -393,6 +388,8 @@ class FatturaDataTest extends TestCase
 
 
             $errors = libxml_get_errors();
+
+            if(count($errors) > 0)
             echo print_r($errors);
             // $this->assertTrue($validation);
 
@@ -414,8 +411,120 @@ class FatturaDataTest extends TestCase
         $validation = $doc->schemaValidate("src/Standards/FatturaPA/Schema_del_file_xml_FatturaPA_v1.2.2.xsd");
 
         $errors = libxml_get_errors();
+
+        if(count($errors) > 0)
         echo print_r($errors);
 
         $this->assertTrue($validation);
+    }
+
+
+private string $invoice_xml = 
+'<?xml version="1.0" encoding="UTF-8"?>
+<p:FatturaElettronica versione="FPR12" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:p="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2 http://www.fatturapa.gov.it/export/fatturazione/sdi/fatturapa/v1.2/Schema_del_file_xml_FatturaPA_versione_1.2.xsd">
+    <FatturaElettronicaHeader>
+    <DatiTrasmissione>
+      <IdTrasmittente>
+        <IdPaese>IT</IdPaese>
+        <IdCodice>01234567890</IdCodice>
+      </IdTrasmittente>
+      <ProgressivoInvio>ITA-36666</ProgressivoInvio>
+      <FormatoTrasmissione>FPR12</FormatoTrasmissione>
+      <CodiceDestinatario>ABC1234</CodiceDestinatario>
+    </DatiTrasmissione>
+    <CedentePrestatore>
+      <DatiAnagrafici>
+        <IdFiscaleIVA>
+          <IdPaese>IT</IdPaese>
+          <IdCodice>01234567890</IdCodice>
+        </IdFiscaleIVA>
+        <Anagrafica>
+          <Denominazione>Untitled Company</Denominazione>
+        </Anagrafica>
+        <RegimeFiscale>RF01</RegimeFiscale>
+      </DatiAnagrafici>
+      <Sede>
+        <Indirizzo>Via Silvio Spaventa 108</Indirizzo>
+        <CAP>61030</CAP>
+        <Comune>Calcinelli</Comune>
+        <Provincia>PA</Provincia>
+        <Nazione>IT</Nazione>
+      </Sede>
+    </CedentePrestatore>
+    <CessionarioCommittente>
+      <DatiAnagrafici>
+        <IdFiscaleIVA>
+          <IdPaese>IT</IdPaese>
+          <IdCodice>262266058</IdCodice>
+        </IdFiscaleIVA>
+        <Anagrafica>
+          <Denominazione>Italian Client Name</Denominazione>
+        </Anagrafica>
+      </DatiAnagrafici>
+      <Sede>
+        <Indirizzo>Via Antonio da Legnago 68</Indirizzo>
+        <CAP>89040</CAP>
+        <Comune>Monasterace</Comune>
+        <Provincia>CR</Provincia>
+        <Nazione>IT</Nazione>
+      </Sede>
+    </CessionarioCommittente>
+  </FatturaElettronicaHeader>
+  <FatturaElettronicaBody>
+    <DatiGenerali>
+      <DatiGeneraliDocumento>
+        <TipoDocumento>TD01</TipoDocumento>
+        <Divisa>EUR</Divisa>
+        <Data>2021-04-12</Data>
+        <Numero>ITA-36666</Numero>
+      </DatiGeneraliDocumento>
+    </DatiGenerali>
+    <DatiBeniServizi>
+      <DettaglioLinee>
+        <NumeroLinea>1</NumeroLinea>
+        <Descrizione>Product Description</Descrizione>
+        <Quantita>10.00</Quantita>
+        <PrezzoUnitario>10.00</PrezzoUnitario>
+        <PrezzoTotale>100.00</PrezzoTotale>
+        <AliquotaIVA>22.00</AliquotaIVA>
+      </DettaglioLinee>
+      <DatiRiepilogo>
+        <AliquotaIVA>22.00</AliquotaIVA>
+        <ImponibileImporto>100.00</ImponibileImporto>
+        <Imposta>22.00</Imposta>
+        <EsigibilitaIVA>I</EsigibilitaIVA>
+      </DatiRiepilogo>
+    </DatiBeniServizi>
+    <DatiPagamento>
+      <CondizioniPagamento>TP02</CondizioniPagamento>
+      <DettaglioPagamento>
+        <ModalitaPagamento>MP01</ModalitaPagamento>
+        <DataScadenzaPagamento>2018-06-20</DataScadenzaPagamento>
+        <ImportoPagamento>122.00</ImportoPagamento>
+      </DettaglioPagamento>
+    </DatiPagamento>
+  </FatturaElettronicaBody>
+  </p:FatturaElettronica>';
+
+    public function testGeneratedInvoice()
+    {
+
+        libxml_use_internal_errors(true);
+
+        $doc = new \DOMDocument();
+        $doc->loadXML($this->invoice_xml);
+
+        $validation = $doc->schemaValidate("src/Standards/FatturaPA/Schema_del_file_xml_FatturaPA_v1.2.2.xsd");
+
+        $errors = libxml_get_errors();
+
+        if(count($errors) > 0)
+        echo print_r($errors);
+
+        $this->assertTrue($validation);
+
     }
 }

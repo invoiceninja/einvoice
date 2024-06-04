@@ -189,19 +189,112 @@ class FACT1DataTest extends TestCase
         $this->assertTrue($validation);
     }
 
-//     public function testSchemaTronValidation()
-//     {
-        
-// $f = 'tests/Data/samples/fact1.xml';
+    public function testClassMapper()
+    {
+    $f = file_get_contents("src/Schema/FACT1/FACT1.json");
 
-// $schematron = new Schematron();
-// $schematron->load('src/Standards/FACT1/Validation-Invoice_v1.0.8.sch');
+    $f = json_decode($f);
 
-// $document = new \DOMDocument();
-// $document->load($f);
-// $result = $schematron->validate($document);
+    // echo print_r(json_encode($f, JSON_PRETTY_PRINT)).PHP_EOL;
+    $map = [];
 
-// echo print_r($result, 1);
+    foreach($f->InvoiceType->elements as $e) {
 
-//     }
+        // echo print_r($e);
+        if($this->getPath($e->name)) {
+            echo $e->name.PHP_EOL;
+            echo $this->getPath($e->name).PHP_EOL;
+            $map[$e->name] = $this->getPath($e->name);
+        }
+        if($f->{$e->base_type}) {
+
+            foreach($f->{$e->base_type}->elements as $ee) {
+
+
+                if($this->getPath($ee->name)) {
+                    echo " ==> " .$ee->name.PHP_EOL;
+                    echo $this->getPath($ee->name).PHP_EOL;
+                    
+                    $map[$ee->name] = $this->getPath($ee->name);
+
+                }
+
+                if($f->{$ee->base_type} ?? false) {
+
+                    foreach($f->{$ee->base_type}?->elements as $eee) {
+
+                        if($this->getPath($eee->name)) {
+                            echo " ======> " .$eee->name.PHP_EOL;
+                            echo $this->getPath($eee->name).PHP_EOL;
+                            
+                    $map[$eee->name] = $this->getPath($eee->name);
+
+                        }
+                        if($f->{$eee->base_type} ?? false) {
+
+                            foreach($f->{$eee->base_type}?->elements as $eeee) {
+
+                                if($this->getPath($eeee->name)) {
+                                    echo " ======> " .$eeee->name.PHP_EOL;
+                                    echo $this->getPath($eeee->name).PHP_EOL;
+                                    
+                    $map[$eeee->name] = $this->getPath($eeee->name);
+
+                                }
+
+                                if($f->{$eeee->base_type} ?? false) {
+
+                                    foreach($f->{$eeee->base_type}?->elements as $eeeee) {
+
+                                        if($this->getPath($eeeee->name)) {
+                                            echo " ======> " .$eeeee->name.PHP_EOL;
+                                            echo $this->getPath($eeeee->name).PHP_EOL;
+                                            
+                    $map[$eeeee->name] = $this->getPath($eeeee->name);
+
+                                        }
+
+                                    }
+
+                                }
+
+
+                            }
+
+                        }
+
+
+                    }
+
+                }
+
+            }
+
+        }
+
+            $this->assertIsArray($map);
+        echo print_r($map);
+        }
+    }
+
+    private function getPath($string): ?string
+    {
+        $directoryIterator = new \RecursiveDirectoryIterator("src/Models/FACT1/", \RecursiveDirectoryIterator::SKIP_DOTS);
+
+        foreach (new \RecursiveIteratorIterator($directoryIterator) as $file) {
+
+            if($file->getFileName() == "{$string}.php") {
+                
+                $path = str_replace([".php","/","src"],["","\\",""], $file->getPathname());
+
+                return "Invoiceninja\Einvoice{$path}";
+
+            }
+
+            $file = null;
+
+        }
+
+        return null;
+    }
 }

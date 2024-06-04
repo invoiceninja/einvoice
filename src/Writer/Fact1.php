@@ -89,6 +89,9 @@ class Fact1 extends BaseStandard
 
     public string $standard = "FACT1";
 
+    public array $classMap = [
+
+    ];
         
     /** @var array $exclusion_nodes - array of nodes to exclude from the output*/
     private array $exclusion_nodes = [

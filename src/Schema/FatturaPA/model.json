@@ -1,0 +1,396 @@
+{
+    "FatturaElettronicaHeader": {
+        "DatiTrasmissione": {
+            "IdTrasmittente": {
+                "IdPaese": "",
+                "IdCodice": ""
+            },
+            "ProgressivoInvio": "",
+            "FormatoTrasmissione": "",
+            "CodiceDestinatario": "",
+            "ContattiTrasmittente": {
+                "Telefono": "",
+                "Email": ""
+            },
+            "PECDestinatario": ""
+        },
+        "CedentePrestatore": {
+            "DatiAnagrafici": {
+                "IdFiscaleIVA": {
+                    "IdPaese": "",
+                    "IdCodice": ""
+                },
+                "CodiceFiscale": "",
+                "Anagrafica": {
+                    "Denominazione": "",
+                    "Nome": "",
+                    "Cognome": "",
+                    "Titolo": "",
+                    "CodEORI": ""
+                },
+                "AlboProfessionale": "",
+                "ProvinciaAlbo": "",
+                "NumeroIscrizioneAlbo": "",
+                "RegimeFiscale": ""
+            },
+            "Sede": {
+                "Indirizzo": "",
+                "NumeroCivico": "",
+                "CAP": "",
+                "Comune": "",
+                "Provincia": "",
+                "Nazione": ""
+            },
+            "StabileOrganizzazione": {
+                "Indirizzo": "",
+                "NumeroCivico": "",
+                "CAP": "",
+                "Comune": "",
+                "Provincia": "",
+                "Nazione": ""
+            },
+            "IscrizioneREA": {
+                "Ufficio": "",
+                "NumeroREA": "",
+                "CapitaleSociale": "",
+                "SocioUnico": "",
+                "StatoLiquidazione": ""
+            },
+            "Contatti": {
+                "Telefono": "",
+                "Fax": "",
+                "Email": ""
+            },
+            "RiferimentoAmministrazione": ""
+        },
+        "RappresentanteFiscale": {
+            "DatiAnagrafici": {
+                "IdFiscaleIVA": {
+                    "IdPaese": "",
+                    "IdCodice": ""
+                },
+                "CodiceFiscale": "",
+                "Anagrafica": {
+                    "Denominazione": "",
+                    "Nome": "",
+                    "Cognome": "",
+                    "Titolo": "",
+                    "CodEORI": ""
+                },
+                "AlboProfessionale": "",
+                "ProvinciaAlbo": "",
+                "NumeroIscrizioneAlbo": "",
+                "RegimeFiscale": ""
+            }
+        },
+        "CessionarioCommittente": {
+            "DatiAnagrafici": {
+                "IdFiscaleIVA": {
+                    "IdPaese": "",
+                    "IdCodice": ""
+                },
+                "CodiceFiscale": "",
+                "Anagrafica": {
+                    "Denominazione": "",
+                    "Nome": "",
+                    "Cognome": "",
+                    "Titolo": "",
+                    "CodEORI": ""
+                },
+                "AlboProfessionale": "",
+                "ProvinciaAlbo": "",
+                "NumeroIscrizioneAlbo": "",
+                "RegimeFiscale": ""
+            },
+            "Sede": {
+                "Indirizzo": "",
+                "NumeroCivico": "",
+                "CAP": "",
+                "Comune": "",
+                "Provincia": "",
+                "Nazione": ""
+            },
+            "StabileOrganizzazione": {
+                "Indirizzo": "",
+                "NumeroCivico": "",
+                "CAP": "",
+                "Comune": "",
+                "Provincia": "",
+                "Nazione": ""
+            },
+            "RappresentanteFiscale": {
+                "DatiAnagrafici": {
+                    "IdFiscaleIVA": {
+                        "IdPaese": "",
+                        "IdCodice": ""
+                    },
+                    "CodiceFiscale": "",
+                    "Anagrafica": {
+                        "Denominazione": "",
+                        "Nome": "",
+                        "Cognome": "",
+                        "Titolo": "",
+                        "CodEORI": ""
+                    },
+                    "AlboProfessionale": "",
+                    "ProvinciaAlbo": "",
+                    "NumeroIscrizioneAlbo": "",
+                    "RegimeFiscale": ""
+                }
+            }
+        },
+        "TerzoIntermediarioOSoggettoEmittente": {
+            "DatiAnagrafici": {
+                "IdFiscaleIVA": {
+                    "IdPaese": "",
+                    "IdCodice": ""
+                },
+                "CodiceFiscale": "",
+                "Anagrafica": {
+                    "Denominazione": "",
+                    "Nome": "",
+                    "Cognome": "",
+                    "Titolo": "",
+                    "CodEORI": ""
+                },
+                "AlboProfessionale": "",
+                "ProvinciaAlbo": "",
+                "NumeroIscrizioneAlbo": "",
+                "RegimeFiscale": ""
+            }
+        },
+        "SoggettoEmittente": ""
+    },
+    "FatturaElettronicaBody": [
+        {
+            "DatiGenerali": {
+                "DatiGeneraliDocumento": {
+                    "TipoDocumento": "",
+                    "Divisa": "",
+                    "Numero": "",
+                    "DatiRitenuta": [
+                        {
+                            "TipoRitenuta": "",
+                            "ImportoRitenuta": "",
+                            "AliquotaRitenuta": "",
+                            "CausalePagamento": ""
+                        }
+                    ],
+                    "DatiBollo": {
+                        "BolloVirtuale": "",
+                        "ImportoBollo": ""
+                    },
+                    "DatiCassaPrevidenziale": [
+                        {
+                            "TipoCassa": "",
+                            "AlCassa": "",
+                            "ImportoContributoCassa": "",
+                            "ImponibileCassa": "",
+                            "AliquotaIVA": "",
+                            "Ritenuta": "",
+                            "Natura": "",
+                            "RiferimentoAmministrazione": ""
+                        }
+                    ],
+                    "ScontoMaggiorazione": [
+                        {
+                            "Tipo": "",
+                            "Percentuale": "",
+                            "Importo": ""
+                        }
+                    ],
+                    "ImportoTotaleDocumento": "",
+                    "Arrotondamento": "",
+                    "Causale": [
+                        []
+                    ],
+                    "Art73": ""
+                },
+                "DatiOrdineAcquisto": [
+                    {
+                        "RiferimentoNumeroLinea": 0,
+                        "IdDocumento": "",
+                        "NumItem": "",
+                        "CodiceCommessaConvenzione": "",
+                        "CodiceCUP": "",
+                        "CodiceCIG": ""
+                    }
+                ],
+                "DatiContratto": [
+                    {
+                        "RiferimentoNumeroLinea": 0,
+                        "IdDocumento": "",
+                        "NumItem": "",
+                        "CodiceCommessaConvenzione": "",
+                        "CodiceCUP": "",
+                        "CodiceCIG": ""
+                    }
+                ],
+                "DatiConvenzione": [
+                    {
+                        "RiferimentoNumeroLinea": 0,
+                        "IdDocumento": "",
+                        "NumItem": "",
+                        "CodiceCommessaConvenzione": "",
+                        "CodiceCUP": "",
+                        "CodiceCIG": ""
+                    }
+                ],
+                "DatiRicezione": [
+                    {
+                        "RiferimentoNumeroLinea": 0,
+                        "IdDocumento": "",
+                        "NumItem": "",
+                        "CodiceCommessaConvenzione": "",
+                        "CodiceCUP": "",
+                        "CodiceCIG": ""
+                    }
+                ],
+                "DatiFattureCollegate": [
+                    {
+                        "RiferimentoNumeroLinea": 0,
+                        "IdDocumento": "",
+                        "NumItem": "",
+                        "CodiceCommessaConvenzione": "",
+                        "CodiceCUP": "",
+                        "CodiceCIG": ""
+                    }
+                ],
+                "DatiSAL": [
+                    {
+                        "RiferimentoFase": 0
+                    }
+                ],
+                "DatiDDT": [
+                    {
+                        "NumeroDDT": "",
+                        "RiferimentoNumeroLinea": 0
+                    }
+                ],
+                "DatiTrasporto": {
+                    "DatiAnagraficiVettore": {
+                        "IdFiscaleIVA": {
+                            "IdPaese": "",
+                            "IdCodice": ""
+                        },
+                        "CodiceFiscale": "",
+                        "Anagrafica": {
+                            "Denominazione": "",
+                            "Nome": "",
+                            "Cognome": "",
+                            "Titolo": "",
+                            "CodEORI": ""
+                        },
+                        "NumeroLicenzaGuida": ""
+                    },
+                    "MezzoTrasporto": "",
+                    "CausaleTrasporto": "",
+                    "NumeroColli": 0,
+                    "Descrizione": "",
+                    "UnitaMisuraPeso": "",
+                    "PesoLordo": "",
+                    "PesoNetto": "",
+                    "TipoResa": "",
+                    "IndirizzoResa": {
+                        "Indirizzo": "",
+                        "NumeroCivico": "",
+                        "CAP": "",
+                        "Comune": "",
+                        "Provincia": "",
+                        "Nazione": ""
+                    }
+                },
+                "FatturaPrincipale": {
+                    "NumeroFatturaPrincipale": ""
+                }
+            },
+            "DatiBeniServizi": {
+                "DettaglioLinee": [
+                    {
+                        "NumeroLinea": 0,
+                        "TipoCessionePrestazione": "",
+                        "CodiceArticolo": [
+                            {
+                                "CodiceTipo": "",
+                                "CodiceValore": ""
+                            }
+                        ],
+                        "Descrizione": "",
+                        "Quantita": "",
+                        "UnitaMisura": "",
+                        "PrezzoUnitario": "",
+                        "ScontoMaggiorazione": [
+                            {
+                                "Tipo": "",
+                                "Percentuale": "",
+                                "Importo": ""
+                            }
+                        ],
+                        "PrezzoTotale": "",
+                        "AliquotaIVA": "",
+                        "Ritenuta": "",
+                        "Natura": "",
+                        "RiferimentoAmministrazione": "",
+                        "AltriDatiGestionali": [
+                            {
+                                "TipoDato": "",
+                                "RiferimentoTesto": "",
+                                "RiferimentoNumero": ""
+                            }
+                        ]
+                    }
+                ],
+                "DatiRiepilogo": [
+                    {
+                        "AliquotaIVA": "",
+                        "Natura": "",
+                        "SpeseAccessorie": "",
+                        "Arrotondamento": "",
+                        "ImponibileImporto": "",
+                        "Imposta": "",
+                        "EsigibilitaIVA": "",
+                        "RiferimentoNormativo": ""
+                    }
+                ]
+            },
+            "DatiVeicoli": {
+                "TotalePercorso": ""
+            },
+            "DatiPagamento": [
+                {
+                    "CondizioniPagamento": "",
+                    "DettaglioPagamento": [
+                        {
+                            "Beneficiario": "",
+                            "ModalitaPagamento": "",
+                            "GiorniTerminiPagamento": 0,
+                            "ImportoPagamento": "",
+                            "CodUfficioPostale": "",
+                            "CognomeQuietanzante": "",
+                            "NomeQuietanzante": "",
+                            "CFQuietanzante": "",
+                            "TitoloQuietanzante": "",
+                            "IstitutoFinanziario": "",
+                            "IBAN": "",
+                            "ABI": "",
+                            "CAB": "",
+                            "BIC": "",
+                            "ScontoPagamentoAnticipato": "",
+                            "PenalitaPagamentiRitardati": "",
+                            "CodicePagamento": ""
+                        }
+                    ]
+                }
+            ],
+            "Allegati": [
+                {
+                    "NomeAttachment": "",
+                    "AlgoritmoCompressione": "",
+                    "FormatoAttachment": "",
+                    "DescrizioneAttachment": "",
+                    "Attachment": null
+                }
+            ]
+        }
+    ]
+}

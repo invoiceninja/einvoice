@@ -232,7 +232,6 @@ class FatturaDataTest extends TestCase
                 echo $error->getPropertyPath() . ': ' . $error->getMessage() . "\n";
             }
 
-
             $dataxml = $serializer->encode($data, 'xml', $context);
             $dataxml = str_replace(['<response>','</response>'], '', $dataxml);
             $fpathjson = $path."{$key}.xml";
@@ -242,11 +241,6 @@ class FatturaDataTest extends TestCase
             fclose($fp);
 
             $this->assertNotNull($data);
-
-            // if(!$data?->FatturaElettronicaBody?->DatiBeniServizi ?? false)
-            //     echo print_r($data);
-
-            // $this->assertNotNull($data->FatturaElettronicaBody->DatiBeniServizi);
         }
 
     }
@@ -348,6 +342,8 @@ class FatturaDataTest extends TestCase
 
     }
 
+    
+
     public function testSchemaValidation()
     {
         $files = [
@@ -391,6 +387,8 @@ class FatturaDataTest extends TestCase
 
 
             $errors = libxml_get_errors();
+
+            if(count($errors) > 0)
     
             if(count($errors)>1)
             echo print_r($errors);

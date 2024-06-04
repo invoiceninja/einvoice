@@ -19,7 +19,30 @@ class FatturaPA extends BaseStandard
     public string $path = "src/Standards/FatturaPA/Schema_del_file_xml_FatturaPA_v1.2.2.xsd";
 
     public string $standard = "FatturaPA";
-    
+
+    public array $states = [
+        "Abruzzo" => "AB",
+        "Basilicata" => "BA",
+        "Calabria" => "CA",
+        "Campania" => "CM",
+        "Emilia-Romagna" => "ER",
+        "Friuli-Venezia Giulia" => "FV",
+        "Lazio" => "LA",
+        "Liguria" => "LI",
+        "Lombardia" => "LO",
+        "Marche" => "MA",
+        "Molise" => "MO",
+        "Piemonte" => "PI",
+        "Puglia" => "PU",
+        "Sardegna" => "SA",
+        "Sicilia" => "SI",
+        "Toscana" => "TO",
+        "Trentino-Alto Adige" => "TR",
+        "Umbria" => "UM",
+        "Valle d'Aosta" => "VA",
+        "Veneto" => "VE"
+    ];
+
     //0 - do not show
     //1 - company level
     //2 - client level

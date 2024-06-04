@@ -15,8 +15,9 @@
         }
     ],
     "require": {
+        "php": "^8.2",
         "sabre/xml": "^4.0",
-        "illuminate/collections": "^10.48",
+        "illuminate/collections": "^10|^11",
         "symfony/validator": "^7",
         "symfony/serializer": "^7",
         "symfony/property-access": "^7",

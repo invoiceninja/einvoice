@@ -26,6 +26,7 @@ use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
 use Invoiceninja\Einvoice\Models\FatturaPA\FatturaElettronicaBody;
 use Symfony\Component\Serializer\NameConverter\MetadataAwareNameConverter;
 use Invoiceninja\Einvoice\Models\FatturaPA\FatturaElettronicaHeader;
+use Invoiceninja\Einvoice\Writer\FatturaPA;
 use Symfony\Component\Serializer\Mapping\ClassDiscriminatorFromClassMetadata;
 
 class FatturaDataTest extends TestCase
@@ -33,7 +34,7 @@ class FatturaDataTest extends TestCase
     private $invoice;
 
     private array $bad_payload = [
-        'FatturaElettronica' =>[
+        'FatturaElettronica' => [
         'FatturaElettronicaHeader' => [
         'DatiTrasmissione' => [
             'IdTrasmittente' => [
@@ -80,7 +81,7 @@ class FatturaDataTest extends TestCase
         ],
         ],
         'FatturaElettronicaBody' => [
-        
+
         'DatiBeniServizi' => [
             'DettaglioLinee' => [
             'NumeroLinea' => 1,
@@ -143,7 +144,7 @@ class FatturaDataTest extends TestCase
             // $accessExtractors,
         );
 
-        
+
         $context = [
             'xml_format_output' => true,
         ];
@@ -152,11 +153,11 @@ class FatturaDataTest extends TestCase
 
         $classMetadataFactory = new ClassMetadataFactory(new AttributeLoader());
         $metadataAwareNameConverter = new MetadataAwareNameConverter($classMetadataFactory);
-        
+
         $discriminator = new ClassDiscriminatorFromClassMetadata($classMetadataFactory);
 
         $normalizer = new ObjectNormalizer($classMetadataFactory, $metadataAwareNameConverter, null, $propertyInfo);
-        
+
         $normalizers = [  new DateTimeNormalizer(), $normalizer,  new ArrayDenormalizer() , ];
         $encoders = [$encoder, new JsonEncoder()];
 
@@ -205,13 +206,12 @@ class FatturaDataTest extends TestCase
         ];
 
         $path = 'tests/Data/samples/';
-        
+
         $context = [];
 
         $serializer = $this->initSerializer();
 
-        foreach($files as $key => $f)
-        {
+        foreach($files as $key => $f) {
             $xmlstring = file_get_contents($f);
             $data = $serializer->deserialize($xmlstring, FatturaElettronica::class, 'xml');
             $fpathjson = $path."{$key}.json";
@@ -221,11 +221,11 @@ class FatturaDataTest extends TestCase
 
 
 
-        $validator = Validation::createValidatorBuilder()
-            ->enableAttributeMapping()
-            ->getValidator();
+            $validator = Validation::createValidatorBuilder()
+                ->enableAttributeMapping()
+                ->getValidator();
 
-        $errors = $validator->validate($data);
+            $errors = $validator->validate($data);
 
 
             foreach($errors as $error) {
@@ -253,7 +253,7 @@ class FatturaDataTest extends TestCase
 
     public function testCountLineItems()
     {
-        
+
         $f = 'tests/Data/samples/fatturapa0.xml';
         $xmlstring = file_get_contents($f);
 
@@ -269,7 +269,7 @@ class FatturaDataTest extends TestCase
 
         $this->assertNotNull($errors);
         $this->assertCount(0, $errors);
-        $this->assertNotNull($fattura);         
+        $this->assertNotNull($fattura);
 
         $this->assertCount(2, $fattura->FatturaElettronicaBody[0]->DatiBeniServizi->DettaglioLinee);
 
@@ -360,14 +360,12 @@ class FatturaDataTest extends TestCase
             'tests/Data/samples/fatturapa6.xml',
         ];
 
-        foreach($files as $key => $f)
-        {
+        foreach($files as $key => $f) {
 
             libxml_use_internal_errors(true);
 
             $doc = new \DOMDocument();
             $doc->load($f);
-            // $validation = $doc->schemaValidate("src/Standards/FatturaPA/validation.xsl");
 
             // Load your XSLT stylesheet
             $xsl = new \DOMDocument();
@@ -393,17 +391,19 @@ class FatturaDataTest extends TestCase
 
 
             $errors = libxml_get_errors();
+    
+            if(count($errors)>1)
             echo print_r($errors);
             // $this->assertTrue($validation);
 
             $this->assertCount(0, $errors);
-        }        
+        }
 
     }
 
     public function testFinalDocValidation()
     {
-                
+
         libxml_use_internal_errors(true);
 
         $f = 'tests/Data/samples/fatturapa7.xml';
@@ -414,8 +414,127 @@ class FatturaDataTest extends TestCase
         $validation = $doc->schemaValidate("src/Standards/FatturaPA/Schema_del_file_xml_FatturaPA_v1.2.2.xsd");
 
         $errors = libxml_get_errors();
+
+        if(count($errors)>1)
         echo print_r($errors);
 
         $this->assertTrue($validation);
     }
+
+    
+    public function testClassMapper()
+    {
+    $f = file_get_contents("src/Schema/FatturaPA/FatturaPA.json");
+
+    $f = json_decode($f);
+
+        $map = [];
+
+    foreach($f->FatturaElettronicaType->elements as $e) {
+
+        // echo print_r($e);
+        if($this->getPath($e->name)) {
+            echo $e->name.PHP_EOL;
+            echo $this->getPath($e->name).PHP_EOL;
+            $map[$e->name] = $this->getPath($e->name);
+        }
+        if($f->{$e->base_type}) {
+
+            foreach($f->{$e->base_type}->elements as $ee) {
+
+
+                if($this->getPath($ee->name)) {
+                    echo " ==> " .$ee->name.PHP_EOL;
+                    echo $this->getPath($ee->name).PHP_EOL;
+                    
+                    $map[$ee->name] = $this->getPath($ee->name);
+
+                }
+
+                if($f->{$ee->base_type} ?? false) {
+
+                    foreach($f->{$ee->base_type}?->elements as $eee) {
+
+                        if($this->getPath($eee->name)) {
+                            echo " ======> " .$eee->name.PHP_EOL;
+                            echo $this->getPath($eee->name).PHP_EOL;
+                            
+                    $map[$eee->name] = $this->getPath($eee->name);
+
+                        }
+                        if($f->{$eee->base_type} ?? false) {
+
+                            foreach($f->{$eee->base_type}?->elements as $eeee) {
+
+                                if($this->getPath($eeee->name)) {
+                                    echo " ======> " .$eeee->name.PHP_EOL;
+                                    echo $this->getPath($eeee->name).PHP_EOL;
+                                    
+                    $map[$eeee->name] = $this->getPath($eeee->name);
+
+                                }
+
+                                if($f->{$eeee->base_type} ?? false) {
+
+                                    foreach($f->{$eeee->base_type}?->elements as $eeeee) {
+
+                                        if($this->getPath($eeeee->name)) {
+                                            echo " ======> " .$eeeee->name.PHP_EOL;
+                                            echo $this->getPath($eeeee->name).PHP_EOL;
+                                            
+                    $map[$eeeee->name] = $this->getPath($eeeee->name);
+
+                                        }
+
+                                    }
+
+                                }
+
+
+                            }
+
+                        }
+
+
+                    }
+
+                }
+
+            }
+
+        }
+
+            $this->assertIsArray($map);
+        // echo print_r($map);
+    }
+    
+    }
+
+    public function testClassTraversal()
+    {
+
+
+    }
+        
+    private function getPath($string): ?string
+    {
+        $directoryIterator = new \RecursiveDirectoryIterator("src/Models/FatturaPA/", \RecursiveDirectoryIterator::SKIP_DOTS);
+
+        foreach (new \RecursiveIteratorIterator($directoryIterator) as $file) {
+
+            if($file->getFileName() == "{$string}.php") {
+                
+                $path = str_replace([".php","/","src"],["","\\",""], $file->getPathname());
+
+                return "Invoiceninja\Einvoice{$path}";
+
+            }
+
+            $file = null;
+
+        }
+
+        return null;
+    }
+
 }

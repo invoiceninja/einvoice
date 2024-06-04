@@ -51,8 +51,7 @@ class PropTest extends TestCase
 
         $a = [];
         foreach($x as $y)
-        {
-                  
+        {     
             
             $xpath = new \DOMXPath($dom);
             $result = $xpath->query('./xs:complexType [@name="'.$y.'"]//xs:sequence');
@@ -70,8 +69,8 @@ class PropTest extends TestCase
 
         }
             
-            
-        echo json_encode($a,JSON_PRETTY_PRINT).PHP_EOL;
+        $this->assertIsArray($a);            
+        // echo json_encode($a,JSON_PRETTY_PRINT).PHP_EOL;
 
     }
 }

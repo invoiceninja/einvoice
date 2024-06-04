@@ -295,7 +295,7 @@
                 "visibility": 0
             }
         },
-        "visibility": 7
+        "visibility": 0
     },
     "ContattiTrasmittenteType": {
         "type": "ContattiTrasmittenteType",
@@ -327,7 +327,7 @@
                 "visibility": 0
             }
         },
-        "visibility": 7
+        "visibility": 0
     },
     "DatiGeneraliType": {
         "type": "DatiGeneraliType",
@@ -722,7 +722,7 @@
                 "visibility": 0
             }
         },
-        "visibility": 7
+        "visibility": 0
     },
     "DatiBolloType": {
         "type": "DatiBolloType",
@@ -756,7 +756,7 @@
                 "visibility": 0
             }
         },
-        "visibility": 7
+        "visibility": 0
     },
     "DatiCassaPrevidenzialeType": {
         "type": "DatiCassaPrevidenzialeType",
@@ -910,7 +910,7 @@
                 "visibility": 0
             }
         },
-        "visibility": 7
+        "visibility": 0
     },
     "ScontoMaggiorazioneType": {
         "type": "ScontoMaggiorazioneType",
@@ -957,7 +957,7 @@
                 "visibility": 0
             }
         },
-        "visibility": 7
+        "visibility": 0
     },
     "DatiSALType": {
         "type": "DatiSALType",
@@ -977,7 +977,7 @@
                 "visibility": 0
             }
         },
-        "visibility": 7
+        "visibility": 0
     },
     "DatiDocumentiCorrelatiType": {
         "type": "DatiDocumentiCorrelatiType",
@@ -1069,7 +1069,7 @@
                 "visibility": 0
             }
         },
-        "visibility": 7
+        "visibility": 0
     },
     "DatiDDTType": {
         "type": "DatiDDTType",
@@ -1113,7 +1113,7 @@
                 "visibility": 0
             }
         },
-        "visibility": 7
+        "visibility": 0
     },
     "DatiTrasportoType": {
         "type": "DatiTrasportoType",
@@ -1615,7 +1615,8 @@
                 "min_length": 1,
                 "pattern": "\/[\\x{0020}-\\x{007E}\\x{00A0}-\\x{00FF}]{1,80}\/u",
                 "min_occurs": 1,
-                "max_occurs": 1
+                "max_occurs": 1,
+                "visibility": 7
             },
             "Nome": {
                 "name": "Nome",
@@ -1625,7 +1626,8 @@
                 "min_length": 1,
                 "pattern": "\/[\\x{0020}-\\x{007E}\\x{00A0}-\\x{00FF}]{1,60}\/u",
                 "min_occurs": 1,
-                "max_occurs": 1
+                "max_occurs": 1,
+                "visibility": 7
             },
             "Cognome": {
                 "name": "Cognome",
@@ -1635,7 +1637,8 @@
                 "min_length": 1,
                 "pattern": "\/[\\x{0020}-\\x{007E}\\x{00A0}-\\x{00FF}]{1,60}\/u",
                 "min_occurs": 1,
-                "max_occurs": 1
+                "max_occurs": 1,
+                "visibility": 7
             },
             "Titolo": {
                 "name": "Titolo",
@@ -1979,7 +1982,8 @@
                 "min_length": 1,
                 "pattern": "\/[\\x{0020}-\\x{007E}\\x{00A0}-\\x{00FF}]{1,80}\/u",
                 "min_occurs": 1,
-                "max_occurs": 1
+                "max_occurs": 1,
+                "visibility": 7
             },
             "Nome": {
                 "name": "Nome",
@@ -1989,7 +1993,8 @@
                 "min_length": 1,
                 "pattern": "\/[\\x{0020}-\\x{007E}\\x{00A0}-\\x{00FF}]{1,60}\/u",
                 "min_occurs": 1,
-                "max_occurs": 1
+                "max_occurs": 1,
+                "visibility": 7
             },
             "Cognome": {
                 "name": "Cognome",
@@ -1999,7 +2004,8 @@
                 "min_length": 1,
                 "pattern": "\/[\\x{0020}-\\x{007E}\\x{00A0}-\\x{00FF}]{1,60}\/u",
                 "min_occurs": 1,
-                "max_occurs": 1
+                "max_occurs": 1,
+                "visibility": 7
             },
             "IdFiscaleIVA": {
                 "name": "IdFiscaleIVA",
@@ -2122,7 +2128,7 @@
                 "visibility": 0
             }
         },
-        "visibility": 7
+        "visibility": 0
     },
     "DatiPagamentoType": {
         "type": "DatiPagamentoType",

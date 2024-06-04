@@ -25,6 +25,52 @@ class FatturaPA extends BaseStandard
     //2 - client level
     //4 - entity level
 
+    public array $classMap = [
+        'FatturaElettronicaHeader' => 'Invoiceninja\Einvoice\Models\FatturaPA\FatturaElettronicaHeader',
+        'DatiTrasmissione' => 'Invoiceninja\Einvoice\Models\FatturaPA\DatiTrasmissione',
+        'IdTrasmittente' => 'Invoiceninja\Einvoice\Models\FatturaPA\IdFiscaleType\IdTrasmittente',
+        'ContattiTrasmittente' => 'Invoiceninja\Einvoice\Models\FatturaPA\ContattiTrasmittente',
+        'CedentePrestatore' => 'Invoiceninja\Einvoice\Models\FatturaPA\CedentePrestatore',
+        'DatiAnagrafici' => 'Invoiceninja\Einvoice\Models\FatturaPA\DatiAnagraficiCedenteType\DatiAnagrafici',
+        'IdFiscaleIVA' => 'Invoiceninja\Einvoice\Models\FatturaPA\IdFiscaleType\IdFiscaleIVA',
+        'Anagrafica' => 'Invoiceninja\Einvoice\Models\FatturaPA\Anagrafica',
+        'Sede' => 'Invoiceninja\Einvoice\Models\FatturaPA\IndirizzoType\Sede',
+        // 'Indirizzo' => 'Invoiceninja\Einvoice\Models\FatturaPA\Indirizzo',
+        'StabileOrganizzazione' => 'Invoiceninja\Einvoice\Models\FatturaPA\IndirizzoType\StabileOrganizzazione',
+        'IscrizioneREA' => 'Invoiceninja\Einvoice\Models\FatturaPA\IscrizioneREA',
+        'Contatti' => 'Invoiceninja\Einvoice\Models\FatturaPA\Contatti',
+        'RappresentanteFiscale' => 'Invoiceninja\Einvoice\Models\FatturaPA\RappresentanteFiscale',
+        'CessionarioCommittente' => 'Invoiceninja\Einvoice\Models\FatturaPA\CessionarioCommittente',
+        'TerzoIntermediarioOSoggettoEmittente' => 'Invoiceninja\Einvoice\Models\FatturaPA\TerzoIntermediarioSoggettoEmittenteType\TerzoIntermediarioOSoggettoEmittente',
+        'FatturaElettronicaBody' => 'Invoiceninja\Einvoice\Models\FatturaPA\FatturaElettronicaBody',
+        'DatiGenerali' => 'Invoiceninja\Einvoice\Models\FatturaPA\DatiGenerali',
+        'DatiGeneraliDocumento' => 'Invoiceninja\Einvoice\Models\FatturaPA\DatiGeneraliDocumento',
+        'DatiRitenuta' => 'Invoiceninja\Einvoice\Models\FatturaPA\DatiRitenuta',
+        'DatiBollo' => 'Invoiceninja\Einvoice\Models\FatturaPA\DatiBollo',
+        'DatiCassaPrevidenziale' => 'Invoiceninja\Einvoice\Models\FatturaPA\DatiCassaPrevidenziale',
+        'ScontoMaggiorazione' => 'Invoiceninja\Einvoice\Models\FatturaPA\ScontoMaggiorazione',
+        'DatiOrdineAcquisto' => 'Invoiceninja\Einvoice\Models\FatturaPA\DatiDocumentiCorrelatiType\DatiOrdineAcquisto',
+        'DatiContratto' => 'Invoiceninja\Einvoice\Models\FatturaPA\DatiDocumentiCorrelatiType\DatiContratto',
+        'DatiConvenzione' => 'Invoiceninja\Einvoice\Models\FatturaPA\DatiDocumentiCorrelatiType\DatiConvenzione',
+        'DatiRicezione' => 'Invoiceninja\Einvoice\Models\FatturaPA\DatiDocumentiCorrelatiType\DatiRicezione',
+        'DatiFattureCollegate' => 'Invoiceninja\Einvoice\Models\FatturaPA\DatiDocumentiCorrelatiType\DatiFattureCollegate',
+        'DatiSAL' => 'Invoiceninja\Einvoice\Models\FatturaPA\DatiSAL',
+        'DatiDDT' => 'Invoiceninja\Einvoice\Models\FatturaPA\DatiDDT',
+        'DatiTrasporto' => 'Invoiceninja\Einvoice\Models\FatturaPA\DatiTrasporto',
+        'DatiAnagraficiVettore' => 'Invoiceninja\Einvoice\Models\FatturaPA\DatiAnagraficiVettore',
+        'IndirizzoResa' => 'Invoiceninja\Einvoice\Models\FatturaPA\IndirizzoType\IndirizzoResa',
+        'FatturaPrincipale' => 'Invoiceninja\Einvoice\Models\FatturaPA\FatturaPrincipale',
+        'DatiBeniServizi' => 'Invoiceninja\Einvoice\Models\FatturaPA\DatiBeniServizi',
+        'DettaglioLinee' => 'Invoiceninja\Einvoice\Models\FatturaPA\DettaglioLinee',
+        'CodiceArticolo' => 'Invoiceninja\Einvoice\Models\FatturaPA\CodiceArticolo',
+        'AltriDatiGestionali' => 'Invoiceninja\Einvoice\Models\FatturaPA\AltriDatiGestionali',
+        'DatiRiepilogo' => 'Invoiceninja\Einvoice\Models\FatturaPA\DatiRiepilogo',
+        'DatiVeicoli' => 'Invoiceninja\Einvoice\Models\FatturaPA\DatiVeicoli',
+        'DatiPagamento' => 'Invoiceninja\Einvoice\Models\FatturaPA\DatiPagamento',
+        'DettaglioPagamento' => 'Invoiceninja\Einvoice\Models\FatturaPA\DettaglioPagamento',
+        'Allegati' => 'Invoiceninja\Einvoice\Models\FatturaPA\Allegati',
+    ];
+
     public array $visibility = [
         'DatiTrasmissione' => 0,
         'IdFiscale' => 7,
@@ -37,7 +83,7 @@ class FatturaPA extends BaseStandard
         'ScontoMaggiorazione' => 7,
         'DatiSAL' => 7,
         'DatiDocumentiCorrelati' => 7,
-        'DatiDDT' => 7,
+        'DatiDDT' => 0,
         'DatiTrasporto' => 7,
         'Indirizzo' => 7,
         'FatturaPrincipale' => 6,
@@ -63,6 +109,18 @@ class FatturaPA extends BaseStandard
         'CodiceArticolo' => 0,
         'AltriDatiGestionali' => 0,
         'DatiRiepilogo' => 0,
+        'DatiDDTType' => 0,
+        'DatiDocumentiCorrelatiType' => 0,
+        'ScontoMaggiorazioneType' => 0,
+        'DatiCassaPrevidenzialeType' => 0,
+        'DatiBolloType' => 0,
+        'DatiRitenutaType' => 0,
+        'ContattiTrasmittenteType' => 0,
+        'IdFiscaleType' => 0,
+        'DatiSALType' => 0,
+        'DatiDocumentiCorrelatiType' => 0,
+        'DatiVeicoliType' => 0,
+        'DettaglioPagamentoType' => 6,
     ];
 
     public array $vis = [
@@ -441,7 +499,11 @@ class FatturaPA extends BaseStandard
                 $sequence_list = $this->processSequences($sequence);
 
                 $set['elements'] = count($sequence_list) > 0 ? $sequence_list : [];
-                $set['visibility'] = $this->getVisibility($set['type']) ?? 0;
+
+                if(isset($this->visibility[$set['type']]) && $this->visibility[$set['type']] == 0)
+                    $set['visibility'] = 0;
+                else
+                    $set['visibility'] = $this->getVisibility($set['type']) ?? 0;
 
                 $this->data[$set['type']] = $set;
 
@@ -488,6 +550,7 @@ class FatturaPA extends BaseStandard
                 foreach($selection as $key => $select) {
 
                     $select['resource'] = $this->extractResource($select['type'] ?? $select['base_type']);
+                    $select['visibility'] = 7;
                     $select = array_merge($select, $this->extractRestriction($select['type'] ?? $select['base_type']));
                     $data[$key] = $select;
                 }
@@ -569,7 +632,7 @@ class FatturaPA extends BaseStandard
                     $key = $childNode->getAttribute('name');
                     
                     $child_array[$key] = array_merge($this->stub_validation, $this->extractAttributes($childNode));
-
+                    
                 }
 
             }

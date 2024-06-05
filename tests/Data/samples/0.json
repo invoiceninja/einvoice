@@ -60,7 +60,7 @@
                     "TipoDocumento": "TD01",
                     "Divisa": "EUR",
                     "Data": {
-                        "date": "2014-12-20 08:17:06.000000",
+                        "date": "2014-12-20 02:45:49.000000",
                         "timezone_type": 3,
                         "timezone": "UTC"
                     },
@@ -115,7 +115,7 @@
                         {
                             "ModalitaPagamento": "MP19",
                             "DataScadenzaPagamento": {
-                                "date": "2015-01-28 08:17:06.000000",
+                                "date": "2015-01-28 02:45:49.000000",
                                 "timezone_type": 3,
                                 "timezone": "UTC"
                             },

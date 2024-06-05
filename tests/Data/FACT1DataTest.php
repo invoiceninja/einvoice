@@ -2,7 +2,6 @@
 
 namespace Invoiceninja\Einvoice\Tests\Data;
 
-use Milo\Schematron;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Serializer\Serializer;
@@ -17,7 +16,6 @@ use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Mapping\Loader\AttributeLoader;
 use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
-use Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer;
 use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
 use Symfony\Component\Serializer\NameConverter\MetadataAwareNameConverter;
 use Symfony\Component\Serializer\Mapping\ClassDiscriminatorFromClassMetadata;
@@ -29,7 +27,6 @@ class FACT1DataTest extends TestCase
 
     public function setUp(): void
     {
-
     }
 
 
@@ -61,7 +58,6 @@ class FACT1DataTest extends TestCase
             $typeExtractors,
             // $accessExtractors,
         );
-
         
         $context = [
             'xml_format_output' => true,
@@ -184,7 +180,8 @@ class FACT1DataTest extends TestCase
 
         $errors = libxml_get_errors();
 
-        echo print_r($errors);
+        if(count($errors) >0)
+            echo print_r($errors);
 
         $this->assertTrue($validation);
     }
@@ -202,8 +199,8 @@ class FACT1DataTest extends TestCase
 
         // echo print_r($e);
         if($this->getPath($e->name)) {
-            echo $e->name.PHP_EOL;
-            echo $this->getPath($e->name).PHP_EOL;
+            // echo $e->name.PHP_EOL;
+            // echo $this->getPath($e->name).PHP_EOL;
             $map[$e->name] = $this->getPath($e->name);
         }
         if($f->{$e->base_type}) {
@@ -212,8 +209,8 @@ class FACT1DataTest extends TestCase
 
 
                 if($this->getPath($ee->name)) {
-                    echo " ==> " .$ee->name.PHP_EOL;
-                    echo $this->getPath($ee->name).PHP_EOL;
+                    // echo " ==> " .$ee->name.PHP_EOL;
+                    // echo $this->getPath($ee->name).PHP_EOL;
                     
                     $map[$ee->name] = $this->getPath($ee->name);
 
@@ -224,8 +221,8 @@ class FACT1DataTest extends TestCase
                     foreach($f->{$ee->base_type}?->elements as $eee) {
 
                         if($this->getPath($eee->name)) {
-                            echo " ======> " .$eee->name.PHP_EOL;
-                            echo $this->getPath($eee->name).PHP_EOL;
+                            // echo " ======> " .$eee->name.PHP_EOL;
+                            // echo $this->getPath($eee->name).PHP_EOL;
                             
                     $map[$eee->name] = $this->getPath($eee->name);
 
@@ -235,8 +232,8 @@ class FACT1DataTest extends TestCase
                             foreach($f->{$eee->base_type}?->elements as $eeee) {
 
                                 if($this->getPath($eeee->name)) {
-                                    echo " ======> " .$eeee->name.PHP_EOL;
-                                    echo $this->getPath($eeee->name).PHP_EOL;
+                                    // echo " ======> " .$eeee->name.PHP_EOL;
+                                    // echo $this->getPath($eeee->name).PHP_EOL;
                                     
                     $map[$eeee->name] = $this->getPath($eeee->name);
 
@@ -247,8 +244,8 @@ class FACT1DataTest extends TestCase
                                     foreach($f->{$eeee->base_type}?->elements as $eeeee) {
 
                                         if($this->getPath($eeeee->name)) {
-                                            echo " ======> " .$eeeee->name.PHP_EOL;
-                                            echo $this->getPath($eeeee->name).PHP_EOL;
+                                            // echo " ======> " .$eeeee->name.PHP_EOL;
+                                            // echo $this->getPath($eeeee->name).PHP_EOL;
                                             
                     $map[$eeeee->name] = $this->getPath($eeeee->name);
 
@@ -273,7 +270,7 @@ class FACT1DataTest extends TestCase
         }
 
             $this->assertIsArray($map);
-        echo print_r($map);
+            echo print_r($map).PHP_EOL;
         }
     }
 

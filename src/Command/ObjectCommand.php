@@ -26,6 +26,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Invoiceninja\Einvoice\Models\FatturaPA\FatturaElettronica;
 use Invoiceninja\Einvoice\Models\FatturaPA\FatturaElettronicaBody;
 use Invoiceninja\Einvoice\Writer\Fact1;
+use Invoiceninja\Einvoice\Writer\Peppol;
 
 #[AsCommand(
     name: 'o:create',
@@ -77,6 +78,10 @@ final class ObjectCommand extends Command
                 $class = new Fact1();
                 $parent = new Invoice();
             break;
+            case 'Peppol':        
+                $class = new Peppol();
+                $parent = new Invoice();
+            break;
             default:
                 # code...
                 break;
@@ -87,8 +92,6 @@ final class ObjectCommand extends Command
 
         echo Serializer::toJson($initializedParent);
 
-        // return value is important when using CI, to fail the build when the command fails
-        // in case of fail: "return self::FAILURE;"
         return self::SUCCESS;
     }
 
@@ -108,7 +111,7 @@ class Serializer
             if (isset($ff->classMap[$propertyName]) ?? false) {
                 // If the property is a class, instantiate the class and initialize its properties
                 $childClassName = $ff->classMap[$propertyName];
-                echo $childClassName.PHP_EOL;
+                // echo $childClassName.PHP_EOL;
 
                 if (class_exists($childClassName)) {
                     $childObject = new $ff->classMap[$propertyName]();
@@ -126,7 +129,7 @@ class Serializer
                 $defaultValue = self::getDefaultValue($propertyType);
                 if($propertyType == 'array') {
                     $property->setValue($object, [$defaultValue]);
-                } elseif(!in_array($propertyType, ['DateTime'])) {
+                } elseif(!in_array($propertyType, ['DateTime','binary'])) {
                     $property->setValue($object, $defaultValue);
                 }
             }

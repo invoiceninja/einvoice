@@ -90,7 +90,13 @@ final class ObjectCommand extends Command
         
         $initializedParent = Serializer::initializeProperties($parent, $class);
 
-        echo Serializer::toJson($initializedParent);
+        $class_print = Serializer::toJson($initializedParent);
+
+        $path = "src/Schema/{$standard}/{$standard}_object.json";
+
+        $fp = fopen($path, 'w');
+        fwrite($fp, $class_print);
+        fclose($fp);
 
         return self::SUCCESS;
     }
@@ -99,8 +105,23 @@ final class ObjectCommand extends Command
 
 class Serializer
 {
+
     public static function initializeProperties($object, $ff)
     {
+
+        // $limit = 2500;
+        // static $callCount = 0;
+
+        // // Increment the call count
+        // $callCount++;
+
+        // // Check if the recursion limit has been reached
+        // if ($callCount > $limit) {
+        //     echo "Recursion limit reached\n";
+        //     return;
+        // }
+
+
         $reflectionClass = new \ReflectionClass($object);
 
         foreach ($reflectionClass->getProperties() as $property) {
@@ -115,7 +136,7 @@ class Serializer
 
                 if (class_exists($childClassName)) {
                     $childObject = new $ff->classMap[$propertyName]();
-                    self::initializeProperties($childObject, $ff);
+                    // self::initializeProperties($childObject, $ff);
 
                     if($propertyType == 'array') {
                         $property->setValue($object, [$childObject]);

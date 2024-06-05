@@ -1,0 +1,240 @@
+{
+    "UBLVersionID": "",
+    "CustomizationID": "",
+    "ProfileID": "",
+    "ProfileExecutionID": "",
+    "ID": "",
+    "CopyIndicator": false,
+    "UUID": "",
+    "InvoiceTypeCode": 0,
+    "Note": "",
+    "DocumentCurrencyCode": "",
+    "TaxCurrencyCode": "",
+    "PricingCurrencyCode": "",
+    "PaymentCurrencyCode": "",
+    "PaymentAlternativeCurrencyCode": "",
+    "AccountingCostCode": "",
+    "AccountingCost": "",
+    "LineCountNumeric": "",
+    "BuyerReference": "",
+    "InvoicePeriod": [
+        {}
+    ],
+    "OrderReference": {
+        "DocumentReference": null
+    },
+    "BillingReference": [
+        {
+            "InvoiceDocumentReference": null,
+            "SelfBilledInvoiceDocumentReference": null,
+            "CreditNoteDocumentReference": null,
+            "SelfBilledCreditNoteDocumentReference": null,
+            "DebitNoteDocumentReference": null,
+            "ReminderDocumentReference": null,
+            "AdditionalDocumentReference": null
+        }
+    ],
+    "DespatchDocumentReference": [
+        {
+            "Attachment": null,
+            "ValidityPeriod": null,
+            "IssuerParty": null,
+            "ResultOfVerification": null
+        }
+    ],
+    "ReceiptDocumentReference": [
+        {
+            "Attachment": null,
+            "ValidityPeriod": null,
+            "IssuerParty": null,
+            "ResultOfVerification": null
+        }
+    ],
+    "StatementDocumentReference": [
+        {
+            "Attachment": null,
+            "ValidityPeriod": null,
+            "IssuerParty": null,
+            "ResultOfVerification": null
+        }
+    ],
+    "OriginatorDocumentReference": [
+        {
+            "Attachment": null,
+            "ValidityPeriod": null,
+            "IssuerParty": null,
+            "ResultOfVerification": null
+        }
+    ],
+    "ContractDocumentReference": [
+        {
+            "Attachment": null,
+            "ValidityPeriod": null,
+            "IssuerParty": null,
+            "ResultOfVerification": null
+        }
+    ],
+    "AdditionalDocumentReference": [
+        {
+            "Attachment": null,
+            "ValidityPeriod": null,
+            "IssuerParty": null,
+            "ResultOfVerification": null
+        }
+    ],
+    "ProjectReference": [
+        {}
+    ],
+    "Signature": [
+        {
+            "SignatoryParty": null,
+            "DigitalSignatureAttachment": null,
+            "OriginalDocumentReference": null
+        }
+    ],
+    "AccountingSupplierParty": {
+        "Party": null,
+        "DespatchContact": null,
+        "AccountingContact": null,
+        "SellerContact": null
+    },
+    "AccountingCustomerParty": {
+        "Party": null,
+        "DeliveryContact": null,
+        "AccountingContact": null,
+        "BuyerContact": null
+    },
+    "PayeeParty": {
+        "Language": null,
+        "PostalAddress": null,
+        "PhysicalLocation": null,
+        "Contact": null,
+        "AgentParty": null,
+        "FinancialAccount": null
+    },
+    "BuyerCustomerParty": {
+        "Party": null,
+        "DeliveryContact": null,
+        "AccountingContact": null,
+        "BuyerContact": null
+    },
+    "SellerSupplierParty": {
+        "Party": null,
+        "DespatchContact": null,
+        "AccountingContact": null,
+        "SellerContact": null
+    },
+    "TaxRepresentativeParty": {
+        "Language": null,
+        "PostalAddress": null,
+        "PhysicalLocation": null,
+        "Contact": null,
+        "AgentParty": null,
+        "FinancialAccount": null
+    },
+    "Delivery": [
+        {
+            "Quantity": null,
+            "MinimumQuantity": null,
+            "MaximumQuantity": null,
+            "DeliveryAddress": null,
+            "DeliveryLocation": null,
+            "AlternativeDeliveryLocation": null,
+            "RequestedDeliveryPeriod": null,
+            "PromisedDeliveryPeriod": null,
+            "EstimatedDeliveryPeriod": null,
+            "CarrierParty": null,
+            "DeliveryParty": null,
+            "Despatch": null,
+            "MinimumDeliveryUnit": null,
+            "MaximumDeliveryUnit": null,
+            "Shipment": null
+        }
+    ],
+    "DeliveryTerms": {
+        "Amount": null,
+        "DeliveryLocation": null,
+        "AllowanceCharge": null
+    },
+    "PaymentMeans": [
+        {
+            "CardAccount": null,
+            "PayerFinancialAccount": null,
+            "PayeeFinancialAccount": null,
+            "CreditAccount": null,
+            "PaymentMandate": null,
+            "TradeFinancing": null
+        }
+    ],
+    "PaymentTerms": [
+        {
+            "Amount": null,
+            "SettlementDiscountAmount": null,
+            "PenaltyAmount": null,
+            "SettlementPeriod": null,
+            "PenaltyPeriod": null,
+            "ExchangeRate": null,
+            "ValidityPeriod": null
+        }
+    ],
+    "PrepaidPayment": [
+        {
+            "PaidAmount": null
+        }
+    ],
+    "AllowanceCharge": [
+        {
+            "Amount": null,
+            "BaseAmount": null,
+            "PerUnitAmount": null,
+            "TaxTotal": null
+        }
+    ],
+    "TaxExchangeRate": {
+        "ForeignExchangeContract": null
+    },
+    "PricingExchangeRate": {
+        "ForeignExchangeContract": null
+    },
+    "PaymentExchangeRate": {
+        "ForeignExchangeContract": null
+    },
+    "PaymentAlternativeExchangeRate": {
+        "ForeignExchangeContract": null
+    },
+    "TaxTotal": [
+        {
+            "TaxAmount": null,
+            "RoundingAmount": null
+        }
+    ],
+    "WithholdingTaxTotal": [
+        {
+            "TaxAmount": null,
+            "RoundingAmount": null
+        }
+    ],
+    "LegalMonetaryTotal": {
+        "LineExtensionAmount": null,
+        "TaxExclusiveAmount": null,
+        "TaxInclusiveAmount": null,
+        "AllowanceTotalAmount": null,
+        "ChargeTotalAmount": null,
+        "PrepaidAmount": null,
+        "PayableRoundingAmount": null,
+        "PayableAmount": null,
+        "PayableAlternativeAmount": null
+    },
+    "InvoiceLine": [
+        {
+            "InvoicedQuantity": null,
+            "LineExtensionAmount": null,
+            "PricingReference": null,
+            "OriginatorParty": null,
+            "Item": null,
+            "Price": null,
+            "DeliveryTerms": null,
+            "ItemPriceExtension": null
+        }
+    ]
+}

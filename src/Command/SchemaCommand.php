@@ -34,6 +34,7 @@ final class SchemaCommand extends Command
     private array $schemas = [
         'FatturaPA',
         'Fact1',
+        'Peppol',
     ];
 
     private string $namespace = "\\Invoiceninja\Einvoice\Writer\\";

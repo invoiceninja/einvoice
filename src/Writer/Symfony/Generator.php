@@ -47,6 +47,11 @@ class Generator
                 'set_serialized_name' => true,
             ]
         ],
+        'Peppol' => [
+            'options' => [
+                'set_serialized_name' => true,
+            ]
+        ],
     ];
 
     public const LINE_FEED = "\n";

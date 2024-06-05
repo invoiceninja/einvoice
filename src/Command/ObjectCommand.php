@@ -42,6 +42,7 @@ final class ObjectCommand extends Command
     private array $standards = [
         'FACT1',
         'FatturaPA',
+        'Peppol',
     ];
 
     protected function configure()

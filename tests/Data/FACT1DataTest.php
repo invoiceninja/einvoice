@@ -5,10 +5,10 @@ namespace Invoiceninja\Einvoice\Tests\Data;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Serializer\Serializer;
-use Invoiceninja\Einvoice\Models\FACT1\Invoice;
+use Invoiceninja\Einvoice\Models\Peppol\Invoice;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Invoiceninja\Einvoice\Models\FACT1\PartyType\Party;
+use Invoiceninja\Einvoice\Models\Peppol\PartyType\Party;
 use Symfony\Component\PropertyInfo\PropertyInfoExtractor;
 use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -19,10 +19,10 @@ use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
 use Symfony\Component\Serializer\NameConverter\MetadataAwareNameConverter;
 use Symfony\Component\Serializer\Mapping\ClassDiscriminatorFromClassMetadata;
-use Invoiceninja\Einvoice\Models\FACT1\SupplierPartyType\AccountingSupplierParty;
-use Invoiceninja\Einvoice\Models\FACT1\PartyIdentificationType\PartyIdentification;
+use Invoiceninja\Einvoice\Models\Peppol\SupplierPartyType\AccountingSupplierParty;
+use Invoiceninja\Einvoice\Models\Peppol\PartyIdentificationType\PartyIdentification;
 
-class FACT1DataTest extends TestCase
+class PeppolDataTest extends TestCase
 {
 
     public function setUp(): void
@@ -129,7 +129,7 @@ class FACT1DataTest extends TestCase
 
         $serializer = new Serializer($normalizers, $encoders);
 
-        $f = 'tests/Data/samples/fact1.xml';
+        $f = 'tests/Data/samples/Peppol.xml';
         $xmlstring = file_get_contents($f);
 
         $invoice = $serializer->deserialize($xmlstring, Invoice::class, 'xml',  [\Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer::SKIP_NULL_VALUES => true]);
@@ -168,15 +168,15 @@ class FACT1DataTest extends TestCase
     public function testXSDValidation()
     {
         
-        $f = 'tests/Data/samples/fact1.xml';
+        $f = 'tests/Data/samples/Peppol.xml';
 
         libxml_use_internal_errors(true);
 
         $dom = new \DOMDocument();
         $dom->load($f);
 
-        $validation = $dom->schemaValidate("src/Standards/FACT1/UBL-Invoice-2.1.xsd");
-        // $validation = $dom->schemaValidateSource("src/Standards/FACT1/Validation-Invoice_v1.0.8.sch");
+        $validation = $dom->schemaValidate("src/Standards/Peppol/UBL-Invoice-2.1.xsd");
+        // $validation = $dom->schemaValidateSource("src/Standards/Peppol/Validation-Invoice_v1.0.8.sch");
 
         $errors = libxml_get_errors();
 
@@ -188,7 +188,7 @@ class FACT1DataTest extends TestCase
 
     public function testClassMapper()
     {
-    $f = file_get_contents("src/Schema/FACT1/FACT1.json");
+    $f = file_get_contents("src/Schema/Peppol/Peppol.json");
 
     $f = json_decode($f);
 
@@ -276,7 +276,7 @@ class FACT1DataTest extends TestCase
 
     private function getPath($string): ?string
     {
-        $directoryIterator = new \RecursiveDirectoryIterator("src/Models/FACT1/", \RecursiveDirectoryIterator::SKIP_DOTS);
+        $directoryIterator = new \RecursiveDirectoryIterator("src/Models/Peppol/", \RecursiveDirectoryIterator::SKIP_DOTS);
 
         foreach (new \RecursiveIteratorIterator($directoryIterator) as $file) {
 

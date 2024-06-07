@@ -70,10 +70,10 @@ class EInvoice
      *
      * @param  string $standard Peppol / FatturaPA / FACT1
      * @param  string $document The document string
-     * @param ?string $format The document encoding - xml,json
+     * @param ?string $format The document encoding ie xml,json
      * @return mixed
      */
-    public function decode(string $standard, string $document, string $format = 'json')
+    public function decode(string $standard, string $document, ?string $format = 'json')
     {
         $this->resolveStandard($standard);
 

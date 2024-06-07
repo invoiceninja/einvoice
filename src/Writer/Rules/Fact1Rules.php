@@ -193,7 +193,6 @@ class Fact1Rules
             'AddressType' => [
                 'AdditionalStreetName' => [
                     'max_length' => 150,
-                    'max_length' => 100,
                 ],
                 'StreetName' => [
                     'max_length' => 150,
@@ -336,11 +335,6 @@ class Fact1Rules
                     'max_length' => 200,
                 ],
             ],
-            'PaymentMeansType' => [
-                'PaymentID' => [
-                    'max_length' => 140,
-                ]
-            ],
             'ItemType' => [
                 'Name' => [
                     'max_length' => 100,
@@ -411,8 +405,11 @@ class Fact1Rules
             'PaymentMeansType' => [
                 'PaymentMeansCode' => [
                     'resource' => $this->payment_means_codes
-                ]
-            ]
+                ],
+                'PaymentID' => [
+                    'max_length' => 140,
+                ],
+            ],
         ];
     }
 

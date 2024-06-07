@@ -105,7 +105,7 @@ class ExtType
     public function getElements(): self
     {
         $this->elements = [];
-
+        $data = [];
         foreach($this->type_map as $key => $value) {
             $sequence = $this->getSequence($key);
             $base_type = $value;

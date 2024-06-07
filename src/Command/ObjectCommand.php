@@ -82,8 +82,9 @@ final class ObjectCommand extends Command
                 $class = new Peppol();
                 $parent = new Invoice();
                 break;
-            default:
-                # code...
+            default:        
+                $class = new Peppol();
+                $parent = new Invoice();
                 break;
         }
 

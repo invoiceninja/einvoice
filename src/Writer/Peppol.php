@@ -661,6 +661,7 @@ class Peppol extends BaseStandard
             'cac' => $type = $this->cacType,
             'cbc' => $type = $this->cbcType,
             'ext' => $type = $this->extType,
+            default => $type = $this->cbcType,
         };
 
         return $type->getNamedType($parts[1]);

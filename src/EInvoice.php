@@ -45,6 +45,9 @@ class EInvoice
      */
     public function validate(mixed $object): array
     {
+        $serializer = $this->getSerializer();
+
+        $object = $serializer->normalize($object);
 
         $validator = Validation::createValidatorBuilder()
             ->enableAttributeMapping()
@@ -122,39 +125,11 @@ class EInvoice
     public function encode(mixed $object, string $type): string
     {
 
-        $phpDocExtractor = new PhpDocExtractor();
-        $reflectionExtractor = new ReflectionExtractor();
-        // list of PropertyListExtractorInterface (any iterable)
-        $typeExtractors = [$reflectionExtractor,$phpDocExtractor];
-        // list of PropertyDescriptionExtractorInterface (any iterable)
-        $descriptionExtractors = [$phpDocExtractor];
-        // list of PropertyAccessExtractorInterface (any iterable)
-        $propertyInitializableExtractors = [$reflectionExtractor];
-        $propertyInfo = new PropertyInfoExtractor(
-            $propertyInitializableExtractors,
-            $descriptionExtractors,
-            $typeExtractors,
-        );
+        $serializer = $this->getSerializer();
 
-        $context = [DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'];
+        $context = [DateTimeNormalizer::FORMAT_KEY => 'Y-m-d', AbstractObjectNormalizer::SKIP_NULL_VALUES => true];
 
-        $xml_encoder = new XmlEncoder(['xml_format_output' => true, 'remove_empty_tags' => true,]);
-        $json_encoder = new JsonEncoder();
-
-        $classMetadataFactory = new ClassMetadataFactory(new AttributeLoader());
-        $metadataAwareNameConverter = new MetadataAwareNameConverter($classMetadataFactory);
-
-        $normalizer = new ObjectNormalizer($classMetadataFactory, $metadataAwareNameConverter, null, $propertyInfo);
-
-        $normalizers = [new DateTimeNormalizer(), $normalizer,  new ArrayDenormalizer() , ];
-        $encoders = [$xml_encoder, $json_encoder];
-        $serializer = new Serializer($normalizers, $encoders);
-
-        $n_context = [
-            AbstractObjectNormalizer::SKIP_NULL_VALUES => true,
-        ];
-
-        $object = $serializer->normalize($object);
+        $object = $serializer->normalize($object, null, [\Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer::SKIP_NULL_VALUES => true]);
 
         $data = $serializer->encode($object, $type, $context);
 
@@ -200,5 +175,36 @@ class EInvoice
         };
 
         return $this;
+    }
+
+    private function getSerializer(): Serializer
+    {
+                
+        $phpDocExtractor = new PhpDocExtractor();
+        $reflectionExtractor = new ReflectionExtractor();
+        // list of PropertyListExtractorInterface (any iterable)
+        $typeExtractors = [$reflectionExtractor,$phpDocExtractor];
+        // list of PropertyDescriptionExtractorInterface (any iterable)
+        $descriptionExtractors = [$phpDocExtractor];
+        // list of PropertyAccessExtractorInterface (any iterable)
+        $propertyInitializableExtractors = [$reflectionExtractor];
+        $propertyInfo = new PropertyInfoExtractor(
+            $propertyInitializableExtractors,
+            $descriptionExtractors,
+            $typeExtractors,
+        );
+        $xml_encoder = new XmlEncoder(['xml_format_output' => true, 'remove_empty_tags' => true,]);
+        $json_encoder = new JsonEncoder();
+
+        $classMetadataFactory = new ClassMetadataFactory(new AttributeLoader());
+        $metadataAwareNameConverter = new MetadataAwareNameConverter($classMetadataFactory);
+
+        $normalizer = new ObjectNormalizer($classMetadataFactory, $metadataAwareNameConverter, null, $propertyInfo);
+
+        $normalizers = [new DateTimeNormalizer(), $normalizer,  new ArrayDenormalizer() , ];
+        $encoders = [$xml_encoder, $json_encoder];
+        $serializer = new Serializer($normalizers, $encoders);
+
+        return $serializer;
     }
 }

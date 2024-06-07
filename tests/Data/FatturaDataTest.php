@@ -293,13 +293,10 @@ class FatturaDataTest extends TestCase
         $propertyInitializableExtractors = [$reflectionExtractor];
 
         $propertyInfo = new PropertyInfoExtractor(
-            // $listExtractors,
             $propertyInitializableExtractors,
             $descriptionExtractors,
             $typeExtractors,
-            // $accessExtractors,
         );
-
 
         $context = [
             'xml_format_output' => true,

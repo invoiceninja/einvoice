@@ -11,6 +11,7 @@
 
 namespace Invoiceninja\Einvoice;
 
+use Symfony\Component\Validator\Validation;
 use Symfony\Component\Serializer\Serializer;
 use Invoiceninja\Einvoice\Models\Peppol\Invoice;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
@@ -35,11 +36,30 @@ class EInvoice
     public function __construct()
     {
     }
-
-    public function validate(): array
+    
+    /**
+     * Validates an object
+     *
+     * @param  mixed $object
+     * @return array
+     */
+    public function validate(mixed $object): array
     {
 
-        return [];
+        $validator = Validation::createValidatorBuilder()
+            ->enableAttributeMapping()
+            ->getValidator();
+
+        $errors = $validator->validate($object);
+
+        $bag = [];
+
+        foreach ($errors as $error) {
+            $bag[$error->getPropertyPath()] = $error->getMessage();
+        }
+
+        return $bag;
+
     }
 
     /**
@@ -47,7 +67,7 @@ class EInvoice
      *
      * @param  string $standard Peppol / FatturaPA / FACT1
      * @param  string $document The document string
-     * @param ?stirng $format The document encoding - xml,json
+     * @param ?string $format The document encoding - xml,json
      * @return mixed
      */
     public function decode(string $standard, string $document, string $format = 'json')

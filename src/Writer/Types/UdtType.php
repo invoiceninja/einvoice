@@ -57,7 +57,11 @@ class UdtType
         }
 
         if($result->count() == 1) {
-            $type = $result->item(0)->getAttribute(('base'));
+
+            /** @var \DOMElement $element */
+            $element = $result->item(0);
+
+            $type = $element->getAttribute(('base'));
 
 
             if(stripos($type, "ccts") !== false) {

@@ -9,17 +9,17 @@
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
-namespace Invoiceninja\Einvoice;
+namespace InvoiceNinja\EInvoice;
 
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Serializer\Serializer;
-use Invoiceninja\Einvoice\Models\Peppol\Invoice;
+use InvoiceNinja\EInvoice\Models\Peppol\Invoice;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\PropertyInfo\PropertyInfoExtractor;
 use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-use Invoiceninja\Einvoice\Models\FatturaPA\FatturaElettronica;
+use InvoiceNinja\EInvoice\Models\FatturaPA\FatturaElettronica;
 use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Mapping\Loader\AttributeLoader;

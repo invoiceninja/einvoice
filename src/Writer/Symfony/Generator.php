@@ -9,7 +9,7 @@
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
-namespace Invoiceninja\Einvoice\Writer\Symfony;
+namespace InvoiceNinja\EInvoice\Writer\Symfony;
 
 use DateTime;
 use DateTimeInterface;
@@ -18,7 +18,7 @@ use Nette\PhpGenerator\Literal;
 use Nette\PhpGenerator\Property;
 use Nette\PhpGenerator\ClassType;
 use Illuminate\Support\Collection;
-use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use Nette\PhpGenerator\PhpNamespace;
 use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints\Regex;
@@ -28,7 +28,7 @@ use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\NotBlank;
-use Invoiceninja\Einvoice\Writer\Symfony\TypeGenerator;
+use InvoiceNinja\EInvoice\Writer\Symfony\TypeGenerator;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Validator\Constraints\All;
@@ -55,7 +55,7 @@ class Generator
 
     public const LINE_FEED = "\n";
 
-    public string $path_namespace = "Invoiceninja\Einvoice\Models\\";
+    public string $path_namespace = "InvoiceNinja\EInvoice\Models\\";
 
     public string $write_path = "src/Models/";
 

@@ -1,10 +1,10 @@
-<?php
+<?php 
 
-namespace Invoiceninja\Einvoice\Models\Peppol\PartyNameType;
+namespace InvoiceNinja\EInvoice\Models\Peppol\PartyNameType;
 
 use DateTime;
 use DateTimeInterface;
-use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -18,7 +18,7 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class PartyName
 {
-    /** @var string */
-    #[SerializedName('cbc:Name')]
-    public string $Name;
+	/** @var string */
+	#[SerializedName('cbc:Name')]
+	public string $Name;
 }

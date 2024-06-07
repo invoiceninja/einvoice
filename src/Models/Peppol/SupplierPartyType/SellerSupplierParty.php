@@ -1,14 +1,14 @@
-<?php
+<?php 
 
-namespace Invoiceninja\Einvoice\Models\Peppol\SupplierPartyType;
+namespace InvoiceNinja\EInvoice\Models\Peppol\SupplierPartyType;
 
 use DateTime;
 use DateTimeInterface;
-use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
-use Invoiceninja\Einvoice\Models\Peppol\ContactType\AccountingContact;
-use Invoiceninja\Einvoice\Models\Peppol\ContactType\DespatchContact;
-use Invoiceninja\Einvoice\Models\Peppol\ContactType\SellerContact;
-use Invoiceninja\Einvoice\Models\Peppol\PartyType\Party;
+use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\ContactType\AccountingContact;
+use InvoiceNinja\EInvoice\Models\Peppol\ContactType\DespatchContact;
+use InvoiceNinja\EInvoice\Models\Peppol\ContactType\SellerContact;
+use InvoiceNinja\EInvoice\Models\Peppol\PartyType\Party;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -22,31 +22,31 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class SellerSupplierParty
 {
-    /** @var string */
-    #[SerializedName('cbc:CustomerAssignedAccountID')]
-    public string $CustomerAssignedAccountID;
+	/** @var string */
+	#[SerializedName('cbc:CustomerAssignedAccountID')]
+	public string $CustomerAssignedAccountID;
 
-    /** @var string */
-    #[SerializedName('cbc:AdditionalAccountID')]
-    public string $AdditionalAccountID;
+	/** @var string */
+	#[SerializedName('cbc:AdditionalAccountID')]
+	public string $AdditionalAccountID;
 
-    /** @var string */
-    #[SerializedName('cbc:DataSendingCapability')]
-    public string $DataSendingCapability;
+	/** @var string */
+	#[SerializedName('cbc:DataSendingCapability')]
+	public string $DataSendingCapability;
 
-    /** @var Party */
-    #[SerializedName('cac:Party')]
-    public $Party;
+	/** @var Party */
+	#[SerializedName('cac:Party')]
+	public $Party;
 
-    /** @var DespatchContact */
-    #[SerializedName('cac:DespatchContact')]
-    public $DespatchContact;
+	/** @var DespatchContact */
+	#[SerializedName('cac:DespatchContact')]
+	public $DespatchContact;
 
-    /** @var AccountingContact */
-    #[SerializedName('cac:AccountingContact')]
-    public $AccountingContact;
+	/** @var AccountingContact */
+	#[SerializedName('cac:AccountingContact')]
+	public $AccountingContact;
 
-    /** @var SellerContact */
-    #[SerializedName('cac:SellerContact')]
-    public $SellerContact;
+	/** @var SellerContact */
+	#[SerializedName('cac:SellerContact')]
+	public $SellerContact;
 }

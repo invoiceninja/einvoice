@@ -1,12 +1,12 @@
-<?php
+<?php 
 
-namespace Invoiceninja\Einvoice\Models\Peppol\BranchType;
+namespace InvoiceNinja\EInvoice\Models\Peppol\BranchType;
 
 use DateTime;
 use DateTimeInterface;
-use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
-use Invoiceninja\Einvoice\Models\Peppol\AddressType\Address;
-use Invoiceninja\Einvoice\Models\Peppol\FinancialInstitutionType\FinancialInstitution;
+use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\AddressType\Address;
+use InvoiceNinja\EInvoice\Models\Peppol\FinancialInstitutionType\FinancialInstitution;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -20,19 +20,19 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class FinancialInstitutionBranch
 {
-    /** @var string */
-    #[SerializedName('cbc:ID')]
-    public string $ID;
+	/** @var string */
+	#[SerializedName('cbc:ID')]
+	public string $ID;
 
-    /** @var string */
-    #[SerializedName('cbc:Name')]
-    public string $Name;
+	/** @var string */
+	#[SerializedName('cbc:Name')]
+	public string $Name;
 
-    /** @var FinancialInstitution */
-    #[SerializedName('cac:FinancialInstitution')]
-    public $FinancialInstitution;
+	/** @var FinancialInstitution */
+	#[SerializedName('cac:FinancialInstitution')]
+	public $FinancialInstitution;
 
-    /** @var Address */
-    #[SerializedName('cac:Address')]
-    public $Address;
+	/** @var Address */
+	#[SerializedName('cac:Address')]
+	public $Address;
 }

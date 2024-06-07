@@ -11,9 +11,9 @@
 
 declare(strict_types=1);
 
-namespace Invoiceninja\Einvoice\Command;
+namespace InvoiceNinja\EInvoice\Command;
 
-use Invoiceninja\Einvoice\Writer\Symfony\Generator;
+use InvoiceNinja\EInvoice\Writer\Symfony\Generator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Attribute\AsCommand;

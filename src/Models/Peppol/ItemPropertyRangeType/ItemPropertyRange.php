@@ -1,10 +1,10 @@
-<?php
+<?php 
 
-namespace Invoiceninja\Einvoice\Models\Peppol\ItemPropertyRangeType;
+namespace InvoiceNinja\EInvoice\Models\Peppol\ItemPropertyRangeType;
 
 use DateTime;
 use DateTimeInterface;
-use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -18,11 +18,11 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class ItemPropertyRange
 {
-    /** @var string */
-    #[SerializedName('cbc:MinimumValue')]
-    public string $MinimumValue;
+	/** @var string */
+	#[SerializedName('cbc:MinimumValue')]
+	public string $MinimumValue;
 
-    /** @var string */
-    #[SerializedName('cbc:MaximumValue')]
-    public string $MaximumValue;
+	/** @var string */
+	#[SerializedName('cbc:MaximumValue')]
+	public string $MaximumValue;
 }

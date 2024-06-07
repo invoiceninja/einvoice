@@ -9,7 +9,7 @@
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
-namespace Invoiceninja\Einvoice\Writer\Symfony;
+namespace InvoiceNinja\EInvoice\Writer\Symfony;
 
 use DateTime;
 use stdClass;
@@ -26,7 +26,7 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Serializer\Attribute\SerializedName;
-use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 
 class TypeGenerator

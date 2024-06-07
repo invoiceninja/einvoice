@@ -1,9 +1,9 @@
-<?php
+<?php 
 
-namespace Invoiceninja\Einvoice\Models\FatturaPA;
+namespace InvoiceNinja\EInvoice\Models\FatturaPA;
 
-use Invoiceninja\Einvoice\Models\FatturaPA\FatturaElettronicaBodyType\FatturaElettronicaBody;
-use Invoiceninja\Einvoice\Models\FatturaPA\FatturaElettronicaHeaderType\FatturaElettronicaHeader;
+use InvoiceNinja\EInvoice\Models\FatturaPA\FatturaElettronicaBodyType\FatturaElettronicaBody;
+use InvoiceNinja\EInvoice\Models\FatturaPA\FatturaElettronicaHeaderType\FatturaElettronicaHeader;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Validator\Constraints\Choice;
@@ -13,15 +13,15 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class FatturaElettronica
 {
-    /** @var FatturaElettronicaHeader */
-    #[NotNull]
-    #[NotBlank]
-    #[Valid]
-    public $FatturaElettronicaHeader;
+	/** @var FatturaElettronicaHeader */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
+	public $FatturaElettronicaHeader;
 
-    /** @var FatturaElettronicaBody[] */
-    #[NotNull]
-    #[NotBlank]
-    #[Valid]
-    public array $FatturaElettronicaBody;
+	/** @var FatturaElettronicaBody[] */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
+	public array $FatturaElettronicaBody;
 }

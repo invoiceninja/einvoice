@@ -1,12 +1,12 @@
-<?php
+<?php 
 
-namespace Invoiceninja\Einvoice\Models\Peppol;
+namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
-use Invoiceninja\Einvoice\Models\Peppol\DocumentReferenceType\MandateDocumentReference;
-use Invoiceninja\Einvoice\Models\Peppol\PartyType\AgentParty;
-use Invoiceninja\Einvoice\Models\Peppol\PartyType\NotaryParty;
-use Invoiceninja\Einvoice\Models\Peppol\PartyType\WitnessParty;
+use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\MandateDocumentReference;
+use InvoiceNinja\EInvoice\Models\Peppol\PartyType\AgentParty;
+use InvoiceNinja\EInvoice\Models\Peppol\PartyType\NotaryParty;
+use InvoiceNinja\EInvoice\Models\Peppol\PartyType\WitnessParty;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -17,40 +17,40 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class PowerOfAttorney
 {
-    /** @var string */
-    #[SerializedName('cbc:ID')]
-    public string $ID;
+	/** @var string */
+	#[SerializedName('cbc:ID')]
+	public string $ID;
 
-    /** @var DateTime */
-    #[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
-    #[SerializedName('cbc:IssueDate')]
-    public DateTime $IssueDate;
+	/** @var DateTime */
+	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+	#[SerializedName('cbc:IssueDate')]
+	public DateTime $IssueDate;
 
-    /** @var DateTime */
-    #[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
-    #[SerializedName('cbc:IssueTime')]
-    public DateTime $IssueTime;
+	/** @var DateTime */
+	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
+	#[SerializedName('cbc:IssueTime')]
+	public DateTime $IssueTime;
 
-    /** @var string */
-    #[SerializedName('cbc:Description')]
-    public string $Description;
+	/** @var string */
+	#[SerializedName('cbc:Description')]
+	public string $Description;
 
-    /** @var NotaryParty */
-    #[SerializedName('cac:NotaryParty')]
-    public $NotaryParty;
+	/** @var NotaryParty */
+	#[SerializedName('cac:NotaryParty')]
+	public $NotaryParty;
 
-    /** @var AgentParty */
-    #[NotNull]
-    #[NotBlank]
-    #[Valid]
-    #[SerializedName('cac:AgentParty')]
-    public $AgentParty;
+	/** @var AgentParty */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
+	#[SerializedName('cac:AgentParty')]
+	public $AgentParty;
 
-    /** @var WitnessParty[] */
-    #[SerializedName('cac:WitnessParty')]
-    public array $WitnessParty;
+	/** @var WitnessParty[] */
+	#[SerializedName('cac:WitnessParty')]
+	public array $WitnessParty;
 
-    /** @var MandateDocumentReference[] */
-    #[SerializedName('cac:MandateDocumentReference')]
-    public array $MandateDocumentReference;
+	/** @var MandateDocumentReference[] */
+	#[SerializedName('cac:MandateDocumentReference')]
+	public array $MandateDocumentReference;
 }

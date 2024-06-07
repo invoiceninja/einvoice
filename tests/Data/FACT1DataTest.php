@@ -1,14 +1,14 @@
 <?php
 
-namespace Invoiceninja\Einvoice\Tests\Data;
+namespace InvoiceNinja\EInvoice\Tests\Data;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Serializer\Serializer;
-use Invoiceninja\Einvoice\Models\Peppol\Invoice;
+use InvoiceNinja\EInvoice\Models\Peppol\Invoice;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Invoiceninja\Einvoice\Models\Peppol\PartyType\Party;
+use InvoiceNinja\EInvoice\Models\Peppol\PartyType\Party;
 use Symfony\Component\PropertyInfo\PropertyInfoExtractor;
 use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -19,8 +19,8 @@ use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
 use Symfony\Component\Serializer\NameConverter\MetadataAwareNameConverter;
 use Symfony\Component\Serializer\Mapping\ClassDiscriminatorFromClassMetadata;
-use Invoiceninja\Einvoice\Models\Peppol\SupplierPartyType\AccountingSupplierParty;
-use Invoiceninja\Einvoice\Models\Peppol\PartyIdentificationType\PartyIdentification;
+use InvoiceNinja\EInvoice\Models\Peppol\SupplierPartyType\AccountingSupplierParty;
+use InvoiceNinja\EInvoice\Models\Peppol\PartyIdentificationType\PartyIdentification;
 
 class PeppolDataTest extends TestCase
 {
@@ -284,7 +284,7 @@ class PeppolDataTest extends TestCase
                 
                 $path = str_replace([".php","/","src"],["","\\",""], $file->getPathname());
 
-                return "Invoiceninja\Einvoice{$path}";
+                return "InvoiceNinja\EInvoice{$path}";
 
             }
 

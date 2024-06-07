@@ -1,11 +1,11 @@
-<?php
+<?php 
 
-namespace Invoiceninja\Einvoice\Models\Peppol\FinancialInstitutionType;
+namespace InvoiceNinja\EInvoice\Models\Peppol\FinancialInstitutionType;
 
 use DateTime;
 use DateTimeInterface;
-use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
-use Invoiceninja\Einvoice\Models\Peppol\AddressType\Address;
+use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\AddressType\Address;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -19,15 +19,15 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class FinancialInstitution
 {
-    /** @var string */
-    #[SerializedName('cbc:ID')]
-    public string $ID;
+	/** @var string */
+	#[SerializedName('cbc:ID')]
+	public string $ID;
 
-    /** @var string */
-    #[SerializedName('cbc:Name')]
-    public string $Name;
+	/** @var string */
+	#[SerializedName('cbc:Name')]
+	public string $Name;
 
-    /** @var Address */
-    #[SerializedName('cac:Address')]
-    public $Address;
+	/** @var Address */
+	#[SerializedName('cac:Address')]
+	public $Address;
 }

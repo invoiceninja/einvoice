@@ -9,7 +9,7 @@
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
-namespace Invoiceninja\Einvoice\Writer\Rules;
+namespace InvoiceNinja\EInvoice\Writer\Rules;
 
 class Fact1Rules
 {

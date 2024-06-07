@@ -9,7 +9,7 @@
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
-namespace Invoiceninja\Einvoice\Writer;
+namespace InvoiceNinja\EInvoice\Writer;
 
 use DOMElement;
 use Illuminate\Support\Collection;

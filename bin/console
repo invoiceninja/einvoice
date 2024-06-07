@@ -11,9 +11,9 @@
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
-use Invoiceninja\Einvoice\Command\ModelCommand;
-use Invoiceninja\Einvoice\Command\ObjectCommand;
-use Invoiceninja\Einvoice\Command\SchemaCommand;
+use InvoiceNinja\EInvoice\Command\ModelCommand;
+use InvoiceNinja\EInvoice\Command\ObjectCommand;
+use InvoiceNinja\EInvoice\Command\SchemaCommand;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 

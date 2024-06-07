@@ -1,6 +1,6 @@
 <?php
 
-namespace Invoiceninja\Einvoice\Tests\Data;
+namespace InvoiceNinja\EInvoice\Tests\Data;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\Validation;
@@ -21,12 +21,12 @@ use Symfony\Component\Serializer\Mapping\Loader\AttributeLoader;
 use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 use Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer;
-use Invoiceninja\Einvoice\Models\FatturaPA\FatturaElettronica;
+use InvoiceNinja\EInvoice\Models\FatturaPA\FatturaElettronica;
 use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
-use Invoiceninja\Einvoice\Models\FatturaPA\FatturaElettronicaBody;
+use InvoiceNinja\EInvoice\Models\FatturaPA\FatturaElettronicaBody;
 use Symfony\Component\Serializer\NameConverter\MetadataAwareNameConverter;
-use Invoiceninja\Einvoice\Models\FatturaPA\FatturaElettronicaHeader;
-use Invoiceninja\Einvoice\Writer\FatturaPA;
+use InvoiceNinja\EInvoice\Models\FatturaPA\FatturaElettronicaHeader;
+use InvoiceNinja\EInvoice\Writer\FatturaPA;
 use Symfony\Component\Serializer\Mapping\ClassDiscriminatorFromClassMetadata;
 
 class FatturaDataTest extends TestCase
@@ -521,7 +521,7 @@ class FatturaDataTest extends TestCase
                 
                 $path = str_replace([".php","/","src"],["","\\",""], $file->getPathname());
 
-                return "Invoiceninja\Einvoice{$path}";
+                return "InvoiceNinja\EInvoice{$path}";
 
             }
 

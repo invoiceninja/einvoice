@@ -1,11 +1,11 @@
-<?php
+<?php 
 
-namespace Invoiceninja\Einvoice\Models\FatturaPA\RappresentanteFiscaleType;
+namespace InvoiceNinja\EInvoice\Models\FatturaPA\RappresentanteFiscaleType;
 
 use DateTime;
 use DateTimeInterface;
-use Invoiceninja\Einvoice\Models\FatturaPA\DatiAnagraficiRappresentanteType\DatiAnagrafici;
-use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\FatturaPA\DatiAnagraficiRappresentanteType\DatiAnagrafici;
+use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -19,9 +19,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class RappresentanteFiscale
 {
-    /** @var DatiAnagrafici */
-    #[NotNull]
-    #[NotBlank]
-    #[Valid]
-    public $DatiAnagrafici;
+	/** @var DatiAnagrafici */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
+	public $DatiAnagrafici;
 }

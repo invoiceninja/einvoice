@@ -1,11 +1,11 @@
-<?php
+<?php 
 
-namespace Invoiceninja\Einvoice\Models\Peppol\AttachmentType;
+namespace InvoiceNinja\EInvoice\Models\Peppol\AttachmentType;
 
 use DateTime;
 use DateTimeInterface;
-use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
-use Invoiceninja\Einvoice\Models\Peppol\ExternalReferenceType\ExternalReference;
+use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\ExternalReferenceType\ExternalReference;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -19,11 +19,11 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class Attachment
 {
-    /** @var binary */
-    #[SerializedName('cbc:EmbeddedDocumentBinaryObject')]
-    public \binary $EmbeddedDocumentBinaryObject;
+	/** @var binary */
+	#[SerializedName('cbc:EmbeddedDocumentBinaryObject')]
+	public \binary $EmbeddedDocumentBinaryObject;
 
-    /** @var ExternalReference */
-    #[SerializedName('cac:ExternalReference')]
-    public $ExternalReference;
+	/** @var ExternalReference */
+	#[SerializedName('cac:ExternalReference')]
+	public $ExternalReference;
 }

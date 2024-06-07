@@ -1,10 +1,10 @@
-<?php
+<?php 
 
-namespace Invoiceninja\Einvoice\Models\FatturaPA\DatiVeicoliType;
+namespace InvoiceNinja\EInvoice\Models\FatturaPA\DatiVeicoliType;
 
 use DateTime;
 use DateTimeInterface;
-use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -18,15 +18,15 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiVeicoli
 {
-    /** @var DateTime */
-    #[NotNull]
-    #[NotBlank]
-    #[Valid]
-    #[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
-    public DateTime $Data;
+	/** @var DateTime */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
+	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+	public DateTime $Data;
 
-    /** @var string */
-    #[Length(min: 1, max: 15)]
-    #[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,15}/u')]
-    public string $TotalePercorso;
+	/** @var string */
+	#[Length(min: 1, max: 15)]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,15}/u')]
+	public string $TotalePercorso;
 }

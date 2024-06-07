@@ -1,11 +1,11 @@
-<?php
+<?php 
 
-namespace Invoiceninja\Einvoice\Models\Peppol\ProjectReferenceType;
+namespace InvoiceNinja\EInvoice\Models\Peppol\ProjectReferenceType;
 
 use DateTime;
 use DateTimeInterface;
-use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
-use Invoiceninja\Einvoice\Models\Peppol\WorkPhaseReferenceType\WorkPhaseReference;
+use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\WorkPhaseReferenceType\WorkPhaseReference;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -19,20 +19,20 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class ProjectReference
 {
-    /** @var string */
-    #[SerializedName('cbc:ID')]
-    public string $ID;
+	/** @var string */
+	#[SerializedName('cbc:ID')]
+	public string $ID;
 
-    /** @var string */
-    #[SerializedName('cbc:UUID')]
-    public string $UUID;
+	/** @var string */
+	#[SerializedName('cbc:UUID')]
+	public string $UUID;
 
-    /** @var DateTime */
-    #[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
-    #[SerializedName('cbc:IssueDate')]
-    public DateTime $IssueDate;
+	/** @var DateTime */
+	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+	#[SerializedName('cbc:IssueDate')]
+	public DateTime $IssueDate;
 
-    /** @var WorkPhaseReference[] */
-    #[SerializedName('cac:WorkPhaseReference')]
-    public array $WorkPhaseReference;
+	/** @var WorkPhaseReference[] */
+	#[SerializedName('cac:WorkPhaseReference')]
+	public array $WorkPhaseReference;
 }

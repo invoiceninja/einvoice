@@ -9,7 +9,7 @@
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
-namespace Invoiceninja\Einvoice\Decoder;
+namespace InvoiceNinja\EInvoice\Decoder;
 
 class Schema
 {

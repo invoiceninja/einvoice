@@ -11,22 +11,22 @@
 
 declare(strict_types=1);
 
-namespace Invoiceninja\Einvoice\Command;
+namespace InvoiceNinja\EInvoice\Command;
 
-use Invoiceninja\Einvoice\Models\Peppol\Invoice;
-use Invoiceninja\Einvoice\Writer\FatturaPA;
+use InvoiceNinja\EInvoice\Models\Peppol\Invoice;
+use InvoiceNinja\EInvoice\Writer\FatturaPA;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputArgument;
-use Invoiceninja\Einvoice\Writer\Symfony\Generator;
+use InvoiceNinja\EInvoice\Writer\Symfony\Generator;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Invoiceninja\Einvoice\Models\FatturaPA\FatturaElettronica;
-use Invoiceninja\Einvoice\Models\FatturaPA\FatturaElettronicaBody;
-use Invoiceninja\Einvoice\Writer\Fact1;
-use Invoiceninja\Einvoice\Writer\Peppol;
+use InvoiceNinja\EInvoice\Models\FatturaPA\FatturaElettronica;
+use InvoiceNinja\EInvoice\Models\FatturaPA\FatturaElettronicaBody;
+use InvoiceNinja\EInvoice\Writer\Fact1;
+use InvoiceNinja\EInvoice\Writer\Peppol;
 
 #[AsCommand(
     name: 'o:create',

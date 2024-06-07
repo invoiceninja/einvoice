@@ -1,11 +1,11 @@
-<?php
+<?php 
 
-namespace Invoiceninja\Einvoice\Models\Peppol\CustomsDeclarationType;
+namespace InvoiceNinja\EInvoice\Models\Peppol\CustomsDeclarationType;
 
 use DateTime;
 use DateTimeInterface;
-use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
-use Invoiceninja\Einvoice\Models\Peppol\PartyType\IssuerParty;
+use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\PartyType\IssuerParty;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -19,11 +19,11 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class CustomsDeclaration
 {
-    /** @var string */
-    #[SerializedName('cbc:ID')]
-    public string $ID;
+	/** @var string */
+	#[SerializedName('cbc:ID')]
+	public string $ID;
 
-    /** @var IssuerParty */
-    #[SerializedName('cac:IssuerParty')]
-    public $IssuerParty;
+	/** @var IssuerParty */
+	#[SerializedName('cac:IssuerParty')]
+	public $IssuerParty;
 }

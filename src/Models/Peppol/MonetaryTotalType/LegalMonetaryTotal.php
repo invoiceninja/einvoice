@@ -1,19 +1,19 @@
-<?php
+<?php 
 
-namespace Invoiceninja\Einvoice\Models\Peppol\MonetaryTotalType;
+namespace InvoiceNinja\EInvoice\Models\Peppol\MonetaryTotalType;
 
 use DateTime;
 use DateTimeInterface;
-use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
-use Invoiceninja\Einvoice\Models\Peppol\AmountType\AllowanceTotalAmount;
-use Invoiceninja\Einvoice\Models\Peppol\AmountType\ChargeTotalAmount;
-use Invoiceninja\Einvoice\Models\Peppol\AmountType\LineExtensionAmount;
-use Invoiceninja\Einvoice\Models\Peppol\AmountType\PayableAlternativeAmount;
-use Invoiceninja\Einvoice\Models\Peppol\AmountType\PayableAmount;
-use Invoiceninja\Einvoice\Models\Peppol\AmountType\PayableRoundingAmount;
-use Invoiceninja\Einvoice\Models\Peppol\AmountType\PrepaidAmount;
-use Invoiceninja\Einvoice\Models\Peppol\AmountType\TaxExclusiveAmount;
-use Invoiceninja\Einvoice\Models\Peppol\AmountType\TaxInclusiveAmount;
+use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\AmountType\AllowanceTotalAmount;
+use InvoiceNinja\EInvoice\Models\Peppol\AmountType\ChargeTotalAmount;
+use InvoiceNinja\EInvoice\Models\Peppol\AmountType\LineExtensionAmount;
+use InvoiceNinja\EInvoice\Models\Peppol\AmountType\PayableAlternativeAmount;
+use InvoiceNinja\EInvoice\Models\Peppol\AmountType\PayableAmount;
+use InvoiceNinja\EInvoice\Models\Peppol\AmountType\PayableRoundingAmount;
+use InvoiceNinja\EInvoice\Models\Peppol\AmountType\PrepaidAmount;
+use InvoiceNinja\EInvoice\Models\Peppol\AmountType\TaxExclusiveAmount;
+use InvoiceNinja\EInvoice\Models\Peppol\AmountType\TaxInclusiveAmount;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -27,42 +27,42 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class LegalMonetaryTotal
 {
-    /** @var LineExtensionAmount */
-    #[SerializedName('cbc:LineExtensionAmount')]
-    public $LineExtensionAmount;
+	/** @var LineExtensionAmount */
+	#[SerializedName('cbc:LineExtensionAmount')]
+	public $LineExtensionAmount;
 
-    /** @var TaxExclusiveAmount */
-    #[SerializedName('cbc:TaxExclusiveAmount')]
-    public $TaxExclusiveAmount;
+	/** @var TaxExclusiveAmount */
+	#[SerializedName('cbc:TaxExclusiveAmount')]
+	public $TaxExclusiveAmount;
 
-    /** @var TaxInclusiveAmount */
-    #[SerializedName('cbc:TaxInclusiveAmount')]
-    public $TaxInclusiveAmount;
+	/** @var TaxInclusiveAmount */
+	#[SerializedName('cbc:TaxInclusiveAmount')]
+	public $TaxInclusiveAmount;
 
-    /** @var AllowanceTotalAmount */
-    #[SerializedName('cbc:AllowanceTotalAmount')]
-    public $AllowanceTotalAmount;
+	/** @var AllowanceTotalAmount */
+	#[SerializedName('cbc:AllowanceTotalAmount')]
+	public $AllowanceTotalAmount;
 
-    /** @var ChargeTotalAmount */
-    #[SerializedName('cbc:ChargeTotalAmount')]
-    public $ChargeTotalAmount;
+	/** @var ChargeTotalAmount */
+	#[SerializedName('cbc:ChargeTotalAmount')]
+	public $ChargeTotalAmount;
 
-    /** @var PrepaidAmount */
-    #[SerializedName('cbc:PrepaidAmount')]
-    public $PrepaidAmount;
+	/** @var PrepaidAmount */
+	#[SerializedName('cbc:PrepaidAmount')]
+	public $PrepaidAmount;
 
-    /** @var PayableRoundingAmount */
-    #[SerializedName('cbc:PayableRoundingAmount')]
-    public $PayableRoundingAmount;
+	/** @var PayableRoundingAmount */
+	#[SerializedName('cbc:PayableRoundingAmount')]
+	public $PayableRoundingAmount;
 
-    /** @var PayableAmount */
-    #[NotNull]
-    #[NotBlank]
-    #[Valid]
-    #[SerializedName('cbc:PayableAmount')]
-    public $PayableAmount;
+	/** @var PayableAmount */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
+	#[SerializedName('cbc:PayableAmount')]
+	public $PayableAmount;
 
-    /** @var PayableAlternativeAmount */
-    #[SerializedName('cbc:PayableAlternativeAmount')]
-    public $PayableAlternativeAmount;
+	/** @var PayableAlternativeAmount */
+	#[SerializedName('cbc:PayableAlternativeAmount')]
+	public $PayableAlternativeAmount;
 }

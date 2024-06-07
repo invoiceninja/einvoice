@@ -9,14 +9,14 @@
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
-namespace Invoiceninja\Einvoice\Tests\UBL;
+namespace InvoiceNinja\EInvoice\Tests\UBL;
 
 use PHPUnit\Framework\TestCase;
-use Invoiceninja\Einvoice\Writer\Types\CacType;
-use Invoiceninja\Einvoice\Writer\Types\CbcType;
-use Invoiceninja\Einvoice\Writer\Types\CccType;
-use Invoiceninja\Einvoice\Writer\Types\ExtType;
-use Invoiceninja\Einvoice\Writer\Types\UdtType;
+use InvoiceNinja\EInvoice\Writer\Types\CacType;
+use InvoiceNinja\EInvoice\Writer\Types\CbcType;
+use InvoiceNinja\EInvoice\Writer\Types\CccType;
+use InvoiceNinja\EInvoice\Writer\Types\ExtType;
+use InvoiceNinja\EInvoice\Writer\Types\UdtType;
 
 class TypeTest extends TestCase
 {

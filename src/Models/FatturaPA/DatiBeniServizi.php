@@ -1,10 +1,10 @@
-<?php
+<?php 
 
-namespace Invoiceninja\Einvoice\Models\FatturaPA;
+namespace InvoiceNinja\EInvoice\Models\FatturaPA;
 
-use Invoiceninja\Einvoice\Models\FatturaPA\DatiRiepilogoType\DatiRiepilogo;
-use Invoiceninja\Einvoice\Models\FatturaPA\DettaglioLineeType\DettaglioLinee;
-use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\FatturaPA\DatiRiepilogoType\DatiRiepilogo;
+use InvoiceNinja\EInvoice\Models\FatturaPA\DettaglioLineeType\DettaglioLinee;
+use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Validator\Constraints\Choice;
@@ -17,15 +17,15 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiBeniServizi
 {
-    /** @var DettaglioLinee[] */
-    #[NotNull]
-    #[NotBlank]
-    #[Valid]
-    public array $DettaglioLinee;
+	/** @var DettaglioLinee[] */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
+	public array $DettaglioLinee;
 
-    /** @var DatiRiepilogo[] */
-    #[NotNull]
-    #[NotBlank]
-    #[Valid]
-    public array $DatiRiepilogo;
+	/** @var DatiRiepilogo[] */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
+	public array $DatiRiepilogo;
 }

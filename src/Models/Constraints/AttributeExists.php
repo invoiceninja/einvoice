@@ -9,7 +9,7 @@
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
-namespace Invoiceninja\Einvoice\Models\Constraints;
+namespace InvoiceNinja\EInvoice\Models\Constraints;
 
 use Symfony\Component\Validator\Constraint;
 

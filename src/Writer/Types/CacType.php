@@ -9,7 +9,7 @@
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
-namespace Invoiceninja\Einvoice\Writer\Types;
+namespace InvoiceNinja\EInvoice\Writer\Types;
 
 use DOMElement;
 use DOMNodeList;

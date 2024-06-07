@@ -5,7 +5,7 @@
     "license": "Elastic-2.0",
     "autoload": {
         "psr-4": {
-            "Invoiceninja\\Einvoice\\": "src/"
+            "InvoiceNinja\\EInvoice\\": "src/"
         }
     },
     "authors": [

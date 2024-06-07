@@ -9,13 +9,13 @@
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
-namespace Invoiceninja\Einvoice\Writer;
+namespace InvoiceNinja\EInvoice\Writer;
 
 use DOMElement;
-use Invoiceninja\Einvoice\Writer\Rules\Fact1Rules;
-use Invoiceninja\Einvoice\Writer\Types\CacType;
-use Invoiceninja\Einvoice\Writer\Types\CbcType;
-use Invoiceninja\Einvoice\Writer\Types\ExtType;
+use InvoiceNinja\EInvoice\Writer\Rules\Fact1Rules;
+use InvoiceNinja\EInvoice\Writer\Types\CacType;
+use InvoiceNinja\EInvoice\Writer\Types\CbcType;
+use InvoiceNinja\EInvoice\Writer\Types\ExtType;
 
 class Fact1 extends BaseStandard
 {

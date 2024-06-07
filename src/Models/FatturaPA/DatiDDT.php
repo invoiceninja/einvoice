@@ -1,6 +1,6 @@
-<?php
+<?php 
 
-namespace Invoiceninja\Einvoice\Models\FatturaPA;
+namespace InvoiceNinja\EInvoice\Models\FatturaPA;
 
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -13,18 +13,18 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiDDT
 {
-    /** @var string */
-    #[Length(min: 1, max: 20)]
-    #[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,20}/u')]
-    public string $NumeroDDT;
+	/** @var string */
+	#[Length(min: 1, max: 20)]
+	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,20}/u')]
+	public string $NumeroDDT;
 
-    /** @var DateTime */
-    #[NotNull]
-    #[NotBlank]
-    #[Valid]
-    #[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
-    public \DateTime $DataDDT;
+	/** @var DateTime */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
+	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+	public \DateTime $DataDDT;
 
-    /** @var integer */
-    public int $RiferimentoNumeroLinea;
+	/** @var integer */
+	public int $RiferimentoNumeroLinea;
 }

@@ -1,19 +1,19 @@
-<?php
+<?php 
 
-namespace Invoiceninja\Einvoice\Models\FatturaPA;
+namespace InvoiceNinja\EInvoice\Models\FatturaPA;
 
 use DateTime;
-use Invoiceninja\Einvoice\Models\FatturaPA\DatiDDTType\DatiDDT;
-use Invoiceninja\Einvoice\Models\FatturaPA\DatiDocumentiCorrelatiType\DatiContratto;
-use Invoiceninja\Einvoice\Models\FatturaPA\DatiDocumentiCorrelatiType\DatiConvenzione;
-use Invoiceninja\Einvoice\Models\FatturaPA\DatiDocumentiCorrelatiType\DatiFattureCollegate;
-use Invoiceninja\Einvoice\Models\FatturaPA\DatiDocumentiCorrelatiType\DatiOrdineAcquisto;
-use Invoiceninja\Einvoice\Models\FatturaPA\DatiDocumentiCorrelatiType\DatiRicezione;
-use Invoiceninja\Einvoice\Models\FatturaPA\DatiGeneraliDocumentoType\DatiGeneraliDocumento;
-use Invoiceninja\Einvoice\Models\FatturaPA\DatiSALType\DatiSAL;
-use Invoiceninja\Einvoice\Models\FatturaPA\DatiTrasportoType\DatiTrasporto;
-use Invoiceninja\Einvoice\Models\FatturaPA\FatturaPrincipaleType\FatturaPrincipale;
-use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\FatturaPA\DatiDDTType\DatiDDT;
+use InvoiceNinja\EInvoice\Models\FatturaPA\DatiDocumentiCorrelatiType\DatiContratto;
+use InvoiceNinja\EInvoice\Models\FatturaPA\DatiDocumentiCorrelatiType\DatiConvenzione;
+use InvoiceNinja\EInvoice\Models\FatturaPA\DatiDocumentiCorrelatiType\DatiFattureCollegate;
+use InvoiceNinja\EInvoice\Models\FatturaPA\DatiDocumentiCorrelatiType\DatiOrdineAcquisto;
+use InvoiceNinja\EInvoice\Models\FatturaPA\DatiDocumentiCorrelatiType\DatiRicezione;
+use InvoiceNinja\EInvoice\Models\FatturaPA\DatiGeneraliDocumentoType\DatiGeneraliDocumento;
+use InvoiceNinja\EInvoice\Models\FatturaPA\DatiSALType\DatiSAL;
+use InvoiceNinja\EInvoice\Models\FatturaPA\DatiTrasportoType\DatiTrasporto;
+use InvoiceNinja\EInvoice\Models\FatturaPA\FatturaPrincipaleType\FatturaPrincipale;
+use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Validator\Constraints\All;
@@ -27,36 +27,36 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiGenerali
 {
-    /** @var DatiGeneraliDocumento */
-    #[NotNull]
-    #[NotBlank]
-    #[Valid]
-    public $DatiGeneraliDocumento;
+	/** @var DatiGeneraliDocumento */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
+	public $DatiGeneraliDocumento;
 
-    /** @var DatiOrdineAcquisto[] */
-    public array $DatiOrdineAcquisto;
+	/** @var DatiOrdineAcquisto[] */
+	public array $DatiOrdineAcquisto;
 
-    /** @var DatiContratto[] */
-    public array $DatiContratto;
+	/** @var DatiContratto[] */
+	public array $DatiContratto;
 
-    /** @var DatiConvenzione[] */
-    public array $DatiConvenzione;
+	/** @var DatiConvenzione[] */
+	public array $DatiConvenzione;
 
-    /** @var DatiRicezione[] */
-    public array $DatiRicezione;
+	/** @var DatiRicezione[] */
+	public array $DatiRicezione;
 
-    /** @var DatiFattureCollegate[] */
-    public array $DatiFattureCollegate;
+	/** @var DatiFattureCollegate[] */
+	public array $DatiFattureCollegate;
 
-    /** @var DatiSAL[] */
-    public array $DatiSAL;
+	/** @var DatiSAL[] */
+	public array $DatiSAL;
 
-    /** @var DatiDDT[] */
-    public array $DatiDDT;
+	/** @var DatiDDT[] */
+	public array $DatiDDT;
 
-    /** @var DatiTrasporto */
-    public $DatiTrasporto;
+	/** @var DatiTrasporto */
+	public $DatiTrasporto;
 
-    /** @var FatturaPrincipale */
-    public $FatturaPrincipale;
+	/** @var FatturaPrincipale */
+	public $FatturaPrincipale;
 }

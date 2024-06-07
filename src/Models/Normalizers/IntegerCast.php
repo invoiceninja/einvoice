@@ -9,7 +9,7 @@
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
-namespace Invoiceninja\Einvoice\Models\Normalizers;
+namespace InvoiceNinja\EInvoice\Models\Normalizers;
 
 #[\Attribute(\Attribute::TARGET_PROPERTY)]
 class IntegerCast

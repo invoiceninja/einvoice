@@ -1,18 +1,18 @@
-<?php
+<?php 
 
-namespace Invoiceninja\Einvoice\Models\Peppol;
+namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
-use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
-use Invoiceninja\Einvoice\Models\Peppol\DeliveryType\Delivery;
-use Invoiceninja\Einvoice\Models\Peppol\DeliveryUnitType\DeliveryUnit;
-use Invoiceninja\Einvoice\Models\Peppol\DespatchType\Despatch;
-use Invoiceninja\Einvoice\Models\Peppol\DimensionType\MeasurementDimension;
-use Invoiceninja\Einvoice\Models\Peppol\GoodsItemType\GoodsItem;
-use Invoiceninja\Einvoice\Models\Peppol\PackageType\ContainedPackage;
-use Invoiceninja\Einvoice\Models\Peppol\PickupType\Pickup;
-use Invoiceninja\Einvoice\Models\Peppol\QuantityType\Quantity;
-use Invoiceninja\Einvoice\Models\Peppol\TransportEquipmentType\ContainingTransportEquipment;
+use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\DeliveryType\Delivery;
+use InvoiceNinja\EInvoice\Models\Peppol\DeliveryUnitType\DeliveryUnit;
+use InvoiceNinja\EInvoice\Models\Peppol\DespatchType\Despatch;
+use InvoiceNinja\EInvoice\Models\Peppol\DimensionType\MeasurementDimension;
+use InvoiceNinja\EInvoice\Models\Peppol\GoodsItemType\GoodsItem;
+use InvoiceNinja\EInvoice\Models\Peppol\PackageType\ContainedPackage;
+use InvoiceNinja\EInvoice\Models\Peppol\PickupType\Pickup;
+use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\Quantity;
+use InvoiceNinja\EInvoice\Models\Peppol\TransportEquipmentType\ContainingTransportEquipment;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -23,63 +23,63 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class Package
 {
-    /** @var string */
-    #[SerializedName('cbc:ID')]
-    public string $ID;
+	/** @var string */
+	#[SerializedName('cbc:ID')]
+	public string $ID;
 
-    /** @var Quantity */
-    #[SerializedName('cbc:Quantity')]
-    public $Quantity;
+	/** @var Quantity */
+	#[SerializedName('cbc:Quantity')]
+	public $Quantity;
 
-    /** @var bool */
-    #[SerializedName('cbc:ReturnableMaterialIndicator')]
-    public bool $ReturnableMaterialIndicator;
+	/** @var bool */
+	#[SerializedName('cbc:ReturnableMaterialIndicator')]
+	public bool $ReturnableMaterialIndicator;
 
-    /** @var string */
-    #[SerializedName('cbc:PackageLevelCode')]
-    public string $PackageLevelCode;
+	/** @var string */
+	#[SerializedName('cbc:PackageLevelCode')]
+	public string $PackageLevelCode;
 
-    /** @var string */
-    #[SerializedName('cbc:PackagingTypeCode')]
-    public string $PackagingTypeCode;
+	/** @var string */
+	#[SerializedName('cbc:PackagingTypeCode')]
+	public string $PackagingTypeCode;
 
-    /** @var string */
-    #[SerializedName('cbc:PackingMaterial')]
-    public string $PackingMaterial;
+	/** @var string */
+	#[SerializedName('cbc:PackingMaterial')]
+	public string $PackingMaterial;
 
-    /** @var string */
-    #[SerializedName('cbc:TraceID')]
-    public string $TraceID;
+	/** @var string */
+	#[SerializedName('cbc:TraceID')]
+	public string $TraceID;
 
-    /** @var ContainedPackage[] */
-    #[SerializedName('cac:ContainedPackage')]
-    public array $ContainedPackage;
+	/** @var ContainedPackage[] */
+	#[SerializedName('cac:ContainedPackage')]
+	public array $ContainedPackage;
 
-    /** @var ContainingTransportEquipment */
-    #[SerializedName('cac:ContainingTransportEquipment')]
-    public $ContainingTransportEquipment;
+	/** @var ContainingTransportEquipment */
+	#[SerializedName('cac:ContainingTransportEquipment')]
+	public $ContainingTransportEquipment;
 
-    /** @var GoodsItem[] */
-    #[SerializedName('cac:GoodsItem')]
-    public array $GoodsItem;
+	/** @var GoodsItem[] */
+	#[SerializedName('cac:GoodsItem')]
+	public array $GoodsItem;
 
-    /** @var MeasurementDimension[] */
-    #[SerializedName('cac:MeasurementDimension')]
-    public array $MeasurementDimension;
+	/** @var MeasurementDimension[] */
+	#[SerializedName('cac:MeasurementDimension')]
+	public array $MeasurementDimension;
 
-    /** @var DeliveryUnit[] */
-    #[SerializedName('cac:DeliveryUnit')]
-    public array $DeliveryUnit;
+	/** @var DeliveryUnit[] */
+	#[SerializedName('cac:DeliveryUnit')]
+	public array $DeliveryUnit;
 
-    /** @var Delivery */
-    #[SerializedName('cac:Delivery')]
-    public $Delivery;
+	/** @var Delivery */
+	#[SerializedName('cac:Delivery')]
+	public $Delivery;
 
-    /** @var Pickup */
-    #[SerializedName('cac:Pickup')]
-    public $Pickup;
+	/** @var Pickup */
+	#[SerializedName('cac:Pickup')]
+	public $Pickup;
 
-    /** @var Despatch */
-    #[SerializedName('cac:Despatch')]
-    public $Despatch;
+	/** @var Despatch */
+	#[SerializedName('cac:Despatch')]
+	public $Despatch;
 }

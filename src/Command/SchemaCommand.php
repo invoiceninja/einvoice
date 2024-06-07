@@ -11,9 +11,9 @@
 
 declare(strict_types=1);
 
-namespace Invoiceninja\Einvoice\Command;
+namespace InvoiceNinja\EInvoice\Command;
 
-use Invoiceninja\Einvoice\Writer\Generator\Generator;
+use InvoiceNinja\EInvoice\Writer\Generator\Generator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -37,7 +37,7 @@ final class SchemaCommand extends Command
         'Peppol',
     ];
 
-    private string $namespace = "\\Invoiceninja\Einvoice\Writer\\";
+    private string $namespace = "\\InvoiceNinja\EInvoice\Writer\\";
 
     protected function configure()
     {

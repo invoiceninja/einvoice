@@ -1,10 +1,10 @@
-<?php
+<?php 
 
-namespace Invoiceninja\Einvoice\Models\Peppol\LanguageType;
+namespace InvoiceNinja\EInvoice\Models\Peppol\LanguageType;
 
 use DateTime;
 use DateTimeInterface;
-use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -18,15 +18,15 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class Language
 {
-    /** @var string */
-    #[SerializedName('cbc:ID')]
-    public string $ID;
+	/** @var string */
+	#[SerializedName('cbc:ID')]
+	public string $ID;
 
-    /** @var string */
-    #[SerializedName('cbc:Name')]
-    public string $Name;
+	/** @var string */
+	#[SerializedName('cbc:Name')]
+	public string $Name;
 
-    /** @var string */
-    #[SerializedName('cbc:LocaleCode')]
-    public string $LocaleCode;
+	/** @var string */
+	#[SerializedName('cbc:LocaleCode')]
+	public string $LocaleCode;
 }

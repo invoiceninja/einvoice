@@ -1,6 +1,6 @@
 <?php
 
-namespace Invoiceninja\Einvoice\Tests;
+namespace InvoiceNinja\EInvoice\Tests;
 
 use DOMDocument;
 use PHPUnit\Framework\TestCase;

@@ -1,10 +1,10 @@
-<?php
+<?php 
 
-namespace Invoiceninja\Einvoice\Models\FatturaPA\DatiSALType;
+namespace InvoiceNinja\EInvoice\Models\FatturaPA\DatiSALType;
 
 use DateTime;
 use DateTimeInterface;
-use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -18,6 +18,6 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiSAL
 {
-    /** @var integer */
-    public int $RiferimentoFase;
+	/** @var integer */
+	public int $RiferimentoFase;
 }

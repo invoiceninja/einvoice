@@ -1,12 +1,12 @@
-<?php
+<?php 
 
-namespace Invoiceninja\Einvoice\Models\Peppol\EmissionCalculationMethodType;
+namespace InvoiceNinja\EInvoice\Models\Peppol\EmissionCalculationMethodType;
 
 use DateTime;
 use DateTimeInterface;
-use Invoiceninja\Einvoice\Models\Normalizers\DecimalPrecision;
-use Invoiceninja\Einvoice\Models\Peppol\LocationType\MeasurementFromLocation;
-use Invoiceninja\Einvoice\Models\Peppol\LocationType\MeasurementToLocation;
+use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\LocationType\MeasurementFromLocation;
+use InvoiceNinja\EInvoice\Models\Peppol\LocationType\MeasurementToLocation;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -20,19 +20,19 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class EmissionCalculationMethod
 {
-    /** @var string */
-    #[SerializedName('cbc:CalculationMethodCode')]
-    public string $CalculationMethodCode;
+	/** @var string */
+	#[SerializedName('cbc:CalculationMethodCode')]
+	public string $CalculationMethodCode;
 
-    /** @var string */
-    #[SerializedName('cbc:FullnessIndicationCode')]
-    public string $FullnessIndicationCode;
+	/** @var string */
+	#[SerializedName('cbc:FullnessIndicationCode')]
+	public string $FullnessIndicationCode;
 
-    /** @var MeasurementFromLocation */
-    #[SerializedName('cac:MeasurementFromLocation')]
-    public $MeasurementFromLocation;
+	/** @var MeasurementFromLocation */
+	#[SerializedName('cac:MeasurementFromLocation')]
+	public $MeasurementFromLocation;
 
-    /** @var MeasurementToLocation */
-    #[SerializedName('cac:MeasurementToLocation')]
-    public $MeasurementToLocation;
+	/** @var MeasurementToLocation */
+	#[SerializedName('cac:MeasurementToLocation')]
+	public $MeasurementToLocation;
 }

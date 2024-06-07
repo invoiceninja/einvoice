@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\EmissionCalculationMethodType;
 
@@ -20,19 +20,19 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class EmissionCalculationMethod
 {
-	/** @var string */
-	#[SerializedName('cbc:CalculationMethodCode')]
-	public string $CalculationMethodCode;
+    /** @var string */
+    #[SerializedName('cbc:CalculationMethodCode')]
+    public string $CalculationMethodCode;
 
-	/** @var string */
-	#[SerializedName('cbc:FullnessIndicationCode')]
-	public string $FullnessIndicationCode;
+    /** @var string */
+    #[SerializedName('cbc:FullnessIndicationCode')]
+    public string $FullnessIndicationCode;
 
-	/** @var MeasurementFromLocation */
-	#[SerializedName('cac:MeasurementFromLocation')]
-	public $MeasurementFromLocation;
+    /** @var MeasurementFromLocation */
+    #[SerializedName('cac:MeasurementFromLocation')]
+    public $MeasurementFromLocation;
 
-	/** @var MeasurementToLocation */
-	#[SerializedName('cac:MeasurementToLocation')]
-	public $MeasurementToLocation;
+    /** @var MeasurementToLocation */
+    #[SerializedName('cac:MeasurementToLocation')]
+    public $MeasurementToLocation;
 }

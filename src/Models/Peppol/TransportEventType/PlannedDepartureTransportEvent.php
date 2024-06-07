@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\TransportEventType;
 
@@ -24,53 +24,53 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class PlannedDepartureTransportEvent
 {
-	/** @var string */
-	#[SerializedName('cbc:IdentificationID')]
-	public string $IdentificationID;
+    /** @var string */
+    #[SerializedName('cbc:IdentificationID')]
+    public string $IdentificationID;
 
-	/** @var DateTime */
-	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
-	#[SerializedName('cbc:OccurrenceDate')]
-	public DateTime $OccurrenceDate;
+    /** @var DateTime */
+    #[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+    #[SerializedName('cbc:OccurrenceDate')]
+    public DateTime $OccurrenceDate;
 
-	/** @var DateTime */
-	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
-	#[SerializedName('cbc:OccurrenceTime')]
-	public DateTime $OccurrenceTime;
+    /** @var DateTime */
+    #[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
+    #[SerializedName('cbc:OccurrenceTime')]
+    public DateTime $OccurrenceTime;
 
-	/** @var string */
-	#[SerializedName('cbc:TransportEventTypeCode')]
-	public string $TransportEventTypeCode;
+    /** @var string */
+    #[SerializedName('cbc:TransportEventTypeCode')]
+    public string $TransportEventTypeCode;
 
-	/** @var string */
-	#[SerializedName('cbc:Description')]
-	public string $Description;
+    /** @var string */
+    #[SerializedName('cbc:Description')]
+    public string $Description;
 
-	/** @var bool */
-	#[SerializedName('cbc:CompletionIndicator')]
-	public bool $CompletionIndicator;
+    /** @var bool */
+    #[SerializedName('cbc:CompletionIndicator')]
+    public bool $CompletionIndicator;
 
-	/** @var ReportedShipment */
-	#[SerializedName('cac:ReportedShipment')]
-	public $ReportedShipment;
+    /** @var ReportedShipment */
+    #[SerializedName('cac:ReportedShipment')]
+    public $ReportedShipment;
 
-	/** @var CurrentStatus[] */
-	#[SerializedName('cac:CurrentStatus')]
-	public array $CurrentStatus;
+    /** @var CurrentStatus[] */
+    #[SerializedName('cac:CurrentStatus')]
+    public array $CurrentStatus;
 
-	/** @var Contact[] */
-	#[SerializedName('cac:Contact')]
-	public array $Contact;
+    /** @var Contact[] */
+    #[SerializedName('cac:Contact')]
+    public array $Contact;
 
-	/** @var Location */
-	#[SerializedName('cac:Location')]
-	public $Location;
+    /** @var Location */
+    #[SerializedName('cac:Location')]
+    public $Location;
 
-	/** @var Signature */
-	#[SerializedName('cac:Signature')]
-	public $Signature;
+    /** @var Signature */
+    #[SerializedName('cac:Signature')]
+    public $Signature;
 
-	/** @var Period[] */
-	#[SerializedName('cac:Period')]
-	public array $Period;
+    /** @var Period[] */
+    #[SerializedName('cac:Period')]
+    public array $Period;
 }

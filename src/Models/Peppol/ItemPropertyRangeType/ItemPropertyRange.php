@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\ItemPropertyRangeType;
 
@@ -18,11 +18,11 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class ItemPropertyRange
 {
-	/** @var string */
-	#[SerializedName('cbc:MinimumValue')]
-	public string $MinimumValue;
+    /** @var string */
+    #[SerializedName('cbc:MinimumValue')]
+    public string $MinimumValue;
 
-	/** @var string */
-	#[SerializedName('cbc:MaximumValue')]
-	public string $MaximumValue;
+    /** @var string */
+    #[SerializedName('cbc:MaximumValue')]
+    public string $MaximumValue;
 }

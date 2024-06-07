@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol;
 
@@ -10,15 +10,15 @@ use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 
 class DependentPriceReference
 {
-	/** @var string */
-	#[SerializedName('cbc:Percent')]
-	public string $Percent;
+    /** @var string */
+    #[SerializedName('cbc:Percent')]
+    public string $Percent;
 
-	/** @var LocationAddress */
-	#[SerializedName('cac:LocationAddress')]
-	public $LocationAddress;
+    /** @var LocationAddress */
+    #[SerializedName('cac:LocationAddress')]
+    public $LocationAddress;
 
-	/** @var DependentLineReference */
-	#[SerializedName('cac:DependentLineReference')]
-	public $DependentLineReference;
+    /** @var DependentLineReference */
+    #[SerializedName('cac:DependentLineReference')]
+    public $DependentLineReference;
 }

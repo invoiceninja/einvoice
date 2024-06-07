@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\StowageType;
 
@@ -19,15 +19,15 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class Stowage
 {
-	/** @var string */
-	#[SerializedName('cbc:LocationID')]
-	public string $LocationID;
+    /** @var string */
+    #[SerializedName('cbc:LocationID')]
+    public string $LocationID;
 
-	/** @var string */
-	#[SerializedName('cbc:Location')]
-	public string $Location;
+    /** @var string */
+    #[SerializedName('cbc:Location')]
+    public string $Location;
 
-	/** @var MeasurementDimension[] */
-	#[SerializedName('cac:MeasurementDimension')]
-	public array $MeasurementDimension;
+    /** @var MeasurementDimension[] */
+    #[SerializedName('cac:MeasurementDimension')]
+    public array $MeasurementDimension;
 }

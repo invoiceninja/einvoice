@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\FatturaPA\DatiDocumentiCorrelatiType;
 
@@ -18,35 +18,35 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiFattureCollegate
 {
-	/** @var integer */
-	public int $RiferimentoNumeroLinea;
+    /** @var integer */
+    public int $RiferimentoNumeroLinea;
 
-	/** @var string */
-	#[Length(min: 1, max: 20)]
-	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,20}/u')]
-	public string $IdDocumento;
+    /** @var string */
+    #[Length(min: 1, max: 20)]
+    #[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,20}/u')]
+    public string $IdDocumento;
 
-	/** @var DateTime */
-	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
-	public DateTime $Data;
+    /** @var DateTime */
+    #[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+    public DateTime $Data;
 
-	/** @var string */
-	#[Length(min: 1, max: 20)]
-	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,20}/u')]
-	public string $NumItem;
+    /** @var string */
+    #[Length(min: 1, max: 20)]
+    #[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,20}/u')]
+    public string $NumItem;
 
-	/** @var string */
-	#[Length(min: 1, max: 100)]
-	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,100}/u')]
-	public string $CodiceCommessaConvenzione;
+    /** @var string */
+    #[Length(min: 1, max: 100)]
+    #[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,100}/u')]
+    public string $CodiceCommessaConvenzione;
 
-	/** @var string */
-	#[Length(min: 1, max: 15)]
-	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,15}/u')]
-	public string $CodiceCUP;
+    /** @var string */
+    #[Length(min: 1, max: 15)]
+    #[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,15}/u')]
+    public string $CodiceCUP;
 
-	/** @var string */
-	#[Length(min: 1, max: 15)]
-	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,15}/u')]
-	public string $CodiceCIG;
+    /** @var string */
+    #[Length(min: 1, max: 15)]
+    #[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,15}/u')]
+    public string $CodiceCIG;
 }

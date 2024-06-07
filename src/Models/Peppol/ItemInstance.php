@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol;
 
@@ -12,38 +12,38 @@ use Symfony\Component\Validator\Constraints\Date;
 
 class ItemInstance
 {
-	/** @var string */
-	#[SerializedName('cbc:ProductTraceID')]
-	public string $ProductTraceID;
+    /** @var string */
+    #[SerializedName('cbc:ProductTraceID')]
+    public string $ProductTraceID;
 
-	/** @var DateTime */
-	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
-	#[SerializedName('cbc:ManufactureDate')]
-	public DateTime $ManufactureDate;
+    /** @var DateTime */
+    #[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+    #[SerializedName('cbc:ManufactureDate')]
+    public DateTime $ManufactureDate;
 
-	/** @var DateTime */
-	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
-	#[SerializedName('cbc:ManufactureTime')]
-	public DateTime $ManufactureTime;
+    /** @var DateTime */
+    #[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
+    #[SerializedName('cbc:ManufactureTime')]
+    public DateTime $ManufactureTime;
 
-	/** @var DateTime */
-	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
-	#[SerializedName('cbc:BestBeforeDate')]
-	public DateTime $BestBeforeDate;
+    /** @var DateTime */
+    #[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+    #[SerializedName('cbc:BestBeforeDate')]
+    public DateTime $BestBeforeDate;
 
-	/** @var string */
-	#[SerializedName('cbc:RegistrationID')]
-	public string $RegistrationID;
+    /** @var string */
+    #[SerializedName('cbc:RegistrationID')]
+    public string $RegistrationID;
 
-	/** @var string */
-	#[SerializedName('cbc:SerialID')]
-	public string $SerialID;
+    /** @var string */
+    #[SerializedName('cbc:SerialID')]
+    public string $SerialID;
 
-	/** @var AdditionalItemProperty[] */
-	#[SerializedName('cac:AdditionalItemProperty')]
-	public array $AdditionalItemProperty;
+    /** @var AdditionalItemProperty[] */
+    #[SerializedName('cac:AdditionalItemProperty')]
+    public array $AdditionalItemProperty;
 
-	/** @var LotIdentification */
-	#[SerializedName('cac:LotIdentification')]
-	public $LotIdentification;
+    /** @var LotIdentification */
+    #[SerializedName('cac:LotIdentification')]
+    public $LotIdentification;
 }

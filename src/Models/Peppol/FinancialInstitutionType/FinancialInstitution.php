@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\FinancialInstitutionType;
 
@@ -19,15 +19,15 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class FinancialInstitution
 {
-	/** @var string */
-	#[SerializedName('cbc:ID')]
-	public string $ID;
+    /** @var string */
+    #[SerializedName('cbc:ID')]
+    public string $ID;
 
-	/** @var string */
-	#[SerializedName('cbc:Name')]
-	public string $Name;
+    /** @var string */
+    #[SerializedName('cbc:Name')]
+    public string $Name;
 
-	/** @var Address */
-	#[SerializedName('cac:Address')]
-	public $Address;
+    /** @var Address */
+    #[SerializedName('cac:Address')]
+    public $Address;
 }

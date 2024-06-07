@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\FatturaPA;
 
@@ -9,13 +9,13 @@ use Symfony\Component\Validator\Constraints\Regex;
 
 class DatiBollo
 {
-	private array $BolloVirtuale_array = ['SI'];
+    private array $BolloVirtuale_array = ['SI'];
 
-	/** @var string */
-	public string $BolloVirtuale;
+    /** @var string */
+    public string $BolloVirtuale;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
-	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
-	public string $ImportoBollo;
+    /** @var string */
+    #[DecimalPrecision(2)]
+    #[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
+    public string $ImportoBollo;
 }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\FatturaPA\DatiSALType;
 
@@ -18,6 +18,6 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiSAL
 {
-	/** @var integer */
-	public int $RiferimentoFase;
+    /** @var integer */
+    public int $RiferimentoFase;
 }

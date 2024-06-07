@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol;
 
@@ -21,42 +21,42 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class MonetaryTotal
 {
-	/** @var LineExtensionAmount */
-	#[SerializedName('cbc:LineExtensionAmount')]
-	public $LineExtensionAmount;
+    /** @var LineExtensionAmount */
+    #[SerializedName('cbc:LineExtensionAmount')]
+    public $LineExtensionAmount;
 
-	/** @var TaxExclusiveAmount */
-	#[SerializedName('cbc:TaxExclusiveAmount')]
-	public $TaxExclusiveAmount;
+    /** @var TaxExclusiveAmount */
+    #[SerializedName('cbc:TaxExclusiveAmount')]
+    public $TaxExclusiveAmount;
 
-	/** @var TaxInclusiveAmount */
-	#[SerializedName('cbc:TaxInclusiveAmount')]
-	public $TaxInclusiveAmount;
+    /** @var TaxInclusiveAmount */
+    #[SerializedName('cbc:TaxInclusiveAmount')]
+    public $TaxInclusiveAmount;
 
-	/** @var AllowanceTotalAmount */
-	#[SerializedName('cbc:AllowanceTotalAmount')]
-	public $AllowanceTotalAmount;
+    /** @var AllowanceTotalAmount */
+    #[SerializedName('cbc:AllowanceTotalAmount')]
+    public $AllowanceTotalAmount;
 
-	/** @var ChargeTotalAmount */
-	#[SerializedName('cbc:ChargeTotalAmount')]
-	public $ChargeTotalAmount;
+    /** @var ChargeTotalAmount */
+    #[SerializedName('cbc:ChargeTotalAmount')]
+    public $ChargeTotalAmount;
 
-	/** @var PrepaidAmount */
-	#[SerializedName('cbc:PrepaidAmount')]
-	public $PrepaidAmount;
+    /** @var PrepaidAmount */
+    #[SerializedName('cbc:PrepaidAmount')]
+    public $PrepaidAmount;
 
-	/** @var PayableRoundingAmount */
-	#[SerializedName('cbc:PayableRoundingAmount')]
-	public $PayableRoundingAmount;
+    /** @var PayableRoundingAmount */
+    #[SerializedName('cbc:PayableRoundingAmount')]
+    public $PayableRoundingAmount;
 
-	/** @var PayableAmount */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	#[SerializedName('cbc:PayableAmount')]
-	public $PayableAmount;
+    /** @var PayableAmount */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    #[SerializedName('cbc:PayableAmount')]
+    public $PayableAmount;
 
-	/** @var PayableAlternativeAmount */
-	#[SerializedName('cbc:PayableAlternativeAmount')]
-	public $PayableAlternativeAmount;
+    /** @var PayableAlternativeAmount */
+    #[SerializedName('cbc:PayableAlternativeAmount')]
+    public $PayableAlternativeAmount;
 }

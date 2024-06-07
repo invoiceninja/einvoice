@@ -9,7 +9,6 @@
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
-
 namespace Invoiceninja\Einvoice\Writer\Types;
 
 use DOMElement;
@@ -25,7 +24,7 @@ class CccType
     public array $type_map = [];
 
     public array $elements = [];
-    
+
     private array $stub_validation =
         [
            "name" => null,
@@ -43,7 +42,7 @@ class CccType
         $this->document = new \DOMDocument();
         $this->document->load($this->path);
     }
-    
+
     /**
      * getPrimativeType
      *
@@ -60,7 +59,7 @@ class CccType
 
         throw new \Exception("CCT => Could not find type {$name}");
     }
-    
+
     /**
      * getXPath
      *
@@ -73,7 +72,7 @@ class CccType
         $xpath = new \DOMXPath($this->document);
         return $xpath->query($path, $element);
     }
-        
+
     /**
      * getNamedType
      *

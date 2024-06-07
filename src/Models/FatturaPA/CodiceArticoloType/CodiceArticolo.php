@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\FatturaPA\CodiceArticoloType;
 
@@ -18,12 +18,12 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class CodiceArticolo
 {
-	/** @var string */
-	#[Length(min: 1, max: 35)]
-	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,35}/u')]
-	public string $CodiceTipo;
+    /** @var string */
+    #[Length(min: 1, max: 35)]
+    #[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,35}/u')]
+    public string $CodiceTipo;
 
-	/** @var string */
-	#[Length(min: 1, max: 35)]
-	public string $CodiceValore;
+    /** @var string */
+    #[Length(min: 1, max: 35)]
+    public string $CodiceValore;
 }

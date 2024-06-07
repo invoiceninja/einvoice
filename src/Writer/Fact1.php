@@ -19,7 +19,6 @@ use Invoiceninja\Einvoice\Writer\Types\ExtType;
 
 class Fact1 extends BaseStandard
 {
-
     public string $prefix = "xsd";
 
     private ExtType $extType;
@@ -82,7 +81,7 @@ class Fact1 extends BaseStandard
         'LegalMonetaryTotal' => 0,
         'InvoiceLine' => 0,
     ];
-    
+
     private array $type_tracker = [];
 
     public string $path = "src/Standards/FACT1/UBL-Invoice-2.1.xsd";
@@ -92,7 +91,7 @@ class Fact1 extends BaseStandard
     public array $classMap = [
 
     ];
-        
+
     /** @var array $exclusion_nodes - array of nodes to exclude from the output*/
     private array $exclusion_nodes = [
         'ext:UBLExtensions',
@@ -118,7 +117,7 @@ class Fact1 extends BaseStandard
         ->childTypes()
         ->updateRules()
         ->write();
-        
+
         return $this;
 
     }
@@ -199,13 +198,13 @@ class Fact1 extends BaseStandard
         $element_collection = collect($this->cacType->elements);
 
         $type_map = collect($this->data)
-        ->map(function ($type){
+        ->map(function ($type) {
 
             return collect($type['elements'])
-            ->filter(function ($element){
+            ->filter(function ($element) {
                 return stripos($element['base_type'], 'Type') !== false && !in_array($element['base_type'], $this->type_tracker);
             })
-            ->map(function ($element){
+            ->map(function ($element) {
                 $this->type_tracker[] = $element['base_type'];
                 return $element['base_type'];
             })
@@ -213,29 +212,29 @@ class Fact1 extends BaseStandard
 
         })->flatten()
         ->unique()
-        ->map(function ($type){
-            
-            $this->type_tracker[] = $type;
-            return $this->cacType->typesForType($type);
-        })
-        ->flatten()
-        ->unique()
-        ->map(function ($type){
-            
-            $this->type_tracker[] = $type;
-            return $this->cacType->typesForType($type);
-        })
-        ->flatten()
-        ->unique()
-        ->map(function ($type){
-            
+        ->map(function ($type) {
+
             $this->type_tracker[] = $type;
             return $this->cacType->typesForType($type);
         })
         ->flatten()
         ->unique()
         ->map(function ($type) {
-            
+
+            $this->type_tracker[] = $type;
+            return $this->cacType->typesForType($type);
+        })
+        ->flatten()
+        ->unique()
+        ->map(function ($type) {
+
+            $this->type_tracker[] = $type;
+            return $this->cacType->typesForType($type);
+        })
+        ->flatten()
+        ->unique()
+        ->map(function ($type) {
+
             $this->type_tracker[] = $type;
             return $this->cacType->typesForType($type);
         })
@@ -258,10 +257,10 @@ class Fact1 extends BaseStandard
 
         collect($this->type_tracker)
         ->unique()
-        ->each(function ($type) use($element_collection){
+        ->each(function ($type) use ($element_collection) {
 
-            $type_array = $element_collection->where('type',$type)->first();
-      
+            $type_array = $element_collection->where('type', $type)->first();
+
             $new_set = [];
             foreach($type_array['elements'] as $stub) {
                 $new_set[$stub['name']] = $stub;

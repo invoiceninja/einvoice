@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\BillingReferenceLineType;
 
@@ -20,15 +20,15 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class BillingReferenceLine
 {
-	/** @var string */
-	#[SerializedName('cbc:ID')]
-	public string $ID;
+    /** @var string */
+    #[SerializedName('cbc:ID')]
+    public string $ID;
 
-	/** @var Amount */
-	#[SerializedName('cbc:Amount')]
-	public $Amount;
+    /** @var Amount */
+    #[SerializedName('cbc:Amount')]
+    public $Amount;
 
-	/** @var AllowanceCharge[] */
-	#[SerializedName('cac:AllowanceCharge')]
-	public array $AllowanceCharge;
+    /** @var AllowanceCharge[] */
+    #[SerializedName('cac:AllowanceCharge')]
+    public array $AllowanceCharge;
 }

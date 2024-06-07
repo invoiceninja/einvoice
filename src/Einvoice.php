@@ -132,8 +132,6 @@ class EInvoice
         $classMetadataFactory = new ClassMetadataFactory(new AttributeLoader());
         $metadataAwareNameConverter = new MetadataAwareNameConverter($classMetadataFactory);
 
-        $discriminator = new ClassDiscriminatorFromClassMetadata($classMetadataFactory);
-
         $normalizer = new ObjectNormalizer($classMetadataFactory, $metadataAwareNameConverter, null, $propertyInfo);
 
         $normalizers = [  new DateTimeNormalizer(), $normalizer,  new ArrayDenormalizer() , ];
@@ -146,20 +144,20 @@ class EInvoice
         return $output == 'xml' ? $this->decorateXml($data) : $data;
 
     }
-    
+
     /**
      * DecorateXml
      *
      * Removes unnecessary tags.
-     * 
+     *
      * Also to be used to decorate based on the required standard
-     * 
+     *
      * @param  string $data
      * @return string
      */
     private function decorateXml(string $data): string
     {
-        
+
         $data = str_replace(['<response>','</response>'], '', $data);
         $data = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $data);
 

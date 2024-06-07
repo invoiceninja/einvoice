@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol;
 
@@ -17,43 +17,43 @@ use Symfony\Component\Validator\Constraints\Date;
 
 class PaymentMandate
 {
-	/** @var string */
-	#[SerializedName('cbc:ID')]
-	public string $ID;
+    /** @var string */
+    #[SerializedName('cbc:ID')]
+    public string $ID;
 
-	/** @var string */
-	#[SerializedName('cbc:MandateTypeCode')]
-	public string $MandateTypeCode;
+    /** @var string */
+    #[SerializedName('cbc:MandateTypeCode')]
+    public string $MandateTypeCode;
 
-	/** @var string */
-	#[SerializedName('cbc:MaximumPaymentInstructionsNumeric')]
-	public string $MaximumPaymentInstructionsNumeric;
+    /** @var string */
+    #[SerializedName('cbc:MaximumPaymentInstructionsNumeric')]
+    public string $MaximumPaymentInstructionsNumeric;
 
-	/** @var MaximumPaidAmount */
-	#[SerializedName('cbc:MaximumPaidAmount')]
-	public $MaximumPaidAmount;
+    /** @var MaximumPaidAmount */
+    #[SerializedName('cbc:MaximumPaidAmount')]
+    public $MaximumPaidAmount;
 
-	/** @var string */
-	#[SerializedName('cbc:SignatureID')]
-	public string $SignatureID;
+    /** @var string */
+    #[SerializedName('cbc:SignatureID')]
+    public string $SignatureID;
 
-	/** @var PayerParty */
-	#[SerializedName('cac:PayerParty')]
-	public $PayerParty;
+    /** @var PayerParty */
+    #[SerializedName('cac:PayerParty')]
+    public $PayerParty;
 
-	/** @var PayerFinancialAccount */
-	#[SerializedName('cac:PayerFinancialAccount')]
-	public $PayerFinancialAccount;
+    /** @var PayerFinancialAccount */
+    #[SerializedName('cac:PayerFinancialAccount')]
+    public $PayerFinancialAccount;
 
-	/** @var ValidityPeriod */
-	#[SerializedName('cac:ValidityPeriod')]
-	public $ValidityPeriod;
+    /** @var ValidityPeriod */
+    #[SerializedName('cac:ValidityPeriod')]
+    public $ValidityPeriod;
 
-	/** @var PaymentReversalPeriod */
-	#[SerializedName('cac:PaymentReversalPeriod')]
-	public $PaymentReversalPeriod;
+    /** @var PaymentReversalPeriod */
+    #[SerializedName('cac:PaymentReversalPeriod')]
+    public $PaymentReversalPeriod;
 
-	/** @var Clause[] */
-	#[SerializedName('cac:Clause')]
-	public array $Clause;
+    /** @var Clause[] */
+    #[SerializedName('cac:Clause')]
+    public array $Clause;
 }

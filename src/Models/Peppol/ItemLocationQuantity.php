@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol;
 
@@ -21,52 +21,52 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class ItemLocationQuantity
 {
-	/** @var string */
-	#[DecimalPrecision(2)]
-	#[SerializedName('cbc:LeadTimeMeasure')]
-	public string $LeadTimeMeasure;
+    /** @var string */
+    #[DecimalPrecision(2)]
+    #[SerializedName('cbc:LeadTimeMeasure')]
+    public string $LeadTimeMeasure;
 
-	/** @var MinimumQuantity */
-	#[SerializedName('cbc:MinimumQuantity')]
-	public $MinimumQuantity;
+    /** @var MinimumQuantity */
+    #[SerializedName('cbc:MinimumQuantity')]
+    public $MinimumQuantity;
 
-	/** @var MaximumQuantity */
-	#[SerializedName('cbc:MaximumQuantity')]
-	public $MaximumQuantity;
+    /** @var MaximumQuantity */
+    #[SerializedName('cbc:MaximumQuantity')]
+    public $MaximumQuantity;
 
-	/** @var bool */
-	#[SerializedName('cbc:HazardousRiskIndicator')]
-	public bool $HazardousRiskIndicator;
+    /** @var bool */
+    #[SerializedName('cbc:HazardousRiskIndicator')]
+    public bool $HazardousRiskIndicator;
 
-	/** @var string */
-	#[SerializedName('cbc:TradingRestrictions')]
-	public string $TradingRestrictions;
+    /** @var string */
+    #[SerializedName('cbc:TradingRestrictions')]
+    public string $TradingRestrictions;
 
-	/** @var ApplicableTerritoryAddress[] */
-	#[SerializedName('cac:ApplicableTerritoryAddress')]
-	public array $ApplicableTerritoryAddress;
+    /** @var ApplicableTerritoryAddress[] */
+    #[SerializedName('cac:ApplicableTerritoryAddress')]
+    public array $ApplicableTerritoryAddress;
 
-	/** @var Price */
-	#[SerializedName('cac:Price')]
-	public $Price;
+    /** @var Price */
+    #[SerializedName('cac:Price')]
+    public $Price;
 
-	/** @var DeliveryUnit[] */
-	#[SerializedName('cac:DeliveryUnit')]
-	public array $DeliveryUnit;
+    /** @var DeliveryUnit[] */
+    #[SerializedName('cac:DeliveryUnit')]
+    public array $DeliveryUnit;
 
-	/** @var ApplicableTaxCategory[] */
-	#[SerializedName('cac:ApplicableTaxCategory')]
-	public array $ApplicableTaxCategory;
+    /** @var ApplicableTaxCategory[] */
+    #[SerializedName('cac:ApplicableTaxCategory')]
+    public array $ApplicableTaxCategory;
 
-	/** @var Package */
-	#[SerializedName('cac:Package')]
-	public $Package;
+    /** @var Package */
+    #[SerializedName('cac:Package')]
+    public $Package;
 
-	/** @var AllowanceCharge[] */
-	#[SerializedName('cac:AllowanceCharge')]
-	public array $AllowanceCharge;
+    /** @var AllowanceCharge[] */
+    #[SerializedName('cac:AllowanceCharge')]
+    public array $AllowanceCharge;
 
-	/** @var DependentPriceReference */
-	#[SerializedName('cac:DependentPriceReference')]
-	public $DependentPriceReference;
+    /** @var DependentPriceReference */
+    #[SerializedName('cac:DependentPriceReference')]
+    public $DependentPriceReference;
 }

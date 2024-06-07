@@ -16,15 +16,14 @@ use Illuminate\Support\Collection;
 
 class BaseStandard
 {
-
     public \DomDocument $document;
-    
+
     public array $type_map = [];
-    
+
     public array $data = [];
 
     public string $path = "";
-    
+
     private string $output_directory = "src/Schema/";
 
     public string $standard = "";
@@ -59,9 +58,9 @@ class BaseStandard
         return ltrim($result, '_');
     }
 
-    public function write(): self 
+    public function write(): self
     {
-        
+
         $fp = fopen("src/Schema/{$this->standard}/{$this->standard}.json", 'w');
         fwrite($fp, json_encode((object)$this->data, JSON_PRETTY_PRINT));
         fclose($fp);

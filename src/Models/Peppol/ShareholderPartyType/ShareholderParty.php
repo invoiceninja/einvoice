@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\ShareholderPartyType;
 
@@ -19,11 +19,11 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class ShareholderParty
 {
-	/** @var string */
-	#[SerializedName('cbc:PartecipationPercent')]
-	public string $PartecipationPercent;
+    /** @var string */
+    #[SerializedName('cbc:PartecipationPercent')]
+    public string $PartecipationPercent;
 
-	/** @var Party */
-	#[SerializedName('cac:Party')]
-	public $Party;
+    /** @var Party */
+    #[SerializedName('cac:Party')]
+    public $Party;
 }

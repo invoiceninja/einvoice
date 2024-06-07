@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol;
 
@@ -14,14 +14,14 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class PriceExtension
 {
-	/** @var Amount */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	#[SerializedName('cbc:Amount')]
-	public $Amount;
+    /** @var Amount */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    #[SerializedName('cbc:Amount')]
+    public $Amount;
 
-	/** @var TaxTotal[] */
-	#[SerializedName('cac:TaxTotal')]
-	public array $TaxTotal;
+    /** @var TaxTotal[] */
+    #[SerializedName('cac:TaxTotal')]
+    public array $TaxTotal;
 }

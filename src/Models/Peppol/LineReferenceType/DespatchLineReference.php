@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\LineReferenceType;
 
@@ -19,19 +19,19 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DespatchLineReference
 {
-	/** @var string */
-	#[SerializedName('cbc:LineID')]
-	public string $LineID;
+    /** @var string */
+    #[SerializedName('cbc:LineID')]
+    public string $LineID;
 
-	/** @var string */
-	#[SerializedName('cbc:UUID')]
-	public string $UUID;
+    /** @var string */
+    #[SerializedName('cbc:UUID')]
+    public string $UUID;
 
-	/** @var string */
-	#[SerializedName('cbc:LineStatusCode')]
-	public string $LineStatusCode;
+    /** @var string */
+    #[SerializedName('cbc:LineStatusCode')]
+    public string $LineStatusCode;
 
-	/** @var DocumentReference */
-	#[SerializedName('cac:DocumentReference')]
-	public $DocumentReference;
+    /** @var DocumentReference */
+    #[SerializedName('cac:DocumentReference')]
+    public $DocumentReference;
 }

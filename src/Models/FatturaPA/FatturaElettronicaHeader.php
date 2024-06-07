@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\FatturaPA;
 
@@ -18,32 +18,32 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class FatturaElettronicaHeader
 {
-	/** @var DatiTrasmissione */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	public $DatiTrasmissione;
+    /** @var DatiTrasmissione */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    public $DatiTrasmissione;
 
-	/** @var CedentePrestatore */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	public $CedentePrestatore;
+    /** @var CedentePrestatore */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    public $CedentePrestatore;
 
-	/** @var RappresentanteFiscale */
-	public $RappresentanteFiscale;
+    /** @var RappresentanteFiscale */
+    public $RappresentanteFiscale;
 
-	/** @var CessionarioCommittente */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	public $CessionarioCommittente;
+    /** @var CessionarioCommittente */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    public $CessionarioCommittente;
 
-	/** @var TerzoIntermediarioOSoggettoEmittente */
-	public $TerzoIntermediarioOSoggettoEmittente;
-	private array $SoggettoEmittente_array = ['CC', 'TZ'];
+    /** @var TerzoIntermediarioOSoggettoEmittente */
+    public $TerzoIntermediarioOSoggettoEmittente;
+    private array $SoggettoEmittente_array = ['CC', 'TZ'];
 
-	/** @var string */
-	#[Choice(['CC', 'TZ'])]
-	public string $SoggettoEmittente;
+    /** @var string */
+    #[Choice(['CC', 'TZ'])]
+    public string $SoggettoEmittente;
 }

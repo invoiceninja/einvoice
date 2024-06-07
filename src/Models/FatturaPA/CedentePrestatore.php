@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\FatturaPA;
 
@@ -20,29 +20,29 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class CedentePrestatore
 {
-	/** @var DatiAnagrafici */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	public $DatiAnagrafici;
+    /** @var DatiAnagrafici */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    public $DatiAnagrafici;
 
-	/** @var Sede */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	public $Sede;
+    /** @var Sede */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    public $Sede;
 
-	/** @var StabileOrganizzazione */
-	public $StabileOrganizzazione;
+    /** @var StabileOrganizzazione */
+    public $StabileOrganizzazione;
 
-	/** @var IscrizioneREA */
-	public $IscrizioneREA;
+    /** @var IscrizioneREA */
+    public $IscrizioneREA;
 
-	/** @var Contatti */
-	public $Contatti;
+    /** @var Contatti */
+    public $Contatti;
 
-	/** @var string */
-	#[Length(min: 1, max: 20)]
-	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,20}/u')]
-	public string $RiferimentoAmministrazione;
+    /** @var string */
+    #[Length(min: 1, max: 20)]
+    #[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,20}/u')]
+    public string $RiferimentoAmministrazione;
 }

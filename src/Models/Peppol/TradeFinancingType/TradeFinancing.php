@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\TradeFinancingType;
 
@@ -23,34 +23,34 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class TradeFinancing
 {
-	/** @var string */
-	#[SerializedName('cbc:ID')]
-	public string $ID;
+    /** @var string */
+    #[SerializedName('cbc:ID')]
+    public string $ID;
 
-	/** @var string */
-	#[SerializedName('cbc:FinancingInstrumentCode')]
-	public string $FinancingInstrumentCode;
+    /** @var string */
+    #[SerializedName('cbc:FinancingInstrumentCode')]
+    public string $FinancingInstrumentCode;
 
-	/** @var ContractDocumentReference */
-	#[SerializedName('cac:ContractDocumentReference')]
-	public $ContractDocumentReference;
+    /** @var ContractDocumentReference */
+    #[SerializedName('cac:ContractDocumentReference')]
+    public $ContractDocumentReference;
 
-	/** @var DocumentReference[] */
-	#[SerializedName('cac:DocumentReference')]
-	public array $DocumentReference;
+    /** @var DocumentReference[] */
+    #[SerializedName('cac:DocumentReference')]
+    public array $DocumentReference;
 
-	/** @var FinancingParty */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	#[SerializedName('cac:FinancingParty')]
-	public $FinancingParty;
+    /** @var FinancingParty */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    #[SerializedName('cac:FinancingParty')]
+    public $FinancingParty;
 
-	/** @var FinancingFinancialAccount */
-	#[SerializedName('cac:FinancingFinancialAccount')]
-	public $FinancingFinancialAccount;
+    /** @var FinancingFinancialAccount */
+    #[SerializedName('cac:FinancingFinancialAccount')]
+    public $FinancingFinancialAccount;
 
-	/** @var Clause[] */
-	#[SerializedName('cac:Clause')]
-	public array $Clause;
+    /** @var Clause[] */
+    #[SerializedName('cac:Clause')]
+    public array $Clause;
 }

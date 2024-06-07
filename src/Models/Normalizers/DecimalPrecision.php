@@ -12,7 +12,7 @@
 namespace Invoiceninja\Einvoice\Models\Normalizers;
 
 #[\Attribute(\Attribute::TARGET_PROPERTY)]
-class DecimalPrecision 
+class DecimalPrecision
 {
     public int $precision;
 

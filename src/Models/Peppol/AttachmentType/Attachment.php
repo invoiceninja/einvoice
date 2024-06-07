@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\AttachmentType;
 
@@ -19,11 +19,11 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class Attachment
 {
-	/** @var binary */
-	#[SerializedName('cbc:EmbeddedDocumentBinaryObject')]
-	public \binary $EmbeddedDocumentBinaryObject;
+    /** @var binary */
+    #[SerializedName('cbc:EmbeddedDocumentBinaryObject')]
+    public \binary $EmbeddedDocumentBinaryObject;
 
-	/** @var ExternalReference */
-	#[SerializedName('cac:ExternalReference')]
-	public $ExternalReference;
+    /** @var ExternalReference */
+    #[SerializedName('cac:ExternalReference')]
+    public $ExternalReference;
 }

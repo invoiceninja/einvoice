@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\CountryType;
 
@@ -18,11 +18,11 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class FinalDestinationCountry
 {
-	/** @var string */
-	#[SerializedName('cbc:IdentificationCode')]
-	public string $IdentificationCode;
+    /** @var string */
+    #[SerializedName('cbc:IdentificationCode')]
+    public string $IdentificationCode;
 
-	/** @var string */
-	#[SerializedName('cbc:Name')]
-	public string $Name;
+    /** @var string */
+    #[SerializedName('cbc:Name')]
+    public string $Name;
 }

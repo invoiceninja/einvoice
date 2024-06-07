@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol;
 
@@ -9,11 +9,11 @@ use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 
 class ShareholderParty
 {
-	/** @var string */
-	#[SerializedName('cbc:PartecipationPercent')]
-	public string $PartecipationPercent;
+    /** @var string */
+    #[SerializedName('cbc:PartecipationPercent')]
+    public string $PartecipationPercent;
 
-	/** @var Party */
-	#[SerializedName('cac:Party')]
-	public $Party;
+    /** @var Party */
+    #[SerializedName('cac:Party')]
+    public $Party;
 }

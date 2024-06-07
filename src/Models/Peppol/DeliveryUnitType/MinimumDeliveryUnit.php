@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\DeliveryUnitType;
 
@@ -20,18 +20,18 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class MinimumDeliveryUnit
 {
-	/** @var BatchQuantity */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	#[SerializedName('cbc:BatchQuantity')]
-	public $BatchQuantity;
+    /** @var BatchQuantity */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    #[SerializedName('cbc:BatchQuantity')]
+    public $BatchQuantity;
 
-	/** @var ConsumerUnitQuantity */
-	#[SerializedName('cbc:ConsumerUnitQuantity')]
-	public $ConsumerUnitQuantity;
+    /** @var ConsumerUnitQuantity */
+    #[SerializedName('cbc:ConsumerUnitQuantity')]
+    public $ConsumerUnitQuantity;
 
-	/** @var bool */
-	#[SerializedName('cbc:HazardousRiskIndicator')]
-	public bool $HazardousRiskIndicator;
+    /** @var bool */
+    #[SerializedName('cbc:HazardousRiskIndicator')]
+    public bool $HazardousRiskIndicator;
 }

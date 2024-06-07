@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\TransportEquipmentSealType;
 
@@ -18,23 +18,23 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class TransportEquipmentSeal
 {
-	/** @var string */
-	#[SerializedName('cbc:ID')]
-	public string $ID;
+    /** @var string */
+    #[SerializedName('cbc:ID')]
+    public string $ID;
 
-	/** @var string */
-	#[SerializedName('cbc:SealIssuerTypeCode')]
-	public string $SealIssuerTypeCode;
+    /** @var string */
+    #[SerializedName('cbc:SealIssuerTypeCode')]
+    public string $SealIssuerTypeCode;
 
-	/** @var string */
-	#[SerializedName('cbc:Condition')]
-	public string $Condition;
+    /** @var string */
+    #[SerializedName('cbc:Condition')]
+    public string $Condition;
 
-	/** @var string */
-	#[SerializedName('cbc:SealStatusCode')]
-	public string $SealStatusCode;
+    /** @var string */
+    #[SerializedName('cbc:SealStatusCode')]
+    public string $SealStatusCode;
 
-	/** @var string */
-	#[SerializedName('cbc:SealingPartyType')]
-	public string $SealingPartyType;
+    /** @var string */
+    #[SerializedName('cbc:SealingPartyType')]
+    public string $SealingPartyType;
 }

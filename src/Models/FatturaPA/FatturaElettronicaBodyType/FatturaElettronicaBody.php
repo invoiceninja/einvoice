@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\FatturaPA\FatturaElettronicaBodyType;
 
@@ -23,24 +23,24 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class FatturaElettronicaBody
 {
-	/** @var DatiGenerali */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	public $DatiGenerali;
+    /** @var DatiGenerali */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    public $DatiGenerali;
 
-	/** @var DatiBeniServizi */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	public $DatiBeniServizi;
+    /** @var DatiBeniServizi */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    public $DatiBeniServizi;
 
-	/** @var DatiVeicoli */
-	public $DatiVeicoli;
+    /** @var DatiVeicoli */
+    public $DatiVeicoli;
 
-	/** @var DatiPagamento[] */
-	public array $DatiPagamento;
+    /** @var DatiPagamento[] */
+    public array $DatiPagamento;
 
-	/** @var Allegati[] */
-	public array $Allegati;
+    /** @var Allegati[] */
+    public array $Allegati;
 }

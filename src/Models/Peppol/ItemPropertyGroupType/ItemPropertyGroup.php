@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\ItemPropertyGroupType;
 
@@ -18,15 +18,15 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class ItemPropertyGroup
 {
-	/** @var string */
-	#[SerializedName('cbc:ID')]
-	public string $ID;
+    /** @var string */
+    #[SerializedName('cbc:ID')]
+    public string $ID;
 
-	/** @var string */
-	#[SerializedName('cbc:Name')]
-	public string $Name;
+    /** @var string */
+    #[SerializedName('cbc:Name')]
+    public string $Name;
 
-	/** @var string */
-	#[SerializedName('cbc:ImportanceCode')]
-	public string $ImportanceCode;
+    /** @var string */
+    #[SerializedName('cbc:ImportanceCode')]
+    public string $ImportanceCode;
 }

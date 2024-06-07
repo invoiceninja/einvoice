@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\AddressLineType;
 
@@ -18,7 +18,7 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class AddressLine
 {
-	/** @var string */
-	#[SerializedName('cbc:Line')]
-	public string $Line;
+    /** @var string */
+    #[SerializedName('cbc:Line')]
+    public string $Line;
 }

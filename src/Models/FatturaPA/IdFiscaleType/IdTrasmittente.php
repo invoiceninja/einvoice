@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\FatturaPA\IdFiscaleType;
 
@@ -18,12 +18,12 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class IdTrasmittente
 {
-	/** @var string */
-	#[Length(min: 2, max: 2)]
-	#[Regex('/[A-Z]{2}/')]
-	public string $IdPaese;
+    /** @var string */
+    #[Length(min: 2, max: 2)]
+    #[Regex('/[A-Z]{2}/')]
+    public string $IdPaese;
 
-	/** @var string */
-	#[Length(min: 1, max: 28)]
-	public string $IdCodice;
+    /** @var string */
+    #[Length(min: 1, max: 28)]
+    public string $IdCodice;
 }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\SupplierPartyType;
 
@@ -22,31 +22,31 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class AccountingSupplierParty
 {
-	/** @var string */
-	#[SerializedName('cbc:CustomerAssignedAccountID')]
-	public string $CustomerAssignedAccountID;
+    /** @var string */
+    #[SerializedName('cbc:CustomerAssignedAccountID')]
+    public string $CustomerAssignedAccountID;
 
-	/** @var string */
-	#[SerializedName('cbc:AdditionalAccountID')]
-	public string $AdditionalAccountID;
+    /** @var string */
+    #[SerializedName('cbc:AdditionalAccountID')]
+    public string $AdditionalAccountID;
 
-	/** @var string */
-	#[SerializedName('cbc:DataSendingCapability')]
-	public string $DataSendingCapability;
+    /** @var string */
+    #[SerializedName('cbc:DataSendingCapability')]
+    public string $DataSendingCapability;
 
-	/** @var Party */
-	#[SerializedName('cac:Party')]
-	public $Party;
+    /** @var Party */
+    #[SerializedName('cac:Party')]
+    public $Party;
 
-	/** @var DespatchContact */
-	#[SerializedName('cac:DespatchContact')]
-	public $DespatchContact;
+    /** @var DespatchContact */
+    #[SerializedName('cac:DespatchContact')]
+    public $DespatchContact;
 
-	/** @var AccountingContact */
-	#[SerializedName('cac:AccountingContact')]
-	public $AccountingContact;
+    /** @var AccountingContact */
+    #[SerializedName('cac:AccountingContact')]
+    public $AccountingContact;
 
-	/** @var SellerContact */
-	#[SerializedName('cac:SellerContact')]
-	public $SellerContact;
+    /** @var SellerContact */
+    #[SerializedName('cac:SellerContact')]
+    public $SellerContact;
 }

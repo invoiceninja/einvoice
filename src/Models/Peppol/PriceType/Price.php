@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\PriceType;
 
@@ -24,46 +24,46 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class Price
 {
-	/** @var PriceAmount */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	#[SerializedName('cbc:PriceAmount')]
-	public $PriceAmount;
+    /** @var PriceAmount */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    #[SerializedName('cbc:PriceAmount')]
+    public $PriceAmount;
 
-	/** @var BaseQuantity */
-	#[SerializedName('cbc:BaseQuantity')]
-	public $BaseQuantity;
+    /** @var BaseQuantity */
+    #[SerializedName('cbc:BaseQuantity')]
+    public $BaseQuantity;
 
-	/** @var string */
-	#[SerializedName('cbc:PriceChangeReason')]
-	public string $PriceChangeReason;
+    /** @var string */
+    #[SerializedName('cbc:PriceChangeReason')]
+    public string $PriceChangeReason;
 
-	/** @var string */
-	#[SerializedName('cbc:PriceTypeCode')]
-	public string $PriceTypeCode;
+    /** @var string */
+    #[SerializedName('cbc:PriceTypeCode')]
+    public string $PriceTypeCode;
 
-	/** @var string */
-	#[SerializedName('cbc:PriceType')]
-	public string $PriceType;
+    /** @var string */
+    #[SerializedName('cbc:PriceType')]
+    public string $PriceType;
 
-	/** @var string */
-	#[SerializedName('cbc:OrderableUnitFactorRate')]
-	public string $OrderableUnitFactorRate;
+    /** @var string */
+    #[SerializedName('cbc:OrderableUnitFactorRate')]
+    public string $OrderableUnitFactorRate;
 
-	/** @var ValidityPeriod[] */
-	#[SerializedName('cac:ValidityPeriod')]
-	public array $ValidityPeriod;
+    /** @var ValidityPeriod[] */
+    #[SerializedName('cac:ValidityPeriod')]
+    public array $ValidityPeriod;
 
-	/** @var PriceList */
-	#[SerializedName('cac:PriceList')]
-	public $PriceList;
+    /** @var PriceList */
+    #[SerializedName('cac:PriceList')]
+    public $PriceList;
 
-	/** @var AllowanceCharge[] */
-	#[SerializedName('cac:AllowanceCharge')]
-	public array $AllowanceCharge;
+    /** @var AllowanceCharge[] */
+    #[SerializedName('cac:AllowanceCharge')]
+    public array $AllowanceCharge;
 
-	/** @var PricingExchangeRate */
-	#[SerializedName('cac:PricingExchangeRate')]
-	public $PricingExchangeRate;
+    /** @var PricingExchangeRate */
+    #[SerializedName('cac:PricingExchangeRate')]
+    public $PricingExchangeRate;
 }

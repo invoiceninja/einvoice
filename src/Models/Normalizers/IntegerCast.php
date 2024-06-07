@@ -14,7 +14,6 @@ namespace Invoiceninja\Einvoice\Models\Normalizers;
 #[\Attribute(\Attribute::TARGET_PROPERTY)]
 class IntegerCast
 {
-    
     public function __construct(private mixed $int)
     {
     }

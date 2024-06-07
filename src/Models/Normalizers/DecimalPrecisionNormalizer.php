@@ -11,15 +11,13 @@
 
 namespace Invoiceninja\Einvoice\Models\Normalizers;
 
-
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use ReflectionClass;
 
-
 class DecimalPrecisionNormalizer implements NormalizerInterface
 {
-  private ObjectNormalizer $normalizer;
+    private ObjectNormalizer $normalizer;
 
     public function __construct(ObjectNormalizer $normalizer)
     {

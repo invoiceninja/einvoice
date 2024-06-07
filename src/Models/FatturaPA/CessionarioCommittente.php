@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\FatturaPA;
 
@@ -16,21 +16,21 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class CessionarioCommittente
 {
-	/** @var DatiAnagrafici */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	public $DatiAnagrafici;
+    /** @var DatiAnagrafici */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    public $DatiAnagrafici;
 
-	/** @var Sede */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	public $Sede;
+    /** @var Sede */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    public $Sede;
 
-	/** @var StabileOrganizzazione */
-	public $StabileOrganizzazione;
+    /** @var StabileOrganizzazione */
+    public $StabileOrganizzazione;
 
-	/** @var RappresentanteFiscale */
-	public $RappresentanteFiscale;
+    /** @var RappresentanteFiscale */
+    public $RappresentanteFiscale;
 }

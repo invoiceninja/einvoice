@@ -11,7 +11,7 @@
 
 namespace Invoiceninja\Einvoice\Decoder;
 
-class Schema 
+class Schema
 {
     private string $path = "/../Schema/";
 

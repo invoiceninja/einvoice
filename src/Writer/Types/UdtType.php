@@ -9,7 +9,6 @@
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
-
 namespace Invoiceninja\Einvoice\Writer\Types;
 
 use DOMElement;
@@ -36,13 +35,13 @@ class UdtType
    ];
 
     private \DOMDocument $document;
-    
+
     public function __construct()
     {
         $this->document = new \DOMDocument();
         $this->document->load($this->path);
     }
-    
+
     /**
      * getPrimativeType
      *
@@ -64,8 +63,9 @@ class UdtType
             if(stripos($type, "ccts") !== false) {
                 $parts = explode(":", $type);
 
-                if(in_array($parts[1], ['QuantityType','AmountType']))
+                if(in_array($parts[1], ['QuantityType','AmountType'])) {
                     return $parts[1];
+                }
 
                 return (new CccType())->getPrimativeType($parts[1]);
             }
@@ -77,7 +77,7 @@ class UdtType
         throw new \Exception("Could not find type {$name}");
     }
 
-    
+
     /**
      * getXPath
      *
@@ -90,7 +90,7 @@ class UdtType
         $xpath = new \DOMXPath($this->document);
         return $xpath->query($path, $element);
     }
-    
+
     /**
      * getNamedType
      *

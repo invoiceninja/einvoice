@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\RoadTransportType;
 
@@ -18,7 +18,7 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class RoadTransport
 {
-	/** @var string */
-	#[SerializedName('cbc:LicensePlateID')]
-	public string $LicensePlateID;
+    /** @var string */
+    #[SerializedName('cbc:LicensePlateID')]
+    public string $LicensePlateID;
 }

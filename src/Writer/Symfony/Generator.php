@@ -35,7 +35,6 @@ use Symfony\Component\Validator\Constraints\All;
 
 class Generator
 {
-
     private array $standards = [
         'FatturaPA' => [
             'options' => [
@@ -59,7 +58,7 @@ class Generator
     public string $path_namespace = "Invoiceninja\Einvoice\Models\\";
 
     public string $write_path = "src/Models/";
-    
+
     public string $standard = "";
 
     public Collection $document;
@@ -72,8 +71,7 @@ class Generator
 
     public function build()
     {
-        foreach($this->standards as $key => $value)
-        {
+        foreach($this->standards as $key => $value) {
 
             $this->standard = $key;
             $this->setOptions();
@@ -94,7 +92,7 @@ class Generator
 
     public function resolveType(string $raw_type): string
     {
-        match($raw_type){
+        match($raw_type) {
             'integer' => $type = 'int',
             'decimal' => $type = 'string',
             'date' => $type = DateTime::class,
@@ -107,12 +105,13 @@ class Generator
             default => $type = $raw_type,
         };
 
-        if(in_array($raw_type, ['time','dateTime'])){
+        if(in_array($raw_type, ['time','dateTime'])) {
             $this->namespace->addUse(DateTime::class);
         }
 
-        if($raw_type == 'date')
+        if($raw_type == 'date') {
             $this->namespace->addUse(Date::class);
+        }
 
         return $type;
 
@@ -125,7 +124,7 @@ class Generator
 
     public function setValidation(Property $property, array $element): Property
     {
-        if($element['min_occurs'] >= 1 && count($element['resource']) == 0 && !in_array($element['base_type'], ['integer', 'decimal', 'float', 'double', 'string'])){
+        if($element['min_occurs'] >= 1 && count($element['resource']) == 0 && !in_array($element['base_type'], ['integer', 'decimal', 'float', 'double', 'string'])) {
             $this->namespace->addUse(NotNull::class);
             $this->namespace->addUse(NotBlank::class);
             $this->namespace->addUse(Valid::class);
@@ -134,33 +133,34 @@ class Generator
             $property->addAttribute(Valid::class);
         }
 
-        if($element['base_type'] == 'decimal'){
+        if($element['base_type'] == 'decimal') {
             $this->namespace->addUse(DecimalPrecision::class);
             $property->addAttribute(DecimalPrecision::class, [2]);
         }
 
         if($element['max_occurs'] > 1 || $element['max_occurs'] == -1 && !$this->isPrimative($element['base_type'])) {
 
-            if($element['name'] == 'TaxTotal')
+            if($element['name'] == 'TaxTotal') {
                 echo print_r($element).PHP_EOL;
+            }
 
             $property->setType("array");
             // $property->setValue([]);
             $property->removeComment();
             $property->addComment("@var ".$element['name']."[]");
         }
-        
+
         if(isset($element['max_length'])) {
             $this->namespace->addUse(Length::class);
             $property->addAttribute(Length::class, ['min' => $element['min_length'], 'max' => $element['max_length']]);
         }
-        
+
         if($element['pattern']) {
             $this->namespace->addUse(Regex::class);
             $property->addAttribute(Regex::class, [$element['pattern']]);
         }
 
-        if(in_array($element['base_type'], ['time', 'dateTime'])){
+        if(in_array($element['base_type'], ['time', 'dateTime'])) {
             $this->namespace->addUse(Context::class);
             $this->namespace->addUse(DateTimeNormalizer::class);
             $property->addAttribute(Context::class, [new Literal("[DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP']")]);
@@ -172,7 +172,7 @@ class Generator
             $property->addAttribute(Context::class, [new Literal("[DateTimeNormalizer::FORMAT_KEY => 'Y-m-d']")]);
         }
 
-        if(count($element['resource']) > 1){
+        if(count($element['resource']) > 1) {
             $this->namespace->addUse(Choice::class);
             $property->addAttribute(Choice::class, [array_keys($element['resource'])]);
         }
@@ -181,7 +181,7 @@ class Generator
             $property->removeComment();
             $property->addComment("@var ".$element['base_type']);
         }
-        
+
         if($element['name'] == 'Causale') {
             $this->namespace->addUse(All::class);
             $property->setType('array');
@@ -196,7 +196,7 @@ class Generator
             $property->addAttribute(SerializedName::class, [$element['namespace'].":".$element['name']]);
         }
 
-        if($element['name'] == 'amount'){            
+        if($element['name'] == 'amount') {
             $this->namespace->addUse(SerializedName::class);
             $property->addAttribute(SerializedName::class, ['#']);
         }
@@ -205,7 +205,7 @@ class Generator
             $this->namespace->addUse(SerializedName::class);
             $property->addAttribute(SerializedName::class, ['@currencyID']);
         }
-                
+
         if($element['name'] == 'unitCode') {
             $this->namespace->addUse(SerializedName::class);
             $property->addAttribute(SerializedName::class, ['@unitCode']);
@@ -216,7 +216,7 @@ class Generator
 
     public function writeClass(string $name, mixed $type)
     {
-        
+
         $this->namespace = new PhpNamespace($this->path_namespace.$this->standard);
 
         $this->namespace->addUse(Context::class);
@@ -224,26 +224,26 @@ class Generator
 
         $class = new ClassType($name);
 
-        foreach($type['elements'] as $key => $element) 
-        {
+        foreach($type['elements'] as $key => $element) {
 
-            if($name == $element['name'])
+            if($name == $element['name']) {
                 continue;
+            }
 
             if(stripos($element['base_type'], 'Type') !== false) {
                 $type_object = $this->writeBaseType($element['name'], $element['base_type']);
                 $this->namespace->addUse($this->path_namespace.$this->standard."\\".$element['base_type']."\\".$element['name']);
             }
-            
+
             $base_type = stripos($element['base_type'], 'Type') !== false ? $this->path_namespace.$this->standard."\\".$element['base_type']."\\".$element['name'] : $this->resolveType($element['base_type']);
 
             $property = (new Property($element['name']))
                                         ->setPublic();
 
-            if(stripos($element['base_type'], 'Type') === false){
-                    $property->addComment("@var ".$base_type);
-                    $property->setType($base_type);
-            }else {
+            if(stripos($element['base_type'], 'Type') === false) {
+                $property->addComment("@var ".$base_type);
+                $property->setType($base_type);
+            } else {
                 $property->addComment("@var ".$element['name']);
             }
 
@@ -260,7 +260,7 @@ class Generator
             $class->addMember($property);
 
         }
-                
+
         $this->namespace->add($class);
 
         $name = str_replace("Type", "", $name);
@@ -278,21 +278,22 @@ class Generator
     {
 
         $type_generator = new TypeGenerator($this, $name, $base_type);
-        
+
         return $type_generator->init();
 
     }
 
     public function write($namespace, $path)
     {
-                
+
         $class_print = "<?php ". self::LINE_FEED . self::LINE_FEED;
         $class_print .= $namespace;
 
         $pathinfo = pathinfo($path);
 
-        if(!is_dir($pathinfo['dirname']))
+        if(!is_dir($pathinfo['dirname'])) {
             mkdir($pathinfo['dirname']);
+        }
 
         $fp = fopen($path, 'w');
         fwrite($fp, $class_print);
@@ -304,7 +305,7 @@ class Generator
     {
         $options = $this->standards[$this->standard]['options'];
 
-        foreach($options as $key => $value){
+        foreach($options as $key => $value) {
             $this->{$key} = $value;
         }
 

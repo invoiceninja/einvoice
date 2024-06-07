@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol;
 
@@ -15,31 +15,31 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DeliveryTerms
 {
-	/** @var string */
-	#[SerializedName('cbc:ID')]
-	public string $ID;
+    /** @var string */
+    #[SerializedName('cbc:ID')]
+    public string $ID;
 
-	/** @var string */
-	#[SerializedName('cbc:SpecialTerms')]
-	public string $SpecialTerms;
+    /** @var string */
+    #[SerializedName('cbc:SpecialTerms')]
+    public string $SpecialTerms;
 
-	/** @var string */
-	#[SerializedName('cbc:LossRiskResponsibilityCode')]
-	public string $LossRiskResponsibilityCode;
+    /** @var string */
+    #[SerializedName('cbc:LossRiskResponsibilityCode')]
+    public string $LossRiskResponsibilityCode;
 
-	/** @var string */
-	#[SerializedName('cbc:LossRisk')]
-	public string $LossRisk;
+    /** @var string */
+    #[SerializedName('cbc:LossRisk')]
+    public string $LossRisk;
 
-	/** @var Amount */
-	#[SerializedName('cbc:Amount')]
-	public $Amount;
+    /** @var Amount */
+    #[SerializedName('cbc:Amount')]
+    public $Amount;
 
-	/** @var DeliveryLocation */
-	#[SerializedName('cac:DeliveryLocation')]
-	public $DeliveryLocation;
+    /** @var DeliveryLocation */
+    #[SerializedName('cac:DeliveryLocation')]
+    public $DeliveryLocation;
 
-	/** @var AllowanceCharge */
-	#[SerializedName('cac:AllowanceCharge')]
-	public $AllowanceCharge;
+    /** @var AllowanceCharge */
+    #[SerializedName('cac:AllowanceCharge')]
+    public $AllowanceCharge;
 }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\PhysicalAttributeType;
 
@@ -18,19 +18,19 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class PhysicalAttribute
 {
-	/** @var string */
-	#[SerializedName('cbc:AttributeID')]
-	public string $AttributeID;
+    /** @var string */
+    #[SerializedName('cbc:AttributeID')]
+    public string $AttributeID;
 
-	/** @var string */
-	#[SerializedName('cbc:PositionCode')]
-	public string $PositionCode;
+    /** @var string */
+    #[SerializedName('cbc:PositionCode')]
+    public string $PositionCode;
 
-	/** @var string */
-	#[SerializedName('cbc:DescriptionCode')]
-	public string $DescriptionCode;
+    /** @var string */
+    #[SerializedName('cbc:DescriptionCode')]
+    public string $DescriptionCode;
 
-	/** @var string */
-	#[SerializedName('cbc:Description')]
-	public string $Description;
+    /** @var string */
+    #[SerializedName('cbc:Description')]
+    public string $Description;
 }

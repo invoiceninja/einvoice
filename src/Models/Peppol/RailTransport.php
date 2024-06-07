@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol;
 
@@ -8,11 +8,11 @@ use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 
 class RailTransport
 {
-	/** @var string */
-	#[SerializedName('cbc:TrainID')]
-	public string $TrainID;
+    /** @var string */
+    #[SerializedName('cbc:TrainID')]
+    public string $TrainID;
 
-	/** @var string */
-	#[SerializedName('cbc:RailCarID')]
-	public string $RailCarID;
+    /** @var string */
+    #[SerializedName('cbc:RailCarID')]
+    public string $RailCarID;
 }

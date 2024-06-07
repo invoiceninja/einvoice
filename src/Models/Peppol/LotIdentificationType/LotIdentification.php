@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\LotIdentificationType;
 
@@ -19,16 +19,16 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class LotIdentification
 {
-	/** @var string */
-	#[SerializedName('cbc:LotNumberID')]
-	public string $LotNumberID;
+    /** @var string */
+    #[SerializedName('cbc:LotNumberID')]
+    public string $LotNumberID;
 
-	/** @var DateTime */
-	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
-	#[SerializedName('cbc:ExpiryDate')]
-	public DateTime $ExpiryDate;
+    /** @var DateTime */
+    #[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+    #[SerializedName('cbc:ExpiryDate')]
+    public DateTime $ExpiryDate;
 
-	/** @var AdditionalItemProperty[] */
-	#[SerializedName('cac:AdditionalItemProperty')]
-	public array $AdditionalItemProperty;
+    /** @var AdditionalItemProperty[] */
+    #[SerializedName('cac:AdditionalItemProperty')]
+    public array $AdditionalItemProperty;
 }

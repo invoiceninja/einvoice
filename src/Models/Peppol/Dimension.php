@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol;
 
@@ -9,26 +9,26 @@ use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 
 class Dimension
 {
-	/** @var string */
-	#[SerializedName('cbc:AttributeID')]
-	public string $AttributeID;
+    /** @var string */
+    #[SerializedName('cbc:AttributeID')]
+    public string $AttributeID;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
-	#[SerializedName('cbc:Measure')]
-	public string $Measure;
+    /** @var string */
+    #[DecimalPrecision(2)]
+    #[SerializedName('cbc:Measure')]
+    public string $Measure;
 
-	/** @var string */
-	#[SerializedName('cbc:Description')]
-	public string $Description;
+    /** @var string */
+    #[SerializedName('cbc:Description')]
+    public string $Description;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
-	#[SerializedName('cbc:MinimumMeasure')]
-	public string $MinimumMeasure;
+    /** @var string */
+    #[DecimalPrecision(2)]
+    #[SerializedName('cbc:MinimumMeasure')]
+    public string $MinimumMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
-	#[SerializedName('cbc:MaximumMeasure')]
-	public string $MaximumMeasure;
+    /** @var string */
+    #[DecimalPrecision(2)]
+    #[SerializedName('cbc:MaximumMeasure')]
+    public string $MaximumMeasure;
 }

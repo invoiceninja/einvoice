@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol;
 
@@ -15,26 +15,26 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class TaxTotal
 {
-	/** @var TaxAmount */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	#[SerializedName('cbc:TaxAmount')]
-	public $TaxAmount;
+    /** @var TaxAmount */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    #[SerializedName('cbc:TaxAmount')]
+    public $TaxAmount;
 
-	/** @var RoundingAmount */
-	#[SerializedName('cbc:RoundingAmount')]
-	public $RoundingAmount;
+    /** @var RoundingAmount */
+    #[SerializedName('cbc:RoundingAmount')]
+    public $RoundingAmount;
 
-	/** @var bool */
-	#[SerializedName('cbc:TaxEvidenceIndicator')]
-	public bool $TaxEvidenceIndicator;
+    /** @var bool */
+    #[SerializedName('cbc:TaxEvidenceIndicator')]
+    public bool $TaxEvidenceIndicator;
 
-	/** @var bool */
-	#[SerializedName('cbc:TaxIncludedIndicator')]
-	public bool $TaxIncludedIndicator;
+    /** @var bool */
+    #[SerializedName('cbc:TaxIncludedIndicator')]
+    public bool $TaxIncludedIndicator;
 
-	/** @var TaxSubtotal[] */
-	#[SerializedName('cac:TaxSubtotal')]
-	public array $TaxSubtotal;
+    /** @var TaxSubtotal[] */
+    #[SerializedName('cac:TaxSubtotal')]
+    public array $TaxSubtotal;
 }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\CommunicationType;
 
@@ -18,15 +18,15 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class OtherCommunication
 {
-	/** @var string */
-	#[SerializedName('cbc:ChannelCode')]
-	public string $ChannelCode;
+    /** @var string */
+    #[SerializedName('cbc:ChannelCode')]
+    public string $ChannelCode;
 
-	/** @var string */
-	#[SerializedName('cbc:Channel')]
-	public string $Channel;
+    /** @var string */
+    #[SerializedName('cbc:Channel')]
+    public string $Channel;
 
-	/** @var string */
-	#[SerializedName('cbc:Value')]
-	public string $Value;
+    /** @var string */
+    #[SerializedName('cbc:Value')]
+    public string $Value;
 }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\InvoiceLineType;
 
@@ -37,118 +37,118 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class SubInvoiceLine
 {
-	/** @var string */
-	#[SerializedName('cbc:ID')]
-	public string $ID;
+    /** @var string */
+    #[SerializedName('cbc:ID')]
+    public string $ID;
 
-	/** @var string */
-	#[SerializedName('cbc:UUID')]
-	public string $UUID;
+    /** @var string */
+    #[SerializedName('cbc:UUID')]
+    public string $UUID;
 
-	/** @var string */
-	#[SerializedName('cbc:Note')]
-	public string $Note;
+    /** @var string */
+    #[SerializedName('cbc:Note')]
+    public string $Note;
 
-	/** @var InvoicedQuantity */
-	#[SerializedName('cbc:InvoicedQuantity')]
-	public $InvoicedQuantity;
+    /** @var InvoicedQuantity */
+    #[SerializedName('cbc:InvoicedQuantity')]
+    public $InvoicedQuantity;
 
-	/** @var LineExtensionAmount */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	#[SerializedName('cbc:LineExtensionAmount')]
-	public $LineExtensionAmount;
+    /** @var LineExtensionAmount */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    #[SerializedName('cbc:LineExtensionAmount')]
+    public $LineExtensionAmount;
 
-	/** @var DateTime */
-	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
-	#[SerializedName('cbc:TaxPointDate')]
-	public DateTime $TaxPointDate;
+    /** @var DateTime */
+    #[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+    #[SerializedName('cbc:TaxPointDate')]
+    public DateTime $TaxPointDate;
 
-	/** @var string */
-	#[SerializedName('cbc:AccountingCostCode')]
-	public string $AccountingCostCode;
+    /** @var string */
+    #[SerializedName('cbc:AccountingCostCode')]
+    public string $AccountingCostCode;
 
-	/** @var string */
-	#[SerializedName('cbc:AccountingCost')]
-	public string $AccountingCost;
+    /** @var string */
+    #[SerializedName('cbc:AccountingCost')]
+    public string $AccountingCost;
 
-	/** @var string */
-	#[SerializedName('cbc:PaymentPurposeCode')]
-	public string $PaymentPurposeCode;
+    /** @var string */
+    #[SerializedName('cbc:PaymentPurposeCode')]
+    public string $PaymentPurposeCode;
 
-	/** @var bool */
-	#[SerializedName('cbc:FreeOfChargeIndicator')]
-	public bool $FreeOfChargeIndicator;
+    /** @var bool */
+    #[SerializedName('cbc:FreeOfChargeIndicator')]
+    public bool $FreeOfChargeIndicator;
 
-	/** @var InvoicePeriod[] */
-	#[SerializedName('cac:InvoicePeriod')]
-	public array $InvoicePeriod;
+    /** @var InvoicePeriod[] */
+    #[SerializedName('cac:InvoicePeriod')]
+    public array $InvoicePeriod;
 
-	/** @var OrderLineReference[] */
-	#[SerializedName('cac:OrderLineReference')]
-	public array $OrderLineReference;
+    /** @var OrderLineReference[] */
+    #[SerializedName('cac:OrderLineReference')]
+    public array $OrderLineReference;
 
-	/** @var DespatchLineReference[] */
-	#[SerializedName('cac:DespatchLineReference')]
-	public array $DespatchLineReference;
+    /** @var DespatchLineReference[] */
+    #[SerializedName('cac:DespatchLineReference')]
+    public array $DespatchLineReference;
 
-	/** @var ReceiptLineReference[] */
-	#[SerializedName('cac:ReceiptLineReference')]
-	public array $ReceiptLineReference;
+    /** @var ReceiptLineReference[] */
+    #[SerializedName('cac:ReceiptLineReference')]
+    public array $ReceiptLineReference;
 
-	/** @var BillingReference[] */
-	#[SerializedName('cac:BillingReference')]
-	public array $BillingReference;
+    /** @var BillingReference[] */
+    #[SerializedName('cac:BillingReference')]
+    public array $BillingReference;
 
-	/** @var DocumentReference[] */
-	#[SerializedName('cac:DocumentReference')]
-	public array $DocumentReference;
+    /** @var DocumentReference[] */
+    #[SerializedName('cac:DocumentReference')]
+    public array $DocumentReference;
 
-	/** @var PricingReference */
-	#[SerializedName('cac:PricingReference')]
-	public $PricingReference;
+    /** @var PricingReference */
+    #[SerializedName('cac:PricingReference')]
+    public $PricingReference;
 
-	/** @var OriginatorParty */
-	#[SerializedName('cac:OriginatorParty')]
-	public $OriginatorParty;
+    /** @var OriginatorParty */
+    #[SerializedName('cac:OriginatorParty')]
+    public $OriginatorParty;
 
-	/** @var Delivery[] */
-	#[SerializedName('cac:Delivery')]
-	public array $Delivery;
+    /** @var Delivery[] */
+    #[SerializedName('cac:Delivery')]
+    public array $Delivery;
 
-	/** @var PaymentTerms[] */
-	#[SerializedName('cac:PaymentTerms')]
-	public array $PaymentTerms;
+    /** @var PaymentTerms[] */
+    #[SerializedName('cac:PaymentTerms')]
+    public array $PaymentTerms;
 
-	/** @var AllowanceCharge[] */
-	#[SerializedName('cac:AllowanceCharge')]
-	public array $AllowanceCharge;
+    /** @var AllowanceCharge[] */
+    #[SerializedName('cac:AllowanceCharge')]
+    public array $AllowanceCharge;
 
-	/** @var TaxTotal[] */
-	#[SerializedName('cac:TaxTotal')]
-	public array $TaxTotal;
+    /** @var TaxTotal[] */
+    #[SerializedName('cac:TaxTotal')]
+    public array $TaxTotal;
 
-	/** @var WithholdingTaxTotal[] */
-	#[SerializedName('cac:WithholdingTaxTotal')]
-	public array $WithholdingTaxTotal;
+    /** @var WithholdingTaxTotal[] */
+    #[SerializedName('cac:WithholdingTaxTotal')]
+    public array $WithholdingTaxTotal;
 
-	/** @var Item */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	#[SerializedName('cac:Item')]
-	public $Item;
+    /** @var Item */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    #[SerializedName('cac:Item')]
+    public $Item;
 
-	/** @var Price */
-	#[SerializedName('cac:Price')]
-	public $Price;
+    /** @var Price */
+    #[SerializedName('cac:Price')]
+    public $Price;
 
-	/** @var DeliveryTerms */
-	#[SerializedName('cac:DeliveryTerms')]
-	public $DeliveryTerms;
+    /** @var DeliveryTerms */
+    #[SerializedName('cac:DeliveryTerms')]
+    public $DeliveryTerms;
 
-	/** @var ItemPriceExtension */
-	#[SerializedName('cac:ItemPriceExtension')]
-	public $ItemPriceExtension;
+    /** @var ItemPriceExtension */
+    #[SerializedName('cac:ItemPriceExtension')]
+    public $ItemPriceExtension;
 }

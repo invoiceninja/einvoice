@@ -50,13 +50,13 @@ final class ObjectCommand extends Command
     {
 
 
-    $this->addOption(
-        'standard',
-        'i',
-        InputOption::VALUE_REQUIRED,
-        'Which standard do you want to output?',
-        'FatturaPA'
-    );
+        $this->addOption(
+            'standard',
+            'i',
+            InputOption::VALUE_REQUIRED,
+            'Which standard do you want to output?',
+            'FatturaPA'
+        );
 
     }
 
@@ -70,24 +70,24 @@ final class ObjectCommand extends Command
         $standard = $input->getOption('standard');
 
         switch ($standard) {
-            case 'FatturaPA':        
+            case 'FatturaPA':
                 $class = new FatturaPA();
                 $parent = new FatturaElettronica();
-            break;
-            // case 'FACT1':        
-            //     $class = new Fact1();
-            //     $parent = new Invoice();
-            // break;
-            case 'Peppol':        
+                break;
+                // case 'FACT1':
+                //     $class = new Fact1();
+                //     $parent = new Invoice();
+                // break;
+            case 'Peppol':
                 $class = new Peppol();
                 $parent = new Invoice();
-            break;
+                break;
             default:
                 # code...
                 break;
         }
 
-        
+
         $initializedParent = Serializer::initializeProperties($parent, $class);
 
         $class_print = Serializer::toJson($initializedParent);
@@ -105,7 +105,6 @@ final class ObjectCommand extends Command
 
 class Serializer
 {
-
     public static function initializeProperties($object, $ff)
     {
 

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\FatturaPA\DatiGeneraliType;
 
@@ -28,36 +28,36 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiGenerali
 {
-	/** @var DatiGeneraliDocumento */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	public $DatiGeneraliDocumento;
+    /** @var DatiGeneraliDocumento */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    public $DatiGeneraliDocumento;
 
-	/** @var DatiOrdineAcquisto[] */
-	public array $DatiOrdineAcquisto;
+    /** @var DatiOrdineAcquisto[] */
+    public array $DatiOrdineAcquisto;
 
-	/** @var DatiContratto[] */
-	public array $DatiContratto;
+    /** @var DatiContratto[] */
+    public array $DatiContratto;
 
-	/** @var DatiConvenzione[] */
-	public array $DatiConvenzione;
+    /** @var DatiConvenzione[] */
+    public array $DatiConvenzione;
 
-	/** @var DatiRicezione[] */
-	public array $DatiRicezione;
+    /** @var DatiRicezione[] */
+    public array $DatiRicezione;
 
-	/** @var DatiFattureCollegate[] */
-	public array $DatiFattureCollegate;
+    /** @var DatiFattureCollegate[] */
+    public array $DatiFattureCollegate;
 
-	/** @var DatiSAL[] */
-	public array $DatiSAL;
+    /** @var DatiSAL[] */
+    public array $DatiSAL;
 
-	/** @var DatiDDT[] */
-	public array $DatiDDT;
+    /** @var DatiDDT[] */
+    public array $DatiDDT;
 
-	/** @var DatiTrasporto */
-	public $DatiTrasporto;
+    /** @var DatiTrasporto */
+    public $DatiTrasporto;
 
-	/** @var FatturaPrincipale */
-	public $FatturaPrincipale;
+    /** @var FatturaPrincipale */
+    public $FatturaPrincipale;
 }

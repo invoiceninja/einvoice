@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\AddressType;
 
@@ -21,111 +21,111 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class ApplicableTerritoryAddress
 {
-	/** @var string */
-	#[SerializedName('cbc:ID')]
-	public string $ID;
+    /** @var string */
+    #[SerializedName('cbc:ID')]
+    public string $ID;
 
-	/** @var string */
-	#[SerializedName('cbc:AddressTypeCode')]
-	public string $AddressTypeCode;
+    /** @var string */
+    #[SerializedName('cbc:AddressTypeCode')]
+    public string $AddressTypeCode;
 
-	/** @var string */
-	#[SerializedName('cbc:AddressFormatCode')]
-	public string $AddressFormatCode;
+    /** @var string */
+    #[SerializedName('cbc:AddressFormatCode')]
+    public string $AddressFormatCode;
 
-	/** @var string */
-	#[SerializedName('cbc:Postbox')]
-	public string $Postbox;
+    /** @var string */
+    #[SerializedName('cbc:Postbox')]
+    public string $Postbox;
 
-	/** @var string */
-	#[SerializedName('cbc:Floor')]
-	public string $Floor;
+    /** @var string */
+    #[SerializedName('cbc:Floor')]
+    public string $Floor;
 
-	/** @var string */
-	#[SerializedName('cbc:Room')]
-	public string $Room;
+    /** @var string */
+    #[SerializedName('cbc:Room')]
+    public string $Room;
 
-	/** @var string */
-	#[SerializedName('cbc:StreetName')]
-	public string $StreetName;
+    /** @var string */
+    #[SerializedName('cbc:StreetName')]
+    public string $StreetName;
 
-	/** @var string */
-	#[SerializedName('cbc:AdditionalStreetName')]
-	public string $AdditionalStreetName;
+    /** @var string */
+    #[SerializedName('cbc:AdditionalStreetName')]
+    public string $AdditionalStreetName;
 
-	/** @var string */
-	#[SerializedName('cbc:BlockName')]
-	public string $BlockName;
+    /** @var string */
+    #[SerializedName('cbc:BlockName')]
+    public string $BlockName;
 
-	/** @var string */
-	#[SerializedName('cbc:BuildingName')]
-	public string $BuildingName;
+    /** @var string */
+    #[SerializedName('cbc:BuildingName')]
+    public string $BuildingName;
 
-	/** @var string */
-	#[SerializedName('cbc:BuildingNumber')]
-	public string $BuildingNumber;
+    /** @var string */
+    #[SerializedName('cbc:BuildingNumber')]
+    public string $BuildingNumber;
 
-	/** @var string */
-	#[SerializedName('cbc:InhouseMail')]
-	public string $InhouseMail;
+    /** @var string */
+    #[SerializedName('cbc:InhouseMail')]
+    public string $InhouseMail;
 
-	/** @var string */
-	#[SerializedName('cbc:Department')]
-	public string $Department;
+    /** @var string */
+    #[SerializedName('cbc:Department')]
+    public string $Department;
 
-	/** @var string */
-	#[SerializedName('cbc:MarkAttention')]
-	public string $MarkAttention;
+    /** @var string */
+    #[SerializedName('cbc:MarkAttention')]
+    public string $MarkAttention;
 
-	/** @var string */
-	#[SerializedName('cbc:MarkCare')]
-	public string $MarkCare;
+    /** @var string */
+    #[SerializedName('cbc:MarkCare')]
+    public string $MarkCare;
 
-	/** @var string */
-	#[SerializedName('cbc:PlotIdentification')]
-	public string $PlotIdentification;
+    /** @var string */
+    #[SerializedName('cbc:PlotIdentification')]
+    public string $PlotIdentification;
 
-	/** @var string */
-	#[SerializedName('cbc:CitySubdivisionName')]
-	public string $CitySubdivisionName;
+    /** @var string */
+    #[SerializedName('cbc:CitySubdivisionName')]
+    public string $CitySubdivisionName;
 
-	/** @var string */
-	#[SerializedName('cbc:CityName')]
-	public string $CityName;
+    /** @var string */
+    #[SerializedName('cbc:CityName')]
+    public string $CityName;
 
-	/** @var string */
-	#[SerializedName('cbc:PostalZone')]
-	public string $PostalZone;
+    /** @var string */
+    #[SerializedName('cbc:PostalZone')]
+    public string $PostalZone;
 
-	/** @var string */
-	#[SerializedName('cbc:CountrySubentity')]
-	public string $CountrySubentity;
+    /** @var string */
+    #[SerializedName('cbc:CountrySubentity')]
+    public string $CountrySubentity;
 
-	/** @var string */
-	#[SerializedName('cbc:CountrySubentityCode')]
-	public string $CountrySubentityCode;
+    /** @var string */
+    #[SerializedName('cbc:CountrySubentityCode')]
+    public string $CountrySubentityCode;
 
-	/** @var string */
-	#[SerializedName('cbc:Region')]
-	public string $Region;
+    /** @var string */
+    #[SerializedName('cbc:Region')]
+    public string $Region;
 
-	/** @var string */
-	#[SerializedName('cbc:District')]
-	public string $District;
+    /** @var string */
+    #[SerializedName('cbc:District')]
+    public string $District;
 
-	/** @var string */
-	#[SerializedName('cbc:TimezoneOffset')]
-	public string $TimezoneOffset;
+    /** @var string */
+    #[SerializedName('cbc:TimezoneOffset')]
+    public string $TimezoneOffset;
 
-	/** @var AddressLine[] */
-	#[SerializedName('cac:AddressLine')]
-	public array $AddressLine;
+    /** @var AddressLine[] */
+    #[SerializedName('cac:AddressLine')]
+    public array $AddressLine;
 
-	/** @var Country */
-	#[SerializedName('cac:Country')]
-	public $Country;
+    /** @var Country */
+    #[SerializedName('cac:Country')]
+    public $Country;
 
-	/** @var LocationCoordinate[] */
-	#[SerializedName('cac:LocationCoordinate')]
-	public array $LocationCoordinate;
+    /** @var LocationCoordinate[] */
+    #[SerializedName('cac:LocationCoordinate')]
+    public array $LocationCoordinate;
 }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol;
 
@@ -17,50 +17,50 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class TaxSubtotal
 {
-	/** @var TaxableAmount */
-	#[SerializedName('cbc:TaxableAmount')]
-	public $TaxableAmount;
+    /** @var TaxableAmount */
+    #[SerializedName('cbc:TaxableAmount')]
+    public $TaxableAmount;
 
-	/** @var TaxAmount */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	#[SerializedName('cbc:TaxAmount')]
-	public $TaxAmount;
+    /** @var TaxAmount */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    #[SerializedName('cbc:TaxAmount')]
+    public $TaxAmount;
 
-	/** @var string */
-	#[SerializedName('cbc:CalculationSequenceNumeric')]
-	public string $CalculationSequenceNumeric;
+    /** @var string */
+    #[SerializedName('cbc:CalculationSequenceNumeric')]
+    public string $CalculationSequenceNumeric;
 
-	/** @var TransactionCurrencyTaxAmount */
-	#[SerializedName('cbc:TransactionCurrencyTaxAmount')]
-	public $TransactionCurrencyTaxAmount;
+    /** @var TransactionCurrencyTaxAmount */
+    #[SerializedName('cbc:TransactionCurrencyTaxAmount')]
+    public $TransactionCurrencyTaxAmount;
 
-	/** @var string */
-	#[SerializedName('cbc:Percent')]
-	public string $Percent;
+    /** @var string */
+    #[SerializedName('cbc:Percent')]
+    public string $Percent;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
-	#[SerializedName('cbc:BaseUnitMeasure')]
-	public string $BaseUnitMeasure;
+    /** @var string */
+    #[DecimalPrecision(2)]
+    #[SerializedName('cbc:BaseUnitMeasure')]
+    public string $BaseUnitMeasure;
 
-	/** @var PerUnitAmount */
-	#[SerializedName('cbc:PerUnitAmount')]
-	public $PerUnitAmount;
+    /** @var PerUnitAmount */
+    #[SerializedName('cbc:PerUnitAmount')]
+    public $PerUnitAmount;
 
-	/** @var string */
-	#[SerializedName('cbc:TierRange')]
-	public string $TierRange;
+    /** @var string */
+    #[SerializedName('cbc:TierRange')]
+    public string $TierRange;
 
-	/** @var string */
-	#[SerializedName('cbc:TierRatePercent')]
-	public string $TierRatePercent;
+    /** @var string */
+    #[SerializedName('cbc:TierRatePercent')]
+    public string $TierRatePercent;
 
-	/** @var TaxCategory */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	#[SerializedName('cac:TaxCategory')]
-	public $TaxCategory;
+    /** @var TaxCategory */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    #[SerializedName('cac:TaxCategory')]
+    public $TaxCategory;
 }

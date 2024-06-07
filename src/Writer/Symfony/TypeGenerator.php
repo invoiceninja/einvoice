@@ -41,7 +41,7 @@ class TypeGenerator
 
     public function init(): stdClass
     {
-        $this->namespace = new PhpNamespace($this->generator->path_namespace.$this->generator->standard."\\".$this->type);        
+        $this->namespace = new PhpNamespace($this->generator->path_namespace.$this->generator->standard."\\".$this->type);
         $this->namespace->addUse(NotNull::class);
         $this->namespace->addUse(NotBlank::class);
         $this->namespace->addUse(DateTimeInterface::class);
@@ -101,12 +101,11 @@ class TypeGenerator
 
             $property = (new Property($element['name']))
                         ->setPublic();
-            
+
             if(stripos($element['base_type'], 'Type') === false) {
                 $property->addComment("@var ".$settable_type);
                 $property->setType($settable_type);
-            }
-            else {
+            } else {
                 $property->addComment("@var ".$element['name']);
             }
 

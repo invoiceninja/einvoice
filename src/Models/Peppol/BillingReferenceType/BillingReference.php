@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\BillingReferenceType;
 
@@ -26,35 +26,35 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class BillingReference
 {
-	/** @var InvoiceDocumentReference */
-	#[SerializedName('cac:InvoiceDocumentReference')]
-	public $InvoiceDocumentReference;
+    /** @var InvoiceDocumentReference */
+    #[SerializedName('cac:InvoiceDocumentReference')]
+    public $InvoiceDocumentReference;
 
-	/** @var SelfBilledInvoiceDocumentReference */
-	#[SerializedName('cac:SelfBilledInvoiceDocumentReference')]
-	public $SelfBilledInvoiceDocumentReference;
+    /** @var SelfBilledInvoiceDocumentReference */
+    #[SerializedName('cac:SelfBilledInvoiceDocumentReference')]
+    public $SelfBilledInvoiceDocumentReference;
 
-	/** @var CreditNoteDocumentReference */
-	#[SerializedName('cac:CreditNoteDocumentReference')]
-	public $CreditNoteDocumentReference;
+    /** @var CreditNoteDocumentReference */
+    #[SerializedName('cac:CreditNoteDocumentReference')]
+    public $CreditNoteDocumentReference;
 
-	/** @var SelfBilledCreditNoteDocumentReference */
-	#[SerializedName('cac:SelfBilledCreditNoteDocumentReference')]
-	public $SelfBilledCreditNoteDocumentReference;
+    /** @var SelfBilledCreditNoteDocumentReference */
+    #[SerializedName('cac:SelfBilledCreditNoteDocumentReference')]
+    public $SelfBilledCreditNoteDocumentReference;
 
-	/** @var DebitNoteDocumentReference */
-	#[SerializedName('cac:DebitNoteDocumentReference')]
-	public $DebitNoteDocumentReference;
+    /** @var DebitNoteDocumentReference */
+    #[SerializedName('cac:DebitNoteDocumentReference')]
+    public $DebitNoteDocumentReference;
 
-	/** @var ReminderDocumentReference */
-	#[SerializedName('cac:ReminderDocumentReference')]
-	public $ReminderDocumentReference;
+    /** @var ReminderDocumentReference */
+    #[SerializedName('cac:ReminderDocumentReference')]
+    public $ReminderDocumentReference;
 
-	/** @var AdditionalDocumentReference */
-	#[SerializedName('cac:AdditionalDocumentReference')]
-	public $AdditionalDocumentReference;
+    /** @var AdditionalDocumentReference */
+    #[SerializedName('cac:AdditionalDocumentReference')]
+    public $AdditionalDocumentReference;
 
-	/** @var BillingReferenceLine[] */
-	#[SerializedName('cac:BillingReferenceLine')]
-	public array $BillingReferenceLine;
+    /** @var BillingReferenceLine[] */
+    #[SerializedName('cac:BillingReferenceLine')]
+    public array $BillingReferenceLine;
 }

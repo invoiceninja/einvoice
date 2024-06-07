@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol;
 
@@ -8,19 +8,19 @@ use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 
 class CommodityClassification
 {
-	/** @var string */
-	#[SerializedName('cbc:NatureCode')]
-	public string $NatureCode;
+    /** @var string */
+    #[SerializedName('cbc:NatureCode')]
+    public string $NatureCode;
 
-	/** @var string */
-	#[SerializedName('cbc:CargoTypeCode')]
-	public string $CargoTypeCode;
+    /** @var string */
+    #[SerializedName('cbc:CargoTypeCode')]
+    public string $CargoTypeCode;
 
-	/** @var string */
-	#[SerializedName('cbc:CommodityCode')]
-	public string $CommodityCode;
+    /** @var string */
+    #[SerializedName('cbc:CommodityCode')]
+    public string $CommodityCode;
 
-	/** @var string */
-	#[SerializedName('cbc:ItemClassificationCode')]
-	public string $ItemClassificationCode;
+    /** @var string */
+    #[SerializedName('cbc:ItemClassificationCode')]
+    public string $ItemClassificationCode;
 }

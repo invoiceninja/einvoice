@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol;
 
@@ -10,19 +10,19 @@ use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 
 class Branch
 {
-	/** @var string */
-	#[SerializedName('cbc:ID')]
-	public string $ID;
+    /** @var string */
+    #[SerializedName('cbc:ID')]
+    public string $ID;
 
-	/** @var string */
-	#[SerializedName('cbc:Name')]
-	public string $Name;
+    /** @var string */
+    #[SerializedName('cbc:Name')]
+    public string $Name;
 
-	/** @var FinancialInstitution */
-	#[SerializedName('cac:FinancialInstitution')]
-	public $FinancialInstitution;
+    /** @var FinancialInstitution */
+    #[SerializedName('cac:FinancialInstitution')]
+    public $FinancialInstitution;
 
-	/** @var Address */
-	#[SerializedName('cac:Address')]
-	public $Address;
+    /** @var Address */
+    #[SerializedName('cac:Address')]
+    public $Address;
 }

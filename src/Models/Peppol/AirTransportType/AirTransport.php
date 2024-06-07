@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\AirTransportType;
 
@@ -18,7 +18,7 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class AirTransport
 {
-	/** @var string */
-	#[SerializedName('cbc:AircraftID')]
-	public string $AircraftID;
+    /** @var string */
+    #[SerializedName('cbc:AircraftID')]
+    public string $AircraftID;
 }

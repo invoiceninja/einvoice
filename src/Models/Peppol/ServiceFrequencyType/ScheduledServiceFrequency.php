@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\ServiceFrequencyType;
 
@@ -18,7 +18,7 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class ScheduledServiceFrequency
 {
-	/** @var string */
-	#[SerializedName('cbc:WeekDayCode')]
-	public string $WeekDayCode;
+    /** @var string */
+    #[SerializedName('cbc:WeekDayCode')]
+    public string $WeekDayCode;
 }

@@ -9,7 +9,6 @@
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
-
 namespace Invoiceninja\Einvoice\Writer\Types;
 
 use DOMElement;
@@ -24,7 +23,7 @@ class ExtType
     public array $type_map = [];
 
     public array $elements = [];
-    
+
     private array $stub_validation =
         [
            "name" => null,
@@ -43,7 +42,7 @@ class ExtType
         $this->document->load($this->path);
         $this->getTypes()->getElements();
     }
-    
+
     /**
      * getTypes
      *
@@ -65,7 +64,7 @@ class ExtType
 
         return $this;
     }
-    
+
     /**
      * getSequence
      *
@@ -82,7 +81,7 @@ class ExtType
         return $this->getXPath($xpath);
 
     }
-    
+
     /**
      * getAnnotation
      *
@@ -97,7 +96,7 @@ class ExtType
         return $result->count() > 0 ? trim(str_replace("\n", "", $result->item(0)->nodeValue)) : '';
 
     }
-        
+
     /**
      * getElements
      *
@@ -129,7 +128,7 @@ class ExtType
 
         return $this;
     }
-    
+
     /**
      * parseSequenceNode
      *
@@ -172,7 +171,7 @@ class ExtType
         return $data;
 
     }
-    
+
     /**
      * parseNodeTypes
      *
@@ -221,7 +220,7 @@ class ExtType
         throw new \Exception("Could not find type for => ". $searchable_type);
 
     }
-    
+
     /**
      * extractRelatedType
      *
@@ -244,7 +243,7 @@ class ExtType
 
         return $type ?? throw new \Exception("could not find related type {$related_type}");
     }
-    
+
     /**
      * getType
      *
@@ -259,8 +258,8 @@ class ExtType
         $query = $this->getXPath($xpath);
 
         return $query->item(0)->getAttribute('type');
-    }    
-    
+    }
+
     /**
      * extractSequence
      *
@@ -271,7 +270,7 @@ class ExtType
     {
         return $this->getXPath("./{$this->prefix}:sequence", $element);
     }
-    
+
     /**
      * getXPath
      *
@@ -284,7 +283,7 @@ class ExtType
         $xpath = new \DOMXPath($this->document);
         return $xpath->query($path, $element);
     }
-    
+
     /**
      * getNamedType
      *

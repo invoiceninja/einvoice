@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\AmountType;
 
@@ -18,12 +18,12 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class InsuranceValueAmount
 {
-	/** @var string */
-	#[DecimalPrecision(2)]
-	#[SerializedName('#')]
-	public string $amount;
+    /** @var string */
+    #[DecimalPrecision(2)]
+    #[SerializedName('#')]
+    public string $amount;
 
-	/** @var string */
-	#[SerializedName('@currencyID')]
-	public string $currencyID;
+    /** @var string */
+    #[SerializedName('@currencyID')]
+    public string $currencyID;
 }

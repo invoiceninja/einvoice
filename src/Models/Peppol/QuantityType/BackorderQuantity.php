@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\QuantityType;
 
@@ -18,12 +18,12 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class BackorderQuantity
 {
-	/** @var string */
-	#[DecimalPrecision(2)]
-	#[SerializedName('#')]
-	public string $amount;
+    /** @var string */
+    #[DecimalPrecision(2)]
+    #[SerializedName('#')]
+    public string $amount;
 
-	/** @var string */
-	#[SerializedName('@unitCode')]
-	public string $unitCode;
+    /** @var string */
+    #[SerializedName('@unitCode')]
+    public string $unitCode;
 }

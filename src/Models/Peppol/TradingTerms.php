@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol;
 
@@ -9,15 +9,15 @@ use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 
 class TradingTerms
 {
-	/** @var string */
-	#[SerializedName('cbc:Information')]
-	public string $Information;
+    /** @var string */
+    #[SerializedName('cbc:Information')]
+    public string $Information;
 
-	/** @var string */
-	#[SerializedName('cbc:Reference')]
-	public string $Reference;
+    /** @var string */
+    #[SerializedName('cbc:Reference')]
+    public string $Reference;
 
-	/** @var ApplicableAddress */
-	#[SerializedName('cac:ApplicableAddress')]
-	public $ApplicableAddress;
+    /** @var ApplicableAddress */
+    #[SerializedName('cac:ApplicableAddress')]
+    public $ApplicableAddress;
 }

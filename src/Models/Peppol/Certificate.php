@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol;
 
@@ -16,34 +16,34 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class Certificate
 {
-	/** @var string */
-	#[SerializedName('cbc:ID')]
-	public string $ID;
+    /** @var string */
+    #[SerializedName('cbc:ID')]
+    public string $ID;
 
-	/** @var string */
-	#[SerializedName('cbc:CertificateTypeCode')]
-	public string $CertificateTypeCode;
+    /** @var string */
+    #[SerializedName('cbc:CertificateTypeCode')]
+    public string $CertificateTypeCode;
 
-	/** @var string */
-	#[SerializedName('cbc:CertificateType')]
-	public string $CertificateType;
+    /** @var string */
+    #[SerializedName('cbc:CertificateType')]
+    public string $CertificateType;
 
-	/** @var string */
-	#[SerializedName('cbc:Remarks')]
-	public string $Remarks;
+    /** @var string */
+    #[SerializedName('cbc:Remarks')]
+    public string $Remarks;
 
-	/** @var IssuerParty */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	#[SerializedName('cac:IssuerParty')]
-	public $IssuerParty;
+    /** @var IssuerParty */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    #[SerializedName('cac:IssuerParty')]
+    public $IssuerParty;
 
-	/** @var DocumentReference[] */
-	#[SerializedName('cac:DocumentReference')]
-	public array $DocumentReference;
+    /** @var DocumentReference[] */
+    #[SerializedName('cac:DocumentReference')]
+    public array $DocumentReference;
 
-	/** @var Signature[] */
-	#[SerializedName('cac:Signature')]
-	public array $Signature;
+    /** @var Signature[] */
+    #[SerializedName('cac:Signature')]
+    public array $Signature;
 }

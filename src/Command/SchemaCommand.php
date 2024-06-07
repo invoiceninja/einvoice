@@ -53,8 +53,7 @@ final class SchemaCommand extends Command
         $progressBar = new ProgressBar($output, count($this->schemas));
         $this->output->writeln(PHP_EOL);
 
-        foreach($this->schemas as $schema)
-        {
+        foreach($this->schemas as $schema) {
             $schema_class = $this->namespace.$schema;
 
             $this->output->writeln("Building => {$schema}".PHP_EOL);
@@ -71,7 +70,7 @@ final class SchemaCommand extends Command
         // return value is important when using CI, to fail the build when the command fails
 
         // in case of fail: "return self::FAILURE;"
-        
+
         $progressBar->finish();
         return self::SUCCESS;
     }

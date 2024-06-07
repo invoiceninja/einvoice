@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\CreditAccountType;
 
@@ -18,7 +18,7 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class CreditAccount
 {
-	/** @var string */
-	#[SerializedName('cbc:AccountID')]
-	public string $AccountID;
+    /** @var string */
+    #[SerializedName('cbc:AccountID')]
+    public string $AccountID;
 }

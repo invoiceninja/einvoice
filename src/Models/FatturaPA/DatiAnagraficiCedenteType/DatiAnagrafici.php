@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\FatturaPA\DatiAnagraficiCedenteType;
 
@@ -20,83 +20,83 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiAnagrafici
 {
-	/** @var IdFiscaleIVA */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	public $IdFiscaleIVA;
+    /** @var IdFiscaleIVA */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    public $IdFiscaleIVA;
 
-	/** @var string */
-	#[Length(min: 11, max: 16)]
-	#[Regex('/[A-Z0-9]{11,16}/')]
-	public string $CodiceFiscale;
+    /** @var string */
+    #[Length(min: 11, max: 16)]
+    #[Regex('/[A-Z0-9]{11,16}/')]
+    public string $CodiceFiscale;
 
-	/** @var Anagrafica */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	public $Anagrafica;
+    /** @var Anagrafica */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    public $Anagrafica;
 
-	/** @var string */
-	#[Length(min: 1, max: 60)]
-	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,60}/u')]
-	public string $AlboProfessionale;
+    /** @var string */
+    #[Length(min: 1, max: 60)]
+    #[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,60}/u')]
+    public string $AlboProfessionale;
 
-	/** @var string */
-	#[Length(min: 2, max: 2)]
-	#[Regex('/[A-Z]{2}/')]
-	public string $ProvinciaAlbo;
+    /** @var string */
+    #[Length(min: 2, max: 2)]
+    #[Regex('/[A-Z]{2}/')]
+    public string $ProvinciaAlbo;
 
-	/** @var string */
-	#[Length(min: 1, max: 60)]
-	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,60}/u')]
-	public string $NumeroIscrizioneAlbo;
+    /** @var string */
+    #[Length(min: 1, max: 60)]
+    #[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,60}/u')]
+    public string $NumeroIscrizioneAlbo;
 
-	/** @var DateTime */
-	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
-	public DateTime $DataIscrizioneAlbo;
+    /** @var DateTime */
+    #[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+    public DateTime $DataIscrizioneAlbo;
 
-	/** @var string */
-	#[Choice([
-		'RF01',
-		'RF02',
-		'RF04',
-		'RF05',
-		'RF06',
-		'RF07',
-		'RF08',
-		'RF09',
-		'RF10',
-		'RF11',
-		'RF12',
-		'RF13',
-		'RF14',
-		'RF15',
-		'RF16',
-		'RF17',
-		'RF19',
-		'RF18',
-	])]
-	public string $RegimeFiscale;
+    /** @var string */
+    #[Choice([
+        'RF01',
+        'RF02',
+        'RF04',
+        'RF05',
+        'RF06',
+        'RF07',
+        'RF08',
+        'RF09',
+        'RF10',
+        'RF11',
+        'RF12',
+        'RF13',
+        'RF14',
+        'RF15',
+        'RF16',
+        'RF17',
+        'RF19',
+        'RF18',
+    ])]
+    public string $RegimeFiscale;
 
-	private array $RegimeFiscale_array = [
-		'RF01',
-		'RF02',
-		'RF04',
-		'RF05',
-		'RF06',
-		'RF07',
-		'RF08',
-		'RF09',
-		'RF10',
-		'RF11',
-		'RF12',
-		'RF13',
-		'RF14',
-		'RF15',
-		'RF16',
-		'RF17',
-		'RF19',
-		'RF18',
-	];
+    private array $RegimeFiscale_array = [
+        'RF01',
+        'RF02',
+        'RF04',
+        'RF05',
+        'RF06',
+        'RF07',
+        'RF08',
+        'RF09',
+        'RF10',
+        'RF11',
+        'RF12',
+        'RF13',
+        'RF14',
+        'RF15',
+        'RF16',
+        'RF17',
+        'RF19',
+        'RF18',
+    ];
 }

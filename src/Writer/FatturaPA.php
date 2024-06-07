@@ -15,7 +15,6 @@ use DOMElement;
 
 class FatturaPA extends BaseStandard
 {
-
     public string $path = "src/Standards/FatturaPA/Schema_del_file_xml_FatturaPA_v1.2.2.xsd";
 
     public string $standard = "FatturaPA";
@@ -148,323 +147,323 @@ class FatturaPA extends BaseStandard
 
     public array $vis = [
     "FatturaElettronicaType" => [
-        "FatturaElettronicaHeader"=> 7,
-        "FatturaElettronicaBody"=> 7,
+        "FatturaElettronicaHeader" => 7,
+        "FatturaElettronicaBody" => 7,
     ],
-    "FatturaElettronicaHeaderType"=> [
-        "DatiTrasmissione"=> 0,
-        "CedentePrestatore"=> 7,
-        "RappresentanteFiscale"=> 7,
-        "CessionarioCommittente"=> 6,
-        "TerzoIntermediarioOSoggettoEmittente"=> 7,
+    "FatturaElettronicaHeaderType" => [
+        "DatiTrasmissione" => 0,
+        "CedentePrestatore" => 7,
+        "RappresentanteFiscale" => 7,
+        "CessionarioCommittente" => 6,
+        "TerzoIntermediarioOSoggettoEmittente" => 7,
         "SoggettoEmittente" => 7,
     ],
-    "FatturaElettronicaBodyType"=> [
-        "DatiGenerali"=> 7,
-        "DatiBeniServizi"=> 4,
-        "DatiVeicoli"=> 7,
-        "DatiPagamento"=> 6,
+    "FatturaElettronicaBodyType" => [
+        "DatiGenerali" => 7,
+        "DatiBeniServizi" => 4,
+        "DatiVeicoli" => 7,
+        "DatiPagamento" => 6,
         "Allegati" => 6,
     ],
-    "DatiTrasmissioneType"=> [
-        "IdTrasmittente"=> 0,
-        "ProgressivoInvio"=> 0,
-        "FormatoTrasmissione"=> 0,
-        "CodiceDestinatario"=> 0,
-        "ContattiTrasmittente"=> 0,
+    "DatiTrasmissioneType" => [
+        "IdTrasmittente" => 0,
+        "ProgressivoInvio" => 0,
+        "FormatoTrasmissione" => 0,
+        "CodiceDestinatario" => 0,
+        "ContattiTrasmittente" => 0,
         "PECDestinatario"  => 0
     ],
-    "IdFiscaleType"=> [
-        "IdPaese"=> 0,
+    "IdFiscaleType" => [
+        "IdPaese" => 0,
         "IdCodice" => 0,
     ],
-    "ContattiTrasmittenteType"=> [
-        "Telefono"=> 7,
+    "ContattiTrasmittenteType" => [
+        "Telefono" => 7,
         "Email" => 7,
     ],
-    "DatiGeneraliType"=> [
-        "DatiGeneraliDocumento"=> 6,
-        "DatiOrdineAcquisto"=> 6,
-        "DatiContratto"=> 6,
-        "DatiConvenzione"=> 6,
-        "DatiRicezione"=> 6,
-        "DatiFattureCollegate"=> 6,
-        "DatiSAL"=> 6,
-        "DatiDDT"=> 6,
-        "DatiTrasporto"=> 6,
+    "DatiGeneraliType" => [
+        "DatiGeneraliDocumento" => 6,
+        "DatiOrdineAcquisto" => 6,
+        "DatiContratto" => 6,
+        "DatiConvenzione" => 6,
+        "DatiRicezione" => 6,
+        "DatiFattureCollegate" => 6,
+        "DatiSAL" => 6,
+        "DatiDDT" => 6,
+        "DatiTrasporto" => 6,
         "FatturaPrincipale" => 6
     ],
-    "DatiGeneraliDocumentoType"=> [
-        "TipoDocumento"=> 6,
-        "Divisa"=> 6,
-        "Data"=> 6,
-        "Numero"=> 6,
-        "DatiRitenuta"=> 6,
-        "DatiBollo"=> 6,
-        "DatiCassaPrevidenziale"=> 6,
-        "ScontoMaggiorazione"=> 6,
-        "ImportoTotaleDocumento"=> 6,
-        "Arrotondamento"=> 6,
-        "Causale"=> 6,
+    "DatiGeneraliDocumentoType" => [
+        "TipoDocumento" => 6,
+        "Divisa" => 6,
+        "Data" => 6,
+        "Numero" => 6,
+        "DatiRitenuta" => 6,
+        "DatiBollo" => 6,
+        "DatiCassaPrevidenziale" => 6,
+        "ScontoMaggiorazione" => 6,
+        "ImportoTotaleDocumento" => 6,
+        "Arrotondamento" => 6,
+        "Causale" => 6,
         "Art73" => 6,
     ],
-    "DatiRitenutaType"=> [
-        "TipoRitenuta"=> 6,
-        "ImportoRitenuta"=> 6,
-        "AliquotaRitenuta"=> 6,
+    "DatiRitenutaType" => [
+        "TipoRitenuta" => 6,
+        "ImportoRitenuta" => 6,
+        "AliquotaRitenuta" => 6,
         "CausalePagamento" => 6
     ],
-    "DatiBolloType"=> [
-        "BolloVirtuale"=> 6,
+    "DatiBolloType" => [
+        "BolloVirtuale" => 6,
         "ImportoBollo" => 6
     ],
-    "DatiCassaPrevidenzialeType"=> [
-        "TipoCassa"=> 0,
-        "AlCassa"=> 0,
-        "ImportoContributoCassa"=> 0,
-        "ImponibileCassa"=> 0,
-        "AliquotaIVA"=> 0,
-        "Ritenuta"=> 0,
-        "Natura"=> 0,
+    "DatiCassaPrevidenzialeType" => [
+        "TipoCassa" => 0,
+        "AlCassa" => 0,
+        "ImportoContributoCassa" => 0,
+        "ImponibileCassa" => 0,
+        "AliquotaIVA" => 0,
+        "Ritenuta" => 0,
+        "Natura" => 0,
         "RiferimentoAmministrazione" => 0,
     ],
-    "ScontoMaggiorazioneType"=> [
-        "Tipo"=> 7,
-        "Percentuale"=> 7,
+    "ScontoMaggiorazioneType" => [
+        "Tipo" => 7,
+        "Percentuale" => 7,
         "Importo" => 7
     ],
-    "DatiSALType"=> [
+    "DatiSALType" => [
         "RiferimentoFase" => 0
     ],
-    "DatiDocumentiCorrelatiType"=> [
-        "RiferimentoNumeroLinea"=> 0,
-        "IdDocumento"=> 0,
-        "Data"=> 0,
-        "NumItem"=> 0,
-        "CodiceCommessaConvenzione"=> 0,
-        "CodiceCUP"=> 0,
+    "DatiDocumentiCorrelatiType" => [
+        "RiferimentoNumeroLinea" => 0,
+        "IdDocumento" => 0,
+        "Data" => 0,
+        "NumItem" => 0,
+        "CodiceCommessaConvenzione" => 0,
+        "CodiceCUP" => 0,
         "CodiceCIG" => 0,
     ],
-    "DatiDDTType"=> [
-        "NumeroDDT"=> 0,
-        "DataDDT"=> 0,
+    "DatiDDTType" => [
+        "NumeroDDT" => 0,
+        "DataDDT" => 0,
         "RiferimentoNumeroLinea" => 0,
     ],
-    "DatiTrasportoType"=> [
-        "DatiAnagraficiVettore"=> 0,
-        "MezzoTrasporto"=> 0,
-        "CausaleTrasporto"=> 0,
-        "NumeroColli"=> 0,
-        "Descrizione"=> 0,
-        "UnitaMisuraPeso"=> 0,
-        "PesoLordo"=> 0,
-        "PesoNetto"=> 0,
-        "DataOraRitiro"=> 0,
-        "DataInizioTrasporto"=> 0,
-        "TipoResa"=> 0,
-        "IndirizzoResa"=> 0,
+    "DatiTrasportoType" => [
+        "DatiAnagraficiVettore" => 0,
+        "MezzoTrasporto" => 0,
+        "CausaleTrasporto" => 0,
+        "NumeroColli" => 0,
+        "Descrizione" => 0,
+        "UnitaMisuraPeso" => 0,
+        "PesoLordo" => 0,
+        "PesoNetto" => 0,
+        "DataOraRitiro" => 0,
+        "DataInizioTrasporto" => 0,
+        "TipoResa" => 0,
+        "IndirizzoResa" => 0,
         "DataOraConsegna" => 0,
     ],
-    "IndirizzoType"=> [
-        "Indirizzo"=> 7,
-        "NumeroCivico"=> 7,
-        "CAP"=> 7,
-        "Comune"=> 7,
-        "Provincia"=> 7,
+    "IndirizzoType" => [
+        "Indirizzo" => 7,
+        "NumeroCivico" => 7,
+        "CAP" => 7,
+        "Comune" => 7,
+        "Provincia" => 7,
         "Nazione" => 7,
     ],
-    "FatturaPrincipaleType"=> [
-        "NumeroFatturaPrincipale"=> 0,
+    "FatturaPrincipaleType" => [
+        "NumeroFatturaPrincipale" => 0,
         "DataFatturaPrincipale" => 0,
     ],
-    "CedentePrestatoreType"=> [
-        "DatiAnagrafici"=> 7,
-        "Sede"=> 7,
-        "StabileOrganizzazione"=> 7,
-        "IscrizioneREA"=> 7,
-        "Contatti"=> 7,
+    "CedentePrestatoreType" => [
+        "DatiAnagrafici" => 7,
+        "Sede" => 7,
+        "StabileOrganizzazione" => 7,
+        "IscrizioneREA" => 7,
+        "Contatti" => 7,
         "RiferimentoAmministrazione" => 7,
     ],
-    "DatiAnagraficiCedenteType"=> [
-        "IdFiscaleIVA"=> 6,
-        "CodiceFiscale"=> 6,
-        "Anagrafica"=> 6,
-        "AlboProfessionale"=> 6,
-        "ProvinciaAlbo"=> 6,
-        "NumeroIscrizioneAlbo"=> 6,
-        "DataIscrizioneAlbo"=> 6,
-        "RegimeFiscale" => 6, 
+    "DatiAnagraficiCedenteType" => [
+        "IdFiscaleIVA" => 6,
+        "CodiceFiscale" => 6,
+        "Anagrafica" => 6,
+        "AlboProfessionale" => 6,
+        "ProvinciaAlbo" => 6,
+        "NumeroIscrizioneAlbo" => 6,
+        "DataIscrizioneAlbo" => 6,
+        "RegimeFiscale" => 6,
     ],
-    "AnagraficaType"=> [
-        "Denominazione"=> 6,
-        "Titolo"=> 6,
+    "AnagraficaType" => [
+        "Denominazione" => 6,
+        "Titolo" => 6,
         "CodEORI" => 6,
     ],
-    "DatiAnagraficiVettoreType"=> [
-        "IdFiscaleIVA"=> 0,
-        "CodiceFiscale"=> 0,
-        "Anagrafica"=> 0,
+    "DatiAnagraficiVettoreType" => [
+        "IdFiscaleIVA" => 0,
+        "CodiceFiscale" => 0,
+        "Anagrafica" => 0,
         "NumeroLicenzaGuida" => 0,
     ],
-    "IscrizioneREAType"=> [
-        "Ufficio"=> 0,
-        "NumeroREA"=> 0,
-        "CapitaleSociale"=> 0,
-        "SocioUnico"=> 0,
+    "IscrizioneREAType" => [
+        "Ufficio" => 0,
+        "NumeroREA" => 0,
+        "CapitaleSociale" => 0,
+        "SocioUnico" => 0,
         "StatoLiquidazione" => 0,
     ],
-    "ContattiType"=> [
-        "Telefono"=> 6,
-        "Fax"=> 6,
+    "ContattiType" => [
+        "Telefono" => 6,
+        "Fax" => 6,
         "Email" => 6,
     ],
-    "RappresentanteFiscaleType"=> [
+    "RappresentanteFiscaleType" => [
         "DatiAnagrafici" => 6,
     ],
-    "DatiAnagraficiRappresentanteType"=> [
-        "IdFiscaleIVA"=> 7,
-        "CodiceFiscale"=> 7,
+    "DatiAnagraficiRappresentanteType" => [
+        "IdFiscaleIVA" => 7,
+        "CodiceFiscale" => 7,
         "Anagrafica" => 7,
     ],
-    "CessionarioCommittenteType"=> [
-        "DatiAnagrafici"=> 6,
-        "Sede"=> 6,
-        "StabileOrganizzazione"=> 6,
+    "CessionarioCommittenteType" => [
+        "DatiAnagrafici" => 6,
+        "Sede" => 6,
+        "StabileOrganizzazione" => 6,
         "RappresentanteFiscale" => 6,
     ],
-    "RappresentanteFiscaleCessionarioType"=> [
-        "IdFiscaleIVA"=> 7,
+    "RappresentanteFiscaleCessionarioType" => [
+        "IdFiscaleIVA" => 7,
     ],
-    "DatiAnagraficiCessionarioType"=> [
-        "IdFiscaleIVA"=> 6,
-        "CodiceFiscale"=> 6,
+    "DatiAnagraficiCessionarioType" => [
+        "IdFiscaleIVA" => 6,
+        "CodiceFiscale" => 6,
         "Anagrafica" => 6,
     ],
-    "DatiBeniServiziType"=> [
-        "DettaglioLinee"=> 0,
+    "DatiBeniServiziType" => [
+        "DettaglioLinee" => 0,
         "DatiRiepilogo" => 0,
     ],
-    "DatiVeicoliType"=> [
-        "Data"=> 0,
+    "DatiVeicoliType" => [
+        "Data" => 0,
         "TotalePercorso" => 0,
     ],
-    "DatiPagamentoType"=> [
-        "CondizioniPagamento"=> 7,
+    "DatiPagamentoType" => [
+        "CondizioniPagamento" => 7,
         "DettaglioPagamento" => 7,
     ],
-    "DettaglioPagamentoType"=> [
-        "Beneficiario"=> 6,
-        "ModalitaPagamento"=> 6,
-        "DataRiferimentoTerminiPagamento"=> 6,
-        "GiorniTerminiPagamento"=> 6,
-        "DataScadenzaPagamento"=> 6,
-        "ImportoPagamento"=> 6,
-        "CodUfficioPostale"=> 6,
-        "CognomeQuietanzante"=> 6,
-        "NomeQuietanzante"=> 6,
-        "CFQuietanzante"=> 6,
-        "TitoloQuietanzante"=> 6,
-        "IstitutoFinanziario"=> 6,
-        "IBAN"=> 6,
-        "ABI"=> 6,
-        "CAB"=> 6,
-        "BIC"=> 6,
-        "ScontoPagamentoAnticipato"=> 6,
-        "DataLimitePagamentoAnticipato"=> 6,
-        "PenalitaPagamentiRitardati"=> 6,
-        "DataDecorrenzaPenale"=> 6,
+    "DettaglioPagamentoType" => [
+        "Beneficiario" => 6,
+        "ModalitaPagamento" => 6,
+        "DataRiferimentoTerminiPagamento" => 6,
+        "GiorniTerminiPagamento" => 6,
+        "DataScadenzaPagamento" => 6,
+        "ImportoPagamento" => 6,
+        "CodUfficioPostale" => 6,
+        "CognomeQuietanzante" => 6,
+        "NomeQuietanzante" => 6,
+        "CFQuietanzante" => 6,
+        "TitoloQuietanzante" => 6,
+        "IstitutoFinanziario" => 6,
+        "IBAN" => 6,
+        "ABI" => 6,
+        "CAB" => 6,
+        "BIC" => 6,
+        "ScontoPagamentoAnticipato" => 6,
+        "DataLimitePagamentoAnticipato" => 6,
+        "PenalitaPagamentiRitardati" => 6,
+        "DataDecorrenzaPenale" => 6,
         "CodicePagamento" => 6,
     ],
-    "TerzoIntermediarioSoggettoEmittenteType"=> [
-        "DatiAnagrafici"=> 0,
+    "TerzoIntermediarioSoggettoEmittenteType" => [
+        "DatiAnagrafici" => 0,
     ],
-    "DatiAnagraficiTerzoIntermediarioType"=> [
-        "IdFiscaleIVA"=> 0,
-        "CodiceFiscale"=> 0,
-        "Anagrafica"=> 0,
+    "DatiAnagraficiTerzoIntermediarioType" => [
+        "IdFiscaleIVA" => 0,
+        "CodiceFiscale" => 0,
+        "Anagrafica" => 0,
     ],
-    "AllegatiType"=> [
-        "NomeAttachment"=> 0,
-        "AlgoritmoCompressione"=> 0,
-        "FormatoAttachment"=> 0,
-        "DescrizioneAttachment"=> 0,
-        "Attachment"=> 0,
+    "AllegatiType" => [
+        "NomeAttachment" => 0,
+        "AlgoritmoCompressione" => 0,
+        "FormatoAttachment" => 0,
+        "DescrizioneAttachment" => 0,
+        "Attachment" => 0,
     ],
-    "DettaglioLineeType"=> [
-        "NumeroLinea"=> 0,
-        "TipoCessionePrestazione"=> 0,
-        "CodiceArticolo"=> 0,
-        "Descrizione"=> 0,
-        "Quantita"=> 0,
-        "UnitaMisura"=> 0,
-        "DataInizioPeriodo"=> 0,
-        "DataFinePeriodo"=> 0,
-        "PrezzoUnitario"=> 0,
-        "ScontoMaggiorazione"=> 0,
-        "PrezzoTotale"=> 0,
-        "AliquotaIVA"=> 0,
-        "Ritenuta"=> 0,
-        "Natura"=> 0,
-        "RiferimentoAmministrazione"=> 0,
+    "DettaglioLineeType" => [
+        "NumeroLinea" => 0,
+        "TipoCessionePrestazione" => 0,
+        "CodiceArticolo" => 0,
+        "Descrizione" => 0,
+        "Quantita" => 0,
+        "UnitaMisura" => 0,
+        "DataInizioPeriodo" => 0,
+        "DataFinePeriodo" => 0,
+        "PrezzoUnitario" => 0,
+        "ScontoMaggiorazione" => 0,
+        "PrezzoTotale" => 0,
+        "AliquotaIVA" => 0,
+        "Ritenuta" => 0,
+        "Natura" => 0,
+        "RiferimentoAmministrazione" => 0,
         "AltriDatiG0estionali" => 0,
     ],
-    "CodiceArticoloType"=> [
-        "CodiceTipo"=> 4,
-        "CodiceValore"=> 4,
+    "CodiceArticoloType" => [
+        "CodiceTipo" => 4,
+        "CodiceValore" => 4,
     ],
-    "AltriDatiGestionaliType"=> [
-        "TipoDato"=> 0,
-        "RiferimentoTesto"=> 0,
-        "RiferimentoNumero"=> 0,
-        "RiferimentoDat0a"=> 0,
+    "AltriDatiGestionaliType" => [
+        "TipoDato" => 0,
+        "RiferimentoTesto" => 0,
+        "RiferimentoNumero" => 0,
+        "RiferimentoDat0a" => 0,
     ],
-    "DatiRiepilogoType"=> [
-        "AliquotaIVA"=> 0,
-        "Natura"=> 0,
-        "SpeseAccessorie"=> 0,
-        "Arrotondamento"=> 0,
-        "ImponibileImporto"=> 0,
-        "Imposta"=> 0,
-        "EsigibilitaIVA"=> 0,
-        "RiferimentoNormativo"=> 0,
+    "DatiRiepilogoType" => [
+        "AliquotaIVA" => 0,
+        "Natura" => 0,
+        "SpeseAccessorie" => 0,
+        "Arrotondamento" => 0,
+        "ImponibileImporto" => 0,
+        "Imposta" => 0,
+        "EsigibilitaIVA" => 0,
+        "RiferimentoNormativo" => 0,
     ]
     ];
 
     /** Regex patterns need to be converted into preg_match equivalents */
     private array $regex_conversion_array =
-    [
-        '(\p{IsBasicLatin}{1,10})'  => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,10}/u',
-        '[A-Z0-9]{6,7}' => '/[A-Z0-9]{6,7}/',
-        'email' => '/^(?!.*\.\.)(?!.*\.$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
-        '[A-Z]{2}' => '/[A-Z]{2}/',
-        '.+@.+[.]+.+' => '/.+@.+\..+/',
-        '[A-Z]{3}' => '/[A-Z]{3}/',
-        '[\\-]?[0-9]{1,11}\\.[0-9]{2}' => '/[\-]?[0-9]{1,11}\.[0-9]{2}/',
-        '[\\-]?[0-9]{1,11}\\.[0-9]{2,8}' => '/[\-]?[0-9]{1,11}\.[0-9]{2,8}/',
-        '[0-9]{1,3}\\.[0-9]{2}' => '/[0-9]{1,3}\.[0-9]{2}/',
-        '[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,100}' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,100}/u',
-        '(\\p{IsBasicLatin}{1,15})' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,15}/u',
-        '[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,80}' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,80}/u',
-        '[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,1000}' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,1000}/u',
-        '(\\p{IsBasicLatin}{1,8})' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,8}/u',
-        '[0-9][0-9][0-9][0-9][0-9]' => '/[0-9]{5}/',
-        '[A-Z0-9]{11,16}' => '/[A-Z0-9]{11,16}/',
-        '[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{11,30}' => '/[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{11,30}/',
-        '[A-Z]{6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3}){0,1}' => '/[A-Z]{6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3})?/',
-        '[0-9]{1,12}\\.[0-9]{2,8}' => '/[0-9]{1,12}\.[0-9]{2,8}/',
-        '[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,60}' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,60}/u',
-        '(\\p{IsBasicLatin}{1,60})' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,60}/u',
-        '(\\p{IsBasicLatin}{2,10})' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{2,10}/u',
-        '[A-Z]{2}' => '/[A-Z]{2}/',
-        '(\\p{IsBasicLatin}{1,20})' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,20}/u',
-        '[\\-]?[0-9]{1,11}\\.[0-9]{2}' => '/[\-]?[0-9]{1,11}\.[0-9]{2}/',
-        '(\\p{IsBasicLatin}{5,12})' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{5,12}/u',
-        '(\\p{IsBasicLatin}{1,15})' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,15}/u',
-        '[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,200}' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,200}/u',    
-        '[A-Z0-9]{16}' => '/[A-Z0-9]{16}/',
-        '[0-9]{1,4}\.[0-9]{1,2}' => '/[0-9]{1,4}\.[0-9]{1,2}/',
-        '(\\p{IsBasicLatin}{1,35})' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,35}/u',
-    ];
+        [
+            '(\p{IsBasicLatin}{1,10})'  => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,10}/u',
+            '[A-Z0-9]{6,7}' => '/[A-Z0-9]{6,7}/',
+            'email' => '/^(?!.*\.\.)(?!.*\.$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
+            '[A-Z]{2}' => '/[A-Z]{2}/',
+            '.+@.+[.]+.+' => '/.+@.+\..+/',
+            '[A-Z]{3}' => '/[A-Z]{3}/',
+            '[\\-]?[0-9]{1,11}\\.[0-9]{2}' => '/[\-]?[0-9]{1,11}\.[0-9]{2}/',
+            '[\\-]?[0-9]{1,11}\\.[0-9]{2,8}' => '/[\-]?[0-9]{1,11}\.[0-9]{2,8}/',
+            '[0-9]{1,3}\\.[0-9]{2}' => '/[0-9]{1,3}\.[0-9]{2}/',
+            '[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,100}' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,100}/u',
+            '(\\p{IsBasicLatin}{1,15})' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,15}/u',
+            '[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,80}' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,80}/u',
+            '[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,1000}' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,1000}/u',
+            '(\\p{IsBasicLatin}{1,8})' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,8}/u',
+            '[0-9][0-9][0-9][0-9][0-9]' => '/[0-9]{5}/',
+            '[A-Z0-9]{11,16}' => '/[A-Z0-9]{11,16}/',
+            '[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{11,30}' => '/[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{11,30}/',
+            '[A-Z]{6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3}){0,1}' => '/[A-Z]{6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3})?/',
+            '[0-9]{1,12}\\.[0-9]{2,8}' => '/[0-9]{1,12}\.[0-9]{2,8}/',
+            '[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,60}' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,60}/u',
+            '(\\p{IsBasicLatin}{1,60})' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,60}/u',
+            '(\\p{IsBasicLatin}{2,10})' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{2,10}/u',
+            '[A-Z]{2}' => '/[A-Z]{2}/',
+            '(\\p{IsBasicLatin}{1,20})' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,20}/u',
+            '[\\-]?[0-9]{1,11}\\.[0-9]{2}' => '/[\-]?[0-9]{1,11}\.[0-9]{2}/',
+            '(\\p{IsBasicLatin}{5,12})' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{5,12}/u',
+            '(\\p{IsBasicLatin}{1,15})' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,15}/u',
+            '[\\p{IsBasicLatin}\\p{IsLatin-1Supplement}]{1,200}' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,200}/u',
+            '[A-Z0-9]{16}' => '/[A-Z0-9]{16}/',
+            '[0-9]{1,4}\.[0-9]{1,2}' => '/[0-9]{1,4}\.[0-9]{1,2}/',
+            '(\\p{IsBasicLatin}{1,35})' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,35}/u',
+        ];
 
     public function __construct()
     {
@@ -475,7 +474,7 @@ class FatturaPA extends BaseStandard
     {
 
         $this->document = new \DomDocument();
-        
+
         $this->document->load($this->path);
 
         $this->mapTypes()
@@ -483,13 +482,13 @@ class FatturaPA extends BaseStandard
         ->write();
 
     }
-    
+
     /**
      * getParentTypes
      *
      * Iterate through all complex types of the schema definition
      * and build type and element maps
-     * 
+     *
      * @return self
      */
     private function getParentTypes(): self
@@ -523,10 +522,11 @@ class FatturaPA extends BaseStandard
 
                 $set['elements'] = count($sequence_list) > 0 ? $sequence_list : [];
 
-                if(isset($this->visibility[$set['type']]) && $this->visibility[$set['type']] == 0)
+                if(isset($this->visibility[$set['type']]) && $this->visibility[$set['type']] == 0) {
                     $set['visibility'] = 0;
-                else
+                } else {
                     $set['visibility'] = $this->getVisibility($set['type']) ?? 0;
+                }
 
                 $this->data[$set['type']] = $set;
 
@@ -538,25 +538,26 @@ class FatturaPA extends BaseStandard
 
     private function getVisibility(string $type): int
     {
-        if(isset($this->vis[$type]))
+        if(isset($this->vis[$type])) {
             return 7;
+        }
 
-        foreach($this->vis as $key => $value)
-        {
+        foreach($this->vis as $key => $value) {
 
-            if(isset($this->vis[$key][$type]))
+            if(isset($this->vis[$key][$type])) {
                 return $this->vis[$key][$type];
+            }
 
         }
 
         return 0;
     }
-    
+
     /**
      * processSequences
      *
      * Harvests a list of child elements of the "Type:
-     * 
+     *
      * @param  \DOMNodeList $list
      * @return array
      */
@@ -596,27 +597,27 @@ class FatturaPA extends BaseStandard
                         $child_array['resource'] = $this->extractResource($child_array['type'] ?? $child_array['base_type']);
 
                         $child_array = array_merge($child_array, $this->extractRestriction($child_array['type'] ?? $child_array['base_type']));
-                            unset($child_array['type']);
-                    
+                        unset($child_array['type']);
+
                         if(!isset($child_array['base_type']) && isset($child_array['name'])) {
                             $child_array['base_type'] = $this->type_map[$child_array['name']];
                         }
-                        
+
                         $child_array['base_type'] = str_replace(["xs:","xs:"], "", $child_array['base_type']);
                         $child_array['visibility'] = $this->getVisibility($child_array['base_type']);
 
-                        if(isset($child_array['pattern']) && strlen($child_array['pattern']) > 2 && substr($child_array['pattern'], 0,1) != '/'){
+                        if(isset($child_array['pattern']) && strlen($child_array['pattern']) > 2 && substr($child_array['pattern'], 0, 1) != '/') {
 
                             if(strlen($child_array['pattern']) > 50) {
-                                $child_array['pattern'] = $this->regex_conversion_array['email'];    
-                            }
-                            else
+                                $child_array['pattern'] = $this->regex_conversion_array['email'];
+                            } else {
                                 $child_array['pattern'] = '/'.$child_array['pattern'].'/';
+                            }
                         }
-                            
+
 
                         $data[$child_array['name']] = array_merge($this->stub_validation, $child_array);
-                        
+
                     }
 
                 }
@@ -628,11 +629,11 @@ class FatturaPA extends BaseStandard
         return $data;
 
     }
-    
+
     /**
      * processChoiceSequence
      *
-     * Some types require a choice between 
+     * Some types require a choice between
      * sets of fields, the choice array
      * holds the "choice keys" of each set
      * @param  DomNodeList $list
@@ -653,9 +654,9 @@ class FatturaPA extends BaseStandard
                 if($childNode instanceof \DomElement) {
 
                     $key = $childNode->getAttribute('name');
-                    
+
                     $child_array[$key] = array_merge($this->stub_validation, $this->extractAttributes($childNode));
-                    
+
                 }
 
             }
@@ -676,22 +677,24 @@ class FatturaPA extends BaseStandard
         foreach($childNode->attributes as $key => $attr) {
             if(in_array($attr->nodeName, ['name','type','minOccurs','maxOccurs'])) {
 
-                if($attr->nodeName == 'type')
+                if($attr->nodeName == 'type') {
                     $key = 'base_type';
-                elseif($attr->nodeName == 'minOccurs')
+                } elseif($attr->nodeName == 'minOccurs') {
                     $key = 'min_occurs';
-                elseif($attr->nodeName == 'maxOccurs')
+                } elseif($attr->nodeName == 'maxOccurs') {
                     $key = 'max_occurs';
-                else 
+                } else {
                     $key = $attr->nodeName;
-            
+                }
+
                 $child_array[$key] = is_numeric($attr->nodeValue) ? (int)$attr->nodeValue : $attr->nodeValue;
             }
         }
 
-        if(!isset($child_array['min_occurs']))
+        if(!isset($child_array['min_occurs'])) {
             $child_array['min_occurs'] = 1;
-            
+        }
+
         if(!isset($child_array['max_occurs'])) {
             $child_array['max_occurs'] = 1;
         }
@@ -748,12 +751,12 @@ class FatturaPA extends BaseStandard
         return $this;
     }
 
-    
+
     /**
      * extractResource
      *
      * Extracts the dropdown selection key/value pairs
-     * 
+     *
      * @param  ?string $type
      * @return array
      */
@@ -789,12 +792,12 @@ class FatturaPA extends BaseStandard
 
         return $resource;
     }
-    
+
     /**
      * extractRestriction
      *
      * Returns the required validation array
-     * 
+     *
      * @param  string $type
      * @return array
      */
@@ -811,9 +814,8 @@ class FatturaPA extends BaseStandard
 
         $node = $result->item(0);
 
-        if($node instanceof DOMElement)
-        {
-     
+        if($node instanceof DOMElement) {
+
             if($node->hasAttribute('base')) {
                 $resource['base_type'] = str_replace("xs:", "", $node->getAttribute('base'));
             } else {
@@ -829,9 +831,8 @@ class FatturaPA extends BaseStandard
                         $resource[$this->camelToSnake($childNode->localName)] = $childNode->getAttribute("value");
 
                     }
-                    if(in_array($childNode->localName, ['minLength','maxLength']))
-                    {
-                                                
+                    if(in_array($childNode->localName, ['minLength','maxLength'])) {
+
                         $resource[$this->camelToSnake($childNode->localName)] = (int)$childNode->getAttribute("value");
                         $resource['base_type'] = 'string';
 
@@ -850,7 +851,7 @@ class FatturaPA extends BaseStandard
 
     }
 
-    
+
     /**
      * extractPattern
      *

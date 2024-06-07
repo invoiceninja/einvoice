@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\TemperatureType;
 
@@ -18,16 +18,16 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class MaximumTemperature
 {
-	/** @var string */
-	#[SerializedName('cbc:AttributeID')]
-	public string $AttributeID;
+    /** @var string */
+    #[SerializedName('cbc:AttributeID')]
+    public string $AttributeID;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
-	#[SerializedName('cbc:Measure')]
-	public string $Measure;
+    /** @var string */
+    #[DecimalPrecision(2)]
+    #[SerializedName('cbc:Measure')]
+    public string $Measure;
 
-	/** @var string */
-	#[SerializedName('cbc:Description')]
-	public string $Description;
+    /** @var string */
+    #[SerializedName('cbc:Description')]
+    public string $Description;
 }

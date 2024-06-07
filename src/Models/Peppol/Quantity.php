@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol;
 
@@ -9,12 +9,12 @@ use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 
 class Quantity
 {
-	/** @var string */
-	#[DecimalPrecision(2)]
-	#[SerializedName('#')]
-	public string $amount;
+    /** @var string */
+    #[DecimalPrecision(2)]
+    #[SerializedName('#')]
+    public string $amount;
 
-	/** @var string */
-	#[SerializedName('@unitCode')]
-	public string $unitCode;
+    /** @var string */
+    #[SerializedName('@unitCode')]
+    public string $unitCode;
 }

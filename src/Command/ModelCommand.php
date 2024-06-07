@@ -29,8 +29,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class ModelCommand extends Command
 {
-
-
     public $output;
 
     protected function configure()
@@ -44,8 +42,8 @@ final class ModelCommand extends Command
     {
         $this->output = $output;
 
-            $generator = new Generator();
-            $generator->build();
+        $generator = new Generator();
+        $generator->build();
 
         // return value is important when using CI, to fail the build when the command fails
         // in case of fail: "return self::FAILURE;"

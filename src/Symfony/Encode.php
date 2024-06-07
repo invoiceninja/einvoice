@@ -28,13 +28,15 @@ use Symfony\Component\Serializer\Mapping\ClassDiscriminatorFromClassMetadata;
 
 class Encode
 {
-    public function __construct(protected mixed $model){}
+    public function __construct(protected mixed $model)
+    {
+    }
 
     public function toXml(): string
     {
         return $this->encode('xml');
     }
-    
+
     public function toJson(bool $pretty = true): string
     {
         return $this->encode('json');

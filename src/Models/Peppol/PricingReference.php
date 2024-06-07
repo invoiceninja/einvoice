@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol;
 
@@ -14,11 +14,11 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class PricingReference
 {
-	/** @var OriginalItemLocationQuantity */
-	#[SerializedName('cac:OriginalItemLocationQuantity')]
-	public $OriginalItemLocationQuantity;
+    /** @var OriginalItemLocationQuantity */
+    #[SerializedName('cac:OriginalItemLocationQuantity')]
+    public $OriginalItemLocationQuantity;
 
-	/** @var AlternativeConditionPrice[] */
-	#[SerializedName('cac:AlternativeConditionPrice')]
-	public array $AlternativeConditionPrice;
+    /** @var AlternativeConditionPrice[] */
+    #[SerializedName('cac:AlternativeConditionPrice')]
+    public array $AlternativeConditionPrice;
 }

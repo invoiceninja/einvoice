@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\ClauseType;
 
@@ -18,11 +18,11 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class Clause
 {
-	/** @var string */
-	#[SerializedName('cbc:ID')]
-	public string $ID;
+    /** @var string */
+    #[SerializedName('cbc:ID')]
+    public string $ID;
 
-	/** @var string */
-	#[SerializedName('cbc:Content')]
-	public string $Content;
+    /** @var string */
+    #[SerializedName('cbc:Content')]
+    public string $Content;
 }

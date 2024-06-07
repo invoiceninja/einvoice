@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\PaymentMeansType;
 
@@ -24,56 +24,56 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class PaymentMeans
 {
-	/** @var string */
-	#[SerializedName('cbc:ID')]
-	public string $ID;
+    /** @var string */
+    #[SerializedName('cbc:ID')]
+    public string $ID;
 
-	/** @var string */
-	#[SerializedName('cbc:PaymentMeansCode')]
-	public string $PaymentMeansCode;
+    /** @var string */
+    #[SerializedName('cbc:PaymentMeansCode')]
+    public string $PaymentMeansCode;
 
-	/** @var DateTime */
-	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
-	#[SerializedName('cbc:PaymentDueDate')]
-	public DateTime $PaymentDueDate;
+    /** @var DateTime */
+    #[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+    #[SerializedName('cbc:PaymentDueDate')]
+    public DateTime $PaymentDueDate;
 
-	/** @var string */
-	#[SerializedName('cbc:PaymentChannelCode')]
-	public string $PaymentChannelCode;
+    /** @var string */
+    #[SerializedName('cbc:PaymentChannelCode')]
+    public string $PaymentChannelCode;
 
-	/** @var string */
-	#[SerializedName('cbc:InstructionID')]
-	public string $InstructionID;
+    /** @var string */
+    #[SerializedName('cbc:InstructionID')]
+    public string $InstructionID;
 
-	/** @var string */
-	#[SerializedName('cbc:InstructionNote')]
-	public string $InstructionNote;
+    /** @var string */
+    #[SerializedName('cbc:InstructionNote')]
+    public string $InstructionNote;
 
-	/** @var string */
-	#[SerializedName('cbc:PaymentID')]
-	public string $PaymentID;
+    /** @var string */
+    #[SerializedName('cbc:PaymentID')]
+    public string $PaymentID;
 
-	/** @var CardAccount */
-	#[SerializedName('cac:CardAccount')]
-	public $CardAccount;
+    /** @var CardAccount */
+    #[SerializedName('cac:CardAccount')]
+    public $CardAccount;
 
-	/** @var PayerFinancialAccount */
-	#[SerializedName('cac:PayerFinancialAccount')]
-	public $PayerFinancialAccount;
+    /** @var PayerFinancialAccount */
+    #[SerializedName('cac:PayerFinancialAccount')]
+    public $PayerFinancialAccount;
 
-	/** @var PayeeFinancialAccount */
-	#[SerializedName('cac:PayeeFinancialAccount')]
-	public $PayeeFinancialAccount;
+    /** @var PayeeFinancialAccount */
+    #[SerializedName('cac:PayeeFinancialAccount')]
+    public $PayeeFinancialAccount;
 
-	/** @var CreditAccount */
-	#[SerializedName('cac:CreditAccount')]
-	public $CreditAccount;
+    /** @var CreditAccount */
+    #[SerializedName('cac:CreditAccount')]
+    public $CreditAccount;
 
-	/** @var PaymentMandate */
-	#[SerializedName('cac:PaymentMandate')]
-	public $PaymentMandate;
+    /** @var PaymentMandate */
+    #[SerializedName('cac:PaymentMandate')]
+    public $PaymentMandate;
 
-	/** @var TradeFinancing */
-	#[SerializedName('cac:TradeFinancing')]
-	public $TradeFinancing;
+    /** @var TradeFinancing */
+    #[SerializedName('cac:TradeFinancing')]
+    public $TradeFinancing;
 }

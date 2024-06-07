@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\PackageType;
 
@@ -26,63 +26,63 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class Package
 {
-	/** @var string */
-	#[SerializedName('cbc:ID')]
-	public string $ID;
+    /** @var string */
+    #[SerializedName('cbc:ID')]
+    public string $ID;
 
-	/** @var Quantity */
-	#[SerializedName('cbc:Quantity')]
-	public $Quantity;
+    /** @var Quantity */
+    #[SerializedName('cbc:Quantity')]
+    public $Quantity;
 
-	/** @var bool */
-	#[SerializedName('cbc:ReturnableMaterialIndicator')]
-	public bool $ReturnableMaterialIndicator;
+    /** @var bool */
+    #[SerializedName('cbc:ReturnableMaterialIndicator')]
+    public bool $ReturnableMaterialIndicator;
 
-	/** @var string */
-	#[SerializedName('cbc:PackageLevelCode')]
-	public string $PackageLevelCode;
+    /** @var string */
+    #[SerializedName('cbc:PackageLevelCode')]
+    public string $PackageLevelCode;
 
-	/** @var string */
-	#[SerializedName('cbc:PackagingTypeCode')]
-	public string $PackagingTypeCode;
+    /** @var string */
+    #[SerializedName('cbc:PackagingTypeCode')]
+    public string $PackagingTypeCode;
 
-	/** @var string */
-	#[SerializedName('cbc:PackingMaterial')]
-	public string $PackingMaterial;
+    /** @var string */
+    #[SerializedName('cbc:PackingMaterial')]
+    public string $PackingMaterial;
 
-	/** @var string */
-	#[SerializedName('cbc:TraceID')]
-	public string $TraceID;
+    /** @var string */
+    #[SerializedName('cbc:TraceID')]
+    public string $TraceID;
 
-	/** @var ContainedPackage[] */
-	#[SerializedName('cac:ContainedPackage')]
-	public array $ContainedPackage;
+    /** @var ContainedPackage[] */
+    #[SerializedName('cac:ContainedPackage')]
+    public array $ContainedPackage;
 
-	/** @var ContainingTransportEquipment */
-	#[SerializedName('cac:ContainingTransportEquipment')]
-	public $ContainingTransportEquipment;
+    /** @var ContainingTransportEquipment */
+    #[SerializedName('cac:ContainingTransportEquipment')]
+    public $ContainingTransportEquipment;
 
-	/** @var GoodsItem[] */
-	#[SerializedName('cac:GoodsItem')]
-	public array $GoodsItem;
+    /** @var GoodsItem[] */
+    #[SerializedName('cac:GoodsItem')]
+    public array $GoodsItem;
 
-	/** @var MeasurementDimension[] */
-	#[SerializedName('cac:MeasurementDimension')]
-	public array $MeasurementDimension;
+    /** @var MeasurementDimension[] */
+    #[SerializedName('cac:MeasurementDimension')]
+    public array $MeasurementDimension;
 
-	/** @var DeliveryUnit[] */
-	#[SerializedName('cac:DeliveryUnit')]
-	public array $DeliveryUnit;
+    /** @var DeliveryUnit[] */
+    #[SerializedName('cac:DeliveryUnit')]
+    public array $DeliveryUnit;
 
-	/** @var Delivery */
-	#[SerializedName('cac:Delivery')]
-	public $Delivery;
+    /** @var Delivery */
+    #[SerializedName('cac:Delivery')]
+    public $Delivery;
 
-	/** @var Pickup */
-	#[SerializedName('cac:Pickup')]
-	public $Pickup;
+    /** @var Pickup */
+    #[SerializedName('cac:Pickup')]
+    public $Pickup;
 
-	/** @var Despatch */
-	#[SerializedName('cac:Despatch')]
-	public $Despatch;
+    /** @var Despatch */
+    #[SerializedName('cac:Despatch')]
+    public $Despatch;
 }

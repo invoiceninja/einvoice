@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\FatturaPA\TerzoIntermediarioSoggettoEmittenteType;
 
@@ -19,9 +19,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class TerzoIntermediarioOSoggettoEmittente
 {
-	/** @var DatiAnagrafici */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	public $DatiAnagrafici;
+    /** @var DatiAnagrafici */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    public $DatiAnagrafici;
 }

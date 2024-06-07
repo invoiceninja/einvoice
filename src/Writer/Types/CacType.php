@@ -52,12 +52,12 @@ class CacType
         $this->getTypes()->getElements();
 
     }
-    
+
     /**
      * getTypes
      *
      * Generates an array of name / value pairs
-     * 
+     *
      * @return self
      */
     public function getTypes(): self
@@ -103,17 +103,17 @@ class CacType
 
         /** Special types which may contain attributes */
         $data[] = [
-            'type' => 'AmountType', 
-            'base_type' => 'AmountType', 
-            'help' => '', 
-            'choices' => [], 
+            'type' => 'AmountType',
+            'base_type' => 'AmountType',
+            'help' => '',
+            'choices' => [],
             'elements' => [
                 '#' => array_merge($this->stub_validation, ['name' => 'amount', 'base_type' => 'decimal','min_occurs' => 1, 'max_occurs' => 1, ]),
                 '@currencyId' => array_merge($this->stub_validation, ['name' => 'currencyID', 'base_type' => 'string', 'min_occurs' => 1, 'max_occurs' => 1, ]),
                 'currencyId' => array_merge($this->stub_validation, ['name' => 'currencyID', 'base_type' => 'string', 'min_occurs' => 1, 'max_occurs' => 1, ]),
             ]
         ];
-        
+
         $data[] = [
             'type' => 'QuantityType',
             'base_type' => 'QuantityType',
@@ -165,25 +165,21 @@ class CacType
     {
         $children = collect([]);
 
-        foreach($this->type_map as $key => $type)
-        {
+        foreach($this->type_map as $key => $type) {
             $sequence = $this->getSequence($key);
 
-            for($x = 0; $x < $sequence->count(); $x++) 
-            {
+            for($x = 0; $x < $sequence->count(); $x++) {
 
-                foreach($sequence->item($x)->childNodes as $node) 
-                {
-                    
-                    if($node instanceof DOMElement && $node->hasAttribute("ref") && stripos($node->getAttribute('ref'), 'cac:') !== false) 
-                    {
-                    
+                foreach($sequence->item($x)->childNodes as $node) {
+
+                    if($node instanceof DOMElement && $node->hasAttribute("ref") && stripos($node->getAttribute('ref'), 'cac:') !== false) {
+
                         $parts = explode(":", $node->getAttribute('ref'));
-                    
+
                         $children->push($this->type_map[$parts[1]]);
-                    }    
-                }   
-                
+                    }
+                }
+
             }
 
         }
@@ -280,7 +276,7 @@ class CacType
         throw new \Exception("Could not find type for => ". $searchable_type);
 
     }
-    
+
     /**
      * extractRelatedType
      *
@@ -301,7 +297,7 @@ class CacType
         return $type ?? throw new \Exception("could not find related type {$related_type}");
     }
 
-    
+
     /**
      * getAnnotation
      *
@@ -315,7 +311,7 @@ class CacType
         return $result->count() > 0 ? trim(str_replace("\n", "", $result->item(0)->nodeValue)) : '';
 
     }
-    
+
     /**
      * getXPath
      *
@@ -329,7 +325,7 @@ class CacType
         return $xpath->query($path, $element);
     }
 
-    
+
     /**
      * getNamedType
      *

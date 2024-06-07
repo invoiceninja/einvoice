@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\ContractType;
 
@@ -22,63 +22,63 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class TransportContract
 {
-	/** @var string */
-	#[SerializedName('cbc:ID')]
-	public string $ID;
+    /** @var string */
+    #[SerializedName('cbc:ID')]
+    public string $ID;
 
-	/** @var DateTime */
-	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
-	#[SerializedName('cbc:IssueDate')]
-	public DateTime $IssueDate;
+    /** @var DateTime */
+    #[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+    #[SerializedName('cbc:IssueDate')]
+    public DateTime $IssueDate;
 
-	/** @var DateTime */
-	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
-	#[SerializedName('cbc:IssueTime')]
-	public DateTime $IssueTime;
+    /** @var DateTime */
+    #[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
+    #[SerializedName('cbc:IssueTime')]
+    public DateTime $IssueTime;
 
-	/** @var DateTime */
-	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
-	#[SerializedName('cbc:NominationDate')]
-	public DateTime $NominationDate;
+    /** @var DateTime */
+    #[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+    #[SerializedName('cbc:NominationDate')]
+    public DateTime $NominationDate;
 
-	/** @var DateTime */
-	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
-	#[SerializedName('cbc:NominationTime')]
-	public DateTime $NominationTime;
+    /** @var DateTime */
+    #[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
+    #[SerializedName('cbc:NominationTime')]
+    public DateTime $NominationTime;
 
-	/** @var string */
-	#[SerializedName('cbc:ContractTypeCode')]
-	public string $ContractTypeCode;
+    /** @var string */
+    #[SerializedName('cbc:ContractTypeCode')]
+    public string $ContractTypeCode;
 
-	/** @var string */
-	#[SerializedName('cbc:ContractType')]
-	public string $ContractType;
+    /** @var string */
+    #[SerializedName('cbc:ContractType')]
+    public string $ContractType;
 
-	/** @var string */
-	#[SerializedName('cbc:Note')]
-	public string $Note;
+    /** @var string */
+    #[SerializedName('cbc:Note')]
+    public string $Note;
 
-	/** @var string */
-	#[SerializedName('cbc:VersionID')]
-	public string $VersionID;
+    /** @var string */
+    #[SerializedName('cbc:VersionID')]
+    public string $VersionID;
 
-	/** @var string */
-	#[SerializedName('cbc:Description')]
-	public string $Description;
+    /** @var string */
+    #[SerializedName('cbc:Description')]
+    public string $Description;
 
-	/** @var ValidityPeriod */
-	#[SerializedName('cac:ValidityPeriod')]
-	public $ValidityPeriod;
+    /** @var ValidityPeriod */
+    #[SerializedName('cac:ValidityPeriod')]
+    public $ValidityPeriod;
 
-	/** @var ContractDocumentReference[] */
-	#[SerializedName('cac:ContractDocumentReference')]
-	public array $ContractDocumentReference;
+    /** @var ContractDocumentReference[] */
+    #[SerializedName('cac:ContractDocumentReference')]
+    public array $ContractDocumentReference;
 
-	/** @var NominationPeriod */
-	#[SerializedName('cac:NominationPeriod')]
-	public $NominationPeriod;
+    /** @var NominationPeriod */
+    #[SerializedName('cac:NominationPeriod')]
+    public $NominationPeriod;
 
-	/** @var ContractualDelivery */
-	#[SerializedName('cac:ContractualDelivery')]
-	public $ContractualDelivery;
+    /** @var ContractualDelivery */
+    #[SerializedName('cac:ContractualDelivery')]
+    public $ContractualDelivery;
 }

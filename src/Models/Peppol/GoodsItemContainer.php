@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol;
 
@@ -11,15 +11,15 @@ use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 
 class GoodsItemContainer
 {
-	/** @var string */
-	#[SerializedName('cbc:ID')]
-	public string $ID;
+    /** @var string */
+    #[SerializedName('cbc:ID')]
+    public string $ID;
 
-	/** @var Quantity */
-	#[SerializedName('cbc:Quantity')]
-	public $Quantity;
+    /** @var Quantity */
+    #[SerializedName('cbc:Quantity')]
+    public $Quantity;
 
-	/** @var TransportEquipment[] */
-	#[SerializedName('cac:TransportEquipment')]
-	public array $TransportEquipment;
+    /** @var TransportEquipment[] */
+    #[SerializedName('cac:TransportEquipment')]
+    public array $TransportEquipment;
 }

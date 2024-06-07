@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\FatturaPA;
 
@@ -13,15 +13,15 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class FatturaElettronica
 {
-	/** @var FatturaElettronicaHeader */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	public $FatturaElettronicaHeader;
+    /** @var FatturaElettronicaHeader */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    public $FatturaElettronicaHeader;
 
-	/** @var FatturaElettronicaBody[] */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	public array $FatturaElettronicaBody;
+    /** @var FatturaElettronicaBody[] */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    public array $FatturaElettronicaBody;
 }

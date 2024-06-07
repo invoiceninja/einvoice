@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\RailTransportType;
 
@@ -18,11 +18,11 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class RailTransport
 {
-	/** @var string */
-	#[SerializedName('cbc:TrainID')]
-	public string $TrainID;
+    /** @var string */
+    #[SerializedName('cbc:TrainID')]
+    public string $TrainID;
 
-	/** @var string */
-	#[SerializedName('cbc:RailCarID')]
-	public string $RailCarID;
+    /** @var string */
+    #[SerializedName('cbc:RailCarID')]
+    public string $RailCarID;
 }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\TransportationServiceType;
 
@@ -31,97 +31,97 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class OriginalDespatchTransportationService
 {
-	/** @var string */
-	#[SerializedName('cbc:TransportServiceCode')]
-	public string $TransportServiceCode;
+    /** @var string */
+    #[SerializedName('cbc:TransportServiceCode')]
+    public string $TransportServiceCode;
 
-	/** @var string */
-	#[SerializedName('cbc:TariffClassCode')]
-	public string $TariffClassCode;
+    /** @var string */
+    #[SerializedName('cbc:TariffClassCode')]
+    public string $TariffClassCode;
 
-	/** @var string */
-	#[SerializedName('cbc:Priority')]
-	public string $Priority;
+    /** @var string */
+    #[SerializedName('cbc:Priority')]
+    public string $Priority;
 
-	/** @var string */
-	#[SerializedName('cbc:FreightRateClassCode')]
-	public string $FreightRateClassCode;
+    /** @var string */
+    #[SerializedName('cbc:FreightRateClassCode')]
+    public string $FreightRateClassCode;
 
-	/** @var string */
-	#[SerializedName('cbc:TransportationServiceDescription')]
-	public string $TransportationServiceDescription;
+    /** @var string */
+    #[SerializedName('cbc:TransportationServiceDescription')]
+    public string $TransportationServiceDescription;
 
-	/** @var string */
-	#[SerializedName('cbc:TransportationServiceDetailsURI')]
-	public string $TransportationServiceDetailsURI;
+    /** @var string */
+    #[SerializedName('cbc:TransportationServiceDetailsURI')]
+    public string $TransportationServiceDetailsURI;
 
-	/** @var DateTime */
-	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
-	#[SerializedName('cbc:NominationDate')]
-	public DateTime $NominationDate;
+    /** @var DateTime */
+    #[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+    #[SerializedName('cbc:NominationDate')]
+    public DateTime $NominationDate;
 
-	/** @var DateTime */
-	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
-	#[SerializedName('cbc:NominationTime')]
-	public DateTime $NominationTime;
+    /** @var DateTime */
+    #[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
+    #[SerializedName('cbc:NominationTime')]
+    public DateTime $NominationTime;
 
-	/** @var string */
-	#[SerializedName('cbc:Name')]
-	public string $Name;
+    /** @var string */
+    #[SerializedName('cbc:Name')]
+    public string $Name;
 
-	/** @var string */
-	#[SerializedName('cbc:SequenceNumeric')]
-	public string $SequenceNumeric;
+    /** @var string */
+    #[SerializedName('cbc:SequenceNumeric')]
+    public string $SequenceNumeric;
 
-	/** @var TransportEquipment[] */
-	#[SerializedName('cac:TransportEquipment')]
-	public array $TransportEquipment;
+    /** @var TransportEquipment[] */
+    #[SerializedName('cac:TransportEquipment')]
+    public array $TransportEquipment;
 
-	/** @var SupportedTransportEquipment[] */
-	#[SerializedName('cac:SupportedTransportEquipment')]
-	public array $SupportedTransportEquipment;
+    /** @var SupportedTransportEquipment[] */
+    #[SerializedName('cac:SupportedTransportEquipment')]
+    public array $SupportedTransportEquipment;
 
-	/** @var UnsupportedTransportEquipment[] */
-	#[SerializedName('cac:UnsupportedTransportEquipment')]
-	public array $UnsupportedTransportEquipment;
+    /** @var UnsupportedTransportEquipment[] */
+    #[SerializedName('cac:UnsupportedTransportEquipment')]
+    public array $UnsupportedTransportEquipment;
 
-	/** @var CommodityClassification[] */
-	#[SerializedName('cac:CommodityClassification')]
-	public array $CommodityClassification;
+    /** @var CommodityClassification[] */
+    #[SerializedName('cac:CommodityClassification')]
+    public array $CommodityClassification;
 
-	/** @var SupportedCommodityClassification[] */
-	#[SerializedName('cac:SupportedCommodityClassification')]
-	public array $SupportedCommodityClassification;
+    /** @var SupportedCommodityClassification[] */
+    #[SerializedName('cac:SupportedCommodityClassification')]
+    public array $SupportedCommodityClassification;
 
-	/** @var UnsupportedCommodityClassification[] */
-	#[SerializedName('cac:UnsupportedCommodityClassification')]
-	public array $UnsupportedCommodityClassification;
+    /** @var UnsupportedCommodityClassification[] */
+    #[SerializedName('cac:UnsupportedCommodityClassification')]
+    public array $UnsupportedCommodityClassification;
 
-	/** @var TotalCapacityDimension */
-	#[SerializedName('cac:TotalCapacityDimension')]
-	public $TotalCapacityDimension;
+    /** @var TotalCapacityDimension */
+    #[SerializedName('cac:TotalCapacityDimension')]
+    public $TotalCapacityDimension;
 
-	/** @var ShipmentStage[] */
-	#[SerializedName('cac:ShipmentStage')]
-	public array $ShipmentStage;
+    /** @var ShipmentStage[] */
+    #[SerializedName('cac:ShipmentStage')]
+    public array $ShipmentStage;
 
-	/** @var TransportEvent[] */
-	#[SerializedName('cac:TransportEvent')]
-	public array $TransportEvent;
+    /** @var TransportEvent[] */
+    #[SerializedName('cac:TransportEvent')]
+    public array $TransportEvent;
 
-	/** @var ResponsibleTransportServiceProviderParty */
-	#[SerializedName('cac:ResponsibleTransportServiceProviderParty')]
-	public $ResponsibleTransportServiceProviderParty;
+    /** @var ResponsibleTransportServiceProviderParty */
+    #[SerializedName('cac:ResponsibleTransportServiceProviderParty')]
+    public $ResponsibleTransportServiceProviderParty;
 
-	/** @var EnvironmentalEmission[] */
-	#[SerializedName('cac:EnvironmentalEmission')]
-	public array $EnvironmentalEmission;
+    /** @var EnvironmentalEmission[] */
+    #[SerializedName('cac:EnvironmentalEmission')]
+    public array $EnvironmentalEmission;
 
-	/** @var EstimatedDurationPeriod */
-	#[SerializedName('cac:EstimatedDurationPeriod')]
-	public $EstimatedDurationPeriod;
+    /** @var EstimatedDurationPeriod */
+    #[SerializedName('cac:EstimatedDurationPeriod')]
+    public $EstimatedDurationPeriod;
 
-	/** @var ScheduledServiceFrequency[] */
-	#[SerializedName('cac:ScheduledServiceFrequency')]
-	public array $ScheduledServiceFrequency;
+    /** @var ScheduledServiceFrequency[] */
+    #[SerializedName('cac:ScheduledServiceFrequency')]
+    public array $ScheduledServiceFrequency;
 }

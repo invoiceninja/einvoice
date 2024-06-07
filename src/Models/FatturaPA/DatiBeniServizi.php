@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\FatturaPA;
 
@@ -17,15 +17,15 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiBeniServizi
 {
-	/** @var DettaglioLinee[] */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	public array $DettaglioLinee;
+    /** @var DettaglioLinee[] */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    public array $DettaglioLinee;
 
-	/** @var DatiRiepilogo[] */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	public array $DatiRiepilogo;
+    /** @var DatiRiepilogo[] */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    public array $DatiRiepilogo;
 }

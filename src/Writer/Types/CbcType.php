@@ -41,7 +41,7 @@ class CbcType
         $this->document->load($this->path);
         $this->getTypes()->getElements();
     }
-    
+
     /**
      * getElements
      *
@@ -54,8 +54,8 @@ class CbcType
 
         foreach($this->type_map as $key => $value) {
 
-// $time_start = microtime(true);
-// echo "{$key} => ". microtime(true)  - $time_start.PHP_EOL;
+            // $time_start = microtime(true);
+            // echo "{$key} => ". microtime(true)  - $time_start.PHP_EOL;
 
             $complexBaseType = $this->getUdtType($value);
 
@@ -67,7 +67,7 @@ class CbcType
         return $this;
 
     }
-    
+
     /**
      * getUdtType
      *
@@ -89,7 +89,7 @@ class CbcType
 
     }
 
-    
+
     private function getTypes()
     {
 
@@ -101,7 +101,7 @@ class CbcType
 
         return $this;
 
-    }    
+    }
     /**
      * getPrimativeType
      *
@@ -138,7 +138,7 @@ class CbcType
         throw new \Exception("Could not find type {$name}");
     }
 
-    
+
     /**
      * getXPath
      *
@@ -151,7 +151,7 @@ class CbcType
         $xpath = new \DOMXPath($this->document);
         return $xpath->query($path, $element);
     }
-    
+
     /**
      * getNamedType
      *

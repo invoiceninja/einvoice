@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\FatturaPA\DatiAnagraficiCessionarioType;
 
@@ -20,17 +20,17 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiAnagrafici
 {
-	/** @var IdFiscaleIVA */
-	public $IdFiscaleIVA;
+    /** @var IdFiscaleIVA */
+    public $IdFiscaleIVA;
 
-	/** @var string */
-	#[Length(min: 11, max: 16)]
-	#[Regex('/[A-Z0-9]{11,16}/')]
-	public string $CodiceFiscale;
+    /** @var string */
+    #[Length(min: 11, max: 16)]
+    #[Regex('/[A-Z0-9]{11,16}/')]
+    public string $CodiceFiscale;
 
-	/** @var Anagrafica */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	public $Anagrafica;
+    /** @var Anagrafica */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    public $Anagrafica;
 }

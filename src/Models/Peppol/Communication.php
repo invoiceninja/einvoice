@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol;
 
@@ -8,15 +8,15 @@ use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 
 class Communication
 {
-	/** @var string */
-	#[SerializedName('cbc:ChannelCode')]
-	public string $ChannelCode;
+    /** @var string */
+    #[SerializedName('cbc:ChannelCode')]
+    public string $ChannelCode;
 
-	/** @var string */
-	#[SerializedName('cbc:Channel')]
-	public string $Channel;
+    /** @var string */
+    #[SerializedName('cbc:Channel')]
+    public string $Channel;
 
-	/** @var string */
-	#[SerializedName('cbc:Value')]
-	public string $Value;
+    /** @var string */
+    #[SerializedName('cbc:Value')]
+    public string $Value;
 }

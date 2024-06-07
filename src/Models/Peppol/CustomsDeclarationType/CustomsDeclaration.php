@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\CustomsDeclarationType;
 
@@ -19,11 +19,11 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class CustomsDeclaration
 {
-	/** @var string */
-	#[SerializedName('cbc:ID')]
-	public string $ID;
+    /** @var string */
+    #[SerializedName('cbc:ID')]
+    public string $ID;
 
-	/** @var IssuerParty */
-	#[SerializedName('cac:IssuerParty')]
-	public $IssuerParty;
+    /** @var IssuerParty */
+    #[SerializedName('cac:IssuerParty')]
+    public $IssuerParty;
 }

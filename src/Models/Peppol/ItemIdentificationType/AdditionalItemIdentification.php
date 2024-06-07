@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\ItemIdentificationType;
 
@@ -21,27 +21,27 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class AdditionalItemIdentification
 {
-	/** @var string */
-	#[SerializedName('cbc:ID')]
-	public string $ID;
+    /** @var string */
+    #[SerializedName('cbc:ID')]
+    public string $ID;
 
-	/** @var string */
-	#[SerializedName('cbc:ExtendedID')]
-	public string $ExtendedID;
+    /** @var string */
+    #[SerializedName('cbc:ExtendedID')]
+    public string $ExtendedID;
 
-	/** @var string */
-	#[SerializedName('cbc:BarcodeSymbologyID')]
-	public string $BarcodeSymbologyID;
+    /** @var string */
+    #[SerializedName('cbc:BarcodeSymbologyID')]
+    public string $BarcodeSymbologyID;
 
-	/** @var PhysicalAttribute[] */
-	#[SerializedName('cac:PhysicalAttribute')]
-	public array $PhysicalAttribute;
+    /** @var PhysicalAttribute[] */
+    #[SerializedName('cac:PhysicalAttribute')]
+    public array $PhysicalAttribute;
 
-	/** @var MeasurementDimension[] */
-	#[SerializedName('cac:MeasurementDimension')]
-	public array $MeasurementDimension;
+    /** @var MeasurementDimension[] */
+    #[SerializedName('cac:MeasurementDimension')]
+    public array $MeasurementDimension;
 
-	/** @var IssuerParty */
-	#[SerializedName('cac:IssuerParty')]
-	public $IssuerParty;
+    /** @var IssuerParty */
+    #[SerializedName('cac:IssuerParty')]
+    public $IssuerParty;
 }

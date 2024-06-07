@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol\CommodityClassificationType;
 
@@ -18,19 +18,19 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class SupportedCommodityClassification
 {
-	/** @var string */
-	#[SerializedName('cbc:NatureCode')]
-	public string $NatureCode;
+    /** @var string */
+    #[SerializedName('cbc:NatureCode')]
+    public string $NatureCode;
 
-	/** @var string */
-	#[SerializedName('cbc:CargoTypeCode')]
-	public string $CargoTypeCode;
+    /** @var string */
+    #[SerializedName('cbc:CargoTypeCode')]
+    public string $CargoTypeCode;
 
-	/** @var string */
-	#[SerializedName('cbc:CommodityCode')]
-	public string $CommodityCode;
+    /** @var string */
+    #[SerializedName('cbc:CommodityCode')]
+    public string $CommodityCode;
 
-	/** @var string */
-	#[SerializedName('cbc:ItemClassificationCode')]
-	public string $ItemClassificationCode;
+    /** @var string */
+    #[SerializedName('cbc:ItemClassificationCode')]
+    public string $ItemClassificationCode;
 }

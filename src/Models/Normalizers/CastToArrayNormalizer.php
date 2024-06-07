@@ -50,7 +50,7 @@ class CastToArrayNormalizer implements NormalizerInterface
     public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         echo "ARRRRRRRRRRH".PHP_EOL;
-        
+
         return is_object($data);
     }
 

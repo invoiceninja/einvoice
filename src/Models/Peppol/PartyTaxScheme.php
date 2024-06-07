@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Invoiceninja\Einvoice\Models\Peppol;
 
@@ -13,34 +13,34 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class PartyTaxScheme
 {
-	/** @var string */
-	#[SerializedName('cbc:RegistrationName')]
-	public string $RegistrationName;
+    /** @var string */
+    #[SerializedName('cbc:RegistrationName')]
+    public string $RegistrationName;
 
-	/** @var string */
-	#[SerializedName('cbc:CompanyID')]
-	public string $CompanyID;
+    /** @var string */
+    #[SerializedName('cbc:CompanyID')]
+    public string $CompanyID;
 
-	/** @var string */
-	#[SerializedName('cbc:TaxLevelCode')]
-	public string $TaxLevelCode;
+    /** @var string */
+    #[SerializedName('cbc:TaxLevelCode')]
+    public string $TaxLevelCode;
 
-	/** @var string */
-	#[SerializedName('cbc:ExemptionReasonCode')]
-	public string $ExemptionReasonCode;
+    /** @var string */
+    #[SerializedName('cbc:ExemptionReasonCode')]
+    public string $ExemptionReasonCode;
 
-	/** @var string */
-	#[SerializedName('cbc:ExemptionReason')]
-	public string $ExemptionReason;
+    /** @var string */
+    #[SerializedName('cbc:ExemptionReason')]
+    public string $ExemptionReason;
 
-	/** @var RegistrationAddress */
-	#[SerializedName('cac:RegistrationAddress')]
-	public $RegistrationAddress;
+    /** @var RegistrationAddress */
+    #[SerializedName('cac:RegistrationAddress')]
+    public $RegistrationAddress;
 
-	/** @var TaxScheme */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
-	#[SerializedName('cac:TaxScheme')]
-	public $TaxScheme;
+    /** @var TaxScheme */
+    #[NotNull]
+    #[NotBlank]
+    #[Valid]
+    #[SerializedName('cac:TaxScheme')]
+    public $TaxScheme;
 }

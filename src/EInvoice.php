@@ -116,39 +116,31 @@ class EInvoice
      * and output format such as XML / JSON
      *
      * @param  mixed $object
-     * @param  string $output 'json', 'xml'
+     * @param  string $type 'json', 'xml'
      * @return string
      */
-    public function encode(mixed $object, string $output): string
+    public function encode(mixed $object, string $type): string
     {
 
         $phpDocExtractor = new PhpDocExtractor();
         $reflectionExtractor = new ReflectionExtractor();
-
-        // list of PropertyTypeExtractorInterface (any iterable)
+        // list of PropertyListExtractorInterface (any iterable)
         $typeExtractors = [$reflectionExtractor,$phpDocExtractor];
-
         // list of PropertyDescriptionExtractorInterface (any iterable)
         $descriptionExtractors = [$phpDocExtractor];
-
-        // list of PropertyInitializableExtractorInterface (any iterable)
+        // list of PropertyAccessExtractorInterface (any iterable)
         $propertyInitializableExtractors = [$reflectionExtractor];
-
         $propertyInfo = new PropertyInfoExtractor(
-            // $listExtractors,
             $propertyInitializableExtractors,
             $descriptionExtractors,
             $typeExtractors,
-            // $accessExtractors,
         );
-
-
         $context = [
             'xml_format_output' => true,
+            'remove_empty_tags' => true,
         ];
 
         $encoder = new XmlEncoder($context);
-
         $classMetadataFactory = new ClassMetadataFactory(new AttributeLoader());
         $metadataAwareNameConverter = new MetadataAwareNameConverter($classMetadataFactory);
 
@@ -156,12 +148,15 @@ class EInvoice
 
         $normalizers = [  new DateTimeNormalizer(), $normalizer,  new ArrayDenormalizer() , ];
         $encoders = [$encoder, new JsonEncoder()];
-
         $serializer = new Serializer($normalizers, $encoders);
 
-        $data = $serializer->encode($object, $output, $context);
+        $n_context = [
+            AbstractObjectNormalizer::SKIP_NULL_VALUES => true,
+        ];
 
-        return $output == 'xml' ? $this->decorateXml($data) : $data;
+        $data = $serializer->encode($object, $type, $context);
+
+        return $type == 'xml' ? $this->decorateXml($data) : $data;
 
     }
 

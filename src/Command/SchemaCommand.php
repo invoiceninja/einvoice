@@ -33,7 +33,7 @@ final class SchemaCommand extends Command
 
     private array $schemas = [
         'FatturaPA',
-        'Fact1',
+        // 'Fact1',
         'Peppol',
     ];
 

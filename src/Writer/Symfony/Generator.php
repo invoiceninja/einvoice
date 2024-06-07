@@ -42,11 +42,11 @@ class Generator
                 'set_serialized_name' => false,
             ]
         ],
-        'FACT1' => [
-            'options' => [
-                'set_serialized_name' => true,
-            ]
-        ],
+        // 'FACT1' => [
+        //     'options' => [
+        //         'set_serialized_name' => true,
+        //     ]
+        // ],
         'Peppol' => [
             'options' => [
                 'set_serialized_name' => true,

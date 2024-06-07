@@ -41,7 +41,7 @@ final class ObjectCommand extends Command
     public $output;
 
     private array $standards = [
-        'FACT1',
+        // 'FACT1',
         'FatturaPA',
         'Peppol',
     ];

@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Invoiceninja\Einvoice\Command;
 
-use Invoiceninja\Einvoice\Models\FACT1\Invoice;
+use Invoiceninja\Einvoice\Models\Peppol\Invoice;
 use Invoiceninja\Einvoice\Writer\FatturaPA;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputOption;
@@ -74,10 +74,10 @@ final class ObjectCommand extends Command
                 $class = new FatturaPA();
                 $parent = new FatturaElettronica();
             break;
-            case 'FACT1':        
-                $class = new Fact1();
-                $parent = new Invoice();
-            break;
+            // case 'FACT1':        
+            //     $class = new Fact1();
+            //     $parent = new Invoice();
+            // break;
             case 'Peppol':        
                 $class = new Peppol();
                 $parent = new Invoice();

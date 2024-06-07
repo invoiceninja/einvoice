@@ -135,24 +135,26 @@ class EInvoice
             $descriptionExtractors,
             $typeExtractors,
         );
-        $context = [
-            'xml_format_output' => true,
-            'remove_empty_tags' => true,
-        ];
 
-        $encoder = new XmlEncoder($context);
+        $context = [DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'];
+
+        $xml_encoder = new XmlEncoder(['xml_format_output' => true, 'remove_empty_tags' => true,]);
+        $json_encoder = new JsonEncoder();
+
         $classMetadataFactory = new ClassMetadataFactory(new AttributeLoader());
         $metadataAwareNameConverter = new MetadataAwareNameConverter($classMetadataFactory);
 
         $normalizer = new ObjectNormalizer($classMetadataFactory, $metadataAwareNameConverter, null, $propertyInfo);
 
-        $normalizers = [  new DateTimeNormalizer(), $normalizer,  new ArrayDenormalizer() , ];
-        $encoders = [$encoder, new JsonEncoder()];
+        $normalizers = [new DateTimeNormalizer(), $normalizer,  new ArrayDenormalizer() , ];
+        $encoders = [$xml_encoder, $json_encoder];
         $serializer = new Serializer($normalizers, $encoders);
 
         $n_context = [
             AbstractObjectNormalizer::SKIP_NULL_VALUES => true,
         ];
+
+        $object = $serializer->normalize($object);
 
         $data = $serializer->encode($object, $type, $context);
 

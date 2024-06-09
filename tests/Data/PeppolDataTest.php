@@ -2,6 +2,8 @@
 
 namespace InvoiceNinja\EInvoice\Tests\Data;
 
+
+use Milo\Schematron;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Serializer\Serializer;
@@ -253,5 +255,23 @@ class PeppolDataTest extends TestCase
         }
 
         return null;
+    }
+
+    public function testPeppolValidation()
+    {
+        $f = "src/Standards/Peppol/example.xml";
+
+        $sch = "src/Standards/Peppol/peppol.sch";
+
+
+        $schematron = new Schematron();
+        $schematron->load($sch);
+
+        $document = new \DOMDocument();
+        $document->load($f);
+        $result = $schematron->validate($document);
+
+        echo print_r($result).PHP_EOL;
+
     }
 }

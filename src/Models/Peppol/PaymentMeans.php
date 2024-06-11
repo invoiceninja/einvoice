@@ -34,7 +34,7 @@ class PaymentMeans
 	#[SerializedName('cbc:PaymentMeansCode')]
 	public $PaymentMeansCode;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:PaymentDueDate')]
 	public \DateTime $PaymentDueDate;

@@ -27,12 +27,12 @@ class ExternalReference
 	#[SerializedName('cbc:HashAlgorithmMethod')]
 	public string $HashAlgorithmMethod;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:ExpiryDate')]
 	public DateTime $ExpiryDate;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:ExpiryTime')]
 	public DateTime $ExpiryTime;

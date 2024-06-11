@@ -4,5 +4,5 @@ parameters:
     paths:
         - src/
     excludePaths:
-        - 'vendor/*'
-        - 'bin/*'
+        - vendor/'
+        - bin/'

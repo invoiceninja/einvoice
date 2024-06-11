@@ -58,12 +58,12 @@ class TransportationService
 	#[SerializedName('cbc:TransportationServiceDetailsURI')]
 	public $TransportationServiceDetailsURI;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:NominationDate')]
 	public DateTime $NominationDate;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:NominationTime')]
 	public DateTime $NominationTime;

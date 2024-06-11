@@ -26,12 +26,12 @@ class PartyLegalEntity
 	#[SerializedName('cbc:CompanyID')]
 	public $CompanyID;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:RegistrationDate')]
 	public \DateTime $RegistrationDate;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:RegistrationExpirationDate')]
 	public \DateTime $RegistrationExpirationDate;

@@ -11,9 +11,9 @@ use Symfony\Component\Validator\Constraints\Date;
 
 class Attachment
 {
-	/** @var binary */
+	/** @var mixed */
 	#[SerializedName('cbc:EmbeddedDocumentBinaryObject')]
-	public \binary $EmbeddedDocumentBinaryObject;
+	public mixed $EmbeddedDocumentBinaryObject;
 
 	/** @var ExternalReference */
 	#[SerializedName('cac:ExternalReference')]

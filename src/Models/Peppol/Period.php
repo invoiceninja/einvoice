@@ -12,22 +12,22 @@ use Symfony\Component\Validator\Constraints\Date;
 
 class Period
 {
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:StartDate')]
 	public DateTime $StartDate;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:StartTime')]
 	public DateTime $StartTime;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:EndDate')]
 	public DateTime $EndDate;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:EndTime')]
 	public DateTime $EndTime;

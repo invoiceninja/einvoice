@@ -53,11 +53,11 @@ class DatiTrasporto
 	#[Regex('/[0-9]{1,4}\.[0-9]{1,2}/')]
 	public string $PesoNetto;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	public DateTime $DataOraRitiro;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	public DateTime $DataInizioTrasporto;
 
@@ -69,7 +69,7 @@ class DatiTrasporto
 	/** @var IndirizzoResa */
 	public $IndirizzoResa;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	public DateTime $DataOraConsegna;
 }

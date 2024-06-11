@@ -132,7 +132,6 @@ class FatturaPA extends BaseStandard
         'AltriDatiGestionali' => 0,
         'DatiRiepilogo' => 0,
         'DatiDDTType' => 0,
-        'DatiDocumentiCorrelatiType' => 0,
         'ScontoMaggiorazioneType' => 0,
         'DatiCassaPrevidenzialeType' => 0,
         'DatiBolloType' => 0,
@@ -435,14 +434,11 @@ class FatturaPA extends BaseStandard
             '(\p{IsBasicLatin}{1,10})'  => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,10}/u',
             '[A-Z0-9]{6,7}' => '/[A-Z0-9]{6,7}/',
             'email' => '/^(?!.*\.\.)(?!.*\.$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
-            '[A-Z]{2}' => '/[A-Z]{2}/',
             '.+@.+[.]+.+' => '/.+@.+\..+/',
             '[A-Z]{3}' => '/[A-Z]{3}/',
-            '[\\-]?[0-9]{1,11}\\.[0-9]{2}' => '/[\-]?[0-9]{1,11}\.[0-9]{2}/',
             '[\\-]?[0-9]{1,11}\\.[0-9]{2,8}' => '/[\-]?[0-9]{1,11}\.[0-9]{2,8}/',
             '[0-9]{1,3}\\.[0-9]{2}' => '/[0-9]{1,3}\.[0-9]{2}/',
             '[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,100}' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,100}/u',
-            '(\\p{IsBasicLatin}{1,15})' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,15}/u',
             '[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,80}' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,80}/u',
             '[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,1000}' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,1000}/u',
             '(\\p{IsBasicLatin}{1,8})' => '/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,8}/u',
@@ -636,7 +632,7 @@ class FatturaPA extends BaseStandard
      * Some types require a choice between
      * sets of fields, the choice array
      * holds the "choice keys" of each set
-     * @param  DomNodeList $list
+     * @param  \DomNodeList $list
      * @return array
      */
     private function processChoiceSequence(\DomNodeList $list): array

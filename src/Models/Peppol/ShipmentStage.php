@@ -90,22 +90,22 @@ class ShipmentStage
 	#[SerializedName('cbc:OnCarriageIndicator')]
 	public bool $OnCarriageIndicator;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:EstimatedDeliveryDate')]
 	public DateTime $EstimatedDeliveryDate;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:EstimatedDeliveryTime')]
 	public DateTime $EstimatedDeliveryTime;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:RequiredDeliveryDate')]
 	public DateTime $RequiredDeliveryDate;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:RequiredDeliveryTime')]
 	public DateTime $RequiredDeliveryTime;

@@ -19,9 +19,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DigitalSignatureAttachment
 {
-	/** @var binary */
+	/** @var mixed */
 	#[SerializedName('cbc:EmbeddedDocumentBinaryObject')]
-	public \binary $EmbeddedDocumentBinaryObject;
+	public mixed $EmbeddedDocumentBinaryObject;
 
 	/** @var ExternalReference */
 	#[SerializedName('cac:ExternalReference')]

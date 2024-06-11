@@ -21,12 +21,12 @@ class Status
 	#[SerializedName('cbc:ConditionCode')]
 	public $ConditionCode;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:ReferenceDate')]
 	public DateTime $ReferenceDate;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:ReferenceTime')]
 	public DateTime $ReferenceTime;

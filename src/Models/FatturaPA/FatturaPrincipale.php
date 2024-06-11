@@ -18,7 +18,7 @@ class FatturaPrincipale
 	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,20}/u')]
 	public string $NumeroFatturaPrincipale;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]

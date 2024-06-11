@@ -29,12 +29,12 @@ class Signature
 	#[SerializedName('cbc:Note')]
 	public string $Note;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:ValidationDate')]
 	public DateTime $ValidationDate;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:ValidationTime')]
 	public DateTime $ValidationTime;

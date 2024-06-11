@@ -273,7 +273,11 @@ class CacType
             $result = $this->getXPath("./{$this->prefix}:complexType [@name='{$node_name}']//{$this->prefix}:simpleContent//{$this->prefix}:extension");
 
             if($result->count() == 1) {
-                $searchable_type = $result->item(0)->getAttribute('base');
+
+                /** @var \DomElement $element */
+                $element = $result->item(0);
+
+                $searchable_type = $element->getAttribute('base');
             }
         }
 
@@ -323,7 +327,7 @@ class CacType
     /**
      * getAnnotation
      *
-     * @param  mixed $element
+     * @param  DOMElement $element
      * @return string
      */
     private function getAnnotation(DOMElement $element): string
@@ -338,8 +342,8 @@ class CacType
      * getXPath
      *
      * @param  string $path
-     * @param  mixed $element
-     * @return DOMNodeList
+     * @param  \DOMElement $element
+     * @return ?\DOMNodeList
      */
     private function getXPath(string $path, \DomElement $element = null): ?\DOMNodeList
     {

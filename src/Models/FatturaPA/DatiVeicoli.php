@@ -13,7 +13,7 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class DatiVeicoli
 {
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]

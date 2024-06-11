@@ -280,6 +280,7 @@ class Fact1 extends BaseStandard
     {
 
         $parts = explode(":", $name);
+        $type = $this->cbcType;
 
         match($parts[0]) {
             'cac' => $type = $this->cacType,
@@ -314,6 +315,7 @@ class Fact1 extends BaseStandard
         foreach($rules['nested'] as $key => $value) {
 
             foreach($this->data as $dKey => $dValue) {
+                /** @var \stdClass $dValue */
                 if(isset($dValue->type) && $key == $dValue->type) {
                     foreach($rules['nested'][$key] as $nestKey => $value) {
                         foreach($dValue->elements as $ddKey => $ddValue) {

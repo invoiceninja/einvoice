@@ -38,12 +38,12 @@ class CardAccount
 	#[SerializedName('cbc:CardTypeCode')]
 	public $CardTypeCode;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:ValidityStartDate')]
 	public \DateTime $ValidityStartDate;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:ExpiryDate')]
 	public \DateTime $ExpiryDate;

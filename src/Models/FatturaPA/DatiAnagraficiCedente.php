@@ -48,7 +48,7 @@ class DatiAnagraficiCedente
 	#[Regex('/[\x{0020}-\x{007E}\x{00A0}-\x{00FF}]{1,60}/u')]
 	public string $NumeroIscrizioneAlbo;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	public \DateTime $DataIscrizioneAlbo;
 

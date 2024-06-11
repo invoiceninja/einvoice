@@ -91,6 +91,8 @@ class Generator
 
     public function resolveType(string $raw_type): string
     {
+        $type = $raw_type;
+        
         match($raw_type) {
             'integer' => $type = 'int',
             'decimal' => $type = 'string',
@@ -101,6 +103,7 @@ class Generator
             'base64Binary' => $type = 'mixed',
             'normalizedString' => $type = 'string',
             'boolean' => $type = 'bool',
+            'binary' => $type = 'mixed',
             default => $type = $raw_type,
         };
 
@@ -239,6 +242,10 @@ class Generator
                                         ->setPublic();
 
             if(stripos($element['base_type'], 'Type') === false) {
+                
+                if($base_type == 'DateTime')
+                    $base_type = "\DateTime";
+
                 $property->addComment("@var ".$base_type);
                 $property->setType($base_type);
             } else {

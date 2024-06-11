@@ -60,7 +60,7 @@ class Person
 	#[SerializedName('cbc:GenderCode')]
 	public $GenderCode;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:BirthDate')]
 	public DateTime $BirthDate;

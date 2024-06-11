@@ -85,7 +85,7 @@ class ExtType
     /**
      * getAnnotation
      *
-     * @param  mixed $element
+     * @param  DOMElement $element
      * @return string
      */
     private function getAnnotation(DOMElement $element): string
@@ -132,7 +132,7 @@ class ExtType
     /**
      * parseSequenceNode
      *
-     * @param  mixed $element
+     * @param  DOMElement $element
      * @return array
      */
     private function parseSequenceNode(DOMElement $element): array
@@ -191,7 +191,11 @@ class ExtType
             $result = $this->getXPath("./{$this->prefix}:complexType [@name='{$node_name}']//{$this->prefix}:simpleContent//{$this->prefix}:extension");
 
             if($result->count() == 1) {
-                $searchable_type = $result->item(0)->getAttribute('base');
+                
+                /** @var \DomElement $element */
+                $element = $result->item(0);
+
+                $searchable_type = $element->getAttribute('base');
             }
         }
 
@@ -255,16 +259,21 @@ class ExtType
         $base_type = $this->type_map[$name];
 
         $xpath = "//xsd:complexType [@name='{$base_type}']";
+
+        /** @var \DOMNodeList $query */
         $query = $this->getXPath($xpath);
 
-        return $query->item(0)->getAttribute('type');
+        /** @var \DomElement $element */
+        $element = $query->item(0);
+
+        return $element->getAttribute('type');
     }
 
     /**
      * extractSequence
      *
-     * @param  mixed $element
-     * @return DOMNodeList
+     * @param  \DomElement $element
+     * @return \DOMNodeList
      */
     private function extractSequence(\DomElement $element): \DOMNodeList
     {
@@ -275,8 +284,8 @@ class ExtType
      * getXPath
      *
      * @param  string $path
-     * @param  mixed $element
-     * @return DOMNodeList
+     * @param  \DomElement $element
+     * @return ?\DOMNodeList
      */
     private function getXPath(string $path, \DomElement $element = null): ?\DOMNodeList
     {

@@ -53,11 +53,12 @@ class CbcType
 
         $this->elements = [];
 
-        [];
+        $data = [];
+
         foreach($this->type_map as $key => $value) {
             
             $e = [];
-
+            
             $complexBaseType = $this->getUdtType($value);
 
             $name = substr($value, 0, -4);
@@ -153,7 +154,10 @@ class CbcType
 
         if($result->count() == 1) {
 
-            $base = $result->item(0)->getAttribute('base');
+            /** @var DomElement */
+            $element = $result->item(0);
+
+            $base = $element->getAttribute('base');
             
             if(in_array($base, ['udt:IdentifierType','udt:CodeType', 'udt:MeasureType','udt:NumericType','udt:QuantityType'])){
                 return str_replace("udt:","", $base);
@@ -192,7 +196,12 @@ class CbcType
         $result = $this->getXPath("./{$this->prefix}:complexType [@name='{$name}']//{$this->prefix}:simpleContent//{$this->prefix}:extension");
 
         if($result->count() == 1) {
-            $type = $result->item(0)->getAttribute('base');
+
+            
+            /** @var \DomElement $element */
+            $element = $result->item(0);
+
+            $type = $element->getAttribute('base');
 
             if(stripos($type, "xsd") !== false) {
                 return str_replace("{$this->prefix}:", "", $type);
@@ -238,8 +247,8 @@ class CbcType
      * getXPath
      *
      * @param  string $path
-     * @param  mixed $element
-     * @return DOMNodeList
+     * @param  \DomElement $element
+     * @return ?\DOMNodeList
      */
     private function getXPath(string $path, \DomElement $element = null): ?\DOMNodeList
     {

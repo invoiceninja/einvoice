@@ -50,22 +50,22 @@ class Delivery
 	#[SerializedName('cbc:MaximumQuantity')]
 	public $MaximumQuantity;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:ActualDeliveryDate')]
 	public DateTime $ActualDeliveryDate;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:ActualDeliveryTime')]
 	public DateTime $ActualDeliveryTime;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:LatestDeliveryDate')]
 	public DateTime $LatestDeliveryDate;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:LatestDeliveryTime')]
 	public DateTime $LatestDeliveryTime;

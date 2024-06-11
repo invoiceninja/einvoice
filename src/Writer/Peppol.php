@@ -673,6 +673,7 @@ class Peppol extends BaseStandard
     private function harvestNode(string $name)
     {
         $parts = explode(":", $name);
+$type = $this->cbcType;
 
         match($parts[0]) {
             'cac' => $type = $this->cacType,

@@ -87,8 +87,8 @@ class UdtType
      * getXPath
      *
      * @param  string $path
-     * @param  mixed $element
-     * @return DOMNodeList
+     * @param  DomElement $element
+     * @return ?\DOMNodeList
      */
     private function getXPath(string $path, \DomElement $element = null): ?\DOMNodeList
     {

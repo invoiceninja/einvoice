@@ -71,14 +71,14 @@ class DettaglioPagamento
 	])]
 	public string $ModalitaPagamento;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	public \DateTime $DataRiferimentoTerminiPagamento;
 
 	/** @var integer */
 	public int $GiorniTerminiPagamento;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	public \DateTime $DataScadenzaPagamento;
 
@@ -140,7 +140,7 @@ class DettaglioPagamento
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public string $ScontoPagamentoAnticipato;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	public \DateTime $DataLimitePagamentoAnticipato;
 
@@ -149,7 +149,7 @@ class DettaglioPagamento
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2}/')]
 	public string $PenalitaPagamentiRitardati;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	public \DateTime $DataDecorrenzaPenale;
 

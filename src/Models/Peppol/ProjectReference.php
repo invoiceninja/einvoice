@@ -26,7 +26,7 @@ class ProjectReference
 	#[SerializedName('cbc:UUID')]
 	public $UUID;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:IssueDate')]
 	public \DateTime $IssueDate;

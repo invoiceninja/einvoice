@@ -80,7 +80,7 @@ class ReceiptLine
 	#[SerializedName('cbc:OversupplyQuantity')]
 	public $OversupplyQuantity;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:ReceivedDate')]
 	public DateTime $ReceivedDate;

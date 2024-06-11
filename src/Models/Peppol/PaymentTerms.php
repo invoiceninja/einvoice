@@ -74,12 +74,12 @@ class PaymentTerms
 	#[SerializedName('cbc:PaymentTermsDetailsURI')]
 	public $PaymentTermsDetailsURI;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:PaymentDueDate')]
 	public DateTime $PaymentDueDate;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:InstallmentDueDate')]
 	public DateTime $InstallmentDueDate;

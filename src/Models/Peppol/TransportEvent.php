@@ -25,12 +25,12 @@ class TransportEvent
 	#[SerializedName('cbc:IdentificationID')]
 	public $IdentificationID;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:OccurrenceDate')]
 	public DateTime $OccurrenceDate;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:OccurrenceTime')]
 	public DateTime $OccurrenceTime;

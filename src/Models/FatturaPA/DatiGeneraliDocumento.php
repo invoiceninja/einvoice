@@ -71,7 +71,7 @@ class DatiGeneraliDocumento
 	#[Regex('/[A-Z]{3}/')]
 	public string $Divisa;
 
-	/** @var DateTime */
+	/** @var \DateTime */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]

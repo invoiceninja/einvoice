@@ -64,7 +64,7 @@ class CccType
      * getXPath
      *
      * @param  string $path
-     * @param  mixed $element
+     * @param  DomElement $element
      * @return DOMNodeList
      */
     private function getXPath(string $path, \DomElement $element = null): ?\DOMNodeList

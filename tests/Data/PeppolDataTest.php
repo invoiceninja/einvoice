@@ -237,9 +237,7 @@ class PeppolDataTest extends TestCase
     {
 
         $f = "src/Standards/Peppol/example.xml";
-
-
-$xslt = "src/Standards/Peppol/peppol.xslt";
+        $xslt = "src/Standards/Peppol/peppol.xslt";
         
         $e = new EInvoice();
         $result = $e->decode('Peppol', file_get_contents($f), 'xml');;
@@ -248,25 +246,70 @@ $xslt = "src/Standards/Peppol/peppol.xslt";
 
         $this->assertNotNull($convert);
 
-$xmlFile = $f;
+        $xmlFile = $f;
+        $saxonProc = new \Saxon\SaxonProcessor();
+        
+        // $saxonProc->setConfigurationProperty("http://saxon.sf.net/feature/licenseFileLocation", "/usr/lib/saxon-license.lic");
+        // $saxonProc->setcwd("");
 
-$saxonProc = new \Saxon\SaxonProcessor();
-$proc = $saxonProc->newXslt30Processor();
+        $proc = $saxonProc->newXslt30Processor();
+        $executable = $proc->compileFromFile($xslt);
+        // $result = $executable->transformFileToString($xmlFile);
+        // $file = $executable->transformToValue(file_get_contents($xmlFile));
+        $executable->transformToFile("x.txt");
 
-$executable = $proc->compileFromFile($xslt);
+        // echo print_r($file,1);
 
-$result = $executable->transformFileToString($xmlFile);
+        if($executable->exceptionOccurred()) {
+            $errCode = $executable->getErrorCode();
+            $errMessage = $executable->getErrorMessage();
+            echo 'Expected error: Code='.$errCode.' Message='.$errMessage;
+            $proc->exceptionClear();
+        }
 
-if($result == null) {
-    if($executable->exceptionOccurred()) {
-        $errCode = $executable->getErrorCode();
-        $errMessage = $executable->getErrorMessage();
-        echo 'Expected error: Code='.$errCode.' Message='.$errMessage;
-        $proc->exceptionClear();
-    }
-}
-echo $result;
-$proc->clearParameters();
+        echo $result;
+        // $proc->clearParameters();
+
+    //     $doc = $saxonProc->parseXmlFromFile($xmlFile);
+
+    //     $validator = new \Saxon\SchemaValidator();
+    //     // $validator->newSchemaValidator();
+    //     $validator->registerSchemaFromString(file_get_contents($xslt));
+    //     $validator->setProperty('report', 'true');
+    //     $validator->setSourceNode($doc);
+    //     $validator->validate();
+    //     $result = $validator->getValidationReport();
+        
+    //     echo print_r($validator);
+    //     // echo $result->getExceptionCount().PHP_EOL;
+
+    // // $errCode = $result->getErrorCode();
+    // // $errMessage = $result->getErrorMessage();
+    // // echo 'Expected error: Code='.$errCode.' Message='.$errMessage;
+
+
+    
+// try {
+    
+//     $validator = $saxonProc->newSchemaValidator();
+
+//     $validator->registerSchemaFromString(file_get_contents($xslt));
+//     $xml = $saxonProc->parseXmlFromString(file_get_contents($xmlFile));
+//     $validator->setSourceNode($xml);
+//     $validator->setProperty('report-node', 'true');
+//     $validator->validate();
+//     $node = $validator->getValidationReport();
+//     echo 'Validation Report:' . $node->getStringValue() . '<br/>';
+
+//     echo "Doc is valid";
+
+// } catch(\Exception $e) {
+//     echo "Doc is not valid!";
+//     echo 'Caught validation exception: ',  $e->getMessage(), "\n";
+// }
+
+// $validator->clearParameters();
+// $validator->clearProperties();
 
 
     }

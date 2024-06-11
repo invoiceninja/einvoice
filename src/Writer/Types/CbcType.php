@@ -64,14 +64,67 @@ class CbcType
 
             if($complexBaseType == 'IdentifierType'){
             
-            $complexBaseType = $value;
+                $complexBaseType = $value;
+                    $e = [
+                        '#' => array_merge($this->stub_validation, ['name' => "value", 'base_type' => 'string','min_occurs' => 0, 'max_occurs' => 1, ]),
+                        'schemeID' => array_merge($this->stub_validation, ['name' => 'schemeID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                        'schemeName' => array_merge($this->stub_validation, ['name' => 'schemeName', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                        'schemeAgencyID' => array_merge($this->stub_validation, ['name' => 'schemeAgencyID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                        'schemeAgencyName' => array_merge($this->stub_validation, ['name' => 'schemeAgencyName', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                        'schemeVersionID' => array_merge($this->stub_validation, ['name' => 'schemeVersionID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                        'schemeDataURI' => array_merge($this->stub_validation, ['name' => 'schemeDataURI', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                        'schemeURI' => array_merge($this->stub_validation, ['name' => 'schemeURI', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                        'listURI' => array_merge($this->stub_validation, ['name' => 'listURI', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                        'listSchemeURI' => array_merge($this->stub_validation, ['name' => 'listSchemeURI', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                    ];
 
-            $e = [
-                '#' => array_merge($this->stub_validation, ['name' => "_".$name, 'base_type' => 'string','min_occurs' => 0, 'max_occurs' => 1, ]),
-                '@schemeID' => array_merge($this->stub_validation, ['name' => 'schemeID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
-                'schemeID' => array_merge($this->stub_validation, ['name' => 'schemeID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
-            ];
+            }
+            elseif($complexBaseType == 'CodeType'){
+                            
+                $complexBaseType = $value;
+                $e = [
+                    '#' => array_merge($this->stub_validation, ['name' => "value", 'base_type' => 'string','min_occurs' => 0, 'max_occurs' => 1, ]),
+                    'listID' => array_merge($this->stub_validation, ['name' => 'listID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                    'listAgencyID' => array_merge($this->stub_validation, ['name' => 'listAgencyID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                    'listAgencyName' => array_merge($this->stub_validation, ['name' => 'listAgencyName', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                    'listName' => array_merge($this->stub_validation, ['name' => 'listName', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                    'listVersionID' => array_merge($this->stub_validation, ['name' => 'listVersionID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                    'name' => array_merge($this->stub_validation, ['name' => 'name', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                    'languageID' => array_merge($this->stub_validation, ['name' => 'languageID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                    'listURI' => array_merge($this->stub_validation, ['name' => 'listURI', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                    'listSchemeURI' => array_merge($this->stub_validation, ['name' => 'listSchemeURI', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                ];
+  
+            }
+            elseif($complexBaseType == 'MeasureType'){
 
+                $complexBaseType = $value;
+                $e = [
+                    '#' => array_merge($this->stub_validation, ['name' => "value", 'base_type' => 'string','min_occurs' => 0, 'max_occurs' => 1, ]),
+                    'unitCode' => array_merge($this->stub_validation, ['name' => 'unitCode', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                    'unitCodeListVersionID' => array_merge($this->stub_validation, ['name' => 'unitCodeListVersionID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                    ];
+
+            }
+            elseif($complexBaseType == 'NumericType'){
+
+                $complexBaseType = $value;
+                $e = [
+                    '#' => array_merge($this->stub_validation, ['name' => "value", 'base_type' => 'string','min_occurs' => 0, 'max_occurs' => 1, ]),
+                    'format' => array_merge($this->stub_validation, ['name' => 'format', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                    ];
+
+            }
+            elseif($complexBaseType == 'QuantityType'){
+
+                $complexBaseType = $value;
+                $e = [
+                    '#' => array_merge($this->stub_validation, ['name' => "value", 'base_type' => 'string','min_occurs' => 0, 'max_occurs' => 1, ]),
+                    'unitCode' => array_merge($this->stub_validation, ['name' => 'unitCode', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                    'unitCodeListID' => array_merge($this->stub_validation, ['name' => 'unitCodeListID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                    'unitCodeListAgencyID' => array_merge($this->stub_validation, ['name' => 'unitCodeListAgencyID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                    'unitCodeListAgencyName' => array_merge($this->stub_validation, ['name' => 'unitCodeListAgencyName', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                    ];
 
             }
 
@@ -101,9 +154,9 @@ class CbcType
         if($result->count() == 1) {
 
             $base = $result->item(0)->getAttribute('base');
-
-            if($base == 'udt:IdentifierType'){
-                return 'IdentifierType';
+            
+            if(in_array($base, ['udt:IdentifierType','udt:CodeType', 'udt:MeasureType','udt:NumericType','udt:QuantityType'])){
+                return str_replace("udt:","", $base);
             }
 
             return (new UdtType())->getPrimativeType(str_replace("udt:", "", $base));
@@ -154,9 +207,12 @@ class CbcType
             if(stripos($type, "udt") !== false) {
                 $parts = explode(":", $type);
 
-                if($parts[1] == 'IdentifierType'){
-                    return $name;
-                }
+                // if($parts[1] == 'IdentifierType'){
+                //     return $name;
+                // }
+
+            if(in_array($parts[1], ['IdentifierType','CodeType', 'MeasureType','NumericType','QuantityType']))
+                return $name;
 
                 return (new UdtType())->getPrimativeType($parts[1]);
             }

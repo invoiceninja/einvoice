@@ -64,8 +64,14 @@ class TypeGenerator
         $response->namespace = $this->namespace;
         $response->class = $this->class;
 
-        $name = str_replace("Type", "", $this->name);
 
+        if(substr($this->name, -4) == "Type") {
+            $name = substr($this->name, 0, -4);
+        }
+        else {
+            $name = $this->name;
+        }
+        
         $this->generator->write($this->namespace, "{$this->generator->write_path}{$this->generator->standard}/$this->type/{$name}.php");
 
         return $response;

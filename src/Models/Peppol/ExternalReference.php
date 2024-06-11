@@ -3,6 +3,10 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
+use InvoiceNinja\EInvoice\Models\Peppol\CharacterSetCodeType\CharacterSetCode;
+use InvoiceNinja\EInvoice\Models\Peppol\EncodingCodeType\EncodingCode;
+use InvoiceNinja\EInvoice\Models\Peppol\FormatCodeType\FormatCode;
+use InvoiceNinja\EInvoice\Models\Peppol\MimeCodeType\MimeCode;
 use InvoiceNinja\EInvoice\Models\Peppol\URIType\URI;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
@@ -33,21 +37,21 @@ class ExternalReference
 	#[SerializedName('cbc:ExpiryTime')]
 	public DateTime $ExpiryTime;
 
-	/** @var string */
+	/** @var MimeCode */
 	#[SerializedName('cbc:MimeCode')]
-	public string $MimeCode;
+	public $MimeCode;
 
-	/** @var string */
+	/** @var FormatCode */
 	#[SerializedName('cbc:FormatCode')]
-	public string $FormatCode;
+	public $FormatCode;
 
-	/** @var string */
+	/** @var EncodingCode */
 	#[SerializedName('cbc:EncodingCode')]
-	public string $EncodingCode;
+	public $EncodingCode;
 
-	/** @var string */
+	/** @var CharacterSetCode */
 	#[SerializedName('cbc:CharacterSetCode')]
-	public string $CharacterSetCode;
+	public $CharacterSetCode;
 
 	/** @var string */
 	#[SerializedName('cbc:FileName')]

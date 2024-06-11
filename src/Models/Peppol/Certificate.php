@@ -3,6 +3,7 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
+use InvoiceNinja\EInvoice\Models\Peppol\CertificateTypeCodeType\CertificateTypeCode;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\DocumentReference;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\IssuerParty;
@@ -24,9 +25,12 @@ class Certificate
 	#[SerializedName('cbc:ID')]
 	public $ID;
 
-	/** @var string */
+	/** @var CertificateTypeCode */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:CertificateTypeCode')]
-	public string $CertificateTypeCode;
+	public $CertificateTypeCode;
 
 	/** @var string */
 	#[SerializedName('cbc:CertificateType')]

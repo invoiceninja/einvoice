@@ -3,6 +3,8 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use InvoiceNinja\EInvoice\Models\Peppol\CV2IDType\CV2ID;
+use InvoiceNinja\EInvoice\Models\Peppol\CardChipCodeType\CardChipCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CardTypeCodeType\CardTypeCode;
 use InvoiceNinja\EInvoice\Models\Peppol\ChipApplicationIDType\ChipApplicationID;
 use InvoiceNinja\EInvoice\Models\Peppol\IssueNumberIDType\IssueNumberID;
 use InvoiceNinja\EInvoice\Models\Peppol\IssuerIDType\IssuerID;
@@ -32,9 +34,9 @@ class CardAccount
 	#[SerializedName('cbc:NetworkID')]
 	public $NetworkID;
 
-	/** @var string */
+	/** @var CardTypeCode */
 	#[SerializedName('cbc:CardTypeCode')]
-	public string $CardTypeCode;
+	public $CardTypeCode;
 
 	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
@@ -58,9 +60,9 @@ class CardAccount
 	#[SerializedName('cbc:CV2ID')]
 	public $CV2ID;
 
-	/** @var string */
+	/** @var CardChipCode */
 	#[SerializedName('cbc:CardChipCode')]
-	public string $CardChipCode;
+	public $CardChipCode;
 
 	/** @var ChipApplicationID */
 	#[SerializedName('cbc:ChipApplicationID')]

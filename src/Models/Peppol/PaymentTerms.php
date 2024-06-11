@@ -15,10 +15,14 @@ use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\PenaltyPeriod;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\SettlementPeriod;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\ValidityPeriod;
 use InvoiceNinja\EInvoice\Models\Peppol\PrepaidPaymentReferenceIDType\PrepaidPaymentReferenceID;
+use InvoiceNinja\EInvoice\Models\Peppol\ReferenceEventCodeType\ReferenceEventCode;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class PaymentTerms
 {
@@ -38,9 +42,9 @@ class PaymentTerms
 	#[SerializedName('cbc:Note')]
 	public string $Note;
 
-	/** @var string */
+	/** @var ReferenceEventCode */
 	#[SerializedName('cbc:ReferenceEventCode')]
-	public string $ReferenceEventCode;
+	public $ReferenceEventCode;
 
 	/** @var string */
 	#[SerializedName('cbc:SettlementDiscountPercent')]

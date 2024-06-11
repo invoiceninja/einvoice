@@ -9,6 +9,7 @@ use InvoiceNinja\EInvoice\Models\Peppol\AddressType\PostalAddress;
 use InvoiceNinja\EInvoice\Models\Peppol\ContactType\Contact;
 use InvoiceNinja\EInvoice\Models\Peppol\EndpointIDType\EndpointID;
 use InvoiceNinja\EInvoice\Models\Peppol\FinancialAccountType\FinancialAccount;
+use InvoiceNinja\EInvoice\Models\Peppol\IndustryClassificationCodeType\IndustryClassificationCode;
 use InvoiceNinja\EInvoice\Models\Peppol\LanguageType\Language;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\PhysicalLocation;
 use InvoiceNinja\EInvoice\Models\Peppol\LogoReferenceIDType\LogoReferenceID;
@@ -53,9 +54,9 @@ class LogisticsOperatorParty
 	#[SerializedName('cbc:EndpointID')]
 	public $EndpointID;
 
-	/** @var string */
+	/** @var IndustryClassificationCode */
 	#[SerializedName('cbc:IndustryClassificationCode')]
-	public string $IndustryClassificationCode;
+	public $IndustryClassificationCode;
 
 	/** @var PartyIdentification[] */
 	#[SerializedName('cac:PartyIdentification')]

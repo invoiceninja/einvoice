@@ -6,6 +6,7 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\LocaleCodeType\LocaleCode;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -27,7 +28,7 @@ class Language
 	#[SerializedName('cbc:Name')]
 	public string $Name;
 
-	/** @var string */
+	/** @var LocaleCode */
 	#[SerializedName('cbc:LocaleCode')]
-	public string $LocaleCode;
+	public $LocaleCode;
 }

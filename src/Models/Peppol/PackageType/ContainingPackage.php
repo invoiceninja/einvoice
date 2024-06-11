@@ -11,6 +11,8 @@ use InvoiceNinja\EInvoice\Models\Peppol\DespatchType\Despatch;
 use InvoiceNinja\EInvoice\Models\Peppol\DimensionType\MeasurementDimension;
 use InvoiceNinja\EInvoice\Models\Peppol\GoodsItemType\GoodsItem;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\PackageLevelCodeType\PackageLevelCode;
+use InvoiceNinja\EInvoice\Models\Peppol\PackagingTypeCodeType\PackagingTypeCode;
 use InvoiceNinja\EInvoice\Models\Peppol\PickupType\Pickup;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\Quantity;
 use InvoiceNinja\EInvoice\Models\Peppol\TraceIDType\TraceID;
@@ -40,13 +42,13 @@ class ContainingPackage
 	#[SerializedName('cbc:ReturnableMaterialIndicator')]
 	public bool $ReturnableMaterialIndicator;
 
-	/** @var string */
+	/** @var PackageLevelCode */
 	#[SerializedName('cbc:PackageLevelCode')]
-	public string $PackageLevelCode;
+	public $PackageLevelCode;
 
-	/** @var string */
+	/** @var PackagingTypeCode */
 	#[SerializedName('cbc:PackagingTypeCode')]
-	public string $PackagingTypeCode;
+	public $PackagingTypeCode;
 
 	/** @var string */
 	#[SerializedName('cbc:PackingMaterial')]

@@ -6,6 +6,7 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AttributeIDType\AttributeID;
+use InvoiceNinja\EInvoice\Models\Peppol\MeasureType\Measure;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -26,10 +27,12 @@ class MinimumTemperature
 	#[SerializedName('cbc:AttributeID')]
 	public $AttributeID;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var Measure */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:Measure')]
-	public string $Measure;
+	public $Measure;
 
 	/** @var string */
 	#[SerializedName('cbc:Description')]

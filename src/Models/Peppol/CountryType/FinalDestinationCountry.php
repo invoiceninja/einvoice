@@ -5,6 +5,7 @@ namespace InvoiceNinja\EInvoice\Models\Peppol\CountryType;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentificationCodeType\IdentificationCode;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -18,9 +19,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class FinalDestinationCountry
 {
-	/** @var string */
+	/** @var IdentificationCode */
 	#[SerializedName('cbc:IdentificationCode')]
-	public string $IdentificationCode;
+	public $IdentificationCode;
 
 	/** @var string */
 	#[SerializedName('cbc:Name')]

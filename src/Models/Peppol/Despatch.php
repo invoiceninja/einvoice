@@ -3,7 +3,6 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
-use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AddressType\DespatchAddress;
 use InvoiceNinja\EInvoice\Models\Peppol\ContactType\Contact;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;

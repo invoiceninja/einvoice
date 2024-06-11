@@ -3,7 +3,9 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use InvoiceNinja\EInvoice\Models\Peppol\AddressType\JurisdictionRegionAddress;
+use InvoiceNinja\EInvoice\Models\Peppol\CurrencyCodeType\CurrencyCode;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\TaxTypeCodeType\TaxTypeCode;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -18,13 +20,13 @@ class TaxScheme
 	#[SerializedName('cbc:Name')]
 	public string $Name;
 
-	/** @var string */
+	/** @var TaxTypeCode */
 	#[SerializedName('cbc:TaxTypeCode')]
-	public string $TaxTypeCode;
+	public $TaxTypeCode;
 
-	/** @var string */
+	/** @var CurrencyCode */
 	#[SerializedName('cbc:CurrencyCode')]
-	public string $CurrencyCode;
+	public $CurrencyCode;
 
 	/** @var JurisdictionRegionAddress[] */
 	#[SerializedName('cac:JurisdictionRegionAddress')]

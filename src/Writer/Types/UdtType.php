@@ -67,7 +67,8 @@ class UdtType
             if(stripos($type, "ccts") !== false) {
                 $parts = explode(":", $type);
 
-                if(in_array($parts[1], ['QuantityType','AmountType'])) {
+                // if(in_array($parts[1], ['QuantityType','AmountType','MeasureType', 'QuantityType', 'NumericType', 'CodeType', 'IdentifierType'])) {
+                if(in_array($parts[1], ['QuantityType','AmountType', 'CodeType' ,'MeasureType', 'QuantityType',  'IdentifierType', ])) {
                     return $parts[1];
                 }
 

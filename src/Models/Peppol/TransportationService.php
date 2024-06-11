@@ -3,20 +3,23 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
-use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\CommodityClassificationType\CommodityClassification;
 use InvoiceNinja\EInvoice\Models\Peppol\CommodityClassificationType\SupportedCommodityClassification;
 use InvoiceNinja\EInvoice\Models\Peppol\CommodityClassificationType\UnsupportedCommodityClassification;
 use InvoiceNinja\EInvoice\Models\Peppol\DimensionType\TotalCapacityDimension;
 use InvoiceNinja\EInvoice\Models\Peppol\EnvironmentalEmissionType\EnvironmentalEmission;
+use InvoiceNinja\EInvoice\Models\Peppol\FreightRateClassCodeType\FreightRateClassCode;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\ResponsibleTransportServiceProviderParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\EstimatedDurationPeriod;
+use InvoiceNinja\EInvoice\Models\Peppol\SequenceNumericType\SequenceNumeric;
 use InvoiceNinja\EInvoice\Models\Peppol\ServiceFrequencyType\ScheduledServiceFrequency;
 use InvoiceNinja\EInvoice\Models\Peppol\ShipmentStageType\ShipmentStage;
+use InvoiceNinja\EInvoice\Models\Peppol\TariffClassCodeType\TariffClassCode;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEquipmentType\SupportedTransportEquipment;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEquipmentType\TransportEquipment;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEquipmentType\UnsupportedTransportEquipment;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEventType\TransportEvent;
+use InvoiceNinja\EInvoice\Models\Peppol\TransportServiceCodeType\TransportServiceCode;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportationServiceDetailsURIType\TransportationServiceDetailsURI;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
@@ -28,21 +31,24 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class TransportationService
 {
-	/** @var string */
+	/** @var TransportServiceCode */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:TransportServiceCode')]
-	public string $TransportServiceCode;
+	public $TransportServiceCode;
 
-	/** @var string */
+	/** @var TariffClassCode */
 	#[SerializedName('cbc:TariffClassCode')]
-	public string $TariffClassCode;
+	public $TariffClassCode;
 
 	/** @var string */
 	#[SerializedName('cbc:Priority')]
 	public string $Priority;
 
-	/** @var string */
+	/** @var FreightRateClassCode */
 	#[SerializedName('cbc:FreightRateClassCode')]
-	public string $FreightRateClassCode;
+	public $FreightRateClassCode;
 
 	/** @var string */
 	#[SerializedName('cbc:TransportationServiceDescription')]
@@ -66,9 +72,9 @@ class TransportationService
 	#[SerializedName('cbc:Name')]
 	public string $Name;
 
-	/** @var string */
+	/** @var SequenceNumeric */
 	#[SerializedName('cbc:SequenceNumeric')]
-	public string $SequenceNumeric;
+	public $SequenceNumeric;
 
 	/** @var TransportEquipment[] */
 	#[SerializedName('cac:TransportEquipment')]

@@ -3,17 +3,21 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
-use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\DocumentReference;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\ItemType\Item;
 use InvoiceNinja\EInvoice\Models\Peppol\LineReferenceType\DespatchLineReference;
 use InvoiceNinja\EInvoice\Models\Peppol\OrderLineReferenceType\OrderLineReference;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\OversupplyQuantity;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\ReceivedQuantity;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\RejectedQuantity;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\ShortQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\OversupplyQuantityType\OversupplyQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\QuantityDiscrepancyCodeType\QuantityDiscrepancyCode;
+use InvoiceNinja\EInvoice\Models\Peppol\ReceivedQuantityType\ReceivedQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\RejectActionCodeType\RejectActionCode;
+use InvoiceNinja\EInvoice\Models\Peppol\RejectReasonCodeType\RejectReasonCode;
+use InvoiceNinja\EInvoice\Models\Peppol\RejectedQuantityType\RejectedQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\ShipmentType\Shipment;
+use InvoiceNinja\EInvoice\Models\Peppol\ShortQuantityType\ShortQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\ShortageActionCodeType\ShortageActionCode;
+use InvoiceNinja\EInvoice\Models\Peppol\TimingComplaintCodeType\TimingComplaintCode;
 use InvoiceNinja\EInvoice\Models\Peppol\UUIDType\UUID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
@@ -48,29 +52,29 @@ class ReceiptLine
 	#[SerializedName('cbc:ShortQuantity')]
 	public $ShortQuantity;
 
-	/** @var string */
+	/** @var ShortageActionCode */
 	#[SerializedName('cbc:ShortageActionCode')]
-	public string $ShortageActionCode;
+	public $ShortageActionCode;
 
 	/** @var RejectedQuantity */
 	#[SerializedName('cbc:RejectedQuantity')]
 	public $RejectedQuantity;
 
-	/** @var string */
+	/** @var RejectReasonCode */
 	#[SerializedName('cbc:RejectReasonCode')]
-	public string $RejectReasonCode;
+	public $RejectReasonCode;
 
 	/** @var string */
 	#[SerializedName('cbc:RejectReason')]
 	public string $RejectReason;
 
-	/** @var string */
+	/** @var RejectActionCode */
 	#[SerializedName('cbc:RejectActionCode')]
-	public string $RejectActionCode;
+	public $RejectActionCode;
 
-	/** @var string */
+	/** @var QuantityDiscrepancyCode */
 	#[SerializedName('cbc:QuantityDiscrepancyCode')]
-	public string $QuantityDiscrepancyCode;
+	public $QuantityDiscrepancyCode;
 
 	/** @var OversupplyQuantity */
 	#[SerializedName('cbc:OversupplyQuantity')]
@@ -81,9 +85,9 @@ class ReceiptLine
 	#[SerializedName('cbc:ReceivedDate')]
 	public DateTime $ReceivedDate;
 
-	/** @var string */
+	/** @var TimingComplaintCode */
 	#[SerializedName('cbc:TimingComplaintCode')]
-	public string $TimingComplaintCode;
+	public $TimingComplaintCode;
 
 	/** @var string */
 	#[SerializedName('cbc:TimingComplaint')]

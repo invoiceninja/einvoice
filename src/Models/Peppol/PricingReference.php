@@ -2,7 +2,6 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
-use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\ItemLocationQuantityType\OriginalItemLocationQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\PriceType\AlternativeConditionPrice;
 use Symfony\Component\Serializer\Attribute\Context;

@@ -21,9 +21,10 @@ use InvoiceNinja\EInvoice\Models\Peppol\ItemIdentificationType\SellersItemIdenti
 use InvoiceNinja\EInvoice\Models\Peppol\ItemIdentificationType\StandardItemIdentification;
 use InvoiceNinja\EInvoice\Models\Peppol\ItemInstanceType\ItemInstance;
 use InvoiceNinja\EInvoice\Models\Peppol\ItemPropertyType\AdditionalItemProperty;
+use InvoiceNinja\EInvoice\Models\Peppol\PackQuantityType\PackQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\PackSizeNumericType\PackSizeNumeric;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\InformationContentProviderParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\ManufacturerParty;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\PackQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\TaxCategoryType\ClassifiedTaxCategory;
 use InvoiceNinja\EInvoice\Models\Peppol\TransactionConditionsType\TransactionConditions;
 use Symfony\Component\Serializer\Attribute\Context;
@@ -47,9 +48,9 @@ class Item
 	#[SerializedName('cbc:PackQuantity')]
 	public $PackQuantity;
 
-	/** @var string */
+	/** @var PackSizeNumeric */
 	#[SerializedName('cbc:PackSizeNumeric')]
-	public string $PackSizeNumeric;
+	public $PackSizeNumeric;
 
 	/** @var bool */
 	#[SerializedName('cbc:CatalogueIndicator')]

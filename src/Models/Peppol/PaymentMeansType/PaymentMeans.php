@@ -11,8 +11,10 @@ use InvoiceNinja\EInvoice\Models\Peppol\FinancialAccountType\PayeeFinancialAccou
 use InvoiceNinja\EInvoice\Models\Peppol\FinancialAccountType\PayerFinancialAccount;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\InstructionIDType\InstructionID;
+use InvoiceNinja\EInvoice\Models\Peppol\PaymentChannelCodeType\PaymentChannelCode;
 use InvoiceNinja\EInvoice\Models\Peppol\PaymentIDType\PaymentID;
 use InvoiceNinja\EInvoice\Models\Peppol\PaymentMandateType\PaymentMandate;
+use InvoiceNinja\EInvoice\Models\Peppol\PaymentMeansCodeType\PaymentMeansCode;
 use InvoiceNinja\EInvoice\Models\Peppol\TradeFinancingType\TradeFinancing;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
@@ -31,18 +33,21 @@ class PaymentMeans
 	#[SerializedName('cbc:ID')]
 	public $ID;
 
-	/** @var string */
+	/** @var PaymentMeansCode */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:PaymentMeansCode')]
-	public string $PaymentMeansCode;
+	public $PaymentMeansCode;
 
 	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:PaymentDueDate')]
 	public DateTime $PaymentDueDate;
 
-	/** @var string */
+	/** @var PaymentChannelCode */
 	#[SerializedName('cbc:PaymentChannelCode')]
-	public string $PaymentChannelCode;
+	public $PaymentChannelCode;
 
 	/** @var InstructionID */
 	#[SerializedName('cbc:InstructionID')]

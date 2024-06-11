@@ -7,6 +7,7 @@ use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\DocumentReference;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\OrderTypeCodeType\OrderTypeCode;
 use InvoiceNinja\EInvoice\Models\Peppol\SalesOrderIDType\SalesOrderID;
 use InvoiceNinja\EInvoice\Models\Peppol\UUIDType\UUID;
 use Symfony\Component\Serializer\Attribute\Context;
@@ -55,9 +56,9 @@ class OrderReference
 	#[SerializedName('cbc:CustomerReference')]
 	public string $CustomerReference;
 
-	/** @var string */
+	/** @var OrderTypeCode */
 	#[SerializedName('cbc:OrderTypeCode')]
-	public string $OrderTypeCode;
+	public $OrderTypeCode;
 
 	/** @var DocumentReference */
 	#[SerializedName('cac:DocumentReference')]

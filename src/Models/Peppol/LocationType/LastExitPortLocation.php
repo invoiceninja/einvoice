@@ -6,9 +6,11 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AddressType\Address;
+use InvoiceNinja\EInvoice\Models\Peppol\CountrySubentityCodeType\CountrySubentityCode;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\InformationURIType\InformationURI;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationCoordinateType\LocationCoordinate;
+use InvoiceNinja\EInvoice\Models\Peppol\LocationTypeCodeType\LocationTypeCode;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\ValidityPeriod;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
@@ -39,13 +41,13 @@ class LastExitPortLocation
 	#[SerializedName('cbc:CountrySubentity')]
 	public string $CountrySubentity;
 
-	/** @var string */
+	/** @var CountrySubentityCode */
 	#[SerializedName('cbc:CountrySubentityCode')]
-	public string $CountrySubentityCode;
+	public $CountrySubentityCode;
 
-	/** @var string */
+	/** @var LocationTypeCode */
 	#[SerializedName('cbc:LocationTypeCode')]
-	public string $LocationTypeCode;
+	public $LocationTypeCode;
 
 	/** @var InformationURI */
 	#[SerializedName('cbc:InformationURI')]

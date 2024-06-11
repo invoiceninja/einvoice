@@ -9,6 +9,8 @@ use InvoiceNinja\EInvoice\Models\Peppol\AmountType\MaximumPaidAmount;
 use InvoiceNinja\EInvoice\Models\Peppol\ClauseType\Clause;
 use InvoiceNinja\EInvoice\Models\Peppol\FinancialAccountType\PayerFinancialAccount;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\MandateTypeCodeType\MandateTypeCode;
+use InvoiceNinja\EInvoice\Models\Peppol\MaximumPaymentInstructionsNumericType\MaximumPaymentInstructionsNumeric;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\PayerParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\PaymentReversalPeriod;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\ValidityPeriod;
@@ -30,13 +32,13 @@ class PaymentMandate
 	#[SerializedName('cbc:ID')]
 	public $ID;
 
-	/** @var string */
+	/** @var MandateTypeCode */
 	#[SerializedName('cbc:MandateTypeCode')]
-	public string $MandateTypeCode;
+	public $MandateTypeCode;
 
-	/** @var string */
+	/** @var MaximumPaymentInstructionsNumeric */
 	#[SerializedName('cbc:MaximumPaymentInstructionsNumeric')]
-	public string $MaximumPaymentInstructionsNumeric;
+	public $MaximumPaymentInstructionsNumeric;
 
 	/** @var MaximumPaidAmount */
 	#[SerializedName('cbc:MaximumPaidAmount')]

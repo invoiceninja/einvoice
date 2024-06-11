@@ -6,6 +6,8 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AttributeIDType\AttributeID;
+use InvoiceNinja\EInvoice\Models\Peppol\DescriptionCodeType\DescriptionCode;
+use InvoiceNinja\EInvoice\Models\Peppol\PositionCodeType\PositionCode;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -26,13 +28,13 @@ class PhysicalAttribute
 	#[SerializedName('cbc:AttributeID')]
 	public $AttributeID;
 
-	/** @var string */
+	/** @var PositionCode */
 	#[SerializedName('cbc:PositionCode')]
-	public string $PositionCode;
+	public $PositionCode;
 
-	/** @var string */
+	/** @var DescriptionCode */
 	#[SerializedName('cbc:DescriptionCode')]
-	public string $DescriptionCode;
+	public $DescriptionCode;
 
 	/** @var string */
 	#[SerializedName('cbc:Description')]

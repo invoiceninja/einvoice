@@ -2,47 +2,49 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
-use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\AltitudeMeasureType\AltitudeMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\CoordinateSystemCodeType\CoordinateSystemCode;
+use InvoiceNinja\EInvoice\Models\Peppol\LatitudeDegreesMeasureType\LatitudeDegreesMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\LatitudeDirectionCodeType\LatitudeDirectionCode;
+use InvoiceNinja\EInvoice\Models\Peppol\LatitudeMinutesMeasureType\LatitudeMinutesMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\LongitudeDegreesMeasureType\LongitudeDegreesMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\LongitudeDirectionCodeType\LongitudeDirectionCode;
+use InvoiceNinja\EInvoice\Models\Peppol\LongitudeMinutesMeasureType\LongitudeMinutesMeasure;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 
 class LocationCoordinate
 {
-	/** @var string */
+	/** @var CoordinateSystemCode */
 	#[SerializedName('cbc:CoordinateSystemCode')]
-	public string $CoordinateSystemCode;
+	public $CoordinateSystemCode;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var LatitudeDegreesMeasure */
 	#[SerializedName('cbc:LatitudeDegreesMeasure')]
-	public string $LatitudeDegreesMeasure;
+	public $LatitudeDegreesMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var LatitudeMinutesMeasure */
 	#[SerializedName('cbc:LatitudeMinutesMeasure')]
-	public string $LatitudeMinutesMeasure;
+	public $LatitudeMinutesMeasure;
 
-	/** @var string */
+	/** @var LatitudeDirectionCode */
 	#[SerializedName('cbc:LatitudeDirectionCode')]
-	public string $LatitudeDirectionCode;
+	public $LatitudeDirectionCode;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var LongitudeDegreesMeasure */
 	#[SerializedName('cbc:LongitudeDegreesMeasure')]
-	public string $LongitudeDegreesMeasure;
+	public $LongitudeDegreesMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var LongitudeMinutesMeasure */
 	#[SerializedName('cbc:LongitudeMinutesMeasure')]
-	public string $LongitudeMinutesMeasure;
+	public $LongitudeMinutesMeasure;
 
-	/** @var string */
+	/** @var LongitudeDirectionCode */
 	#[SerializedName('cbc:LongitudeDirectionCode')]
-	public string $LongitudeDirectionCode;
+	public $LongitudeDirectionCode;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var AltitudeMeasure */
 	#[SerializedName('cbc:AltitudeMeasure')]
-	public string $AltitudeMeasure;
+	public $AltitudeMeasure;
 }

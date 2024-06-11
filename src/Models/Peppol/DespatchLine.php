@@ -3,15 +3,15 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
-use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\BackorderQuantityType\BackorderQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\DeliveredQuantityType\DeliveredQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\DocumentReference;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\ItemType\Item;
+use InvoiceNinja\EInvoice\Models\Peppol\LineStatusCodeType\LineStatusCode;
 use InvoiceNinja\EInvoice\Models\Peppol\OrderLineReferenceType\OrderLineReference;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\BackorderQuantity;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\DeliveredQuantity;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\OutstandingQuantity;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\OversupplyQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\OutstandingQuantityType\OutstandingQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\OversupplyQuantityType\OversupplyQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\ShipmentType\Shipment;
 use InvoiceNinja\EInvoice\Models\Peppol\UUIDType\UUID;
 use Symfony\Component\Serializer\Attribute\Context;
@@ -39,9 +39,9 @@ class DespatchLine
 	#[SerializedName('cbc:Note')]
 	public string $Note;
 
-	/** @var string */
+	/** @var LineStatusCode */
 	#[SerializedName('cbc:LineStatusCode')]
-	public string $LineStatusCode;
+	public $LineStatusCode;
 
 	/** @var DeliveredQuantity */
 	#[SerializedName('cbc:DeliveredQuantity')]

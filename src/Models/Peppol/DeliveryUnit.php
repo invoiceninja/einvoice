@@ -2,9 +2,8 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
-use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\BatchQuantity;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\ConsumerUnitQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\BatchQuantityType\BatchQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\ConsumerUnitQuantityType\ConsumerUnitQuantity;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;

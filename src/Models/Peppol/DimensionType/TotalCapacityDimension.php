@@ -6,6 +6,9 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AttributeIDType\AttributeID;
+use InvoiceNinja\EInvoice\Models\Peppol\MaximumMeasureType\MaximumMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\MeasureType\Measure;
+use InvoiceNinja\EInvoice\Models\Peppol\MinimumMeasureType\MinimumMeasure;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -26,22 +29,19 @@ class TotalCapacityDimension
 	#[SerializedName('cbc:AttributeID')]
 	public $AttributeID;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var Measure */
 	#[SerializedName('cbc:Measure')]
-	public string $Measure;
+	public $Measure;
 
 	/** @var string */
 	#[SerializedName('cbc:Description')]
 	public string $Description;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var MinimumMeasure */
 	#[SerializedName('cbc:MinimumMeasure')]
-	public string $MinimumMeasure;
+	public $MinimumMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var MaximumMeasure */
 	#[SerializedName('cbc:MaximumMeasure')]
-	public string $MaximumMeasure;
+	public $MaximumMeasure;
 }

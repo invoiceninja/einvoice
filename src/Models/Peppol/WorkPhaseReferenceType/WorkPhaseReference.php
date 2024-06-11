@@ -7,6 +7,7 @@ use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\WorkOrderDocumentReference;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\WorkPhaseCodeType\WorkPhaseCode;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -24,9 +25,9 @@ class WorkPhaseReference
 	#[SerializedName('cbc:ID')]
 	public $ID;
 
-	/** @var string */
+	/** @var WorkPhaseCode */
 	#[SerializedName('cbc:WorkPhaseCode')]
-	public string $WorkPhaseCode;
+	public $WorkPhaseCode;
 
 	/** @var string */
 	#[SerializedName('cbc:WorkPhase')]

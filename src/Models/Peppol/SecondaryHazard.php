@@ -2,6 +2,7 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
+use InvoiceNinja\EInvoice\Models\Peppol\EmergencyProceduresCodeType\EmergencyProceduresCode;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
@@ -21,9 +22,9 @@ class SecondaryHazard
 	#[SerializedName('cbc:PlacardEndorsement')]
 	public string $PlacardEndorsement;
 
-	/** @var string */
+	/** @var EmergencyProceduresCode */
 	#[SerializedName('cbc:EmergencyProceduresCode')]
-	public string $EmergencyProceduresCode;
+	public $EmergencyProceduresCode;
 
 	/** @var string */
 	#[SerializedName('cbc:Extension')]

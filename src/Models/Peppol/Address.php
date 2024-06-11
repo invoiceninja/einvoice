@@ -2,8 +2,10 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
-use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\AddressFormatCodeType\AddressFormatCode;
 use InvoiceNinja\EInvoice\Models\Peppol\AddressLineType\AddressLine;
+use InvoiceNinja\EInvoice\Models\Peppol\AddressTypeCodeType\AddressTypeCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CountrySubentityCodeType\CountrySubentityCode;
 use InvoiceNinja\EInvoice\Models\Peppol\CountryType\Country;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationCoordinateType\LocationCoordinate;
@@ -17,13 +19,13 @@ class Address
 	#[SerializedName('cbc:ID')]
 	public $ID;
 
-	/** @var string */
+	/** @var AddressTypeCode */
 	#[SerializedName('cbc:AddressTypeCode')]
-	public string $AddressTypeCode;
+	public $AddressTypeCode;
 
-	/** @var string */
+	/** @var AddressFormatCode */
 	#[SerializedName('cbc:AddressFormatCode')]
-	public string $AddressFormatCode;
+	public $AddressFormatCode;
 
 	/** @var string */
 	#[SerializedName('cbc:Postbox')]
@@ -93,9 +95,9 @@ class Address
 	#[SerializedName('cbc:CountrySubentity')]
 	public string $CountrySubentity;
 
-	/** @var string */
+	/** @var CountrySubentityCode */
 	#[SerializedName('cbc:CountrySubentityCode')]
-	public string $CountrySubentityCode;
+	public $CountrySubentityCode;
 
 	/** @var string */
 	#[SerializedName('cbc:Region')]

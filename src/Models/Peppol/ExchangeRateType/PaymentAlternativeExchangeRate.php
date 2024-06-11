@@ -7,6 +7,9 @@ use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\ContractType\ForeignExchangeContract;
 use InvoiceNinja\EInvoice\Models\Peppol\ExchangeMarketIDType\ExchangeMarketID;
+use InvoiceNinja\EInvoice\Models\Peppol\MathematicOperatorCodeType\MathematicOperatorCode;
+use InvoiceNinja\EInvoice\Models\Peppol\SourceCurrencyCodeType\SourceCurrencyCode;
+use InvoiceNinja\EInvoice\Models\Peppol\TargetCurrencyCodeType\TargetCurrencyCode;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -20,17 +23,23 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class PaymentAlternativeExchangeRate
 {
-	/** @var string */
+	/** @var SourceCurrencyCode */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:SourceCurrencyCode')]
-	public string $SourceCurrencyCode;
+	public $SourceCurrencyCode;
 
 	/** @var string */
 	#[SerializedName('cbc:SourceCurrencyBaseRate')]
 	public string $SourceCurrencyBaseRate;
 
-	/** @var string */
+	/** @var TargetCurrencyCode */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:TargetCurrencyCode')]
-	public string $TargetCurrencyCode;
+	public $TargetCurrencyCode;
 
 	/** @var string */
 	#[SerializedName('cbc:TargetCurrencyBaseRate')]
@@ -44,9 +53,9 @@ class PaymentAlternativeExchangeRate
 	#[SerializedName('cbc:CalculationRate')]
 	public string $CalculationRate;
 
-	/** @var string */
+	/** @var MathematicOperatorCode */
 	#[SerializedName('cbc:MathematicOperatorCode')]
-	public string $MathematicOperatorCode;
+	public $MathematicOperatorCode;
 
 	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]

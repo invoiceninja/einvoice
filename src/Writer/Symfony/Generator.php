@@ -3,8 +3,7 @@
  * Invoice Ninja (https://invoiceninja.com).
  *
  * @link https://github.com/invoiceninja/invoiceninja source repository
- *
- * @copyright Copyright (c) 2024. Invoice Ninja LLC (https://invoiceninja.com)
+ * * @copyright Copyright (c) 2024. Invoice Ninja LLC (https://invoiceninja.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -141,7 +140,7 @@ class Generator
         if($element['max_occurs'] > 1 || $element['max_occurs'] == -1 && !$this->isPrimative($element['base_type'])) {
 
             if($element['name'] == 'TaxTotal') {
-                echo print_r($element).PHP_EOL;
+                // echo print_r($element).PHP_EOL;
             }
 
             $property->setType("array");
@@ -200,23 +199,13 @@ class Generator
             $property->addAttribute(SerializedName::class, ['#']);
         }
 
-        if($element['name'] == 'currencyID') {
+        if(in_array($element['name'],['currencyID','format','listID','listAgencyID','listAgencyName','listName','listVersionID','name','languageID','listURI','listSchemeURI','schemeID','schemeName','schemeAgencyID','schemeAgencyName','schemeVersionID','schemeDataURI','schemeURI','listURI','listSchemeURI','unitCode','unitCodeListVersionID','unitCode','unitCodeListID','unitCodeListAgencyID','unitCodeListAgencyName',]))
+        {
             $this->namespace->addUse(SerializedName::class);
-            $property->addAttribute(SerializedName::class, ['@currencyID']);
+            $property->addAttribute(SerializedName::class, ["@".$element['name']]);
         }
 
-        if($element['name'] == 'unitCode') {
-            $this->namespace->addUse(SerializedName::class);
-            $property->addAttribute(SerializedName::class, ['@unitCode']);
-        }
-
-        if($element['name'] == 'schemeID') {
-            $this->namespace->addUse(SerializedName::class);
-            $property->addAttribute(SerializedName::class, ['@schemeID']);
-            //add root node as well.
-        }
-
-        if(substr($element['name'],0,1) == "_"){
+        if($element['name'] == "value"){
             $property->addAttribute(SerializedName::class, ['#']);
         }
 

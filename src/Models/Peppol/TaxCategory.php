@@ -4,7 +4,9 @@ namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\PerUnitAmount;
+use InvoiceNinja\EInvoice\Models\Peppol\BaseUnitMeasureType\BaseUnitMeasure;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\TaxExemptionReasonCodeType\TaxExemptionReasonCode;
 use InvoiceNinja\EInvoice\Models\Peppol\TaxSchemeType\TaxScheme;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
@@ -27,18 +29,17 @@ class TaxCategory
 	#[SerializedName('cbc:Percent')]
 	public string $Percent;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var BaseUnitMeasure */
 	#[SerializedName('cbc:BaseUnitMeasure')]
-	public string $BaseUnitMeasure;
+	public $BaseUnitMeasure;
 
 	/** @var PerUnitAmount */
 	#[SerializedName('cbc:PerUnitAmount')]
 	public $PerUnitAmount;
 
-	/** @var string */
+	/** @var TaxExemptionReasonCode */
 	#[SerializedName('cbc:TaxExemptionReasonCode')]
-	public string $TaxExemptionReasonCode;
+	public $TaxExemptionReasonCode;
 
 	/** @var string */
 	#[SerializedName('cbc:TaxExemptionReason')]

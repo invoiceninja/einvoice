@@ -5,6 +5,7 @@ namespace InvoiceNinja\EInvoice\Models\Peppol\TransactionConditionsType;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\ActionCodeType\ActionCode;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\DocumentReference;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use Symfony\Component\Serializer\Attribute\Context;
@@ -24,9 +25,9 @@ class TransactionConditions
 	#[SerializedName('cbc:ID')]
 	public $ID;
 
-	/** @var string */
+	/** @var ActionCode */
 	#[SerializedName('cbc:ActionCode')]
-	public string $ActionCode;
+	public $ActionCode;
 
 	/** @var string */
 	#[SerializedName('cbc:Description')]

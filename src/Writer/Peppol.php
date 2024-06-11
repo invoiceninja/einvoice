@@ -572,9 +572,6 @@ class Peppol extends BaseStandard
     {
         $this->type_tracker[] = 'AmountType';
         $this->type_tracker[] = 'QuantityType';
-        // $this->type_tracker[] = 'EndpointIDType';
-        // $this->type_tracker[] = 'PartyIdentificationType';
-        
 
         $element_collection = collect($this->cacType->elements);
         $cbc_collection = collect($this->cbcType->elements);
@@ -605,15 +602,14 @@ class Peppol extends BaseStandard
 
             $this->type_tracker[] = $type;
 
-return $this->cacType->typesForType($type)->merge($this->cbcType->typesForType($type));
+            return $this->cacType->typesForType($type)->merge($this->cbcType->typesForType($type));
         })
         ->flatten()
         ->unique()
         ->map(function ($type) {
 
             $this->type_tracker[] = $type;
-
-return $this->cacType->typesForType($type)->merge($this->cbcType->typesForType($type));
+            return $this->cacType->typesForType($type)->merge($this->cbcType->typesForType($type));
         })
         ->flatten()
         ->unique()
@@ -632,6 +628,13 @@ return $this->cacType->typesForType($type)->merge($this->cbcType->typesForType($
         ->flatten()
         ->unique()
         ->map(function ($type) {
+
+            $this->type_tracker[] = $type;
+            return $this->cacType->typesForType($type)->merge($this->cbcType->typesForType($type));
+        })
+        ->flatten()
+        ->unique()
+        ->map(function ($type) {        
 
             $this->type_tracker[] = $type;
             return $this->cacType->typesForType($type)->merge($this->cbcType->typesForType($type));
@@ -639,11 +642,12 @@ return $this->cacType->typesForType($type)->merge($this->cbcType->typesForType($
         ->flatten()
         ->unique();
 
-        // echo print_r($type_map).PHP_EOL;
-
         collect($this->type_tracker)
         ->unique()
         ->each(function ($type) use ($element_collection, $cbc_collection) {
+
+            // if(in_array($type, ['CalculationMethodCodeType','CalculationMethodCode']))
+            //     echo $type.PHP_EOL;
 
             $type_array = $element_collection->where('type', $type)->first();
 

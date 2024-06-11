@@ -6,6 +6,7 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AddressType\JurisdictionRegionAddress;
+use InvoiceNinja\EInvoice\Models\Peppol\CorporateRegistrationTypeCodeType\CorporateRegistrationTypeCode;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
@@ -28,9 +29,9 @@ class CorporateRegistrationScheme
 	#[SerializedName('cbc:Name')]
 	public string $Name;
 
-	/** @var string */
+	/** @var CorporateRegistrationTypeCode */
 	#[SerializedName('cbc:CorporateRegistrationTypeCode')]
-	public string $CorporateRegistrationTypeCode;
+	public $CorporateRegistrationTypeCode;
 
 	/** @var JurisdictionRegionAddress[] */
 	#[SerializedName('cac:JurisdictionRegionAddress')]

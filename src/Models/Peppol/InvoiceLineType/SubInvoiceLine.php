@@ -5,6 +5,7 @@ namespace InvoiceNinja\EInvoice\Models\Peppol\InvoiceLineType;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\AccountingCostCodeType\AccountingCostCode;
 use InvoiceNinja\EInvoice\Models\Peppol\AllowanceChargeType\AllowanceCharge;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\LineExtensionAmount;
 use InvoiceNinja\EInvoice\Models\Peppol\BillingReferenceType\BillingReference;
@@ -12,17 +13,18 @@ use InvoiceNinja\EInvoice\Models\Peppol\DeliveryTermsType\DeliveryTerms;
 use InvoiceNinja\EInvoice\Models\Peppol\DeliveryType\Delivery;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\DocumentReference;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\InvoicedQuantityType\InvoicedQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\ItemType\Item;
 use InvoiceNinja\EInvoice\Models\Peppol\LineReferenceType\DespatchLineReference;
 use InvoiceNinja\EInvoice\Models\Peppol\LineReferenceType\ReceiptLineReference;
 use InvoiceNinja\EInvoice\Models\Peppol\OrderLineReferenceType\OrderLineReference;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\OriginatorParty;
+use InvoiceNinja\EInvoice\Models\Peppol\PaymentPurposeCodeType\PaymentPurposeCode;
 use InvoiceNinja\EInvoice\Models\Peppol\PaymentTermsType\PaymentTerms;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\InvoicePeriod;
 use InvoiceNinja\EInvoice\Models\Peppol\PriceExtensionType\ItemPriceExtension;
 use InvoiceNinja\EInvoice\Models\Peppol\PriceType\Price;
 use InvoiceNinja\EInvoice\Models\Peppol\PricingReferenceType\PricingReference;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\InvoicedQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\TaxTotalType\TaxTotal;
 use InvoiceNinja\EInvoice\Models\Peppol\TaxTotalType\WithholdingTaxTotal;
 use InvoiceNinja\EInvoice\Models\Peppol\UUIDType\UUID;
@@ -70,17 +72,17 @@ class SubInvoiceLine
 	#[SerializedName('cbc:TaxPointDate')]
 	public DateTime $TaxPointDate;
 
-	/** @var string */
+	/** @var AccountingCostCode */
 	#[SerializedName('cbc:AccountingCostCode')]
-	public string $AccountingCostCode;
+	public $AccountingCostCode;
 
 	/** @var string */
 	#[SerializedName('cbc:AccountingCost')]
 	public string $AccountingCost;
 
-	/** @var string */
+	/** @var PaymentPurposeCode */
 	#[SerializedName('cbc:PaymentPurposeCode')]
-	public string $PaymentPurposeCode;
+	public $PaymentPurposeCode;
 
 	/** @var bool */
 	#[SerializedName('cbc:FreeOfChargeIndicator')]

@@ -6,7 +6,9 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\RegistryCertificateDocumentReference;
+use InvoiceNinja\EInvoice\Models\Peppol\GrossTonnageMeasureType\GrossTonnageMeasure;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\RegistryPortLocation;
+use InvoiceNinja\EInvoice\Models\Peppol\NetTonnageMeasureType\NetTonnageMeasure;
 use InvoiceNinja\EInvoice\Models\Peppol\RadioCallSignIDType\RadioCallSignID;
 use InvoiceNinja\EInvoice\Models\Peppol\VesselIDType\VesselID;
 use Symfony\Component\Serializer\Attribute\Context;
@@ -38,15 +40,13 @@ class MaritimeTransport
 	#[SerializedName('cbc:ShipsRequirements')]
 	public string $ShipsRequirements;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var GrossTonnageMeasure */
 	#[SerializedName('cbc:GrossTonnageMeasure')]
-	public string $GrossTonnageMeasure;
+	public $GrossTonnageMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var NetTonnageMeasure */
 	#[SerializedName('cbc:NetTonnageMeasure')]
-	public string $NetTonnageMeasure;
+	public $NetTonnageMeasure;
 
 	/** @var RegistryCertificateDocumentReference */
 	#[SerializedName('cac:RegistryCertificateDocumentReference')]

@@ -3,7 +3,8 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
-use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\DescriptionCodeType\DescriptionCode;
+use InvoiceNinja\EInvoice\Models\Peppol\DurationMeasureType\DurationMeasure;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -31,14 +32,13 @@ class Period
 	#[SerializedName('cbc:EndTime')]
 	public DateTime $EndTime;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var DurationMeasure */
 	#[SerializedName('cbc:DurationMeasure')]
-	public string $DurationMeasure;
+	public $DurationMeasure;
 
-	/** @var string */
+	/** @var DescriptionCode[] */
 	#[SerializedName('cbc:DescriptionCode')]
-	public string $DescriptionCode;
+	public array $DescriptionCode;
 
 	/** @var string */
 	#[SerializedName('cbc:Description')]

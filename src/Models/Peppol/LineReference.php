@@ -5,6 +5,7 @@ namespace InvoiceNinja\EInvoice\Models\Peppol;
 use DateTime;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\DocumentReference;
 use InvoiceNinja\EInvoice\Models\Peppol\LineIDType\LineID;
+use InvoiceNinja\EInvoice\Models\Peppol\LineStatusCodeType\LineStatusCode;
 use InvoiceNinja\EInvoice\Models\Peppol\UUIDType\UUID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
@@ -27,9 +28,9 @@ class LineReference
 	#[SerializedName('cbc:UUID')]
 	public $UUID;
 
-	/** @var string */
+	/** @var LineStatusCode */
 	#[SerializedName('cbc:LineStatusCode')]
-	public string $LineStatusCode;
+	public $LineStatusCode;
 
 	/** @var DocumentReference */
 	#[SerializedName('cac:DocumentReference')]

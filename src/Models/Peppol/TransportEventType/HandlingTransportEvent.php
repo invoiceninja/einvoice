@@ -12,6 +12,7 @@ use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\Period;
 use InvoiceNinja\EInvoice\Models\Peppol\ShipmentType\ReportedShipment;
 use InvoiceNinja\EInvoice\Models\Peppol\SignatureType\Signature;
 use InvoiceNinja\EInvoice\Models\Peppol\StatusType\CurrentStatus;
+use InvoiceNinja\EInvoice\Models\Peppol\TransportEventTypeCodeType\TransportEventTypeCode;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -39,9 +40,9 @@ class HandlingTransportEvent
 	#[SerializedName('cbc:OccurrenceTime')]
 	public DateTime $OccurrenceTime;
 
-	/** @var string */
+	/** @var TransportEventTypeCode */
 	#[SerializedName('cbc:TransportEventTypeCode')]
-	public string $TransportEventTypeCode;
+	public $TransportEventTypeCode;
 
 	/** @var string */
 	#[SerializedName('cbc:Description')]

@@ -10,26 +10,36 @@ use InvoiceNinja\EInvoice\Models\Peppol\AllowanceChargeType\ServiceAllowanceChar
 use InvoiceNinja\EInvoice\Models\Peppol\DeliveryType\Delivery;
 use InvoiceNinja\EInvoice\Models\Peppol\DespatchType\Despatch;
 use InvoiceNinja\EInvoice\Models\Peppol\DimensionType\MeasurementDimension;
+use InvoiceNinja\EInvoice\Models\Peppol\DispositionCodeType\DispositionCode;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\ShipmentDocumentReference;
+use InvoiceNinja\EInvoice\Models\Peppol\FullnessIndicationCodeType\FullnessIndicationCode;
 use InvoiceNinja\EInvoice\Models\Peppol\GoodsItemType\GoodsItem;
+use InvoiceNinja\EInvoice\Models\Peppol\GrossVolumeMeasureType\GrossVolumeMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\GrossWeightMeasureType\GrossWeightMeasure;
 use InvoiceNinja\EInvoice\Models\Peppol\HazardousGoodsTransitType\HazardousGoodsTransit;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\LoadingLocation;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\StorageLocation;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\UnloadingLocation;
+use InvoiceNinja\EInvoice\Models\Peppol\OwnerTypeCodeType\OwnerTypeCode;
 use InvoiceNinja\EInvoice\Models\Peppol\PackageType\Package;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\LoadingProofParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\OperatingParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\OwnerParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\ProviderParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PickupType\Pickup;
+use InvoiceNinja\EInvoice\Models\Peppol\ProviderTypeCodeType\ProviderTypeCode;
 use InvoiceNinja\EInvoice\Models\Peppol\ReferencedConsignmentIDType\ReferencedConsignmentID;
+use InvoiceNinja\EInvoice\Models\Peppol\SizeTypeCodeType\SizeTypeCode;
 use InvoiceNinja\EInvoice\Models\Peppol\SupplierPartyType\SupplierParty;
+use InvoiceNinja\EInvoice\Models\Peppol\TareWeightMeasureType\TareWeightMeasure;
 use InvoiceNinja\EInvoice\Models\Peppol\TemperatureType\MaximumTemperature;
 use InvoiceNinja\EInvoice\Models\Peppol\TemperatureType\MinimumTemperature;
 use InvoiceNinja\EInvoice\Models\Peppol\TraceIDType\TraceID;
+use InvoiceNinja\EInvoice\Models\Peppol\TrackingDeviceCodeType\TrackingDeviceCode;
 use InvoiceNinja\EInvoice\Models\Peppol\TradingTermsType\HaulageTradingTerms;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEquipmentSealType\TransportEquipmentSeal;
+use InvoiceNinja\EInvoice\Models\Peppol\TransportEquipmentTypeCodeType\TransportEquipmentTypeCode;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEventType\DeliveryTransportEvent;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEventType\HandlingTransportEvent;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEventType\LoadingTransportEvent;
@@ -60,29 +70,29 @@ class UnsupportedTransportEquipment
 	#[SerializedName('cbc:ReferencedConsignmentID')]
 	public array $ReferencedConsignmentID;
 
-	/** @var string */
+	/** @var TransportEquipmentTypeCode */
 	#[SerializedName('cbc:TransportEquipmentTypeCode')]
-	public string $TransportEquipmentTypeCode;
+	public $TransportEquipmentTypeCode;
 
-	/** @var string */
+	/** @var ProviderTypeCode */
 	#[SerializedName('cbc:ProviderTypeCode')]
-	public string $ProviderTypeCode;
+	public $ProviderTypeCode;
 
-	/** @var string */
+	/** @var OwnerTypeCode */
 	#[SerializedName('cbc:OwnerTypeCode')]
-	public string $OwnerTypeCode;
+	public $OwnerTypeCode;
 
-	/** @var string */
+	/** @var SizeTypeCode */
 	#[SerializedName('cbc:SizeTypeCode')]
-	public string $SizeTypeCode;
+	public $SizeTypeCode;
 
-	/** @var string */
+	/** @var DispositionCode */
 	#[SerializedName('cbc:DispositionCode')]
-	public string $DispositionCode;
+	public $DispositionCode;
 
-	/** @var string */
+	/** @var FullnessIndicationCode */
 	#[SerializedName('cbc:FullnessIndicationCode')]
-	public string $FullnessIndicationCode;
+	public $FullnessIndicationCode;
 
 	/** @var bool */
 	#[SerializedName('cbc:RefrigerationOnIndicator')]
@@ -140,24 +150,21 @@ class UnsupportedTransportEquipment
 	#[SerializedName('cbc:SpecialTransportRequirements')]
 	public string $SpecialTransportRequirements;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var GrossWeightMeasure */
 	#[SerializedName('cbc:GrossWeightMeasure')]
-	public string $GrossWeightMeasure;
+	public $GrossWeightMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var GrossVolumeMeasure */
 	#[SerializedName('cbc:GrossVolumeMeasure')]
-	public string $GrossVolumeMeasure;
+	public $GrossVolumeMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var TareWeightMeasure */
 	#[SerializedName('cbc:TareWeightMeasure')]
-	public string $TareWeightMeasure;
+	public $TareWeightMeasure;
 
-	/** @var string */
+	/** @var TrackingDeviceCode */
 	#[SerializedName('cbc:TrackingDeviceCode')]
-	public string $TrackingDeviceCode;
+	public $TrackingDeviceCode;
 
 	/** @var bool */
 	#[SerializedName('cbc:PowerIndicator')]

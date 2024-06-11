@@ -3,7 +3,7 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
-use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\ContractTypeCodeType\ContractTypeCode;
 use InvoiceNinja\EInvoice\Models\Peppol\DeliveryType\ContractualDelivery;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\ContractDocumentReference;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
@@ -44,9 +44,9 @@ class Contract
 	#[SerializedName('cbc:NominationTime')]
 	public DateTime $NominationTime;
 
-	/** @var string */
+	/** @var ContractTypeCode */
 	#[SerializedName('cbc:ContractTypeCode')]
-	public string $ContractTypeCode;
+	public $ContractTypeCode;
 
 	/** @var string */
 	#[SerializedName('cbc:ContractType')]

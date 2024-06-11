@@ -4,6 +4,8 @@ namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use InvoiceNinja\EInvoice\Models\Peppol\AddressType\RegistrationAddress;
 use InvoiceNinja\EInvoice\Models\Peppol\CompanyIDType\CompanyID;
+use InvoiceNinja\EInvoice\Models\Peppol\ExemptionReasonCodeType\ExemptionReasonCode;
+use InvoiceNinja\EInvoice\Models\Peppol\TaxLevelCodeType\TaxLevelCode;
 use InvoiceNinja\EInvoice\Models\Peppol\TaxSchemeType\TaxScheme;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
@@ -22,13 +24,13 @@ class PartyTaxScheme
 	#[SerializedName('cbc:CompanyID')]
 	public $CompanyID;
 
-	/** @var string */
+	/** @var TaxLevelCode */
 	#[SerializedName('cbc:TaxLevelCode')]
-	public string $TaxLevelCode;
+	public $TaxLevelCode;
 
-	/** @var string */
+	/** @var ExemptionReasonCode */
 	#[SerializedName('cbc:ExemptionReasonCode')]
-	public string $ExemptionReasonCode;
+	public $ExemptionReasonCode;
 
 	/** @var string */
 	#[SerializedName('cbc:ExemptionReason')]

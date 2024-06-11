@@ -7,10 +7,12 @@ use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\DimensionType\RangeDimension;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\ImportanceCodeType\ImportanceCode;
 use InvoiceNinja\EInvoice\Models\Peppol\ItemPropertyGroupType\ItemPropertyGroup;
 use InvoiceNinja\EInvoice\Models\Peppol\ItemPropertyRangeType\ItemPropertyRange;
+use InvoiceNinja\EInvoice\Models\Peppol\NameCodeType\NameCode;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\UsabilityPeriod;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\ValueQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\ValueQuantityType\ValueQuantity;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -32,9 +34,9 @@ class AdditionalItemProperty
 	#[SerializedName('cbc:Name')]
 	public string $Name;
 
-	/** @var string */
+	/** @var NameCode */
 	#[SerializedName('cbc:NameCode')]
-	public string $NameCode;
+	public $NameCode;
 
 	/** @var string */
 	#[SerializedName('cbc:TestMethod')]
@@ -52,9 +54,9 @@ class AdditionalItemProperty
 	#[SerializedName('cbc:ValueQualifier')]
 	public string $ValueQualifier;
 
-	/** @var string */
+	/** @var ImportanceCode */
 	#[SerializedName('cbc:ImportanceCode')]
-	public string $ImportanceCode;
+	public $ImportanceCode;
 
 	/** @var string */
 	#[SerializedName('cbc:ListValue')]

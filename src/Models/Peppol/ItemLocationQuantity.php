@@ -2,15 +2,15 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
-use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AddressType\ApplicableTerritoryAddress;
 use InvoiceNinja\EInvoice\Models\Peppol\AllowanceChargeType\AllowanceCharge;
 use InvoiceNinja\EInvoice\Models\Peppol\DeliveryUnitType\DeliveryUnit;
 use InvoiceNinja\EInvoice\Models\Peppol\DependentPriceReferenceType\DependentPriceReference;
+use InvoiceNinja\EInvoice\Models\Peppol\LeadTimeMeasureType\LeadTimeMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\MaximumQuantityType\MaximumQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\MinimumQuantityType\MinimumQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\PackageType\Package;
 use InvoiceNinja\EInvoice\Models\Peppol\PriceType\Price;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\MaximumQuantity;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\MinimumQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\TaxCategoryType\ApplicableTaxCategory;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
@@ -21,10 +21,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class ItemLocationQuantity
 {
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var LeadTimeMeasure */
 	#[SerializedName('cbc:LeadTimeMeasure')]
-	public string $LeadTimeMeasure;
+	public $LeadTimeMeasure;
 
 	/** @var MinimumQuantity */
 	#[SerializedName('cbc:MinimumQuantity')]

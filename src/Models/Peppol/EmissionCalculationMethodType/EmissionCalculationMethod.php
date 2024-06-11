@@ -5,6 +5,8 @@ namespace InvoiceNinja\EInvoice\Models\Peppol\EmissionCalculationMethodType;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\CalculationMethodCodeType\CalculationMethodCode;
+use InvoiceNinja\EInvoice\Models\Peppol\FullnessIndicationCodeType\FullnessIndicationCode;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\MeasurementFromLocation;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\MeasurementToLocation;
 use Symfony\Component\Serializer\Attribute\Context;
@@ -20,13 +22,13 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class EmissionCalculationMethod
 {
-	/** @var string */
+	/** @var CalculationMethodCode */
 	#[SerializedName('cbc:CalculationMethodCode')]
-	public string $CalculationMethodCode;
+	public $CalculationMethodCode;
 
-	/** @var string */
+	/** @var FullnessIndicationCode */
 	#[SerializedName('cbc:FullnessIndicationCode')]
-	public string $FullnessIndicationCode;
+	public $FullnessIndicationCode;
 
 	/** @var MeasurementFromLocation */
 	#[SerializedName('cac:MeasurementFromLocation')]

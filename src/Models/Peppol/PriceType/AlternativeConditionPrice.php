@@ -7,10 +7,11 @@ use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AllowanceChargeType\AllowanceCharge;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\PriceAmount;
+use InvoiceNinja\EInvoice\Models\Peppol\BaseQuantityType\BaseQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\ExchangeRateType\PricingExchangeRate;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\ValidityPeriod;
 use InvoiceNinja\EInvoice\Models\Peppol\PriceListType\PriceList;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\BaseQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\PriceTypeCodeType\PriceTypeCode;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -39,9 +40,9 @@ class AlternativeConditionPrice
 	#[SerializedName('cbc:PriceChangeReason')]
 	public string $PriceChangeReason;
 
-	/** @var string */
+	/** @var PriceTypeCode */
 	#[SerializedName('cbc:PriceTypeCode')]
-	public string $PriceTypeCode;
+	public $PriceTypeCode;
 
 	/** @var string */
 	#[SerializedName('cbc:PriceType')]

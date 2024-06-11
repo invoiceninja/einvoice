@@ -6,6 +6,8 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\EmissionCalculationMethodType\EmissionCalculationMethod;
+use InvoiceNinja\EInvoice\Models\Peppol\EnvironmentalEmissionTypeCodeType\EnvironmentalEmissionTypeCode;
+use InvoiceNinja\EInvoice\Models\Peppol\ValueMeasureType\ValueMeasure;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -19,14 +21,19 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class EnvironmentalEmission
 {
-	/** @var string */
+	/** @var EnvironmentalEmissionTypeCode */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:EnvironmentalEmissionTypeCode')]
-	public string $EnvironmentalEmissionTypeCode;
+	public $EnvironmentalEmissionTypeCode;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var ValueMeasure */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:ValueMeasure')]
-	public string $ValueMeasure;
+	public $ValueMeasure;
 
 	/** @var string */
 	#[SerializedName('cbc:Description')]

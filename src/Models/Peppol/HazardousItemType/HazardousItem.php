@@ -5,17 +5,23 @@ namespace InvoiceNinja\EInvoice\Models\Peppol\HazardousItemType;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\EmergencyProceduresCodeType\EmergencyProceduresCode;
 use InvoiceNinja\EInvoice\Models\Peppol\HazardClassIDType\HazardClassID;
+use InvoiceNinja\EInvoice\Models\Peppol\HazardousCategoryCodeType\HazardousCategoryCode;
 use InvoiceNinja\EInvoice\Models\Peppol\HazardousGoodsTransitType\HazardousGoodsTransit;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\LowerOrangeHazardPlacardIDType\LowerOrangeHazardPlacardID;
 use InvoiceNinja\EInvoice\Models\Peppol\MarkingIDType\MarkingID;
+use InvoiceNinja\EInvoice\Models\Peppol\MedicalFirstAidGuideCodeType\MedicalFirstAidGuideCode;
+use InvoiceNinja\EInvoice\Models\Peppol\NetVolumeMeasureType\NetVolumeMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\NetWeightMeasureType\NetWeightMeasure;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\ContactParty;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\Quantity;
 use InvoiceNinja\EInvoice\Models\Peppol\SecondaryHazardType\SecondaryHazard;
 use InvoiceNinja\EInvoice\Models\Peppol\TemperatureType\AdditionalTemperature;
 use InvoiceNinja\EInvoice\Models\Peppol\TemperatureType\EmergencyTemperature;
 use InvoiceNinja\EInvoice\Models\Peppol\TemperatureType\FlashpointTemperature;
+use InvoiceNinja\EInvoice\Models\Peppol\UNDGCodeType\UNDGCode;
 use InvoiceNinja\EInvoice\Models\Peppol\UpperOrangeHazardPlacardIDType\UpperOrangeHazardPlacardID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
@@ -46,17 +52,17 @@ class HazardousItem
 	#[SerializedName('cbc:AdditionalInformation')]
 	public string $AdditionalInformation;
 
-	/** @var string */
+	/** @var UNDGCode */
 	#[SerializedName('cbc:UNDGCode')]
-	public string $UNDGCode;
+	public $UNDGCode;
 
-	/** @var string */
+	/** @var EmergencyProceduresCode */
 	#[SerializedName('cbc:EmergencyProceduresCode')]
-	public string $EmergencyProceduresCode;
+	public $EmergencyProceduresCode;
 
-	/** @var string */
+	/** @var MedicalFirstAidGuideCode */
 	#[SerializedName('cbc:MedicalFirstAidGuideCode')]
-	public string $MedicalFirstAidGuideCode;
+	public $MedicalFirstAidGuideCode;
 
 	/** @var string */
 	#[SerializedName('cbc:TechnicalName')]
@@ -66,9 +72,9 @@ class HazardousItem
 	#[SerializedName('cbc:CategoryName')]
 	public string $CategoryName;
 
-	/** @var string */
+	/** @var HazardousCategoryCode */
 	#[SerializedName('cbc:HazardousCategoryCode')]
-	public string $HazardousCategoryCode;
+	public $HazardousCategoryCode;
 
 	/** @var UpperOrangeHazardPlacardID */
 	#[SerializedName('cbc:UpperOrangeHazardPlacardID')]
@@ -86,15 +92,13 @@ class HazardousItem
 	#[SerializedName('cbc:HazardClassID')]
 	public $HazardClassID;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var NetWeightMeasure */
 	#[SerializedName('cbc:NetWeightMeasure')]
-	public string $NetWeightMeasure;
+	public $NetWeightMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var NetVolumeMeasure */
 	#[SerializedName('cbc:NetVolumeMeasure')]
-	public string $NetVolumeMeasure;
+	public $NetVolumeMeasure;
 
 	/** @var Quantity */
 	#[SerializedName('cbc:Quantity')]

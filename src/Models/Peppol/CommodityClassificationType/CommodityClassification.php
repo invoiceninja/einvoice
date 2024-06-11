@@ -5,6 +5,10 @@ namespace InvoiceNinja\EInvoice\Models\Peppol\CommodityClassificationType;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\CargoTypeCodeType\CargoTypeCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CommodityCodeType\CommodityCode;
+use InvoiceNinja\EInvoice\Models\Peppol\ItemClassificationCodeType\ItemClassificationCode;
+use InvoiceNinja\EInvoice\Models\Peppol\NatureCodeType\NatureCode;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -18,19 +22,19 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class CommodityClassification
 {
-	/** @var string */
+	/** @var NatureCode */
 	#[SerializedName('cbc:NatureCode')]
-	public string $NatureCode;
+	public $NatureCode;
 
-	/** @var string */
+	/** @var CargoTypeCode */
 	#[SerializedName('cbc:CargoTypeCode')]
-	public string $CargoTypeCode;
+	public $CargoTypeCode;
 
-	/** @var string */
+	/** @var CommodityCode */
 	#[SerializedName('cbc:CommodityCode')]
-	public string $CommodityCode;
+	public $CommodityCode;
 
-	/** @var string */
+	/** @var ItemClassificationCode */
 	#[SerializedName('cbc:ItemClassificationCode')]
-	public string $ItemClassificationCode;
+	public $ItemClassificationCode;
 }

@@ -3,7 +3,7 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
-use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\AccountingCostCodeType\AccountingCostCode;
 use InvoiceNinja\EInvoice\Models\Peppol\AllowanceChargeType\AllowanceCharge;
 use InvoiceNinja\EInvoice\Models\Peppol\BillingReferenceType\BillingReference;
 use InvoiceNinja\EInvoice\Models\Peppol\CustomerPartyType\AccountingCustomerParty;
@@ -11,6 +11,7 @@ use InvoiceNinja\EInvoice\Models\Peppol\CustomerPartyType\BuyerCustomerParty;
 use InvoiceNinja\EInvoice\Models\Peppol\CustomizationIDType\CustomizationID;
 use InvoiceNinja\EInvoice\Models\Peppol\DeliveryTermsType\DeliveryTerms;
 use InvoiceNinja\EInvoice\Models\Peppol\DeliveryType\Delivery;
+use InvoiceNinja\EInvoice\Models\Peppol\DocumentCurrencyCodeType\DocumentCurrencyCode;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\AdditionalDocumentReference;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\ContractDocumentReference;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\DespatchDocumentReference;
@@ -23,20 +24,26 @@ use InvoiceNinja\EInvoice\Models\Peppol\ExchangeRateType\PricingExchangeRate;
 use InvoiceNinja\EInvoice\Models\Peppol\ExchangeRateType\TaxExchangeRate;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\InvoiceLineType\InvoiceLine;
+use InvoiceNinja\EInvoice\Models\Peppol\InvoiceTypeCodeType\InvoiceTypeCode;
+use InvoiceNinja\EInvoice\Models\Peppol\LineCountNumericType\LineCountNumeric;
 use InvoiceNinja\EInvoice\Models\Peppol\MonetaryTotalType\LegalMonetaryTotal;
 use InvoiceNinja\EInvoice\Models\Peppol\OrderReferenceType\OrderReference;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\PayeeParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\TaxRepresentativeParty;
+use InvoiceNinja\EInvoice\Models\Peppol\PaymentAlternativeCurrencyCodeType\PaymentAlternativeCurrencyCode;
+use InvoiceNinja\EInvoice\Models\Peppol\PaymentCurrencyCodeType\PaymentCurrencyCode;
 use InvoiceNinja\EInvoice\Models\Peppol\PaymentMeansType\PaymentMeans;
 use InvoiceNinja\EInvoice\Models\Peppol\PaymentTermsType\PaymentTerms;
 use InvoiceNinja\EInvoice\Models\Peppol\PaymentType\PrepaidPayment;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\InvoicePeriod;
+use InvoiceNinja\EInvoice\Models\Peppol\PricingCurrencyCodeType\PricingCurrencyCode;
 use InvoiceNinja\EInvoice\Models\Peppol\ProfileExecutionIDType\ProfileExecutionID;
 use InvoiceNinja\EInvoice\Models\Peppol\ProfileIDType\ProfileID;
 use InvoiceNinja\EInvoice\Models\Peppol\ProjectReferenceType\ProjectReference;
 use InvoiceNinja\EInvoice\Models\Peppol\SignatureType\Signature;
 use InvoiceNinja\EInvoice\Models\Peppol\SupplierPartyType\AccountingSupplierParty;
 use InvoiceNinja\EInvoice\Models\Peppol\SupplierPartyType\SellerSupplierParty;
+use InvoiceNinja\EInvoice\Models\Peppol\TaxCurrencyCodeType\TaxCurrencyCode;
 use InvoiceNinja\EInvoice\Models\Peppol\TaxTotalType\TaxTotal;
 use InvoiceNinja\EInvoice\Models\Peppol\TaxTotalType\WithholdingTaxTotal;
 use InvoiceNinja\EInvoice\Models\Peppol\UBLVersionIDType\UBLVersionID;
@@ -100,9 +107,9 @@ class Invoice
 	#[SerializedName('cbc:DueDate')]
 	public DateTime $DueDate;
 
-	/** @var string */
+	/** @var InvoiceTypeCode */
 	#[SerializedName('cbc:InvoiceTypeCode')]
-	public string $InvoiceTypeCode;
+	public $InvoiceTypeCode;
 
 	/** @var string */
 	#[SerializedName('cbc:Note')]
@@ -113,37 +120,37 @@ class Invoice
 	#[SerializedName('cbc:TaxPointDate')]
 	public DateTime $TaxPointDate;
 
-	/** @var string */
+	/** @var DocumentCurrencyCode */
 	#[SerializedName('cbc:DocumentCurrencyCode')]
-	public string $DocumentCurrencyCode;
+	public $DocumentCurrencyCode;
 
-	/** @var string */
+	/** @var TaxCurrencyCode */
 	#[SerializedName('cbc:TaxCurrencyCode')]
-	public string $TaxCurrencyCode;
+	public $TaxCurrencyCode;
 
-	/** @var string */
+	/** @var PricingCurrencyCode */
 	#[SerializedName('cbc:PricingCurrencyCode')]
-	public string $PricingCurrencyCode;
+	public $PricingCurrencyCode;
 
-	/** @var string */
+	/** @var PaymentCurrencyCode */
 	#[SerializedName('cbc:PaymentCurrencyCode')]
-	public string $PaymentCurrencyCode;
+	public $PaymentCurrencyCode;
 
-	/** @var string */
+	/** @var PaymentAlternativeCurrencyCode */
 	#[SerializedName('cbc:PaymentAlternativeCurrencyCode')]
-	public string $PaymentAlternativeCurrencyCode;
+	public $PaymentAlternativeCurrencyCode;
 
-	/** @var string */
+	/** @var AccountingCostCode */
 	#[SerializedName('cbc:AccountingCostCode')]
-	public string $AccountingCostCode;
+	public $AccountingCostCode;
 
 	/** @var string */
 	#[SerializedName('cbc:AccountingCost')]
 	public string $AccountingCost;
 
-	/** @var string */
+	/** @var LineCountNumeric */
 	#[SerializedName('cbc:LineCountNumeric')]
-	public string $LineCountNumeric;
+	public $LineCountNumeric;
 
 	/** @var string */
 	#[SerializedName('cbc:BuyerReference')]

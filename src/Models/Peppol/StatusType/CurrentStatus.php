@@ -5,8 +5,10 @@ namespace InvoiceNinja\EInvoice\Models\Peppol\StatusType;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\ConditionCodeType\ConditionCode;
 use InvoiceNinja\EInvoice\Models\Peppol\ConditionType\Condition;
 use InvoiceNinja\EInvoice\Models\Peppol\SequenceIDType\SequenceID;
+use InvoiceNinja\EInvoice\Models\Peppol\StatusReasonCodeType\StatusReasonCode;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -20,9 +22,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class CurrentStatus
 {
-	/** @var string */
+	/** @var ConditionCode */
 	#[SerializedName('cbc:ConditionCode')]
-	public string $ConditionCode;
+	public $ConditionCode;
 
 	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
@@ -38,9 +40,9 @@ class CurrentStatus
 	#[SerializedName('cbc:Description')]
 	public string $Description;
 
-	/** @var string */
+	/** @var StatusReasonCode */
 	#[SerializedName('cbc:StatusReasonCode')]
-	public string $StatusReasonCode;
+	public $StatusReasonCode;
 
 	/** @var string */
 	#[SerializedName('cbc:StatusReason')]

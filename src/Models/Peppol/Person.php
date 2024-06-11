@@ -7,6 +7,7 @@ use InvoiceNinja\EInvoice\Models\Peppol\AddressType\ResidenceAddress;
 use InvoiceNinja\EInvoice\Models\Peppol\ContactType\Contact;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\IdentityDocumentReference;
 use InvoiceNinja\EInvoice\Models\Peppol\FinancialAccountType\FinancialAccount;
+use InvoiceNinja\EInvoice\Models\Peppol\GenderCodeType\GenderCode;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\NationalityIDType\NationalityID;
 use Symfony\Component\Serializer\Attribute\Context;
@@ -55,9 +56,9 @@ class Person
 	#[SerializedName('cbc:NationalityID')]
 	public $NationalityID;
 
-	/** @var string */
+	/** @var GenderCode */
 	#[SerializedName('cbc:GenderCode')]
-	public string $GenderCode;
+	public $GenderCode;
 
 	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]

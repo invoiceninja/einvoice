@@ -3,6 +3,8 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\SealIssuerTypeCodeType\SealIssuerTypeCode;
+use InvoiceNinja\EInvoice\Models\Peppol\SealStatusCodeType\SealStatusCode;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -19,17 +21,17 @@ class TransportEquipmentSeal
 	#[SerializedName('cbc:ID')]
 	public $ID;
 
-	/** @var string */
+	/** @var SealIssuerTypeCode */
 	#[SerializedName('cbc:SealIssuerTypeCode')]
-	public string $SealIssuerTypeCode;
+	public $SealIssuerTypeCode;
 
 	/** @var string */
 	#[SerializedName('cbc:Condition')]
 	public string $Condition;
 
-	/** @var string */
+	/** @var SealStatusCode */
 	#[SerializedName('cbc:SealStatusCode')]
-	public string $SealStatusCode;
+	public $SealStatusCode;
 
 	/** @var string */
 	#[SerializedName('cbc:SealingPartyType')]

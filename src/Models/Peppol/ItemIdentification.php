@@ -2,7 +2,6 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
-use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\BarcodeSymbologyIDType\BarcodeSymbologyID;
 use InvoiceNinja\EInvoice\Models\Peppol\DimensionType\MeasurementDimension;
 use InvoiceNinja\EInvoice\Models\Peppol\ExtendedIDType\ExtendedID;

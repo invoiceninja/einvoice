@@ -8,6 +8,7 @@ use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\ContactType\SellerContact;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\Party;
+use InvoiceNinja\EInvoice\Models\Peppol\ServiceTypeCodeType\ServiceTypeCode;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -25,9 +26,9 @@ class ServiceProviderParty
 	#[SerializedName('cbc:ID')]
 	public $ID;
 
-	/** @var string */
+	/** @var ServiceTypeCode */
 	#[SerializedName('cbc:ServiceTypeCode')]
-	public string $ServiceTypeCode;
+	public $ServiceTypeCode;
 
 	/** @var string */
 	#[SerializedName('cbc:ServiceType')]

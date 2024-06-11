@@ -3,7 +3,6 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
-use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\CustomsDeclarationType\CustomsDeclaration;
 use InvoiceNinja\EInvoice\Models\Peppol\DespatchLineType\HandlingUnitDespatchLine;
 use InvoiceNinja\EInvoice\Models\Peppol\DimensionType\FloorSpaceMeasurementDimension;
@@ -11,19 +10,21 @@ use InvoiceNinja\EInvoice\Models\Peppol\DimensionType\MeasurementDimension;
 use InvoiceNinja\EInvoice\Models\Peppol\DimensionType\PalletSpaceMeasurementDimension;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\ShipmentDocumentReference;
 use InvoiceNinja\EInvoice\Models\Peppol\GoodsItemType\GoodsItem;
+use InvoiceNinja\EInvoice\Models\Peppol\HandlingCodeType\HandlingCode;
 use InvoiceNinja\EInvoice\Models\Peppol\HazardousGoodsTransitType\HazardousGoodsTransit;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\PackageType\ActualPackage;
 use InvoiceNinja\EInvoice\Models\Peppol\PackageType\Package;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\TotalGoodsItemQuantity;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\TotalPackageQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\ReceiptLineType\ReceivedHandlingUnitReceiptLine;
 use InvoiceNinja\EInvoice\Models\Peppol\ShipmentType\ReferencedShipment;
 use InvoiceNinja\EInvoice\Models\Peppol\StatusType\Status;
 use InvoiceNinja\EInvoice\Models\Peppol\TemperatureType\MaximumTemperature;
 use InvoiceNinja\EInvoice\Models\Peppol\TemperatureType\MinimumTemperature;
+use InvoiceNinja\EInvoice\Models\Peppol\TotalGoodsItemQuantityType\TotalGoodsItemQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\TotalPackageQuantityType\TotalPackageQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\TraceIDType\TraceID;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEquipmentType\TransportEquipment;
+use InvoiceNinja\EInvoice\Models\Peppol\TransportHandlingUnitTypeCodeType\TransportHandlingUnitTypeCode;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportMeansType\TransportMeans;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
@@ -39,13 +40,13 @@ class TransportHandlingUnit
 	#[SerializedName('cbc:ID')]
 	public $ID;
 
-	/** @var string */
+	/** @var TransportHandlingUnitTypeCode */
 	#[SerializedName('cbc:TransportHandlingUnitTypeCode')]
-	public string $TransportHandlingUnitTypeCode;
+	public $TransportHandlingUnitTypeCode;
 
-	/** @var string */
+	/** @var HandlingCode */
 	#[SerializedName('cbc:HandlingCode')]
-	public string $HandlingCode;
+	public $HandlingCode;
 
 	/** @var string */
 	#[SerializedName('cbc:HandlingInstructions')]

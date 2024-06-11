@@ -7,6 +7,7 @@ use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\ValidityPeriod;
+use InvoiceNinja\EInvoice\Models\Peppol\StatusCodeType\StatusCode;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -24,9 +25,9 @@ class PreviousPriceList
 	#[SerializedName('cbc:ID')]
 	public $ID;
 
-	/** @var string */
+	/** @var StatusCode */
 	#[SerializedName('cbc:StatusCode')]
-	public string $StatusCode;
+	public $StatusCode;
 
 	/** @var ValidityPeriod[] */
 	#[SerializedName('cac:ValidityPeriod')]

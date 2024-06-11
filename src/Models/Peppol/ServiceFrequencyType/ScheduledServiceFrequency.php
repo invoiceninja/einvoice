@@ -5,6 +5,7 @@ namespace InvoiceNinja\EInvoice\Models\Peppol\ServiceFrequencyType;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\WeekDayCodeType\WeekDayCode;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -18,7 +19,10 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class ScheduledServiceFrequency
 {
-	/** @var string */
+	/** @var WeekDayCode */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:WeekDayCode')]
-	public string $WeekDayCode;
+	public $WeekDayCode;
 }

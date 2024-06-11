@@ -6,6 +6,7 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\LineIDType\LineID;
+use InvoiceNinja\EInvoice\Models\Peppol\LineStatusCodeType\LineStatusCode;
 use InvoiceNinja\EInvoice\Models\Peppol\OrderReferenceType\OrderReference;
 use InvoiceNinja\EInvoice\Models\Peppol\SalesOrderLineIDType\SalesOrderLineID;
 use InvoiceNinja\EInvoice\Models\Peppol\UUIDType\UUID;
@@ -37,9 +38,9 @@ class OrderLineReference
 	#[SerializedName('cbc:UUID')]
 	public $UUID;
 
-	/** @var string */
+	/** @var LineStatusCode */
 	#[SerializedName('cbc:LineStatusCode')]
-	public string $LineStatusCode;
+	public $LineStatusCode;
 
 	/** @var OrderReference */
 	#[SerializedName('cac:OrderReference')]

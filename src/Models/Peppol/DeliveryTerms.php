@@ -7,6 +7,7 @@ use InvoiceNinja\EInvoice\Models\Peppol\AllowanceChargeType\AllowanceCharge;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\Amount;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\DeliveryLocation;
+use InvoiceNinja\EInvoice\Models\Peppol\LossRiskResponsibilityCodeType\LossRiskResponsibilityCode;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -24,9 +25,9 @@ class DeliveryTerms
 	#[SerializedName('cbc:SpecialTerms')]
 	public string $SpecialTerms;
 
-	/** @var string */
+	/** @var LossRiskResponsibilityCode */
 	#[SerializedName('cbc:LossRiskResponsibilityCode')]
-	public string $LossRiskResponsibilityCode;
+	public $LossRiskResponsibilityCode;
 
 	/** @var string */
 	#[SerializedName('cbc:LossRisk')]

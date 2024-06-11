@@ -7,6 +7,8 @@ use InvoiceNinja\EInvoice\Models\Peppol\AmountType\PerUnitAmount;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\TaxAmount;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\TaxableAmount;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\TransactionCurrencyTaxAmount;
+use InvoiceNinja\EInvoice\Models\Peppol\BaseUnitMeasureType\BaseUnitMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\CalculationSequenceNumericType\CalculationSequenceNumeric;
 use InvoiceNinja\EInvoice\Models\Peppol\TaxCategoryType\TaxCategory;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
@@ -28,9 +30,9 @@ class TaxSubtotal
 	#[SerializedName('cbc:TaxAmount')]
 	public $TaxAmount;
 
-	/** @var string */
+	/** @var CalculationSequenceNumeric */
 	#[SerializedName('cbc:CalculationSequenceNumeric')]
-	public string $CalculationSequenceNumeric;
+	public $CalculationSequenceNumeric;
 
 	/** @var TransactionCurrencyTaxAmount */
 	#[SerializedName('cbc:TransactionCurrencyTaxAmount')]
@@ -40,10 +42,9 @@ class TaxSubtotal
 	#[SerializedName('cbc:Percent')]
 	public string $Percent;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var BaseUnitMeasure */
 	#[SerializedName('cbc:BaseUnitMeasure')]
-	public string $BaseUnitMeasure;
+	public $BaseUnitMeasure;
 
 	/** @var PerUnitAmount */
 	#[SerializedName('cbc:PerUnitAmount')]

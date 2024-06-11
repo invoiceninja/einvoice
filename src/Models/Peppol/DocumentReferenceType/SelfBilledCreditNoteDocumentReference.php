@@ -6,8 +6,11 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AttachmentType\Attachment;
+use InvoiceNinja\EInvoice\Models\Peppol\DocumentStatusCodeType\DocumentStatusCode;
+use InvoiceNinja\EInvoice\Models\Peppol\DocumentTypeCodeType\DocumentTypeCode;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\LanguageIDType\LanguageID;
+use InvoiceNinja\EInvoice\Models\Peppol\LocaleCodeType\LocaleCode;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\IssuerParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\ValidityPeriod;
 use InvoiceNinja\EInvoice\Models\Peppol\ResultOfVerificationType\ResultOfVerification;
@@ -51,9 +54,9 @@ class SelfBilledCreditNoteDocumentReference
 	#[SerializedName('cbc:IssueTime')]
 	public DateTime $IssueTime;
 
-	/** @var string */
+	/** @var DocumentTypeCode */
 	#[SerializedName('cbc:DocumentTypeCode')]
-	public string $DocumentTypeCode;
+	public $DocumentTypeCode;
 
 	/** @var string */
 	#[SerializedName('cbc:DocumentType')]
@@ -67,17 +70,17 @@ class SelfBilledCreditNoteDocumentReference
 	#[SerializedName('cbc:LanguageID')]
 	public $LanguageID;
 
-	/** @var string */
+	/** @var LocaleCode */
 	#[SerializedName('cbc:LocaleCode')]
-	public string $LocaleCode;
+	public $LocaleCode;
 
 	/** @var VersionID */
 	#[SerializedName('cbc:VersionID')]
 	public $VersionID;
 
-	/** @var string */
+	/** @var DocumentStatusCode */
 	#[SerializedName('cbc:DocumentStatusCode')]
-	public string $DocumentStatusCode;
+	public $DocumentStatusCode;
 
 	/** @var string */
 	#[SerializedName('cbc:DocumentDescription')]

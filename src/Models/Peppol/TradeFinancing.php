@@ -7,6 +7,7 @@ use InvoiceNinja\EInvoice\Models\Peppol\ClauseType\Clause;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\ContractDocumentReference;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\DocumentReference;
 use InvoiceNinja\EInvoice\Models\Peppol\FinancialAccountType\FinancingFinancialAccount;
+use InvoiceNinja\EInvoice\Models\Peppol\FinancingInstrumentCodeType\FinancingInstrumentCode;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\FinancingParty;
 use Symfony\Component\Serializer\Attribute\Context;
@@ -23,9 +24,9 @@ class TradeFinancing
 	#[SerializedName('cbc:ID')]
 	public $ID;
 
-	/** @var string */
+	/** @var FinancingInstrumentCode */
 	#[SerializedName('cbc:FinancingInstrumentCode')]
-	public string $FinancingInstrumentCode;
+	public $FinancingInstrumentCode;
 
 	/** @var ContractDocumentReference */
 	#[SerializedName('cac:ContractDocumentReference')]

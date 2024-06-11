@@ -5,11 +5,15 @@ namespace InvoiceNinja\EInvoice\Models\Peppol\AllowanceChargeType;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\AccountingCostCodeType\AccountingCostCode;
+use InvoiceNinja\EInvoice\Models\Peppol\AllowanceChargeReasonCodeType\AllowanceChargeReasonCode;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\Amount;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\BaseAmount;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\PerUnitAmount;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\MultiplierFactorNumericType\MultiplierFactorNumeric;
 use InvoiceNinja\EInvoice\Models\Peppol\PaymentMeansType\PaymentMeans;
+use InvoiceNinja\EInvoice\Models\Peppol\SequenceNumericType\SequenceNumeric;
 use InvoiceNinja\EInvoice\Models\Peppol\TaxCategoryType\TaxCategory;
 use InvoiceNinja\EInvoice\Models\Peppol\TaxTotalType\TaxTotal;
 use Symfony\Component\Serializer\Attribute\Context;
@@ -36,25 +40,25 @@ class AllowanceCharge
 	#[SerializedName('cbc:ChargeIndicator')]
 	public bool $ChargeIndicator;
 
-	/** @var string */
+	/** @var AllowanceChargeReasonCode */
 	#[SerializedName('cbc:AllowanceChargeReasonCode')]
-	public string $AllowanceChargeReasonCode;
+	public $AllowanceChargeReasonCode;
 
 	/** @var string */
 	#[SerializedName('cbc:AllowanceChargeReason')]
 	public string $AllowanceChargeReason;
 
-	/** @var string */
+	/** @var MultiplierFactorNumeric */
 	#[SerializedName('cbc:MultiplierFactorNumeric')]
-	public string $MultiplierFactorNumeric;
+	public $MultiplierFactorNumeric;
 
 	/** @var bool */
 	#[SerializedName('cbc:PrepaidIndicator')]
 	public bool $PrepaidIndicator;
 
-	/** @var string */
+	/** @var SequenceNumeric */
 	#[SerializedName('cbc:SequenceNumeric')]
-	public string $SequenceNumeric;
+	public $SequenceNumeric;
 
 	/** @var Amount */
 	#[NotNull]
@@ -67,9 +71,9 @@ class AllowanceCharge
 	#[SerializedName('cbc:BaseAmount')]
 	public $BaseAmount;
 
-	/** @var string */
+	/** @var AccountingCostCode */
 	#[SerializedName('cbc:AccountingCostCode')]
-	public string $AccountingCostCode;
+	public $AccountingCostCode;
 
 	/** @var string */
 	#[SerializedName('cbc:AccountingCost')]

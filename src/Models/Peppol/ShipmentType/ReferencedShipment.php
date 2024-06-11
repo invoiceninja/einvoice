@@ -13,17 +13,24 @@ use InvoiceNinja\EInvoice\Models\Peppol\AmountType\DeclaredForCarriageValueAmoun
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\DeclaredStatisticsValueAmount;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\FreeOnBoardValueAmount;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\InsuranceValueAmount;
+use InvoiceNinja\EInvoice\Models\Peppol\ConsignmentQuantityType\ConsignmentQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\ConsignmentType\Consignment;
 use InvoiceNinja\EInvoice\Models\Peppol\CountryType\ExportCountry;
 use InvoiceNinja\EInvoice\Models\Peppol\DeliveryType\Delivery;
 use InvoiceNinja\EInvoice\Models\Peppol\GoodsItemType\GoodsItem;
+use InvoiceNinja\EInvoice\Models\Peppol\GrossVolumeMeasureType\GrossVolumeMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\GrossWeightMeasureType\GrossWeightMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\HandlingCodeType\HandlingCode;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\FirstArrivalPortLocation;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\LastExitPortLocation;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\ConsignmentQuantity;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\TotalGoodsItemQuantity;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\TotalTransportHandlingUnitQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\NetNetWeightMeasureType\NetNetWeightMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\NetVolumeMeasureType\NetVolumeMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\NetWeightMeasureType\NetWeightMeasure;
 use InvoiceNinja\EInvoice\Models\Peppol\ShipmentStageType\ShipmentStage;
+use InvoiceNinja\EInvoice\Models\Peppol\ShippingPriorityLevelCodeType\ShippingPriorityLevelCode;
+use InvoiceNinja\EInvoice\Models\Peppol\TotalGoodsItemQuantityType\TotalGoodsItemQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\TotalTransportHandlingUnitQuantityType\TotalTransportHandlingUnitQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportHandlingUnitType\TransportHandlingUnit;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
@@ -45,13 +52,13 @@ class ReferencedShipment
 	#[SerializedName('cbc:ID')]
 	public $ID;
 
-	/** @var string */
+	/** @var ShippingPriorityLevelCode */
 	#[SerializedName('cbc:ShippingPriorityLevelCode')]
-	public string $ShippingPriorityLevelCode;
+	public $ShippingPriorityLevelCode;
 
-	/** @var string */
+	/** @var HandlingCode */
 	#[SerializedName('cbc:HandlingCode')]
-	public string $HandlingCode;
+	public $HandlingCode;
 
 	/** @var string */
 	#[SerializedName('cbc:HandlingInstructions')]
@@ -61,30 +68,25 @@ class ReferencedShipment
 	#[SerializedName('cbc:Information')]
 	public string $Information;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var GrossWeightMeasure */
 	#[SerializedName('cbc:GrossWeightMeasure')]
-	public string $GrossWeightMeasure;
+	public $GrossWeightMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var NetWeightMeasure */
 	#[SerializedName('cbc:NetWeightMeasure')]
-	public string $NetWeightMeasure;
+	public $NetWeightMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var NetNetWeightMeasure */
 	#[SerializedName('cbc:NetNetWeightMeasure')]
-	public string $NetNetWeightMeasure;
+	public $NetNetWeightMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var GrossVolumeMeasure */
 	#[SerializedName('cbc:GrossVolumeMeasure')]
-	public string $GrossVolumeMeasure;
+	public $GrossVolumeMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var NetVolumeMeasure */
 	#[SerializedName('cbc:NetVolumeMeasure')]
-	public string $NetVolumeMeasure;
+	public $NetVolumeMeasure;
 
 	/** @var TotalGoodsItemQuantity */
 	#[SerializedName('cbc:TotalGoodsItemQuantity')]

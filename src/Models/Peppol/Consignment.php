@@ -15,7 +15,10 @@ use InvoiceNinja\EInvoice\Models\Peppol\AmountType\InsuranceValueAmount;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\TotalInvoiceAmount;
 use InvoiceNinja\EInvoice\Models\Peppol\BrokerAssignedIDType\BrokerAssignedID;
 use InvoiceNinja\EInvoice\Models\Peppol\CarrierAssignedIDType\CarrierAssignedID;
+use InvoiceNinja\EInvoice\Models\Peppol\ChargeableWeightMeasureType\ChargeableWeightMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\ChildConsignmentQuantityType\ChildConsignmentQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\ConsigneeAssignedIDType\ConsigneeAssignedID;
+use InvoiceNinja\EInvoice\Models\Peppol\ConsignmentQuantityType\ConsignmentQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\ConsignmentType\ChildConsignment;
 use InvoiceNinja\EInvoice\Models\Peppol\ConsignorAssignedIDType\ConsignorAssignedID;
 use InvoiceNinja\EInvoice\Models\Peppol\ContractType\TransportContract;
@@ -26,10 +29,17 @@ use InvoiceNinja\EInvoice\Models\Peppol\CountryType\TransitCountry;
 use InvoiceNinja\EInvoice\Models\Peppol\CustomsDeclarationType\CustomsDeclaration;
 use InvoiceNinja\EInvoice\Models\Peppol\DeliveryTermsType\DeliveryTerms;
 use InvoiceNinja\EInvoice\Models\Peppol\FreightForwarderAssignedIDType\FreightForwarderAssignedID;
+use InvoiceNinja\EInvoice\Models\Peppol\GrossVolumeMeasureType\GrossVolumeMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\GrossWeightMeasureType\GrossWeightMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\HandlingCodeType\HandlingCode;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\LoadingLengthMeasureType\LoadingLengthMeasure;
 use InvoiceNinja\EInvoice\Models\Peppol\LoadingSequenceIDType\LoadingSequenceID;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\FirstArrivalPortLocation;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\LastExitPortLocation;
+use InvoiceNinja\EInvoice\Models\Peppol\NetNetWeightMeasureType\NetNetWeightMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\NetVolumeMeasureType\NetVolumeMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\NetWeightMeasureType\NetWeightMeasure;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\BillOfLadingHolderParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\CarrierParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\ConsigneeParty;
@@ -52,17 +62,17 @@ use InvoiceNinja\EInvoice\Models\Peppol\PaymentTermsType\DisbursementPaymentTerm
 use InvoiceNinja\EInvoice\Models\Peppol\PaymentTermsType\PaymentTerms;
 use InvoiceNinja\EInvoice\Models\Peppol\PaymentTermsType\PrepaidPaymentTerms;
 use InvoiceNinja\EInvoice\Models\Peppol\PerformingCarrierAssignedIDType\PerformingCarrierAssignedID;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\ChildConsignmentQuantity;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\ConsignmentQuantity;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\TotalGoodsItemQuantity;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\TotalPackagesQuantity;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\TotalTransportHandlingUnitQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\SequenceIDType\SequenceID;
 use InvoiceNinja\EInvoice\Models\Peppol\ShipmentStageType\MainCarriageShipmentStage;
 use InvoiceNinja\EInvoice\Models\Peppol\ShipmentStageType\OnCarriageShipmentStage;
 use InvoiceNinja\EInvoice\Models\Peppol\ShipmentStageType\PreCarriageShipmentStage;
 use InvoiceNinja\EInvoice\Models\Peppol\ShipmentType\ConsolidatedShipment;
+use InvoiceNinja\EInvoice\Models\Peppol\ShippingPriorityLevelCodeType\ShippingPriorityLevelCode;
 use InvoiceNinja\EInvoice\Models\Peppol\StatusType\Status;
+use InvoiceNinja\EInvoice\Models\Peppol\TariffCodeType\TariffCode;
+use InvoiceNinja\EInvoice\Models\Peppol\TotalGoodsItemQuantityType\TotalGoodsItemQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\TotalPackagesQuantityType\TotalPackagesQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\TotalTransportHandlingUnitQuantityType\TotalTransportHandlingUnitQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEventType\PlannedDeliveryTransportEvent;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEventType\PlannedPickupTransportEvent;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEventType\RequestedDeliveryTransportEvent;
@@ -132,48 +142,41 @@ class Consignment
 	#[SerializedName('cbc:TariffDescription')]
 	public string $TariffDescription;
 
-	/** @var string */
+	/** @var TariffCode */
 	#[SerializedName('cbc:TariffCode')]
-	public string $TariffCode;
+	public $TariffCode;
 
 	/** @var InsurancePremiumAmount */
 	#[SerializedName('cbc:InsurancePremiumAmount')]
 	public $InsurancePremiumAmount;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var GrossWeightMeasure */
 	#[SerializedName('cbc:GrossWeightMeasure')]
-	public string $GrossWeightMeasure;
+	public $GrossWeightMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var NetWeightMeasure */
 	#[SerializedName('cbc:NetWeightMeasure')]
-	public string $NetWeightMeasure;
+	public $NetWeightMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var NetNetWeightMeasure */
 	#[SerializedName('cbc:NetNetWeightMeasure')]
-	public string $NetNetWeightMeasure;
+	public $NetNetWeightMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var ChargeableWeightMeasure */
 	#[SerializedName('cbc:ChargeableWeightMeasure')]
-	public string $ChargeableWeightMeasure;
+	public $ChargeableWeightMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var GrossVolumeMeasure */
 	#[SerializedName('cbc:GrossVolumeMeasure')]
-	public string $GrossVolumeMeasure;
+	public $GrossVolumeMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var NetVolumeMeasure */
 	#[SerializedName('cbc:NetVolumeMeasure')]
-	public string $NetVolumeMeasure;
+	public $NetVolumeMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var LoadingLengthMeasure */
 	#[SerializedName('cbc:LoadingLengthMeasure')]
-	public string $LoadingLengthMeasure;
+	public $LoadingLengthMeasure;
 
 	/** @var string */
 	#[SerializedName('cbc:Remarks')]
@@ -235,13 +238,13 @@ class Consignment
 	#[SerializedName('cbc:SequenceID')]
 	public $SequenceID;
 
-	/** @var string */
+	/** @var ShippingPriorityLevelCode */
 	#[SerializedName('cbc:ShippingPriorityLevelCode')]
-	public string $ShippingPriorityLevelCode;
+	public $ShippingPriorityLevelCode;
 
-	/** @var string */
+	/** @var HandlingCode */
 	#[SerializedName('cbc:HandlingCode')]
-	public string $HandlingCode;
+	public $HandlingCode;
 
 	/** @var string */
 	#[SerializedName('cbc:HandlingInstructions')]

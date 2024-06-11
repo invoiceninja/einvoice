@@ -6,6 +6,7 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AllowanceChargeType\FreightAllowanceCharge;
+use InvoiceNinja\EInvoice\Models\Peppol\CrewQuantityType\CrewQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\LoadingSequenceIDType\LoadingSequenceID;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\FreightChargeLocation;
@@ -15,6 +16,7 @@ use InvoiceNinja\EInvoice\Models\Peppol\LocationType\UnloadingPortLocation;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\CarrierParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\CustomsAgentParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\TerminalOperatorParty;
+use InvoiceNinja\EInvoice\Models\Peppol\PassengerQuantityType\PassengerQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\EstimatedTransitPeriod;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\TransitPeriod;
 use InvoiceNinja\EInvoice\Models\Peppol\PersonType\CrewMemberPerson;
@@ -24,9 +26,8 @@ use InvoiceNinja\EInvoice\Models\Peppol\PersonType\PassengerPerson;
 use InvoiceNinja\EInvoice\Models\Peppol\PersonType\ReportingPerson;
 use InvoiceNinja\EInvoice\Models\Peppol\PersonType\SecurityOfficerPerson;
 use InvoiceNinja\EInvoice\Models\Peppol\PersonType\ShipsSurgeonPerson;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\CrewQuantity;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\PassengerQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\SuccessiveSequenceIDType\SuccessiveSequenceID;
+use InvoiceNinja\EInvoice\Models\Peppol\TransitDirectionCodeType\TransitDirectionCode;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEventType\AcceptanceTransportEvent;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEventType\ActualArrivalTransportEvent;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEventType\ActualDepartureTransportEvent;
@@ -55,6 +56,8 @@ use InvoiceNinja\EInvoice\Models\Peppol\TransportEventType\TakeoverTransportEven
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEventType\TransportEvent;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEventType\WarehousingTransportEvent;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportMeansType\TransportMeans;
+use InvoiceNinja\EInvoice\Models\Peppol\TransportMeansTypeCodeType\TransportMeansTypeCode;
+use InvoiceNinja\EInvoice\Models\Peppol\TransportModeCodeType\TransportModeCode;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -72,17 +75,17 @@ class ShipmentStage
 	#[SerializedName('cbc:ID')]
 	public $ID;
 
-	/** @var string */
+	/** @var TransportModeCode */
 	#[SerializedName('cbc:TransportModeCode')]
-	public string $TransportModeCode;
+	public $TransportModeCode;
 
-	/** @var string */
+	/** @var TransportMeansTypeCode */
 	#[SerializedName('cbc:TransportMeansTypeCode')]
-	public string $TransportMeansTypeCode;
+	public $TransportMeansTypeCode;
 
-	/** @var string */
+	/** @var TransitDirectionCode */
 	#[SerializedName('cbc:TransitDirectionCode')]
-	public string $TransitDirectionCode;
+	public $TransitDirectionCode;
 
 	/** @var bool */
 	#[SerializedName('cbc:PreCarriageIndicator')]

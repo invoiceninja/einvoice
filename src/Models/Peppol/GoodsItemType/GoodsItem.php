@@ -13,21 +13,29 @@ use InvoiceNinja\EInvoice\Models\Peppol\AmountType\DeclaredStatisticsValueAmount
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\FreeOnBoardValueAmount;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\InsuranceValueAmount;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\ValueAmount;
+use InvoiceNinja\EInvoice\Models\Peppol\ChargeableQuantityType\ChargeableQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\ChargeableWeightMeasureType\ChargeableWeightMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\CustomsStatusCodeType\CustomsStatusCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CustomsTariffQuantityType\CustomsTariffQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\DeliveryType\Delivery;
 use InvoiceNinja\EInvoice\Models\Peppol\DespatchType\Despatch;
 use InvoiceNinja\EInvoice\Models\Peppol\DimensionType\MeasurementDimension;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\ShipmentDocumentReference;
 use InvoiceNinja\EInvoice\Models\Peppol\GoodsItemContainerType\GoodsItemContainer;
+use InvoiceNinja\EInvoice\Models\Peppol\GrossVolumeMeasureType\GrossVolumeMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\GrossWeightMeasureType\GrossWeightMeasure;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\InvoiceLineType\InvoiceLine;
 use InvoiceNinja\EInvoice\Models\Peppol\ItemType\Item;
+use InvoiceNinja\EInvoice\Models\Peppol\NetNetWeightMeasureType\NetNetWeightMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\NetVolumeMeasureType\NetVolumeMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\NetWeightMeasureType\NetWeightMeasure;
 use InvoiceNinja\EInvoice\Models\Peppol\PackageType\ContainingPackage;
 use InvoiceNinja\EInvoice\Models\Peppol\PickupType\Pickup;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\ChargeableQuantity;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\CustomsTariffQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\PreferenceCriterionCodeType\PreferenceCriterionCode;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\Quantity;
-use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\ReturnableQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\RequiredCustomsIDType\RequiredCustomsID;
+use InvoiceNinja\EInvoice\Models\Peppol\ReturnableQuantityType\ReturnableQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\SequenceNumberIDType\SequenceNumberID;
 use InvoiceNinja\EInvoice\Models\Peppol\TemperatureType\MaximumTemperature;
 use InvoiceNinja\EInvoice\Models\Peppol\TemperatureType\MinimumTemperature;
@@ -86,51 +94,45 @@ class GoodsItem
 	#[SerializedName('cbc:ValueAmount')]
 	public $ValueAmount;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var GrossWeightMeasure */
 	#[SerializedName('cbc:GrossWeightMeasure')]
-	public string $GrossWeightMeasure;
+	public $GrossWeightMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var NetWeightMeasure */
 	#[SerializedName('cbc:NetWeightMeasure')]
-	public string $NetWeightMeasure;
+	public $NetWeightMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var NetNetWeightMeasure */
 	#[SerializedName('cbc:NetNetWeightMeasure')]
-	public string $NetNetWeightMeasure;
+	public $NetNetWeightMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var ChargeableWeightMeasure */
 	#[SerializedName('cbc:ChargeableWeightMeasure')]
-	public string $ChargeableWeightMeasure;
+	public $ChargeableWeightMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var GrossVolumeMeasure */
 	#[SerializedName('cbc:GrossVolumeMeasure')]
-	public string $GrossVolumeMeasure;
+	public $GrossVolumeMeasure;
 
-	/** @var string */
-	#[DecimalPrecision(2)]
+	/** @var NetVolumeMeasure */
 	#[SerializedName('cbc:NetVolumeMeasure')]
-	public string $NetVolumeMeasure;
+	public $NetVolumeMeasure;
 
 	/** @var Quantity */
 	#[SerializedName('cbc:Quantity')]
 	public $Quantity;
 
-	/** @var string */
+	/** @var PreferenceCriterionCode */
 	#[SerializedName('cbc:PreferenceCriterionCode')]
-	public string $PreferenceCriterionCode;
+	public $PreferenceCriterionCode;
 
 	/** @var RequiredCustomsID */
 	#[SerializedName('cbc:RequiredCustomsID')]
 	public $RequiredCustomsID;
 
-	/** @var string */
+	/** @var CustomsStatusCode */
 	#[SerializedName('cbc:CustomsStatusCode')]
-	public string $CustomsStatusCode;
+	public $CustomsStatusCode;
 
 	/** @var CustomsTariffQuantity */
 	#[SerializedName('cbc:CustomsTariffQuantity')]

@@ -6,6 +6,8 @@ use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AddressType\RegistrationAddress;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\CorporateStockAmount;
 use InvoiceNinja\EInvoice\Models\Peppol\CompanyIDType\CompanyID;
+use InvoiceNinja\EInvoice\Models\Peppol\CompanyLegalFormCodeType\CompanyLegalFormCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CompanyLiquidationStatusCodeType\CompanyLiquidationStatusCode;
 use InvoiceNinja\EInvoice\Models\Peppol\CorporateRegistrationSchemeType\CorporateRegistrationScheme;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\HeadOfficeParty;
 use InvoiceNinja\EInvoice\Models\Peppol\ShareholderPartyType\ShareholderParty;
@@ -34,9 +36,9 @@ class PartyLegalEntity
 	#[SerializedName('cbc:RegistrationExpirationDate')]
 	public \DateTime $RegistrationExpirationDate;
 
-	/** @var string */
+	/** @var CompanyLegalFormCode */
 	#[SerializedName('cbc:CompanyLegalFormCode')]
-	public string $CompanyLegalFormCode;
+	public $CompanyLegalFormCode;
 
 	/** @var string */
 	#[SerializedName('cbc:CompanyLegalForm')]
@@ -46,9 +48,9 @@ class PartyLegalEntity
 	#[SerializedName('cbc:SoleProprietorshipIndicator')]
 	public bool $SoleProprietorshipIndicator;
 
-	/** @var string */
+	/** @var CompanyLiquidationStatusCode */
 	#[SerializedName('cbc:CompanyLiquidationStatusCode')]
-	public string $CompanyLiquidationStatusCode;
+	public $CompanyLiquidationStatusCode;
 
 	/** @var CorporateStockAmount */
 	#[SerializedName('cbc:CorporateStockAmount')]

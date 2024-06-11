@@ -5,8 +5,11 @@ namespace InvoiceNinja\EInvoice\Models\Peppol\FinancialAccountType;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\AccountFormatCodeType\AccountFormatCode;
+use InvoiceNinja\EInvoice\Models\Peppol\AccountTypeCodeType\AccountTypeCode;
 use InvoiceNinja\EInvoice\Models\Peppol\BranchType\FinancialInstitutionBranch;
 use InvoiceNinja\EInvoice\Models\Peppol\CountryType\Country;
+use InvoiceNinja\EInvoice\Models\Peppol\CurrencyCodeType\CurrencyCode;
 use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
@@ -33,17 +36,17 @@ class PayeeFinancialAccount
 	#[SerializedName('cbc:AliasName')]
 	public string $AliasName;
 
-	/** @var string */
+	/** @var AccountTypeCode */
 	#[SerializedName('cbc:AccountTypeCode')]
-	public string $AccountTypeCode;
+	public $AccountTypeCode;
 
-	/** @var string */
+	/** @var AccountFormatCode */
 	#[SerializedName('cbc:AccountFormatCode')]
-	public string $AccountFormatCode;
+	public $AccountFormatCode;
 
-	/** @var string */
+	/** @var CurrencyCode */
 	#[SerializedName('cbc:CurrencyCode')]
-	public string $CurrencyCode;
+	public $CurrencyCode;
 
 	/** @var string */
 	#[SerializedName('cbc:PaymentNote')]

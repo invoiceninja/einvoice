@@ -2,15 +2,16 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
+use InvoiceNinja\EInvoice\Models\Peppol\ChannelCodeType\ChannelCode;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 
 class Communication
 {
-	/** @var string */
+	/** @var ChannelCode */
 	#[SerializedName('cbc:ChannelCode')]
-	public string $ChannelCode;
+	public $ChannelCode;
 
 	/** @var string */
 	#[SerializedName('cbc:Channel')]

@@ -6,6 +6,7 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\DocumentReference;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\IssuerParty;
 use InvoiceNinja\EInvoice\Models\Peppol\SignatureType\Signature;
 use Symfony\Component\Serializer\Attribute\Context;
@@ -21,9 +22,12 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class Certificate
 {
-	/** @var string */
+	/** @var ID */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var string */
 	#[SerializedName('cbc:CertificateTypeCode')]

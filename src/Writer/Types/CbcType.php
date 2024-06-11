@@ -21,6 +21,7 @@ class CbcType
     private string $prefix = 'xsd';
 
     public array $type_map = [];
+
     public array $elements = [];
 
     private array $stub_validation =
@@ -52,14 +53,30 @@ class CbcType
 
         $this->elements = [];
 
+        [];
         foreach($this->type_map as $key => $value) {
-
-            // $time_start = microtime(true);
-            // echo "{$key} => ". microtime(true)  - $time_start.PHP_EOL;
+            
+            $e = [];
 
             $complexBaseType = $this->getUdtType($value);
 
-            $data[] = array_merge($this->stub_validation, ['base_type' => $complexBaseType]);
+            $name = substr($value, 0, -4);
+
+            if($complexBaseType == 'IdentifierType'){
+            
+            $complexBaseType = $value;
+
+            $e = [
+                '#' => array_merge($this->stub_validation, ['name' => "_".$name, 'base_type' => 'string','min_occurs' => 0, 'max_occurs' => 1, ]),
+                '@schemeID' => array_merge($this->stub_validation, ['name' => 'schemeID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                'schemeID' => array_merge($this->stub_validation, ['name' => 'schemeID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+            ];
+
+
+            }
+
+            $data[] = array_merge($this->stub_validation, ['type' => $complexBaseType, 'base_type' => $complexBaseType, 'name' => $name, 'elements' => $e]);
+
         }
 
         $this->elements = $data;
@@ -82,7 +99,14 @@ class CbcType
         $result = $this->getXPath($xpath);
 
         if($result->count() == 1) {
-            return (new UdtType())->getPrimativeType(str_replace("udt:", "", $result->item(0)->getAttribute('base')));
+
+            $base = $result->item(0)->getAttribute('base');
+
+            if($base == 'udt:IdentifierType'){
+                return 'IdentifierType';
+            }
+
+            return (new UdtType())->getPrimativeType(str_replace("udt:", "", $base));
         }
 
         throw new \Exception("could not get complex type {$name}");
@@ -129,15 +153,30 @@ class CbcType
 
             if(stripos($type, "udt") !== false) {
                 $parts = explode(":", $type);
+
+                if($parts[1] == 'IdentifierType'){
+                    return $name;
+                }
+
                 return (new UdtType())->getPrimativeType($parts[1]);
             }
-
 
         }
 
         throw new \Exception("Could not find type {$name}");
     }
 
+    public function typesForType(string $type)
+    {
+        foreach($this->elements as $e){
+
+            if($e['type'] == $type)
+                return collect([$type]);
+
+        }
+
+        return collect([]);
+    }
 
     /**
      * getXPath

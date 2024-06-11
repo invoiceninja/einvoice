@@ -9,6 +9,8 @@ use InvoiceNinja\EInvoice\Models\Peppol\AddressType\ResidenceAddress;
 use InvoiceNinja\EInvoice\Models\Peppol\ContactType\Contact;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\IdentityDocumentReference;
 use InvoiceNinja\EInvoice\Models\Peppol\FinancialAccountType\FinancialAccount;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\NationalityIDType\NationalityID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -22,9 +24,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class PassengerPerson
 {
-	/** @var string */
+	/** @var ID */
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var string */
 	#[SerializedName('cbc:FirstName')]
@@ -54,9 +56,9 @@ class PassengerPerson
 	#[SerializedName('cbc:JobTitle')]
 	public string $JobTitle;
 
-	/** @var string */
+	/** @var NationalityID */
 	#[SerializedName('cbc:NationalityID')]
-	public string $NationalityID;
+	public $NationalityID;
 
 	/** @var string */
 	#[SerializedName('cbc:GenderCode')]

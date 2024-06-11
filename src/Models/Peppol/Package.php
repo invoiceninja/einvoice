@@ -9,9 +9,11 @@ use InvoiceNinja\EInvoice\Models\Peppol\DeliveryUnitType\DeliveryUnit;
 use InvoiceNinja\EInvoice\Models\Peppol\DespatchType\Despatch;
 use InvoiceNinja\EInvoice\Models\Peppol\DimensionType\MeasurementDimension;
 use InvoiceNinja\EInvoice\Models\Peppol\GoodsItemType\GoodsItem;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\PackageType\ContainedPackage;
 use InvoiceNinja\EInvoice\Models\Peppol\PickupType\Pickup;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\Quantity;
+use InvoiceNinja\EInvoice\Models\Peppol\TraceIDType\TraceID;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEquipmentType\ContainingTransportEquipment;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
@@ -23,9 +25,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class Package
 {
-	/** @var string */
+	/** @var ID */
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var Quantity */
 	#[SerializedName('cbc:Quantity')]
@@ -47,9 +49,9 @@ class Package
 	#[SerializedName('cbc:PackingMaterial')]
 	public string $PackingMaterial;
 
-	/** @var string */
+	/** @var TraceID */
 	#[SerializedName('cbc:TraceID')]
-	public string $TraceID;
+	public $TraceID;
 
 	/** @var ContainedPackage[] */
 	#[SerializedName('cac:ContainedPackage')]

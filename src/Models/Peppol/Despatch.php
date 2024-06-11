@@ -6,12 +6,14 @@ use DateTime;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AddressType\DespatchAddress;
 use InvoiceNinja\EInvoice\Models\Peppol\ContactType\Contact;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\DespatchLocation;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\CarrierParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\DespatchParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\NotifyParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\EstimatedDespatchPeriod;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\RequestedDespatchPeriod;
+use InvoiceNinja\EInvoice\Models\Peppol\ReleaseIDType\ReleaseID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -19,9 +21,9 @@ use Symfony\Component\Validator\Constraints\Date;
 
 class Despatch
 {
-	/** @var string */
+	/** @var ID */
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
@@ -63,9 +65,9 @@ class Despatch
 	#[SerializedName('cbc:GuaranteedDespatchTime')]
 	public DateTime $GuaranteedDespatchTime;
 
-	/** @var string */
+	/** @var ReleaseID */
 	#[SerializedName('cbc:ReleaseID')]
-	public string $ReleaseID;
+	public $ReleaseID;
 
 	/** @var string */
 	#[SerializedName('cbc:Instructions')]

@@ -6,24 +6,29 @@ use DateTime;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\RegistryCertificateDocumentReference;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\RegistryPortLocation;
+use InvoiceNinja\EInvoice\Models\Peppol\RadioCallSignIDType\RadioCallSignID;
+use InvoiceNinja\EInvoice\Models\Peppol\VesselIDType\VesselID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class MaritimeTransport
 {
-	/** @var string */
+	/** @var VesselID */
 	#[SerializedName('cbc:VesselID')]
-	public string $VesselID;
+	public $VesselID;
 
 	/** @var string */
 	#[SerializedName('cbc:VesselName')]
 	public string $VesselName;
 
-	/** @var string */
+	/** @var RadioCallSignID */
 	#[SerializedName('cbc:RadioCallSignID')]
-	public string $RadioCallSignID;
+	public $RadioCallSignID;
 
 	/** @var string */
 	#[SerializedName('cbc:ShipsRequirements')]

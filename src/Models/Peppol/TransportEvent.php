@@ -5,6 +5,7 @@ namespace InvoiceNinja\EInvoice\Models\Peppol;
 use DateTime;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\ContactType\Contact;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentificationIDType\IdentificationID;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\Location;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\Period;
 use InvoiceNinja\EInvoice\Models\Peppol\ShipmentType\ReportedShipment;
@@ -14,12 +15,15 @@ use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class TransportEvent
 {
-	/** @var string */
+	/** @var IdentificationID */
 	#[SerializedName('cbc:IdentificationID')]
-	public string $IdentificationID;
+	public $IdentificationID;
 
 	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]

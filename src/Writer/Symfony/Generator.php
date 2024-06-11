@@ -145,7 +145,6 @@ class Generator
             }
 
             $property->setType("array");
-            // $property->setValue([]);
             $property->removeComment();
             $property->addComment("@var ".$element['name']."[]");
         }
@@ -211,6 +210,16 @@ class Generator
             $property->addAttribute(SerializedName::class, ['@unitCode']);
         }
 
+        if($element['name'] == 'schemeID') {
+            $this->namespace->addUse(SerializedName::class);
+            $property->addAttribute(SerializedName::class, ['@schemeID']);
+            //add root node as well.
+        }
+
+        if(substr($element['name'],0,1) == "_"){
+            $property->addAttribute(SerializedName::class, ['#']);
+        }
+
         return $property;
     }
 
@@ -227,7 +236,7 @@ class Generator
         foreach($type['elements'] as $key => $element) {
 
             if($name == $element['name']) {
-                continue;
+                continue; //this prevents the class from writing the prop name 
             }
 
             if(stripos($element['base_type'], 'Type') !== false) {

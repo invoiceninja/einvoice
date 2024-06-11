@@ -3,22 +3,30 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\HazardClassIDType\HazardClassID;
 use InvoiceNinja\EInvoice\Models\Peppol\HazardousGoodsTransitType\HazardousGoodsTransit;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\LowerOrangeHazardPlacardIDType\LowerOrangeHazardPlacardID;
+use InvoiceNinja\EInvoice\Models\Peppol\MarkingIDType\MarkingID;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\ContactParty;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\Quantity;
 use InvoiceNinja\EInvoice\Models\Peppol\SecondaryHazardType\SecondaryHazard;
 use InvoiceNinja\EInvoice\Models\Peppol\TemperatureType\AdditionalTemperature;
 use InvoiceNinja\EInvoice\Models\Peppol\TemperatureType\EmergencyTemperature;
 use InvoiceNinja\EInvoice\Models\Peppol\TemperatureType\FlashpointTemperature;
+use InvoiceNinja\EInvoice\Models\Peppol\UpperOrangeHazardPlacardIDType\UpperOrangeHazardPlacardID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class HazardousItem
 {
-	/** @var string */
+	/** @var ID */
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var string */
 	#[SerializedName('cbc:PlacardNotation')]
@@ -56,21 +64,21 @@ class HazardousItem
 	#[SerializedName('cbc:HazardousCategoryCode')]
 	public string $HazardousCategoryCode;
 
-	/** @var string */
+	/** @var UpperOrangeHazardPlacardID */
 	#[SerializedName('cbc:UpperOrangeHazardPlacardID')]
-	public string $UpperOrangeHazardPlacardID;
+	public $UpperOrangeHazardPlacardID;
 
-	/** @var string */
+	/** @var LowerOrangeHazardPlacardID */
 	#[SerializedName('cbc:LowerOrangeHazardPlacardID')]
-	public string $LowerOrangeHazardPlacardID;
+	public $LowerOrangeHazardPlacardID;
 
-	/** @var string */
+	/** @var MarkingID */
 	#[SerializedName('cbc:MarkingID')]
-	public string $MarkingID;
+	public $MarkingID;
 
-	/** @var string */
+	/** @var HazardClassID */
 	#[SerializedName('cbc:HazardClassID')]
-	public string $HazardClassID;
+	public $HazardClassID;
 
 	/** @var string */
 	#[DecimalPrecision(2)]

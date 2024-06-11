@@ -2,27 +2,30 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
+use InvoiceNinja\EInvoice\Models\Peppol\AdditionalAccountIDType\AdditionalAccountID;
 use InvoiceNinja\EInvoice\Models\Peppol\ContactType\AccountingContact;
 use InvoiceNinja\EInvoice\Models\Peppol\ContactType\BuyerContact;
 use InvoiceNinja\EInvoice\Models\Peppol\ContactType\DeliveryContact;
+use InvoiceNinja\EInvoice\Models\Peppol\CustomerAssignedAccountIDType\CustomerAssignedAccountID;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\Party;
+use InvoiceNinja\EInvoice\Models\Peppol\SupplierAssignedAccountIDType\SupplierAssignedAccountID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 
 class CustomerParty
 {
-	/** @var string */
+	/** @var CustomerAssignedAccountID */
 	#[SerializedName('cbc:CustomerAssignedAccountID')]
-	public string $CustomerAssignedAccountID;
+	public $CustomerAssignedAccountID;
 
-	/** @var string */
+	/** @var SupplierAssignedAccountID */
 	#[SerializedName('cbc:SupplierAssignedAccountID')]
-	public string $SupplierAssignedAccountID;
+	public $SupplierAssignedAccountID;
 
-	/** @var string */
+	/** @var AdditionalAccountID[] */
 	#[SerializedName('cbc:AdditionalAccountID')]
-	public string $AdditionalAccountID;
+	public array $AdditionalAccountID;
 
 	/** @var Party */
 	#[SerializedName('cac:Party')]

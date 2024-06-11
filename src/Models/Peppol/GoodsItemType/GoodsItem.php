@@ -18,6 +18,7 @@ use InvoiceNinja\EInvoice\Models\Peppol\DespatchType\Despatch;
 use InvoiceNinja\EInvoice\Models\Peppol\DimensionType\MeasurementDimension;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\ShipmentDocumentReference;
 use InvoiceNinja\EInvoice\Models\Peppol\GoodsItemContainerType\GoodsItemContainer;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\InvoiceLineType\InvoiceLine;
 use InvoiceNinja\EInvoice\Models\Peppol\ItemType\Item;
 use InvoiceNinja\EInvoice\Models\Peppol\PackageType\ContainingPackage;
@@ -26,9 +27,12 @@ use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\ChargeableQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\CustomsTariffQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\Quantity;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\ReturnableQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\RequiredCustomsIDType\RequiredCustomsID;
+use InvoiceNinja\EInvoice\Models\Peppol\SequenceNumberIDType\SequenceNumberID;
 use InvoiceNinja\EInvoice\Models\Peppol\TemperatureType\MaximumTemperature;
 use InvoiceNinja\EInvoice\Models\Peppol\TemperatureType\MinimumTemperature;
 use InvoiceNinja\EInvoice\Models\Peppol\TemperatureType\Temperature;
+use InvoiceNinja\EInvoice\Models\Peppol\TraceIDType\TraceID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -42,13 +46,13 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class GoodsItem
 {
-	/** @var string */
+	/** @var ID */
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
-	/** @var string */
+	/** @var SequenceNumberID */
 	#[SerializedName('cbc:SequenceNumberID')]
-	public string $SequenceNumberID;
+	public $SequenceNumberID;
 
 	/** @var string */
 	#[SerializedName('cbc:Description')]
@@ -120,9 +124,9 @@ class GoodsItem
 	#[SerializedName('cbc:PreferenceCriterionCode')]
 	public string $PreferenceCriterionCode;
 
-	/** @var string */
+	/** @var RequiredCustomsID */
 	#[SerializedName('cbc:RequiredCustomsID')]
-	public string $RequiredCustomsID;
+	public $RequiredCustomsID;
 
 	/** @var string */
 	#[SerializedName('cbc:CustomsStatusCode')]
@@ -144,9 +148,9 @@ class GoodsItem
 	#[SerializedName('cbc:ReturnableQuantity')]
 	public $ReturnableQuantity;
 
-	/** @var string */
+	/** @var TraceID */
 	#[SerializedName('cbc:TraceID')]
-	public string $TraceID;
+	public $TraceID;
 
 	/** @var Item[] */
 	#[SerializedName('cac:Item')]

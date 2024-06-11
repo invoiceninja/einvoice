@@ -6,6 +6,7 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AddressType\RegistrationAddress;
+use InvoiceNinja\EInvoice\Models\Peppol\CompanyIDType\CompanyID;
 use InvoiceNinja\EInvoice\Models\Peppol\TaxSchemeType\TaxScheme;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
@@ -24,9 +25,9 @@ class PartyTaxScheme
 	#[SerializedName('cbc:RegistrationName')]
 	public string $RegistrationName;
 
-	/** @var string */
+	/** @var CompanyID */
 	#[SerializedName('cbc:CompanyID')]
-	public string $CompanyID;
+	public $CompanyID;
 
 	/** @var string */
 	#[SerializedName('cbc:TaxLevelCode')]

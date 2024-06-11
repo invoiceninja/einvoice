@@ -6,6 +6,8 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AddressType\Address;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\InformationURIType\InformationURI;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationCoordinateType\LocationCoordinate;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\ValidityPeriod;
 use Symfony\Component\Serializer\Attribute\Context;
@@ -21,9 +23,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class LoadingPortLocation
 {
-	/** @var string */
+	/** @var ID */
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var string */
 	#[SerializedName('cbc:Description')]
@@ -45,9 +47,9 @@ class LoadingPortLocation
 	#[SerializedName('cbc:LocationTypeCode')]
 	public string $LocationTypeCode;
 
-	/** @var string */
+	/** @var InformationURI */
 	#[SerializedName('cbc:InformationURI')]
-	public string $InformationURI;
+	public $InformationURI;
 
 	/** @var string */
 	#[SerializedName('cbc:Name')]

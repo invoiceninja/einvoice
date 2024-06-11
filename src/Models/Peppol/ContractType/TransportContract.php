@@ -7,8 +7,10 @@ use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\DeliveryType\ContractualDelivery;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\ContractDocumentReference;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\NominationPeriod;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\ValidityPeriod;
+use InvoiceNinja\EInvoice\Models\Peppol\VersionIDType\VersionID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -22,9 +24,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class TransportContract
 {
-	/** @var string */
+	/** @var ID */
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
@@ -58,9 +60,9 @@ class TransportContract
 	#[SerializedName('cbc:Note')]
 	public string $Note;
 
-	/** @var string */
+	/** @var VersionID */
 	#[SerializedName('cbc:VersionID')]
-	public string $VersionID;
+	public $VersionID;
 
 	/** @var string */
 	#[SerializedName('cbc:Description')]

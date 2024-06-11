@@ -5,9 +5,11 @@ namespace InvoiceNinja\EInvoice\Models\Peppol;
 use DateTime;
 use InvoiceNinja\EInvoice\Models\Peppol\AddressType\PostalAddress;
 use InvoiceNinja\EInvoice\Models\Peppol\ContactType\Contact;
+use InvoiceNinja\EInvoice\Models\Peppol\EndpointIDType\EndpointID;
 use InvoiceNinja\EInvoice\Models\Peppol\FinancialAccountType\FinancialAccount;
 use InvoiceNinja\EInvoice\Models\Peppol\LanguageType\Language;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\PhysicalLocation;
+use InvoiceNinja\EInvoice\Models\Peppol\LogoReferenceIDType\LogoReferenceID;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyIdentificationType\PartyIdentification;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyLegalEntityType\PartyLegalEntity;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyNameType\PartyName;
@@ -16,6 +18,7 @@ use InvoiceNinja\EInvoice\Models\Peppol\PartyType\AgentParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PersonType\Person;
 use InvoiceNinja\EInvoice\Models\Peppol\PowerOfAttorneyType\PowerOfAttorney;
 use InvoiceNinja\EInvoice\Models\Peppol\ServiceProviderPartyType\ServiceProviderParty;
+use InvoiceNinja\EInvoice\Models\Peppol\WebsiteURIType\WebsiteURI;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -34,17 +37,17 @@ class Party
 	#[SerializedName('cbc:MarkAttentionIndicator')]
 	public bool $MarkAttentionIndicator;
 
-	/** @var string */
+	/** @var WebsiteURI */
 	#[SerializedName('cbc:WebsiteURI')]
-	public string $WebsiteURI;
+	public $WebsiteURI;
 
-	/** @var string */
+	/** @var LogoReferenceID */
 	#[SerializedName('cbc:LogoReferenceID')]
-	public string $LogoReferenceID;
+	public $LogoReferenceID;
 
-	/** @var string */
+	/** @var EndpointID */
 	#[SerializedName('cbc:EndpointID')]
-	public string $EndpointID;
+	public $EndpointID;
 
 	/** @var string */
 	#[SerializedName('cbc:IndustryClassificationCode')]

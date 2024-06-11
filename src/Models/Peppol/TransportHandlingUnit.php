@@ -12,6 +12,7 @@ use InvoiceNinja\EInvoice\Models\Peppol\DimensionType\PalletSpaceMeasurementDime
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\ShipmentDocumentReference;
 use InvoiceNinja\EInvoice\Models\Peppol\GoodsItemType\GoodsItem;
 use InvoiceNinja\EInvoice\Models\Peppol\HazardousGoodsTransitType\HazardousGoodsTransit;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\PackageType\ActualPackage;
 use InvoiceNinja\EInvoice\Models\Peppol\PackageType\Package;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\TotalGoodsItemQuantity;
@@ -21,6 +22,7 @@ use InvoiceNinja\EInvoice\Models\Peppol\ShipmentType\ReferencedShipment;
 use InvoiceNinja\EInvoice\Models\Peppol\StatusType\Status;
 use InvoiceNinja\EInvoice\Models\Peppol\TemperatureType\MaximumTemperature;
 use InvoiceNinja\EInvoice\Models\Peppol\TemperatureType\MinimumTemperature;
+use InvoiceNinja\EInvoice\Models\Peppol\TraceIDType\TraceID;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEquipmentType\TransportEquipment;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportMeansType\TransportMeans;
 use Symfony\Component\Serializer\Attribute\Context;
@@ -33,9 +35,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class TransportHandlingUnit
 {
-	/** @var string */
+	/** @var ID */
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var string */
 	#[SerializedName('cbc:TransportHandlingUnitTypeCode')]
@@ -69,9 +71,9 @@ class TransportHandlingUnit
 	#[SerializedName('cbc:ShippingMarks')]
 	public string $ShippingMarks;
 
-	/** @var string */
+	/** @var TraceID */
 	#[SerializedName('cbc:TraceID')]
-	public string $TraceID;
+	public $TraceID;
 
 	/** @var HandlingUnitDespatchLine[] */
 	#[SerializedName('cac:HandlingUnitDespatchLine')]

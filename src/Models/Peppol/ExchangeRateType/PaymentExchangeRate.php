@@ -6,6 +6,7 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\ContractType\ForeignExchangeContract;
+use InvoiceNinja\EInvoice\Models\Peppol\ExchangeMarketIDType\ExchangeMarketID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -35,9 +36,9 @@ class PaymentExchangeRate
 	#[SerializedName('cbc:TargetCurrencyBaseRate')]
 	public string $TargetCurrencyBaseRate;
 
-	/** @var string */
+	/** @var ExchangeMarketID */
 	#[SerializedName('cbc:ExchangeMarketID')]
-	public string $ExchangeMarketID;
+	public $ExchangeMarketID;
 
 	/** @var string */
 	#[SerializedName('cbc:CalculationRate')]

@@ -13,6 +13,7 @@ use InvoiceNinja\EInvoice\Models\Peppol\DimensionType\MeasurementDimension;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\ShipmentDocumentReference;
 use InvoiceNinja\EInvoice\Models\Peppol\GoodsItemType\GoodsItem;
 use InvoiceNinja\EInvoice\Models\Peppol\HazardousGoodsTransitType\HazardousGoodsTransit;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\LoadingLocation;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\StorageLocation;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\UnloadingLocation;
@@ -22,9 +23,11 @@ use InvoiceNinja\EInvoice\Models\Peppol\PartyType\OperatingParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\OwnerParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\ProviderParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PickupType\Pickup;
+use InvoiceNinja\EInvoice\Models\Peppol\ReferencedConsignmentIDType\ReferencedConsignmentID;
 use InvoiceNinja\EInvoice\Models\Peppol\SupplierPartyType\SupplierParty;
 use InvoiceNinja\EInvoice\Models\Peppol\TemperatureType\MaximumTemperature;
 use InvoiceNinja\EInvoice\Models\Peppol\TemperatureType\MinimumTemperature;
+use InvoiceNinja\EInvoice\Models\Peppol\TraceIDType\TraceID;
 use InvoiceNinja\EInvoice\Models\Peppol\TradingTermsType\HaulageTradingTerms;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEquipmentSealType\TransportEquipmentSeal;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEventType\DeliveryTransportEvent;
@@ -49,13 +52,13 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class SupportedTransportEquipment
 {
-	/** @var string */
+	/** @var ID */
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
-	/** @var string */
+	/** @var ReferencedConsignmentID[] */
 	#[SerializedName('cbc:ReferencedConsignmentID')]
-	public string $ReferencedConsignmentID;
+	public array $ReferencedConsignmentID;
 
 	/** @var string */
 	#[SerializedName('cbc:TransportEquipmentTypeCode')]
@@ -160,9 +163,9 @@ class SupportedTransportEquipment
 	#[SerializedName('cbc:PowerIndicator')]
 	public bool $PowerIndicator;
 
-	/** @var string */
+	/** @var TraceID */
 	#[SerializedName('cbc:TraceID')]
-	public string $TraceID;
+	public $TraceID;
 
 	/** @var MeasurementDimension[] */
 	#[SerializedName('cac:MeasurementDimension')]

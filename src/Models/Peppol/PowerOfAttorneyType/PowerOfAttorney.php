@@ -6,6 +6,7 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\MandateDocumentReference;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\AgentParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\NotaryParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\WitnessParty;
@@ -22,9 +23,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class PowerOfAttorney
 {
-	/** @var string */
+	/** @var ID */
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]

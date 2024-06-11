@@ -8,9 +8,11 @@ use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\MaximumPaidAmount;
 use InvoiceNinja\EInvoice\Models\Peppol\ClauseType\Clause;
 use InvoiceNinja\EInvoice\Models\Peppol\FinancialAccountType\PayerFinancialAccount;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\PayerParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\PaymentReversalPeriod;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\ValidityPeriod;
+use InvoiceNinja\EInvoice\Models\Peppol\SignatureIDType\SignatureID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -24,9 +26,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class PaymentMandate
 {
-	/** @var string */
+	/** @var ID */
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var string */
 	#[SerializedName('cbc:MandateTypeCode')]
@@ -40,9 +42,9 @@ class PaymentMandate
 	#[SerializedName('cbc:MaximumPaidAmount')]
 	public $MaximumPaidAmount;
 
-	/** @var string */
+	/** @var SignatureID */
 	#[SerializedName('cbc:SignatureID')]
-	public string $SignatureID;
+	public $SignatureID;
 
 	/** @var PayerParty */
 	#[SerializedName('cac:PayerParty')]

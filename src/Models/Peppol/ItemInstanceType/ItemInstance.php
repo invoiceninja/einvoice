@@ -7,6 +7,9 @@ use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\ItemPropertyType\AdditionalItemProperty;
 use InvoiceNinja\EInvoice\Models\Peppol\LotIdentificationType\LotIdentification;
+use InvoiceNinja\EInvoice\Models\Peppol\ProductTraceIDType\ProductTraceID;
+use InvoiceNinja\EInvoice\Models\Peppol\RegistrationIDType\RegistrationID;
+use InvoiceNinja\EInvoice\Models\Peppol\SerialIDType\SerialID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -20,9 +23,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class ItemInstance
 {
-	/** @var string */
+	/** @var ProductTraceID */
 	#[SerializedName('cbc:ProductTraceID')]
-	public string $ProductTraceID;
+	public $ProductTraceID;
 
 	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
@@ -39,13 +42,13 @@ class ItemInstance
 	#[SerializedName('cbc:BestBeforeDate')]
 	public DateTime $BestBeforeDate;
 
-	/** @var string */
+	/** @var RegistrationID */
 	#[SerializedName('cbc:RegistrationID')]
-	public string $RegistrationID;
+	public $RegistrationID;
 
-	/** @var string */
+	/** @var SerialID */
 	#[SerializedName('cbc:SerialID')]
-	public string $SerialID;
+	public $SerialID;
 
 	/** @var AdditionalItemProperty[] */
 	#[SerializedName('cac:AdditionalItemProperty')]

@@ -6,6 +6,7 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\SignatoryParty;
+use InvoiceNinja\EInvoice\Models\Peppol\ValidatorIDType\ValidatorID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -19,9 +20,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class ResultOfVerification
 {
-	/** @var string */
+	/** @var ValidatorID */
 	#[SerializedName('cbc:ValidatorID')]
-	public string $ValidatorID;
+	public $ValidatorID;
 
 	/** @var string */
 	#[SerializedName('cbc:ValidationResultCode')]

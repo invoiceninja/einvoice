@@ -5,10 +5,14 @@ namespace InvoiceNinja\EInvoice\Models\Peppol;
 use DateTime;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\ConditionType\Condition;
+use InvoiceNinja\EInvoice\Models\Peppol\SequenceIDType\SequenceID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class Status
 {
@@ -38,9 +42,9 @@ class Status
 	#[SerializedName('cbc:StatusReason')]
 	public string $StatusReason;
 
-	/** @var string */
+	/** @var SequenceID */
 	#[SerializedName('cbc:SequenceID')]
-	public string $SequenceID;
+	public $SequenceID;
 
 	/** @var string */
 	#[SerializedName('cbc:Text')]

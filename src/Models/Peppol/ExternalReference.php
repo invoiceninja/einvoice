@@ -3,6 +3,7 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
+use InvoiceNinja\EInvoice\Models\Peppol\URIType\URI;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -10,9 +11,9 @@ use Symfony\Component\Validator\Constraints\Date;
 
 class ExternalReference
 {
-	/** @var string */
+	/** @var URI */
 	#[SerializedName('cbc:URI')]
-	public string $URI;
+	public $URI;
 
 	/** @var string */
 	#[SerializedName('cbc:DocumentHash')]

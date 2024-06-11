@@ -6,6 +6,8 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\PaidAmount;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\InstructionIDType\InstructionID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -19,9 +21,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class PrepaidPayment
 {
-	/** @var string */
+	/** @var ID */
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var PaidAmount */
 	#[SerializedName('cbc:PaidAmount')]
@@ -42,7 +44,7 @@ class PrepaidPayment
 	#[SerializedName('cbc:PaidTime')]
 	public DateTime $PaidTime;
 
-	/** @var string */
+	/** @var InstructionID */
 	#[SerializedName('cbc:InstructionID')]
-	public string $InstructionID;
+	public $InstructionID;
 }

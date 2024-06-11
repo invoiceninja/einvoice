@@ -18,6 +18,7 @@ use InvoiceNinja\EInvoice\Models\Peppol\TransportEquipmentType\SupportedTranspor
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEquipmentType\TransportEquipment;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEquipmentType\UnsupportedTransportEquipment;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEventType\TransportEvent;
+use InvoiceNinja\EInvoice\Models\Peppol\TransportationServiceDetailsURIType\TransportationServiceDetailsURI;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -51,9 +52,9 @@ class OriginalDespatchTransportationService
 	#[SerializedName('cbc:TransportationServiceDescription')]
 	public string $TransportationServiceDescription;
 
-	/** @var string */
+	/** @var TransportationServiceDetailsURI */
 	#[SerializedName('cbc:TransportationServiceDetailsURI')]
-	public string $TransportationServiceDetailsURI;
+	public $TransportationServiceDetailsURI;
 
 	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]

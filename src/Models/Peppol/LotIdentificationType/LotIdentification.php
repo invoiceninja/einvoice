@@ -6,6 +6,7 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\ItemPropertyType\AdditionalItemProperty;
+use InvoiceNinja\EInvoice\Models\Peppol\LotNumberIDType\LotNumberID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -19,9 +20,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class LotIdentification
 {
-	/** @var string */
+	/** @var LotNumberID */
 	#[SerializedName('cbc:LotNumberID')]
-	public string $LotNumberID;
+	public $LotNumberID;
 
 	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]

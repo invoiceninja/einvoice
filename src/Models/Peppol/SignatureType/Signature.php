@@ -7,7 +7,9 @@ use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AttachmentType\DigitalSignatureAttachment;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\OriginalDocumentReference;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\SignatoryParty;
+use InvoiceNinja\EInvoice\Models\Peppol\ValidatorIDType\ValidatorID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -21,9 +23,12 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class Signature
 {
-	/** @var string */
+	/** @var ID */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var string */
 	#[SerializedName('cbc:Note')]
@@ -39,9 +44,9 @@ class Signature
 	#[SerializedName('cbc:ValidationTime')]
 	public DateTime $ValidationTime;
 
-	/** @var string */
+	/** @var ValidatorID */
 	#[SerializedName('cbc:ValidatorID')]
-	public string $ValidatorID;
+	public $ValidatorID;
 
 	/** @var string */
 	#[SerializedName('cbc:CanonicalizationMethod')]

@@ -4,6 +4,7 @@ namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\ValidityPeriod;
 use InvoiceNinja\EInvoice\Models\Peppol\PriceListType\PreviousPriceList;
 use Symfony\Component\Serializer\Attribute\Context;
@@ -13,9 +14,9 @@ use Symfony\Component\Validator\Constraints\Date;
 
 class PriceList
 {
-	/** @var string */
+	/** @var ID */
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var string */
 	#[SerializedName('cbc:StatusCode')]

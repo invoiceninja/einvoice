@@ -10,6 +10,7 @@ use InvoiceNinja\EInvoice\Models\Peppol\DeliveryTermsType\DeliveryTerms;
 use InvoiceNinja\EInvoice\Models\Peppol\DeliveryUnitType\MaximumDeliveryUnit;
 use InvoiceNinja\EInvoice\Models\Peppol\DeliveryUnitType\MinimumDeliveryUnit;
 use InvoiceNinja\EInvoice\Models\Peppol\DespatchType\Despatch;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\AlternativeDeliveryLocation;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\DeliveryLocation;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\CarrierParty;
@@ -21,7 +22,9 @@ use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\RequestedDeliveryPeriod;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\MaximumQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\MinimumQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\Quantity;
+use InvoiceNinja\EInvoice\Models\Peppol\ReleaseIDType\ReleaseID;
 use InvoiceNinja\EInvoice\Models\Peppol\ShipmentType\Shipment;
+use InvoiceNinja\EInvoice\Models\Peppol\TrackingIDType\TrackingID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -35,9 +38,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class Delivery
 {
-	/** @var string */
+	/** @var ID */
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var Quantity */
 	#[SerializedName('cbc:Quantity')]
@@ -71,13 +74,13 @@ class Delivery
 	#[SerializedName('cbc:LatestDeliveryTime')]
 	public DateTime $LatestDeliveryTime;
 
-	/** @var string */
+	/** @var ReleaseID */
 	#[SerializedName('cbc:ReleaseID')]
-	public string $ReleaseID;
+	public $ReleaseID;
 
-	/** @var string */
+	/** @var TrackingID */
 	#[SerializedName('cbc:TrackingID')]
-	public string $TrackingID;
+	public $TrackingID;
 
 	/** @var DeliveryAddress */
 	#[SerializedName('cac:DeliveryAddress')]

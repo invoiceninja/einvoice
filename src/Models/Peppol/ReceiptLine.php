@@ -5,6 +5,7 @@ namespace InvoiceNinja\EInvoice\Models\Peppol;
 use DateTime;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\DocumentReference;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\ItemType\Item;
 use InvoiceNinja\EInvoice\Models\Peppol\LineReferenceType\DespatchLineReference;
 use InvoiceNinja\EInvoice\Models\Peppol\OrderLineReferenceType\OrderLineReference;
@@ -13,20 +14,27 @@ use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\ReceivedQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\RejectedQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\ShortQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\ShipmentType\Shipment;
+use InvoiceNinja\EInvoice\Models\Peppol\UUIDType\UUID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class ReceiptLine
 {
-	/** @var string */
+	/** @var ID */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
-	/** @var string */
+	/** @var UUID */
 	#[SerializedName('cbc:UUID')]
-	public string $UUID;
+	public $UUID;
 
 	/** @var string */
 	#[SerializedName('cbc:Note')]

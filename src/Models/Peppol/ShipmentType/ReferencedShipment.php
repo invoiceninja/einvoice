@@ -17,6 +17,7 @@ use InvoiceNinja\EInvoice\Models\Peppol\ConsignmentType\Consignment;
 use InvoiceNinja\EInvoice\Models\Peppol\CountryType\ExportCountry;
 use InvoiceNinja\EInvoice\Models\Peppol\DeliveryType\Delivery;
 use InvoiceNinja\EInvoice\Models\Peppol\GoodsItemType\GoodsItem;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\FirstArrivalPortLocation;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\LastExitPortLocation;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\ConsignmentQuantity;
@@ -37,9 +38,12 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class ReferencedShipment
 {
-	/** @var string */
+	/** @var ID */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var string */
 	#[SerializedName('cbc:ShippingPriorityLevelCode')]

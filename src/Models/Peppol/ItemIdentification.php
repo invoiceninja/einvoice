@@ -3,26 +3,35 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\BarcodeSymbologyIDType\BarcodeSymbologyID;
 use InvoiceNinja\EInvoice\Models\Peppol\DimensionType\MeasurementDimension;
+use InvoiceNinja\EInvoice\Models\Peppol\ExtendedIDType\ExtendedID;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\IssuerParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PhysicalAttributeType\PhysicalAttribute;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class ItemIdentification
 {
-	/** @var string */
+	/** @var ID */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
-	/** @var string */
+	/** @var ExtendedID */
 	#[SerializedName('cbc:ExtendedID')]
-	public string $ExtendedID;
+	public $ExtendedID;
 
-	/** @var string */
+	/** @var BarcodeSymbologyID */
 	#[SerializedName('cbc:BarcodeSymbologyID')]
-	public string $BarcodeSymbologyID;
+	public $BarcodeSymbologyID;
 
 	/** @var PhysicalAttribute[] */
 	#[SerializedName('cac:PhysicalAttribute')]

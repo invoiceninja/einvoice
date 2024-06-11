@@ -7,6 +7,7 @@ use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AddressType\RegistrationAddress;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\CorporateStockAmount;
+use InvoiceNinja\EInvoice\Models\Peppol\CompanyIDType\CompanyID;
 use InvoiceNinja\EInvoice\Models\Peppol\CorporateRegistrationSchemeType\CorporateRegistrationScheme;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\HeadOfficeParty;
 use InvoiceNinja\EInvoice\Models\Peppol\ShareholderPartyType\ShareholderParty;
@@ -27,9 +28,9 @@ class PartyLegalEntity
 	#[SerializedName('cbc:RegistrationName')]
 	public string $RegistrationName;
 
-	/** @var string */
+	/** @var CompanyID */
 	#[SerializedName('cbc:CompanyID')]
-	public string $CompanyID;
+	public $CompanyID;
 
 	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]

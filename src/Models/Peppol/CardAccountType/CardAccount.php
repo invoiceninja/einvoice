@@ -5,6 +5,12 @@ namespace InvoiceNinja\EInvoice\Models\Peppol\CardAccountType;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\CV2IDType\CV2ID;
+use InvoiceNinja\EInvoice\Models\Peppol\ChipApplicationIDType\ChipApplicationID;
+use InvoiceNinja\EInvoice\Models\Peppol\IssueNumberIDType\IssueNumberID;
+use InvoiceNinja\EInvoice\Models\Peppol\IssuerIDType\IssuerID;
+use InvoiceNinja\EInvoice\Models\Peppol\NetworkIDType\NetworkID;
+use InvoiceNinja\EInvoice\Models\Peppol\PrimaryAccountNumberIDType\PrimaryAccountNumberID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -18,13 +24,19 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class CardAccount
 {
-	/** @var string */
+	/** @var PrimaryAccountNumberID */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:PrimaryAccountNumberID')]
-	public string $PrimaryAccountNumberID;
+	public $PrimaryAccountNumberID;
 
-	/** @var string */
+	/** @var NetworkID */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:NetworkID')]
-	public string $NetworkID;
+	public $NetworkID;
 
 	/** @var string */
 	#[SerializedName('cbc:CardTypeCode')]
@@ -40,25 +52,25 @@ class CardAccount
 	#[SerializedName('cbc:ExpiryDate')]
 	public DateTime $ExpiryDate;
 
-	/** @var string */
+	/** @var IssuerID */
 	#[SerializedName('cbc:IssuerID')]
-	public string $IssuerID;
+	public $IssuerID;
 
-	/** @var string */
+	/** @var IssueNumberID */
 	#[SerializedName('cbc:IssueNumberID')]
-	public string $IssueNumberID;
+	public $IssueNumberID;
 
-	/** @var string */
+	/** @var CV2ID */
 	#[SerializedName('cbc:CV2ID')]
-	public string $CV2ID;
+	public $CV2ID;
 
 	/** @var string */
 	#[SerializedName('cbc:CardChipCode')]
 	public string $CardChipCode;
 
-	/** @var string */
+	/** @var ChipApplicationID */
 	#[SerializedName('cbc:ChipApplicationID')]
-	public string $ChipApplicationID;
+	public $ChipApplicationID;
 
 	/** @var string */
 	#[SerializedName('cbc:HolderName')]

@@ -5,6 +5,7 @@ namespace InvoiceNinja\EInvoice\Models\Peppol;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AllowanceChargeType\AllowanceCharge;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\Amount;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -14,9 +15,12 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class BillingReferenceLine
 {
-	/** @var string */
+	/** @var ID */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var Amount */
 	#[SerializedName('cbc:Amount')]

@@ -6,6 +6,9 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\DocumentReference;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\SalesOrderIDType\SalesOrderID;
+use InvoiceNinja\EInvoice\Models\Peppol\UUIDType\UUID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -19,21 +22,24 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class OrderReference
 {
-	/** @var string */
+	/** @var ID */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
-	/** @var string */
+	/** @var SalesOrderID */
 	#[SerializedName('cbc:SalesOrderID')]
-	public string $SalesOrderID;
+	public $SalesOrderID;
 
 	/** @var bool */
 	#[SerializedName('cbc:CopyIndicator')]
 	public bool $CopyIndicator;
 
-	/** @var string */
+	/** @var UUID */
 	#[SerializedName('cbc:UUID')]
-	public string $UUID;
+	public $UUID;
 
 	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]

@@ -66,7 +66,7 @@ class EInvoice
     }
 
     /**
-     * Decodes a document in an object
+     * Decodes a document into an object
      *
      * @param  string $standard Peppol / FatturaPA / FACT1
      * @param  string $document The document string
@@ -103,14 +103,18 @@ class EInvoice
 
         $normalizers = [new DateTimeNormalizer(), $normalizer,  new ArrayDenormalizer()];
 
-        $encoders = [new JsonEncoder()];
+        $encoders = [new XmlEncoder(['xml_format_output' => true,\Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer::SKIP_NULL_VALUES => true]), new JsonEncoder()];
 
         $serializer = new Serializer($normalizers, $encoders);
 
-        return $serializer->deserialize($document, $this->parent_object, $format, [\Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer::SKIP_NULL_VALUES => true]);
+        $document = $serializer->normalize($document, $format, [\Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer::SKIP_NULL_VALUES => true]);
 
+        $invoice = $serializer->deserialize($document, $this->parent_object, $format, [\Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer::SKIP_NULL_VALUES => true]);
+        
+        return $invoice;
         // do i need this?
-        // $fattura = $normalizer->normalize($xmlstring, 'xml', [AbstractObjectNormalizer::SKIP_NULL_VALUES => true]);
+        // $invoice = $normalizer->normalize($invoice, $format, [AbstractObjectNormalizer::SKIP_NULL_VALUES => true]);
+        // return $invoice;
 
     }
 

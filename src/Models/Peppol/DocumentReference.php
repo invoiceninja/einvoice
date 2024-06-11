@@ -5,27 +5,37 @@ namespace InvoiceNinja\EInvoice\Models\Peppol;
 use DateTime;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AttachmentType\Attachment;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\LanguageIDType\LanguageID;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\IssuerParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\ValidityPeriod;
 use InvoiceNinja\EInvoice\Models\Peppol\ResultOfVerificationType\ResultOfVerification;
+use InvoiceNinja\EInvoice\Models\Peppol\UUIDType\UUID;
+use InvoiceNinja\EInvoice\Models\Peppol\VersionIDType\VersionID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class DocumentReference
 {
-	/** @var string */
+	/** @var ID */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var bool */
 	#[SerializedName('cbc:CopyIndicator')]
 	public bool $CopyIndicator;
 
-	/** @var string */
+	/** @var UUID */
 	#[SerializedName('cbc:UUID')]
-	public string $UUID;
+	public $UUID;
 
 	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
@@ -49,17 +59,17 @@ class DocumentReference
 	#[SerializedName('cbc:XPath')]
 	public string $XPath;
 
-	/** @var string */
+	/** @var LanguageID */
 	#[SerializedName('cbc:LanguageID')]
-	public string $LanguageID;
+	public $LanguageID;
 
 	/** @var string */
 	#[SerializedName('cbc:LocaleCode')]
 	public string $LocaleCode;
 
-	/** @var string */
+	/** @var VersionID */
 	#[SerializedName('cbc:VersionID')]
-	public string $VersionID;
+	public $VersionID;
 
 	/** @var string */
 	#[SerializedName('cbc:DocumentStatusCode')]

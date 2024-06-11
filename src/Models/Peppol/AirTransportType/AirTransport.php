@@ -5,6 +5,7 @@ namespace InvoiceNinja\EInvoice\Models\Peppol\AirTransportType;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\AircraftIDType\AircraftID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -18,7 +19,10 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class AirTransport
 {
-	/** @var string */
+	/** @var AircraftID */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:AircraftID')]
-	public string $AircraftID;
+	public $AircraftID;
 }

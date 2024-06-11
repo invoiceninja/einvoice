@@ -5,6 +5,8 @@ namespace InvoiceNinja\EInvoice\Models\Peppol\RailTransportType;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\RailCarIDType\RailCarID;
+use InvoiceNinja\EInvoice\Models\Peppol\TrainIDType\TrainID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -18,11 +20,14 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class RailTransport
 {
-	/** @var string */
+	/** @var TrainID */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:TrainID')]
-	public string $TrainID;
+	public $TrainID;
 
-	/** @var string */
+	/** @var RailCarID */
 	#[SerializedName('cbc:RailCarID')]
-	public string $RailCarID;
+	public $RailCarID;
 }

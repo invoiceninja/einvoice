@@ -14,12 +14,20 @@ use InvoiceNinja\EInvoice\Models\Peppol\AmountType\FreeOnBoardValueAmount;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\InsurancePremiumAmount;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\InsuranceValueAmount;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\TotalInvoiceAmount;
+use InvoiceNinja\EInvoice\Models\Peppol\BrokerAssignedIDType\BrokerAssignedID;
+use InvoiceNinja\EInvoice\Models\Peppol\CarrierAssignedIDType\CarrierAssignedID;
+use InvoiceNinja\EInvoice\Models\Peppol\ConsigneeAssignedIDType\ConsigneeAssignedID;
+use InvoiceNinja\EInvoice\Models\Peppol\ConsignorAssignedIDType\ConsignorAssignedID;
 use InvoiceNinja\EInvoice\Models\Peppol\ContractType\TransportContract;
+use InvoiceNinja\EInvoice\Models\Peppol\ContractedCarrierAssignedIDType\ContractedCarrierAssignedID;
 use InvoiceNinja\EInvoice\Models\Peppol\CountryType\FinalDestinationCountry;
 use InvoiceNinja\EInvoice\Models\Peppol\CountryType\OriginalDepartureCountry;
 use InvoiceNinja\EInvoice\Models\Peppol\CountryType\TransitCountry;
 use InvoiceNinja\EInvoice\Models\Peppol\CustomsDeclarationType\CustomsDeclaration;
 use InvoiceNinja\EInvoice\Models\Peppol\DeliveryTermsType\DeliveryTerms;
+use InvoiceNinja\EInvoice\Models\Peppol\FreightForwarderAssignedIDType\FreightForwarderAssignedID;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\LoadingSequenceIDType\LoadingSequenceID;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\FirstArrivalPortLocation;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\LastExitPortLocation;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\BillOfLadingHolderParty;
@@ -43,11 +51,13 @@ use InvoiceNinja\EInvoice\Models\Peppol\PaymentTermsType\CollectPaymentTerms;
 use InvoiceNinja\EInvoice\Models\Peppol\PaymentTermsType\DisbursementPaymentTerms;
 use InvoiceNinja\EInvoice\Models\Peppol\PaymentTermsType\PaymentTerms;
 use InvoiceNinja\EInvoice\Models\Peppol\PaymentTermsType\PrepaidPaymentTerms;
+use InvoiceNinja\EInvoice\Models\Peppol\PerformingCarrierAssignedIDType\PerformingCarrierAssignedID;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\ChildConsignmentQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\ConsignmentQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\TotalGoodsItemQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\TotalPackagesQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\TotalTransportHandlingUnitQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\SequenceIDType\SequenceID;
 use InvoiceNinja\EInvoice\Models\Peppol\ShipmentStageType\MainCarriageShipmentStage;
 use InvoiceNinja\EInvoice\Models\Peppol\ShipmentStageType\OnCarriageShipmentStage;
 use InvoiceNinja\EInvoice\Models\Peppol\ShipmentStageType\PreCarriageShipmentStage;
@@ -74,37 +84,40 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class ChildConsignment
 {
-	/** @var string */
+	/** @var ID */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
-	/** @var string */
+	/** @var CarrierAssignedID */
 	#[SerializedName('cbc:CarrierAssignedID')]
-	public string $CarrierAssignedID;
+	public $CarrierAssignedID;
 
-	/** @var string */
+	/** @var ConsigneeAssignedID */
 	#[SerializedName('cbc:ConsigneeAssignedID')]
-	public string $ConsigneeAssignedID;
+	public $ConsigneeAssignedID;
 
-	/** @var string */
+	/** @var ConsignorAssignedID */
 	#[SerializedName('cbc:ConsignorAssignedID')]
-	public string $ConsignorAssignedID;
+	public $ConsignorAssignedID;
 
-	/** @var string */
+	/** @var FreightForwarderAssignedID */
 	#[SerializedName('cbc:FreightForwarderAssignedID')]
-	public string $FreightForwarderAssignedID;
+	public $FreightForwarderAssignedID;
 
-	/** @var string */
+	/** @var BrokerAssignedID */
 	#[SerializedName('cbc:BrokerAssignedID')]
-	public string $BrokerAssignedID;
+	public $BrokerAssignedID;
 
-	/** @var string */
+	/** @var ContractedCarrierAssignedID */
 	#[SerializedName('cbc:ContractedCarrierAssignedID')]
-	public string $ContractedCarrierAssignedID;
+	public $ContractedCarrierAssignedID;
 
-	/** @var string */
+	/** @var PerformingCarrierAssignedID */
 	#[SerializedName('cbc:PerformingCarrierAssignedID')]
-	public string $PerformingCarrierAssignedID;
+	public $PerformingCarrierAssignedID;
 
 	/** @var string */
 	#[SerializedName('cbc:SummaryDescription')]
@@ -221,9 +234,9 @@ class ChildConsignment
 	#[SerializedName('cbc:SpecialServiceInstructions')]
 	public string $SpecialServiceInstructions;
 
-	/** @var string */
+	/** @var SequenceID */
 	#[SerializedName('cbc:SequenceID')]
-	public string $SequenceID;
+	public $SequenceID;
 
 	/** @var string */
 	#[SerializedName('cbc:ShippingPriorityLevelCode')]
@@ -289,9 +302,9 @@ class ChildConsignment
 	#[SerializedName('cbc:HaulageInstructions')]
 	public string $HaulageInstructions;
 
-	/** @var string */
+	/** @var LoadingSequenceID */
 	#[SerializedName('cbc:LoadingSequenceID')]
-	public string $LoadingSequenceID;
+	public $LoadingSequenceID;
 
 	/** @var ChildConsignmentQuantity */
 	#[SerializedName('cbc:ChildConsignmentQuantity')]

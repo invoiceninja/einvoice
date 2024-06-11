@@ -7,9 +7,11 @@ use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AirTransportType\AirTransport;
 use InvoiceNinja\EInvoice\Models\Peppol\DimensionType\MeasurementDimension;
+use InvoiceNinja\EInvoice\Models\Peppol\JourneyIDType\JourneyID;
 use InvoiceNinja\EInvoice\Models\Peppol\MaritimeTransportType\MaritimeTransport;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\OwnerParty;
 use InvoiceNinja\EInvoice\Models\Peppol\RailTransportType\RailTransport;
+use InvoiceNinja\EInvoice\Models\Peppol\RegistrationNationalityIDType\RegistrationNationalityID;
 use InvoiceNinja\EInvoice\Models\Peppol\RoadTransportType\RoadTransport;
 use InvoiceNinja\EInvoice\Models\Peppol\StowageType\Stowage;
 use Symfony\Component\Serializer\Attribute\Context;
@@ -25,13 +27,13 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class TransportMeans
 {
-	/** @var string */
+	/** @var JourneyID */
 	#[SerializedName('cbc:JourneyID')]
-	public string $JourneyID;
+	public $JourneyID;
 
-	/** @var string */
+	/** @var RegistrationNationalityID */
 	#[SerializedName('cbc:RegistrationNationalityID')]
-	public string $RegistrationNationalityID;
+	public $RegistrationNationalityID;
 
 	/** @var string */
 	#[SerializedName('cbc:RegistrationNationality')]

@@ -6,6 +6,7 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\DocumentReference;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\ItemType\Item;
 use InvoiceNinja\EInvoice\Models\Peppol\OrderLineReferenceType\OrderLineReference;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\BackorderQuantity;
@@ -13,6 +14,7 @@ use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\DeliveredQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\OutstandingQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\OversupplyQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\ShipmentType\Shipment;
+use InvoiceNinja\EInvoice\Models\Peppol\UUIDType\UUID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -26,13 +28,16 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class HandlingUnitDespatchLine
 {
-	/** @var string */
+	/** @var ID */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
-	/** @var string */
+	/** @var UUID */
 	#[SerializedName('cbc:UUID')]
-	public string $UUID;
+	public $UUID;
 
 	/** @var string */
 	#[SerializedName('cbc:Note')]

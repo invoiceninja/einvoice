@@ -8,6 +8,7 @@ use InvoiceNinja\EInvoice\Models\Peppol\AllowanceChargeType\AllowanceCharge;
 use InvoiceNinja\EInvoice\Models\Peppol\BillingReferenceType\BillingReference;
 use InvoiceNinja\EInvoice\Models\Peppol\CustomerPartyType\AccountingCustomerParty;
 use InvoiceNinja\EInvoice\Models\Peppol\CustomerPartyType\BuyerCustomerParty;
+use InvoiceNinja\EInvoice\Models\Peppol\CustomizationIDType\CustomizationID;
 use InvoiceNinja\EInvoice\Models\Peppol\DeliveryTermsType\DeliveryTerms;
 use InvoiceNinja\EInvoice\Models\Peppol\DeliveryType\Delivery;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\AdditionalDocumentReference;
@@ -20,6 +21,7 @@ use InvoiceNinja\EInvoice\Models\Peppol\ExchangeRateType\PaymentAlternativeExcha
 use InvoiceNinja\EInvoice\Models\Peppol\ExchangeRateType\PaymentExchangeRate;
 use InvoiceNinja\EInvoice\Models\Peppol\ExchangeRateType\PricingExchangeRate;
 use InvoiceNinja\EInvoice\Models\Peppol\ExchangeRateType\TaxExchangeRate;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\InvoiceLineType\InvoiceLine;
 use InvoiceNinja\EInvoice\Models\Peppol\MonetaryTotalType\LegalMonetaryTotal;
 use InvoiceNinja\EInvoice\Models\Peppol\OrderReferenceType\OrderReference;
@@ -29,12 +31,16 @@ use InvoiceNinja\EInvoice\Models\Peppol\PaymentMeansType\PaymentMeans;
 use InvoiceNinja\EInvoice\Models\Peppol\PaymentTermsType\PaymentTerms;
 use InvoiceNinja\EInvoice\Models\Peppol\PaymentType\PrepaidPayment;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\InvoicePeriod;
+use InvoiceNinja\EInvoice\Models\Peppol\ProfileExecutionIDType\ProfileExecutionID;
+use InvoiceNinja\EInvoice\Models\Peppol\ProfileIDType\ProfileID;
 use InvoiceNinja\EInvoice\Models\Peppol\ProjectReferenceType\ProjectReference;
 use InvoiceNinja\EInvoice\Models\Peppol\SignatureType\Signature;
 use InvoiceNinja\EInvoice\Models\Peppol\SupplierPartyType\AccountingSupplierParty;
 use InvoiceNinja\EInvoice\Models\Peppol\SupplierPartyType\SellerSupplierParty;
 use InvoiceNinja\EInvoice\Models\Peppol\TaxTotalType\TaxTotal;
 use InvoiceNinja\EInvoice\Models\Peppol\TaxTotalType\WithholdingTaxTotal;
+use InvoiceNinja\EInvoice\Models\Peppol\UBLVersionIDType\UBLVersionID;
+use InvoiceNinja\EInvoice\Models\Peppol\UUIDType\UUID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -45,33 +51,36 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class Invoice
 {
-	/** @var string */
+	/** @var UBLVersionID */
 	#[SerializedName('cbc:UBLVersionID')]
-	public string $UBLVersionID;
+	public $UBLVersionID;
 
-	/** @var string */
+	/** @var CustomizationID */
 	#[SerializedName('cbc:CustomizationID')]
-	public string $CustomizationID;
+	public $CustomizationID;
 
-	/** @var string */
+	/** @var ProfileID */
 	#[SerializedName('cbc:ProfileID')]
-	public string $ProfileID;
+	public $ProfileID;
 
-	/** @var string */
+	/** @var ProfileExecutionID */
 	#[SerializedName('cbc:ProfileExecutionID')]
-	public string $ProfileExecutionID;
+	public $ProfileExecutionID;
 
-	/** @var string */
+	/** @var ID */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var bool */
 	#[SerializedName('cbc:CopyIndicator')]
 	public bool $CopyIndicator;
 
-	/** @var string */
+	/** @var UUID */
 	#[SerializedName('cbc:UUID')]
-	public string $UUID;
+	public $UUID;
 
 	/** @var DateTime */
 	#[NotNull]

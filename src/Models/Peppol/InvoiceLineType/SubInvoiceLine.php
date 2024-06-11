@@ -11,6 +11,7 @@ use InvoiceNinja\EInvoice\Models\Peppol\BillingReferenceType\BillingReference;
 use InvoiceNinja\EInvoice\Models\Peppol\DeliveryTermsType\DeliveryTerms;
 use InvoiceNinja\EInvoice\Models\Peppol\DeliveryType\Delivery;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\DocumentReference;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\ItemType\Item;
 use InvoiceNinja\EInvoice\Models\Peppol\LineReferenceType\DespatchLineReference;
 use InvoiceNinja\EInvoice\Models\Peppol\LineReferenceType\ReceiptLineReference;
@@ -24,6 +25,7 @@ use InvoiceNinja\EInvoice\Models\Peppol\PricingReferenceType\PricingReference;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\InvoicedQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\TaxTotalType\TaxTotal;
 use InvoiceNinja\EInvoice\Models\Peppol\TaxTotalType\WithholdingTaxTotal;
+use InvoiceNinja\EInvoice\Models\Peppol\UUIDType\UUID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -37,13 +39,16 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class SubInvoiceLine
 {
-	/** @var string */
+	/** @var ID */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
-	/** @var string */
+	/** @var UUID */
 	#[SerializedName('cbc:UUID')]
-	public string $UUID;
+	public $UUID;
 
 	/** @var string */
 	#[SerializedName('cbc:Note')]

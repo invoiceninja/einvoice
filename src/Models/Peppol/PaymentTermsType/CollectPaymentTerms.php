@@ -9,9 +9,13 @@ use InvoiceNinja\EInvoice\Models\Peppol\AmountType\Amount;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\PenaltyAmount;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\SettlementDiscountAmount;
 use InvoiceNinja\EInvoice\Models\Peppol\ExchangeRateType\ExchangeRate;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\PaymentMeansIDType\PaymentMeansID;
+use InvoiceNinja\EInvoice\Models\Peppol\PaymentTermsDetailsURIType\PaymentTermsDetailsURI;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\PenaltyPeriod;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\SettlementPeriod;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\ValidityPeriod;
+use InvoiceNinja\EInvoice\Models\Peppol\PrepaidPaymentReferenceIDType\PrepaidPaymentReferenceID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -25,17 +29,17 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class CollectPaymentTerms
 {
-	/** @var string */
+	/** @var ID */
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
-	/** @var string */
+	/** @var PaymentMeansID[] */
 	#[SerializedName('cbc:PaymentMeansID')]
-	public string $PaymentMeansID;
+	public array $PaymentMeansID;
 
-	/** @var string */
+	/** @var PrepaidPaymentReferenceID */
 	#[SerializedName('cbc:PrepaidPaymentReferenceID')]
-	public string $PrepaidPaymentReferenceID;
+	public $PrepaidPaymentReferenceID;
 
 	/** @var string */
 	#[SerializedName('cbc:Note')]
@@ -69,9 +73,9 @@ class CollectPaymentTerms
 	#[SerializedName('cbc:PenaltyAmount')]
 	public $PenaltyAmount;
 
-	/** @var string */
+	/** @var PaymentTermsDetailsURI */
 	#[SerializedName('cbc:PaymentTermsDetailsURI')]
-	public string $PaymentTermsDetailsURI;
+	public $PaymentTermsDetailsURI;
 
 	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]

@@ -6,6 +6,7 @@ use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\Amount;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\BaseAmount;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\PerUnitAmount;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\PaymentMeansType\PaymentMeans;
 use InvoiceNinja\EInvoice\Models\Peppol\TaxCategoryType\TaxCategory;
 use InvoiceNinja\EInvoice\Models\Peppol\TaxTotalType\TaxTotal;
@@ -19,9 +20,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class AllowanceCharge
 {
-	/** @var string */
+	/** @var ID */
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var bool */
 	#[NotNull]

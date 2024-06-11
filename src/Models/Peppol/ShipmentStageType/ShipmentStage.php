@@ -6,6 +6,8 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AllowanceChargeType\FreightAllowanceCharge;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\LoadingSequenceIDType\LoadingSequenceID;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\FreightChargeLocation;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\LoadingPortLocation;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\TransshipPortLocation;
@@ -24,6 +26,7 @@ use InvoiceNinja\EInvoice\Models\Peppol\PersonType\SecurityOfficerPerson;
 use InvoiceNinja\EInvoice\Models\Peppol\PersonType\ShipsSurgeonPerson;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\CrewQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\PassengerQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\SuccessiveSequenceIDType\SuccessiveSequenceID;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEventType\AcceptanceTransportEvent;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEventType\ActualArrivalTransportEvent;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEventType\ActualDepartureTransportEvent;
@@ -65,9 +68,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class ShipmentStage
 {
-	/** @var string */
+	/** @var ID */
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var string */
 	#[SerializedName('cbc:TransportModeCode')]
@@ -109,13 +112,13 @@ class ShipmentStage
 	#[SerializedName('cbc:RequiredDeliveryTime')]
 	public DateTime $RequiredDeliveryTime;
 
-	/** @var string */
+	/** @var LoadingSequenceID */
 	#[SerializedName('cbc:LoadingSequenceID')]
-	public string $LoadingSequenceID;
+	public $LoadingSequenceID;
 
-	/** @var string */
+	/** @var SuccessiveSequenceID */
 	#[SerializedName('cbc:SuccessiveSequenceID')]
-	public string $SuccessiveSequenceID;
+	public $SuccessiveSequenceID;
 
 	/** @var string */
 	#[SerializedName('cbc:Instructions')]

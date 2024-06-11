@@ -395,6 +395,7 @@ class Peppol extends BaseStandard
     'RailTransport' => 'InvoiceNinja\EInvoice\Models\Peppol\RailTransportType\RailTransport',
     'MaritimeTransport' => 'InvoiceNinja\EInvoice\Models\Peppol\MaritimeTransportType\MaritimeTransport',
     'OwnerParty' => 'InvoiceNinja\EInvoice\Models\Peppol\PartyType\OwnerParty',
+    'EndPointID' => 'InvoiceNinja\EInvoice\Models\Peppol\EndpointIDType',
     'DeliveredQuantity' => 'InvoiceNinja\EInvoice\Models\Peppol\QuantityType\DeliveredQuantity',
     'BackorderQuantity' => 'InvoiceNinja\EInvoice\Models\Peppol\QuantityType\BackorderQuantity',
     'OutstandingQuantity' => 'InvoiceNinja\EInvoice\Models\Peppol\QuantityType\OutstandingQuantity',
@@ -571,7 +572,12 @@ class Peppol extends BaseStandard
     {
         $this->type_tracker[] = 'AmountType';
         $this->type_tracker[] = 'QuantityType';
+        // $this->type_tracker[] = 'EndpointIDType';
+        // $this->type_tracker[] = 'PartyIdentificationType';
+        
+
         $element_collection = collect($this->cacType->elements);
+        $cbc_collection = collect($this->cbcType->elements);
 
         $type_map = collect($this->data)
         ->map(function ($type) {
@@ -598,44 +604,52 @@ class Peppol extends BaseStandard
         ->map(function ($type) {
 
             $this->type_tracker[] = $type;
-            return $this->cacType->typesForType($type);
+
+return $this->cacType->typesForType($type)->merge($this->cbcType->typesForType($type));
         })
         ->flatten()
         ->unique()
         ->map(function ($type) {
 
             $this->type_tracker[] = $type;
-            return $this->cacType->typesForType($type);
+
+return $this->cacType->typesForType($type)->merge($this->cbcType->typesForType($type));
         })
         ->flatten()
         ->unique()
         ->map(function ($type) {
 
             $this->type_tracker[] = $type;
-            return $this->cacType->typesForType($type);
+            return $this->cacType->typesForType($type)->merge($this->cbcType->typesForType($type));
         })
         ->flatten()
         ->unique()
         ->map(function ($type) {
 
             $this->type_tracker[] = $type;
-            return $this->cacType->typesForType($type);
+            return $this->cacType->typesForType($type)->merge($this->cbcType->typesForType($type));
         })
         ->flatten()
         ->unique()
         ->map(function ($type) {
 
             $this->type_tracker[] = $type;
-            return $this->cacType->typesForType($type);
+            return $this->cacType->typesForType($type)->merge($this->cbcType->typesForType($type));
         })
         ->flatten()
         ->unique();
 
+        // echo print_r($type_map).PHP_EOL;
+
         collect($this->type_tracker)
         ->unique()
-        ->each(function ($type) use ($element_collection) {
+        ->each(function ($type) use ($element_collection, $cbc_collection) {
 
             $type_array = $element_collection->where('type', $type)->first();
+
+            if(!$type_array){
+                $type_array = $cbc_collection->where('type', $type)->first();
+            }
 
             $new_set = [];
             foreach($type_array['elements'] as $stub) {
@@ -654,7 +668,6 @@ class Peppol extends BaseStandard
 
     private function harvestNode(string $name)
     {
-
         $parts = explode(":", $name);
 
         match($parts[0]) {

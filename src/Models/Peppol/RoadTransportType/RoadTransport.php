@@ -5,6 +5,7 @@ namespace InvoiceNinja\EInvoice\Models\Peppol\RoadTransportType;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\LicensePlateIDType\LicensePlateID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
@@ -18,7 +19,10 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class RoadTransport
 {
-	/** @var string */
+	/** @var LicensePlateID */
+	#[NotNull]
+	#[NotBlank]
+	#[Valid]
 	#[SerializedName('cbc:LicensePlateID')]
-	public string $LicensePlateID;
+	public $LicensePlateID;
 }

@@ -73,14 +73,15 @@ class TypeGenerator
 
     private function build(): self
     {
-
+        
         $this->namespace->addUse(DateTime::class);
 
         $child_type = $this->generator->getChildType($this->type);
 
-
         foreach($child_type['elements'] as $key => $element) {
-            if($this->name == $element['name']) {
+            
+            if($element['name'] == $this->class->getName()){
+            // if($this->name == $element['name']) {
                 continue;
             }
 
@@ -110,7 +111,6 @@ class TypeGenerator
             }
 
             $property = $this->generator->setValidation($property, $element);
-
             $this->class->addMember($property);
 
             if(count($element['resource']) > 0) {

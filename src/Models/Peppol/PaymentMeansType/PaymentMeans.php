@@ -9,6 +9,9 @@ use InvoiceNinja\EInvoice\Models\Peppol\CardAccountType\CardAccount;
 use InvoiceNinja\EInvoice\Models\Peppol\CreditAccountType\CreditAccount;
 use InvoiceNinja\EInvoice\Models\Peppol\FinancialAccountType\PayeeFinancialAccount;
 use InvoiceNinja\EInvoice\Models\Peppol\FinancialAccountType\PayerFinancialAccount;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\InstructionIDType\InstructionID;
+use InvoiceNinja\EInvoice\Models\Peppol\PaymentIDType\PaymentID;
 use InvoiceNinja\EInvoice\Models\Peppol\PaymentMandateType\PaymentMandate;
 use InvoiceNinja\EInvoice\Models\Peppol\TradeFinancingType\TradeFinancing;
 use Symfony\Component\Serializer\Attribute\Context;
@@ -24,9 +27,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class PaymentMeans
 {
-	/** @var string */
+	/** @var ID */
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var string */
 	#[SerializedName('cbc:PaymentMeansCode')]
@@ -41,17 +44,17 @@ class PaymentMeans
 	#[SerializedName('cbc:PaymentChannelCode')]
 	public string $PaymentChannelCode;
 
-	/** @var string */
+	/** @var InstructionID */
 	#[SerializedName('cbc:InstructionID')]
-	public string $InstructionID;
+	public $InstructionID;
 
 	/** @var string */
 	#[SerializedName('cbc:InstructionNote')]
 	public string $InstructionNote;
 
-	/** @var string */
+	/** @var PaymentID[] */
 	#[SerializedName('cbc:PaymentID')]
-	public string $PaymentID;
+	public array $PaymentID;
 
 	/** @var CardAccount */
 	#[SerializedName('cac:CardAccount')]

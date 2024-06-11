@@ -6,7 +6,7 @@
         "elements": {
             "UBLVersionID": {
                 "name": "UBLVersionID",
-                "base_type": "string",
+                "base_type": "UBLVersionIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -18,7 +18,7 @@
             },
             "CustomizationID": {
                 "name": "CustomizationID",
-                "base_type": "string",
+                "base_type": "CustomizationIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -30,7 +30,7 @@
             },
             "ProfileID": {
                 "name": "ProfileID",
-                "base_type": "string",
+                "base_type": "ProfileIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -42,7 +42,7 @@
             },
             "ProfileExecutionID": {
                 "name": "ProfileExecutionID",
-                "base_type": "string",
+                "base_type": "ProfileExecutionIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -54,7 +54,7 @@
             },
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -78,7 +78,7 @@
             },
             "UUID": {
                 "name": "UUID",
-                "base_type": "string",
+                "base_type": "UUIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -698,6 +698,192 @@
             }
         }
     },
+    "UBLVersionIDType": {
+        "name": "UBLVersionID",
+        "base_type": "UBLVersionIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "UBLVersionIDType",
+        "elements": {
+            "_UBLVersionID": {
+                "name": "_UBLVersionID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "CustomizationIDType": {
+        "name": "CustomizationID",
+        "base_type": "CustomizationIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "CustomizationIDType",
+        "elements": {
+            "_CustomizationID": {
+                "name": "_CustomizationID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "ProfileIDType": {
+        "name": "ProfileID",
+        "base_type": "ProfileIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "ProfileIDType",
+        "elements": {
+            "_ProfileID": {
+                "name": "_ProfileID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "ProfileExecutionIDType": {
+        "name": "ProfileExecutionID",
+        "base_type": "ProfileExecutionIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "ProfileExecutionIDType",
+        "elements": {
+            "_ProfileExecutionID": {
+                "name": "_ProfileExecutionID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "IDType": {
+        "name": "ID",
+        "base_type": "IDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "IDType",
+        "elements": {
+            "_ID": {
+                "name": "_ID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "UUIDType": {
+        "name": "UUID",
+        "base_type": "UUIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "UUIDType",
+        "elements": {
+            "_UUID": {
+                "name": "_UUID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
     "PeriodType": {
         "type": "PeriodType",
         "help": "",
@@ -796,7 +982,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -808,7 +994,7 @@
             },
             "SalesOrderID": {
                 "name": "SalesOrderID",
-                "base_type": "string",
+                "base_type": "SalesOrderIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -832,7 +1018,7 @@
             },
             "UUID": {
                 "name": "UUID",
-                "base_type": "string",
+                "base_type": "UUIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -1014,7 +1200,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -1038,7 +1224,7 @@
             },
             "UUID": {
                 "name": "UUID",
-                "base_type": "string",
+                "base_type": "UUIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -1110,7 +1296,7 @@
             },
             "LanguageID": {
                 "name": "LanguageID",
-                "base_type": "string",
+                "base_type": "LanguageIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -1134,7 +1320,7 @@
             },
             "VersionID": {
                 "name": "VersionID",
-                "base_type": "string",
+                "base_type": "VersionIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -1225,7 +1411,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -1237,7 +1423,7 @@
             },
             "UUID": {
                 "name": "UUID",
-                "base_type": "string",
+                "base_type": "UUIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -1280,7 +1466,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -1328,7 +1514,7 @@
             },
             "ValidatorID": {
                 "name": "ValidatorID",
-                "base_type": "string",
+                "base_type": "ValidatorIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -1407,7 +1593,7 @@
         "elements": {
             "CustomerAssignedAccountID": {
                 "name": "CustomerAssignedAccountID",
-                "base_type": "string",
+                "base_type": "CustomerAssignedAccountIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -1419,7 +1605,7 @@
             },
             "AdditionalAccountID": {
                 "name": "AdditionalAccountID",
-                "base_type": "string",
+                "base_type": "AdditionalAccountIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -1498,7 +1684,7 @@
         "elements": {
             "CustomerAssignedAccountID": {
                 "name": "CustomerAssignedAccountID",
-                "base_type": "string",
+                "base_type": "CustomerAssignedAccountIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -1510,7 +1696,7 @@
             },
             "SupplierAssignedAccountID": {
                 "name": "SupplierAssignedAccountID",
-                "base_type": "string",
+                "base_type": "SupplierAssignedAccountIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -1522,7 +1708,7 @@
             },
             "AdditionalAccountID": {
                 "name": "AdditionalAccountID",
-                "base_type": "string",
+                "base_type": "AdditionalAccountIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -1613,7 +1799,7 @@
             },
             "WebsiteURI": {
                 "name": "WebsiteURI",
-                "base_type": "string",
+                "base_type": "WebsiteURIType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -1625,7 +1811,7 @@
             },
             "LogoReferenceID": {
                 "name": "LogoReferenceID",
-                "base_type": "string",
+                "base_type": "LogoReferenceIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -1637,7 +1823,7 @@
             },
             "EndpointID": {
                 "name": "EndpointID",
-                "base_type": "string",
+                "base_type": "EndpointIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -1824,7 +2010,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -1920,7 +2106,7 @@
             },
             "ReleaseID": {
                 "name": "ReleaseID",
-                "base_type": "string",
+                "base_type": "ReleaseIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -1932,7 +2118,7 @@
             },
             "TrackingID": {
                 "name": "TrackingID",
-                "base_type": "string",
+                "base_type": "TrackingIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -2119,7 +2305,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -2210,7 +2396,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -2258,7 +2444,7 @@
             },
             "InstructionID": {
                 "name": "InstructionID",
-                "base_type": "string",
+                "base_type": "InstructionIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -2282,7 +2468,7 @@
             },
             "PaymentID": {
                 "name": "PaymentID",
-                "base_type": "string",
+                "base_type": "PaymentIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -2373,7 +2559,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -2385,7 +2571,7 @@
             },
             "PaymentMeansID": {
                 "name": "PaymentMeansID",
-                "base_type": "string",
+                "base_type": "PaymentMeansIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -2397,7 +2583,7 @@
             },
             "PrepaidPaymentReferenceID": {
                 "name": "PrepaidPaymentReferenceID",
-                "base_type": "string",
+                "base_type": "PrepaidPaymentReferenceIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -2505,7 +2691,7 @@
             },
             "PaymentTermsDetailsURI": {
                 "name": "PaymentTermsDetailsURI",
-                "base_type": "string",
+                "base_type": "PaymentTermsDetailsURIType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -2608,7 +2794,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -2668,7 +2854,7 @@
             },
             "InstructionID": {
                 "name": "InstructionID",
-                "base_type": "string",
+                "base_type": "InstructionIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -2687,7 +2873,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -2922,7 +3108,7 @@
             },
             "ExchangeMarketID": {
                 "name": "ExchangeMarketID",
-                "base_type": "string",
+                "base_type": "ExchangeMarketIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -3171,7 +3357,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -3183,7 +3369,7 @@
             },
             "UUID": {
                 "name": "UUID",
-                "base_type": "string",
+                "base_type": "UUIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -3507,6 +3693,37 @@
             }
         }
     },
+    "SalesOrderIDType": {
+        "name": "SalesOrderID",
+        "base_type": "SalesOrderIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "SalesOrderIDType",
+        "elements": {
+            "_SalesOrderID": {
+                "name": "_SalesOrderID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
     "BillingReferenceLineType": {
         "type": "BillingReferenceLineType",
         "help": "",
@@ -3514,7 +3731,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -3547,6 +3764,68 @@
                 "max_occurs": -1,
                 "min_occurs": 0,
                 "namespace": "cac"
+            }
+        }
+    },
+    "LanguageIDType": {
+        "name": "LanguageID",
+        "base_type": "LanguageIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "LanguageIDType",
+        "elements": {
+            "_LanguageID": {
+                "name": "_LanguageID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "VersionIDType": {
+        "name": "VersionID",
+        "base_type": "VersionIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "VersionIDType",
+        "elements": {
+            "_VersionID": {
+                "name": "_VersionID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
             }
         }
     },
@@ -3588,7 +3867,7 @@
         "elements": {
             "ValidatorID": {
                 "name": "ValidatorID",
-                "base_type": "string",
+                "base_type": "ValidatorIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -3691,7 +3970,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -3775,6 +4054,99 @@
             }
         }
     },
+    "ValidatorIDType": {
+        "name": "ValidatorID",
+        "base_type": "ValidatorIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "ValidatorIDType",
+        "elements": {
+            "_ValidatorID": {
+                "name": "_ValidatorID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "CustomerAssignedAccountIDType": {
+        "name": "CustomerAssignedAccountID",
+        "base_type": "CustomerAssignedAccountIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "CustomerAssignedAccountIDType",
+        "elements": {
+            "_CustomerAssignedAccountID": {
+                "name": "_CustomerAssignedAccountID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "AdditionalAccountIDType": {
+        "name": "AdditionalAccountID",
+        "base_type": "AdditionalAccountIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "AdditionalAccountIDType",
+        "elements": {
+            "_AdditionalAccountID": {
+                "name": "_AdditionalAccountID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
     "ContactType": {
         "type": "ContactType",
         "help": "",
@@ -3782,7 +4154,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -3866,6 +4238,130 @@
             }
         }
     },
+    "SupplierAssignedAccountIDType": {
+        "name": "SupplierAssignedAccountID",
+        "base_type": "SupplierAssignedAccountIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "SupplierAssignedAccountIDType",
+        "elements": {
+            "_SupplierAssignedAccountID": {
+                "name": "_SupplierAssignedAccountID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "WebsiteURIType": {
+        "name": "WebsiteURI",
+        "base_type": "WebsiteURIType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "WebsiteURIType",
+        "elements": {
+            "_WebsiteURI": {
+                "name": "_WebsiteURI",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "LogoReferenceIDType": {
+        "name": "LogoReferenceID",
+        "base_type": "LogoReferenceIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "LogoReferenceIDType",
+        "elements": {
+            "_LogoReferenceID": {
+                "name": "_LogoReferenceID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "EndpointIDType": {
+        "name": "EndpointID",
+        "base_type": "EndpointIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "EndpointIDType",
+        "elements": {
+            "_EndpointID": {
+                "name": "_EndpointID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
     "PartyIdentificationType": {
         "type": "PartyIdentificationType",
         "help": "",
@@ -3873,7 +4369,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -3911,7 +4407,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -3954,7 +4450,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -4285,7 +4781,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -4357,7 +4853,7 @@
             },
             "InformationURI": {
                 "name": "InformationURI",
-                "base_type": "string",
+                "base_type": "InformationURIType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -4448,7 +4944,7 @@
             },
             "CompanyID": {
                 "name": "CompanyID",
-                "base_type": "string",
+                "base_type": "CompanyIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -4539,7 +5035,7 @@
             },
             "CompanyID": {
                 "name": "CompanyID",
-                "base_type": "string",
+                "base_type": "CompanyIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -4702,7 +5198,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -4798,7 +5294,7 @@
             },
             "NationalityID": {
                 "name": "NationalityID",
-                "base_type": "string",
+                "base_type": "NationalityIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -4913,7 +5409,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -4980,7 +5476,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -5083,7 +5579,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -5191,6 +5687,68 @@
             }
         }
     },
+    "ReleaseIDType": {
+        "name": "ReleaseID",
+        "base_type": "ReleaseIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "ReleaseIDType",
+        "elements": {
+            "_ReleaseID": {
+                "name": "_ReleaseID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "TrackingIDType": {
+        "name": "TrackingID",
+        "base_type": "TrackingIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "TrackingIDType",
+        "elements": {
+            "_TrackingID": {
+                "name": "_TrackingID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
     "DespatchType": {
         "type": "DespatchType",
         "help": "",
@@ -5198,7 +5756,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -5306,7 +5864,7 @@
             },
             "ReleaseID": {
                 "name": "ReleaseID",
-                "base_type": "string",
+                "base_type": "ReleaseIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -5476,7 +6034,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -5860,6 +6418,68 @@
             }
         }
     },
+    "InstructionIDType": {
+        "name": "InstructionID",
+        "base_type": "InstructionIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "InstructionIDType",
+        "elements": {
+            "_InstructionID": {
+                "name": "_InstructionID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "PaymentIDType": {
+        "name": "PaymentID",
+        "base_type": "PaymentIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "PaymentIDType",
+        "elements": {
+            "_PaymentID": {
+                "name": "_PaymentID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
     "CardAccountType": {
         "type": "CardAccountType",
         "help": "",
@@ -5867,7 +6487,7 @@
         "elements": {
             "PrimaryAccountNumberID": {
                 "name": "PrimaryAccountNumberID",
-                "base_type": "string",
+                "base_type": "PrimaryAccountNumberIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -5879,7 +6499,7 @@
             },
             "NetworkID": {
                 "name": "NetworkID",
-                "base_type": "string",
+                "base_type": "NetworkIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -5927,7 +6547,7 @@
             },
             "IssuerID": {
                 "name": "IssuerID",
-                "base_type": "string",
+                "base_type": "IssuerIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -5939,7 +6559,7 @@
             },
             "IssueNumberID": {
                 "name": "IssueNumberID",
-                "base_type": "string",
+                "base_type": "IssueNumberIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -5951,7 +6571,7 @@
             },
             "CV2ID": {
                 "name": "CV2ID",
-                "base_type": "string",
+                "base_type": "CV2IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -5975,7 +6595,7 @@
             },
             "ChipApplicationID": {
                 "name": "ChipApplicationID",
-                "base_type": "string",
+                "base_type": "ChipApplicationIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -6006,7 +6626,7 @@
         "elements": {
             "AccountID": {
                 "name": "AccountID",
-                "base_type": "string",
+                "base_type": "AccountIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -6025,7 +6645,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -6073,7 +6693,7 @@
             },
             "SignatureID": {
                 "name": "SignatureID",
-                "base_type": "string",
+                "base_type": "SignatureIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -6152,7 +6772,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -6236,6 +6856,99 @@
             }
         }
     },
+    "PaymentMeansIDType": {
+        "name": "PaymentMeansID",
+        "base_type": "PaymentMeansIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "PaymentMeansIDType",
+        "elements": {
+            "_PaymentMeansID": {
+                "name": "_PaymentMeansID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "PrepaidPaymentReferenceIDType": {
+        "name": "PrepaidPaymentReferenceID",
+        "base_type": "PrepaidPaymentReferenceIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "PrepaidPaymentReferenceIDType",
+        "elements": {
+            "_PrepaidPaymentReferenceID": {
+                "name": "_PrepaidPaymentReferenceID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "PaymentTermsDetailsURIType": {
+        "name": "PaymentTermsDetailsURI",
+        "base_type": "PaymentTermsDetailsURIType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "PaymentTermsDetailsURIType",
+        "elements": {
+            "_PaymentTermsDetailsURI": {
+                "name": "_PaymentTermsDetailsURI",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
     "TaxCategoryType": {
         "type": "TaxCategoryType",
         "help": "",
@@ -6243,7 +6956,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -6363,6 +7076,37 @@
             }
         }
     },
+    "ExchangeMarketIDType": {
+        "name": "ExchangeMarketID",
+        "base_type": "ExchangeMarketIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "ExchangeMarketIDType",
+        "elements": {
+            "_ExchangeMarketID": {
+                "name": "_ExchangeMarketID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
     "ContractType": {
         "type": "ContractType",
         "help": "",
@@ -6370,7 +7114,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -6466,7 +7210,7 @@
             },
             "VersionID": {
                 "name": "VersionID",
-                "base_type": "string",
+                "base_type": "VersionIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -6672,7 +7416,7 @@
         "elements": {
             "LineID": {
                 "name": "LineID",
-                "base_type": "string",
+                "base_type": "LineIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -6684,7 +7428,7 @@
             },
             "SalesOrderLineID": {
                 "name": "SalesOrderLineID",
-                "base_type": "string",
+                "base_type": "SalesOrderLineIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -6696,7 +7440,7 @@
             },
             "UUID": {
                 "name": "UUID",
-                "base_type": "string",
+                "base_type": "UUIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -6739,7 +7483,7 @@
         "elements": {
             "LineID": {
                 "name": "LineID",
-                "base_type": "string",
+                "base_type": "LineIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -6751,7 +7495,7 @@
             },
             "UUID": {
                 "name": "UUID",
-                "base_type": "string",
+                "base_type": "UUIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -7350,7 +8094,7 @@
         "elements": {
             "URI": {
                 "name": "URI",
-                "base_type": "string",
+                "base_type": "URIType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -7678,6 +8422,68 @@
             }
         }
     },
+    "InformationURIType": {
+        "name": "InformationURI",
+        "base_type": "InformationURIType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "InformationURIType",
+        "elements": {
+            "_InformationURI": {
+                "name": "_InformationURI",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "CompanyIDType": {
+        "name": "CompanyID",
+        "base_type": "CompanyIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "CompanyIDType",
+        "elements": {
+            "_CompanyID": {
+                "name": "_CompanyID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
     "TaxSchemeType": {
         "type": "TaxSchemeType",
         "help": "",
@@ -7685,7 +8491,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -7752,7 +8558,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -7831,6 +8637,37 @@
             }
         }
     },
+    "NationalityIDType": {
+        "name": "NationalityID",
+        "base_type": "NationalityIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "NationalityIDType",
+        "elements": {
+            "_NationalityID": {
+                "name": "_NationalityID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
     "BranchType": {
         "type": "BranchType",
         "help": "",
@@ -7838,7 +8675,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -7893,7 +8730,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -7905,7 +8742,7 @@
             },
             "CarrierAssignedID": {
                 "name": "CarrierAssignedID",
-                "base_type": "string",
+                "base_type": "CarrierAssignedIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -7917,7 +8754,7 @@
             },
             "ConsigneeAssignedID": {
                 "name": "ConsigneeAssignedID",
-                "base_type": "string",
+                "base_type": "ConsigneeAssignedIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -7929,7 +8766,7 @@
             },
             "ConsignorAssignedID": {
                 "name": "ConsignorAssignedID",
-                "base_type": "string",
+                "base_type": "ConsignorAssignedIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -7941,7 +8778,7 @@
             },
             "FreightForwarderAssignedID": {
                 "name": "FreightForwarderAssignedID",
-                "base_type": "string",
+                "base_type": "FreightForwarderAssignedIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -7953,7 +8790,7 @@
             },
             "BrokerAssignedID": {
                 "name": "BrokerAssignedID",
-                "base_type": "string",
+                "base_type": "BrokerAssignedIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -7965,7 +8802,7 @@
             },
             "ContractedCarrierAssignedID": {
                 "name": "ContractedCarrierAssignedID",
-                "base_type": "string",
+                "base_type": "ContractedCarrierAssignedIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -7977,7 +8814,7 @@
             },
             "PerformingCarrierAssignedID": {
                 "name": "PerformingCarrierAssignedID",
-                "base_type": "string",
+                "base_type": "PerformingCarrierAssignedIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -8313,7 +9150,7 @@
             },
             "SequenceID": {
                 "name": "SequenceID",
-                "base_type": "string",
+                "base_type": "SequenceIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -8517,7 +9354,7 @@
             },
             "LoadingSequenceID": {
                 "name": "LoadingSequenceID",
-                "base_type": "string",
+                "base_type": "LoadingSequenceIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -9100,7 +9937,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -9112,7 +9949,7 @@
             },
             "SequenceNumberID": {
                 "name": "SequenceNumberID",
-                "base_type": "string",
+                "base_type": "SequenceNumberIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -9316,7 +10153,7 @@
             },
             "RequiredCustomsID": {
                 "name": "RequiredCustomsID",
-                "base_type": "string",
+                "base_type": "RequiredCustomsIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -9388,7 +10225,7 @@
             },
             "TraceID": {
                 "name": "TraceID",
-                "base_type": "string",
+                "base_type": "TraceIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -9587,7 +10424,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -9707,7 +10544,7 @@
             },
             "LoadingSequenceID": {
                 "name": "LoadingSequenceID",
-                "base_type": "string",
+                "base_type": "LoadingSequenceIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -9719,7 +10556,7 @@
             },
             "SuccessiveSequenceID": {
                 "name": "SuccessiveSequenceID",
-                "base_type": "string",
+                "base_type": "SuccessiveSequenceIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -10326,7 +11163,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -10434,7 +11271,7 @@
             },
             "TraceID": {
                 "name": "TraceID",
-                "base_type": "string",
+                "base_type": "TraceIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -10650,6 +11487,254 @@
             }
         }
     },
+    "PrimaryAccountNumberIDType": {
+        "name": "PrimaryAccountNumberID",
+        "base_type": "PrimaryAccountNumberIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "PrimaryAccountNumberIDType",
+        "elements": {
+            "_PrimaryAccountNumberID": {
+                "name": "_PrimaryAccountNumberID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "NetworkIDType": {
+        "name": "NetworkID",
+        "base_type": "NetworkIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "NetworkIDType",
+        "elements": {
+            "_NetworkID": {
+                "name": "_NetworkID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "IssuerIDType": {
+        "name": "IssuerID",
+        "base_type": "IssuerIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "IssuerIDType",
+        "elements": {
+            "_IssuerID": {
+                "name": "_IssuerID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "IssueNumberIDType": {
+        "name": "IssueNumberID",
+        "base_type": "IssueNumberIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "IssueNumberIDType",
+        "elements": {
+            "_IssueNumberID": {
+                "name": "_IssueNumberID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "CV2IDType": {
+        "name": "CV2ID",
+        "base_type": "CV2IDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "CV2IDType",
+        "elements": {
+            "_CV2ID": {
+                "name": "_CV2ID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "ChipApplicationIDType": {
+        "name": "ChipApplicationID",
+        "base_type": "ChipApplicationIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "ChipApplicationIDType",
+        "elements": {
+            "_ChipApplicationID": {
+                "name": "_ChipApplicationID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "AccountIDType": {
+        "name": "AccountID",
+        "base_type": "AccountIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "AccountIDType",
+        "elements": {
+            "_AccountID": {
+                "name": "_AccountID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "SignatureIDType": {
+        "name": "SignatureID",
+        "base_type": "SignatureIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "SignatureIDType",
+        "elements": {
+            "_SignatureID": {
+                "name": "_SignatureID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
     "ClauseType": {
         "type": "ClauseType",
         "help": "",
@@ -10657,7 +11742,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -10678,6 +11763,68 @@
                 "max_occurs": -1,
                 "min_occurs": 0,
                 "namespace": "cbc"
+            }
+        }
+    },
+    "LineIDType": {
+        "name": "LineID",
+        "base_type": "LineIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "LineIDType",
+        "elements": {
+            "_LineID": {
+                "name": "_LineID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "SalesOrderLineIDType": {
+        "name": "SalesOrderLineID",
+        "base_type": "SalesOrderLineIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "SalesOrderLineIDType",
+        "elements": {
+            "_SalesOrderLineID": {
+                "name": "_SalesOrderLineID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
             }
         }
     },
@@ -10839,7 +11986,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -10851,7 +11998,7 @@
             },
             "ExtendedID": {
                 "name": "ExtendedID",
-                "base_type": "string",
+                "base_type": "ExtendedIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -10863,7 +12010,7 @@
             },
             "BarcodeSymbologyID": {
                 "name": "BarcodeSymbologyID",
-                "base_type": "string",
+                "base_type": "BarcodeSymbologyIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -10973,7 +12120,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -11028,7 +12175,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -11148,7 +12295,7 @@
             },
             "UpperOrangeHazardPlacardID": {
                 "name": "UpperOrangeHazardPlacardID",
-                "base_type": "string",
+                "base_type": "UpperOrangeHazardPlacardIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -11160,7 +12307,7 @@
             },
             "LowerOrangeHazardPlacardID": {
                 "name": "LowerOrangeHazardPlacardID",
-                "base_type": "string",
+                "base_type": "LowerOrangeHazardPlacardIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -11172,7 +12319,7 @@
             },
             "MarkingID": {
                 "name": "MarkingID",
-                "base_type": "string",
+                "base_type": "MarkingIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -11184,7 +12331,7 @@
             },
             "HazardClassID": {
                 "name": "HazardClassID",
-                "base_type": "string",
+                "base_type": "HazardClassIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -11311,7 +12458,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -11474,7 +12621,7 @@
         "elements": {
             "ProductTraceID": {
                 "name": "ProductTraceID",
-                "base_type": "string",
+                "base_type": "ProductTraceIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -11522,7 +12669,7 @@
             },
             "RegistrationID": {
                 "name": "RegistrationID",
-                "base_type": "string",
+                "base_type": "RegistrationIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -11534,7 +12681,7 @@
             },
             "SerialID": {
                 "name": "SerialID",
-                "base_type": "string",
+                "base_type": "SerialIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -11577,7 +12724,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -11668,7 +12815,7 @@
         "elements": {
             "AttributeID": {
                 "name": "AttributeID",
-                "base_type": "string",
+                "base_type": "AttributeIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -11735,7 +12882,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -11783,6 +12930,37 @@
             }
         }
     },
+    "URIType": {
+        "name": "URI",
+        "base_type": "URIType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "URIType",
+        "elements": {
+            "_URI": {
+                "name": "_URI",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
     "FinancialInstitutionType": {
         "type": "FinancialInstitutionType",
         "help": "",
@@ -11790,7 +12968,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -11826,6 +13004,285 @@
             }
         }
     },
+    "CarrierAssignedIDType": {
+        "name": "CarrierAssignedID",
+        "base_type": "CarrierAssignedIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "CarrierAssignedIDType",
+        "elements": {
+            "_CarrierAssignedID": {
+                "name": "_CarrierAssignedID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "ConsigneeAssignedIDType": {
+        "name": "ConsigneeAssignedID",
+        "base_type": "ConsigneeAssignedIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "ConsigneeAssignedIDType",
+        "elements": {
+            "_ConsigneeAssignedID": {
+                "name": "_ConsigneeAssignedID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "ConsignorAssignedIDType": {
+        "name": "ConsignorAssignedID",
+        "base_type": "ConsignorAssignedIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "ConsignorAssignedIDType",
+        "elements": {
+            "_ConsignorAssignedID": {
+                "name": "_ConsignorAssignedID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "FreightForwarderAssignedIDType": {
+        "name": "FreightForwarderAssignedID",
+        "base_type": "FreightForwarderAssignedIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "FreightForwarderAssignedIDType",
+        "elements": {
+            "_FreightForwarderAssignedID": {
+                "name": "_FreightForwarderAssignedID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "BrokerAssignedIDType": {
+        "name": "BrokerAssignedID",
+        "base_type": "BrokerAssignedIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "BrokerAssignedIDType",
+        "elements": {
+            "_BrokerAssignedID": {
+                "name": "_BrokerAssignedID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "ContractedCarrierAssignedIDType": {
+        "name": "ContractedCarrierAssignedID",
+        "base_type": "ContractedCarrierAssignedIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "ContractedCarrierAssignedIDType",
+        "elements": {
+            "_ContractedCarrierAssignedID": {
+                "name": "_ContractedCarrierAssignedID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "PerformingCarrierAssignedIDType": {
+        "name": "PerformingCarrierAssignedID",
+        "base_type": "PerformingCarrierAssignedIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "PerformingCarrierAssignedIDType",
+        "elements": {
+            "_PerformingCarrierAssignedID": {
+                "name": "_PerformingCarrierAssignedID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "SequenceIDType": {
+        "name": "SequenceID",
+        "base_type": "SequenceIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "SequenceIDType",
+        "elements": {
+            "_SequenceID": {
+                "name": "_SequenceID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "LoadingSequenceIDType": {
+        "name": "LoadingSequenceID",
+        "base_type": "LoadingSequenceIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "LoadingSequenceIDType",
+        "elements": {
+            "_LoadingSequenceID": {
+                "name": "_LoadingSequenceID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
     "CustomsDeclarationType": {
         "type": "CustomsDeclarationType",
         "help": "",
@@ -11833,7 +13290,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -11864,7 +13321,7 @@
         "elements": {
             "IdentificationID": {
                 "name": "IdentificationID",
-                "base_type": "string",
+                "base_type": "IdentificationIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -12087,7 +13544,7 @@
             },
             "SequenceID": {
                 "name": "SequenceID",
-                "base_type": "string",
+                "base_type": "SequenceIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -12226,7 +13683,7 @@
             },
             "TransportationServiceDetailsURI": {
                 "name": "TransportationServiceDetailsURI",
-                "base_type": "string",
+                "base_type": "TransportationServiceDetailsURIType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -12442,6 +13899,99 @@
             }
         }
     },
+    "SequenceNumberIDType": {
+        "name": "SequenceNumberID",
+        "base_type": "SequenceNumberIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "SequenceNumberIDType",
+        "elements": {
+            "_SequenceNumberID": {
+                "name": "_SequenceNumberID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "RequiredCustomsIDType": {
+        "name": "RequiredCustomsID",
+        "base_type": "RequiredCustomsIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "RequiredCustomsIDType",
+        "elements": {
+            "_RequiredCustomsID": {
+                "name": "_RequiredCustomsID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "TraceIDType": {
+        "name": "TraceID",
+        "base_type": "TraceIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "TraceIDType",
+        "elements": {
+            "_TraceID": {
+                "name": "_TraceID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
     "GoodsItemContainerType": {
         "type": "GoodsItemContainerType",
         "help": "",
@@ -12449,7 +13999,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -12492,7 +14042,7 @@
         "elements": {
             "AttributeID": {
                 "name": "AttributeID",
-                "base_type": "string",
+                "base_type": "AttributeIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -12535,7 +14085,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -12650,7 +14200,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -12722,7 +14272,7 @@
             },
             "TraceID": {
                 "name": "TraceID",
-                "base_type": "string",
+                "base_type": "TraceIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -12830,6 +14380,37 @@
             }
         }
     },
+    "SuccessiveSequenceIDType": {
+        "name": "SuccessiveSequenceID",
+        "base_type": "SuccessiveSequenceIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "SuccessiveSequenceIDType",
+        "elements": {
+            "_SuccessiveSequenceID": {
+                "name": "_SuccessiveSequenceID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
     "TransportMeansType": {
         "type": "TransportMeansType",
         "help": "",
@@ -12837,7 +14418,7 @@
         "elements": {
             "JourneyID": {
                 "name": "JourneyID",
-                "base_type": "string",
+                "base_type": "JourneyIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -12849,7 +14430,7 @@
             },
             "RegistrationNationalityID": {
                 "name": "RegistrationNationalityID",
-                "base_type": "string",
+                "base_type": "RegistrationNationalityIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -13000,7 +14581,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -13012,7 +14593,7 @@
             },
             "UUID": {
                 "name": "UUID",
-                "base_type": "string",
+                "base_type": "UUIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -13175,7 +14756,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -13187,7 +14768,7 @@
             },
             "UUID": {
                 "name": "UUID",
-                "base_type": "string",
+                "base_type": "UUIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -13422,7 +15003,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -13434,7 +15015,7 @@
             },
             "ReferencedConsignmentID": {
                 "name": "ReferencedConsignmentID",
-                "base_type": "string",
+                "base_type": "ReferencedConsignmentIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -13746,7 +15327,7 @@
             },
             "TraceID": {
                 "name": "TraceID",
-                "base_type": "string",
+                "base_type": "TraceIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -14288,6 +15869,68 @@
             }
         }
     },
+    "ExtendedIDType": {
+        "name": "ExtendedID",
+        "base_type": "ExtendedIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "ExtendedIDType",
+        "elements": {
+            "_ExtendedID": {
+                "name": "_ExtendedID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "BarcodeSymbologyIDType": {
+        "name": "BarcodeSymbologyID",
+        "base_type": "BarcodeSymbologyIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "BarcodeSymbologyIDType",
+        "elements": {
+            "_BarcodeSymbologyID": {
+                "name": "_BarcodeSymbologyID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
     "PhysicalAttributeType": {
         "type": "PhysicalAttributeType",
         "help": "",
@@ -14295,7 +15938,7 @@
         "elements": {
             "AttributeID": {
                 "name": "AttributeID",
-                "base_type": "string",
+                "base_type": "AttributeIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -14343,6 +15986,130 @@
             }
         }
     },
+    "UpperOrangeHazardPlacardIDType": {
+        "name": "UpperOrangeHazardPlacardID",
+        "base_type": "UpperOrangeHazardPlacardIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "UpperOrangeHazardPlacardIDType",
+        "elements": {
+            "_UpperOrangeHazardPlacardID": {
+                "name": "_UpperOrangeHazardPlacardID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "LowerOrangeHazardPlacardIDType": {
+        "name": "LowerOrangeHazardPlacardID",
+        "base_type": "LowerOrangeHazardPlacardIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "LowerOrangeHazardPlacardIDType",
+        "elements": {
+            "_LowerOrangeHazardPlacardID": {
+                "name": "_LowerOrangeHazardPlacardID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "MarkingIDType": {
+        "name": "MarkingID",
+        "base_type": "MarkingIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "MarkingIDType",
+        "elements": {
+            "_MarkingID": {
+                "name": "_MarkingID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "HazardClassIDType": {
+        "name": "HazardClassID",
+        "base_type": "HazardClassIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "HazardClassIDType",
+        "elements": {
+            "_HazardClassID": {
+                "name": "_HazardClassID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
     "SecondaryHazardType": {
         "type": "SecondaryHazardType",
         "help": "",
@@ -14350,7 +16117,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -14417,7 +16184,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -14484,6 +16251,99 @@
             }
         }
     },
+    "ProductTraceIDType": {
+        "name": "ProductTraceID",
+        "base_type": "ProductTraceIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "ProductTraceIDType",
+        "elements": {
+            "_ProductTraceID": {
+                "name": "_ProductTraceID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "RegistrationIDType": {
+        "name": "RegistrationID",
+        "base_type": "RegistrationIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "RegistrationIDType",
+        "elements": {
+            "_RegistrationID": {
+                "name": "_RegistrationID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "SerialIDType": {
+        "name": "SerialID",
+        "base_type": "SerialIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "SerialIDType",
+        "elements": {
+            "_SerialID": {
+                "name": "_SerialID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
     "LotIdentificationType": {
         "type": "LotIdentificationType",
         "help": "",
@@ -14491,7 +16351,7 @@
         "elements": {
             "LotNumberID": {
                 "name": "LotNumberID",
-                "base_type": "string",
+                "base_type": "LotNumberIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -14527,6 +16387,68 @@
             }
         }
     },
+    "AttributeIDType": {
+        "name": "AttributeID",
+        "base_type": "AttributeIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "AttributeIDType",
+        "elements": {
+            "_AttributeID": {
+                "name": "_AttributeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "IdentificationIDType": {
+        "name": "IdentificationID",
+        "base_type": "IdentificationIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "IdentificationIDType",
+        "elements": {
+            "_IdentificationID": {
+                "name": "_IdentificationID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
     "ConditionType": {
         "type": "ConditionType",
         "help": "",
@@ -14534,7 +16456,7 @@
         "elements": {
             "AttributeID": {
                 "name": "AttributeID",
-                "base_type": "string",
+                "base_type": "AttributeIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -14591,6 +16513,37 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cbc"
+            }
+        }
+    },
+    "TransportationServiceDetailsURIType": {
+        "name": "TransportationServiceDetailsURI",
+        "base_type": "TransportationServiceDetailsURIType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "TransportationServiceDetailsURIType",
+        "elements": {
+            "_TransportationServiceDetailsURI": {
+                "name": "_TransportationServiceDetailsURI",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
             }
         }
     },
@@ -14668,6 +16621,68 @@
             }
         }
     },
+    "JourneyIDType": {
+        "name": "JourneyID",
+        "base_type": "JourneyIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "JourneyIDType",
+        "elements": {
+            "_JourneyID": {
+                "name": "_JourneyID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "RegistrationNationalityIDType": {
+        "name": "RegistrationNationalityID",
+        "base_type": "RegistrationNationalityIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "RegistrationNationalityIDType",
+        "elements": {
+            "_RegistrationNationalityID": {
+                "name": "_RegistrationNationalityID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
     "StowageType": {
         "type": "StowageType",
         "help": "",
@@ -14675,7 +16690,7 @@
         "elements": {
             "LocationID": {
                 "name": "LocationID",
-                "base_type": "string",
+                "base_type": "LocationIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -14718,7 +16733,7 @@
         "elements": {
             "AircraftID": {
                 "name": "AircraftID",
-                "base_type": "string",
+                "base_type": "AircraftIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -14737,7 +16752,7 @@
         "elements": {
             "LicensePlateID": {
                 "name": "LicensePlateID",
-                "base_type": "string",
+                "base_type": "LicensePlateIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -14756,7 +16771,7 @@
         "elements": {
             "TrainID": {
                 "name": "TrainID",
-                "base_type": "string",
+                "base_type": "TrainIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -14768,7 +16783,7 @@
             },
             "RailCarID": {
                 "name": "RailCarID",
-                "base_type": "string",
+                "base_type": "RailCarIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -14787,7 +16802,7 @@
         "elements": {
             "VesselID": {
                 "name": "VesselID",
-                "base_type": "string",
+                "base_type": "VesselIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -14811,7 +16826,7 @@
             },
             "RadioCallSignID": {
                 "name": "RadioCallSignID",
-                "base_type": "string",
+                "base_type": "RadioCallSignIDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -14883,6 +16898,37 @@
             }
         }
     },
+    "ReferencedConsignmentIDType": {
+        "name": "ReferencedConsignmentID",
+        "base_type": "ReferencedConsignmentIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "ReferencedConsignmentIDType",
+        "elements": {
+            "_ReferencedConsignmentID": {
+                "name": "_ReferencedConsignmentID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
     "TransportEquipmentSealType": {
         "type": "TransportEquipmentSealType",
         "help": "",
@@ -14890,7 +16936,7 @@
         "elements": {
             "ID": {
                 "name": "ID",
-                "base_type": "string",
+                "base_type": "IDType",
                 "resource": [],
                 "max_length": null,
                 "min_length": null,
@@ -14993,6 +17039,37 @@
             }
         }
     },
+    "LotNumberIDType": {
+        "name": "LotNumberID",
+        "base_type": "LotNumberIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "LotNumberIDType",
+        "elements": {
+            "_LotNumberID": {
+                "name": "_LotNumberID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
     "EmissionCalculationMethodType": {
         "type": "EmissionCalculationMethodType",
         "help": "",
@@ -15045,6 +17122,223 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cac"
+            }
+        }
+    },
+    "LocationIDType": {
+        "name": "LocationID",
+        "base_type": "LocationIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "LocationIDType",
+        "elements": {
+            "_LocationID": {
+                "name": "_LocationID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "AircraftIDType": {
+        "name": "AircraftID",
+        "base_type": "AircraftIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "AircraftIDType",
+        "elements": {
+            "_AircraftID": {
+                "name": "_AircraftID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "LicensePlateIDType": {
+        "name": "LicensePlateID",
+        "base_type": "LicensePlateIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "LicensePlateIDType",
+        "elements": {
+            "_LicensePlateID": {
+                "name": "_LicensePlateID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "TrainIDType": {
+        "name": "TrainID",
+        "base_type": "TrainIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "TrainIDType",
+        "elements": {
+            "_TrainID": {
+                "name": "_TrainID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "RailCarIDType": {
+        "name": "RailCarID",
+        "base_type": "RailCarIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "RailCarIDType",
+        "elements": {
+            "_RailCarID": {
+                "name": "_RailCarID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "VesselIDType": {
+        "name": "VesselID",
+        "base_type": "VesselIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "VesselIDType",
+        "elements": {
+            "_VesselID": {
+                "name": "_VesselID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            }
+        }
+    },
+    "RadioCallSignIDType": {
+        "name": "RadioCallSignID",
+        "base_type": "RadioCallSignIDType",
+        "resource": [],
+        "max_length": null,
+        "min_length": null,
+        "pattern": null,
+        "type": "RadioCallSignIDType",
+        "elements": {
+            "_RadioCallSignID": {
+                "name": "_RadioCallSignID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
+            },
+            "schemeID": {
+                "name": "schemeID",
+                "base_type": "string",
+                "resource": [],
+                "max_length": null,
+                "min_length": null,
+                "pattern": null,
+                "min_occurs": 0,
+                "max_occurs": 1
             }
         }
     }

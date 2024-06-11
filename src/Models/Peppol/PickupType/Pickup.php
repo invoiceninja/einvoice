@@ -5,6 +5,7 @@ namespace InvoiceNinja\EInvoice\Models\Peppol\PickupType;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\PickupLocation;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\PickupParty;
 use Symfony\Component\Serializer\Attribute\Context;
@@ -20,9 +21,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class Pickup
 {
-	/** @var string */
+	/** @var ID */
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]

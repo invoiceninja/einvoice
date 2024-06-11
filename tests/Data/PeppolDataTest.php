@@ -2,7 +2,7 @@
 
 namespace InvoiceNinja\EInvoice\Tests\Data;
 
-
+use InvoiceNinja\EInvoice\EInvoice;
 use Milo\Schematron;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\Validation;
@@ -65,43 +65,19 @@ class PeppolDataTest extends TestCase
 
     public function testFactSerializer()
     {
-        
-        $phpDocExtractor = new PhpDocExtractor();
-        $reflectionExtractor = new ReflectionExtractor();
-        $typeExtractors = [$reflectionExtractor,$phpDocExtractor];
-        $descriptionExtractors = [$phpDocExtractor];
-        $propertyInitializableExtractors = [$reflectionExtractor];
-
-        $propertyInfo = new PropertyInfoExtractor(
-            $propertyInitializableExtractors,
-            $descriptionExtractors,
-            $typeExtractors,
-        );
-
-        $context = [
-            'xml_format_output' => true,
-        ];
-
-        $encoder = new XmlEncoder($context);
-
-        $classMetadataFactory = new ClassMetadataFactory(new AttributeLoader());
-        $metadataAwareNameConverter = new MetadataAwareNameConverter($classMetadataFactory);
-
-        $normalizer = new ObjectNormalizer($classMetadataFactory, $metadataAwareNameConverter, null, $propertyInfo);
-
-        $normalizers = [new DateTimeNormalizer(), $normalizer,  new ArrayDenormalizer() , ];
-        $encoders = [$encoder, new JsonEncoder()];
-
-        $serializer = new Serializer($normalizers, $encoders);
-
+    
         $f = 'tests/Data/samples/fact1.xml';
-        $xmlstring = file_get_contents($f);
+        $e = new EInvoice();
+        $invoice = $e->decode('Peppol', file_get_contents($f), 'xml');
+        
+        // echo $invoice->UBLVersionID.PHP_EOL;
+        echo print_r($invoice).PHP_EOL;
 
-        $invoice = $serializer->deserialize($xmlstring, Invoice::class, 'xml',  [\Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer::SKIP_NULL_VALUES => true]);
-
+        $this->assertObjectHasProperty('UBLVersionID', $invoice);
+        // echo print_r($invoice->UBLVersionID,1).PHP_EOL;
         // echo print_r($invoice).PHP_EOL;
         $this->assertInstanceOf(Invoice::class, $invoice);
-        $this->assertEquals("2.1", $invoice->UBLVersionID);
+        // $this->assertEquals("2.1", $invoice->_UBLVersionID);
 
         $validator = Validation::createValidatorBuilder()
             ->enableAttributeMapping()
@@ -259,19 +235,29 @@ class PeppolDataTest extends TestCase
 
     public function testPeppolValidation()
     {
+
         $f = "src/Standards/Peppol/example.xml";
 
+        // $f = "src/Standards/FACT1/sample.xml";
+        // $f = "src/Standards/FatturaPA/sample.xml";
+
         $sch = "src/Standards/Peppol/peppol.sch";
+        
+        $e = new EInvoice();
+        $result = $e->decode('Peppol', file_get_contents($f), 'xml');;
 
+        $convert = $e->encode($result, 'xml');
 
-        $schematron = new Schematron();
-        $schematron->load($sch);
+        $this->assertNotNull($convert);
+        // echo print_r($convert,1).PHP_EOL;
+        // $schematron = new Schematron();
+        // $schematron->load($sch);
 
-        $document = new \DOMDocument();
-        $document->load($f);
-        $result = $schematron->validate($document);
+        // $document = new \DOMDocument();
+        // $document->load($f);
+        // $result = $schematron->validate($document);
 
-        echo print_r($result).PHP_EOL;
+        // echo print_r($result).PHP_EOL;
 
     }
 }

@@ -5,9 +5,11 @@ namespace InvoiceNinja\EInvoice\Models\Peppol\SupplierPartyType;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\AdditionalAccountIDType\AdditionalAccountID;
 use InvoiceNinja\EInvoice\Models\Peppol\ContactType\AccountingContact;
 use InvoiceNinja\EInvoice\Models\Peppol\ContactType\DespatchContact;
 use InvoiceNinja\EInvoice\Models\Peppol\ContactType\SellerContact;
+use InvoiceNinja\EInvoice\Models\Peppol\CustomerAssignedAccountIDType\CustomerAssignedAccountID;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\Party;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
@@ -22,13 +24,13 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class SellerSupplierParty
 {
-	/** @var string */
+	/** @var CustomerAssignedAccountID */
 	#[SerializedName('cbc:CustomerAssignedAccountID')]
-	public string $CustomerAssignedAccountID;
+	public $CustomerAssignedAccountID;
 
-	/** @var string */
+	/** @var AdditionalAccountID[] */
 	#[SerializedName('cbc:AdditionalAccountID')]
-	public string $AdditionalAccountID;
+	public array $AdditionalAccountID;
 
 	/** @var string */
 	#[SerializedName('cbc:DataSendingCapability')]

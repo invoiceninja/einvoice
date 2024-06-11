@@ -5,6 +5,8 @@ namespace InvoiceNinja\EInvoice\Models\Peppol;
 use DateTime;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AddressType\Address;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\InformationURIType\InformationURI;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationCoordinateType\LocationCoordinate;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\SubsidiaryLocation;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\ValidityPeriod;
@@ -15,9 +17,9 @@ use Symfony\Component\Validator\Constraints\Date;
 
 class Location
 {
-	/** @var string */
+	/** @var ID */
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var string */
 	#[SerializedName('cbc:Description')]
@@ -39,9 +41,9 @@ class Location
 	#[SerializedName('cbc:LocationTypeCode')]
 	public string $LocationTypeCode;
 
-	/** @var string */
+	/** @var InformationURI */
 	#[SerializedName('cbc:InformationURI')]
-	public string $InformationURI;
+	public $InformationURI;
 
 	/** @var string */
 	#[SerializedName('cbc:Name')]

@@ -6,6 +6,7 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\DimensionType\RangeDimension;
+use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\ItemPropertyGroupType\ItemPropertyGroup;
 use InvoiceNinja\EInvoice\Models\Peppol\ItemPropertyRangeType\ItemPropertyRange;
 use InvoiceNinja\EInvoice\Models\Peppol\PeriodType\UsabilityPeriod;
@@ -23,9 +24,9 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class AdditionalItemProperty
 {
-	/** @var string */
+	/** @var ID */
 	#[SerializedName('cbc:ID')]
-	public string $ID;
+	public $ID;
 
 	/** @var string */
 	#[SerializedName('cbc:Name')]

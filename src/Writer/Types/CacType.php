@@ -132,34 +132,56 @@ class CacType
 
     }
 
+
+
     public function typesForType(string $type)
     {
-        //get the child types of a type
+        $children = collect();
 
-        $children = collect([]);
+        foreach($this->elements as $e){
 
-        $xpath = "//xsd:complexType [@name='{$type}']//{$this->prefix}:sequence";
+            if($e['type'] == $type){
 
-        $sequence = $this->getXPath($xpath);
+                foreach($e['elements'] as $type) {
 
-        for($x = 0; $x < $sequence->count(); $x++) {
-
-            foreach($sequence->item($x)->childNodes as $node) {
-
-                if($node instanceof DOMElement && $node->hasAttribute("ref") && stripos($node->getAttribute('ref'), 'cac:') !== false) {
-
-                    $parts = explode(":", $node->getAttribute('ref'));
-                    $children->push($this->type_map[$parts[1]]);
+                    if(stripos($type['base_type'], 'Type') !== false)
+                        $children->push($type['base_type']);
                 }
             }
 
         }
-        // echo $type.PHP_EOL;
-        // echo $children->unique()->implode("\n").PHP_EOL;
 
         return $children->unique();
-
     }
+
+    // public function typesForType(string $type)
+    // {
+    //     //get the child types of a type
+
+    //     $children = collect([]);
+
+    //     $xpath = "//xsd:complexType [@name='{$type}']//{$this->prefix}:sequence";
+
+    //     $sequence = $this->getXPath($xpath);
+
+    //     for($x = 0; $x < $sequence->count(); $x++) {
+
+    //         foreach($sequence->item($x)->childNodes as $node) {
+
+    //             if($node instanceof DOMElement && $node->hasAttribute("ref") && stripos($node->getAttribute('ref'), 'cac:') !== false) {
+
+    //                 $parts = explode(":", $node->getAttribute('ref'));
+    //                 $children->push($this->type_map[$parts[1]]);
+    //             }
+    //         }
+
+    //     }
+    //     // echo $type.PHP_EOL;
+    //     // echo $children->unique()->implode("\n").PHP_EOL;
+
+    //     return $children->unique();
+
+    // }
 
     public function typeChildren()
     {

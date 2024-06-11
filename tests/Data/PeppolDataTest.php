@@ -71,7 +71,7 @@ class PeppolDataTest extends TestCase
         $invoice = $e->decode('Peppol', file_get_contents($f), 'xml');
         
         // echo $invoice->UBLVersionID.PHP_EOL;
-        echo print_r($invoice).PHP_EOL;
+        // echo print_r($invoice).PHP_EOL;
 
         $this->assertObjectHasProperty('UBLVersionID', $invoice);
         // echo print_r($invoice->UBLVersionID,1).PHP_EOL;
@@ -87,7 +87,7 @@ class PeppolDataTest extends TestCase
 
         if (count($errors) > 0) {
             foreach ($errors as $error) {
-                echo $error->getPropertyPath() . ': ' . $error->getMessage() . "\n";
+                // echo $error->getPropertyPath() . ': ' . $error->getMessage() . "\n";
             }
         } else {
         }
@@ -118,8 +118,8 @@ class PeppolDataTest extends TestCase
         $errors = libxml_get_errors();
 
         $this->assertIsArray($errors);
-        if(count($errors) >0)
-            echo print_r($errors);
+        // if(count($errors) >0)
+        //     echo print_r($errors);
 
         // $this->assertTrue($validation);
     }
@@ -238,10 +238,8 @@ class PeppolDataTest extends TestCase
 
         $f = "src/Standards/Peppol/example.xml";
 
-        // $f = "src/Standards/FACT1/sample.xml";
-        // $f = "src/Standards/FatturaPA/sample.xml";
 
-        $sch = "src/Standards/Peppol/peppol.sch";
+$xslt = "src/Standards/Peppol/peppol.xslt";
         
         $e = new EInvoice();
         $result = $e->decode('Peppol', file_get_contents($f), 'xml');;
@@ -249,15 +247,27 @@ class PeppolDataTest extends TestCase
         $convert = $e->encode($result, 'xml');
 
         $this->assertNotNull($convert);
-        // echo print_r($convert,1).PHP_EOL;
-        // $schematron = new Schematron();
-        // $schematron->load($sch);
 
-        // $document = new \DOMDocument();
-        // $document->load($f);
-        // $result = $schematron->validate($document);
+$xmlFile = $f;
 
-        // echo print_r($result).PHP_EOL;
+$saxonProc = new \Saxon\SaxonProcessor();
+$proc = $saxonProc->newXslt30Processor();
+
+$executable = $proc->compileFromFile($xslt);
+
+$result = $executable->transformFileToString($xmlFile);
+
+if($result == null) {
+    if($executable->exceptionOccurred()) {
+        $errCode = $executable->getErrorCode();
+        $errMessage = $executable->getErrorMessage();
+        echo 'Expected error: Code='.$errCode.' Message='.$errMessage;
+        $proc->exceptionClear();
+    }
+}
+echo $result;
+$proc->clearParameters();
+
 
     }
 }

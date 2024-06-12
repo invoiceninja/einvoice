@@ -2,13 +2,13 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
-use InvoiceNinja\EInvoice\Models\Peppol\AdditionalAccountIDType\AdditionalAccountID;
 use InvoiceNinja\EInvoice\Models\Peppol\ContactType\AccountingContact;
 use InvoiceNinja\EInvoice\Models\Peppol\ContactType\BuyerContact;
 use InvoiceNinja\EInvoice\Models\Peppol\ContactType\DeliveryContact;
-use InvoiceNinja\EInvoice\Models\Peppol\CustomerAssignedAccountIDType\CustomerAssignedAccountID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\AdditionalAccountID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\CustomerAssignedAccountID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\SupplierAssignedAccountID;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\Party;
-use InvoiceNinja\EInvoice\Models\Peppol\SupplierAssignedAccountIDType\SupplierAssignedAccountID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;

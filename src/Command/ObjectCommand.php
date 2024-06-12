@@ -109,19 +109,6 @@ class Serializer
     public static function initializeProperties($object, $ff)
     {
 
-        // $limit = 2500;
-        // static $callCount = 0;
-
-        // // Increment the call count
-        // $callCount++;
-
-        // // Check if the recursion limit has been reached
-        // if ($callCount > $limit) {
-        //     echo "Recursion limit reached\n";
-        //     return;
-        // }
-
-
         $reflectionClass = new \ReflectionClass($object);
 
         foreach ($reflectionClass->getProperties() as $property) {
@@ -132,11 +119,9 @@ class Serializer
             if (isset($ff->classMap[$propertyName]) ?? false) {
                 // If the property is a class, instantiate the class and initialize its properties
                 $childClassName = $ff->classMap[$propertyName];
-                // echo $childClassName.PHP_EOL;
 
                 if (class_exists($childClassName)) {
                     $childObject = new $ff->classMap[$propertyName]();
-                    // self::initializeProperties($childObject, $ff);
 
                     if($propertyType == 'array') {
                         $property->setValue($object, [$childObject]);

@@ -2,7 +2,7 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
-use InvoiceNinja\EInvoice\Models\Peppol\AttributeIDType\AttributeID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\AttributeID;
 use InvoiceNinja\EInvoice\Models\Peppol\MeasureType\Measure;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;

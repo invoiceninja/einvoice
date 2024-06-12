@@ -2,8 +2,8 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
-use InvoiceNinja\EInvoice\Models\Peppol\RailCarIDType\RailCarID;
-use InvoiceNinja\EInvoice\Models\Peppol\TrainIDType\TrainID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\RailCarID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\TrainID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;

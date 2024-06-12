@@ -2,9 +2,9 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\EnvironmentalEmissionTypeCode;
 use InvoiceNinja\EInvoice\Models\Peppol\EmissionCalculationMethodType\EmissionCalculationMethod;
-use InvoiceNinja\EInvoice\Models\Peppol\EnvironmentalEmissionTypeCodeType\EnvironmentalEmissionTypeCode;
-use InvoiceNinja\EInvoice\Models\Peppol\ValueMeasureType\ValueMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\MeasureType\ValueMeasure;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;

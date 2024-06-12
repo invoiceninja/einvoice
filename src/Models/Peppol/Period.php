@@ -3,8 +3,8 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
-use InvoiceNinja\EInvoice\Models\Peppol\DescriptionCodeType\DescriptionCode;
-use InvoiceNinja\EInvoice\Models\Peppol\DurationMeasureType\DurationMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\DescriptionCode;
+use InvoiceNinja\EInvoice\Models\Peppol\MeasureType\DurationMeasure;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;

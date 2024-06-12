@@ -1,26 +1,32 @@
 {
-    "UBLVersionID": "",
-    "CustomizationID": "",
-    "ProfileID": "",
-    "ProfileExecutionID": "",
-    "ID": "",
+    "UBLVersionID": null,
+    "CustomizationID": null,
+    "ProfileID": null,
+    "ProfileExecutionID": null,
+    "ID": null,
     "CopyIndicator": false,
-    "UUID": "",
-    "InvoiceTypeCode": 0,
+    "UUID": null,
+    "InvoiceTypeCode": null,
     "Note": "",
-    "DocumentCurrencyCode": "",
-    "TaxCurrencyCode": "",
-    "PricingCurrencyCode": "",
-    "PaymentCurrencyCode": "",
-    "PaymentAlternativeCurrencyCode": "",
-    "AccountingCostCode": "",
+    "DocumentCurrencyCode": null,
+    "TaxCurrencyCode": null,
+    "PricingCurrencyCode": null,
+    "PaymentCurrencyCode": null,
+    "PaymentAlternativeCurrencyCode": null,
+    "AccountingCostCode": null,
     "AccountingCost": "",
-    "LineCountNumeric": "",
+    "LineCountNumeric": null,
     "BuyerReference": "",
     "InvoicePeriod": [
-        {}
+        {
+            "DurationMeasure": null
+        }
     ],
     "OrderReference": {
+        "ID": null,
+        "SalesOrderID": null,
+        "UUID": null,
+        "OrderTypeCode": null,
         "DocumentReference": null
     },
     "BillingReference": [
@@ -36,6 +42,13 @@
     ],
     "DespatchDocumentReference": [
         {
+            "ID": null,
+            "UUID": null,
+            "DocumentTypeCode": null,
+            "LanguageID": null,
+            "LocaleCode": null,
+            "VersionID": null,
+            "DocumentStatusCode": null,
             "Attachment": null,
             "ValidityPeriod": null,
             "IssuerParty": null,
@@ -44,6 +57,13 @@
     ],
     "ReceiptDocumentReference": [
         {
+            "ID": null,
+            "UUID": null,
+            "DocumentTypeCode": null,
+            "LanguageID": null,
+            "LocaleCode": null,
+            "VersionID": null,
+            "DocumentStatusCode": null,
             "Attachment": null,
             "ValidityPeriod": null,
             "IssuerParty": null,
@@ -52,6 +72,13 @@
     ],
     "StatementDocumentReference": [
         {
+            "ID": null,
+            "UUID": null,
+            "DocumentTypeCode": null,
+            "LanguageID": null,
+            "LocaleCode": null,
+            "VersionID": null,
+            "DocumentStatusCode": null,
             "Attachment": null,
             "ValidityPeriod": null,
             "IssuerParty": null,
@@ -60,6 +87,13 @@
     ],
     "OriginatorDocumentReference": [
         {
+            "ID": null,
+            "UUID": null,
+            "DocumentTypeCode": null,
+            "LanguageID": null,
+            "LocaleCode": null,
+            "VersionID": null,
+            "DocumentStatusCode": null,
             "Attachment": null,
             "ValidityPeriod": null,
             "IssuerParty": null,
@@ -68,6 +102,13 @@
     ],
     "ContractDocumentReference": [
         {
+            "ID": null,
+            "UUID": null,
+            "DocumentTypeCode": null,
+            "LanguageID": null,
+            "LocaleCode": null,
+            "VersionID": null,
+            "DocumentStatusCode": null,
             "Attachment": null,
             "ValidityPeriod": null,
             "IssuerParty": null,
@@ -76,6 +117,13 @@
     ],
     "AdditionalDocumentReference": [
         {
+            "ID": null,
+            "UUID": null,
+            "DocumentTypeCode": null,
+            "LanguageID": null,
+            "LocaleCode": null,
+            "VersionID": null,
+            "DocumentStatusCode": null,
             "Attachment": null,
             "ValidityPeriod": null,
             "IssuerParty": null,
@@ -83,28 +131,40 @@
         }
     ],
     "ProjectReference": [
-        {}
+        {
+            "ID": null,
+            "UUID": null
+        }
     ],
     "Signature": [
         {
+            "ID": null,
+            "ValidatorID": null,
             "SignatoryParty": null,
             "DigitalSignatureAttachment": null,
             "OriginalDocumentReference": null
         }
     ],
     "AccountingSupplierParty": {
+        "CustomerAssignedAccountID": null,
         "Party": null,
         "DespatchContact": null,
         "AccountingContact": null,
         "SellerContact": null
     },
     "AccountingCustomerParty": {
+        "CustomerAssignedAccountID": null,
+        "SupplierAssignedAccountID": null,
         "Party": null,
         "DeliveryContact": null,
         "AccountingContact": null,
         "BuyerContact": null
     },
     "PayeeParty": {
+        "WebsiteURI": null,
+        "LogoReferenceID": null,
+        "EndpointID": null,
+        "IndustryClassificationCode": null,
         "Language": null,
         "PostalAddress": null,
         "PhysicalLocation": null,
@@ -113,18 +173,25 @@
         "FinancialAccount": null
     },
     "BuyerCustomerParty": {
+        "CustomerAssignedAccountID": null,
+        "SupplierAssignedAccountID": null,
         "Party": null,
         "DeliveryContact": null,
         "AccountingContact": null,
         "BuyerContact": null
     },
     "SellerSupplierParty": {
+        "CustomerAssignedAccountID": null,
         "Party": null,
         "DespatchContact": null,
         "AccountingContact": null,
         "SellerContact": null
     },
     "TaxRepresentativeParty": {
+        "WebsiteURI": null,
+        "LogoReferenceID": null,
+        "EndpointID": null,
+        "IndustryClassificationCode": null,
         "Language": null,
         "PostalAddress": null,
         "PhysicalLocation": null,
@@ -134,9 +201,12 @@
     },
     "Delivery": [
         {
+            "ID": null,
             "Quantity": null,
             "MinimumQuantity": null,
             "MaximumQuantity": null,
+            "ReleaseID": null,
+            "TrackingID": null,
             "DeliveryAddress": null,
             "DeliveryLocation": null,
             "AlternativeDeliveryLocation": null,
@@ -152,12 +222,18 @@
         }
     ],
     "DeliveryTerms": {
+        "ID": null,
+        "LossRiskResponsibilityCode": null,
         "Amount": null,
         "DeliveryLocation": null,
         "AllowanceCharge": null
     },
     "PaymentMeans": [
         {
+            "ID": null,
+            "PaymentMeansCode": null,
+            "PaymentChannelCode": null,
+            "InstructionID": null,
             "CardAccount": null,
             "PayerFinancialAccount": null,
             "PayeeFinancialAccount": null,
@@ -168,9 +244,13 @@
     ],
     "PaymentTerms": [
         {
+            "ID": null,
+            "PrepaidPaymentReferenceID": null,
+            "ReferenceEventCode": null,
             "Amount": null,
             "SettlementDiscountAmount": null,
             "PenaltyAmount": null,
+            "PaymentTermsDetailsURI": null,
             "SettlementPeriod": null,
             "PenaltyPeriod": null,
             "ExchangeRate": null,
@@ -179,27 +259,50 @@
     ],
     "PrepaidPayment": [
         {
-            "PaidAmount": null
+            "ID": null,
+            "PaidAmount": null,
+            "InstructionID": null
         }
     ],
     "AllowanceCharge": [
         {
+            "ID": null,
+            "AllowanceChargeReasonCode": null,
+            "MultiplierFactorNumeric": null,
+            "SequenceNumeric": null,
             "Amount": null,
             "BaseAmount": null,
+            "AccountingCostCode": null,
             "PerUnitAmount": null,
             "TaxTotal": null
         }
     ],
     "TaxExchangeRate": {
+        "SourceCurrencyCode": null,
+        "TargetCurrencyCode": null,
+        "ExchangeMarketID": null,
+        "MathematicOperatorCode": null,
         "ForeignExchangeContract": null
     },
     "PricingExchangeRate": {
+        "SourceCurrencyCode": null,
+        "TargetCurrencyCode": null,
+        "ExchangeMarketID": null,
+        "MathematicOperatorCode": null,
         "ForeignExchangeContract": null
     },
     "PaymentExchangeRate": {
+        "SourceCurrencyCode": null,
+        "TargetCurrencyCode": null,
+        "ExchangeMarketID": null,
+        "MathematicOperatorCode": null,
         "ForeignExchangeContract": null
     },
     "PaymentAlternativeExchangeRate": {
+        "SourceCurrencyCode": null,
+        "TargetCurrencyCode": null,
+        "ExchangeMarketID": null,
+        "MathematicOperatorCode": null,
         "ForeignExchangeContract": null
     },
     "TaxTotal": [
@@ -227,8 +330,12 @@
     },
     "InvoiceLine": [
         {
+            "ID": null,
+            "UUID": null,
             "InvoicedQuantity": null,
             "LineExtensionAmount": null,
+            "AccountingCostCode": null,
+            "PaymentPurposeCode": null,
             "PricingReference": null,
             "OriginatorParty": null,
             "Item": null,

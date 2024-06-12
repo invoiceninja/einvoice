@@ -2,7 +2,7 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
-use InvoiceNinja\EInvoice\Models\Peppol\AccountIDType\AccountID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\AccountID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;

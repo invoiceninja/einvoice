@@ -3,9 +3,9 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\ValidationResultCode;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\ValidatorID;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\SignatoryParty;
-use InvoiceNinja\EInvoice\Models\Peppol\ValidationResultCodeType\ValidationResultCode;
-use InvoiceNinja\EInvoice\Models\Peppol\ValidatorIDType\ValidatorID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;

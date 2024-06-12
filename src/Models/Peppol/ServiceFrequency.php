@@ -2,7 +2,7 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
-use InvoiceNinja\EInvoice\Models\Peppol\WeekDayCodeType\WeekDayCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\WeekDayCode;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;

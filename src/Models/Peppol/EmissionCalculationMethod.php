@@ -2,8 +2,8 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
-use InvoiceNinja\EInvoice\Models\Peppol\CalculationMethodCodeType\CalculationMethodCode;
-use InvoiceNinja\EInvoice\Models\Peppol\FullnessIndicationCodeType\FullnessIndicationCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\CalculationMethodCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\FullnessIndicationCode;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\MeasurementFromLocation;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\MeasurementToLocation;
 use Symfony\Component\Serializer\Attribute\Context;

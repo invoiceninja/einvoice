@@ -2,10 +2,10 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
-use InvoiceNinja\EInvoice\Models\Peppol\AttributeIDType\AttributeID;
-use InvoiceNinja\EInvoice\Models\Peppol\MaximumMeasureType\MaximumMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\AttributeID;
+use InvoiceNinja\EInvoice\Models\Peppol\MeasureType\MaximumMeasure;
 use InvoiceNinja\EInvoice\Models\Peppol\MeasureType\Measure;
-use InvoiceNinja\EInvoice\Models\Peppol\MinimumMeasureType\MinimumMeasure;
+use InvoiceNinja\EInvoice\Models\Peppol\MeasureType\MinimumMeasure;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;

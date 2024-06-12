@@ -6,7 +6,7 @@ use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\DimensionType\MeasurementDimension;
-use InvoiceNinja\EInvoice\Models\Peppol\LocationIDType\LocationID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\LocationID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;

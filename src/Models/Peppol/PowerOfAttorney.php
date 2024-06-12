@@ -4,7 +4,7 @@ namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\MandateDocumentReference;
-use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\AgentParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\NotaryParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\WitnessParty;

@@ -3,6 +3,7 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
+use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AddressType\OriginAddress;
 use InvoiceNinja\EInvoice\Models\Peppol\CertificateType\Certificate;
 use InvoiceNinja\EInvoice\Models\Peppol\CommodityClassificationType\CommodityClassification;
@@ -19,10 +20,10 @@ use InvoiceNinja\EInvoice\Models\Peppol\ItemIdentificationType\SellersItemIdenti
 use InvoiceNinja\EInvoice\Models\Peppol\ItemIdentificationType\StandardItemIdentification;
 use InvoiceNinja\EInvoice\Models\Peppol\ItemInstanceType\ItemInstance;
 use InvoiceNinja\EInvoice\Models\Peppol\ItemPropertyType\AdditionalItemProperty;
-use InvoiceNinja\EInvoice\Models\Peppol\PackQuantityType\PackQuantity;
-use InvoiceNinja\EInvoice\Models\Peppol\PackSizeNumericType\PackSizeNumeric;
+use InvoiceNinja\EInvoice\Models\Peppol\NumericType\PackSizeNumeric;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\InformationContentProviderParty;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\ManufacturerParty;
+use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\PackQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\TaxCategoryType\ClassifiedTaxCategory;
 use InvoiceNinja\EInvoice\Models\Peppol\TransactionConditionsType\TransactionConditions;
 use Symfony\Component\Serializer\Attribute\Context;

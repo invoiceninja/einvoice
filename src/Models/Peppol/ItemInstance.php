@@ -3,11 +3,11 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\ProductTraceID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\RegistrationID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\SerialID;
 use InvoiceNinja\EInvoice\Models\Peppol\ItemPropertyType\AdditionalItemProperty;
 use InvoiceNinja\EInvoice\Models\Peppol\LotIdentificationType\LotIdentification;
-use InvoiceNinja\EInvoice\Models\Peppol\ProductTraceIDType\ProductTraceID;
-use InvoiceNinja\EInvoice\Models\Peppol\RegistrationIDType\RegistrationID;
-use InvoiceNinja\EInvoice\Models\Peppol\SerialIDType\SerialID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;

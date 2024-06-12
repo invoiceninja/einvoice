@@ -2,12 +2,12 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
-use InvoiceNinja\EInvoice\Models\Peppol\AddressFormatCodeType\AddressFormatCode;
 use InvoiceNinja\EInvoice\Models\Peppol\AddressLineType\AddressLine;
-use InvoiceNinja\EInvoice\Models\Peppol\AddressTypeCodeType\AddressTypeCode;
-use InvoiceNinja\EInvoice\Models\Peppol\CountrySubentityCodeType\CountrySubentityCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\AddressFormatCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\AddressTypeCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\CountrySubentityCode;
 use InvoiceNinja\EInvoice\Models\Peppol\CountryType\Country;
-use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationCoordinateType\LocationCoordinate;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;

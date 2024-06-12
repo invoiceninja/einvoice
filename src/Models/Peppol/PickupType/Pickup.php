@@ -5,7 +5,7 @@ namespace InvoiceNinja\EInvoice\Models\Peppol\PickupType;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
-use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\LocationType\PickupLocation;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\PickupParty;
 use Symfony\Component\Serializer\Attribute\Context;

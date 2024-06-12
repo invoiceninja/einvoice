@@ -5,7 +5,7 @@ namespace InvoiceNinja\EInvoice\Models\Peppol\RoadTransportType;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
-use InvoiceNinja\EInvoice\Models\Peppol\LicensePlateIDType\LicensePlateID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\LicensePlateID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;

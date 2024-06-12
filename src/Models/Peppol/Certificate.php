@@ -3,9 +3,9 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
-use InvoiceNinja\EInvoice\Models\Peppol\CertificateTypeCodeType\CertificateTypeCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\CertificateTypeCode;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\DocumentReference;
-use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\IssuerParty;
 use InvoiceNinja\EInvoice\Models\Peppol\SignatureType\Signature;
 use Symfony\Component\Serializer\Attribute\Context;

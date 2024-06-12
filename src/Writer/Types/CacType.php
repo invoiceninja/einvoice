@@ -126,6 +126,88 @@ class CacType
             ]
         ];
 
+
+
+        $data[] = [
+            'type' => 'IdentifierType',
+            'base_type' => 'IdentifierType',
+            'help' => '',
+            'choices' => [],
+            'elements' => [
+                '#' => array_merge($this->stub_validation, ['name' => "value", 'base_type' => 'string','min_occurs' => 0, 'max_occurs' => 1, ]),
+                'schemeID' => array_merge($this->stub_validation, ['name' => 'schemeID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                'schemeName' => array_merge($this->stub_validation, ['name' => 'schemeName', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                'schemeAgencyID' => array_merge($this->stub_validation, ['name' => 'schemeAgencyID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                'schemeAgencyName' => array_merge($this->stub_validation, ['name' => 'schemeAgencyName', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                'schemeVersionID' => array_merge($this->stub_validation, ['name' => 'schemeVersionID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                'schemeDataURI' => array_merge($this->stub_validation, ['name' => 'schemeDataURI', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                'schemeURI' => array_merge($this->stub_validation, ['name' => 'schemeURI', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                'listURI' => array_merge($this->stub_validation, ['name' => 'listURI', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+                'listSchemeURI' => array_merge($this->stub_validation, ['name' => 'listSchemeURI', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+            ]
+        ];
+
+    $data[] = [
+        'type' => 'CodeType',
+        'base_type' => 'CodeType',
+        'help' => '',
+        'choices' => [],
+        'elements' => [
+            '#' => array_merge($this->stub_validation, ['name' => "value", 'base_type' => 'string','min_occurs' => 0, 'max_occurs' => 1, ]),
+            'listID' => array_merge($this->stub_validation, ['name' => 'listID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+            'listAgencyID' => array_merge($this->stub_validation, ['name' => 'listAgencyID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+            'listAgencyName' => array_merge($this->stub_validation, ['name' => 'listAgencyName', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+            'listName' => array_merge($this->stub_validation, ['name' => 'listName', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+            'listVersionID' => array_merge($this->stub_validation, ['name' => 'listVersionID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+            'name' => array_merge($this->stub_validation, ['name' => 'name', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+            'languageID' => array_merge($this->stub_validation, ['name' => 'languageID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+            'listURI' => array_merge($this->stub_validation, ['name' => 'listURI', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+            'listSchemeURI' => array_merge($this->stub_validation, ['name' => 'listSchemeURI', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+        ]
+    ];
+
+    $data[] = [
+        'type' => 'MeasureType',
+        'base_type' => 'MeasureType',
+        'help' => '',
+        'choices' => [],
+        'elements' => [
+            '#' => array_merge($this->stub_validation, ['name' => "value", 'base_type' => 'string','min_occurs' => 0, 'max_occurs' => 1, ]),
+            'unitCode' => array_merge($this->stub_validation, ['name' => 'unitCode', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+            'unitCodeListVersionID' => array_merge($this->stub_validation, ['name' => 'unitCodeListVersionID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+        ],
+        ];
+
+
+    $data[] = [
+        'type' => 'NumericType',
+        'base_type' => 'NumericType',
+        'help' => '',
+        'choices' => [],
+        'elements' => [
+            '#' => array_merge($this->stub_validation, ['name' => "value", 'base_type' => 'string','min_occurs' => 0, 'max_occurs' => 1, ]),
+            'format' => array_merge($this->stub_validation, ['name' => 'format', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+        ]
+        ];
+
+    $data[] = [
+        'type' => 'QuantityType',
+        'base_type' => 'QuantityType',
+        'help' => '',
+        'choices' => [],
+        'elements' => [
+            '#' => array_merge($this->stub_validation, ['name' => "value", 'base_type' => 'string','min_occurs' => 0, 'max_occurs' => 1, ]),
+            'unitCode' => array_merge($this->stub_validation, ['name' => 'unitCode', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+            'unitCodeListID' => array_merge($this->stub_validation, ['name' => 'unitCodeListID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+            'unitCodeListAgencyID' => array_merge($this->stub_validation, ['name' => 'unitCodeListAgencyID', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+            'unitCodeListAgencyName' => array_merge($this->stub_validation, ['name' => 'unitCodeListAgencyName', 'base_type' => 'string', 'min_occurs' => 0, 'max_occurs' => 1, ]),
+        ]
+        ];
+
+
+
+
+
         $this->elements = $data;
 
         return $this;

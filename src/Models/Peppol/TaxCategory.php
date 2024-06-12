@@ -4,9 +4,9 @@ namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
 use InvoiceNinja\EInvoice\Models\Peppol\AmountType\PerUnitAmount;
-use InvoiceNinja\EInvoice\Models\Peppol\BaseUnitMeasureType\BaseUnitMeasure;
-use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
-use InvoiceNinja\EInvoice\Models\Peppol\TaxExemptionReasonCodeType\TaxExemptionReasonCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\TaxExemptionReasonCode;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\MeasureType\BaseUnitMeasure;
 use InvoiceNinja\EInvoice\Models\Peppol\TaxSchemeType\TaxScheme;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;

@@ -23,41 +23,46 @@ class Peppol extends BaseStandard
     private ExtType $extType;
     private CacType $cacType;
     private CbcType $cbcType;
+    
+    //0 - do not show
+    //1 - company level
+    //2 - client level
+    //4 - entity level
 
-    private array $visibility = [
+    public array $visibility = [
         'UBLExtensions' => 0,
         'UBLVersionID' => 0,
         'CustomizationID' => 0,
         'ProfileID' => 0,
         'ProfileExecutionID' => 0,
-        'ID' => 4,
+        'ID' => 0,
         'CopyIndicator' => 0,
         'UUID' => 0,
-        'IssueDate' => 4,
-        'IssueTime' => 4,
-        'DueDate' => 4,
+        'IssueDate' => 0,
+        'IssueTime' => 0,
+        'DueDate' => 0,
         'InvoiceTypeCode' => 4,
         'Note' => 4,
         'TaxPointDate' => 4,
-        'DocumentCurrencyCode' => 7,
-        'TaxCurrencyCode' => 7,
-        'PricingCurrencyCode' => 7,
-        'PaymentCurrencyCode' => 7,
-        'PaymentAlternativeCurrencyCode' => 7,
-        'AccountingCostCode' => 2,
-        'AccountingCost' => 2,
+        'DocumentCurrencyCode' => 0,
+        'TaxCurrencyCode' => 0,
+        'PricingCurrencyCode' => 0,
+        'PaymentCurrencyCode' => 0,
+        'PaymentAlternativeCurrencyCode' => 0,
+        'AccountingCostCode' => 7,
+        'AccountingCost' => 7,
         'LineCountNumeric' => 0,
-        'BuyerReference' => 2,
+        'BuyerReference' => 6,
         'InvoicePeriod' => 4,
         'OrderReference' => 4,
         'BillingReference' => 4,
-        'DespatchDocumentReference' => 4,
-        'ReceiptDocumentReference' => 4,
-        'StatementDocumentReference' => 4,
-        'OriginatorDocumentReference' => 4,
-        'ContractDocumentReference' => 4,
-        'AdditionalDocumentReference' => 4,
-        'ProjectReference' => 4,
+        'DespatchDocumentReference' => 0,
+        'ReceiptDocumentReference' => 0,
+        'StatementDocumentReference' => 0,
+        'OriginatorDocumentReference' => 0,
+        'ContractDocumentReference' => 0,
+        'AdditionalDocumentReference' => 0,
+        'ProjectReference' => 0,
         'Signature' => 0,
         'AccountingSupplierParty' => 1,
         'AccountingCustomerParty' => 2,
@@ -69,7 +74,7 @@ class Peppol extends BaseStandard
         'DeliveryTerms' => 7,
         'PaymentMeans' => 7,
         'PaymentTerms' => 7,
-        'PrepaidPayment' => 4,
+        'PrepaidPayment' => 0,
         'AllowanceCharge' => 4,
         'TaxExchangeRate' => 0,
         'PricingExchangeRate' => 0,
@@ -520,6 +525,14 @@ class Peppol extends BaseStandard
                 $maxOccurs = "-1";
             }
 
+
+            if(isset($this->visibility[$parts[1]]) && $this->visibility[$parts[1]] == 0) {
+                $visibility = 0;
+            } else {
+                $visibility = $this->getVisibility($parts[1]) ?? 0;
+            }
+
+
             $parent_elements[$parts[1]] = array_merge($this->stub_validation, [
                 'name' => $parts[1],
                 'base_type' => $element->getAttribute('ref'),
@@ -527,6 +540,7 @@ class Peppol extends BaseStandard
                 'max_occurs' => (int)$maxOccurs,
                 'help' => $this->getAnnotation($element),
                 'namespace' => $parts[0],
+                'visibility' => $visibility,
             ]);
 
         }
@@ -539,6 +553,27 @@ class Peppol extends BaseStandard
         ];
 
         return $this;
+    }
+
+    private function getVisibility(string $type): int
+    {
+
+        
+        if(isset($this->visibility[$type])) {
+            return 7;
+        }
+
+        foreach($this->visibility as $key => $value) {
+
+            if(isset($this->visibility[$key][$type])) {
+                return $this->visibility[$key][$type];
+            }
+
+        }
+
+        return 0;
+
+
     }
 
     private function getAnnotation(DOMElement $element): string
@@ -571,6 +606,9 @@ class Peppol extends BaseStandard
     private function childTypes(): self
     {
         $this->type_tracker[] = 'AmountType';
+        $this->type_tracker[] = 'IdentifierType';
+        $this->type_tracker[] = 'CodeType';
+        $this->type_tracker[] = 'NumericType';
         $this->type_tracker[] = 'QuantityType';
 
         $element_collection = collect($this->cacType->elements);
@@ -655,12 +693,21 @@ class Peppol extends BaseStandard
                 $type_array = $cbc_collection->where('type', $type)->first();
             }
 
+            $type_array['visibility'] = $this->getVisibility($type);
+
             $new_set = [];
+
+            if(!isset($type_array['elements'])){
+                echo $type;
+                // echo print_r($type_array).PHP_EOL;
+            }
+
             foreach($type_array['elements'] as $stub) {
+                $stub['visibility'] = $this->getVisibility($stub['name']);
                 $new_set[$stub['name']] = $stub;
             }
             $type_array['elements'] = $new_set;
-
+            
             $this->data[$type_array['type']] = (object)$type_array;
 
 
@@ -673,7 +720,7 @@ class Peppol extends BaseStandard
     private function harvestNode(string $name)
     {
         $parts = explode(":", $name);
-$type = $this->cbcType;
+        $type = $this->cbcType;
 
         match($parts[0]) {
             'cac' => $type = $this->cacType,

@@ -3,15 +3,15 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use InvoiceNinja\EInvoice\Models\Peppol\CardAccountType\CardAccount;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\PaymentChannelCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\PaymentMeansCode;
 use InvoiceNinja\EInvoice\Models\Peppol\CreditAccountType\CreditAccount;
 use InvoiceNinja\EInvoice\Models\Peppol\FinancialAccountType\PayeeFinancialAccount;
 use InvoiceNinja\EInvoice\Models\Peppol\FinancialAccountType\PayerFinancialAccount;
-use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
-use InvoiceNinja\EInvoice\Models\Peppol\InstructionIDType\InstructionID;
-use InvoiceNinja\EInvoice\Models\Peppol\PaymentChannelCodeType\PaymentChannelCode;
-use InvoiceNinja\EInvoice\Models\Peppol\PaymentIDType\PaymentID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\InstructionID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\PaymentID;
 use InvoiceNinja\EInvoice\Models\Peppol\PaymentMandateType\PaymentMandate;
-use InvoiceNinja\EInvoice\Models\Peppol\PaymentMeansCodeType\PaymentMeansCode;
 use InvoiceNinja\EInvoice\Models\Peppol\TradeFinancingType\TradeFinancing;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;

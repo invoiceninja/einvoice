@@ -2,7 +2,7 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
-use InvoiceNinja\EInvoice\Models\Peppol\ChannelCodeType\ChannelCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\ChannelCode;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;

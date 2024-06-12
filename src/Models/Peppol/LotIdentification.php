@@ -2,8 +2,8 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\LotNumberID;
 use InvoiceNinja\EInvoice\Models\Peppol\ItemPropertyType\AdditionalItemProperty;
-use InvoiceNinja\EInvoice\Models\Peppol\LotNumberIDType\LotNumberID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;

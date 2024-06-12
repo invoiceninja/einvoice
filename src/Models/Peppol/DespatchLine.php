@@ -3,17 +3,18 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
-use InvoiceNinja\EInvoice\Models\Peppol\BackorderQuantityType\BackorderQuantity;
-use InvoiceNinja\EInvoice\Models\Peppol\DeliveredQuantityType\DeliveredQuantity;
+use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\LineStatusCode;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\DocumentReference;
-use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\UUID;
 use InvoiceNinja\EInvoice\Models\Peppol\ItemType\Item;
-use InvoiceNinja\EInvoice\Models\Peppol\LineStatusCodeType\LineStatusCode;
 use InvoiceNinja\EInvoice\Models\Peppol\OrderLineReferenceType\OrderLineReference;
-use InvoiceNinja\EInvoice\Models\Peppol\OutstandingQuantityType\OutstandingQuantity;
-use InvoiceNinja\EInvoice\Models\Peppol\OversupplyQuantityType\OversupplyQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\BackorderQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\DeliveredQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\OutstandingQuantity;
+use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\OversupplyQuantity;
 use InvoiceNinja\EInvoice\Models\Peppol\ShipmentType\Shipment;
-use InvoiceNinja\EInvoice\Models\Peppol\UUIDType\UUID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;

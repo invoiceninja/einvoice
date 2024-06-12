@@ -3,17 +3,17 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use InvoiceNinja\EInvoice\Models\Peppol\AirTransportType\AirTransport;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\DirectionCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\TradeServiceCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\TransportMeansTypeCode;
 use InvoiceNinja\EInvoice\Models\Peppol\DimensionType\MeasurementDimension;
-use InvoiceNinja\EInvoice\Models\Peppol\DirectionCodeType\DirectionCode;
-use InvoiceNinja\EInvoice\Models\Peppol\JourneyIDType\JourneyID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\JourneyID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\RegistrationNationalityID;
 use InvoiceNinja\EInvoice\Models\Peppol\MaritimeTransportType\MaritimeTransport;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\OwnerParty;
 use InvoiceNinja\EInvoice\Models\Peppol\RailTransportType\RailTransport;
-use InvoiceNinja\EInvoice\Models\Peppol\RegistrationNationalityIDType\RegistrationNationalityID;
 use InvoiceNinja\EInvoice\Models\Peppol\RoadTransportType\RoadTransport;
 use InvoiceNinja\EInvoice\Models\Peppol\StowageType\Stowage;
-use InvoiceNinja\EInvoice\Models\Peppol\TradeServiceCodeType\TradeServiceCode;
-use InvoiceNinja\EInvoice\Models\Peppol\TransportMeansTypeCodeType\TransportMeansTypeCode;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;

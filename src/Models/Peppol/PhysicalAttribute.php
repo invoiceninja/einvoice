@@ -2,9 +2,9 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
-use InvoiceNinja\EInvoice\Models\Peppol\AttributeIDType\AttributeID;
-use InvoiceNinja\EInvoice\Models\Peppol\DescriptionCodeType\DescriptionCode;
-use InvoiceNinja\EInvoice\Models\Peppol\PositionCodeType\PositionCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\DescriptionCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\PositionCode;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\AttributeID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;

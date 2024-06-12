@@ -3,11 +3,11 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\MathematicOperatorCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\SourceCurrencyCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\TargetCurrencyCode;
 use InvoiceNinja\EInvoice\Models\Peppol\ContractType\ForeignExchangeContract;
-use InvoiceNinja\EInvoice\Models\Peppol\ExchangeMarketIDType\ExchangeMarketID;
-use InvoiceNinja\EInvoice\Models\Peppol\MathematicOperatorCodeType\MathematicOperatorCode;
-use InvoiceNinja\EInvoice\Models\Peppol\SourceCurrencyCodeType\SourceCurrencyCode;
-use InvoiceNinja\EInvoice\Models\Peppol\TargetCurrencyCodeType\TargetCurrencyCode;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\ExchangeMarketID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;

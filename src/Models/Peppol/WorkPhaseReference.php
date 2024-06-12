@@ -3,9 +3,9 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\WorkPhaseCode;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\WorkOrderDocumentReference;
-use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
-use InvoiceNinja\EInvoice\Models\Peppol\WorkPhaseCodeType\WorkPhaseCode;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\ID;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;

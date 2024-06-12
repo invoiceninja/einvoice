@@ -3,11 +3,11 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use DateTime;
-use InvoiceNinja\EInvoice\Models\Peppol\CharacterSetCodeType\CharacterSetCode;
-use InvoiceNinja\EInvoice\Models\Peppol\EncodingCodeType\EncodingCode;
-use InvoiceNinja\EInvoice\Models\Peppol\FormatCodeType\FormatCode;
-use InvoiceNinja\EInvoice\Models\Peppol\MimeCodeType\MimeCode;
-use InvoiceNinja\EInvoice\Models\Peppol\URIType\URI;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\CharacterSetCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\EncodingCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\FormatCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\MimeCode;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\URI;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;

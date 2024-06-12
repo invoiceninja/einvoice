@@ -5,7 +5,7 @@ namespace InvoiceNinja\EInvoice\Models\Peppol\GoodsItemContainerType;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
-use InvoiceNinja\EInvoice\Models\Peppol\IDType\ID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\ID;
 use InvoiceNinja\EInvoice\Models\Peppol\QuantityType\Quantity;
 use InvoiceNinja\EInvoice\Models\Peppol\TransportEquipmentType\TransportEquipment;
 use Symfony\Component\Serializer\Attribute\Context;

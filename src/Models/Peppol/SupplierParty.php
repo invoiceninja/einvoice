@@ -2,11 +2,11 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
-use InvoiceNinja\EInvoice\Models\Peppol\AdditionalAccountIDType\AdditionalAccountID;
 use InvoiceNinja\EInvoice\Models\Peppol\ContactType\AccountingContact;
 use InvoiceNinja\EInvoice\Models\Peppol\ContactType\DespatchContact;
 use InvoiceNinja\EInvoice\Models\Peppol\ContactType\SellerContact;
-use InvoiceNinja\EInvoice\Models\Peppol\CustomerAssignedAccountIDType\CustomerAssignedAccountID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\AdditionalAccountID;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\CustomerAssignedAccountID;
 use InvoiceNinja\EInvoice\Models\Peppol\PartyType\Party;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;

@@ -5,7 +5,7 @@ namespace InvoiceNinja\EInvoice\Models\Peppol\CountryType;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
-use InvoiceNinja\EInvoice\Models\Peppol\IdentificationCodeType\IdentificationCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\IdentificationCode;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;

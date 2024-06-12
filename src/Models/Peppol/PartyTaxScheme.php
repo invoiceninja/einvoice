@@ -3,9 +3,9 @@
 namespace InvoiceNinja\EInvoice\Models\Peppol;
 
 use InvoiceNinja\EInvoice\Models\Peppol\AddressType\RegistrationAddress;
-use InvoiceNinja\EInvoice\Models\Peppol\CompanyIDType\CompanyID;
-use InvoiceNinja\EInvoice\Models\Peppol\ExemptionReasonCodeType\ExemptionReasonCode;
-use InvoiceNinja\EInvoice\Models\Peppol\TaxLevelCodeType\TaxLevelCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\ExemptionReasonCode;
+use InvoiceNinja\EInvoice\Models\Peppol\CodeType\TaxLevelCode;
+use InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\CompanyID;
 use InvoiceNinja\EInvoice\Models\Peppol\TaxSchemeType\TaxScheme;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;

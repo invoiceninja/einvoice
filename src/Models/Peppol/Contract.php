@@ -24,25 +24,25 @@ class Contract
 	#[SerializedName('cbc:ID')]
 	public $ID;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:IssueDate')]
-	public DateTime $IssueDate;
+	public ?DateTime $IssueDate;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:IssueTime')]
-	public DateTime $IssueTime;
+	public ?DateTime $IssueTime;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:NominationDate')]
-	public DateTime $NominationDate;
+	public ?DateTime $NominationDate;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:NominationTime')]
-	public DateTime $NominationTime;
+	public ?DateTime $NominationTime;
 
 	/** @var ContractTypeCode */
 	#[SerializedName('cbc:ContractTypeCode')]

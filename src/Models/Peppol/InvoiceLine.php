@@ -64,10 +64,10 @@ class InvoiceLine
 	#[SerializedName('cbc:LineExtensionAmount')]
 	public $LineExtensionAmount;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:TaxPointDate')]
-	public DateTime $TaxPointDate;
+	public ?DateTime $TaxPointDate;
 
 	/** @var AccountingCostCode */
 	#[SerializedName('cbc:AccountingCostCode')]

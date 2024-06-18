@@ -32,15 +32,15 @@ class WorkPhaseReference
 	#[SerializedName('cbc:ProgressPercent')]
 	public string $ProgressPercent;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:StartDate')]
-	public DateTime $StartDate;
+	public ?DateTime $StartDate;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:EndDate')]
-	public DateTime $EndDate;
+	public ?DateTime $EndDate;
 
 	/** @var WorkOrderDocumentReference[] */
 	#[SerializedName('cac:WorkOrderDocumentReference')]

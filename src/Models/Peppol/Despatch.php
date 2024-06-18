@@ -24,45 +24,45 @@ class Despatch
 	#[SerializedName('cbc:ID')]
 	public $ID;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:RequestedDespatchDate')]
-	public DateTime $RequestedDespatchDate;
+	public ?DateTime $RequestedDespatchDate;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:RequestedDespatchTime')]
-	public DateTime $RequestedDespatchTime;
+	public ?DateTime $RequestedDespatchTime;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:EstimatedDespatchDate')]
-	public DateTime $EstimatedDespatchDate;
+	public ?DateTime $EstimatedDespatchDate;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:EstimatedDespatchTime')]
-	public DateTime $EstimatedDespatchTime;
+	public ?DateTime $EstimatedDespatchTime;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:ActualDespatchDate')]
-	public DateTime $ActualDespatchDate;
+	public ?DateTime $ActualDespatchDate;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:ActualDespatchTime')]
-	public DateTime $ActualDespatchTime;
+	public ?DateTime $ActualDespatchTime;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:GuaranteedDespatchDate')]
-	public DateTime $GuaranteedDespatchDate;
+	public ?DateTime $GuaranteedDespatchDate;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:GuaranteedDespatchTime')]
-	public DateTime $GuaranteedDespatchTime;
+	public ?DateTime $GuaranteedDespatchTime;
 
 	/** @var ReleaseID */
 	#[SerializedName('cbc:ReleaseID')]

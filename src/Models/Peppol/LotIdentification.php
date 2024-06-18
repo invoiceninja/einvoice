@@ -15,10 +15,10 @@ class LotIdentification
 	#[SerializedName('cbc:LotNumberID')]
 	public $LotNumberID;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:ExpiryDate')]
-	public \DateTime $ExpiryDate;
+	public ?\DateTime $ExpiryDate;
 
 	/** @var AdditionalItemProperty[] */
 	#[SerializedName('cac:AdditionalItemProperty')]

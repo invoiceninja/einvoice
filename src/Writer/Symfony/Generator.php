@@ -244,7 +244,7 @@ class Generator
             if(stripos($element['base_type'], 'Type') === false) {
                 
                 if($base_type == 'DateTime')
-                    $base_type = "\DateTime";
+                    $base_type = "?\DateTime";
 
                 $property->addComment("@var ".$base_type);
                 $property->setType($base_type);

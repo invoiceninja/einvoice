@@ -52,10 +52,10 @@ class ExchangeRate
 	#[SerializedName('cbc:MathematicOperatorCode')]
 	public $MathematicOperatorCode;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:Date')]
-	public DateTime $Date;
+	public ?DateTime $Date;
 
 	/** @var ForeignExchangeContract */
 	#[SerializedName('cac:ForeignExchangeContract')]

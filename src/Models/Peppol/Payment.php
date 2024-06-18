@@ -22,20 +22,20 @@ class Payment
 	#[SerializedName('cbc:PaidAmount')]
 	public $PaidAmount;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:ReceivedDate')]
-	public DateTime $ReceivedDate;
+	public ?DateTime $ReceivedDate;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:PaidDate')]
-	public DateTime $PaidDate;
+	public ?DateTime $PaidDate;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:PaidTime')]
-	public DateTime $PaidTime;
+	public ?DateTime $PaidTime;
 
 	/** @var InstructionID */
 	#[SerializedName('cbc:InstructionID')]

@@ -26,7 +26,7 @@ class AltriDatiGestionali
 	#[Regex('/[\-]?[0-9]{1,11}\.[0-9]{2,8}/')]
 	public string $RiferimentoNumero;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
-	public \DateTime $RiferimentoData;
+	public ?\DateTime $RiferimentoData;
 }

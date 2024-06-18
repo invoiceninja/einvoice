@@ -19,20 +19,20 @@ class ItemInstance
 	#[SerializedName('cbc:ProductTraceID')]
 	public $ProductTraceID;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:ManufactureDate')]
-	public DateTime $ManufactureDate;
+	public ?DateTime $ManufactureDate;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:ManufactureTime')]
-	public DateTime $ManufactureTime;
+	public ?DateTime $ManufactureTime;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:BestBeforeDate')]
-	public DateTime $BestBeforeDate;
+	public ?DateTime $BestBeforeDate;
 
 	/** @var RegistrationID */
 	#[SerializedName('cbc:RegistrationID')]

@@ -89,23 +89,23 @@ class Invoice
 	#[SerializedName('cbc:UUID')]
 	public $UUID;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:IssueDate')]
-	public DateTime $IssueDate;
+	public ?DateTime $IssueDate;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:IssueTime')]
-	public DateTime $IssueTime;
+	public ?DateTime $IssueTime;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:DueDate')]
-	public DateTime $DueDate;
+	public ?DateTime $DueDate;
 
 	/** @var InvoiceTypeCode */
 	#[SerializedName('cbc:InvoiceTypeCode')]
@@ -115,10 +115,10 @@ class Invoice
 	#[SerializedName('cbc:Note')]
 	public string $Note;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:TaxPointDate')]
-	public DateTime $TaxPointDate;
+	public ?DateTime $TaxPointDate;
 
 	/** @var DocumentCurrencyCode */
 	#[SerializedName('cbc:DocumentCurrencyCode')]

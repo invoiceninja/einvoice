@@ -71,12 +71,12 @@ class DatiGeneraliDocumento
 	#[Regex('/[A-Z]{3}/')]
 	public string $Divisa;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[NotNull]
 	#[NotBlank]
 	#[Valid]
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
-	public \DateTime $Data;
+	public ?\DateTime $Data;
 
 	/** @var string */
 	#[Length(min: 1, max: 20)]

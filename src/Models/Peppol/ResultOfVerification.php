@@ -21,15 +21,15 @@ class ResultOfVerification
 	#[SerializedName('cbc:ValidationResultCode')]
 	public $ValidationResultCode;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:ValidationDate')]
-	public DateTime $ValidationDate;
+	public ?DateTime $ValidationDate;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:ValidationTime')]
-	public DateTime $ValidationTime;
+	public ?DateTime $ValidationTime;
 
 	/** @var string */
 	#[SerializedName('cbc:ValidateProcess')]

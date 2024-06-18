@@ -39,15 +39,15 @@ class DocumentReference
 	#[SerializedName('cbc:UUID')]
 	public $UUID;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
 	#[SerializedName('cbc:IssueDate')]
-	public DateTime $IssueDate;
+	public ?DateTime $IssueDate;
 
-	/** @var \DateTime */
+	/** @var ?\DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:IssueTime')]
-	public DateTime $IssueTime;
+	public ?DateTime $IssueTime;
 
 	/** @var DocumentTypeCode */
 	#[SerializedName('cbc:DocumentTypeCode')]

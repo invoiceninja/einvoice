@@ -107,7 +107,7 @@ class EInvoice
 
         $serializer = new Serializer($normalizers, $encoders);
 
-        // $document = $serializer->normalize($document, $format, [\Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer::SKIP_NULL_VALUES => true]);
+        $document = $serializer->normalize($document, $format, [\Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer::SKIP_NULL_VALUES => true]);
 
         $invoice = $serializer->deserialize($document, $this->parent_object, $format, [\Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer::SKIP_NULL_VALUES => true]);
         

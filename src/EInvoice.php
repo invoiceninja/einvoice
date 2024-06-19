@@ -27,7 +27,6 @@ use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer;
 use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
 use Symfony\Component\Serializer\NameConverter\MetadataAwareNameConverter;
-use Symfony\Component\Serializer\Mapping\ClassDiscriminatorFromClassMetadata;
 
 class EInvoice
 {
@@ -64,6 +63,37 @@ class EInvoice
         return $bag;
 
     }
+    
+    /**
+     * Validate Request
+     *
+     * @param  array $payload
+     * @param  string $class
+     * @return array
+     */
+    public function validateRequest(array $payload, string $class): array
+    {
+        
+        $serializer = $this->getSerializer();
+
+        $payload = $serializer->deserialize(json_encode($payload), $class, 'json');
+
+        $validator = Validation::createValidatorBuilder()
+            ->enableAttributeMapping()
+            ->getValidator();
+
+        $errors = $validator->validate($payload);
+
+        $bag = [];
+
+        foreach ($errors as $error) {
+            $bag[$error->getPropertyPath()] = $error->getMessage();
+        }
+
+        return $bag;
+
+    }
+
 
     /**
      * Decodes a document into an object

@@ -2794,7 +2794,7 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cac",
-                "visibility": 0
+                "visibility": 7
             },
             "CreditAccount": {
                 "name": "CreditAccount",
@@ -2820,7 +2820,7 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cac",
-                "visibility": 0
+                "visibility": 7
             },
             "TradeFinancing": {
                 "name": "TradeFinancing",
@@ -4693,7 +4693,7 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cbc",
-                "visibility": 0
+                "visibility": 7
             },
             "AdditionalStreetName": {
                 "name": "AdditionalStreetName",
@@ -4706,7 +4706,7 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cbc",
-                "visibility": 0
+                "visibility": 7
             },
             "BlockName": {
                 "name": "BlockName",
@@ -4784,7 +4784,7 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cbc",
-                "visibility": 0
+                "visibility": 7
             },
             "MarkCare": {
                 "name": "MarkCare",
@@ -4823,7 +4823,7 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cbc",
-                "visibility": 0
+                "visibility": 7
             },
             "CityName": {
                 "name": "CityName",
@@ -4836,7 +4836,7 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cbc",
-                "visibility": 0
+                "visibility": 7
             },
             "PostalZone": {
                 "name": "PostalZone",
@@ -4849,7 +4849,7 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cbc",
-                "visibility": 0
+                "visibility": 7
             },
             "CountrySubentity": {
                 "name": "CountrySubentity",
@@ -4862,7 +4862,7 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cbc",
-                "visibility": 0
+                "visibility": 7
             },
             "CountrySubentityCode": {
                 "name": "CountrySubentityCode",
@@ -4875,7 +4875,7 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cbc",
-                "visibility": 0
+                "visibility": 7
             },
             "Region": {
                 "name": "Region",
@@ -4888,7 +4888,7 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cbc",
-                "visibility": 0
+                "visibility": 7
             },
             "District": {
                 "name": "District",
@@ -4901,7 +4901,7 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cbc",
-                "visibility": 0
+                "visibility": 7
             },
             "TimezoneOffset": {
                 "name": "TimezoneOffset",
@@ -4927,7 +4927,7 @@
                 "max_occurs": -1,
                 "min_occurs": 0,
                 "namespace": "cac",
-                "visibility": 0
+                "visibility": 7
             },
             "Country": {
                 "name": "Country",
@@ -4940,7 +4940,7 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cac",
-                "visibility": 0
+                "visibility": 7
             },
             "LocationCoordinate": {
                 "name": "LocationCoordinate",
@@ -5854,7 +5854,7 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cbc",
-                "visibility": 0
+                "visibility": 7
             },
             "AliasName": {
                 "name": "AliasName",
@@ -5867,7 +5867,7 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cbc",
-                "visibility": 0
+                "visibility": 7
             },
             "AccountTypeCode": {
                 "name": "AccountTypeCode",
@@ -5919,7 +5919,7 @@
                 "max_occurs": -1,
                 "min_occurs": 0,
                 "namespace": "cbc",
-                "visibility": 0
+                "visibility": 7
             },
             "FinancialInstitutionBranch": {
                 "name": "FinancialInstitutionBranch",
@@ -5932,7 +5932,7 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cac",
-                "visibility": 0
+                "visibility": 7
             },
             "Country": {
                 "name": "Country",
@@ -8849,7 +8849,7 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cbc",
-                "visibility": 0
+                "visibility": 7
             },
             "FinancialInstitution": {
                 "name": "FinancialInstitution",
@@ -8862,7 +8862,7 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cac",
-                "visibility": 0
+                "visibility": 7
             },
             "Address": {
                 "name": "Address",
@@ -8875,7 +8875,7 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cac",
-                "visibility": 0
+                "visibility": 7
             }
         },
         "visibility": 0
@@ -13137,7 +13137,7 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cbc",
-                "visibility": 0
+                "visibility": 7
             },
             "Address": {
                 "name": "Address",
@@ -13150,7 +13150,7 @@
                 "max_occurs": 1,
                 "min_occurs": 0,
                 "namespace": "cac",
-                "visibility": 0
+                "visibility": 7
             }
         },
         "visibility": 0

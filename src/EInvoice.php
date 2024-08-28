@@ -94,7 +94,7 @@ class EInvoice
 
     }
 
-    public function denormalize(array $payload $class): mixed
+    public function denormalize(array $payload, string $class): mixed
     {
 
         $serializer = $this->getSerializer();

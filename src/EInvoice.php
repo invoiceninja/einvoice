@@ -102,7 +102,7 @@ class EInvoice
         // Blank string is converted to null, which then makes the "string" type invalid - even for an optional property.
         // by denormalizing, we avoid this scenario, as the prop is dropped, but the validator will still enforce if required!
         // ie, we need this to get an object - of some form - into the validator!!!!
-        $payload = $serializer->denormalize(json_encode($payload), $class, null, [AbstractObjectNormalizer::SKIP_NULL_VALUES => true]);]
+        $payload = $serializer->denormalize(json_encode($payload), $class, null, [AbstractObjectNormalizer::SKIP_NULL_VALUES => true]);
 
         return  $payload;
 

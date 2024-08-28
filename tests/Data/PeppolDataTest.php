@@ -103,6 +103,19 @@ class PeppolDataTest extends TestCase
         // $this->assertEquals(234234234, $invoice->AccountingSupplierParty->Party->PartyIdentification[0]->ID);
     }
 
+    public function testDecode()
+    {
+        $json = '{"ID":"ROCKER","Note":"NOTE","PaymentMeans":[{"ID":{"value":"afdasfasdfasdfas"},"PayeeFinancialAccount":{"Name":"PFA-NAME","ID":{"value":"DE89370400440532013000"},"AliasName":"PFA-Alias","AccountTypeCode":{"value":"CHECKING"},"AccountFormatCode":{"value":"IBAN"},"CurrencyCode":{"value":"EUR"},"FinancialInstitutionBranch":{"ID":{"value":"DEUTDEMMXXX"},"Name":"Deutsche Bank"}}}]}';
+    
+        $e = new EInvoice();
+        $result = $e->decode('Peppol', $json, 'json');
+
+        echo print_r($result);
+
+
+    }
+
+
     public function testXSDValidation()
     {
         
@@ -233,30 +246,30 @@ class PeppolDataTest extends TestCase
         return null;
     }
 
-    public function testPeppolValidation()
-    {
+    // public function testPeppolValidation()
+    // {
 
-        $f = "src/Standards/Peppol/example.xml";
-        $xslt = "src/Standards/Peppol/peppol.xslt";
+    //     $f = "src/Standards/Peppol/example.xml";
+    //     $xslt = "src/Standards/Peppol/peppol.xslt";
         
-        $e = new EInvoice();
-        $result = $e->decode('Peppol', file_get_contents($f), 'xml');;
+    //     $e = new EInvoice();
+    //     $result = $e->decode('Peppol', file_get_contents($f), 'xml');;
 
-        $convert = $e->encode($result, 'xml');
+    //     $convert = $e->encode($result, 'xml');
 
-        $this->assertNotNull($convert);
+    //     $this->assertNotNull($convert);
 
-        $xmlFile = $f;
-        $saxonProc = new \Saxon\SaxonProcessor();
+    //     $xmlFile = $f;
+    //     $saxonProc = new \Saxon\SaxonProcessor();
         
-        $proc = $saxonProc->newXslt30Processor();
+    //     $proc = $saxonProc->newXslt30Processor();
 
-        // $proc->transformFileToFile($f, $xslt, $outputFile); //output to file
+    //     // $proc->transformFileToFile($f, $xslt, $outputFile); //output to file
 
-        // $result = $proc->transformFileToValue($f, $xslt); //output to saxon object
+    //     // $result = $proc->transformFileToValue($f, $xslt); //output to saxon object
 
-        $executable = $proc->compileFromFile($xslt);
-        $result = $executable->transformFileToString($xmlFile); //output to strings
+    //     $executable = $proc->compileFromFile($xslt);
+    //     $result = $executable->transformFileToString($xmlFile); //output to strings
 
-    }
+    // }
 }

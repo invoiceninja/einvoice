@@ -178,10 +178,28 @@ class EInvoice
 
         $object = $serializer->normalize($object, null, [\Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer::SKIP_NULL_VALUES => true]);
 
+        $object = $this->removeEmptyValues($object);
+
         $data = $serializer->encode($object, $type, $context);
 
         return $type == 'xml' ? $this->decorateXml($data) : $data;
 
+    }
+
+    private function removeEmptyValues(array $array): array
+    {
+        foreach ($array as $key => $value) {
+            if (is_array($value)) {
+                $array[$key] = $this->removeEmptyValues($value);
+                if (empty($array[$key])) {
+                    unset($array[$key]);
+                }
+            } elseif ($value === null || $value === '') {
+                unset($array[$key]);
+            }
+        }
+        
+        return $array;
     }
 
     /**

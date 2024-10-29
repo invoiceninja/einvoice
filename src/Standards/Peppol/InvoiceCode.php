@@ -11,7 +11,7 @@
 
 namespace InvoiceNinja\EInvoice\Standards\Peppol;
 
-class Tax
+class InvoiceCode
 {
 
 public array $codes = [

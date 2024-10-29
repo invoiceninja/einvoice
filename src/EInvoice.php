@@ -105,6 +105,7 @@ class EInvoice
         $payload = $serializer->denormalize(json_encode($payload), $class, null, [AbstractObjectNormalizer::SKIP_NULL_VALUES => true]);
 
         return  $payload;
+        
 
     }
 

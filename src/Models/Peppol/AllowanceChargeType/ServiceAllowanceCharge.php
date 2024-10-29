@@ -33,12 +33,9 @@ class ServiceAllowanceCharge
 	#[SerializedName('cbc:ID')]
 	public $ID;
 
-	/** @var bool */
-	#[NotNull]
-	#[NotBlank]
-	#[Valid]
+	/** @var string */
 	#[SerializedName('cbc:ChargeIndicator')]
-	public bool $ChargeIndicator;
+	public string $ChargeIndicator;
 
 	/** @var AllowanceChargeReasonCode */
 	#[SerializedName('cbc:AllowanceChargeReasonCode')]

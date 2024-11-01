@@ -243,7 +243,7 @@ class EInvoice
         return $this;
     }
 
-    private function getSerializer(): Serializer
+    public function getSerializer(): Serializer
     {
                 
         $phpDocExtractor = new PhpDocExtractor();

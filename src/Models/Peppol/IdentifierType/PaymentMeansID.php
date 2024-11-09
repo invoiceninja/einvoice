@@ -18,43 +18,43 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class PaymentMeansID
 {
-	/** @var string */
+	/** @var string|int */
 	#[SerializedName('#')]
-	public string $value;
+	public string|int $value;
 
-	/** @var string */
+	/** @var string|int */
 	#[SerializedName('@schemeID')]
-	public string $schemeID;
+	public string|int $schemeID;
 
-	/** @var string */
+	/** @var string|int */
 	#[SerializedName('@schemeName')]
-	public string $schemeName;
+	public string|int $schemeName;
 
-	/** @var string */
+	/** @var string|int */
 	#[SerializedName('@schemeAgencyID')]
-	public string $schemeAgencyID;
+	public string|int $schemeAgencyID;
 
-	/** @var string */
+	/** @var string|int */
 	#[SerializedName('@schemeAgencyName')]
-	public string $schemeAgencyName;
+	public string|int $schemeAgencyName;
 
-	/** @var string */
+	/** @var string|int */
 	#[SerializedName('@schemeVersionID')]
-	public string $schemeVersionID;
+	public string|int $schemeVersionID;
 
-	/** @var string */
+	/** @var string|int */
 	#[SerializedName('@schemeDataURI')]
-	public string $schemeDataURI;
+	public string|int $schemeDataURI;
 
-	/** @var string */
+	/** @var string|int */
 	#[SerializedName('@schemeURI')]
-	public string $schemeURI;
+	public string|int $schemeURI;
 
-	/** @var string */
+	/** @var string|int */
 	#[SerializedName('@listURI')]
-	public string $listURI;
+	public string|int $listURI;
 
-	/** @var string */
+	/** @var string|int */
 	#[SerializedName('@listSchemeURI')]
-	public string $listSchemeURI;
+	public string|int $listSchemeURI;
 }

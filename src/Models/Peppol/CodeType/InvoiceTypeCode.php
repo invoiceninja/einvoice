@@ -18,43 +18,43 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class InvoiceTypeCode
 {
-	/** @var int|int|string */
+	/** @var int|string */
 	#[SerializedName('#')]
-	public int|int|string $value;
+	public int|string $value;
 
-	/** @var int|int|string */
+	/** @var int|string */
 	#[SerializedName('@listID')]
-	public int|int|string $listID;
+	public int|string $listID;
 
-	/** @var int|int|string */
+	/** @var int|string */
 	#[SerializedName('@listAgencyID')]
-	public int|int|string $listAgencyID;
+	public int|string $listAgencyID;
 
-	/** @var int|int|string */
+	/** @var int|string */
 	#[SerializedName('@listAgencyName')]
-	public int|int|string $listAgencyName;
+	public int|string $listAgencyName;
 
-	/** @var int|int|string */
+	/** @var int|string */
 	#[SerializedName('@listName')]
-	public int|int|string $listName;
+	public int|string $listName;
 
-	/** @var int|int|string */
+	/** @var int|string */
 	#[SerializedName('@listVersionID')]
-	public int|int|string $listVersionID;
+	public int|string $listVersionID;
 
-	/** @var int|int|string */
+	/** @var int|string */
 	#[SerializedName('@name')]
-	public int|int|string $name;
+	public int|string $name;
 
-	/** @var int|int|string */
+	/** @var int|string */
 	#[SerializedName('@languageID')]
-	public int|int|string $languageID;
+	public int|string $languageID;
 
-	/** @var int|int|string */
+	/** @var int|string */
 	#[SerializedName('@listURI')]
-	public int|int|string $listURI;
+	public int|string $listURI;
 
-	/** @var int|int|string */
+	/** @var int|string */
 	#[SerializedName('@listSchemeURI')]
-	public int|int|string $listSchemeURI;
+	public int|string $listSchemeURI;
 }

@@ -18,43 +18,43 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class TimingComplaintCode
 {
-	/** @var string */
+	/** @var int|string */
 	#[SerializedName('#')]
-	public string $value;
+	public int|string $value;
 
-	/** @var string */
+	/** @var int|string */
 	#[SerializedName('@listID')]
-	public string $listID;
+	public int|string $listID;
 
-	/** @var string */
+	/** @var int|string */
 	#[SerializedName('@listAgencyID')]
-	public string $listAgencyID;
+	public int|string $listAgencyID;
 
-	/** @var string */
+	/** @var int|string */
 	#[SerializedName('@listAgencyName')]
-	public string $listAgencyName;
+	public int|string $listAgencyName;
 
-	/** @var string */
+	/** @var int|string */
 	#[SerializedName('@listName')]
-	public string $listName;
+	public int|string $listName;
 
-	/** @var string */
+	/** @var int|string */
 	#[SerializedName('@listVersionID')]
-	public string $listVersionID;
+	public int|string $listVersionID;
 
-	/** @var string */
+	/** @var int|string */
 	#[SerializedName('@name')]
-	public string $name;
+	public int|string $name;
 
-	/** @var string */
+	/** @var int|string */
 	#[SerializedName('@languageID')]
-	public string $languageID;
+	public int|string $languageID;
 
-	/** @var string */
+	/** @var int|string */
 	#[SerializedName('@listURI')]
-	public string $listURI;
+	public int|string $listURI;
 
-	/** @var string */
+	/** @var int|string */
 	#[SerializedName('@listSchemeURI')]
-	public string $listSchemeURI;
+	public int|string $listSchemeURI;
 }

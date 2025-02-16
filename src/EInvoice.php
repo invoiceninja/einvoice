@@ -64,34 +64,72 @@ class EInvoice
 
     }
     
-    /**
-     * Validate Request
-     *
-     * @param  array $payload
-     * @param  string $class
-     * @return array
-     */
-    public function validateRequest(array $payload, string $class): array
-    {
+    // /**
+    //  * Validate Request
+    //  *
+    //  * @param  array $payload
+    //  * @param  string $class
+    //  * @return array
+    //  */
+    // public function validateRequest(array $payload, string $class): array
+    // {
         
-        $payload = $this->denormalize($payload, $class);
+    //     $payload = $this->denormalize($payload, $class);
 
-        // $payload = $serializer->deserialize(json_encode($payload), $class, 'json');
+    //     // $payload = $serializer->deserialize(json_encode($payload), $class, 'json');
 
-        $validator = Validation::createValidatorBuilder()
-            ->enableAttributeMapping()
-            ->getValidator();
+    //     $validator = Validation::createValidatorBuilder()
+    //         ->enableAttributeMapping()
+    //         ->getValidator();
 
-        $errors = $validator->validate($payload);
+    //     $errors = $validator->validate($payload);
 
-        $bag = [];
+    //     $bag = [];
 
-        foreach ($errors as $error) {
-            $bag[$error->getPropertyPath()] = $error->getMessage();
+    //     foreach ($errors as $error) {
+    //         $bag[$error->getPropertyPath()] = $error->getMessage();
+    //     }
+
+    //     return $bag;
+
+    // }
+
+
+    public function validateRequest(array $data, string $validatorClass)
+    {
+        try {
+            
+            $serializer = $this->getSerializer();
+
+            // Enable strict mode for denormalization
+            $object = $serializer->denormalize(
+                $data, 
+                $validatorClass, 
+                null, 
+                [
+                    'disable_type_enforcement' => false,
+                    'strict' => true
+                ]
+            );
+            
+            nlog($object);
+            $validator = Validation::createValidator();
+            $violations = $validator->validate($object);
+            nlog($violations);
+            return $violations->count() > 0 ? $violations : null;
+        } catch (\Throwable $e) {
+            // Create a violation list from the denormalization error
+            $violations = new ConstraintViolationList();
+            $violations->add(new ConstraintViolation(
+                $e->getMessage(),
+                null,
+                [],
+                $data,
+                $e->getPath(),
+                $data[$e->getPath()] ?? null
+            ));
+            return $violations;
         }
-
-        return $bag;
-
     }
 
     public function denormalize(array $payload, string $class): mixed

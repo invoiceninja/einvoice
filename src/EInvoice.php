@@ -98,7 +98,7 @@ class EInvoice
     // }
 
 
-    public function validateRequest(array $data, string $validatorClass)
+   public function validateRequest(array $data, string $validatorClass)
     {
         try {
             
@@ -117,9 +117,9 @@ class EInvoice
             
             $validator = Validation::createValidator();
             $violations = $validator->validate($object);
-            return $violations->count() > 0 ? $violations : null;
+            return $violations->count() > 0 ? $violations : [];
         } catch (\Throwable $e) {
-            // Create a violation list from the denormalization error
+            nlog($e->getMessage());
             $violations = new ConstraintViolationList();
             $violations->add(new ConstraintViolation(
                 $e->getMessage(),
@@ -127,11 +127,12 @@ class EInvoice
                 [],
                 $data,
                 $e->getPath(),
-                $data[$e->getPath()] ?? null
+                $data[$e->getPath()] ?? []
             ));
             return $violations;
         }
     }
+
 
     public function denormalize(array $payload, string $class): mixed
     {

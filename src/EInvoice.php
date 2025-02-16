@@ -115,10 +115,8 @@ class EInvoice
                 ]
             );
             
-            nlog($object);
             $validator = Validation::createValidator();
             $violations = $validator->validate($object);
-            nlog($violations);
             return $violations->count() > 0 ? $violations : null;
         } catch (\Throwable $e) {
             // Create a violation list from the denormalization error

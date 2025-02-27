@@ -16,12 +16,12 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\Valid;
-
+use InvoiceNinja\EInvoice\Models\Peppol\EmbeddedDocumentBinaryObjectType\EmbeddedDocumentBinaryObject;
 class Attachment
 {
-	/** @var mixed */
+	/** @var EmbeddedDocumentBinaryObject */
 	#[SerializedName('cbc:EmbeddedDocumentBinaryObject')]
-	public mixed $EmbeddedDocumentBinaryObject;
+	public $EmbeddedDocumentBinaryObject;
 
 	/** @var ExternalReference */
 	#[SerializedName('cac:ExternalReference')]

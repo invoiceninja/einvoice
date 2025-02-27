@@ -18,4 +18,10 @@ class EmbeddedDocumentBinaryObject
     #[SerializedName('@mimeCode')]
     public string $mimeCode;
 
+    /** @var string */
+    #[NotBlank]
+    #[NotNull]
+    #[SerializedName('@filename')]
+    public string $filename;
+
 }

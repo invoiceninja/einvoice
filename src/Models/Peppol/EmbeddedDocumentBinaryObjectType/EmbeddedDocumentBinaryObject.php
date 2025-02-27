@@ -16,6 +16,6 @@ class EmbeddedDocumentBinaryObject
     #[NotBlank]
     #[NotNull]
     #[SerializedName('@mimeCode')]
-    private string $mimeCode;
+    public string $mimeCode;
 
 }

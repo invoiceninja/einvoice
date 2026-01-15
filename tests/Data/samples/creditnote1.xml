@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<CreditNote xmlns="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2"
+    xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+    xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+    xmlns:ccts="urn:un:unece:uncefact:documentation:2"
+    xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDataTypes-2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:udt="urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2">
+      <cbc:UBLVersionID>2.1</cbc:UBLVersionID>
+  <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:efactura.mfinante.ro:CIUS-RO:1.0.1</cbc:CustomizationID>
+  <cbc:ID>CN-321827</cbc:ID>
+  <cbc:IssueDate>2001-11-16</cbc:IssueDate>
+  <cbc:DueDate>2024-06-16</cbc:DueDate>
+  <cbc:CreditNoteTypeCode>381</cbc:CreditNoteTypeCode>
+  <cbc:DocumentCurrencyCode>RON</cbc:DocumentCurrencyCode>
+  <cbc:TaxCurrencyCode>RON</cbc:TaxCurrencyCode>
+  <cac:AccountingSupplierParty>
+    <cac:Party>
+      <cac:PartyIdentification>
+        <cbc:ID>company_id_number</cbc:ID>
+      </cac:PartyIdentification>
+      <cac:PostalAddress>
+        <cbc:StreetName>Address 1</cbc:StreetName>
+        <cbc:CityName>SECTOR2</cbc:CityName>
+        <cbc:CountrySubentity>RO-B</cbc:CountrySubentity>
+        <cac:Country>
+          <cbc:IdentificationCode>RO</cbc:IdentificationCode>
+        </cac:Country>
+      </cac:PostalAddress>
+      <cac:PartyTaxScheme>
+        <cbc:CompanyID>RO234234234</cbc:CompanyID>
+        <cac:TaxScheme>
+          <cbc:ID>VAT</cbc:ID>
+        </cac:TaxScheme>
+      </cac:PartyTaxScheme>
+      <cac:PartyLegalEntity>
+        <cbc:RegistrationName></cbc:RegistrationName>
+        <cbc:CompanyID>J40/2222/2009</cbc:CompanyID>
+      </cac:PartyLegalEntity>
+      <cac:Contact>
+        <cbc:Name>Gerardo Kovacek Aryanna Smitham</cbc:Name>
+        <cbc:Telephone>555-343-2323</cbc:Telephone>
+        <cbc:ElectronicMail>kstracke@brakus.com</cbc:ElectronicMail>
+      </cac:Contact>
+    </cac:Party>
+  </cac:AccountingSupplierParty>
+  <cac:AccountingCustomerParty>
+    <cac:Party>
+      <cac:PartyIdentification>
+        <cbc:ID>client_id_number</cbc:ID>
+      </cac:PartyIdentification>
+      <cac:PostalAddress>
+        <cbc:StreetName>40D, &#x218;oseaua Bucure&#x219;ti-Ploie&#x219;ti</cbc:StreetName>
+        <cbc:CityName>SECTOR2</cbc:CityName>
+        <cbc:CountrySubentity>RO-B</cbc:CountrySubentity>
+        <cac:Country>
+          <cbc:IdentificationCode>RO</cbc:IdentificationCode>
+        </cac:Country>
+      </cac:PostalAddress>
+      <cac:PartyLegalEntity>
+        <cbc:RegistrationName>Client Company Name</cbc:RegistrationName>
+        <cbc:CompanyID>646546549</cbc:CompanyID>
+      </cac:PartyLegalEntity>
+      <cac:Contact>
+        <cbc:Name>Bob Jane</cbc:Name>
+        <cbc:Telephone></cbc:Telephone>
+        <cbc:ElectronicMail></cbc:ElectronicMail>
+      </cac:Contact>
+    </cac:Party>
+  </cac:AccountingCustomerParty>
+  <cac:TaxTotal>
+    <cac:TaxSubtotal>
+      <cbc:TaxableAmount currencyID="RON">100</cbc:TaxableAmount>
+      <cbc:TaxAmount currencyID="RON">46.5</cbc:TaxAmount>
+      <cac:TaxCategory>
+        <cbc:ID>S</cbc:ID>
+      </cac:TaxCategory>
+    </cac:TaxSubtotal>
+  </cac:TaxTotal>
+  <cac:LegalMonetaryTotal>
+    <cbc:LineExtensionAmount currencyID="RON">100</cbc:LineExtensionAmount>
+    <cbc:TaxExclusiveAmount currencyID="RON">100</cbc:TaxExclusiveAmount>
+    <cbc:TaxInclusiveAmount currencyID="RON">146.50</cbc:TaxInclusiveAmount>
+    <cbc:PayableAmount currencyID="RON">146.50</cbc:PayableAmount>
+  </cac:LegalMonetaryTotal>
+  <cac:CreditNoteLine>
+    <cbc:ID>0</cbc:ID>
+    <cbc:Note>A great product description</cbc:Note>
+    <cbc:CreditedQuantity unitCode="H87">10</cbc:CreditedQuantity>
+    <cbc:LineExtensionAmount currencyID="RON">100</cbc:LineExtensionAmount>
+    <cac:Item>
+      <cbc:Description>A great product description</cbc:Description>
+      <cbc:Name>Product Name</cbc:Name>
+      <cac:ClassifiedTaxCategory>
+        <cbc:ID>S</cbc:ID>
+        <cac:TaxScheme>
+          <cbc:ID>VAT</cbc:ID>
+          <cbc:Name>19</cbc:Name>
+        </cac:TaxScheme>
+      </cac:ClassifiedTaxCategory>
+    </cac:Item>
+  </cac:CreditNoteLine>
+</CreditNote>

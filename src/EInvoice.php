@@ -14,6 +14,7 @@ namespace InvoiceNinja\EInvoice;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Serializer\Serializer;
 use InvoiceNinja\EInvoice\Models\Peppol\Invoice;
+use InvoiceNinja\EInvoice\Models\Peppol\CreditNote;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\PropertyInfo\PropertyInfoExtractor;
@@ -119,15 +120,17 @@ class EInvoice
             $violations = $validator->validate($object);
             return $violations->count() > 0 ? $violations : [];
         } catch (\Throwable $e) {
-            nlog($e->getMessage());
             $violations = new ConstraintViolationList();
+            // Note: Some exceptions may have getPath() method, but Throwable doesn't guarantee it
+            // Using empty path as fallback since getPath() is not part of Throwable interface
+            $path = '';
             $violations->add(new ConstraintViolation(
                 $e->getMessage(),
                 null,
                 [],
                 $data,
-                $e->getPath(),
-                $data[$e->getPath()] ?? []
+                $path,
+                $data[$path] ?? []
             ));
             return $violations;
         }
@@ -159,7 +162,7 @@ class EInvoice
      */
     public function decode(string $standard, string $document, ?string $format = 'json')
     {
-        $this->resolveStandard($standard);
+        $this->resolveStandard($standard, $document, $format);
 
         $phpDocExtractor = new PhpDocExtractor();
         $reflectionExtractor = new ReflectionExtractor();
@@ -269,18 +272,46 @@ class EInvoice
      * Sets class variables;
      *
      * @param  string $standard
+     * @param  string $document The document string for auto-detection
+     * @param  string $format The document format (xml/json)
      * @return self
      */
-    private function resolveStandard(string $standard): self
+    private function resolveStandard(string $standard, string $document = '', string $format = 'json'): self
     {
         match ($standard) {
-            'Peppol' => $this->parent_object = Invoice::class,
+            'Peppol', 'FACT1' => $this->parent_object = $this->detectPeppolDocumentType($document, $format),
             'FatturaPA' => $this->parent_object = FatturaElettronica::class,
-            'FACT1' => $this->parent_object = Invoice::class,
             default => $this->parent_object = Invoice::class,
         };
 
         return $this;
+    }
+
+    /**
+     * Detect Peppol document type (Invoice or CreditNote)
+     *
+     * @param  string $document The document string
+     * @param  string $format The document format (xml/json)
+     * @return string
+     */
+    private function detectPeppolDocumentType(string $document, string $format): string
+    {
+        if ($format === 'xml') {
+            // Check root element name
+            if (preg_match('/<CreditNote[^>]*>/i', $document) || preg_match('/<.*:CreditNote[^>]*>/i', $document)) {
+                return CreditNote::class;
+            }
+            // Default to Invoice for XML
+            return Invoice::class;
+        } else {
+            // For JSON, check for CreditNoteTypeCode
+            $data = json_decode($document, true);
+            if (is_array($data) && isset($data['CreditNoteTypeCode'])) {
+                return CreditNote::class;
+            }
+            // Default to Invoice for JSON
+            return Invoice::class;
+        }
     }
 
     private function getSerializer(): Serializer

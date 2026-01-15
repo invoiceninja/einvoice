@@ -67,7 +67,7 @@ class CccType
      * @param  DomElement $element
      * @return DOMNodeList
      */
-    private function getXPath(string $path, \DomElement $element = null): ?\DOMNodeList
+    private function getXPath(string $path, ?\DomElement $element = null): \DOMNodeList
     {
         $xpath = new \DOMXPath($this->document);
         return $xpath->query($path, $element);

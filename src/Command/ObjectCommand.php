@@ -40,12 +40,6 @@ final class ObjectCommand extends Command
 {
     public $output;
 
-    private array $standards = [
-        // 'FACT1',
-        'FatturaPA',
-        'Peppol',
-    ];
-
     protected function configure()
     {
 
@@ -116,7 +110,7 @@ class Serializer
             $propertyName = $property->getName();
             $propertyType = $property->getType();
 
-            if (isset($ff->classMap[$propertyName]) ?? false) {
+            if (isset($ff->classMap[$propertyName]) && $ff->classMap[$propertyName] !== null) {
                 // If the property is a class, instantiate the class and initialize its properties
                 $childClassName = $ff->classMap[$propertyName];
 

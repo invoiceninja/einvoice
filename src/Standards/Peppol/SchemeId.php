@@ -437,6 +437,6 @@ class SchemeId
     public function resolveForCountry(string $iso_3166_2): array
     {
         $keys = array_keys($this->schemeIDs, $iso_3166_2);
-        return array_intersect_key($this->schemes, array_flip($keys)) ?? [];
+        return array_intersect_key($this->schemes, array_flip($keys)) ?? []; // @phpstan-ignore-line
     }
 }

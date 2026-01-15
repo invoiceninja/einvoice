@@ -1,8 +1,18 @@
 includes:
 parameters:
-    level: 2
+    level: 4
     paths:
         - src/
     excludePaths:
         - vendor/'
         - bin/'
+    ignoreErrors:
+        -
+            identifier: property.onlyWritten
+            paths:
+                - src/
+
+        -
+            identifier: property.unused
+            paths:
+                - src/

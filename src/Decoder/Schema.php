@@ -17,7 +17,7 @@ class Schema
 
     public function __invoke(string $standard)
     {
-        $data = @file_get_contents(__DIR__."{$this->path}{$standard}/{$standard}.json") ?? false;
+        $data = @file_get_contents(__DIR__."{$this->path}{$standard}/{$standard}.json") ?? false; // @phpstan-ignore-line
 
         return json_decode($data, false) ?? throw new \Exception("Schema {$standard} not found.");
     }

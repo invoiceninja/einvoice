@@ -395,11 +395,12 @@ class CacType
     {
         $parts = explode(":", $related_type);
 
-        match($parts[0]) {
+        $type = match($parts[0]) {
             'cbc' => $type = $this->cbcType->getPrimativeType($parts[1]),
             'cac' => $type = $this->type_map[$parts[1]],
             'udt' => $type = $this->udtType->getPrimativeType($parts[1]),
             'ccts-cct' => $type = $this->cccType->getPrimativeType($parts[1]),
+            default => throw new \Exception("could not find related type {$related_type}"),
         };
 
         return $type ?? throw new \Exception("could not find related type {$related_type}");
@@ -425,9 +426,9 @@ class CacType
      *
      * @param  string $path
      * @param  \DOMElement $element
-     * @return ?\DOMNodeList
+     * @return \DOMNodeList
      */
-    private function getXPath(string $path, \DomElement $element = null): ?\DOMNodeList
+    private function getXPath(string $path, ?\DomElement $element = null): \DOMNodeList
     {
         $xpath = new \DOMXPath($this->document);
         return $xpath->query($path, $element);

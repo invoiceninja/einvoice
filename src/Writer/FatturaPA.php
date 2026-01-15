@@ -521,7 +521,7 @@ class FatturaPA extends BaseStandard
                 if(isset($this->visibility[$set['type']]) && $this->visibility[$set['type']] == 0) {
                     $set['visibility'] = 0;
                 } else {
-                    $set['visibility'] = $this->getVisibility($set['type']) ?? 0;
+                    $set['visibility'] = $this->getVisibility($set['type']) ?? 0; // @phpstan-ignore-line
                 }
 
                 $this->data[$set['type']] = $set;
@@ -587,7 +587,7 @@ class FatturaPA extends BaseStandard
                         continue;
                     }
 
-                    if(count($child_array) > 0) {
+                    if(count($child_array) >= 1) { // @phpstan-ignore-line
 
                         $child_array['help'] = $this->extractAnnotation($childNode);
                         $child_array['resource'] = $this->extractResource($child_array['type'] ?? $child_array['base_type']);

@@ -374,7 +374,10 @@ class Peppol extends BaseStandard
     'Dimension' => 'InvoiceNinja\EInvoice\Models\Peppol\Dimension',
     'GoodsItemContainer' => 'InvoiceNinja\EInvoice\Models\Peppol\GoodsItemContainerType\GoodsItemContainer',
     'InvoiceLine' => 'InvoiceNinja\EInvoice\Models\Peppol\InvoiceLine',
+    'CreditNote' => 'InvoiceNinja\EInvoice\Models\Peppol\CreditNote',
+    'CreditNoteLine' => 'InvoiceNinja\EInvoice\Models\Peppol\CreditNoteLine',
     'InvoicedQuantity' => 'InvoiceNinja\EInvoice\Models\Peppol\QuantityType\InvoicedQuantity',
+    'CreditedQuantity' => 'InvoiceNinja\EInvoice\Models\Peppol\QuantityType\CreditedQuantity',
     'LineExtensionAmount' => 'InvoiceNinja\EInvoice\Models\Peppol\AmountType\LineExtensionAmount',
     'OrderLineReference' => 'InvoiceNinja\EInvoice\Models\Peppol\OrderLineReferenceType\OrderLineReference',
     'DespatchLineReference' => 'InvoiceNinja\EInvoice\Models\Peppol\LineReferenceType\DespatchLineReference',
@@ -473,6 +476,7 @@ class Peppol extends BaseStandard
     'RangeDimension' => 'InvoiceNinja\EInvoice\Models\Peppol\DimensionType\RangeDimension',
     'ItemPropertyRange' => 'InvoiceNinja\EInvoice\Models\Peppol\ItemPropertyRangeType\ItemPropertyRange',
     'LotIdentification' => 'InvoiceNinja\EInvoice\Models\Peppol\LotIdentificationType\LotIdentification',
+    'CreditNoteTypeCode' => 'InvoiceNinja\EInvoice\Models\Peppol\CodeType\CreditNoteTypeCode',
     ];
 
     /** @var array $exclusion_nodes - array of nodes to exclude from the output*/
@@ -529,7 +533,7 @@ class Peppol extends BaseStandard
             if(isset($this->visibility[$parts[1]]) && $this->visibility[$parts[1]] == 0) {
                 $visibility = 0;
             } else {
-                $visibility = $this->getVisibility($parts[1]) ?? 0;
+                $visibility = $this->getVisibility($parts[1]);
             }
 
 
@@ -584,7 +588,7 @@ class Peppol extends BaseStandard
 
     }
 
-    private function getXPath(string $path, \DomElement $element = null): ?\DOMNodeList
+    private function getXPath(string $path, ?\DomElement $element = null): \DOMNodeList
     {
         $xpath = new \DOMXPath($this->document);
         return $xpath->query($path, $element);

@@ -237,15 +237,16 @@ class ExtType
 
         $relation = new \DOMDocument();
 
-        match($parts[0]) {
+        $type = match($parts[0]) {
             'cbc' => $type = (new CbcType())->getPrimativeType($parts[1]),
             'cac' => $type = (new CccType())->getPrimativeType($parts[1]),
             'ext' => $type = (new CccType())->getPrimativeType($parts[1]),
             'udt' => $type = (new CccType())->getPrimativeType($parts[1]),
             'ccts-cct' => $type = (new CccType())->getPrimativeType($parts[1]),
+            default => throw new \Exception("could not find related type {$related_type}"),
         };
 
-        return $type ?? throw new \Exception("could not find related type {$related_type}");
+        return $type;
     }
 
     /**
@@ -275,19 +276,19 @@ class ExtType
      * @param  \DomElement $element
      * @return \DOMNodeList
      */
-    private function extractSequence(\DomElement $element): \DOMNodeList
-    {
-        return $this->getXPath("./{$this->prefix}:sequence", $element);
-    }
+    // private function extractSequence(?\DomElement $element): \DOMNodeList
+    // {
+    //     return $this->getXPath("./{$this->prefix}:sequence", $element);
+    // }
 
     /**
      * getXPath
      *
      * @param  string $path
      * @param  \DomElement $element
-     * @return ?\DOMNodeList
+     * @return \DOMNodeList
      */
-    private function getXPath(string $path, \DomElement $element = null): ?\DOMNodeList
+    private function getXPath(string $path, ?\DomElement $element = null): \DOMNodeList
     {
         $xpath = new \DOMXPath($this->document);
         return $xpath->query($path, $element);

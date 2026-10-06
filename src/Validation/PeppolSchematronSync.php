@@ -24,20 +24,20 @@ final class PeppolSchematronSync
     /** @var array<string, array{sch: string, xslt: string}> */
     public const RULE_SETS = [
         'PEPPOL-EN16931-UBL' => [
-            'sch' => 'src/Validation/Peppol/PEPPOL-EN16931-UBL.sch',
-            'xslt' => 'src/Validation/Peppol/PEPPOL-EN16931-UBL.xslt',
+            'sch' => PeppolValidationAssets::PEPPOL_UBL_SCH,
+            'xslt' => PeppolValidationAssets::PEPPOL_UBL_XSLT,
         ],
         'CEN-EN16931-UBL' => [
-            'sch' => 'src/Validation/Peppol/CEN-EN16931-UBL.sch',
-            'xslt' => 'src/Validation/Peppol/CEN-EN16931-UBL.xslt',
+            'sch' => PeppolValidationAssets::CEN_UBL_SCH,
+            'xslt' => PeppolValidationAssets::CEN_UBL_XSLT,
         ],
         'PEPPOL-EN16931-CII' => [
-            'sch' => 'src/Validation/Peppol/PEPPOL-EN16931-CII.sch',
-            'xslt' => 'src/Validation/Peppol/PEPPOL-EN16931-CII.xslt',
+            'sch' => PeppolValidationAssets::PEPPOL_CII_SCH,
+            'xslt' => PeppolValidationAssets::PEPPOL_CII_XSLT,
         ],
         'CEN-EN16931-CII' => [
-            'sch' => 'src/Validation/Peppol/CEN-EN16931-CII.sch',
-            'xslt' => 'src/Validation/Peppol/CEN-EN16931-CII.xslt',
+            'sch' => PeppolValidationAssets::CEN_CII_SCH,
+            'xslt' => PeppolValidationAssets::CEN_CII_XSLT,
         ],
     ];
 

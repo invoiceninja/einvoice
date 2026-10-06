@@ -3,7 +3,7 @@
 namespace InvoiceNinja\EInvoice\Tests\Data;
 
 use InvoiceNinja\EInvoice\EInvoice;
-use Milo\Schematron;
+use InvoiceNinja\EInvoice\Validation\PeppolValidationAssets;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Serializer\Serializer;
@@ -246,30 +246,18 @@ class PeppolDataTest extends TestCase
         return null;
     }
 
-    // public function testPeppolValidation()
+    // Saxon-PHP example (requires ext-saxon): run both CEN + Peppol UBL stylesheets.
+    //
+    // public function testPeppolUblSchematronValidation(): void
     // {
-
-    //     $f = "src/Standards/Peppol/example.xml";
-    //     $xslt = "src/Validation/Peppol/PEPPOL-EN16931-UBL.xslt";
-        
-    //     $e = new EInvoice();
-    //     $result = $e->decode('Peppol', file_get_contents($f), 'xml');;
-
-    //     $convert = $e->encode($result, 'xml');
-
-    //     $this->assertNotNull($convert);
-
-    //     $xmlFile = $f;
-    //     $saxonProc = new \Saxon\SaxonProcessor();
-        
-    //     $proc = $saxonProc->newXslt30Processor();
-
-    //     // $proc->transformFileToFile($f, $xslt, $outputFile); //output to file
-
-    //     // $result = $proc->transformFileToValue($f, $xslt); //output to saxon object
-
-    //     $executable = $proc->compileFromFile($xslt);
-    //     $result = $executable->transformFileToString($xmlFile); //output to strings
-
+    //     $xml = PeppolValidationAssets::absolute('src/Standards/Peppol/example.xml');
+    //     $processor = new \Saxon\SaxonProcessor();
+    //     $xslt = $processor->newXslt30Processor();
+    //     $node = $processor->parseXmlFromFile($xml);
+    //
+    //     foreach (PeppolValidationAssets::ublXsltRelativePaths() as $relativeXslt) {
+    //         $executable = $xslt->compileFromFile(PeppolValidationAssets::absolute($relativeXslt));
+    //         $executable->transformToValue($node);
+    //     }
     // }
 }

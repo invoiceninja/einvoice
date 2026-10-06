@@ -250,7 +250,7 @@ class PeppolDataTest extends TestCase
     // {
 
     //     $f = "src/Standards/Peppol/example.xml";
-    //     $xslt = "src/Standards/Peppol/peppol.xslt";
+    //     $xslt = "src/Validation/Peppol/PEPPOL-EN16931-UBL.xslt";
         
     //     $e = new EInvoice();
     //     $result = $e->decode('Peppol', file_get_contents($f), 'xml');;

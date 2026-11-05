@@ -69,11 +69,15 @@
     </cac:Party>
   </cac:AccountingCustomerParty>
   <cac:TaxTotal>
+    <cbc:TaxAmount currencyID="RON">46.5</cbc:TaxAmount>
     <cac:TaxSubtotal>
       <cbc:TaxableAmount currencyID="RON">100</cbc:TaxableAmount>
       <cbc:TaxAmount currencyID="RON">46.5</cbc:TaxAmount>
       <cac:TaxCategory>
         <cbc:ID>S</cbc:ID>
+        <cac:TaxScheme>
+          <cbc:ID>VAT</cbc:ID>
+        </cac:TaxScheme>
       </cac:TaxCategory>
     </cac:TaxSubtotal>
   </cac:TaxTotal>

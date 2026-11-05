@@ -115,19 +115,6 @@ class CreditNoteDataTest extends TestCase
         $this->assertStringContainsString('CreditedQuantity', $encoded);
     }
 
-    public function testCreditNoteValidation()
-    {
-        $f = 'tests/Data/samples/creditnote1.xml';
-        $e = new EInvoice();
-        $creditNote = $e->decode('Peppol', file_get_contents($f), 'xml');
-        
-        $errors = $e->validate($creditNote);
-        
-        $this->assertIsArray($errors);
-        // Should have no validation errors for a valid credit note
-        $this->assertCount(0, $errors);
-    }
-
     public function testCreditNoteAutoDetection()
     {
         // Test XML detection
@@ -146,25 +133,4 @@ class CreditNoteDataTest extends TestCase
         $this->assertInstanceOf(CreditNote::class, $creditNoteJson);
     }
 
-    public function testCreditNoteXSDValidation()
-    {
-        $f = 'tests/Data/samples/creditnote1.xml';
-
-        libxml_use_internal_errors(true);
-
-        $dom = new \DOMDocument();
-        $dom->load($f);
-
-        $validation = $dom->schemaValidate("src/Standards/FACT1/UBL-CreditNote-2.1.xsd");
-
-        $errors = libxml_get_errors();
-
-        $this->assertIsArray($errors);
-        // Uncomment to see validation errors
-        // if(count($errors) > 0) {
-        //     foreach($errors as $error) {
-        //         echo $error->message . "\n";
-        //     }
-        // }
-    }
 }

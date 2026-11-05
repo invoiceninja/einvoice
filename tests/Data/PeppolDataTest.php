@@ -105,37 +105,18 @@ class PeppolDataTest extends TestCase
 
     public function testDecode()
     {
-        $json = '{"ID":"ROCKER","Note":"NOTE","PaymentMeans":[{"ID":{"value":"afdasfasdfasdfas"},"PayeeFinancialAccount":{"Name":"PFA-NAME","ID":{"value":"DE89370400440532013000"},"AliasName":"PFA-Alias","AccountTypeCode":{"value":"CHECKING"},"AccountFormatCode":{"value":"IBAN"},"CurrencyCode":{"value":"EUR"},"FinancialInstitutionBranch":{"ID":{"value":"DEUTDEMMXXX"},"Name":"Deutsche Bank"}}}]}';
+        $json = '{"ID":{"value":"ROCKER"},"Note":"NOTE","PaymentMeans":[{"ID":{"value":"afdasfasdfasdfas"},"PayeeFinancialAccount":{"Name":"PFA-NAME","ID":{"value":"DE89370400440532013000"},"AliasName":"PFA-Alias","AccountTypeCode":{"value":"CHECKING"},"AccountFormatCode":{"value":"IBAN"},"CurrencyCode":{"value":"EUR"},"FinancialInstitutionBranch":{"ID":{"value":"DEUTDEMMXXX"},"Name":"Deutsche Bank"}}}]}';
     
         $e = new EInvoice();
         $result = $e->decode('Peppol', $json, 'json');
 
-        echo print_r($result);
+        $this->assertInstanceOf(Invoice::class, $result);
+        $this->assertSame('ROCKER', $result->ID->value);
+        $this->assertSame('DE89370400440532013000', $result->PaymentMeans[0]->PayeeFinancialAccount->ID->value);
 
 
     }
 
-
-    public function testXSDValidation()
-    {
-        
-        $f = 'tests/Data/samples/fact1.xml';
-
-        libxml_use_internal_errors(true);
-
-        $dom = new \DOMDocument();
-        $dom->load($f);
-
-        $validation = $dom->schemaValidate("src/Standards/UBL2.1/UBL-Invoice-2.1.xsd");
-
-        $errors = libxml_get_errors();
-
-        $this->assertIsArray($errors);
-        // if(count($errors) >0)
-        //     echo print_r($errors);
-
-        // $this->assertTrue($validation);
-    }
 
     // public function testClassMapper()
     // {

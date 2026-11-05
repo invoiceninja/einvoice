@@ -18,16 +18,10 @@ class PropTest extends TestCase
         $dom->load("src/Standards/FACT1/UBL-Invoice-2.1.xsd");
 
 
-        $elements = $dom->getElementsByTagName('element');
-
-        foreach($elements as $element) {
-
-            if(!$element->hasAttribute('ref')) {
-                continue;
-            }
-
-            // echo $element->getAttribute('ref').PHP_EOL;
-        }
+        $xpath = new \DOMXPath($dom);
+        $xpath->registerNamespace('xs', 'http://www.w3.org/2001/XMLSchema');
+        $this->assertSame(1, $xpath->query('//xs:element[@ref="cbc:ID"]')->length);
+        $this->assertSame(1, $xpath->query('//xs:element[@ref="cac:InvoiceLine"]')->length);
     }
 
     public function testFatturaProps()
@@ -44,7 +38,7 @@ class PropTest extends TestCase
         foreach($complexTypes as $type) {
 
             if($type->hasAttribute('name')){
-                echo $type->getAttribute('name').PHP_EOL;
+
                 $x[] = $type->getAttribute('name');
             }
         }

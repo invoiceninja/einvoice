@@ -2,6 +2,7 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol\PeriodType;
 
+use InvoiceNinja\EInvoice\Validation\ValidationGroups;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
@@ -49,6 +50,7 @@ class InvoicePeriod
 	public array $DescriptionCode;
 
 	/** @var string */
+	#[\InvoiceNinja\EInvoice\Validation\Constraints\RelativeDateExpression(groups: [ValidationGroups::INVOICE_SETTINGS])]
 	#[SerializedName('cbc:Description')]
 	public string $Description;
 }

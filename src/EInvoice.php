@@ -12,6 +12,7 @@
 namespace InvoiceNinja\EInvoice;
 
 use Symfony\Component\Validator\Validation;
+use InvoiceNinja\EInvoice\Models\Normalizers\IdentifierDenormalizer;
 use Symfony\Component\Serializer\Serializer;
 use InvoiceNinja\EInvoice\Models\Peppol\Invoice;
 use InvoiceNinja\EInvoice\Models\Peppol\CreditNote;
@@ -137,19 +138,43 @@ class EInvoice
     }
 
 
+    /**
+     * Validate an inner payload using class attributes and explicit groups.
+     * Unknown keys remain ignored. Empty groups select Symfony's Default group.
+     * Input type errors become violations; programming/configuration errors propagate.
+     *
+     * @param class-string $target_class
+     * @param string[] $groups
+     */
+    public function validatePayload(array $data, string $target_class, array $groups = []): \Symfony\Component\Validator\ConstraintViolationListInterface
+    {
+        if (!class_exists($target_class)) {
+            throw new \InvalidArgumentException('Unknown validation class: ' . $target_class);
+        }
+        try {
+            $object = $this->denormalize($data, $target_class);
+        } catch (\Symfony\Component\Serializer\Exception\NotNormalizableValueException $exception) {
+            return new ConstraintViolationList([new ConstraintViolation(
+                $exception->getMessage(),
+                null,
+                [],
+                $data,
+                $exception->getPath() ?? '',
+                null,
+                null,
+                'einvoice.denormalization.invalid_type'
+            )]);
+        }
+
+        return Validation::createValidatorBuilder()->enableAttributeMapping()->getValidator()
+            ->validate($object, null, $groups === [] ? null : $groups);
+    }
+
     public function denormalize(array $payload, string $class): mixed
     {
-
-        $serializer = $this->getSerializer();
-
-        // Blank string is converted to null, which then makes the "string" type invalid - even for an optional property.
-        // by denormalizing, we avoid this scenario, as the prop is dropped, but the validator will still enforce if required!
-        // ie, we need this to get an object - of some form - into the validator!!!!
-        $payload = $serializer->denormalize(json_encode($payload), $class, null, [AbstractObjectNormalizer::SKIP_NULL_VALUES => true]);
-
-        return  $payload;
-        
-
+        return $this->getSerializer()->denormalize($payload, $class, null, [
+            AbstractObjectNormalizer::DISABLE_TYPE_ENFORCEMENT => false,
+        ]);
     }
 
     /**
@@ -188,7 +213,7 @@ class EInvoice
 
         $normalizer = new ObjectNormalizer($classMetadataFactory, $metadataAwareNameConverter, null, $propertyInfo);
 
-        $normalizers = [new DateTimeNormalizer(), $normalizer,  new ArrayDenormalizer()];
+        $normalizers = [new DateTimeNormalizer(), new IdentifierDenormalizer($normalizer), $normalizer,  new ArrayDenormalizer()];
 
         $encoders = [new XmlEncoder(['xml_format_output' => true,\Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer::SKIP_NULL_VALUES => true]), new JsonEncoder()];
 
@@ -338,7 +363,7 @@ class EInvoice
 
         $normalizer = new ObjectNormalizer($classMetadataFactory, $metadataAwareNameConverter, null, $propertyInfo);
 
-        $normalizers = [new DateTimeNormalizer(), $normalizer,  new ArrayDenormalizer() , ];
+        $normalizers = [new DateTimeNormalizer(), new IdentifierDenormalizer($normalizer), $normalizer,  new ArrayDenormalizer() , ];
         $encoders = [$xml_encoder, $json_encoder];
         $serializer = new Serializer($normalizers, $encoders);
 

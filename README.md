@@ -11,7 +11,7 @@ PHP library used by [Invoice Ninja](https://invoiceninja.com) to model, serializ
 | FatturaPA | `src/Models/FatturaPA/`, `src/Writer/FatturaPA.php` | Italian SDI |
 | Other | `src/Standards/`, `src/Writer/` | FACT1, UBL scaffolding, etc. |
 
-Runtime object validation uses Symfony Validator on normalized models. **UBL Schematron** (business rules such as EN16931 and Peppol BIS) is applied by compiling ISO Schematron (`.sch`) to XSLT (`.xslt`) and running those stylesheets over XML (for example with Saxon in the main application).
+The opt-in payload validation API uses Symfony Validator attributes on hydrated objects. **UBL Schematron** (business rules such as EN16931 and Peppol BIS) is applied by compiling ISO Schematron (`.sch`) to XSLT (`.xslt`) and running those stylesheets over XML (for example with Saxon in the main application).
 
 Canonical Peppol/CEN file names match OpenPEPPOL releases, for example:
 
@@ -19,6 +19,67 @@ Canonical Peppol/CEN file names match OpenPEPPOL releases, for example:
 - `PEPPOL-EN16931-UBL.sch` / `PEPPOL-EN16931-UBL.xslt`
 
 Path constants live in `InvoiceNinja\EInvoice\Validation\PeppolValidationAssets`.
+
+## Partial invoice settings validation
+
+```php
+use InvoiceNinja\EInvoice\EInvoice;
+use InvoiceNinja\EInvoice\Validation\Profiles\InvoiceSettingsProfile;
+use InvoiceNinja\EInvoice\Validation\ValidationGroups;
+
+$errors = (new EInvoice())->validatePayload(
+    $payload['Invoice'], // inner document, without the e_invoice / Invoice wrappers
+    InvoiceSettingsProfile::class,
+    [ValidationGroups::INVOICE_SETTINGS],
+);
+
+foreach ($errors as $error) {
+    // Paths are relative to the inner document, e.g. ProjectReference[1].ID.value.
+    $path = $error->getPropertyPath();
+    $message = $error->getMessage();
+    $code = $error->getCode();
+}
+```
+
+The result is always a `ConstraintViolationListInterface`, including on success.
+The initial profile covers buyer, project, contract and order references, invoice
+periods, and line order references. It reuses the Peppol model types. Empty or
+partial settings are accepted without generated invoice IDs, dates, parties, or
+totals. Explicit groups are required for settings rules; an omitted/empty group
+list selects Symfony's `Default` group.
+
+Unknown keys are ignored. Known properties retain serializer type enforcement:
+omission is allowed, while explicit null is accepted only by nullable properties.
+JSON identifiers accept both scalar shorthand (`"ID": "00123"`) and wrapped
+values (`"ID": {"value": "00123"}`). The identifier denormalizer converts only
+string/int shorthand, preserving types and leading zeroes; wrapped values and
+scheme metadata follow the existing object normalizer. This applies to `decode()`,
+`denormalize()`, `validateRequest()` and `validatePayload()` for Peppol identifier
+types only. Other scalar types retain legacy hydration behaviour; this conversion
+does not enable constraints in `validateRequest()`.
+
+XML hydration is unchanged, including the existing XML decoder's numeric text and
+attribute conversion (for example, `00123` may become integer `123`). A supplied reference must contain an identifier with a nonblank value.
+All collection entries are validated. Type/date hydration failures return the first
+error with its property path and code `einvoice.denormalization.invalid_type`;
+constraint validation runs only after successful hydration and retains multiple
+violations on the same path. Configuration errors propagate to the caller.
+
+The settings-only relative-date constraint accepts two `date_create()` expressions
+separated by `|`. It preserves empty values and single-part placeholders of up to
+two bytes; more than two parts fail. Date parsing retains PHP's existing permissive
+semantics (including empty parts and date rollover). Messages have stable codes
+for translation. Normal document descriptions do not use this constraint.
+
+`validate()` and `validateRequest()` retain their legacy behaviour for compatibility;
+use `validatePayload()` for attribute-based request validation. `denormalize()` now
+correctly consumes its array argument instead of silently losing supplied values.
+This correction can expose type errors in callers that previously lost their data.
+Send-time XSD/Schematron checks remain separate. Client, company and credit settings
+profiles are not yet implemented.
+
+The settings attributes in the shared model files are maintained by hand; model
+regeneration must preserve them and pass the validation contract tests.
 
 ## Development
 

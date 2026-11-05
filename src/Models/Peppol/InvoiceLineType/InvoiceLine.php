@@ -2,6 +2,7 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol\InvoiceLineType;
 
+use InvoiceNinja\EInvoice\Validation\ValidationGroups;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
@@ -89,10 +90,12 @@ class InvoiceLine
 	public bool $FreeOfChargeIndicator;
 
 	/** @var InvoicePeriod[] */
+	#[Valid(groups: [ValidationGroups::INVOICE_SETTINGS])]
 	#[SerializedName('cac:InvoicePeriod')]
 	public array $InvoicePeriod;
 
 	/** @var OrderLineReference[] */
+	#[Valid(groups: [ValidationGroups::INVOICE_SETTINGS])]
 	#[SerializedName('cac:OrderLineReference')]
 	public array $OrderLineReference;
 

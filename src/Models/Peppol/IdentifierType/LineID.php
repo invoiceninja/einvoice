@@ -2,6 +2,7 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol\IdentifierType;
 
+use InvoiceNinja\EInvoice\Validation\ValidationGroups;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
@@ -19,6 +20,7 @@ use Symfony\Component\Validator\Constraints\Valid;
 class LineID
 {
 	/** @var string|int */
+	#[NotBlank(groups: [ValidationGroups::INVOICE_SETTINGS])]
 	#[SerializedName('#')]
 	public string|int $value;
 

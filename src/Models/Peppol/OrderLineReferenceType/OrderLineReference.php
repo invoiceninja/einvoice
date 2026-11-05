@@ -2,6 +2,7 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol\OrderLineReferenceType;
 
+use InvoiceNinja\EInvoice\Validation\ValidationGroups;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
@@ -25,7 +26,7 @@ class OrderLineReference
 {
 	/** @var LineID */
 	#[NotNull]
-	#[NotBlank]
+	#[NotBlank(groups: ['Default', ValidationGroups::INVOICE_SETTINGS])]
 	#[Valid]
 	#[SerializedName('cbc:LineID')]
 	public $LineID;

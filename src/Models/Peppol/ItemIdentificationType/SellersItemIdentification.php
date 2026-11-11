@@ -2,6 +2,7 @@
 
 namespace InvoiceNinja\EInvoice\Models\Peppol\ItemIdentificationType;
 
+use InvoiceNinja\EInvoice\Validation\ValidationGroups;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
@@ -25,8 +26,8 @@ use Symfony\Component\Validator\Constraints\Valid;
 class SellersItemIdentification
 {
 	/** @var ID */
-	#[NotNull]
-	#[NotBlank]
+	#[NotNull(message: 'Enter a value.')]
+	#[NotBlank(message: 'Enter a value.', groups: ['Default', ValidationGroups::INVOICE_SETTINGS])]
 	#[Valid]
 	#[SerializedName('cbc:ID')]
 	public $ID;

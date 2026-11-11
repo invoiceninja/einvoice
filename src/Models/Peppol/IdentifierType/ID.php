@@ -20,7 +20,7 @@ use Symfony\Component\Validator\Constraints\Valid;
 class ID
 {
 	/** @var string|int */
-	#[NotBlank(groups: [ValidationGroups::INVOICE_SETTINGS])]
+	#[NotBlank(message: 'Enter a value.', groups: [ValidationGroups::INVOICE_SETTINGS])]
 	#[SerializedName('#')]
 	public string|int $value;
 

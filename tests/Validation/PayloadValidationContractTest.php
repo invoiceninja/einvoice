@@ -114,6 +114,7 @@ class PayloadValidationContractTest extends TestCase
         $this->assertCount(1, $errors);
         $this->assertSame($path, $errors[0]->getPropertyPath());
         $this->assertSame(Assert\NotBlank::IS_BLANK_ERROR, $errors[0]->getCode());
+        $this->assertSame('Enter a value.', $errors[0]->getMessage());
     }
 
     public function testNestedTypeErrorRetainsCollectionIndex(): void
@@ -153,6 +154,12 @@ class PayloadValidationContractTest extends TestCase
         $this->assertCount(1, $first_errors);
         $this->assertSame('InvoicePeriod[0].Description', $first_errors[0]->getPropertyPath());
         $this->assertSame($errors[0]->getCode(), $first_errors[0]->getCode());
+        $this->assertSame(
+            $description === 'first day of this month'
+                ? 'Enter a start and end date separated by |.'
+                : 'Enter a valid date expression on each side of |.',
+            $errors[0]->getMessage(),
+        );
     }
 
     public function testSharedReferenceAttributesEnforceSettingsGroup(): void

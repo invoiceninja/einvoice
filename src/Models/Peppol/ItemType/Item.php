@@ -81,10 +81,12 @@ class Item
 	public string $ModelName;
 
 	/** @var BuyersItemIdentification */
+	#[Valid]
 	#[SerializedName('cac:BuyersItemIdentification')]
 	public $BuyersItemIdentification;
 
 	/** @var SellersItemIdentification */
+	#[Valid]
 	#[SerializedName('cac:SellersItemIdentification')]
 	public $SellersItemIdentification;
 

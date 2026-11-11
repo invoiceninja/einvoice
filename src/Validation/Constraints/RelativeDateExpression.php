@@ -15,6 +15,6 @@ class RelativeDateExpression extends Constraint
         self::INVALID_DATE_ERROR => 'INVALID_DATE_ERROR',
     ];
 
-    public string $pair_message = 'A start and end date separated by | are required.';
-    public string $date_message = 'Each part must be a valid date expression.';
+    public string $pair_message = 'Enter a start and end date separated by |.';
+    public string $date_message = 'Enter a valid date expression on each side of |.';
 }

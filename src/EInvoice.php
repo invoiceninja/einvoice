@@ -13,6 +13,7 @@ namespace InvoiceNinja\EInvoice;
 
 use Symfony\Component\Validator\Validation;
 use InvoiceNinja\EInvoice\Models\Normalizers\IdentifierDenormalizer;
+use InvoiceNinja\EInvoice\Models\Normalizers\DateDenormalizer;
 use Symfony\Component\Serializer\Serializer;
 use InvoiceNinja\EInvoice\Models\Peppol\Invoice;
 use InvoiceNinja\EInvoice\Models\Peppol\CreditNote;
@@ -213,7 +214,7 @@ class EInvoice
 
         $normalizer = new ObjectNormalizer($classMetadataFactory, $metadataAwareNameConverter, null, $propertyInfo);
 
-        $normalizers = [new DateTimeNormalizer(), new IdentifierDenormalizer($normalizer), $normalizer,  new ArrayDenormalizer()];
+        $normalizers = [new DateDenormalizer(), new DateTimeNormalizer(), new IdentifierDenormalizer($normalizer), $normalizer,  new ArrayDenormalizer()];
 
         $encoders = [new XmlEncoder(['xml_format_output' => true,\Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer::SKIP_NULL_VALUES => true]), new JsonEncoder()];
 
@@ -363,7 +364,7 @@ class EInvoice
 
         $normalizer = new ObjectNormalizer($classMetadataFactory, $metadataAwareNameConverter, null, $propertyInfo);
 
-        $normalizers = [new DateTimeNormalizer(), new IdentifierDenormalizer($normalizer), $normalizer,  new ArrayDenormalizer() , ];
+        $normalizers = [new DateDenormalizer(), new DateTimeNormalizer(), new IdentifierDenormalizer($normalizer), $normalizer,  new ArrayDenormalizer() , ];
         $encoders = [$xml_encoder, $json_encoder];
         $serializer = new Serializer($normalizers, $encoders);
 

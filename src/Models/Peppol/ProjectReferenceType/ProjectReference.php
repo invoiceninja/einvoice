@@ -23,8 +23,8 @@ use Symfony\Component\Validator\Constraints\Valid;
 class ProjectReference
 {
 	/** @var ID */
-	#[NotNull]
-	#[NotBlank(groups: ['Default', ValidationGroups::INVOICE_SETTINGS])]
+	#[NotNull(message: 'Enter a value.')]
+	#[NotBlank(message: 'Enter a value.', groups: ['Default', ValidationGroups::INVOICE_SETTINGS])]
 	#[Valid]
 	#[SerializedName('cbc:ID')]
 	public $ID;

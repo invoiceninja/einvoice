@@ -2,6 +2,7 @@
 
 namespace InvoiceNinja\EInvoice\Validation\Profiles;
 
+use InvoiceNinja\EInvoice\Models\Peppol\DeliveryType\Delivery;
 use InvoiceNinja\EInvoice\Models\Peppol\DocumentReferenceType\ContractDocumentReference;
 use InvoiceNinja\EInvoice\Models\Peppol\InvoiceLineType\InvoiceLine;
 use InvoiceNinja\EInvoice\Models\Peppol\OrderReferenceType\OrderReference;
@@ -31,6 +32,10 @@ class InvoiceSettingsProfile
     /** @var InvoicePeriod[] */
     #[Valid(groups: [ValidationGroups::INVOICE_SETTINGS])]
     public array $InvoicePeriod;
+
+    /** @var Delivery[] */
+    #[Valid(groups: [ValidationGroups::INVOICE_SETTINGS])]
+    public array $Delivery;
 
     /** @var InvoiceLine[] */
     #[Valid(groups: [ValidationGroups::INVOICE_SETTINGS])]

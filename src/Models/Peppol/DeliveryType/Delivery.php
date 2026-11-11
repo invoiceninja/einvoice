@@ -5,6 +5,7 @@ namespace InvoiceNinja\EInvoice\Models\Peppol\DeliveryType;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Normalizers\DateDenormalizer;
 use InvoiceNinja\EInvoice\Models\Peppol\AddressType\DeliveryAddress;
 use InvoiceNinja\EInvoice\Models\Peppol\DeliveryTermsType\DeliveryTerms;
 use InvoiceNinja\EInvoice\Models\Peppol\DeliveryUnitType\MaximumDeliveryUnit;
@@ -54,10 +55,10 @@ class Delivery
 	#[SerializedName('cbc:MaximumQuantity')]
 	public $MaximumQuantity;
 
-	/** @var DateTime */
-	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+	/** @var ?DateTime */
+	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d', DateDenormalizer::STRICT_DATE => true])]
 	#[SerializedName('cbc:ActualDeliveryDate')]
-	public DateTime $ActualDeliveryDate;
+	public ?DateTime $ActualDeliveryDate = null;
 
 	/** @var DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]

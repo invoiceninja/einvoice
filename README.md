@@ -42,6 +42,20 @@ foreach ($errors as $error) {
 ```
 
 The result is always a `ConstraintViolationListInterface`, including on success.
+For a JSON-friendly response or readable log context, use
+`ValidationResultFormatter::format($errors)` from the
+`InvoiceNinja\EInvoice\Validation` namespace. It returns
+`['valid' => bool, 'errors' => [['path' => ..., 'code' => ..., 'message' => ...]]]`.
+Success returns an empty `errors` array. All violations, paths and codes are
+preserved, including the original constraint messages and substituted parameters.
+Messages are defined using native Symfony constraint options, for example
+`#[NotBlank(message: 'Enter a value.', groups: ['invoice_settings'])]`.
+The consuming UI uses the property path to identify and highlight the field.
+The formatter does not add field labels or rewrite messages, including serializer
+errors. An optional second argument, `fn ($violation, $originalMessage) => ...`, lets
+applications supply their own wording or translations without changing the
+underlying validation result.
+
 The initial profile covers buyer, project, contract and order references, invoice
 periods, and line order references. It reuses the Peppol model types. Empty or
 partial settings are accepted without generated invoice IDs, dates, parties, or
@@ -90,6 +104,27 @@ php bin/console list   # package CLI (codegen helpers, schematron sync, …)
 ```
 
 Console commands are **dev** dependencies (`symfony/console`); consumers typically only require the library autoload.
+
+Tests can use the shared, lazily initialized Monolog logger without setup:
+
+```php
+use InvoiceNinja\EInvoice\Tests\Support\TestLogger;
+
+TestLogger::get()->debug('Payload', ['payload' => $payload]);
+
+foreach ($errors as $error) {
+    TestLogger::get()->debug('Validation error', [
+        'path' => $error->getPropertyPath(),
+        'message' => $error->getMessage(),
+        'code' => $error->getCode(),
+    ]);
+}
+```
+
+Logs append to `tests/logs/einvoice.log` (ignored by Git). The logger is shared
+within each PHP process and only writes when explicitly called. Set
+`EINVOICE_TEST_LOG` before running PHPUnit to change the destination, for example
+`EINVOICE_TEST_LOG=php://stderr vendor/bin/phpunit --testdox`.
 
 ---
 

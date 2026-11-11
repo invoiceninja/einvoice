@@ -6,6 +6,7 @@ use InvoiceNinja\EInvoice\Validation\ValidationGroups;
 use DateTime;
 use DateTimeInterface;
 use InvoiceNinja\EInvoice\Models\Normalizers\DecimalPrecision;
+use InvoiceNinja\EInvoice\Models\Normalizers\DateDenormalizer;
 use InvoiceNinja\EInvoice\Models\Peppol\CodeType\DescriptionCode;
 use InvoiceNinja\EInvoice\Models\Peppol\MeasureType\DurationMeasure;
 use Symfony\Component\Serializer\Attribute\Context;
@@ -18,23 +19,25 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\Valid;
+use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
 
 class InvoicePeriod
 {
-	/** @var \DateTime */
-	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+	/** @var ?\DateTime */
+	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d', DateDenormalizer::STRICT_DATE => true])]
 	#[SerializedName('cbc:StartDate')]
-	public DateTime $StartDate;
+	public ?DateTime $StartDate = null;
 
 	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]
 	#[SerializedName('cbc:StartTime')]
 	public DateTime $StartTime;
 
-	/** @var \DateTime */
-	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+	/** @var ?\DateTime */
+	#[GreaterThanOrEqual(propertyPath: 'StartDate', groups: ['Default', ValidationGroups::INVOICE_SETTINGS])]
+	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d', DateDenormalizer::STRICT_DATE => true])]
 	#[SerializedName('cbc:EndDate')]
-	public DateTime $EndDate;
+	public ?DateTime $EndDate = null;
 
 	/** @var \DateTime */
 	#[Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d\TH:i:s.uP'])]

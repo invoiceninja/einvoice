@@ -31,7 +31,7 @@ class RelativeDateExpressionValidator extends ConstraintValidator
                 ->setCode(RelativeDateExpression::PAIR_REQUIRED_ERROR)->addViolation();
             return;
         }
-        foreach ($parts as $part) {
+        foreach ($parts as $index => $part) {
             try {
                 $date = date_create($part);
             } catch (\ValueError) {
@@ -39,6 +39,7 @@ class RelativeDateExpressionValidator extends ConstraintValidator
             }
             if ($date === false) {
                 $this->context->buildViolation($constraint->date_message)
+                    ->setParameter('{{ field }}', $index === 0 ? 'StartDate' : 'EndDate')
                     ->setCode(RelativeDateExpression::INVALID_DATE_ERROR)->addViolation();
                 return;
             }

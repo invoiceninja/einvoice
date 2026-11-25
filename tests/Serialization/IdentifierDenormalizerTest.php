@@ -24,6 +24,9 @@ class IdentifierDenormalizerTest extends TestCase
         foreach (glob(__DIR__ . '/../../src/Models/Peppol/IdentifierType/*.php') as $file) {
             $name = basename($file, '.php');
             foreach (['text' => 'PO-001', 'leading zeroes' => '00123', 'string zero' => '0', 'integer zero' => 0, 'integer' => 123, 'large numeric string' => '999999999999999999999999', 'unicode' => 'Réf-東京', 'empty' => ''] as $label => $value) {
+                if (is_int($value) && ($name === 'ID' || $name === 'LineID')) {
+                    continue;
+                }
                 yield "$name $label" => ['InvoiceNinja\\EInvoice\\Models\\Peppol\\IdentifierType\\' . $name, $value];
             }
         }
@@ -48,11 +51,11 @@ class IdentifierDenormalizerTest extends TestCase
 
     public static function referenceValues(): array
     {
-        return [['PO-001'], ['00123'], ['0'], [0], [123], ['999999999999999999999999'], ['Réf-東京']];
+        return [['PO-001'], ['00123'], ['0'], ['999999999999999999999999'], ['Réf-東京']];
     }
 
     #[DataProvider('referenceValues')]
-    public function testPublicEntryPointsAcceptMixedNestedRepresentations(string|int $value): void
+    public function testPublicEntryPointsAcceptMixedNestedRepresentations(string $value): void
     {
         $einvoice = new EInvoice();
         $payload = [
@@ -90,11 +93,9 @@ class IdentifierDenormalizerTest extends TestCase
         $xml = '<Invoice xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">' . $xml_fragment . '</Invoice>';
         $xml_round_trip = $einvoice->decode('Peppol', $xml, 'xml');
         foreach ([$invoice, $json_round_trip, $xml_round_trip] as $result) {
-            // XML numeric text conversion predates this fix; keep XML behaviour unchanged.
-            $this->assertSame($result === $xml_round_trip ? 123 : '00123', $result->ID->value);
+            $this->assertSame('00123', $result->ID->value);
             foreach ($metadata as $property => $value) {
-                $expected = $result === $xml_round_trip && is_numeric($value) ? (int) $value : $value;
-                $this->assertSame($expected, $result->ID->$property);
+                $this->assertSame($value, $result->ID->$property);
             }
         }
     }

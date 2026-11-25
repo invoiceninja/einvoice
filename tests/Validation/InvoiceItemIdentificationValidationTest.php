@@ -3,7 +3,6 @@
 namespace InvoiceNinja\EInvoice\Tests\Validation;
 
 use InvoiceNinja\EInvoice\EInvoice;
-use InvoiceNinja\EInvoice\Tests\Support\TestLogger;
 use InvoiceNinja\EInvoice\Validation\ValidationResultFormatter;
 use InvoiceNinja\EInvoice\Validation\Profiles\InvoiceSettingsProfile;
 use InvoiceNinja\EInvoice\Validation\ValidationGroups;
@@ -46,8 +45,6 @@ class InvoiceItemIdentificationValidationTest extends TestCase
             [ValidationGroups::INVOICE_SETTINGS],
         );
 
-        TestLogger::get()->debug('Payload validation result', ValidationResultFormatter::format($validation_result));
-        
         return $validation_result;
     }
 

@@ -18,43 +18,43 @@ use Symfony\Component\Validator\Constraints\Valid;
 
 class InstructionID
 {
-	/** @var string|int */
+	/** @var string */
 	#[SerializedName('#')]
-	public string|int $value;
+	public string $value;
 
-	/** @var string|int */
+	/** @var string */
 	#[SerializedName('@schemeID')]
-	public string|int $schemeID;
+	public string $schemeID;
 
-	/** @var string|int */
+	/** @var string */
 	#[SerializedName('@schemeName')]
-	public string|int $schemeName;
+	public string $schemeName;
 
-	/** @var string|int */
+	/** @var string */
 	#[SerializedName('@schemeAgencyID')]
-	public string|int $schemeAgencyID;
+	public string $schemeAgencyID;
 
-	/** @var string|int */
+	/** @var string */
 	#[SerializedName('@schemeAgencyName')]
-	public string|int $schemeAgencyName;
+	public string $schemeAgencyName;
 
-	/** @var string|int */
+	/** @var string */
 	#[SerializedName('@schemeVersionID')]
-	public string|int $schemeVersionID;
+	public string $schemeVersionID;
 
-	/** @var string|int */
+	/** @var string */
 	#[SerializedName('@schemeDataURI')]
-	public string|int $schemeDataURI;
+	public string $schemeDataURI;
 
-	/** @var string|int */
+	/** @var string */
 	#[SerializedName('@schemeURI')]
-	public string|int $schemeURI;
+	public string $schemeURI;
 
-	/** @var string|int */
+	/** @var string */
 	#[SerializedName('@listURI')]
-	public string|int $listURI;
+	public string $listURI;
 
-	/** @var string|int */
+	/** @var string */
 	#[SerializedName('@listSchemeURI')]
-	public string|int $listSchemeURI;
+	public string $listSchemeURI;
 }

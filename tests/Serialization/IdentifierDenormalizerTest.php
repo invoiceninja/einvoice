@@ -24,9 +24,6 @@ class IdentifierDenormalizerTest extends TestCase
         foreach (glob(__DIR__ . '/../../src/Models/Peppol/IdentifierType/*.php') as $file) {
             $name = basename($file, '.php');
             foreach (['text' => 'PO-001', 'leading zeroes' => '00123', 'string zero' => '0', 'integer zero' => 0, 'integer' => 123, 'large numeric string' => '999999999999999999999999', 'unicode' => 'Réf-東京', 'empty' => ''] as $label => $value) {
-                if (is_int($value) && ($name === 'ID' || $name === 'LineID')) {
-                    continue;
-                }
                 yield "$name $label" => ['InvoiceNinja\\EInvoice\\Models\\Peppol\\IdentifierType\\' . $name, $value];
             }
         }
@@ -38,28 +35,34 @@ class IdentifierDenormalizerTest extends TestCase
         $metadata = new ClassMetadataFactory(new AttributeLoader());
         $normalizer = new ObjectNormalizer($metadata, new MetadataAwareNameConverter($metadata));
         $serializer = new Serializer([new IdentifierDenormalizer($normalizer), $normalizer], [new JsonEncoder()]);
+        $expected = is_int($value) ? (string) $value : $value;
+        $scheme_id = is_int($value) ? 88 : '0088';
         // Repeat mixed forms in one serializer to exercise support caching.
-        foreach ([$value, ['value' => $value, 'schemeID' => '0088'], ['#' => $value, '@schemeID' => '0088'], $value] as $input) {
+        foreach ([$value, ['value' => $value, 'schemeID' => $scheme_id], ['#' => $value, '@schemeID' => $scheme_id], $value] as $input) {
             $identifier = $serializer->deserialize(json_encode($input, JSON_THROW_ON_ERROR), $class, 'json');
             $this->assertInstanceOf($class, $identifier);
-            $this->assertSame($value, $identifier->value);
+            $this->assertSame($expected, $identifier->value);
             if (is_array($input)) {
-                $this->assertSame('0088', $identifier->schemeID);
+                $this->assertSame(is_int($scheme_id) ? (string) $scheme_id : $scheme_id, $identifier->schemeID);
             }
         }
     }
 
     public static function referenceValues(): array
     {
-        return [['PO-001'], ['00123'], ['0'], ['999999999999999999999999'], ['Réf-東京']];
+        return [['PO-001'], ['00123'], ['0'], [0], [123], ['999999999999999999999999'], ['Réf-東京']];
     }
 
     #[DataProvider('referenceValues')]
-    public function testPublicEntryPointsAcceptMixedNestedRepresentations(string $value): void
+    public function testPublicEntryPointsAcceptMixedNestedRepresentations(string|int $value): void
     {
         $einvoice = new EInvoice();
+        $expected = is_int($value) ? (string) $value : $value;
         $payload = [
             'ID' => $value,
+            'CustomizationID' => $value,
+            'ProfileID' => ['value' => $value, 'schemeID' => is_int($value) ? 88 : '0088'],
+            'UUID' => $value,
             'OrderReference' => ['ID' => $value],
             'ProjectReference' => [['ID' => ['value' => 'first']], ['ID' => $value]],
             'ContractDocumentReference' => [['ID' => $value]],
@@ -69,14 +72,19 @@ class IdentifierDenormalizerTest extends TestCase
             ],
         ];
         foreach ([$einvoice->decode('Peppol', json_encode($payload)), $einvoice->denormalize($payload, Invoice::class)] as $invoice) {
-            $this->assertSame($value, $invoice->ID->value);
-            $this->assertSame($value, $invoice->OrderReference->ID->value);
-            $this->assertSame($value, $invoice->ProjectReference[1]->ID->value);
-            $this->assertSame($value, $invoice->ContractDocumentReference[0]->ID->value);
-            $this->assertSame($value, $invoice->InvoiceLine[1]->OrderLineReference[1]->LineID->value);
+            $this->assertSame($expected, $invoice->ID->value);
+            $this->assertSame($expected, $invoice->CustomizationID->value);
+            $this->assertSame($expected, $invoice->ProfileID->value);
+            $this->assertSame(is_int($value) ? '88' : '0088', $invoice->ProfileID->schemeID);
+            $this->assertSame($expected, $invoice->UUID->value);
+            $this->assertSame($expected, $invoice->OrderReference->ID->value);
+            $this->assertSame($expected, $invoice->ProjectReference[1]->ID->value);
+            $this->assertSame($expected, $invoice->ContractDocumentReference[0]->ID->value);
+            $this->assertSame($expected, $invoice->InvoiceLine[1]->OrderLineReference[1]->LineID->value);
             $round_trip = $einvoice->decode('Peppol', $einvoice->encode($invoice, 'json'));
-            $this->assertSame($value, $round_trip->OrderReference->ID->value);
-            $this->assertSame($value, $round_trip->InvoiceLine[1]->OrderLineReference[1]->LineID->value);
+            $this->assertSame($expected, $round_trip->OrderReference->ID->value);
+            $this->assertSame($expected, $round_trip->InvoiceLine[1]->OrderLineReference[1]->LineID->value);
+            $this->assertSame($expected, $round_trip->CustomizationID->value);
         }
         $this->assertSame([], $einvoice->validateRequest($payload, Invoice::class));
         $this->assertSame([], $einvoice->validateRequest($payload, InvoiceSettingsProfile::class));
@@ -169,5 +177,53 @@ class IdentifierDenormalizerTest extends TestCase
             $this->assertFalse($normalizer->supportsDenormalization('001', $class, 'json'));
         }
         $this->assertFalse($normalizer->supportsDenormalization('001', \InvoiceNinja\EInvoice\Models\Peppol\IdentifierType\ID::class, 'xml'));
+    }
+
+    public function testEveryIdentifierPropertyIsString(): void
+    {
+        foreach (glob(__DIR__ . '/../../src/Models/Peppol/IdentifierType/*.php') as $file) {
+            $class = 'InvoiceNinja\\EInvoice\\Models\\Peppol\\IdentifierType\\' . basename($file, '.php');
+            foreach ((new \ReflectionClass($class))->getProperties(\ReflectionProperty::IS_PUBLIC) as $property) {
+                $type = $property->getType();
+                $this->assertInstanceOf(\ReflectionNamedType::class, $type, $class . '::$' . $property->getName());
+                $this->assertSame('string', $type->getName(), $class . '::$' . $property->getName());
+                $this->assertFalse($type->allowsNull(), $class . '::$' . $property->getName());
+            }
+        }
+    }
+
+    public function testXmlNumericIdentifiersStayStrings(): void
+    {
+        $einvoice = new EInvoice();
+        $xml = <<<'XML'
+<?xml version="1.0"?>
+<Invoice xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <cbc:CustomizationID>1</cbc:CustomizationID>
+  <cbc:ProfileID schemeID="88">0088</cbc:ProfileID>
+  <cbc:ID>00123</cbc:ID>
+  <cac:InvoiceLine>
+    <cbc:ID>2</cbc:ID>
+    <cac:OrderLineReference>
+      <cbc:LineID schemeID="0088">003</cbc:LineID>
+    </cac:OrderLineReference>
+  </cac:InvoiceLine>
+</Invoice>
+XML;
+        $invoice = $einvoice->decode('Peppol', $xml, 'xml');
+        $this->assertSame('1', $invoice->CustomizationID->value);
+        $this->assertSame('0088', $invoice->ProfileID->value);
+        $this->assertSame('88', $invoice->ProfileID->schemeID);
+        $this->assertSame('00123', $invoice->ID->value);
+        $this->assertSame('2', $invoice->InvoiceLine[0]->ID->value);
+        $this->assertSame('003', $invoice->InvoiceLine[0]->OrderLineReference[0]->LineID->value);
+        $this->assertSame('0088', $invoice->InvoiceLine[0]->OrderLineReference[0]->LineID->schemeID);
+    }
+
+    public function testNonIdentifierUnionsAreNotStringCoerced(): void
+    {
+        $einvoice = new EInvoice();
+        $invoice = $einvoice->decode('Peppol', json_encode(['InvoiceTypeCode' => ['value' => 380], 'ID' => 12]));
+        $this->assertSame(380, $invoice->InvoiceTypeCode->value);
+        $this->assertSame('12', $invoice->ID->value);
     }
 }
